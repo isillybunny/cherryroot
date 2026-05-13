@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherry Root — Notebooks</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf0f3;--page:#fff;--p50:#fff5f7;--p100:#fde8ee;--p200:#f9c8d8;--p300:#f4a0bc;--p400:#e8739a;--p500:#c9426e;--ink:#1c0f14;--ink2:#3d2030;--ink3:#7a5060;--ink4:#b8909a;--line:#f0d0db}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.2rem}
+
+.hero{text-align:center;max-width:560px;margin-bottom:3rem}
+.logo{display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.4rem}
+.logo svg{width:38px;height:38px}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;letter-spacing:-.01em}
+.logo-text span{color:var(--p500);font-style:italic}
+.tagline{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:.9rem}
+.tagline em{color:var(--p500)}
+.sub{font-size:.9rem;color:var(--ink3);line-height:1.7;max-width:420px;margin:0 auto}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;width:100%;max-width:640px}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+
+.card{background:var(--page);border:1.5px solid var(--line);border-radius:18px;padding:1.6rem 1.5rem;text-decoration:none;color:inherit;transition:all .2s;display:flex;flex-direction:column;gap:.8rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--p50) 0%,transparent 60%);opacity:0;transition:opacity .2s}
+.card:hover{border-color:var(--p300);transform:translateY(-3px);box-shadow:0 8px 28px rgba(201,66,110,.12)}
+.card:hover::before{opacity:1}
+
+.card-badge{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:.4rem}
+.card-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--p300);flex-shrink:0}
+.card-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;line-height:1.2;position:relative}
+.card-desc{font-size:.8rem;color:var(--ink3);line-height:1.65;position:relative}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.6rem;position:relative}
+.card-tags{display:flex;gap:.35rem;flex-wrap:wrap}
+.tag{font-family:'DM Mono',monospace;font-size:.55rem;background:var(--p100);color:var(--p500);border:1px solid var(--p200);border-radius:99px;padding:.18rem .55rem}
+.card-arrow{color:var(--p400);font-size:1.1rem;transition:transform .2s}
+.card:hover .card-arrow{transform:translateX(4px)}
+
+.coming{opacity:.6;pointer-events:none;cursor:default}
+.coming .card-badge::before{background:var(--ink4)}
+.coming .card-badge{color:var(--ink4)}
+.tag.wip{background:#f5f5f5;color:#888;border-color:#ddd}
+
+footer{margin-top:3rem;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--ink4);letter-spacing:.12em;text-align:center}
+footer a{color:var(--p400);text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">
+    <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="13" cy="22" r="8" fill="#f4a0bc" opacity=".6"/>
+      <circle cx="25" cy="22" r="8" fill="#c9426e" opacity=".75"/>
+      <path d="M19 14 C19 14 16 8 12 6 C14 10 17 12 19 14Z" fill="#7a5060"/>
+      <path d="M19 14 C19 14 22 8 26 6 C24 10 21 12 19 14Z" fill="#7a5060"/>
+      <path d="M19 6 C19 6 19 10 19 14" stroke="#7a5060" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-text">Cherry <span>Root</span></div>
+  </div>
+  <h1 class="tagline">Knowledge,<br><em>beautifully rooted.</em></h1>
+  <p class="sub">A collection of interactive notebooks for cybersecurity and programming — built to study, tag, and remember.</p>
+</div>
+
+<div class="cards">
+
+  <a class="card" href="cherry-root-notebook.html">
+    <div class="card-badge">Cybersecurity · Full Edition</div>
+    <div class="card-title">Cherry Root<br>Notebook</div>
+    <div class="card-desc">Deep-dive into 60+ cybersecurity concepts across 9 chapters. Attack vectors, defense, protocols, and more.</div>
+    <div class="card-footer">
+      <div class="card-tags">
+        <span class="tag">verbose</span>
+        <span class="tag">60+ terms</span>
+      </div>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card" href="cherry-root-quick-edition.html">
+    <div class="card-badge">Cybersecurity · Quick Edition</div>
+    <div class="card-title">Cherry Root<br>Quick</div>
+    <div class="card-desc">Compact format for fast review. Same concepts, tighter structure — ideal for revision sessions.</div>
+    <div class="card-footer">
+      <div class="card-tags">
+        <span class="tag">compact</span>
+        <span class="tag">60+ terms</span>
+      </div>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card coming" href="#">
+    <div class="card-badge">Programming · Coming Soon</div>
+    <div class="card-title">Cherry Code<br>Notebook</div>
+    <div class="card-desc">98 programming fundamentals across 9 blocks — from variables to OOP and best practices.</div>
+    <div class="card-footer">
+      <div class="card-tags">
+        <span class="tag wip">in progress</span>
+        <span class="tag wip">98 terms</span>
+      </div>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  made with ✦ by <a href="https://github.com/isillybunny">isillybunny</a>
+</footer>
+
+</body>
+</html>
