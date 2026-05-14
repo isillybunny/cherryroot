@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cherry Code · Compact Edition</title>
+<title>Cherry Code</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* SAKURA NOIR PALETTE */
@@ -11,8 +11,8 @@
 --bg:#fef0f0;--page:#fff;
 --p50:#fff5f5;--p100:#fde0e0;--p200:#fbc4c4;--p300:#f9a8a8;--p400:#e87373;--p500:#c93f4f;
 --ink:#1c0c14;--ink2:#3d1a26;--ink3:#7a3548;--ink4:#b88090;--line:#f0d4d4;
-/* Code colors */
---code-bg:#1c0c14;--code-text:#fde0e0;--code-comment:#7a3548;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#c93f4f;--code-line:#3d1a26}
+/* Code colors — Cherry Noir terminal */
+--code-bg:#1a0a12;--code-text:#fde0e0;--code-comment:#8a5066;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#e54a5a;--code-line:#3d1a26;--code-tab-bg:#241019}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden}
 
@@ -274,21 +274,73 @@ main{padding:1rem .9rem 4rem;max-width:680px;margin:0 auto}
 .review-empty-title{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--p400);margin-bottom:.5rem}
 .review-empty-text{font-size:.82rem;color:var(--ink3);max-width:320px;margin:0 auto;line-height:1.5}
 
-/* DARK MODE */
+/* DARK MODE — Cherry Noir */
 body.dark{
---bg:#1a0c10;--page:#2a1820;--p50:#3a2030;--p100:#4d2840;--p200:#6d3855;--p300:#8d4870;--p400:#c93f4f;--p500:#f9a8a8;
---ink:#fde0e0;--ink2:#f9c4c4;--ink3:#d8a8b0;--ink4:#a07880;--line:#3d1a26;
---code-bg:#0d0610;--code-text:#fde0e0;--code-comment:#7a4858}
-body.dark .topbar{background:var(--page);border-color:var(--line)}
-body.dark .nav{background:var(--page);border-color:var(--line)}
-body.dark .pg{background:var(--page);box-shadow:0 2px 20px rgba(0,0,0,.3)}
+--bg:#120608;--page:#1c0c14;
+--p50:#2a121c;--p100:#3a1828;--p200:#5d2438;--p300:#8a3a55;--p400:#c93f4f;--p500:#f48ca0;
+--ink:#fde0e0;--ink2:#f0c4c8;--ink3:#c89098;--ink4:#7a4858;--line:#3d1a26;
+/* Code colors in dark — deeper bg, brighter cherry accents */
+--code-bg:#0a0408;--code-text:#fde0e0;--code-comment:#8a5066;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#f48ca0;--code-line:#2a121c;--code-tab-bg:#1a0810}
+body.dark{background:var(--bg);color:var(--ink)}
+body.dark .topbar{background:var(--page);border-color:var(--line);box-shadow:0 1px 8px rgba(0,0,0,.4)}
+body.dark .nav{background:var(--page);border-color:var(--line);box-shadow:-4px 0 24px rgba(0,0,0,.5)}
+body.dark .nav-close{background:var(--page);border-color:var(--line)}
+body.dark .nav-close-x{background:var(--p50);color:var(--ink2)}
+body.dark .nav-close-x:hover{background:var(--p100)}
+body.dark .searchbar-wrap{background:var(--p50);border-color:var(--line)}
+body.dark .pg{background:var(--page);box-shadow:0 2px 20px rgba(0,0,0,.4)}
 body.dark .gmodal{background:var(--page);color:var(--ink)}
+body.dark .gm-actions{background:var(--p50);border-color:var(--line)}
+body.dark .gm-btn-close{background:var(--page);color:var(--ink2);border-color:var(--line)}
+body.dark .gm-btn-close:hover{background:var(--p50);border-color:var(--p300)}
 body.dark .notes-textarea{background:var(--p50);color:var(--ink);border-color:var(--line)}
-body.dark .tag-btn{background:var(--p50);color:var(--ink2)}
-body.dark .filter-chip{background:var(--p50);color:var(--ink2)}
+body.dark .notes-area{background:var(--p50);border-color:var(--line)}
+body.dark .tag-btn{background:var(--p50);color:var(--ink2);border-color:var(--line)}
+body.dark .tag-btn:hover{background:var(--p100);border-color:var(--p300)}
+body.dark .tag-bar{background:var(--p50);border-color:var(--line)}
+body.dark .filter-chip{background:var(--p50);color:var(--ink2);border-color:var(--line)}
+body.dark .filter-bar{background:var(--p50)}
 body.dark .searchbar input,body.dark .search-results-input,body.dark .gl-search input{color:var(--ink);background:transparent}
 body.dark .searchbar,body.dark .gl-search{background:var(--p50);border-color:var(--line)}
 body.dark .search-results-box{background:var(--page)}
+body.dark .search-result-item:hover{background:var(--p50)}
+body.dark .defbox{background:var(--p50)}
+body.dark .how{background:var(--p50);color:var(--ink2)}
+body.dark .how code{background:var(--page);color:var(--p500);border-color:var(--line)}
+body.dark .kw{background:var(--p50);color:var(--ink2);border-color:var(--line)}
+body.dark .rem{background:linear-gradient(135deg,var(--p100),var(--p50));color:var(--ink2);border-left-color:var(--p400)}
+body.dark .howto-card{background:var(--p50)}
+body.dark .howto-text code{background:var(--page);color:var(--p500);border-color:var(--line)}
+body.dark .gl-item{background:var(--p50)}
+body.dark .ptag{background:var(--p50);color:var(--p400);border-color:var(--p200)}
+body.dark .fav-corner{background:var(--page);border-color:var(--line)}
+body.dark .fav-corner:hover{background:var(--p50);border-color:var(--p300)}
+body.dark .fav-corner.on{background:var(--p100);border-color:var(--p400)}
+body.dark .bdiv{background:linear-gradient(135deg,var(--p100),var(--p50));border-color:var(--p200)}
+body.dark .bdiv-pill{background:var(--page);color:var(--p400);border-color:var(--p200)}
+body.dark .bdiv-footer{background:var(--page);border-color:var(--p200);color:var(--ink3)}
+body.dark .last-viewed{background:linear-gradient(135deg,var(--p100),var(--p50));border-color:var(--p200)}
+body.dark .last-viewed-icon{background:var(--page);color:var(--p500)}
+body.dark .itbl tr.isec td{background:var(--p100);color:var(--p400)}
+body.dark .itbl tr{border-color:var(--line)}
+body.dark .progress-track{background:var(--p100)}
+body.dark .review-card{background:var(--page)}
+body.dark .review-answer{background:var(--p50);color:var(--ink2)}
+body.dark .review-btn{background:var(--page);border-color:var(--line);color:var(--ink2)}
+body.dark .review-btn-prev:hover{background:var(--p50)}
+body.dark .review-btn-exit{background:var(--p50);color:var(--p500);border-color:var(--p300)}
+body.dark .dark-toggle{background:var(--p50);color:var(--ink);border-color:var(--line)}
+body.dark .dark-toggle:hover{background:var(--p100);border-color:var(--p300)}
+body.dark .ni:hover{background:var(--p50);border-left-color:var(--p300)}
+body.dark .ni.active{background:var(--p100);border-left-color:var(--p400);color:var(--p500)}
+body.dark .ni{color:var(--ink2)}
+body.dark .gov{background:rgba(0,0,0,.7)}
+body.dark .search-results{background:rgba(0,0,0,.65)}
+body.dark .ndiv{background:var(--line)}
+body.dark .code-tab{color:var(--code-comment)}
+body.dark .code-tab.active{background:var(--code-line);color:var(--code-keyword)}
+body.dark .code-tabs{border-color:var(--code-line)}
+body.dark .terminal-out{color:var(--p500)}
 
 /* Util */
 .center{text-align:center}
@@ -297,7 +349,7 @@ body.dark .search-results-box{background:var(--page)}
 <body>
 
 <div class="topbar">
-<div class="brand">cherry <em>code</em><span class="brand-edition">edição compacta</span></div>
+<div class="brand">cherry <em>code</em></div>
 <button class="menu-btn" onclick="navToggle()">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
 </button>
@@ -477,16 +529,16 @@ Review Mode
 <path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 </div>
-<div class="cover-edition">Edição Compacta</div>
+<div class="cover-edition">Programming Notebook</div>
 <div class="cover-title">Cherry <em>Code</em></div>
-<div class="cover-subtitle">A compact programming notebook — core concepts, multi-language examples, zero fluff.</div>
+<div class="cover-subtitle">A programming notebook — core concepts, multi-language examples, zero fluff.</div>
 <div class="cover-line"></div>
 <div class="cover-langs">
 <span class="cover-lang">Python</span>
 <span class="cover-lang">JavaScript</span>
 <span class="cover-lang">Java</span>
 </div>
-<div class="cover-tagline">9 blocks · multi-language · compact</div>
+<div class="cover-tagline">9 blocks · 98 terms · multi-language</div>
 </div>
 </div>
 
