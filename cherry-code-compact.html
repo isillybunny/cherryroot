@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherry Code · Edição Compacta</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fef0f0;--page:#fff;--p50:#fff5f5;--p100:#fde0e0;--p200:#fbc4c4;--p300:#f9a8a8;--p400:#e87373;--p500:#c93f4f;--ink:#1c0c14;--ink2:#3d1a26;--ink3:#7a3548;--ink4:#b88090;--line:#f0d4d4;--code-bg:#1a0a12;--code-text:#fde0e0;--code-comment:#8a5066;--code-key:#f9a8a8;--code-str:#fbc4c4;--code-num:#e87373}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--page);border-bottom:1.5px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 1rem;height:56px}
+.brand{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.brand em{color:var(--p500);font-style:italic}
+.brand-sub{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);letter-spacing:.08em;margin-left:.3rem}
+.tb-actions{display:flex;gap:.3rem;align-items:center}
+.tbtn{width:36px;height:36px;border:none;background:none;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:center;border-radius:8px;transition:background .15s}
+.tbtn:hover{background:var(--p50);color:var(--p500)}
+.hbtn span{display:block;width:18px;height:2px;background:var(--ink3);border-radius:99px;margin:2.5px 0;transition:all .25s}
+.hbtn.open span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.hbtn.open span:nth-child(2){opacity:0}
+.hbtn.open span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.drawer{position:fixed;top:56px;left:0;bottom:0;z-index:99;width:270px;background:var(--page);border-right:1.5px solid var(--line);overflow-y:auto;transform:translateX(-100%);transition:transform .28s ease;padding:.4rem 0 3rem}
+.drawer.open{transform:translateX(0)}
+.drawer::-webkit-scrollbar{width:3px}.drawer::-webkit-scrollbar-thumb{background:var(--p200);border-radius:99px}
+.overlay{position:fixed;inset:0;top:56px;background:rgba(28,12,20,.35);z-index:98;display:none}
+.overlay.on{display:block}
+.ns{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.3rem .25rem;font-weight:600}
+.ni{display:flex;align-items:center;gap:.55rem;padding:.5rem 1.3rem;cursor:pointer;font-size:.8rem;color:var(--ink2);border-left:2.5px solid transparent;transition:all .15s;line-height:1.3}
+.ni:hover{background:var(--p50);color:var(--ink)}
+.ni.active{background:var(--p100);color:var(--p500);border-left-color:var(--p400);font-weight:500}
+.cd{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);min-width:34px;flex-shrink:0;font-weight:600}
+.ni.active .cd{color:var(--p500)}
+.ndiv{height:1px;background:var(--line);margin:.4rem 1.1rem}
+.review-btn{margin:.6rem 1.1rem;padding:.55rem .8rem;border-radius:9px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;width:calc(100% - 2.2rem);background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;display:flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;transition:transform .15s}
+.review-btn:hover{transform:translateY(-1px)}
+main{margin-top:56px;padding:1.4rem 1rem 4rem;max-width:760px;margin-left:auto;margin-right:auto}
+@media(min-width:900px){.hbtn{display:none}.drawer{transform:translateX(0)!important}.overlay{display:none!important}main{margin-left:270px;padding:2.2rem 2.4rem 4rem;max-width:760px}}
+.pg{display:none}.pg.on{display:block;animation:fi .28s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* COVER */
+.cover{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;text-align:center;gap:.7rem;padding:1rem}
+.cover-cherry svg{width:72px;height:72px;color:var(--ink)}
+.cover-edition{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--p400);letter-spacing:.3em;text-transform:uppercase;margin-top:.6rem;font-weight:600}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,8vw,3rem);font-weight:700;line-height:1.05}
+.cover-title em{color:var(--p500);font-style:italic}
+.cover-line{width:50px;height:2px;background:var(--p400);border-radius:99px;margin:.4rem 0}
+.cover-sub{font-size:.86rem;color:var(--ink3);font-style:italic;max-width:380px;line-height:1.6}
+.cover-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;background:var(--p100);border:1.5px solid var(--p200);color:var(--p500);border-radius:99px;padding:.35rem 1rem;margin-top:.6rem;letter-spacing:.05em;font-weight:600}
+.last-viewed{margin:1rem auto 0;max-width:380px;padding:.7rem .9rem;background:linear-gradient(135deg,var(--p100),var(--p50));border:1.5px solid var(--p200);border-radius:11px;cursor:pointer;display:flex;align-items:center;gap:.6rem;text-align:left;transition:transform .15s}
+.last-viewed:hover{transform:translateY(-2px)}
+.lv-icon{width:32px;height:32px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;color:var(--p500);flex-shrink:0}
+.lv-label{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.1rem;font-weight:600}
+.lv-title{font-family:'Playfair Display',serif;font-size:.85rem;font-weight:600;color:var(--ink)}
+/* PAGE HEADER */
+.ph{margin-bottom:1.3rem;padding-bottom:1rem;border-bottom:1.5px solid var(--line)}
+.bc{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--ink4);margin-bottom:.4rem;letter-spacing:.12em;text-transform:uppercase}
+.bc span{color:var(--p400)}
+.pt{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,5vw,2rem);font-weight:700;line-height:1.1;margin-bottom:.3rem}
+.ps{font-size:.84rem;color:var(--ink3);line-height:1.5;font-style:italic}
+/* BLOCK DIVIDER */
+.bdiv{background:var(--page);border-radius:16px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 2px 16px rgba(201,63,79,.07);position:relative;border:1.5px solid var(--line)}
+.bdiv-bar{height:5px;background:linear-gradient(90deg,var(--p500),var(--p300),var(--p200))}
+.bdiv-body{padding:1.3rem 1.4rem 1rem;position:relative}
+.bdiv-num{position:absolute;top:1.1rem;right:1.2rem;font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--p400);background:var(--p50);border:1.5px solid var(--p200);border-radius:99px;width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.bdiv-code{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p500);letter-spacing:.16em;text-transform:uppercase;background:var(--p100);border:1px solid var(--p200);border-radius:99px;padding:.22rem .65rem;display:inline-block;margin-bottom:.5rem;font-weight:600}
+.bdiv-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;line-height:1.15}
+.bdiv-title em{color:var(--p500);font-style:italic}
+.bdiv-intro{font-size:.82rem;color:var(--ink3);line-height:1.6;margin-bottom:.7rem;max-width:480px}
+.bdiv-pills{display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-family:'JetBrains Mono',monospace;font-size:.6rem;background:var(--p50);border:1.5px solid var(--p200);color:var(--ink2);border-radius:7px;padding:.22rem .55rem}
+.bdiv-footer{border-top:1px solid var(--line);padding:.6rem 1.4rem;display:flex;justify-content:space-between;align-items:center;background:var(--p50)}
+.bdiv-count{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--ink3);letter-spacing:.05em}
+.bdiv-motto{font-family:'Playfair Display',serif;font-size:.78rem;color:var(--p500);font-style:italic;display:flex;align-items:center;gap:.3rem}
+/* TERM CARD */
+.tc{background:var(--page);border:1.5px solid var(--line);border-radius:13px;overflow:hidden;margin-bottom:.9rem;transition:all .15s}
+.tc:hover{border-color:var(--p200);box-shadow:0 4px 14px rgba(201,63,79,.06)}
+.tc-bar{height:3px;background:linear-gradient(90deg,var(--p400),var(--p200))}
+.tc-body{padding:.95rem 1.1rem}
+.tc-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.5rem;gap:.5rem;flex-wrap:wrap}
+.tc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink);line-height:1.2}
+.tc-code{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--p500);background:var(--p100);border:1px solid var(--p200);border-radius:99px;padding:.18rem .55rem;flex-shrink:0;font-weight:600;letter-spacing:.05em}
+.tc-def{font-size:.81rem;color:var(--ink2);line-height:1.6;margin-bottom:.55rem;padding:.55rem .75rem;background:var(--p50);border-radius:8px;border-left:2.5px solid var(--p300)}
+.tc-def em{color:var(--p500);font-style:italic;font-weight:500}
+.kws{display:flex;flex-wrap:wrap;gap:.28rem;margin:.45rem 0}
+.kw{font-family:'JetBrains Mono',monospace;font-size:.6rem;background:white;border:1px solid var(--line);border-radius:6px;padding:.18rem .5rem;color:var(--ink3)}
+.snippet{background:var(--code-bg);color:var(--code-text);font-family:'JetBrains Mono',monospace;font-size:.72rem;line-height:1.65;padding:.6rem .85rem;border-radius:8px;margin:.5rem 0 .55rem;overflow-x:auto;white-space:pre;border:1px solid #2a121c}
+.snippet .k{color:var(--code-key)}.snippet .s{color:var(--code-str)}.snippet .n{color:var(--code-num)}.snippet .c{color:var(--code-comment);font-style:italic}.snippet .f{color:#fff5f5}
+.tc-rem{font-size:.76rem;color:var(--p500);font-style:italic;display:flex;align-items:flex-start;gap:.4rem;line-height:1.5;margin-top:.45rem;padding:.3rem .1rem}
+.tc-rem svg{flex-shrink:0;color:var(--p500);margin-top:.1rem}
+/* GLOSSARY (link inline) */
+.gloss{cursor:pointer;color:var(--p500);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><text x='0' y='6' font-size='6' fill='%23c93f4f'>%E2%9C%A6</text></svg>");background-repeat:repeat-x;background-position:0 100%;background-size:7px 7px;padding-bottom:5px;transition:color .15s}
+.gloss:hover{color:var(--p400)}
+/* GLOSSARY MODAL */
+.gmod{position:fixed;inset:0;background:rgba(28,12,20,.55);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem}
+.gmod.on{display:flex;animation:fi .15s ease}
+.gmod-box{background:white;border-radius:16px;max-width:400px;width:100%;overflow:hidden;box-shadow:0 8px 40px rgba(201,63,79,.3)}
+.gmod-bar{height:5px;background:linear-gradient(90deg,var(--p500),var(--p300),var(--p200))}
+.gmod-body{padding:1.2rem 1.4rem}
+.gmod-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.35rem;font-weight:600}
+.gmod-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2}
+.gmod-def{font-size:.83rem;color:var(--ink2);line-height:1.65}
+.gmod-act{padding:.7rem 1.4rem .9rem;display:flex;gap:.5rem;justify-content:flex-end;border-top:1px solid var(--line);background:var(--p50)}
+.gmod-btn{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .85rem;border-radius:7px;cursor:pointer;border:1.5px solid;font-weight:600}
+.gmb-close{background:white;color:var(--ink3);border-color:var(--line)}
+.gmb-close:hover{border-color:var(--p300);background:var(--p50)}
+/* INDEX */
+.idx-sec{margin-bottom:1.3rem}
+.idx-title{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p500);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.55rem;display:flex;align-items:center;gap:.5rem;font-weight:600}
+.idx-title::after{content:'';flex:1;height:1px;background:var(--line)}
+.idx-grid{display:grid;grid-template-columns:1fr;gap:.4rem}
+.idx-item{display:flex;align-items:center;gap:.7rem;padding:.55rem .85rem;background:white;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:all .15s;text-decoration:none;color:inherit}
+.idx-item:hover{background:var(--p50);border-color:var(--p200);transform:translateX(2px)}
+.idx-num{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);min-width:32px;flex-shrink:0;font-weight:600}
+.idx-name{font-size:.85rem;color:var(--ink);flex:1;font-weight:500}
+.idx-count{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);background:var(--p50);padding:.18rem .5rem;border-radius:5px}
+/* GLOSSARY PAGE */
+.gl-let{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--p500);font-weight:700;margin:1.1rem 0 .4rem;padding-bottom:.25rem;border-bottom:2px solid var(--p200)}
+.gl-let:first-of-type{margin-top:.4rem}
+.gl-row{display:grid;grid-template-columns:130px 1fr;gap:.6rem;padding:.42rem 0;border-bottom:1px solid var(--line);font-size:.78rem;line-height:1.4}
+@media(max-width:520px){.gl-row{grid-template-columns:110px 1fr}}
+.gl-term{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--p500);font-weight:500}
+.gl-def{color:var(--ink2)}
+/* HOWTO */
+.htc{background:var(--p50);border-radius:11px;padding:.85rem 1rem;margin-bottom:.7rem;border-left:3px solid var(--p300)}
+.htc-num{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--p500);font-weight:700;font-style:italic;line-height:1;margin-bottom:.2rem}
+.htc-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.3rem}
+.htc-text{font-size:.82rem;color:var(--ink2);line-height:1.6}
+.htc-text strong{color:var(--p500)}
+.htc-text kbd{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:white;border:1px solid var(--line);border-radius:4px;padding:.05rem .35rem;color:var(--p500)}
+/* SEARCH */
+.smod{position:fixed;inset:0;background:rgba(28,12,20,.5);z-index:300;display:none;padding:1rem;padding-top:4rem;justify-content:center;align-items:flex-start}
+.smod.on{display:flex;animation:fi .15s ease}
+.smod-box{background:white;border-radius:14px;width:100%;max-width:480px;max-height:70vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 8px 40px rgba(201,63,79,.3)}
+.smod-bar{height:5px;background:linear-gradient(90deg,var(--p500),var(--p300),var(--p200))}
+.smod-input-wrap{padding:.9rem 1.1rem;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.5rem}
+.smod-input{border:none;outline:none;flex:1;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--ink);background:transparent}
+.smod-list{flex:1;overflow-y:auto;padding:.3rem 0}
+.smod-item{padding:.6rem 1.1rem;cursor:pointer;border-left:3px solid transparent;transition:all .12s}
+.smod-item:hover{background:var(--p50);border-left-color:var(--p400)}
+.smod-code{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.13em;text-transform:uppercase;margin-bottom:.1rem;font-weight:600}
+.smod-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:600;color:var(--ink)}
+.smod-empty{padding:1.5rem 1.2rem;text-align:center;color:var(--ink3);font-style:italic}
+/* REVIEW MODE (FLASHCARD FLIP) */
+.rmod{position:fixed;inset:0;background:var(--bg);z-index:250;display:none;flex-direction:column;align-items:center;justify-content:center;padding:1rem}
+.rmod.on{display:flex;animation:fi .25s ease}
+.rmod-top{position:absolute;top:1rem;right:1rem;display:flex;gap:.4rem}
+.rmod-close{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:white;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:center}
+.rmod-close:hover{background:var(--p50);border-color:var(--p300)}
+.rmod-counter{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--p400);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.9rem;font-weight:600}
+.flip-wrap{perspective:1200px;width:100%;max-width:460px;height:340px;margin-bottom:1rem}
+.flip-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,.2,.2,1);cursor:pointer}
+.flip-card.flipped{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;background:var(--page);border-radius:18px;box-shadow:0 8px 32px rgba(201,63,79,.18);padding:1.6rem 1.4rem;display:flex;flex-direction:column;border:1.5px solid var(--line);overflow:hidden}
+.flip-face-bar{position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--p500),var(--p300),var(--p200));border-radius:18px 18px 0 0}
+.flip-front{align-items:center;justify-content:center;text-align:center}
+.flip-back{transform:rotateY(180deg);overflow-y:auto}
+.flip-code{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:var(--p400);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.65rem;font-weight:600}
+.flip-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:.4rem}
+.flip-sub{font-size:.85rem;color:var(--ink3);font-style:italic;line-height:1.5;max-width:340px;margin:0 auto}
+.flip-hint{margin-top:auto;padding-top:1rem;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);letter-spacing:.18em;text-transform:uppercase}
+.flip-back .tc-def{font-size:.82rem;margin-bottom:.5rem}
+.flip-back .snippet{font-size:.7rem;margin:.4rem 0}
+.flip-back .tc-rem{font-size:.78rem}
+.rmod-controls{display:flex;gap:.4rem;width:100%;max-width:460px}
+.rmod-btn{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem .9rem;border-radius:9px;cursor:pointer;border:1.5px solid;flex:1;background:white;transition:all .15s;font-weight:600;display:flex;align-items:center;justify-content:center;gap:.35rem}
+.rmod-btn-prev{color:var(--ink3);border-color:var(--line)}
+.rmod-btn-prev:hover{background:var(--p50);border-color:var(--p300)}
+.rmod-btn-rev{color:white;background:var(--p400);border-color:var(--p400)}
+.rmod-btn-rev:hover{background:var(--p500);border-color:var(--p500)}
+.rmod-btn-next{color:white;background:var(--p400);border-color:var(--p400)}
+.rmod-btn-next:hover{background:var(--p500);border-color:var(--p500)}
+/* DARK MODE */
+body.dark{--bg:#120608;--page:#1c0c14;--p50:#2a121c;--p100:#3a1828;--p200:#5d2438;--p300:#8a3a55;--p400:#c93f4f;--p500:#f48ca0;--ink:#fde0e0;--ink2:#f0c4c8;--ink3:#c89098;--ink4:#7a4858;--line:#3d1a26;--code-bg:#0a0408}
+body.dark .topbar,body.dark .drawer,body.dark .tc,body.dark .bdiv,body.dark .gmod-box,body.dark .smod-box,body.dark .flip-face,body.dark .rmod-close,body.dark .idx-item,body.dark .kw{background:var(--page);border-color:var(--line);color:var(--ink)}
+body.dark .ni{color:var(--ink2)}
+body.dark .ni:hover{background:var(--p50)}
+body.dark .ni.active{background:var(--p100);color:var(--p500)}
+body.dark .tc-def,body.dark .htc,body.dark .pill,body.dark .gl-row,body.dark .bdiv-footer,body.dark .smod-item:hover,body.dark .idx-item:hover,body.dark .gmod-act,body.dark .last-viewed{background:var(--p50);border-color:var(--line)}
+body.dark .idx-count{background:var(--p50);color:var(--ink3)}
+body.dark .lv-icon,body.dark .bdiv-num{background:var(--page);color:var(--p500);border-color:var(--p200)}
+body.dark .gmb-close{background:var(--p50);color:var(--ink2);border-color:var(--line)}
+body.dark .rmod{background:var(--bg)}
+body.dark .gmod,body.dark .smod{background:rgba(0,0,0,.65)}
+body.dark .rmod-btn-prev{background:var(--p50);color:var(--ink2);border-color:var(--line)}
+/* Util */
+.center{text-align:center}
+</style>
+</head>
+<body>
+
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="cherry" viewBox="0 0 24 24">
+    <circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    <circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    <path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="brand">cherry <em>code</em><span class="brand-sub">· edição compacta</span></div>
+  <div class="tb-actions">
+    <button class="tbtn" onclick="openSearch()" title="Buscar (/)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <button class="tbtn" onclick="toggleDark()" title="Tema"><svg id="darkIcon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 12.79 A9 9 0 0 1 11.21 3 A7 7 0 0 0 21 12.79 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></button>
+    <button class="tbtn hbtn" onclick="toggleDrawer()" title="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
+
+<aside class="drawer" id="drawer">
+  <div class="ns">Início</div>
+  <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Capa</div>
+  <div class="ni" onclick="go('idx',this)"><span class="cd">IDX</span>Índice</div>
+  <div class="ni" onclick="go('howto',this)"><span class="cd">USO</span>Como Usar</div>
+  <button class="review-btn" onclick="startReview()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="12" r="1.3" fill="currentColor"/></svg>Modo Revisão</button>
+  <div class="ndiv"></div>
+  <div class="ns">Blocos</div>
+  <div class="ni" onclick="go('b1',this)"><span class="cd">F·</span>1 · Fundamentos</div>
+  <div class="ni" onclick="go('b2',this)"><span class="cd">T·</span>2 · Tipos & Variáveis</div>
+  <div class="ni" onclick="go('b3',this)"><span class="cd">O·</span>3 · Operadores</div>
+  <div class="ni" onclick="go('b4',this)"><span class="cd">C·</span>4 · Controle de Fluxo</div>
+  <div class="ni" onclick="go('b5',this)"><span class="cd">N·</span>5 · Funções</div>
+  <div class="ni" onclick="go('b6',this)"><span class="cd">S·</span>6 · Estruturas de Dados</div>
+  <div class="ni" onclick="go('b7',this)"><span class="cd">P·</span>7 · POO</div>
+  <div class="ni" onclick="go('b8',this)"><span class="cd">E·</span>8 · Erros & Debug</div>
+  <div class="ni" onclick="go('b9',this)"><span class="cd">B·</span>9 · Boas Práticas</div>
+  <div class="ndiv"></div>
+  <div class="ns">Referência</div>
+  <div class="ni" onclick="go('gloss',this)"><span class="cd">A-Z</span>Glossário</div>
+</aside>
+
+<main>
+
+<!-- COVER -->
+<div class="pg on" id="pg-cover">
+  <div class="cover">
+    <div class="cover-cherry"><svg><use href="#cherry"/></svg></div>
+    <div class="cover-edition">Edição Compacta</div>
+    <h1 class="cover-title">Cherry <em>Code</em></h1>
+    <div class="cover-line"></div>
+    <div class="cover-sub">Revisão veloz dos 98 conceitos fundamentais — uma frase por ideia, um snippet por exemplo, uma cereja pra lembrar.</div>
+    <div class="cover-tag">9 blocos · 98 termos · revisão rápida</div>
+  </div>
+</div>
+
+<!-- INDEX -->
+<div class="pg" id="pg-idx">
+  <div class="ph">
+    <div class="bc">cherry code <span>›</span> índice</div>
+    <div class="pt">Índice</div>
+    <div class="ps">Navegue pelos 9 blocos ou abra o modo revisão.</div>
+  </div>
+  <div class="idx-sec">
+    <div class="idx-title">Blocos</div>
+    <div class="idx-grid">
+      <a class="idx-item" onclick="go('b1')"><span class="idx-num">F·</span><span class="idx-name">Fundamentos</span><span class="idx-count">10</span></a>
+      <a class="idx-item" onclick="go('b2')"><span class="idx-num">T·</span><span class="idx-name">Tipos &amp; Variáveis</span><span class="idx-count">12</span></a>
+      <a class="idx-item" onclick="go('b3')"><span class="idx-num">O·</span><span class="idx-name">Operadores</span><span class="idx-count">10</span></a>
+      <a class="idx-item" onclick="go('b4')"><span class="idx-num">C·</span><span class="idx-name">Controle de Fluxo</span><span class="idx-count">10</span></a>
+      <a class="idx-item" onclick="go('b5')"><span class="idx-num">N·</span><span class="idx-name">Funções</span><span class="idx-count">12</span></a>
+      <a class="idx-item" onclick="go('b6')"><span class="idx-num">S·</span><span class="idx-name">Estruturas de Dados</span><span class="idx-count">12</span></a>
+      <a class="idx-item" onclick="go('b7')"><span class="idx-num">P·</span><span class="idx-name">Programação Orientada a Objetos</span><span class="idx-count">12</span></a>
+      <a class="idx-item" onclick="go('b8')"><span class="idx-num">E·</span><span class="idx-name">Erros &amp; Debug</span><span class="idx-count">10</span></a>
+      <a class="idx-item" onclick="go('b9')"><span class="idx-num">B·</span><span class="idx-name">Boas Práticas</span><span class="idx-count">10</span></a>
+    </div>
+  </div>
+  <div class="idx-sec">
+    <div class="idx-title">Outros</div>
+    <div class="idx-grid">
+      <a class="idx-item" onclick="startReview()"><span class="idx-num">⟲</span><span class="idx-name">Modo Revisão (flashcards)</span><span class="idx-count">98</span></a>
+      <a class="idx-item" onclick="go('gloss')"><span class="idx-num">A-Z</span><span class="idx-name">Glossário</span><span class="idx-count">98</span></a>
+      <a class="idx-item" onclick="go('howto')"><span class="idx-num">?</span><span class="idx-name">Como Usar</span><span class="idx-count"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- HOWTO -->
+<div class="pg" id="pg-howto">
+  <div class="ph">
+    <div class="bc">cherry code <span>›</span> como usar</div>
+    <div class="pt">Como Usar</div>
+    <div class="ps">Quatro hábitos pra tirar máximo proveito desta edição.</div>
+  </div>
+  <div class="htc"><div class="htc-num">01</div><div class="htc-title">Leia o bloco inteiro de uma vez</div><div class="htc-text">Cada bloco cabe em uma única página de scroll. <strong>Não pule</strong> direto pra um termo — a sequência foi pensada pra contar uma história.</div></div>
+  <div class="htc"><div class="htc-num">02</div><div class="htc-title">Use o Modo Revisão</div><div class="htc-text">Clique em <strong>Modo Revisão</strong> na sidebar. O cartão mostra só o nome — você tenta lembrar, depois clica pra revelar definição, código e a frase-chave.</div></div>
+  <div class="htc"><div class="htc-num">03</div><div class="htc-title">Termos com estrelinhas têm popup</div><div class="htc-text">Palavras marcadas com <span class="gloss" onclick="gOpen('Glossário', 'Termos sublinhados com estrelinhas abrem uma definição rápida sem perder seu lugar na leitura.')">estrelinhas</span> abrem uma definição rápida quando clicadas.</div></div>
+  <div class="htc"><div class="htc-num">04</div><div class="htc-title">Atalhos de teclado</div><div class="htc-text">Aperte <kbd>/</kbd> em qualquer página pra abrir a busca. No Modo Revisão: <kbd>→</kbd> próximo, <kbd>←</kbd> anterior, <kbd>espaço</kbd> revela, <kbd>Esc</kbd> sai.</div></div>
+</div>
+
+<!-- BLOCKS WILL BE INSERTED HERE -->
+<!-- BLOCK 1 · FUNDAMENTOS -->
+<div class="pg" id="pg-b1">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">1</div><div class="bdiv-code">Bloco 1 · Fundamentos</div><h2 class="bdiv-title">Os <em>Fundamentos</em></h2><div class="bdiv-intro">Antes da sintaxe, as ideias. O que é código? O que é um bug? Entender isso primeiro torna tudo mais fácil depois.</div><div class="bdiv-pills"><span class="pill">Programação</span><span class="pill">Código</span><span class="pill">Bug</span><span class="pill">IDE</span><span class="pill">Terminal</span><span class="pill">Sintaxe</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · F·01 → F·10</span><span class="bdiv-motto">começa aqui <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-f01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Programação</span><span class="tc-code">F·01</span></div><div class="tc-def"><em>"Programar é dizer ao computador o que fazer, passo a passo."</em><br>Escrever instruções precisas em uma linguagem que a máquina entende. Todo app, site e jogo nasce de código.</div><div class="kws"><span class="kw">instruções</span><span class="kw">lógica</span><span class="kw">algoritmo</span></div><pre class="snippet"><span class="c"># Seu primeiro programa</span>
+<span class="f">print</span>(<span class="s">"Olá, mundo!"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Código é comunicação — com a máquina e com o você do futuro.</span></div></div></div>
+
+<div class="tc" id="tc-f02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Código</span><span class="tc-code">F·02</span></div><div class="tc-def"><em>"Código é o texto de um programa — escrito em uma linguagem de regras estritas."</em><br>Arquivos com extensões como .py, .js, .java guardam código-fonte. Ferramentas convertem isso em instruções da máquina.</div><div class="kws"><span class="kw">source</span><span class="kw">.py</span><span class="kw">.js</span><span class="kw">arquivo</span></div><pre class="snippet">name = <span class="s">"Cherry"</span>
+<span class="f">print</span>(<span class="s">f"Olá, {name}!"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Código é texto. Só isso. Arquivos de texto seguindo regras.</span></div></div></div>
+
+<div class="tc" id="tc-f03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Compilador vs Interpretador</span><span class="tc-code">F·03</span></div><div class="tc-def"><em>"Duas formas de transformar código em algo que o computador executa."</em><br>Compilador traduz tudo antes de rodar (C, Java). Interpretador lê e executa linha por linha (Python, JS).</div><div class="kws"><span class="kw">compile</span><span class="kw">interpret</span><span class="kw">bytecode</span></div><pre class="snippet"><span class="c"># Compilado</span>
+javac Main.java <span class="k">&amp;&amp;</span> java Main
+<span class="c"># Interpretado</span>
+python main.py</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Compilado roda rápido; interpretado é flexível. Cada um tem seu lugar.</span></div></div></div>
+
+<div class="tc" id="tc-f04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Bug</span><span class="tc-code">F·04</span></div><div class="tc-def"><em>"Bug é quando o código não faz o que você queria."</em><br>Erro de lógica, sintaxe ou comportamento inesperado. O nome veio de uma mariposa real presa num computador em 1947.</div><div class="kws"><span class="kw">erro</span><span class="kw">falha</span><span class="kw">glitch</span></div><pre class="snippet"><span class="c"># Bug clássico: off-by-one</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="f">range</span>(<span class="n">10</span>):
+    <span class="f">print</span>(i)  <span class="c"># 0..9, não 1..10</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Todo programador tem bugs. Os bons aprendem a achá-los rápido.</span></div></div></div>
+
+<div class="tc" id="tc-f05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Debug</span><span class="tc-code">F·05</span></div><div class="tc-def"><em>"Debug é o processo de achar e corrigir bugs."</em><br>Ler logs, usar prints, breakpoints, testar hipóteses. A maior parte do trabalho é entender o problema, não escrever a correção.</div><div class="kws"><span class="kw">debugger</span><span class="kw">breakpoint</span><span class="kw">log</span></div><pre class="snippet"><span class="k">def</span> <span class="f">soma</span>(a, b):
+    <span class="f">print</span>(<span class="s">f"a={a}, b={b}"</span>)  <span class="c"># debug</span>
+    <span class="k">return</span> a + b</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Não chute. Confirme. Cada print é uma pergunta com resposta.</span></div></div></div>
+
+<div class="tc" id="tc-f06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">IDE</span><span class="tc-code">F·06</span></div><div class="tc-def"><em>"IDE é um ambiente integrado pra escrever, rodar e debugar código."</em><br>Junta editor, terminal, debugger, controle de versão e plugins. VS Code, IntelliJ, PyCharm são os populares.</div><div class="kws"><span class="kw">VS Code</span><span class="kw">IntelliJ</span><span class="kw">plugin</span></div><pre class="snippet"><span class="c"># Abrindo o projeto na IDE</span>
+code .          <span class="c"># VS Code</span>
+idea .          <span class="c"># IntelliJ</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>A melhor IDE é a que você domina. Aprenda os atalhos.</span></div></div></div>
+
+<div class="tc" id="tc-f07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Terminal</span><span class="tc-code">F·07</span></div><div class="tc-def"><em>"Terminal é a interface de texto pra controlar o computador digitando comandos."</em><br>Você digita, o shell interpreta, o OS executa. Toda ferramenta séria de dev passa por aqui em algum momento.</div><div class="kws"><span class="kw">shell</span><span class="kw">bash</span><span class="kw">CLI</span><span class="kw">prompt</span></div><pre class="snippet">ls -la          <span class="c"># lista arquivos</span>
+cd projetos/    <span class="c"># entra na pasta</span>
+git status      <span class="c"># mostra mudanças</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Terminal não é hostil — é direto. Vale a pena dominar.</span></div></div></div>
+
+<div class="tc" id="tc-f08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Sintaxe</span><span class="tc-code">F·08</span></div><div class="tc-def"><em>"Sintaxe é a gramática estrita de uma linguagem de programação."</em><br>Pontos, vírgulas, indentação, parênteses. Uma vírgula faltando e o programa não roda. O parser é inflexível.</div><div class="kws"><span class="kw">parser</span><span class="kw">gramática</span><span class="kw">indent</span></div><pre class="snippet"><span class="c"># Python exige indentação</span>
+<span class="k">if</span> x &gt; <span class="n">0</span>:
+    <span class="f">print</span>(<span class="s">"positivo"</span>)  <span class="c"># 4 espaços</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Computador não perdoa sintaxe. Vírgula errada = programa quebrado.</span></div></div></div>
+
+<div class="tc" id="tc-f09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Runtime</span><span class="tc-code">F·09</span></div><div class="tc-def"><em>"Runtime é o momento em que o código está rodando de verdade."</em><br>Diferente da compilação, runtime é quando variáveis ganham valor, funções são chamadas e certos erros só aparecem.</div><div class="kws"><span class="kw">execução</span><span class="kw">JVM</span><span class="kw">V8</span></div><pre class="snippet">x = <span class="f">input</span>(<span class="s">"idade: "</span>)     <span class="c"># runtime: lê</span>
+<span class="f">print</span>(<span class="f">int</span>(x) + <span class="n">10</span>)       <span class="c"># runtime: calcula</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Erros de runtime só aparecem quando o código roda. Teste sempre.</span></div></div></div>
+
+<div class="tc" id="tc-f10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Paradigma</span><span class="tc-code">F·10</span></div><div class="tc-def"><em>"Paradigma é um estilo de programar — uma forma de organizar a lógica."</em><br>Imperativo (passos), declarativo (o quê), orientado a objetos, funcional. Linguagens modernas misturam paradigmas.</div><div class="kws"><span class="kw">OOP</span><span class="kw">funcional</span><span class="kw">imperativo</span></div><pre class="snippet"><span class="c"># Imperativo</span>
+total = <span class="n">0</span>
+<span class="k">for</span> x <span class="k">in</span> [<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>]: total += x
+<span class="c"># Funcional</span>
+total = <span class="f">sum</span>([<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>])</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Paradigma molda como você pensa. Conhecer vários expande seu repertório.</span></div></div></div>
+</div>
+
+<!-- BLOCK 2 · TIPOS & VARIÁVEIS -->
+<div class="pg" id="pg-b2">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">2</div><div class="bdiv-code">Bloco 2 · Tipos &amp; Variáveis</div><h2 class="bdiv-title">Containers de <em>Dados</em></h2><div class="bdiv-intro">Toda informação que seu programa manipula vive em uma variável de algum tipo. Strings, números, listas, mapas — saber escolher é metade da batalha.</div><div class="bdiv-pills"><span class="pill">Variável</span><span class="pill">String</span><span class="pill">Int</span><span class="pill">Float</span><span class="pill">Bool</span><span class="pill">List</span><span class="pill">Dict</span></div></div><div class="bdiv-footer"><span class="bdiv-count">12 termos · T·01 → T·12</span><span class="bdiv-motto">guarda valores <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-t01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Variável</span><span class="tc-code">T·01</span></div><div class="tc-def"><em>"Variável é um nome que guarda um valor pra você usar depois."</em><br>Você declara, atribui um valor, e usa pelo nome. O valor pode mudar ao longo do programa.</div><div class="kws"><span class="kw">name</span><span class="kw">=</span><span class="kw">storage</span></div><pre class="snippet">age = <span class="n">25</span>
+name = <span class="s">"Cherry"</span>
+<span class="f">print</span>(name, age)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>O nome importa. <code>x</code> não diz nada; <code>user_age</code> diz tudo.</span></div></div></div>
+
+<div class="tc" id="tc-t02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Tipo de Dado</span><span class="tc-code">T·02</span></div><div class="tc-def"><em>"Tipo é a categoria do valor — número, texto, booleano, lista..."</em><br>O tipo decide o que você pode fazer com o valor. Somar strings concatena; somar números faz aritmética.</div><div class="kws"><span class="kw">int</span><span class="kw">str</span><span class="kw">bool</span><span class="kw">type()</span></div><pre class="snippet"><span class="f">type</span>(<span class="n">42</span>)         <span class="c"># int</span>
+<span class="f">type</span>(<span class="s">"oi"</span>)       <span class="c"># str</span>
+<span class="f">type</span>([<span class="n">1</span>,<span class="n">2</span>])      <span class="c"># list</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Misturar tipos sem cuidado é fonte clássica de bugs. <code>"1" + 1</code> quebra.</span></div></div></div>
+
+<div class="tc" id="tc-t03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">String</span><span class="tc-code">T·03</span></div><div class="tc-def"><em>"String é texto — uma sequência de caracteres entre aspas."</em><br>Pode usar aspas simples, duplas ou triplas. Strings têm muitos métodos: upper, lower, split, replace, format.</div><div class="kws"><span class="kw">"texto"</span><span class="kw">f-string</span><span class="kw">.split()</span></div><pre class="snippet">msg = <span class="s">"Olá, Cherry"</span>
+<span class="f">print</span>(msg.upper())
+<span class="f">print</span>(<span class="f">len</span>(msg))   <span class="c"># 11</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Strings são imutáveis. Modificar cria uma nova string, não muda a antiga.</span></div></div></div>
+
+<div class="tc" id="tc-t04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Inteiro</span><span class="tc-code">T·04</span></div><div class="tc-def"><em>"Número inteiro — sem decimais, positivo, negativo ou zero."</em><br>Usado pra contar, indexar, IDs. Em Python o int não tem limite; em Java tem (32 bits).</div><div class="kws"><span class="kw">int</span><span class="kw">42</span><span class="kw">-7</span></div><pre class="snippet">qty = <span class="n">100</span>
+total = qty * <span class="n">3</span>
+<span class="f">print</span>(total)   <span class="c"># 300</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Divisão de inteiros em Java trunca: <code>7/2 = 3</code>, não <code>3.5</code>.</span></div></div></div>
+
+<div class="tc" id="tc-t05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Float</span><span class="tc-code">T·05</span></div><div class="tc-def"><em>"Float é número com casas decimais — usado pra medidas, preços, percentuais."</em><br>Internamente é binário, então <code>0.1 + 0.2</code> ≠ <code>0.3</code> exatamente. Cuidado em comparações financeiras.</div><div class="kws"><span class="kw">float</span><span class="kw">3.14</span><span class="kw">decimal</span></div><pre class="snippet">pi = <span class="n">3.14159</span>
+preco = <span class="n">19.90</span>
+<span class="f">print</span>(<span class="n">0.1</span> + <span class="n">0.2</span>)  <span class="c"># 0.30000000000000004</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Pra dinheiro, prefira <code>Decimal</code>, nunca <code>float</code>. Precisão importa.</span></div></div></div>
+
+<div class="tc" id="tc-t06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Booleano</span><span class="tc-code">T·06</span></div><div class="tc-def"><em>"Booleano só tem dois valores: True e False."</em><br>Base de toda decisão no código. Toda condição (<code>if</code>, <code>while</code>) avalia uma expressão pra booleano.</div><div class="kws"><span class="kw">True</span><span class="kw">False</span><span class="kw">and/or/not</span></div><pre class="snippet">logged_in = <span class="k">True</span>
+<span class="k">if</span> logged_in:
+    <span class="f">print</span>(<span class="s">"Bem-vindo"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Tudo no fim vira True ou False. O computador só sabe decidir assim.</span></div></div></div>
+
+<div class="tc" id="tc-t07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Null / None</span><span class="tc-code">T·07</span></div><div class="tc-def"><em>"Representação da ausência de valor — não é zero, não é vazio, é nada."</em><br>Python usa <code>None</code>, JS usa <code>null</code> (e <code>undefined</code>), Java usa <code>null</code>. Esquecer disso causa NullPointerException.</div><div class="kws"><span class="kw">None</span><span class="kw">null</span><span class="kw">NPE</span></div><pre class="snippet">user = <span class="k">None</span>
+<span class="k">if</span> user <span class="k">is</span> <span class="k">None</span>:
+    <span class="f">print</span>(<span class="s">"sem usuário"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Sempre cheque None antes de usar. NullPointerException é o bug mais comum do mundo.</span></div></div></div>
+
+<div class="tc" id="tc-t08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Lista / Array</span><span class="tc-code">T·08</span></div><div class="tc-def"><em>"Coleção ordenada de valores — acessada por índice começando em 0."</em><br>Em Python chama <code>list</code> e é dinâmica. Em Java, <code>array</code> tem tamanho fixo; <code>ArrayList</code> é dinâmica.</div><div class="kws"><span class="kw">[]</span><span class="kw">index</span><span class="kw">append</span></div><pre class="snippet">nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>]
+nums.append(<span class="n">5</span>)
+<span class="f">print</span>(nums[<span class="n">0</span>])    <span class="c"># 1</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Índice começa em 0. O último item é <code>lista[len-1]</code> ou <code>lista[-1]</code>.</span></div></div></div>
+
+<div class="tc" id="tc-t09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Dict / Object / Map</span><span class="tc-code">T·09</span></div><div class="tc-def"><em>"Coleção de pares chave-valor — busca rápida pela chave."</em><br>Em Python, <code>dict</code>. Em JS, <code>object</code> ou <code>Map</code>. Em Java, <code>HashMap</code>. Ideal pra modelar entidades.</div><div class="kws"><span class="kw">{}</span><span class="kw">key:value</span><span class="kw">HashMap</span></div><pre class="snippet">user = {<span class="s">"nome"</span>: <span class="s">"Cherry"</span>, <span class="s">"idade"</span>: <span class="n">25</span>}
+<span class="f">print</span>(user[<span class="s">"nome"</span>])</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Lista é por ordem; dict é por nome. Use dict quando a chave faz sentido.</span></div></div></div>
+
+<div class="tc" id="tc-t10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Constante</span><span class="tc-code">T·10</span></div><div class="tc-def"><em>"Constante é uma variável que não muda depois de definida."</em><br>Em Python, convenção: nome em MAIÚSCULAS. Em JS, <code>const</code>. Em Java, <code>final</code>. Evita mudanças acidentais.</div><div class="kws"><span class="kw">const</span><span class="kw">final</span><span class="kw">CAPS</span></div><pre class="snippet">MAX_USERS = <span class="n">100</span>
+PI = <span class="n">3.14159</span>
+<span class="c"># Convenção: MAIÚSCULAS</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Se o valor nunca muda, deixe explícito. Facilita ler e refatorar.</span></div></div></div>
+
+<div class="tc" id="tc-t11"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Escopo</span><span class="tc-code">T·11</span></div><div class="tc-def"><em>"Escopo é onde uma variável existe e pode ser acessada."</em><br>Variável local só vive dentro da função; global vale em todo lugar. Bloco em JS tem escopo próprio (let/const).</div><div class="kws"><span class="kw">local</span><span class="kw">global</span><span class="kw">block</span></div><pre class="snippet"><span class="k">def</span> <span class="f">f</span>():
+    x = <span class="n">10</span>     <span class="c"># local</span>
+<span class="f">f</span>()
+<span class="f">print</span>(x)        <span class="c"># NameError</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Globais facilitam — e bagunçam tudo. Prefira passar valores como argumento.</span></div></div></div>
+
+<div class="tc" id="tc-t12"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Type Casting</span><span class="tc-code">T·12</span></div><div class="tc-def"><em>"Converter um valor de um tipo para outro — int pra string, string pra float..."</em><br>Necessário quando recebe input (sempre string) ou ao combinar tipos diferentes. Pode falhar se o valor não bate.</div><div class="kws"><span class="kw">int()</span><span class="kw">str()</span><span class="kw">float()</span></div><pre class="snippet">x = <span class="f">input</span>(<span class="s">"idade: "</span>)   <span class="c"># sempre str</span>
+age = <span class="f">int</span>(x)            <span class="c"># cast pra int</span>
+<span class="f">print</span>(age + <span class="n">1</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Input é sempre texto. Converter pra número é o primeiro passo.</span></div></div></div>
+</div>
+
+<!-- BLOCK 3 · OPERADORES -->
+<div class="pg" id="pg-b3">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">3</div><div class="bdiv-code">Bloco 3 · Operadores &amp; Expressões</div><h2 class="bdiv-title">A Lógica da <em>Matemática</em></h2><div class="bdiv-intro">Operadores são os verbos da programação — agem sobre valores e produzem resultados. Entender precedência e expressão é base de todo cálculo.</div><div class="bdiv-pills"><span class="pill">Aritmética</span><span class="pill">Comparação</span><span class="pill">Lógica</span><span class="pill">Atribuição</span><span class="pill">Precedência</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · O·01 → O·10</span><span class="bdiv-motto">calcula <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-o01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Operadores Aritméticos</span><span class="tc-code">O·01</span></div><div class="tc-def"><em>"+ − × ÷ — matemática sobre números."</em><br>Os quatro básicos mais módulo <code>%</code> e potência <code>**</code>. Todo cálculo numérico começa aqui.</div><div class="kws"><span class="kw">+</span><span class="kw">-</span><span class="kw">*</span><span class="kw">/</span><span class="kw">%</span></div><pre class="snippet">a, b = <span class="n">10</span>, <span class="n">3</span>
+<span class="f">print</span>(a + b, a - b, a * b)
+<span class="f">print</span>(a / b, a // b, a % b)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Divisão de int em Java trunca. Cast pra float quando quiser decimais.</span></div></div></div>
+
+<div class="tc" id="tc-o02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Operadores de Comparação</span><span class="tc-code">O·02</span></div><div class="tc-def"><em>"== != &gt; &lt; — comparam dois valores e produzem um booleano."</em><br>Base de toda decisão. <code>==</code> compara valor; em JS prefira <code>===</code>; em Java pra strings use <code>.equals()</code>.</div><div class="kws"><span class="kw">==</span><span class="kw">!=</span><span class="kw">&gt;=</span><span class="kw">&lt;=</span></div><pre class="snippet">age = <span class="n">18</span>
+<span class="f">print</span>(age &gt;= <span class="n">18</span>)   <span class="c"># True</span>
+<span class="f">print</span>(<span class="s">"a"</span> == <span class="s">"A"</span>)   <span class="c"># False</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span><code>==</code> compara valor; <code>=</code> atribui. Confundir é bug clássico.</span></div></div></div>
+
+<div class="tc" id="tc-o03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Operadores Lógicos</span><span class="tc-code">O·03</span></div><div class="tc-def"><em>"AND OR NOT — combinam booleanos pra produzir um booleano."</em><br>Python: <code>and or not</code>. JS/Java: <code>&amp;&amp; || !</code>. Avaliação é curto-circuito: para na primeira certeza.</div><div class="kws"><span class="kw">and</span><span class="kw">or</span><span class="kw">not</span><span class="kw">&amp;&amp;</span></div><pre class="snippet">logged = <span class="k">True</span>
+admin = <span class="k">False</span>
+<span class="k">if</span> logged <span class="k">and</span> admin:
+    <span class="f">print</span>(<span class="s">"painel"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Curto-circuito é seu aliado: <code>user and user.name</code> evita NPE.</span></div></div></div>
+
+<div class="tc" id="tc-o04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Operadores de Atribuição</span><span class="tc-code">O·04</span></div><div class="tc-def"><em>"= += -= *= /= — guardam um valor em uma variável."</em><br>O básico é <code>=</code>. Os compostos são atalhos: <code>x += 1</code> é o mesmo que <code>x = x + 1</code>.</div><div class="kws"><span class="kw">=</span><span class="kw">+=</span><span class="kw">-=</span></div><pre class="snippet">total = <span class="n">0</span>
+total += <span class="n">10</span>    <span class="c"># total = total + 10</span>
+total *= <span class="n">2</span>     <span class="c"># total = total * 2</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Atalhos compostos deixam o código mais curto e claro.</span></div></div></div>
+
+<div class="tc" id="tc-o05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Concatenação de Strings</span><span class="tc-code">O·05</span></div><div class="tc-def"><em>"Juntar pedaços de texto pra formar uma string maior."</em><br>Com <code>+</code> em quase todas as linguagens. Python tem f-strings, JS tem template literals — mais legíveis que concatenar.</div><div class="kws"><span class="kw">+</span><span class="kw">f-string</span><span class="kw">format()</span></div><pre class="snippet">name = <span class="s">"Cherry"</span>
+<span class="c"># Concatenação simples</span>
+<span class="f">print</span>(<span class="s">"Olá, "</span> + name)
+<span class="c"># f-string</span>
+<span class="f">print</span>(<span class="s">f"Olá, {name}"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Concatenação em loop é lento. Pra muitas peças, use <code>join()</code>.</span></div></div></div>
+
+<div class="tc" id="tc-o06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Módulo</span><span class="tc-code">O·06</span></div><div class="tc-def"><em>"Operador <code>%</code> que dá o resto de uma divisão inteira."</em><br>Útil pra checar paridade (par/ímpar), ciclos, índices que dão volta. <code>n % 2 == 0</code> = par.</div><div class="kws"><span class="kw">%</span><span class="kw">resto</span><span class="kw">par/ímpar</span></div><pre class="snippet"><span class="k">for</span> i <span class="k">in</span> <span class="f">range</span>(<span class="n">10</span>):
+    <span class="k">if</span> i % <span class="n">2</span> == <span class="n">0</span>:
+        <span class="f">print</span>(i, <span class="s">"par"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span><code>%</code> é a chave de muitos algoritmos: hashing, rotação, paridade.</span></div></div></div>
+
+<div class="tc" id="tc-o07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Incremento / Decremento</span><span class="tc-code">O·07</span></div><div class="tc-def"><em>"Somar ou subtrair 1 de uma variável — operação tão comum que ganhou atalho."</em><br>JS/Java: <code>i++</code> e <code>i--</code>. Python não tem; usa <code>i += 1</code>. Importante em loops manuais.</div><div class="kws"><span class="kw">++</span><span class="kw">--</span><span class="kw">+= 1</span></div><pre class="snippet"><span class="c"># Python</span>
+i = <span class="n">0</span>
+i += <span class="n">1</span>           <span class="c"># i agora vale 1</span>
+<span class="c"># JS/Java equivalente: i++</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span><code>i++</code> retorna antes; <code>++i</code> retorna depois. Pré vs pós importa.</span></div></div></div>
+
+<div class="tc" id="tc-o08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Precedência de Operadores</span><span class="tc-code">O·08</span></div><div class="tc-def"><em>"A ordem em que operadores são avaliados em uma expressão."</em><br>Multiplicação antes da soma, lógicos depois de comparações. Use parênteses pra deixar claro — nunca confie só na regra.</div><div class="kws"><span class="kw">()</span><span class="kw">PEMDAS</span><span class="kw">ordem</span></div><pre class="snippet">r = <span class="n">2</span> + <span class="n">3</span> * <span class="n">4</span>      <span class="c"># 14, não 20</span>
+r = (<span class="n">2</span> + <span class="n">3</span>) * <span class="n">4</span>    <span class="c"># 20</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Na dúvida, parênteses. O leitor (e o você do futuro) agradecem.</span></div></div></div>
+
+<div class="tc" id="tc-o09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Expressão vs Comando</span><span class="tc-code">O·09</span></div><div class="tc-def"><em>"Expressão produz um valor. Comando faz alguma coisa."</em><br><code>2 + 3</code> é expressão (vale 5). <code>print(x)</code> é comando (faz, não retorna útil). Algumas linguagens borram a linha.</div><div class="kws"><span class="kw">value</span><span class="kw">statement</span><span class="kw">expr</span></div><pre class="snippet"><span class="c"># Expressão (produz valor)</span>
+total = <span class="n">2</span> + <span class="n">3</span>
+<span class="c"># Comando (faz ação)</span>
+<span class="f">print</span>(total)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Expressões podem ser combinadas; comandos rodam isolados.</span></div></div></div>
+
+<div class="tc" id="tc-o10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Efeitos Colaterais</span><span class="tc-code">O·10</span></div><div class="tc-def"><em>"Mudanças que uma função faz além de retornar — escrever em disco, alterar variável global, imprimir."</em><br>Função sem efeitos = pura (previsível). Função com efeitos = mais difícil de testar e debugar.</div><div class="kws"><span class="kw">side effect</span><span class="kw">pure</span><span class="kw">global</span></div><pre class="snippet">contador = <span class="n">0</span>
+<span class="k">def</span> <span class="f">incr</span>():
+    <span class="k">global</span> contador
+    contador += <span class="n">1</span>   <span class="c"># efeito colateral</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Funções com efeitos colaterais escondidos quebram testes. Minimize.</span></div></div></div>
+</div>
+
+<!-- BLOCK 4 · CONTROLE DE FLUXO -->
+<div class="pg" id="pg-b4">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">4</div><div class="bdiv-code">Bloco 4 · Controle de Fluxo</div><h2 class="bdiv-title">Decisões e <em>Repetições</em></h2><div class="bdiv-intro">Sem if e loops, um programa só corre em linha reta. Aqui o código ganha capacidade de escolher e repetir — onde a lógica realmente começa.</div><div class="bdiv-pills"><span class="pill">If</span><span class="pill">Else</span><span class="pill">While</span><span class="pill">For</span><span class="pill">Break</span><span class="pill">Continue</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · C·01 → C·10</span><span class="bdiv-motto">decide e repete <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-c01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">If</span><span class="tc-code">C·01</span></div><div class="tc-def"><em>"Executa um bloco só quando a condição é verdadeira."</em><br>O ponto de decisão mais simples. Sem if, seu programa não consegue reagir a nada.</div><div class="kws"><span class="kw">if</span><span class="kw">condição</span><span class="kw">bool</span></div><pre class="snippet">age = <span class="n">20</span>
+<span class="k">if</span> age &gt;= <span class="n">18</span>:
+    <span class="f">print</span>(<span class="s">"maior de idade"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>If aninhado demais é cheiro de código. Considere extrair pra função.</span></div></div></div>
+
+<div class="tc" id="tc-c02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Else / Elif</span><span class="tc-code">C·02</span></div><div class="tc-def"><em>"Caminhos alternativos quando o if é falso."</em><br><code>else</code> = senão. <code>elif</code> (Python) ou <code>else if</code> = testa outra condição se a anterior falhou.</div><div class="kws"><span class="kw">else</span><span class="kw">elif</span><span class="kw">else if</span></div><pre class="snippet"><span class="k">if</span> score &gt;= <span class="n">90</span>: nivel = <span class="s">"A"</span>
+<span class="k">elif</span> score &gt;= <span class="n">70</span>: nivel = <span class="s">"B"</span>
+<span class="k">else</span>: nivel = <span class="s">"C"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Cadeia de elifs muito longa? Considere dict ou switch.</span></div></div></div>
+
+<div class="tc" id="tc-c03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Switch / Match</span><span class="tc-code">C·03</span></div><div class="tc-def"><em>"Ramificação múltipla pra um único valor — mais limpo que uma escada de elif."</em><br>JS/Java têm <code>switch/case</code>. Python 3.10+ tem <code>match/case</code> com pattern matching.</div><div class="kws"><span class="kw">switch</span><span class="kw">case</span><span class="kw">match</span></div><pre class="snippet"><span class="k">match</span> day:
+    <span class="k">case</span> <span class="s">"sex"</span>: <span class="f">print</span>(<span class="s">"sextou"</span>)
+    <span class="k">case</span> <span class="s">"seg"</span>: <span class="f">print</span>(<span class="s">"foco"</span>)
+    <span class="k">case</span> _: <span class="f">print</span>(<span class="s">"normal"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Em JS, esquecer o <code>break</code> faz cair pro próximo case. Quase nunca é o que você quer.</span></div></div></div>
+
+<div class="tc" id="tc-c04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">While</span><span class="tc-code">C·04</span></div><div class="tc-def"><em>"Repete o bloco enquanto a condição for verdadeira."</em><br>Útil quando você não sabe quantas voltas vai dar. Atenção pra não criar loop infinito.</div><div class="kws"><span class="kw">while</span><span class="kw">loop</span><span class="kw">condição</span></div><pre class="snippet">i = <span class="n">0</span>
+<span class="k">while</span> i &lt; <span class="n">3</span>:
+    <span class="f">print</span>(i)
+    i += <span class="n">1</span>   <span class="c"># importante!</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Esqueceu de mudar a variável da condição? Loop infinito. Confira sempre.</span></div></div></div>
+
+<div class="tc" id="tc-c05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">For</span><span class="tc-code">C·05</span></div><div class="tc-def"><em>"Repete um número conhecido de vezes — controlado por contador ou coleção."</em><br>Em Python e JS modernos é <code>for x in lista</code>. O <code>for(i=0;i&lt;n;i++)</code> clássico ainda aparece em Java/JS.</div><div class="kws"><span class="kw">for</span><span class="kw">range</span><span class="kw">iter</span></div><pre class="snippet"><span class="k">for</span> i <span class="k">in</span> <span class="f">range</span>(<span class="n">5</span>):
+    <span class="f">print</span>(i)   <span class="c"># 0..4</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Sabe quantas iterações? <code>for</code>. Não sabe? <code>while</code>.</span></div></div></div>
+
+<div class="tc" id="tc-c06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">For-Each</span><span class="tc-code">C·06</span></div><div class="tc-def"><em>"Itera direto sobre cada item de uma coleção — sem se preocupar com índices."</em><br>Mais limpo e menos sujeito a bugs de off-by-one. <code>for item in lista</code>.</div><div class="kws"><span class="kw">forEach</span><span class="kw">iter</span><span class="kw">in</span></div><pre class="snippet">frutas = [<span class="s">"maçã"</span>, <span class="s">"uva"</span>, <span class="s">"pera"</span>]
+<span class="k">for</span> f <span class="k">in</span> frutas:
+    <span class="f">print</span>(f)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Precisa do índice também? Use <code>enumerate(lista)</code> em Python.</span></div></div></div>
+
+<div class="tc" id="tc-c07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Break</span><span class="tc-code">C·07</span></div><div class="tc-def"><em>"Sai do loop imediatamente, antes do tempo previsto."</em><br>Útil quando achou o que procurava. Só sai do loop mais interno (em loops aninhados).</div><div class="kws"><span class="kw">break</span><span class="kw">exit</span><span class="kw">stop</span></div><pre class="snippet"><span class="k">for</span> n <span class="k">in</span> nums:
+    <span class="k">if</span> n == <span class="n">42</span>:
+        <span class="f">print</span>(<span class="s">"achei!"</span>)
+        <span class="k">break</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Achou o que queria? <code>break</code>. Não force o loop a terminar à toa.</span></div></div></div>
+
+<div class="tc" id="tc-c08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Continue</span><span class="tc-code">C·08</span></div><div class="tc-def"><em>"Pula pro próximo ciclo do loop, ignorando o resto da iteração atual."</em><br>Bom pra filtrar valores sem criar um if que engloba todo o bloco.</div><div class="kws"><span class="kw">continue</span><span class="kw">skip</span><span class="kw">next</span></div><pre class="snippet"><span class="k">for</span> n <span class="k">in</span> <span class="f">range</span>(<span class="n">10</span>):
+    <span class="k">if</span> n % <span class="n">2</span> == <span class="n">0</span>:
+        <span class="k">continue</span>   <span class="c"># pula pares</span>
+    <span class="f">print</span>(n)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span><code>continue</code> deixa o caminho feliz menos indentado. Use com moderação.</span></div></div></div>
+
+<div class="tc" id="tc-c09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Operador Ternário</span><span class="tc-code">C·09</span></div><div class="tc-def"><em>"If-else em uma linha — retorna um de dois valores baseado em uma condição."</em><br>Em Python: <code>a if cond else b</code>. Em JS/Java: <code>cond ? a : b</code>. Ótimo pra atribuições simples.</div><div class="kws"><span class="kw">? :</span><span class="kw">if-else expr</span></div><pre class="snippet">tipo = <span class="s">"adulto"</span> <span class="k">if</span> age &gt;= <span class="n">18</span> <span class="k">else</span> <span class="s">"menor"</span>
+<span class="c"># JS: const tipo = age &gt;= 18 ? "adulto" : "menor"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Ternário aninhado fica ilegível. Quando passar disso, volte pro if/else.</span></div></div></div>
+
+<div class="tc" id="tc-c10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Loops Aninhados</span><span class="tc-code">C·10</span></div><div class="tc-def"><em>"Loop dentro de outro loop — necessário pra matrizes e combinações."</em><br>Cuidado: complexidade explode. Dois loops de N viram N². Três viram N³.</div><div class="kws"><span class="kw">nested</span><span class="kw">matrix</span><span class="kw">O(n²)</span></div><pre class="snippet"><span class="k">for</span> i <span class="k">in</span> <span class="f">range</span>(<span class="n">3</span>):
+    <span class="k">for</span> j <span class="k">in</span> <span class="f">range</span>(<span class="n">3</span>):
+        <span class="f">print</span>(i, j)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Três ou mais loops aninhados? Repensar é quase sempre melhor que continuar.</span></div></div></div>
+</div>
+
+<!-- BLOCK 5 · FUNÇÕES -->
+<div class="pg" id="pg-b5">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">5</div><div class="bdiv-code">Bloco 5 · Funções</div><h2 class="bdiv-title">A Arte da <em>Reutilização</em></h2><div class="bdiv-intro">Função é a unidade básica de organização de código. Bem feita, transforma 100 linhas confusas em 10 linhas claras.</div><div class="bdiv-pills"><span class="pill">def</span><span class="pill">return</span><span class="pill">parâmetros</span><span class="pill">pura</span><span class="pill">recursão</span><span class="pill">lambda</span></div></div><div class="bdiv-footer"><span class="bdiv-count">12 termos · N·01 → N·12</span><span class="bdiv-motto">compõe <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-n01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Função</span><span class="tc-code">N·01</span></div><div class="tc-def"><em>"Bloco de código com nome que pode ser chamado várias vezes."</em><br>Recebe entrada (parâmetros), faz algo, retorna saída. Unidade de reuso e abstração.</div><div class="kws"><span class="kw">def</span><span class="kw">function</span><span class="kw">return</span></div><pre class="snippet"><span class="k">def</span> <span class="f">saudacao</span>(name):
+    <span class="k">return</span> <span class="s">f"Olá, {name}"</span>
+<span class="f">print</span>(<span class="f">saudacao</span>(<span class="s">"Cherry"</span>))</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Função boa faz uma coisa, faz bem feito. Se faz duas, vire duas funções.</span></div></div></div>
+
+<div class="tc" id="tc-n02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Parâmetro</span><span class="tc-code">N·02</span></div><div class="tc-def"><em>"Variável de entrada listada na definição da função."</em><br>É o "espaço reservado" pro valor que vai chegar. Não confunda com argumento (que é o valor real passado).</div><div class="kws"><span class="kw">param</span><span class="kw">input</span><span class="kw">signature</span></div><pre class="snippet"><span class="c"># a, b são parâmetros</span>
+<span class="k">def</span> <span class="f">soma</span>(a, b):
+    <span class="k">return</span> a + b</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Mais de 3-4 parâmetros? Provavelmente está pedindo demais. Considere agrupar.</span></div></div></div>
+
+<div class="tc" id="tc-n03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Argumento</span><span class="tc-code">N·03</span></div><div class="tc-def"><em>"O valor concreto passado pra função na hora de chamar."</em><br>Parâmetro está na assinatura; argumento está na chamada. Em Python, pode passar por posição ou nome.</div><div class="kws"><span class="kw">arg</span><span class="kw">call</span><span class="kw">kwarg</span></div><pre class="snippet"><span class="k">def</span> <span class="f">soma</span>(a, b): <span class="k">return</span> a + b
+<span class="c"># 3 e 4 são argumentos</span>
+<span class="f">soma</span>(<span class="n">3</span>, <span class="n">4</span>)
+<span class="f">soma</span>(a=<span class="n">3</span>, b=<span class="n">4</span>)   <span class="c"># nomeados</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Nomeados (kwargs) deixam a chamada autoexplicativa — vale o tempo extra de digitar.</span></div></div></div>
+
+<div class="tc" id="tc-n04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Valor de Retorno</span><span class="tc-code">N·04</span></div><div class="tc-def"><em>"O valor que a função devolve pra quem a chamou."</em><br>Sem <code>return</code>, Python retorna <code>None</code>. Você pode usar o retorno em expressões ou guardar em variável.</div><div class="kws"><span class="kw">return</span><span class="kw">output</span><span class="kw">result</span></div><pre class="snippet"><span class="k">def</span> <span class="f">dobro</span>(x): <span class="k">return</span> x * <span class="n">2</span>
+
+resultado = <span class="f">dobro</span>(<span class="n">5</span>)   <span class="c"># 10</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Retornar cedo (<em>early return</em>) deixa o código menos indentado e mais claro.</span></div></div></div>
+
+<div class="tc" id="tc-n05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Função Pura</span><span class="tc-code">N·05</span></div><div class="tc-def"><em>"Mesma entrada sempre dá a mesma saída, sem efeitos colaterais."</em><br>Não depende de estado externo, não muda nada fora. Testável, previsível, fácil de paralelizar.</div><div class="kws"><span class="kw">pure</span><span class="kw">stateless</span><span class="kw">deterministic</span></div><pre class="snippet"><span class="c"># Pura</span>
+<span class="k">def</span> <span class="f">soma</span>(a, b): <span class="k">return</span> a + b
+<span class="c"># Impura (depende do tempo)</span>
+<span class="k">def</span> <span class="f">agora</span>(): <span class="k">return</span> datetime.now()</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Função pura é fácil de testar. Empurre estado pras bordas do programa.</span></div></div></div>
+
+<div class="tc" id="tc-n06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Recursão</span><span class="tc-code">N·06</span></div><div class="tc-def"><em>"Função que chama ela mesma — com um caso base pra parar."</em><br>Elegante pra problemas em árvore ou divisão. Sem caso base = stack overflow.</div><div class="kws"><span class="kw">recursive</span><span class="kw">base case</span><span class="kw">stack</span></div><pre class="snippet"><span class="k">def</span> <span class="f">fact</span>(n):
+    <span class="k">if</span> n &lt;= <span class="n">1</span>: <span class="k">return</span> <span class="n">1</span>   <span class="c"># base</span>
+    <span class="k">return</span> n * <span class="f">fact</span>(n - <span class="n">1</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Recursão é loop em outra roupa. Para entender, desenhe a pilha.</span></div></div></div>
+
+<div class="tc" id="tc-n07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Closure</span><span class="tc-code">N·07</span></div><div class="tc-def"><em>"Função que lembra das variáveis do escopo onde foi criada."</em><br>Mesmo depois daquele escopo sumir, a função interna ainda acessa. Base de muitos padrões em JS.</div><div class="kws"><span class="kw">closure</span><span class="kw">capture</span><span class="kw">scope</span></div><pre class="snippet"><span class="k">def</span> <span class="f">make_counter</span>():
+    count = <span class="n">0</span>
+    <span class="k">def</span> <span class="f">inc</span>():
+        <span class="k">nonlocal</span> count
+        count += <span class="n">1</span>; <span class="k">return</span> count
+    <span class="k">return</span> inc</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Closure cria estado privado sem precisar de classe.</span></div></div></div>
+
+<div class="tc" id="tc-n08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Lambda / Arrow</span><span class="tc-code">N·08</span></div><div class="tc-def"><em>"Função anônima, geralmente curta, usada inline como argumento."</em><br>Python: <code>lambda x: x*2</code>. JS: <code>x =&gt; x*2</code>. Ótima pra callbacks e <code>map/filter</code>.</div><div class="kws"><span class="kw">lambda</span><span class="kw">=&gt;</span><span class="kw">anônima</span></div><pre class="snippet">nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]
+dobros = <span class="f">list</span>(<span class="f">map</span>(<span class="k">lambda</span> x: x*<span class="n">2</span>, nums))
+<span class="f">print</span>(dobros)   <span class="c"># [2,4,6]</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Lambda de 1-2 linhas é elegante. Maior que isso, dê nome com <code>def</code>.</span></div></div></div>
+
+<div class="tc" id="tc-n09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Argumentos Padrão</span><span class="tc-code">N·09</span></div><div class="tc-def"><em>"Valor pré-definido pra um parâmetro quando o chamador não passa nada."</em><br>Deixa funções mais flexíveis sem precisar sobrecarregar. Em Python, evite mutáveis (list/dict) como default.</div><div class="kws"><span class="kw">default</span><span class="kw">=</span><span class="kw">optional</span></div><pre class="snippet"><span class="k">def</span> <span class="f">saudar</span>(name, msg=<span class="s">"Olá"</span>):
+    <span class="k">return</span> <span class="s">f"{msg}, {name}"</span>
+
+<span class="f">saudar</span>(<span class="s">"Cherry"</span>)         <span class="c"># Olá, Cherry</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Cuidado: <code>def f(x=[])</code> compartilha a mesma lista entre chamadas. Use <code>None</code>.</span></div></div></div>
+
+<div class="tc" id="tc-n10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">*args / **kwargs</span><span class="tc-code">N·10</span></div><div class="tc-def"><em>"Argumentos de número variável — *args coleta posicionais, **kwargs coleta nomeados."</em><br>Quando você não sabe quantos argumentos vão chegar. Comum em decoradores e wrappers.</div><div class="kws"><span class="kw">*args</span><span class="kw">**kwargs</span><span class="kw">varargs</span></div><pre class="snippet"><span class="k">def</span> <span class="f">log</span>(*args, **kwargs):
+    <span class="f">print</span>(args)    <span class="c"># tupla</span>
+    <span class="f">print</span>(kwargs)  <span class="c"># dict</span>
+<span class="f">log</span>(<span class="n">1</span>, <span class="n">2</span>, name=<span class="s">"Cherry"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Use com cuidado: assinaturas vagas viram caixas-pretas.</span></div></div></div>
+
+<div class="tc" id="tc-n11"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Escopo de Função</span><span class="tc-code">N·11</span></div><div class="tc-def"><em>"Variáveis declaradas dentro da função só existem dentro dela."</em><br>Quando a função termina, suas variáveis somem. Isso é bom — evita poluição global e bugs estranhos.</div><div class="kws"><span class="kw">local</span><span class="kw">stack frame</span></div><pre class="snippet"><span class="k">def</span> <span class="f">f</span>():
+    x = <span class="n">10</span>     <span class="c"># local</span>
+<span class="f">f</span>()
+<span class="f">print</span>(x)        <span class="c"># NameError</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Cada chamada cria um escopo novo. Funções não compartilham variáveis locais.</span></div></div></div>
+
+<div class="tc" id="tc-n12"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Higher-Order Functions</span><span class="tc-code">N·12</span></div><div class="tc-def"><em>"Funções que recebem ou retornam outras funções."</em><br>Base do paradigma funcional. <code>map</code>, <code>filter</code>, <code>reduce</code>, decoradores — tudo isso é HOF.</div><div class="kws"><span class="kw">map</span><span class="kw">filter</span><span class="kw">decorator</span></div><pre class="snippet">nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>]
+pares = <span class="f">list</span>(<span class="f">filter</span>(<span class="k">lambda</span> x: x%<span class="n">2</span>==<span class="n">0</span>, nums))</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>HOFs encurtam código. <code>map+filter+reduce</code> substituem muito loop manual.</span></div></div></div>
+</div>
+
+<!-- BLOCK 6 · ESTRUTURAS DE DADOS -->
+<div class="pg" id="pg-b6">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">6</div><div class="bdiv-code">Bloco 6 · Estruturas de Dados</div><h2 class="bdiv-title">As <em>Formas</em> dos Dados</h2><div class="bdiv-intro">Escolher a estrutura certa é o que separa um algoritmo rápido de um lento. Cada uma tem força e fraqueza — saber onde aplicar é metade do jogo.</div><div class="bdiv-pills"><span class="pill">Array</span><span class="pill">Lista</span><span class="pill">Dict</span><span class="pill">Set</span><span class="pill">Stack</span><span class="pill">Queue</span><span class="pill">Tree</span><span class="pill">Graph</span></div></div><div class="bdiv-footer"><span class="bdiv-count">12 termos · S·01 → S·12</span><span class="bdiv-motto">estrutura <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-s01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Array</span><span class="tc-code">S·01</span></div><div class="tc-def"><em>"Sequência de valores de tamanho fixo, acessada por índice."</em><br>Em memória contígua: acesso por índice é O(1). Em Java, tamanho é fixo na criação.</div><div class="kws"><span class="kw">array</span><span class="kw">index</span><span class="kw">O(1)</span></div><pre class="snippet"><span class="c">// Java</span>
+<span class="k">int</span>[] nums = {<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>};
+nums[<span class="n">0</span>] = <span class="n">10</span>;       <span class="c">// acesso O(1)</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Acesso por índice é instantâneo. Inserir no meio, não.</span></div></div></div>
+
+<div class="tc" id="tc-s02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Lista</span><span class="tc-code">S·02</span></div><div class="tc-def"><em>"Array dinâmico — cresce e encolhe conforme você adiciona ou remove."</em><br>Python <code>list</code>, JS <code>Array</code>, Java <code>ArrayList</code>. Acesso O(1), inserção no fim ~O(1), no meio O(n).</div><div class="kws"><span class="kw">list</span><span class="kw">append</span><span class="kw">dynamic</span></div><pre class="snippet">nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]
+nums.append(<span class="n">4</span>)       <span class="c"># cresce</span>
+nums.pop(<span class="n">0</span>)         <span class="c"># remove primeiro</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Inserir/remover no fim é rápido. No começo ou meio, todos os outros se deslocam.</span></div></div></div>
+
+<div class="tc" id="tc-s03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Tupla</span><span class="tc-code">S·03</span></div><div class="tc-def"><em>"Sequência imutável e ordenada — não pode mudar depois de criada."</em><br>Útil pra valores que sempre andam juntos (coordenadas, dimensões). Pode ser chave de dict; lista não pode.</div><div class="kws"><span class="kw">tuple</span><span class="kw">immutable</span><span class="kw">()</span></div><pre class="snippet">ponto = (<span class="n">3</span>, <span class="n">4</span>)        <span class="c"># tupla</span>
+x, y = ponto         <span class="c"># desempacotamento</span>
+<span class="c"># ponto[0] = 10   # ERRO: imutável</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Imutabilidade evita bugs sutis. Tupla é segura pra compartilhar entre threads.</span></div></div></div>
+
+<div class="tc" id="tc-s04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Dicionário / Map</span><span class="tc-code">S·04</span></div><div class="tc-def"><em>"Pares chave-valor com busca rápida pela chave."</em><br>Lookup em O(1) médio (usa hashing). Ideal pra contagem, cache, modelagem de entidades.</div><div class="kws"><span class="kw">dict</span><span class="kw">map</span><span class="kw">hash</span></div><pre class="snippet">user = {<span class="s">"id"</span>: <span class="n">1</span>, <span class="s">"name"</span>: <span class="s">"Cherry"</span>}
+<span class="f">print</span>(user[<span class="s">"name"</span>])    <span class="c"># O(1)</span>
+user[<span class="s">"age"</span>] = <span class="n">25</span>          <span class="c"># adiciona</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Sempre que pensar "buscar por nome rápido", pense em dict.</span></div></div></div>
+
+<div class="tc" id="tc-s05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Set</span><span class="tc-code">S·05</span></div><div class="tc-def"><em>"Coleção desordenada de itens únicos — sem duplicatas."</em><br>Verificar pertencimento é O(1). Suporta união, interseção, diferença.</div><div class="kws"><span class="kw">set</span><span class="kw">unique</span><span class="kw">in</span></div><pre class="snippet">visitas = {<span class="s">"a"</span>, <span class="s">"b"</span>, <span class="s">"a"</span>}   <span class="c"># {"a","b"}</span>
+<span class="f">print</span>(<span class="s">"a"</span> <span class="k">in</span> visitas)        <span class="c"># True</span>
+visitas.add(<span class="s">"c"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Remover duplicatas de lista: <code>list(set(lista))</code>. Truque clássico.</span></div></div></div>
+
+<div class="tc" id="tc-s06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Pilha (Stack)</span><span class="tc-code">S·06</span></div><div class="tc-def"><em>"LIFO — Last In, First Out. O último que entra é o primeiro que sai."</em><br>Como pilha de pratos. Operações: <code>push</code> (empilha), <code>pop</code> (desempilha). Usada em chamadas de função, undo, parsing.</div><div class="kws"><span class="kw">LIFO</span><span class="kw">push</span><span class="kw">pop</span></div><pre class="snippet">stack = []
+stack.append(<span class="n">1</span>)        <span class="c"># push</span>
+stack.append(<span class="n">2</span>)
+<span class="f">print</span>(stack.pop())   <span class="c"># 2</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Toda chamada de função empilha na call stack. Stack overflow é ela transbordando.</span></div></div></div>
+
+<div class="tc" id="tc-s07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Fila (Queue)</span><span class="tc-code">S·07</span></div><div class="tc-def"><em>"FIFO — First In, First Out. O primeiro que entra é o primeiro que sai."</em><br>Como fila de banco. Usada em BFS, processamento assíncrono, mensageria.</div><div class="kws"><span class="kw">FIFO</span><span class="kw">enqueue</span><span class="kw">dequeue</span></div><pre class="snippet"><span class="k">from</span> collections <span class="k">import</span> deque
+q = deque()
+q.append(<span class="s">"a"</span>)          <span class="c"># enqueue</span>
+<span class="f">print</span>(q.popleft())   <span class="c"># "a"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Use <code>deque</code>, não <code>list.pop(0)</code> — é O(n).</span></div></div></div>
+
+<div class="tc" id="tc-s08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Lista Encadeada</span><span class="tc-code">S·08</span></div><div class="tc-def"><em>"Sequência de nós onde cada um aponta pro próximo."</em><br>Inserir/remover no meio é O(1) (já tendo o nó). Acesso por índice é O(n). Singly ou doubly linked.</div><div class="kws"><span class="kw">node</span><span class="kw">next</span><span class="kw">pointer</span></div><pre class="snippet"><span class="k">class</span> <span class="f">Node</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, val):
+        <span class="k">self</span>.val = val
+        <span class="k">self</span>.next = <span class="k">None</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Em prática você raramente implementa uma do zero — mas precisa entender pra entender árvores e grafos.</span></div></div></div>
+
+<div class="tc" id="tc-s09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Árvore</span><span class="tc-code">S·09</span></div><div class="tc-def"><em>"Estrutura hierárquica com raiz e filhos — sem ciclos."</em><br>Modela hierarquias: filesystem, DOM, organograma. Binary tree, BST, heap, trie — variantes pra cada problema.</div><div class="kws"><span class="kw">tree</span><span class="kw">root</span><span class="kw">leaf</span><span class="kw">BST</span></div><pre class="snippet"><span class="k">class</span> <span class="f">TreeNode</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, val):
+        <span class="k">self</span>.val = val
+        <span class="k">self</span>.left = <span class="k">self</span>.right = <span class="k">None</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Recursão e árvore foram feitas uma pra outra. Boa parte dos algoritmos sai natural.</span></div></div></div>
+
+<div class="tc" id="tc-s10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Grafo</span><span class="tc-code">S·10</span></div><div class="tc-def"><em>"Nós conectados por arestas — relações arbitrárias entre coisas."</em><br>Redes sociais, mapas, dependências. Pode ter ciclos. BFS e DFS são as travessias clássicas.</div><div class="kws"><span class="kw">graph</span><span class="kw">edge</span><span class="kw">BFS</span><span class="kw">DFS</span></div><pre class="snippet"><span class="c"># Adjacency list</span>
+grafo = {
+    <span class="s">"A"</span>: [<span class="s">"B"</span>, <span class="s">"C"</span>],
+    <span class="s">"B"</span>: [<span class="s">"A"</span>, <span class="s">"D"</span>],
+}</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Se você consegue desenhar como bolinhas e linhas, é um grafo.</span></div></div></div>
+
+<div class="tc" id="tc-s11"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Hash Table</span><span class="tc-code">S·11</span></div><div class="tc-def"><em>"Estrutura que mapeia chave em slot usando uma função de hash."</em><br>Base de dict, set e Map. Lookup médio O(1). Colisões resolvidas por chaining ou open addressing.</div><div class="kws"><span class="kw">hash</span><span class="kw">bucket</span><span class="kw">collision</span></div><pre class="snippet"><span class="c"># dict é uma hash table</span>
+d = {<span class="s">"a"</span>: <span class="n">1</span>, <span class="s">"b"</span>: <span class="n">2</span>}
+<span class="f">print</span>(d[<span class="s">"a"</span>])   <span class="c"># O(1) médio</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Hash table é o canivete suíço. Toda vez que pensar "preciso buscar rápido", pense nela.</span></div></div></div>
+
+<div class="tc" id="tc-s12"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Big O</span><span class="tc-code">S·12</span></div><div class="tc-def"><em>"Notação que descreve como um algoritmo escala com o tamanho da entrada."</em><br>O(1) constante · O(log n) logarítmico · O(n) linear · O(n²) quadrático · O(2ⁿ) exponencial.</div><div class="kws"><span class="kw">O(1)</span><span class="kw">O(n)</span><span class="kw">O(n²)</span></div><pre class="snippet"><span class="c"># O(1): acesso em array</span>
+arr[<span class="n">5</span>]
+<span class="c"># O(n): loop simples</span>
+<span class="k">for</span> x <span class="k">in</span> arr: ...
+<span class="c"># O(n²): loop aninhado</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Em entradas grandes, O(n²) é tragédia. Big O paga estudo.</span></div></div></div>
+</div>
+
+<!-- BLOCK 7 · POO -->
+<div class="pg" id="pg-b7">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">7</div><div class="bdiv-code">Bloco 7 · Programação Orientada a Objetos</div><h2 class="bdiv-title">Código como <em>Objetos</em></h2><div class="bdiv-intro">POO modela o mundo em coisas que têm estado e comportamento. Funcionalidade não é tudo — organização é o que faz código de produção sobreviver anos.</div><div class="bdiv-pills"><span class="pill">Classe</span><span class="pill">Objeto</span><span class="pill">Herança</span><span class="pill">Polimorfismo</span><span class="pill">Encapsulamento</span></div></div><div class="bdiv-footer"><span class="bdiv-count">12 termos · P·01 → P·12</span><span class="bdiv-motto">modela <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-p01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Classe</span><span class="tc-code">P·01</span></div><div class="tc-def"><em>"Classe é o molde — descreve a forma e o comportamento de objetos."</em><br>Define quais atributos e métodos cada instância vai ter. Sem instâncias, é só uma planta.</div><div class="kws"><span class="kw">class</span><span class="kw">blueprint</span><span class="kw">type</span></div><pre class="snippet"><span class="k">class</span> <span class="f">User</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, name):
+        <span class="k">self</span>.name = name</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Classe é receita; objeto é o bolo. Sempre são duas coisas distintas.</span></div></div></div>
+
+<div class="tc" id="tc-p02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Objeto</span><span class="tc-code">P·02</span></div><div class="tc-def"><em>"Objeto é um pacote concreto de estado + comportamento, criado a partir de uma classe."</em><br>Cada objeto tem seus próprios valores de atributos. Em Python, quase tudo é objeto.</div><div class="kws"><span class="kw">object</span><span class="kw">new</span><span class="kw">instance</span></div><pre class="snippet">u = <span class="f">User</span>(<span class="s">"Cherry"</span>)   <span class="c"># cria objeto</span>
+<span class="f">print</span>(u.name)        <span class="c"># "Cherry"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Dois objetos da mesma classe são independentes. Mudar um não afeta o outro.</span></div></div></div>
+
+<div class="tc" id="tc-p03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Instância</span><span class="tc-code">P·03</span></div><div class="tc-def"><em>"Instância é um objeto específico criado a partir de uma classe."</em><br>Termo praticamente sinônimo de "objeto", mas enfatiza a relação com a classe que o gerou.</div><div class="kws"><span class="kw">instance</span><span class="kw">isinstance</span></div><pre class="snippet">a = <span class="f">User</span>(<span class="s">"A"</span>)
+b = <span class="f">User</span>(<span class="s">"B"</span>)
+<span class="f">isinstance</span>(a, User)   <span class="c"># True</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>"Uma instância de User" = um objeto User. As palavras dançam juntas.</span></div></div></div>
+
+<div class="tc" id="tc-p04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Atributo</span><span class="tc-code">P·04</span></div><div class="tc-def"><em>"Variável que pertence a um objeto — guarda seu estado."</em><br>Acessada com <code>obj.attr</code>. Pode ser de instância (única por objeto) ou de classe (compartilhada).</div><div class="kws"><span class="kw">attr</span><span class="kw">field</span><span class="kw">state</span></div><pre class="snippet"><span class="k">class</span> <span class="f">User</span>:
+    species = <span class="s">"human"</span>   <span class="c"># de classe</span>
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, name):
+        <span class="k">self</span>.name = name   <span class="c"># de instância</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Atributo é dado; método é função. Juntos formam o objeto.</span></div></div></div>
+
+<div class="tc" id="tc-p05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Método</span><span class="tc-code">P·05</span></div><div class="tc-def"><em>"Função ligada a uma classe — opera sobre os atributos de um objeto."</em><br>Recebe <code>self</code> (Python) ou <code>this</code> (JS/Java) implicitamente, referenciando o objeto que chamou.</div><div class="kws"><span class="kw">method</span><span class="kw">self</span><span class="kw">this</span></div><pre class="snippet"><span class="k">class</span> <span class="f">User</span>:
+    <span class="k">def</span> <span class="f">greet</span>(<span class="k">self</span>):
+        <span class="k">return</span> <span class="s">f"Olá, {self.name}"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Método opera no objeto. Função solta opera no que você passa.</span></div></div></div>
+
+<div class="tc" id="tc-p06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Construtor</span><span class="tc-code">P·06</span></div><div class="tc-def"><em>"Método especial chamado automaticamente na criação do objeto."</em><br>Python: <code>__init__</code>. JS: <code>constructor</code>. Java: método com nome da classe. Inicializa atributos.</div><div class="kws"><span class="kw">__init__</span><span class="kw">constructor</span><span class="kw">new</span></div><pre class="snippet"><span class="k">class</span> <span class="f">Point</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, x, y):
+        <span class="k">self</span>.x = x
+        <span class="k">self</span>.y = y
+p = <span class="f">Point</span>(<span class="n">3</span>, <span class="n">4</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>O construtor garante que todo objeto nasce em estado válido.</span></div></div></div>
+
+<div class="tc" id="tc-p07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Herança</span><span class="tc-code">P·07</span></div><div class="tc-def"><em>"Uma classe estende outra, reaproveitando atributos e métodos."</em><br>Subclasse herda da superclasse. Modela "é um(a)": Cachorro é um Animal. Use com moderação — composição costuma ser melhor.</div><div class="kws"><span class="kw">extends</span><span class="kw">super</span><span class="kw">parent</span></div><pre class="snippet"><span class="k">class</span> <span class="f">Animal</span>:
+    <span class="k">def</span> <span class="f">speak</span>(<span class="k">self</span>): <span class="k">return</span> <span class="s">"..."</span>
+<span class="k">class</span> <span class="f">Dog</span>(Animal):
+    <span class="k">def</span> <span class="f">speak</span>(<span class="k">self</span>): <span class="k">return</span> <span class="s">"woof"</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Hierarquia profunda vira pesadelo. Prefira composição quando não for "é-um" claro.</span></div></div></div>
+
+<div class="tc" id="tc-p08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Polimorfismo</span><span class="tc-code">P·08</span></div><div class="tc-def"><em>"Mesma interface, comportamento diferente por classe."</em><br>Chama <code>obj.speak()</code> sem saber se é Dog, Cat ou Cow — cada um responde do seu jeito.</div><div class="kws"><span class="kw">override</span><span class="kw">duck typing</span></div><pre class="snippet"><span class="k">for</span> a <span class="k">in</span> [<span class="f">Dog</span>(), <span class="f">Cat</span>()]:
+    <span class="f">print</span>(a.speak())   <span class="c"># woof, meow</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Polimorfismo deixa código aberto a extensão sem precisar mudá-lo.</span></div></div></div>
+
+<div class="tc" id="tc-p09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Encapsulamento</span><span class="tc-code">P·09</span></div><div class="tc-def"><em>"Esconder o estado interno por trás de uma interface controlada."</em><br>Quem usa só chama métodos públicos; o estado é privado. Em Python, convenção: <code>_attr</code> = privado.</div><div class="kws"><span class="kw">private</span><span class="kw">public</span><span class="kw">getter</span></div><pre class="snippet"><span class="k">class</span> <span class="f">Account</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>):
+        <span class="k">self</span>._balance = <span class="n">0</span>   <span class="c"># privado</span>
+    <span class="k">def</span> <span class="f">deposit</span>(<span class="k">self</span>, v):
+        <span class="k">self</span>._balance += v</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Esconder estado libera você pra mudar implementação sem quebrar usuários.</span></div></div></div>
+
+<div class="tc" id="tc-p10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Interface</span><span class="tc-code">P·10</span></div><div class="tc-def"><em>"Contrato listando métodos que uma classe se compromete a implementar."</em><br>Java tem <code>interface</code>. Python tem ABCs e duck typing. Define "como conversar", não "como funciona".</div><div class="kws"><span class="kw">interface</span><span class="kw">contract</span><span class="kw">abstract</span></div><pre class="snippet"><span class="c">// Java</span>
+<span class="k">interface</span> <span class="f">Drawable</span> {
+    <span class="k">void</span> <span class="f">draw</span>();
+}</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Programe pra interface, não pra implementação. Princípio que envelhece bem.</span></div></div></div>
+
+<div class="tc" id="tc-p11"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Abstração</span><span class="tc-code">P·11</span></div><div class="tc-def"><em>"Focar no essencial e esconder a complexidade do resto."</em><br>Você dirige sem saber como o motor funciona. Boas abstrações vendem ideias claras sem revelar detalhes.</div><div class="kws"><span class="kw">abstract</span><span class="kw">layer</span></div><pre class="snippet"><span class="c"># Abstração: você não precisa saber</span>
+<span class="c"># como sorted funciona internamente</span>
+<span class="f">sorted</span>([<span class="n">3</span>, <span class="n">1</span>, <span class="n">2</span>])     <span class="c"># [1, 2, 3]</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Abstração ruim vaza. Boa abstração some — você nem percebe que existe.</span></div></div></div>
+
+<div class="tc" id="tc-p12"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">this / self</span><span class="tc-code">P·12</span></div><div class="tc-def"><em>"Referência ao objeto atual dentro de um método."</em><br>Python passa <code>self</code> explícito; JS/Java usam <code>this</code> implícito. Permite método acessar e modificar o próprio objeto.</div><div class="kws"><span class="kw">self</span><span class="kw">this</span><span class="kw">instance</span></div><pre class="snippet"><span class="k">class</span> <span class="f">Counter</span>:
+    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>):
+        <span class="k">self</span>.value = <span class="n">0</span>
+    <span class="k">def</span> <span class="f">inc</span>(<span class="k">self</span>):
+        <span class="k">self</span>.value += <span class="n">1</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Esquecer <code>self</code> em Python é um dos erros mais comuns de iniciante.</span></div></div></div>
+</div>
+
+<!-- BLOCK 8 · ERROS & DEBUG -->
+<div class="pg" id="pg-b8">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">8</div><div class="bdiv-code">Bloco 8 · Erros &amp; Debug</div><h2 class="bdiv-title">Quando as <em>Coisas Quebram</em></h2><div class="bdiv-intro">Errar é parte do trabalho. Saber tratar, investigar e prever falhas separa código de brincadeira de código de produção.</div><div class="bdiv-pills"><span class="pill">Exception</span><span class="pill">Try</span><span class="pill">Stack Trace</span><span class="pill">Linter</span><span class="pill">Edge Case</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · E·01 → E·10</span><span class="bdiv-motto">investiga <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-e01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Exceção</span><span class="tc-code">E·01</span></div><div class="tc-def"><em>"Erro inesperado que interrompe a execução normal do programa."</em><br>Divisão por zero, arquivo inexistente, lista vazia. Se não for capturada, o programa morre.</div><div class="kws"><span class="kw">exception</span><span class="kw">error</span><span class="kw">raise</span></div><pre class="snippet"><span class="f">int</span>(<span class="s">"abc"</span>)
+<span class="c"># ValueError: invalid literal for int()</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Exceção é informação, não fracasso. Ela conta o que foi inesperado.</span></div></div></div>
+
+<div class="tc" id="tc-e02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Try / Catch</span><span class="tc-code">E·02</span></div><div class="tc-def"><em>"Bloco pra tentar uma operação e reagir se der erro."</em><br>Python: <code>try/except</code>. JS/Java: <code>try/catch</code>. Sempre capture exceções específicas, nunca tudo.</div><div class="kws"><span class="kw">try</span><span class="kw">except</span><span class="kw">finally</span></div><pre class="snippet"><span class="k">try</span>:
+    age = <span class="f">int</span>(<span class="f">input</span>())
+<span class="k">except</span> ValueError:
+    <span class="f">print</span>(<span class="s">"número inválido"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span><code>except Exception</code> nu engole bugs. Capture só o que você espera.</span></div></div></div>
+
+<div class="tc" id="tc-e03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Throw / Raise</span><span class="tc-code">E·03</span></div><div class="tc-def"><em>"Disparar uma exceção manualmente do seu código."</em><br>Útil pra sinalizar erro de uso, validação falha, condição impossível. Não silencie — fale alto e claro.</div><div class="kws"><span class="kw">raise</span><span class="kw">throw</span></div><pre class="snippet"><span class="k">def</span> <span class="f">div</span>(a, b):
+    <span class="k">if</span> b == <span class="n">0</span>:
+        <span class="k">raise</span> ValueError(<span class="s">"b não pode ser 0"</span>)
+    <span class="k">return</span> a / b</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Falha cedo e barulhento é melhor que dado errado silencioso.</span></div></div></div>
+
+<div class="tc" id="tc-e04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Stack Trace</span><span class="tc-code">E·04</span></div><div class="tc-def"><em>"Lista de funções que estavam ativas no momento do erro."</em><br>Leia de baixo pra cima — a última linha é geralmente onde o erro ocorreu. Pista mais valiosa em qualquer bug.</div><div class="kws"><span class="kw">traceback</span><span class="kw">callstack</span></div><pre class="snippet">File <span class="s">"app.py"</span>, line <span class="n">10</span>
+  total = soma(a, b)
+File <span class="s">"app.py"</span>, line <span class="n">5</span>
+  <span class="k">return</span> a + b
+TypeError: ...</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Não ignore stack trace — leia. Ela conta exatamente onde e como o problema apareceu.</span></div></div></div>
+
+<div class="tc" id="tc-e05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Breakpoint</span><span class="tc-code">E·05</span></div><div class="tc-def"><em>"Marca em uma linha que pausa a execução pra você inspecionar."</em><br>Coloque na IDE ou via <code>breakpoint()</code> em Python 3.7+. Inspecione variáveis, ande passo a passo.</div><div class="kws"><span class="kw">break</span><span class="kw">step</span><span class="kw">pause</span></div><pre class="snippet"><span class="k">def</span> <span class="f">calc</span>(x):
+    <span class="f">breakpoint</span>()   <span class="c"># pausa aqui</span>
+    <span class="k">return</span> x * <span class="n">2</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Breakpoint vence print quando você não sabe onde o estado virou estranho.</span></div></div></div>
+
+<div class="tc" id="tc-e06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">print / console.log</span><span class="tc-code">E·06</span></div><div class="tc-def"><em>"Debug rápido por inspeção visual — imprime valor pra ver o que está acontecendo."</em><br>Não é elegante, mas funciona. Aprenda a usar e a remover antes de commit.</div><div class="kws"><span class="kw">print</span><span class="kw">log</span><span class="kw">debug</span></div><pre class="snippet"><span class="k">def</span> <span class="f">somar</span>(a, b):
+    <span class="f">print</span>(<span class="s">f"a={a}, b={b}"</span>)
+    <span class="k">return</span> a + b</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Print debugging não é vergonha. Funciona. Só não esqueça de limpar depois.</span></div></div></div>
+
+<div class="tc" id="tc-e07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Linter</span><span class="tc-code">E·07</span></div><div class="tc-def"><em>"Ferramenta que analisa o código estaticamente e aponta erros e cheiros."</em><br>ESLint, Pylint, Ruff, Flake8. Pega bugs antes de rodar e padroniza estilo. Integre na IDE.</div><div class="kws"><span class="kw">eslint</span><span class="kw">pylint</span><span class="kw">ruff</span></div><pre class="snippet"><span class="c"># Roda linter na linha de comando</span>
+ruff check .
+eslint src/</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Linter é seu primeiro revisor de código. Use sempre, mesmo em projeto solo.</span></div></div></div>
+
+<div class="tc" id="tc-e08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Debugger</span><span class="tc-code">E·08</span></div><div class="tc-def"><em>"Ferramenta interativa pra andar pelo código linha por linha em execução."</em><br>Pause, inspecione variáveis, mude valores, pule. Toda IDE séria tem um. Aprender economiza horas.</div><div class="kws"><span class="kw">step</span><span class="kw">watch</span><span class="kw">pdb</span></div><pre class="snippet"><span class="c"># Python</span>
+<span class="k">import</span> pdb; pdb.set_trace()
+<span class="c"># Comandos: n (next), s (step), c (cont)</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Print mostra o passado; debugger mostra o presente. Ele é mais poderoso.</span></div></div></div>
+
+<div class="tc" id="tc-e09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Edge Case</span><span class="tc-code">E·09</span></div><div class="tc-def"><em>"Entrada incomum que quebra código que funciona pro caso normal."</em><br>Lista vazia, número negativo, string com emoji, divisão por zero, valor null. Onde os bugs adoram morar.</div><div class="kws"><span class="kw">corner case</span><span class="kw">boundary</span></div><pre class="snippet"><span class="k">def</span> <span class="f">media</span>(lista):
+    <span class="k">return</span> <span class="f">sum</span>(lista) / <span class="f">len</span>(lista)
+<span class="f">media</span>([])   <span class="c"># ZeroDivisionError!</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>"E se for vazio? E se for negativo? E se for null?" — repita até esgotar.</span></div></div></div>
+
+<div class="tc" id="tc-e10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Erro de Sintaxe vs Runtime</span><span class="tc-code">E·10</span></div><div class="tc-def"><em>"Dois momentos diferentes em que erros aparecem."</em><br>Sintaxe: parser pegou antes de rodar. Runtime: só apareceu durante a execução. Cada um se previne diferente.</div><div class="kws"><span class="kw">parse</span><span class="kw">runtime</span><span class="kw">SyntaxError</span></div><pre class="snippet"><span class="c"># Sintaxe (programa nem inicia)</span>
+<span class="k">if</span> x &gt; <span class="n">0</span>
+    <span class="f">print</span>(x)        <span class="c"># falta :</span>
+
+<span class="c"># Runtime (só ao rodar)</span>
+<span class="f">int</span>(<span class="s">"abc"</span>)         <span class="c"># ValueError</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Sintaxe morre cedo (bom). Runtime morre tarde — testes existem pra antecipar.</span></div></div></div>
+</div>
+
+<!-- BLOCK 9 · BOAS PRÁTICAS -->
+<div class="pg" id="pg-b9">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">9</div><div class="bdiv-code">Bloco 9 · Boas Práticas</div><h2 class="bdiv-title">Código que <em>Dura</em></h2><div class="bdiv-intro">O que separa profissional de amador não é só fazer funcionar — é fazer durar. Estes hábitos transformam código descartável em código que sobrevive a você.</div><div class="bdiv-pills"><span class="pill">Naming</span><span class="pill">DRY</span><span class="pill">SOLID</span><span class="pill">Refactor</span><span class="pill">Testes</span><span class="pill">Git</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · B·01 → B·10</span><span class="bdiv-motto">com cuidado <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-b01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Convenções de Nomes</span><span class="tc-code">B·01</span></div><div class="tc-def"><em>"Escolha nomes que se explicam sozinhos — ninguém deveria precisar de comentário pra entender."</em><br>snake_case (Python), camelCase (JS/Java), PascalCase (classes), UPPER (constantes). Siga a convenção da linguagem.</div><div class="kws"><span class="kw">snake_case</span><span class="kw">camelCase</span></div><pre class="snippet"><span class="c"># Ruim</span>
+n = <span class="f">getN</span>(d)
+<span class="c"># Bom</span>
+user_count = <span class="f">get_user_count</span>(database)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Tempo gasto escolhendo nome bom é tempo poupado lendo código depois.</span></div></div></div>
+
+<div class="tc" id="tc-b02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Indentação</span><span class="tc-code">B·02</span></div><div class="tc-def"><em>"Estrutura visual do código — mostra o que pertence a quem."</em><br>Em Python, é obrigatória (parte da sintaxe). Em outras, é convenção forte. Use sempre 2 ou 4 espaços consistentes.</div><div class="kws"><span class="kw">indent</span><span class="kw">2 spaces</span><span class="kw">4 spaces</span></div><pre class="snippet"><span class="k">def</span> <span class="f">f</span>(x):
+    <span class="k">if</span> x &gt; <span class="n">0</span>:
+        <span class="f">print</span>(<span class="s">"pos"</span>)
+    <span class="k">else</span>:
+        <span class="f">print</span>(<span class="s">"não-pos"</span>)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Indentação inconsistente é hostil ao leitor. Use formatter (Prettier, Black, gofmt).</span></div></div></div>
+
+<div class="tc" id="tc-b03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Comentários</span><span class="tc-code">B·03</span></div><div class="tc-def"><em>"Explique o PORQUÊ, não o O QUÊ — o código já mostra o quê."</em><br>Bom comentário explica decisão, contexto, gotcha. Ruim só repete o nome da função. Código autoexplicativo é melhor.</div><div class="kws"><span class="kw">#</span><span class="kw">//</span><span class="kw">why</span></div><pre class="snippet"><span class="c"># Ruim: redundante</span>
+x += <span class="n">1</span>   <span class="c"># incrementa x</span>
+
+<span class="c"># Bom: explica decisão</span>
+retry_count = <span class="n">3</span>   <span class="c"># API instável, 3 evita falsos negativos</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Comentário só dura se for útil. Se for óbvio, apague. Nome bom > comentário.</span></div></div></div>
+
+<div class="tc" id="tc-b04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">DRY</span><span class="tc-code">B·04</span></div><div class="tc-def"><em>"Don't Repeat Yourself — cada fato vive em um único lugar autoritativo."</em><br>Lógica duplicada é dívida que cresce. Mudou em um lugar, esqueceu no outro = bug.</div><div class="kws"><span class="kw">DRY</span><span class="kw">extract</span><span class="kw">refactor</span></div><pre class="snippet"><span class="c"># Ruim: duplicado</span>
+<span class="f">print</span>(price * <span class="n">1.1</span>)
+<span class="f">print</span>(total * <span class="n">1.1</span>)
+<span class="c"># Bom: regra em um lugar</span>
+<span class="k">def</span> <span class="f">with_tax</span>(v): <span class="k">return</span> v * <span class="n">1.1</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>DRY é regra, não dogma. Repetição superficial às vezes é mais clara que abstração ruim.</span></div></div></div>
+
+<div class="tc" id="tc-b05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">SOLID</span><span class="tc-code">B·05</span></div><div class="tc-def"><em>"Cinco princípios de design pra POO sustentável."</em><br>S Single Responsibility · O Open/Closed · L Liskov · I Interface Segregation · D Dependency Inversion.</div><div class="kws"><span class="kw">SRP</span><span class="kw">OCP</span><span class="kw">LSP</span></div><pre class="snippet"><span class="c"># SRP: cada classe, uma razão pra mudar</span>
+<span class="k">class</span> <span class="f">User</span>: ...           <span class="c"># dados</span>
+<span class="k">class</span> <span class="f">UserRepository</span>: ... <span class="c"># persiste</span>
+<span class="k">class</span> <span class="f">UserEmailer</span>: ...    <span class="c"># envia email</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>SOLID é guia, não bíblia. Aprenda os princípios, mas aplique com julgamento.</span></div></div></div>
+
+<div class="tc" id="tc-b06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Refatorar</span><span class="tc-code">B·06</span></div><div class="tc-def"><em>"Melhorar a estrutura do código sem mudar o que ele faz."</em><br>Renomear, extrair função, simplificar condição. Sempre com testes pra garantir que nada quebrou.</div><div class="kws"><span class="kw">refactor</span><span class="kw">cleanup</span><span class="kw">rename</span></div><pre class="snippet"><span class="c"># Antes</span>
+<span class="k">if</span> u <span class="k">and</span> u.age &gt; <span class="n">18</span> <span class="k">and</span> u.active:
+<span class="c"># Depois (extraído)</span>
+<span class="k">if</span> <span class="f">can_purchase</span>(u):</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Refatore quando entender — não enquanto luta pra entender. Refatorar no escuro vira ruína.</span></div></div></div>
+
+<div class="tc" id="tc-b07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Code Review</span><span class="tc-code">B·07</span></div><div class="tc-def"><em>"Colegas leem o código uns dos outros antes de virar produção."</em><br>Pega bugs, espalha conhecimento, mantém padrão. Não é julgamento — é trabalho em equipe.</div><div class="kws"><span class="kw">PR</span><span class="kw">review</span><span class="kw">feedback</span></div><pre class="snippet"><span class="c"># Fluxo típico</span>
+git checkout -b feat/login
+<span class="c"># ... commits ...</span>
+git push origin feat/login
+<span class="c"># Abre Pull Request</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Bom reviewer comenta o porquê, não só o "muda isso". Aprenda com o feedback.</span></div></div></div>
+
+<div class="tc" id="tc-b08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Controle de Versão</span><span class="tc-code">B·08</span></div><div class="tc-def"><em>"Sistema que registra cada mudança no código — Git é o padrão."</em><br>Commits, branches, merges, history. Permite voltar atrás, colaborar e experimentar sem medo.</div><div class="kws"><span class="kw">git</span><span class="kw">commit</span><span class="kw">branch</span></div><pre class="snippet">git status
+git add .
+git commit -m <span class="s">"add login"</span>
+git push</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Commits pequenos e frequentes contam uma história. Commits grandes contam confusão.</span></div></div></div>
+
+<div class="tc" id="tc-b09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Testes</span><span class="tc-code">B·09</span></div><div class="tc-def"><em>"Verificações automatizadas que confirmam que o código faz o que deveria."</em><br>Unit (função isolada), integration (peças juntas), e2e (fluxo completo). Testes são rede de proteção.</div><div class="kws"><span class="kw">unit</span><span class="kw">pytest</span><span class="kw">assert</span></div><pre class="snippet"><span class="k">def</span> <span class="f">test_soma</span>():
+    <span class="k">assert</span> <span class="f">soma</span>(<span class="n">2</span>, <span class="n">3</span>) == <span class="n">5</span>
+    <span class="k">assert</span> <span class="f">soma</span>(-<span class="n">1</span>, <span class="n">1</span>) == <span class="n">0</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Sem testes, refatorar é roleta-russa. Com testes, você muda código com confiança.</span></div></div></div>
+
+<div class="tc" id="tc-b10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Documentação</span><span class="tc-code">B·10</span></div><div class="tc-def"><em>"Escrever pra quem vai ler depois — inclusive você daqui a seis meses."</em><br>README, docstrings, ADRs, exemplos de uso. Documentação ruim é pior que nenhuma; mantenha viva.</div><div class="kws"><span class="kw">README</span><span class="kw">docstring</span><span class="kw">docs</span></div><pre class="snippet"><span class="k">def</span> <span class="f">calc_iva</span>(price):
+    <span class="s">"""Aplica 21% de IVA ao preço.
+
+    Args:
+        price: valor em euros, sem IVA.
+    Returns:
+        valor com IVA.
+    """</span>
+    <span class="k">return</span> price * <span class="n">1.21</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Doc desatualizada engana. Se não dá pra manter, é melhor não ter.</span></div></div></div>
+</div>
+
+<!-- GLOSSARY -->
+<div class="pg" id="pg-gloss">
+  <div class="ph">
+    <div class="bc">cherry code <span>›</span> glossário</div>
+    <div class="pt">Glossário</div>
+    <div class="ps">98 termos em ordem alfabética com definição curta.</div>
+  </div>
+  <div class="gl-let">A</div>
+<div class="gl-row"><span class="gl-term">Abstração</span><span class="gl-def">Focar no essencial e esconder a complexidade restante.</span></div>
+<div class="gl-row"><span class="gl-term">Argumento</span><span class="gl-def">Valor concreto passado pra função no momento da chamada.</span></div>
+<div class="gl-row"><span class="gl-term">Argumento Padrão</span><span class="gl-def">Valor pré-definido quando o chamador não passa nada.</span></div>
+<div class="gl-row"><span class="gl-term">Aritméticos</span><span class="gl-def">Operadores + − × ÷ que fazem matemática sobre números.</span></div>
+<div class="gl-row"><span class="gl-term">Array</span><span class="gl-def">Sequência de valores de tamanho fixo acessada por índice.</span></div>
+<div class="gl-row"><span class="gl-term">Árvore</span><span class="gl-def">Estrutura hierárquica com raiz e filhos, sem ciclos.</span></div>
+<div class="gl-row"><span class="gl-term">Atribuição</span><span class="gl-def">Operador = que guarda um valor em uma variável.</span></div>
+<div class="gl-row"><span class="gl-term">Atributo</span><span class="gl-def">Variável que pertence a um objeto e guarda seu estado.</span></div>
+
+<div class="gl-let">B</div>
+<div class="gl-row"><span class="gl-term">Big O</span><span class="gl-def">Notação que descreve como um algoritmo escala com a entrada.</span></div>
+<div class="gl-row"><span class="gl-term">Booleano</span><span class="gl-def">Tipo com apenas dois valores: True ou False.</span></div>
+<div class="gl-row"><span class="gl-term">Break</span><span class="gl-def">Comando que sai do loop imediatamente.</span></div>
+<div class="gl-row"><span class="gl-term">Breakpoint</span><span class="gl-def">Marca que pausa a execução pra você inspecionar.</span></div>
+<div class="gl-row"><span class="gl-term">Bug</span><span class="gl-def">Quando o código não faz o que você queria.</span></div>
+
+<div class="gl-let">C</div>
+<div class="gl-row"><span class="gl-term">Casting</span><span class="gl-def">Converter um valor de um tipo pra outro.</span></div>
+<div class="gl-row"><span class="gl-term">Classe</span><span class="gl-def">Molde que descreve forma e comportamento de objetos.</span></div>
+<div class="gl-row"><span class="gl-term">Closure</span><span class="gl-def">Função que lembra das variáveis do escopo onde foi criada.</span></div>
+<div class="gl-row"><span class="gl-term">Code Review</span><span class="gl-def">Colegas lendo o código uns dos outros antes do merge.</span></div>
+<div class="gl-row"><span class="gl-term">Código</span><span class="gl-def">Texto de um programa em uma linguagem com regras estritas.</span></div>
+<div class="gl-row"><span class="gl-term">Comentário</span><span class="gl-def">Nota no código que explica o porquê pra humanos.</span></div>
+<div class="gl-row"><span class="gl-term">Comparação</span><span class="gl-def">Operadores == != &gt; &lt; que produzem booleanos.</span></div>
+<div class="gl-row"><span class="gl-term">Compilador</span><span class="gl-def">Traduz código-fonte em código de máquina antes de rodar.</span></div>
+<div class="gl-row"><span class="gl-term">Concatenação</span><span class="gl-def">Juntar strings pra formar uma maior.</span></div>
+<div class="gl-row"><span class="gl-term">Constante</span><span class="gl-def">Variável que não muda depois de definida.</span></div>
+<div class="gl-row"><span class="gl-term">Construtor</span><span class="gl-def">Método especial chamado na criação do objeto.</span></div>
+<div class="gl-row"><span class="gl-term">Continue</span><span class="gl-def">Pula pro próximo ciclo do loop.</span></div>
+
+<div class="gl-let">D</div>
+<div class="gl-row"><span class="gl-term">Debug</span><span class="gl-def">Processo de achar e corrigir bugs.</span></div>
+<div class="gl-row"><span class="gl-term">Debugger</span><span class="gl-def">Ferramenta interativa pra andar pelo código linha a linha.</span></div>
+<div class="gl-row"><span class="gl-term">Dicionário</span><span class="gl-def">Coleção de pares chave-valor com busca rápida.</span></div>
+<div class="gl-row"><span class="gl-term">Documentação</span><span class="gl-def">Escrita pra quem vai ler ou usar o código depois.</span></div>
+<div class="gl-row"><span class="gl-term">DRY</span><span class="gl-def">Don't Repeat Yourself — cada fato em um único lugar.</span></div>
+
+<div class="gl-let">E</div>
+<div class="gl-row"><span class="gl-term">Edge Case</span><span class="gl-def">Entrada incomum que quebra código que funcionava no caso normal.</span></div>
+<div class="gl-row"><span class="gl-term">Efeito Colateral</span><span class="gl-def">Mudança que uma função faz além de retornar valor.</span></div>
+<div class="gl-row"><span class="gl-term">Else / Elif</span><span class="gl-def">Caminhos alternativos quando o if é falso.</span></div>
+<div class="gl-row"><span class="gl-term">Encapsulamento</span><span class="gl-def">Esconder estado interno por trás de uma interface controlada.</span></div>
+<div class="gl-row"><span class="gl-term">Escopo</span><span class="gl-def">Onde uma variável existe e pode ser acessada.</span></div>
+<div class="gl-row"><span class="gl-term">Exceção</span><span class="gl-def">Erro inesperado que interrompe a execução normal.</span></div>
+<div class="gl-row"><span class="gl-term">Expressão</span><span class="gl-def">Trecho de código que produz um valor.</span></div>
+
+<div class="gl-let">F</div>
+<div class="gl-row"><span class="gl-term">Fila (Queue)</span><span class="gl-def">FIFO — o primeiro que entra é o primeiro que sai.</span></div>
+<div class="gl-row"><span class="gl-term">Float</span><span class="gl-def">Número com casas decimais.</span></div>
+<div class="gl-row"><span class="gl-term">For</span><span class="gl-def">Loop pra repetir um número conhecido de vezes.</span></div>
+<div class="gl-row"><span class="gl-term">For-Each</span><span class="gl-def">Itera direto sobre cada item de uma coleção.</span></div>
+<div class="gl-row"><span class="gl-term">Função</span><span class="gl-def">Bloco de código com nome, reutilizável.</span></div>
+<div class="gl-row"><span class="gl-term">Função Pura</span><span class="gl-def">Mesma entrada sempre dá mesma saída, sem efeitos colaterais.</span></div>
+
+<div class="gl-let">G</div>
+<div class="gl-row"><span class="gl-term">Git</span><span class="gl-def">Sistema de controle de versão padrão da indústria.</span></div>
+<div class="gl-row"><span class="gl-term">Grafo</span><span class="gl-def">Nós conectados por arestas, representando relações arbitrárias.</span></div>
+
+<div class="gl-let">H</div>
+<div class="gl-row"><span class="gl-term">Hash Table</span><span class="gl-def">Estrutura que mapeia chaves em slots via função de hash.</span></div>
+<div class="gl-row"><span class="gl-term">Herança</span><span class="gl-def">Classe estende outra reaproveitando atributos e métodos.</span></div>
+<div class="gl-row"><span class="gl-term">Higher-Order</span><span class="gl-def">Função que recebe ou retorna outras funções.</span></div>
+
+<div class="gl-let">I</div>
+<div class="gl-row"><span class="gl-term">IDE</span><span class="gl-def">Ambiente integrado pra escrever, rodar e debugar código.</span></div>
+<div class="gl-row"><span class="gl-term">If</span><span class="gl-def">Executa um bloco só quando a condição é verdadeira.</span></div>
+<div class="gl-row"><span class="gl-term">Incremento</span><span class="gl-def">Somar 1 a uma variável (i++ ou i+=1).</span></div>
+<div class="gl-row"><span class="gl-term">Indentação</span><span class="gl-def">Espaços à esquerda que mostram o nível de aninhamento.</span></div>
+<div class="gl-row"><span class="gl-term">Instância</span><span class="gl-def">Objeto específico criado a partir de uma classe.</span></div>
+<div class="gl-row"><span class="gl-term">Inteiro</span><span class="gl-def">Número sem decimais — positivo, negativo ou zero.</span></div>
+<div class="gl-row"><span class="gl-term">Interface</span><span class="gl-def">Contrato listando métodos que uma classe se compromete a ter.</span></div>
+<div class="gl-row"><span class="gl-term">Interpretador</span><span class="gl-def">Lê e executa código linha por linha em tempo real.</span></div>
+
+<div class="gl-let">L</div>
+<div class="gl-row"><span class="gl-term">Lambda</span><span class="gl-def">Função anônima curta, geralmente usada inline.</span></div>
+<div class="gl-row"><span class="gl-term">Linter</span><span class="gl-def">Ferramenta que aponta erros e cheiros antes do código rodar.</span></div>
+<div class="gl-row"><span class="gl-term">Lista</span><span class="gl-def">Array dinâmico que cresce e encolhe.</span></div>
+<div class="gl-row"><span class="gl-term">Lista Encadeada</span><span class="gl-def">Sequência de nós onde cada um aponta pro próximo.</span></div>
+<div class="gl-row"><span class="gl-term">Loops Aninhados</span><span class="gl-def">Loop dentro de outro loop — complexidade explode rápido.</span></div>
+<div class="gl-row"><span class="gl-term">Lógicos</span><span class="gl-def">Operadores AND, OR, NOT que combinam booleanos.</span></div>
+
+<div class="gl-let">M</div>
+<div class="gl-row"><span class="gl-term">Método</span><span class="gl-def">Função ligada a uma classe que opera sobre o objeto.</span></div>
+<div class="gl-row"><span class="gl-term">Módulo</span><span class="gl-def">Operador % que dá o resto de uma divisão.</span></div>
+
+<div class="gl-let">N</div>
+<div class="gl-row"><span class="gl-term">Nomes (Convenções)</span><span class="gl-def">Padrões pra escolher identificadores que se explicam sozinhos.</span></div>
+<div class="gl-row"><span class="gl-term">Null / None</span><span class="gl-def">Representação da ausência de valor.</span></div>
+
+<div class="gl-let">O</div>
+<div class="gl-row"><span class="gl-term">Objeto</span><span class="gl-def">Pacote concreto de estado e comportamento de uma classe.</span></div>
+
+<div class="gl-let">P</div>
+<div class="gl-row"><span class="gl-term">Paradigma</span><span class="gl-def">Estilo de programar — imperativo, OOP, funcional...</span></div>
+<div class="gl-row"><span class="gl-term">Parâmetro</span><span class="gl-def">Variável de entrada listada na definição da função.</span></div>
+<div class="gl-row"><span class="gl-term">Pilha (Stack)</span><span class="gl-def">LIFO — o último que entra é o primeiro que sai.</span></div>
+<div class="gl-row"><span class="gl-term">Polimorfismo</span><span class="gl-def">Mesma interface, comportamento diferente por classe.</span></div>
+<div class="gl-row"><span class="gl-term">Precedência</span><span class="gl-def">Ordem em que operadores são avaliados em uma expressão.</span></div>
+<div class="gl-row"><span class="gl-term">Print / Log</span><span class="gl-def">Debug rápido por inspeção visual do estado.</span></div>
+<div class="gl-row"><span class="gl-term">Programação</span><span class="gl-def">Escrever instruções precisas pra um computador executar.</span></div>
+
+<div class="gl-let">R</div>
+<div class="gl-row"><span class="gl-term">Raise / Throw</span><span class="gl-def">Disparar uma exceção manualmente do seu código.</span></div>
+<div class="gl-row"><span class="gl-term">Recursão</span><span class="gl-def">Função que chama ela mesma, com caso base pra parar.</span></div>
+<div class="gl-row"><span class="gl-term">Refatorar</span><span class="gl-def">Melhorar a estrutura sem mudar o comportamento.</span></div>
+<div class="gl-row"><span class="gl-term">Retorno</span><span class="gl-def">Valor que a função devolve pra quem a chamou.</span></div>
+<div class="gl-row"><span class="gl-term">Runtime</span><span class="gl-def">Momento em que o código está rodando de verdade.</span></div>
+
+<div class="gl-let">S</div>
+<div class="gl-row"><span class="gl-term">Self / This</span><span class="gl-def">Referência ao objeto atual dentro de um método.</span></div>
+<div class="gl-row"><span class="gl-term">Set</span><span class="gl-def">Coleção desordenada de itens únicos.</span></div>
+<div class="gl-row"><span class="gl-term">Sintaxe</span><span class="gl-def">Gramática estrita de uma linguagem de programação.</span></div>
+<div class="gl-row"><span class="gl-term">SOLID</span><span class="gl-def">Cinco princípios de design pra POO sustentável.</span></div>
+<div class="gl-row"><span class="gl-term">Stack Trace</span><span class="gl-def">Lista de funções ativas no momento de um erro.</span></div>
+<div class="gl-row"><span class="gl-term">String</span><span class="gl-def">Texto — sequência de caracteres entre aspas.</span></div>
+<div class="gl-row"><span class="gl-term">Switch</span><span class="gl-def">Ramificação múltipla pra um único valor.</span></div>
+
+<div class="gl-let">T</div>
+<div class="gl-row"><span class="gl-term">Terminal</span><span class="gl-def">Interface de texto pra controlar o computador via comandos.</span></div>
+<div class="gl-row"><span class="gl-term">Ternário</span><span class="gl-def">If-else em uma linha que retorna um de dois valores.</span></div>
+<div class="gl-row"><span class="gl-term">Testes</span><span class="gl-def">Verificações automatizadas que confirmam o comportamento.</span></div>
+<div class="gl-row"><span class="gl-term">Tipo</span><span class="gl-def">Categoria de um valor — int, str, bool, list...</span></div>
+<div class="gl-row"><span class="gl-term">Try / Catch</span><span class="gl-def">Bloco pra tentar algo e reagir se der erro.</span></div>
+<div class="gl-row"><span class="gl-term">Tupla</span><span class="gl-def">Sequência ordenada e imutável.</span></div>
+
+<div class="gl-let">V</div>
+<div class="gl-row"><span class="gl-term">Variável</span><span class="gl-def">Nome que guarda um valor pra usar depois.</span></div>
+<div class="gl-row"><span class="gl-term">Versão (Git)</span><span class="gl-def">Sistema que registra cada mudança no código.</span></div>
+
+<div class="gl-let">W</div>
+<div class="gl-row"><span class="gl-term">While</span><span class="gl-def">Repete enquanto a condição for verdadeira.</span></div>
+</div>
+
+</main>
+
+<!-- GLOSSARY MODAL -->
+<div class="gmod" id="gmod" onclick="if(event.target===this)gClose()">
+  <div class="gmod-box">
+    <div class="gmod-bar"></div>
+    <div class="gmod-body">
+      <div class="gmod-tag">Glossário</div>
+      <div class="gmod-title" id="gmodTitle"></div>
+      <div class="gmod-def" id="gmodDef"></div>
+    </div>
+    <div class="gmod-act">
+      <button class="gmod-btn gmb-close" onclick="gClose()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH MODAL -->
+<div class="smod" id="smod" onclick="if(event.target===this)closeSearch()">
+  <div class="smod-box">
+    <div class="smod-bar"></div>
+    <div class="smod-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="color:var(--p400);flex-shrink:0"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="smod-input" id="smodInput" type="text" placeholder="Buscar termo..." oninput="doSearch()">
+      <button class="gmod-btn gmb-close" onclick="closeSearch()" style="font-size:.55rem">Esc</button>
+    </div>
+    <div class="smod-list" id="smodList"></div>
+  </div>
+</div>
+
+<!-- REVIEW MODE -->
+<div class="rmod" id="rmod">
+  <div class="rmod-top">
+    <button class="rmod-close" onclick="closeReview()" title="Sair (Esc)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+  </div>
+  <div class="rmod-counter" id="rmodCounter">1 / 98</div>
+  <div class="flip-wrap"><div class="flip-card" id="flipCard" onclick="flipCard()">
+    <div class="flip-face flip-front">
+      <div class="flip-face-bar"></div>
+      <div class="flip-code" id="flipCode">F·01</div>
+      <h2 class="flip-title" id="flipTitle">Título</h2>
+      <div class="flip-sub" id="flipSub">subtítulo</div>
+      <div class="flip-hint">clique pra revelar</div>
+    </div>
+    <div class="flip-face flip-back">
+      <div class="flip-face-bar"></div>
+      <div id="flipBack" style="font-family:'DM Sans',sans-serif"></div>
+    </div>
+  </div></div>
+  <div class="rmod-controls">
+    <button class="rmod-btn rmod-btn-prev" onclick="reviewPrev()">← Anterior</button>
+    <button class="rmod-btn rmod-btn-rev" onclick="flipCard()" id="rmodRev">Revelar</button>
+    <button class="rmod-btn rmod-btn-next" onclick="reviewNext()">Próximo →</button>
+  </div>
+</div>
+
+<script>
+// ============ NAV ============
+function toggleDrawer(){
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('on');
+  document.querySelector('.hbtn').classList.toggle('open');
+}
+function go(id, navItem){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  const target = document.getElementById('pg-'+id);
+  if(target){
+    target.classList.add('on');
+    if(window.innerWidth >= 900){window.scrollTo(0,0);}
+    else{window.scrollTo(0,0); if(document.getElementById('drawer').classList.contains('open'))toggleDrawer();}
+  }
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  if(navItem)navItem.classList.add('active');
+  else{
+    const ni = document.querySelector('.ni[onclick*="go(\''+id+'\'"]');
+    if(ni)ni.classList.add('active');
+  }
+  // persist last viewed (only block pages or terms)
+  if(id.startsWith('b') && /^b\d$/.test(id)){
+    try{localStorage.setItem('cherryCodeCompactLast', id);}catch(e){}
+  }
+}
+
+// ============ GLOSSARY MODAL ============
+function gOpen(term, def){
+  document.getElementById('gmodTitle').textContent = term;
+  document.getElementById('gmodDef').textContent = def;
+  document.getElementById('gmod').classList.add('on');
+}
+function gClose(){document.getElementById('gmod').classList.remove('on');}
+
+// ============ DARK MODE ============
+function toggleDark(){
+  document.body.classList.toggle('dark');
+  try{localStorage.setItem('cherryCodeCompactDark', document.body.classList.contains('dark') ? '1' : '0');}catch(e){}
+}
+try{if(localStorage.getItem('cherryCodeCompactDark') === '1')document.body.classList.add('dark');}catch(e){}
+
+// ============ SEARCH ============
+let searchTerms = [];
+function buildSearch(){
+  searchTerms = [];
+  document.querySelectorAll('.tc').forEach(tc => {
+    const t = tc.querySelector('.tc-title');
+    const c = tc.querySelector('.tc-code');
+    const block = tc.closest('.pg');
+    if(t && c && block){
+      searchTerms.push({
+        title: t.textContent.trim(),
+        code: c.textContent.trim(),
+        block: block.id.replace('pg-',''),
+        anchor: tc.id || ''
+      });
+    }
+  });
+}
+function openSearch(){
+  if(searchTerms.length === 0)buildSearch();
+  document.getElementById('smod').classList.add('on');
+  setTimeout(()=>{const i=document.getElementById('smodInput');i.value='';i.focus();doSearch();},40);
+}
+function closeSearch(){document.getElementById('smod').classList.remove('on');}
+function doSearch(){
+  const q = (document.getElementById('smodInput').value || '').trim().toLowerCase();
+  const list = document.getElementById('smodList');
+  let matches = searchTerms;
+  if(q !== '')matches = searchTerms.filter(t => t.title.toLowerCase().includes(q) || t.code.toLowerCase().includes(q));
+  if(matches.length === 0){list.innerHTML = '<div class="smod-empty">Nenhum termo encontrado.</div>';return;}
+  list.innerHTML = matches.slice(0,30).map(t =>
+    `<div class="smod-item" onclick="closeSearch();go('${t.block}');setTimeout(()=>{const el=document.getElementById('${t.anchor}');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},60)"><div class="smod-code">${escapeHtml(t.code)}</div><div class="smod-title">${escapeHtml(t.title)}</div></div>`
+  ).join('');
+}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ============ REVIEW MODE (FLASHCARDS) ============
+let reviewList = [];
+let reviewIdx = 0;
+function buildReview(){
+  reviewList = [];
+  document.querySelectorAll('.tc').forEach(tc => {
+    const t = tc.querySelector('.tc-title');
+    const c = tc.querySelector('.tc-code');
+    const def = tc.querySelector('.tc-def');
+    const snip = tc.querySelector('.snippet');
+    const rem = tc.querySelector('.tc-rem');
+    if(t && c){
+      reviewList.push({
+        code: c.textContent.trim(),
+        title: t.textContent.trim(),
+        def: def ? def.innerHTML : '',
+        snip: snip ? snip.outerHTML : '',
+        rem: rem ? rem.outerHTML : ''
+      });
+    }
+  });
+}
+function startReview(){
+  if(reviewList.length === 0)buildReview();
+  try{const saved = parseInt(localStorage.getItem('cherryCodeCompactReviewIdx') || '0', 10);
+    if(saved >= 0 && saved < reviewList.length)reviewIdx = saved;}catch(e){}
+  document.getElementById('rmod').classList.add('on');
+  showCard();
+  if(document.getElementById('drawer').classList.contains('open'))toggleDrawer();
+}
+function closeReview(){document.getElementById('rmod').classList.remove('on');}
+function showCard(){
+  if(reviewList.length === 0)return;
+  const c = reviewList[reviewIdx];
+  document.getElementById('flipCard').classList.remove('flipped');
+  document.getElementById('rmodRev').textContent = 'Revelar';
+  document.getElementById('flipCode').textContent = c.code;
+  document.getElementById('flipTitle').textContent = c.title;
+  document.getElementById('flipSub').textContent = '';
+  document.getElementById('flipBack').innerHTML =
+    '<div class="flip-code" style="text-align:center">' + escapeHtml(c.code) + '</div>' +
+    '<div class="flip-title" style="font-size:1.3rem;text-align:center;margin-bottom:.6rem">' + escapeHtml(c.title) + '</div>' +
+    '<div class="tc-def">' + c.def + '</div>' +
+    c.snip +
+    c.rem;
+  document.getElementById('rmodCounter').textContent = (reviewIdx+1) + ' / ' + reviewList.length;
+  try{localStorage.setItem('cherryCodeCompactReviewIdx', String(reviewIdx));}catch(e){}
+}
+function flipCard(){
+  const card = document.getElementById('flipCard');
+  card.classList.toggle('flipped');
+  document.getElementById('rmodRev').textContent = card.classList.contains('flipped') ? 'Esconder' : 'Revelar';
+}
+function reviewNext(){reviewIdx = (reviewIdx+1) % reviewList.length;showCard();}
+function reviewPrev(){reviewIdx = (reviewIdx-1+reviewList.length) % reviewList.length;showCard();}
+
+// ============ LAST VIEWED WIDGET ============
+function addLastViewedWidget(){
+  try{
+    const last = localStorage.getItem('cherryCodeCompactLast');
+    if(!last)return;
+    const cover = document.querySelector('#pg-cover .cover');
+    if(!cover || cover.querySelector('.last-viewed'))return;
+    const blockNames = {b1:'Fundamentos',b2:'Tipos & Variáveis',b3:'Operadores',b4:'Controle de Fluxo',b5:'Funções',b6:'Estruturas de Dados',b7:'POO',b8:'Erros & Debug',b9:'Boas Práticas'};
+    const name = blockNames[last];
+    if(!name)return;
+    const w = document.createElement('div');
+    w.className = 'last-viewed';
+    w.onclick = function(){go(last);};
+    w.innerHTML = '<div class="lv-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><polyline points="12 7 12 12 15 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div><div><div class="lv-label">Continuar de</div><div class="lv-title">' + name + '</div></div>';
+    cover.appendChild(w);
+  }catch(e){}
+}
+
+// ============ KEYBOARD ============
+document.addEventListener('keydown', function(e){
+  if(document.getElementById('rmod').classList.contains('on')){
+    if(e.key === 'Escape')closeReview();
+    else if(e.key === 'ArrowRight')reviewNext();
+    else if(e.key === 'ArrowLeft')reviewPrev();
+    else if(e.key === ' ' || e.key === 'Enter'){e.preventDefault();flipCard();}
+    return;
+  }
+  if(document.getElementById('smod').classList.contains('on')){
+    if(e.key === 'Escape')closeSearch();
+    return;
+  }
+  if(document.getElementById('gmod').classList.contains('on')){
+    if(e.key === 'Escape')gClose();
+    return;
+  }
+  if(e.key === '/' && document.activeElement.tagName !== 'INPUT'){
+    e.preventDefault();
+    openSearch();
+  }
+});
+
+// Init
+document.addEventListener('DOMContentLoaded', function(){
+  addLastViewedWidget();
+});
+</script>
+
+</body>
+</html>
