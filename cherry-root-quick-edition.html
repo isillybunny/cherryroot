@@ -161,6 +161,88 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .code-item{background:white;border:1.5px solid var(--p200);border-radius:10px;padding:.55rem .8rem;text-align:center}
 .code-letter{font-family:'DM Mono',monospace;font-size:.85rem;color:var(--p500);font-weight:500}
 .code-desc{font-size:.65rem;color:var(--ink3);margin-top:.2rem}
+
+/* === SPRINT 8 ADDITIONS === */
+
+/* Topbar action buttons */
+.tb-actions{display:flex;align-items:center;gap:.4rem}
+.tb-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--p200);background:var(--p50);border-radius:9px;cursor:pointer;color:var(--p500);transition:all .15s;padding:0}
+.tb-btn:hover{background:var(--p100);border-color:var(--p300);color:var(--p500)}
+.tb-btn svg{width:15px;height:15px}
+.tb-key{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--ink4);margin-left:.2rem;border:1px solid var(--line);padding:.05rem .3rem;border-radius:4px;background:var(--page)}
+
+/* Glossary search */
+.gl-search-wrap{position:sticky;top:56px;background:var(--bg);padding:.8rem 0 .5rem;z-index:5;margin-bottom:.4rem}
+.gl-search{width:100%;padding:.6rem .9rem;border:1.5px solid var(--p200);border-radius:10px;background:white;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--ink);outline:none;transition:border-color .15s}
+.gl-search:focus{border-color:var(--p400)}
+.gl-search::placeholder{color:var(--ink4)}
+.gl-empty-msg{display:none;text-align:center;font-size:.8rem;color:var(--ink4);font-style:italic;padding:1.5rem 0}
+.gl-empty-msg.on{display:block}
+
+/* Mini tags */
+.mini-tag-group{display:inline-flex;gap:.25rem;margin-left:.4rem;vertical-align:middle}
+.mini-tag{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;font-size:.7rem;cursor:pointer;color:var(--ink4);background:transparent;border:1px solid var(--line);transition:all .15s;user-select:none;line-height:1}
+.mini-tag:hover{border-color:var(--p300);color:var(--p400)}
+.mini-tag.on{background:var(--p400);color:white;border-color:var(--p400)}
+.mini-tag.on.mini-tag-fav{background:var(--p500);border-color:var(--p500)}
+
+/* Search modal */
+.smodal-overlay{position:fixed;inset:0;background:rgba(28,15,20,.55);display:none;align-items:flex-start;justify-content:center;z-index:300;padding:5vh 1rem 1rem}
+.smodal-overlay.on{display:flex;animation:gfade .18s ease}
+.smodal{background:white;border-radius:14px;width:100%;max-width:560px;max-height:80vh;overflow:hidden;box-shadow:0 12px 50px rgba(200,80,120,.35);display:flex;flex-direction:column}
+.smodal-head{padding:.7rem .9rem;border-bottom:1.5px solid var(--line);display:flex;align-items:center;gap:.6rem}
+.smodal-head input{flex:1;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:.95rem;color:var(--ink);background:transparent}
+.smodal-head input::placeholder{color:var(--ink4)}
+.smodal-hint{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--ink4);border:1px solid var(--line);padding:.1rem .35rem;border-radius:4px}
+.smodal-list{overflow-y:auto;padding:.4rem 0;flex:1}
+.smodal-item{padding:.55rem .9rem;cursor:pointer;display:flex;flex-direction:column;gap:.15rem;border-left:2px solid transparent}
+.smodal-item:hover,.smodal-item.sel{background:var(--p50);border-left-color:var(--p400)}
+.smodal-item-title{font-size:.82rem;color:var(--ink);font-weight:500}
+.smodal-item-bc{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--ink4);letter-spacing:.05em}
+.smodal-empty{padding:1.2rem;text-align:center;color:var(--ink4);font-size:.8rem;font-style:italic}
+
+/* Highlight target */
+@keyframes hflash{0%{background:var(--p100);box-shadow:0 0 0 3px var(--p200)}100%{background:transparent;box-shadow:0 0 0 0 transparent}}
+.hflash{animation:hflash 1.8s ease}
+
+/* Last viewed widget */
+.lv-card{margin-top:1.2rem;background:white;border:1.5px solid var(--p200);border-radius:12px;padding:.8rem 1.1rem;cursor:pointer;display:flex;align-items:center;gap:.7rem;max-width:340px;transition:all .15s}
+.lv-card:hover{border-color:var(--p400);transform:translateY(-1px);box-shadow:0 3px 14px rgba(200,80,120,.12)}
+.lv-card[hidden]{display:none}
+.lv-icon{width:30px;height:30px;border-radius:50%;background:var(--p100);display:flex;align-items:center;justify-content:center;color:var(--p500);font-family:'DM Mono',monospace;font-size:.62rem;flex-shrink:0}
+.lv-text{display:flex;flex-direction:column;text-align:left;gap:.1rem}
+.lv-lbl{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.15em;text-transform:uppercase}
+.lv-name{font-size:.82rem;color:var(--ink);font-weight:500}
+
+/* Block notes */
+.block-notes{margin-top:1.6rem;background:var(--p50);border:1.5px dashed var(--p200);border-radius:12px;padding:1rem 1.1rem}
+.bn-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p500);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.block-notes textarea{width:100%;min-height:100px;border:1.5px solid var(--p200);border-radius:9px;padding:.7rem .85rem;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--ink);background:white;resize:vertical;outline:none;line-height:1.5}
+.block-notes textarea:focus{border-color:var(--p400)}
+.bn-status{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--ink4);margin-top:.4rem;text-align:right}
+.bn-status.saving{color:var(--p400)}
+
+/* Red flag cards */
+.rf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin-top:.5rem}
+.rf-card{background:white;border:1.5px solid var(--p200);border-radius:11px;padding:.75rem .9rem;display:flex;flex-direction:column;gap:.3rem}
+.rf-card-head{display:flex;align-items:center;gap:.4rem;color:var(--p500)}
+.rf-card-icon{width:22px;height:22px;border-radius:50%;background:var(--p100);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--p500);font-weight:700;font-family:'DM Mono',monospace;font-size:.7rem}
+.rf-card-title{font-size:.78rem;color:var(--ink);font-weight:600;line-height:1.25}
+.rf-card-desc{font-size:.72rem;color:var(--ink3);line-height:1.45}
+
+/* Cheatsheet tables */
+.cs-table{width:100%;border-collapse:collapse;margin-top:.4rem;background:white;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;font-size:.78rem}
+.cs-table th{background:var(--p50);color:var(--p500);text-align:left;padding:.5rem .75rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;border-bottom:1.5px solid var(--p200);font-weight:500}
+.cs-table td{padding:.45rem .75rem;border-bottom:1px solid var(--line);color:var(--ink2);line-height:1.4;vertical-align:top}
+.cs-table tr:last-child td{border-bottom:none}
+.cs-table td.cs-mono{font-family:'DM Mono',monospace;color:var(--p500);font-size:.74rem;white-space:nowrap;width:1%}
+.cs-note{font-size:.74rem;color:var(--ink3);line-height:1.5;margin-top:.5rem;padding:.55rem .8rem;background:var(--p50);border-left:2.5px solid var(--p300);border-radius:6px}
+
+/* Dark mode */
+body.dark{--bg:#1a0d12;--page:#251018;--p50:#2d1820;--p100:#3a1f29;--p200:#4d2a37;--p300:#7a3d54;--p400:#e8739a;--p500:#f4a0bc;--ink:#fde8ee;--ink2:#f4d0dc;--ink3:#c89fb0;--ink4:#8a6878;--line:#3a1f29;--gbg:rgba(253,232,238,.06);--gborder:rgba(253,232,238,.15);--gink:#fde8ee}
+body.dark .gmodal,body.dark .smodal{background:var(--page)}
+body.dark .gl-search,body.dark .block-notes textarea,body.dark .cs-table,body.dark .rf-card,body.dark .idx-item,body.dark .lv-card,body.dark .code-item,body.dark .kw,body.dark .tc,body.dark .bcard{background:var(--page)}
+body.dark .atk{background:var(--p50)}
 </style>
 </head>
 <body>
@@ -170,7 +252,15 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     <span class="brand">Cherry <span>Root</span></span>
     <span class="brand-sub">· quick edition</span>
   </div>
-  <button class="hbtn" id="hbtn" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  <div class="tb-actions">
+    <button class="tb-btn" id="tb-search" onclick="searchOpen()" title="Buscar (/)" aria-label="Buscar">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button class="tb-btn" id="tb-dark" onclick="toggleDark()" title="Modo escuro" aria-label="Modo escuro">
+      <svg id="tb-dark-svg" viewBox="0 0 24 24" fill="none"><path d="M21 13A9 9 0 0 1 11 3 8 8 0 1 0 21 13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="hbtn" id="hbtn" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
 </div>
 <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 
@@ -194,6 +284,12 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
   <div class="ni" onclick="go('glossary',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><rect x="3" y="3" width="4" height="18" rx="0.5" stroke="currentColor" stroke-width="1.6"/><rect x="9" y="5" width="4" height="16" rx="0.5" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="3" width="4" height="18" rx="0.5" stroke="currentColor" stroke-width="1.6"/></svg></span>Glossário</div>
   <div class="ni" onclick="go('redflags',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="5" y1="22" x2="5" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4 L18 4 L15 9 L18 14 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Red Flags</div>
   <div class="ndiv"></div>
+  <div class="ns">Cheatsheets</div>
+  <div class="ni" onclick="go('cs-ports',this)"><span class="cd">CS·</span>Portas Conhecidas</div>
+  <div class="ni" onclick="go('cs-codes',this)"><span class="cd">CS·</span>Códigos HTTP</div>
+  <div class="ni" onclick="go('cs-shortcuts',this)"><span class="cd">CS·</span>Atalhos Terminal</div>
+  <div class="ni" onclick="go('cs-regex',this)"><span class="cd">CS·</span>Regex Básico</div>
+  <div class="ndiv"></div>
   <div class="ns">Em breve</div>
   <div class="ni sp"><span class="cd">T·</span>Bloco 7 · Tools</div>
   <div class="ni sp"><span class="cd">M·</span>Bloco 8 · Pentest</div>
@@ -216,6 +312,13 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
   <div class="csb">— A Breach Diary —</div>
   <div class="cdesc">O essencial de cada bloco — definições, mind maps e o que você precisa lembrar. Rápido, visual e em português.</div>
   <div class="badge"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> consulta rápida · todos os blocos</div>
+  <div class="lv-card" id="lv-card" hidden onclick="lvGo()">
+    <div class="lv-icon" id="lv-icon">·</div>
+    <div class="lv-text">
+      <span class="lv-lbl">Continuar de</span>
+      <span class="lv-name" id="lv-name">—</span>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -403,6 +506,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 
     </div>
   </div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-b0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('b0')" onchange="saveBlockNotes('b0')"></textarea><div class="bn-status" id="notes-status-b0">Salvo automaticamente</div></div>
 </div>
 
 <!-- BLOCK 1 DIVIDER + TERMS -->
@@ -561,6 +665,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     <div class="tc-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>O cadeado = conexão criptografada. Não significa que o site é seguro ou legítimo.</span></div>
   </div></div>
 
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-w01" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('w01')" onchange="saveBlockNotes('w01')"></textarea><div class="bn-status" id="notes-status-w01">Salvo automaticamente</div></div>
 </div>
 
 <div class="pg" id="pg-n0">
@@ -771,6 +876,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
   </div></div>
 
   </div></div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-n0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('n0')" onchange="saveBlockNotes('n0')"></textarea><div class="bn-status" id="notes-status-n0">Salvo automaticamente</div></div>
 </div>
 
 <!-- BLOCK 3 -->
@@ -855,6 +961,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Logs contam a história de todo ataque. Defesa envia pra servidor remoto — atacante não consegue apagar.</span></div></div>
 
   </div></div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-l0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('l0')" onchange="saveBlockNotes('l0')"></textarea><div class="bn-status" id="notes-status-l0">Salvo automaticamente</div></div>
 </div>
 
 <!-- BLOCK 4 -->
@@ -919,6 +1026,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Um script de 20 linhas faz em segundos o que levaria horas manualmente.</span></div></div>
 
   </div></div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-p0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('p0')" onchange="saveBlockNotes('p0')"></textarea><div class="bn-status" id="notes-status-p0">Salvo automaticamente</div></div>
 </div>
 
 <!-- BLOCK 5 -->
@@ -1108,6 +1216,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
   </div></div>
 
   </div></div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-s0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('s0')" onchange="saveBlockNotes('s0')"></textarea><div class="bn-status" id="notes-status-s0">Salvo automaticamente</div></div>
 </div>
 
 <!-- BLOCK 6 -->
@@ -1239,13 +1348,16 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     </div>
     <div class="tc-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>SSRF em cloud = potencial comprometimento total via roubo de credenciais do metadata service.</span></div>
   </div></div>
-
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-a0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('a0')" onchange="saveBlockNotes('a0')"></textarea><div class="bn-status" id="notes-status-a0">Salvo automaticamente</div></div>
 </div>
 
 
 <!-- GLOSSÁRIO -->
 <div class="pg" id="pg-glossary">
 <div class="ph"><div class="bc">cherry root quick edition <span>›</span> glossário</div><div class="pt">Glossário Pessoal</div><div class="ps">Definições de uma linha pra disparo rápido de memória. Em ordem alfabética.</div></div>
+
+<div class="gl-search-wrap"><input type="text" class="gl-search" id="gl-search" placeholder="Buscar definições..." oninput="filterGlossary()"></div>
+<div class="gl-empty-msg" id="gl-empty-msg">Nenhuma definição encontrada.</div>
 
 <div class="gl">A</div>
 <div class="gi"><span class="gt">ACL</span><span class="gd">Access Control List — regras que definem quem pode acessar qual recurso</span></div>
@@ -1501,6 +1613,232 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
     <div class="guide-row"><span class="guide-dot"></span><strong>FTP permite anônimo</strong> — qualquer um loga, cheque arquivos sensíveis</div>
   </div>
 </div>
+
+<div class="sec">
+  <div class="sl">No mundo real — phishing, fraude e engenharia social</div>
+  <div class="rf-grid">
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Typosquatting na URL</span></div><div class="rf-card-desc">Domínios parecidos como <strong>paypa1.com</strong> em vez de paypal.com, ou <strong>g00gle.com</strong>. Confira letra por letra antes de digitar credenciais.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Pop-up urgente</span></div><div class="rf-card-desc">"Seu computador está infectado! Ligue agora!" — pânico é a tática. Empresas reais não avisam infecção por pop-up no browser.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Anexo .exe ou .scr</span></div><div class="rf-card-desc">Executáveis vindos por email são quase sempre malware. Mesmo <em>fatura.pdf.exe</em> — o Windows esconde a extensão real.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Pedido de senha por email</span></div><div class="rf-card-desc">Nenhum banco, empresa ou serviço sério pede senha por email. Se pediu, é phishing — não responda, denuncie.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">HTTPS ausente no login</span></div><div class="rf-card-desc">Formulário de login sem cadeado = senha trafega em texto puro. Qualquer um na rede consegue ler.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Permissões excessivas em apps</span></div><div class="rf-card-desc">Lanterninha que pede contatos, microfone e localização? Provavelmente vende seus dados — ou é malware disfarçado.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Encurtador de URL em email</span></div><div class="rf-card-desc">bit.ly, t.co, tinyurl em email institucional escondem o destino real. Expanda antes de clicar (unshorten.it).</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Telefonema "do banco"</span></div><div class="rf-card-desc">Ligações pedindo dados, token ou senha por telefone — desligue. Ligue de volta no número oficial do cartão.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">QR code em lugar público</span></div><div class="rf-card-desc">Adesivos com QR em parquímetros, cardápios, postes — podem ter sido sobrepostos. Cheque o domínio antes de pagar.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Wi-Fi público sem senha</span></div><div class="rf-card-desc">Qualquer um na rede pode interceptar tráfego. Use VPN, ou só acesse HTTPS. Nunca faça login bancário.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">Pendrive encontrado</span></div><div class="rf-card-desc">USB drops são técnica clássica: atacante "perde" pendrive na empresa esperando alguém plugar. Pode ser malware ou BadUSB.</div></div>
+    <div class="rf-card"><div class="rf-card-head"><span class="rf-card-icon">!</span><span class="rf-card-title">"Click here to fix"</span></div><div class="rf-card-desc">Mensagem de erro com botão pra "consertar" — quase sempre instala adware ou abre porta pro atacante. Feche a aba.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- CHEATSHEET: PORTAS -->
+<div class="pg" id="pg-cs-ports">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> portas</div><div class="pt">Portas Conhecidas</div><div class="ps">Tabela rápida das portas TCP/UDP mais comuns em pentest e admin.</div></div>
+<table class="cs-table">
+  <thead><tr><th>Porta</th><th>Serviço</th><th>Notas rápidas</th></tr></thead>
+  <tbody>
+    <tr><td class="cs-mono">21</td><td>FTP</td><td>Transferência de arquivos — texto puro, cheque anonymous</td></tr>
+    <tr><td class="cs-mono">22</td><td>SSH</td><td>Shell remoto criptografado — alvo clássico de brute force</td></tr>
+    <tr><td class="cs-mono">23</td><td>Telnet</td><td>Shell remoto sem criptografia — sempre alerta vermelho</td></tr>
+    <tr><td class="cs-mono">25</td><td>SMTP</td><td>Envio de email — verifique relay aberto</td></tr>
+    <tr><td class="cs-mono">53</td><td>DNS</td><td>Resolução de nomes — UDP e TCP, zone transfer</td></tr>
+    <tr><td class="cs-mono">67/68</td><td>DHCP</td><td>Atribuição automática de IP na rede</td></tr>
+    <tr><td class="cs-mono">80</td><td>HTTP</td><td>Web sem criptografia — comece pelo enum web</td></tr>
+    <tr><td class="cs-mono">110</td><td>POP3</td><td>Leitura de email — protocolo antigo, texto puro</td></tr>
+    <tr><td class="cs-mono">111</td><td>RPC</td><td>Portmapper — comum em Linux/Unix legado</td></tr>
+    <tr><td class="cs-mono">135</td><td>MSRPC</td><td>Windows RPC endpoint mapper</td></tr>
+    <tr><td class="cs-mono">139</td><td>NetBIOS</td><td>Compartilhamento Windows antigo</td></tr>
+    <tr><td class="cs-mono">143</td><td>IMAP</td><td>Leitura de email moderno — porta segura é 993</td></tr>
+    <tr><td class="cs-mono">161</td><td>SNMP</td><td>Gerenciamento de rede — community "public" é vazamento</td></tr>
+    <tr><td class="cs-mono">389</td><td>LDAP</td><td>Diretório de usuários — comum em AD</td></tr>
+    <tr><td class="cs-mono">443</td><td>HTTPS</td><td>Web com TLS — sempre teste cipher suites</td></tr>
+    <tr><td class="cs-mono">445</td><td>SMB</td><td>Compartilhamento Windows — EternalBlue, null sessions</td></tr>
+    <tr><td class="cs-mono">993</td><td>IMAPS</td><td>IMAP sobre TLS</td></tr>
+    <tr><td class="cs-mono">995</td><td>POP3S</td><td>POP3 sobre TLS</td></tr>
+    <tr><td class="cs-mono">1433</td><td>MSSQL</td><td>Microsoft SQL Server</td></tr>
+    <tr><td class="cs-mono">1521</td><td>Oracle</td><td>Oracle Database listener</td></tr>
+    <tr><td class="cs-mono">2049</td><td>NFS</td><td>Network File System — exports mal configurados</td></tr>
+    <tr><td class="cs-mono">3306</td><td>MySQL</td><td>Banco MySQL — cheque credenciais padrão</td></tr>
+    <tr><td class="cs-mono">3389</td><td>RDP</td><td>Remote Desktop Windows — BlueKeep, brute force</td></tr>
+    <tr><td class="cs-mono">5432</td><td>PostgreSQL</td><td>Banco Postgres</td></tr>
+    <tr><td class="cs-mono">5900</td><td>VNC</td><td>Acesso remoto gráfico — senha curta comum</td></tr>
+    <tr><td class="cs-mono">6379</td><td>Redis</td><td>Cache em memória — sem auth por padrão</td></tr>
+    <tr><td class="cs-mono">8080</td><td>HTTP-alt</td><td>Web alternativa — proxies, painéis admin</td></tr>
+    <tr><td class="cs-mono">8443</td><td>HTTPS-alt</td><td>Web alternativa segura — Tomcat manager</td></tr>
+    <tr><td class="cs-mono">9200</td><td>Elasticsearch</td><td>Busca/logs — comum exposto sem auth</td></tr>
+    <tr><td class="cs-mono">27017</td><td>MongoDB</td><td>NoSQL — milhares já expostos sem auth</td></tr>
+  </tbody>
+</table>
+<div class="cs-note">Faixa 0–1023 = portas privilegiadas (root pra abrir no Linux). 1024–49151 = registradas. 49152–65535 = dinâmicas/efêmeras.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-ports" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-ports')" onchange="saveBlockNotes('cs-ports')"></textarea><div class="bn-status" id="notes-status-cs-ports">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: CÓDIGOS HTTP -->
+<div class="pg" id="pg-cs-codes">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> http</div><div class="pt">Códigos HTTP</div><div class="ps">Status codes essenciais — o que cada faixa significa e o que olhar em pentest.</div></div>
+
+<div class="sec"><div class="sl">1xx · Informacional</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">100</td><td>Continue — servidor recebeu cabeçalhos, pode mandar o corpo</td></tr>
+<tr><td class="cs-mono">101</td><td>Switching Protocols — usado em upgrade pra WebSocket</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">2xx · Sucesso</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">200</td><td>OK — requisição bem-sucedida, resposta normal</td></tr>
+<tr><td class="cs-mono">201</td><td>Created — recurso criado (POST que deu certo)</td></tr>
+<tr><td class="cs-mono">204</td><td>No Content — sucesso sem corpo na resposta</td></tr>
+<tr><td class="cs-mono">206</td><td>Partial Content — resposta parcial (range requests)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">3xx · Redirecionamento</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">301</td><td>Moved Permanently — recurso mudou de URL pra sempre</td></tr>
+<tr><td class="cs-mono">302</td><td>Found — redirect temporário, comum após login</td></tr>
+<tr><td class="cs-mono">304</td><td>Not Modified — cache do cliente ainda é válido</td></tr>
+<tr><td class="cs-mono">307</td><td>Temporary Redirect — preserva método HTTP original</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">4xx · Erro do cliente</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">400</td><td>Bad Request — requisição mal formada</td></tr>
+<tr><td class="cs-mono">401</td><td>Unauthorized — falta autenticação válida</td></tr>
+<tr><td class="cs-mono">403</td><td>Forbidden — autenticado mas sem permissão. Tente bypass</td></tr>
+<tr><td class="cs-mono">404</td><td>Not Found — recurso não existe (ou está escondido)</td></tr>
+<tr><td class="cs-mono">405</td><td>Method Not Allowed — verbo HTTP errado pra esse endpoint</td></tr>
+<tr><td class="cs-mono">418</td><td>I'm a teapot — easter egg, não usar a sério</td></tr>
+<tr><td class="cs-mono">429</td><td>Too Many Requests — rate limit ativado</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">5xx · Erro do servidor</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">500</td><td>Internal Server Error — algo quebrou. Pode ser injeção</td></tr>
+<tr><td class="cs-mono">502</td><td>Bad Gateway — proxy reverso não conseguiu falar com backend</td></tr>
+<tr><td class="cs-mono">503</td><td>Service Unavailable — servidor sobrecarregado ou em manutenção</td></tr>
+<tr><td class="cs-mono">504</td><td>Gateway Timeout — backend demorou demais pra responder</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Em pentest: 401 vs 403 importa — 401 pede credencial, 403 já tem mas falta permissão. 500 com payload injetado é frequentemente sinal de injeção funcionando.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-codes" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-codes')" onchange="saveBlockNotes('cs-codes')"></textarea><div class="bn-status" id="notes-status-cs-codes">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: ATALHOS TERMINAL -->
+<div class="pg" id="pg-cs-shortcuts">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> terminal</div><div class="pt">Atalhos Terminal</div><div class="ps">Atalhos essenciais pra ganhar velocidade no bash, zsh e shells em geral.</div></div>
+
+<div class="sec"><div class="sl">Controle do processo</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">Ctrl+C</td><td>Interrompe o comando atual (SIGINT)</td></tr>
+<tr><td class="cs-mono">Ctrl+D</td><td>Fecha o shell (EOF) — sai do terminal</td></tr>
+<tr><td class="cs-mono">Ctrl+Z</td><td>Pausa o processo em background (fg pra retomar)</td></tr>
+<tr><td class="cs-mono">Ctrl+L</td><td>Limpa a tela (igual ao comando clear)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Edição da linha</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">Ctrl+A</td><td>Vai pro início da linha</td></tr>
+<tr><td class="cs-mono">Ctrl+E</td><td>Vai pro fim da linha</td></tr>
+<tr><td class="cs-mono">Ctrl+U</td><td>Apaga tudo do cursor até o início</td></tr>
+<tr><td class="cs-mono">Ctrl+K</td><td>Apaga tudo do cursor até o fim</td></tr>
+<tr><td class="cs-mono">Ctrl+W</td><td>Apaga a palavra anterior</td></tr>
+<tr><td class="cs-mono">Ctrl+Y</td><td>Cola o último texto apagado (yank)</td></tr>
+<tr><td class="cs-mono">Alt+B / Alt+F</td><td>Pula palavra pra trás / pra frente</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Histórico</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">↑ / ↓</td><td>Navega pelo histórico de comandos</td></tr>
+<tr><td class="cs-mono">Ctrl+R</td><td>Busca reversa no histórico — digite parte do comando</td></tr>
+<tr><td class="cs-mono">!!</td><td>Repete o último comando</td></tr>
+<tr><td class="cs-mono">!$</td><td>Último argumento do comando anterior</td></tr>
+<tr><td class="cs-mono">!*</td><td>Todos os argumentos do comando anterior</td></tr>
+<tr><td class="cs-mono">!sudo</td><td>Último comando que começou com "sudo"</td></tr>
+<tr><td class="cs-mono">sudo !!</td><td>Repete o último comando com sudo</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Completar e navegar</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">Tab</td><td>Autocompletar arquivo, pasta ou comando</td></tr>
+<tr><td class="cs-mono">Tab Tab</td><td>Lista todas as opções possíveis de completação</td></tr>
+<tr><td class="cs-mono">cd -</td><td>Volta pro diretório anterior</td></tr>
+<tr><td class="cs-mono">cd ~</td><td>Vai pro diretório home</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Dominar Ctrl+R muda a vida — não precisa lembrar comando inteiro, só um pedaço.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-shortcuts" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-shortcuts')" onchange="saveBlockNotes('cs-shortcuts')"></textarea><div class="bn-status" id="notes-status-cs-shortcuts">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: REGEX -->
+<div class="pg" id="pg-cs-regex">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> regex</div><div class="pt">Regex Básico</div><div class="ps">Regex de uma página — metacaracteres, classes, quantificadores e exemplos práticos.</div></div>
+
+<div class="sec"><div class="sl">Metacaracteres essenciais</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">.</td><td>Qualquer caractere (exceto quebra de linha)</td></tr>
+<tr><td class="cs-mono">^</td><td>Início da linha</td></tr>
+<tr><td class="cs-mono">$</td><td>Fim da linha</td></tr>
+<tr><td class="cs-mono">\</td><td>Escapa o próximo caractere — \. casa um ponto literal</td></tr>
+<tr><td class="cs-mono">|</td><td>OU lógico — gato|cachorro casa um ou outro</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Quantificadores</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">*</td><td>Zero ou mais — guloso (pega o máximo possível)</td></tr>
+<tr><td class="cs-mono">+</td><td>Um ou mais</td></tr>
+<tr><td class="cs-mono">?</td><td>Zero ou um (opcional) — também torna o quantificador anterior preguiçoso</td></tr>
+<tr><td class="cs-mono">{n}</td><td>Exatamente n vezes</td></tr>
+<tr><td class="cs-mono">{n,m}</td><td>Entre n e m vezes</td></tr>
+<tr><td class="cs-mono">{n,}</td><td>No mínimo n vezes</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Classes de caracteres</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">[abc]</td><td>Qualquer um entre a, b ou c</td></tr>
+<tr><td class="cs-mono">[^abc]</td><td>Qualquer um EXCETO a, b ou c</td></tr>
+<tr><td class="cs-mono">[a-z]</td><td>Faixa — qualquer letra minúscula</td></tr>
+<tr><td class="cs-mono">\d</td><td>Dígito (0-9)</td></tr>
+<tr><td class="cs-mono">\D</td><td>Não-dígito</td></tr>
+<tr><td class="cs-mono">\w</td><td>Caractere de palavra (letras, dígitos, _)</td></tr>
+<tr><td class="cs-mono">\W</td><td>Não-palavra</td></tr>
+<tr><td class="cs-mono">\s</td><td>Espaço, tab ou quebra de linha</td></tr>
+<tr><td class="cs-mono">\S</td><td>Não-espaço</td></tr>
+<tr><td class="cs-mono">\b</td><td>Limite de palavra</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Grupos e referências</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">(abc)</td><td>Grupo de captura — pode ser referenciado depois</td></tr>
+<tr><td class="cs-mono">(?:abc)</td><td>Grupo sem captura — só agrupa, não guarda</td></tr>
+<tr><td class="cs-mono">\1</td><td>Backreference ao primeiro grupo capturado</td></tr>
+<tr><td class="cs-mono">(?=abc)</td><td>Lookahead positivo — "seguido de abc" sem consumir</td></tr>
+<tr><td class="cs-mono">(?!abc)</td><td>Lookahead negativo — "não seguido de abc"</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Exemplos práticos</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">^\d{3}\.\d{3}\.\d{3}-\d{2}$</td><td>CPF no formato 000.000.000-00</td></tr>
+<tr><td class="cs-mono">\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b</td><td>Email básico</td></tr>
+<tr><td class="cs-mono">^https?://</td><td>Linha que começa com http:// ou https://</td></tr>
+<tr><td class="cs-mono">(?i)senha</td><td>Casa "senha", "Senha", "SENHA" (case-insensitive)</td></tr>
+<tr><td class="cs-mono">\b\d{1,3}(\.\d{1,3}){3}\b</td><td>IP v4 (sem validar faixa)</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Regex é uma linguagem — toda ferramenta de segurança usa (grep, sed, awk, Burp, scanners). Pratique no regex101.com.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-regex" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-regex')" onchange="saveBlockNotes('cs-regex')"></textarea><div class="bn-status" id="notes-status-cs-regex">Salvo automaticamente</div></div>
+</div>
+
+<!-- SEARCH MODAL -->
+<div class="smodal-overlay" id="smodal" onclick="searchCloseBg(event)">
+  <div class="smodal" onclick="event.stopPropagation()">
+    <div class="smodal-head">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="color:var(--p400)"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input type="text" id="smodal-input" placeholder="Buscar termo..." oninput="searchUpdate()" onkeydown="searchKey(event)">
+      <span class="smodal-hint">ESC</span>
+    </div>
+    <div class="smodal-list" id="smodal-list"></div>
+  </div>
 </div>
 
 <!-- GLOSSARY MODAL -->
@@ -1523,6 +1861,18 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 </main>
 
 <script>
+/* === Page labels for last-viewed and search === */
+var PAGE_LABELS={
+  'cover':'Capa','index':'Índice','howto':'Como Usar',
+  'b0':'Bloco 0 · PC Basics','w01':'Bloco 1 · Internet','n0':'Bloco 2 · Networks',
+  'l0':'Bloco 3 · Linux','p0':'Bloco 4 · Programming','s0':'Bloco 5 · Security',
+  'a0':'Bloco 6 · Web Attacks',
+  'glossary':'Glossário','redflags':'Red Flags',
+  'cs-ports':'Portas Conhecidas','cs-codes':'Códigos HTTP',
+  'cs-shortcuts':'Atalhos Terminal','cs-regex':'Regex Básico'
+};
+var BLOCK_IDS=['b0','w01','n0','l0','p0','s0','a0'];
+
 function go(id,el){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
@@ -1531,6 +1881,7 @@ function go(id,el){
   if(el)el.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   closeDrawer();
+  if(id && id!=='cover'){ saveLastViewed(id); }
 }
 function toggleDrawer(){
   var d=document.getElementById('drawer');
@@ -1561,6 +1912,229 @@ function gGo(){
   gClose();
   go('glossary', null);
 }
+
+/* === DARK MODE === */
+function toggleDark(){
+  var on=document.body.classList.toggle('dark');
+  try{ localStorage.setItem('cherryRootQuickDark', on?'1':'0'); }catch(e){}
+}
+(function(){
+  try{ if(localStorage.getItem('cherryRootQuickDark')==='1') document.body.classList.add('dark'); }catch(e){}
+})();
+
+/* === GLOSSARY SEARCH === */
+function filterGlossary(){
+  var q=(document.getElementById('gl-search').value||'').toLowerCase().trim();
+  var letters=document.querySelectorAll('#pg-glossary .gl');
+  var items=document.querySelectorAll('#pg-glossary .gi');
+  var anyVisible=false;
+  var visibleByLetter={};
+  items.forEach(function(it){
+    var t=it.textContent.toLowerCase();
+    var match=q===''||t.indexOf(q)!==-1;
+    it.style.display=match?'':'none';
+    if(match){
+      anyVisible=true;
+      var prev=it.previousElementSibling;
+      while(prev && !prev.classList.contains('gl')) prev=prev.previousElementSibling;
+      if(prev) visibleByLetter[prev.textContent]=true;
+    }
+  });
+  letters.forEach(function(L){
+    L.style.display=(q===''||visibleByLetter[L.textContent])?'':'none';
+  });
+  var empty=document.getElementById('gl-empty-msg');
+  if(empty) empty.classList.toggle('on', q!=='' && !anyVisible);
+}
+
+/* === LAST VIEWED === */
+function saveLastViewed(id){
+  try{ localStorage.setItem('cherryRootQuickLastViewed', id); }catch(e){}
+  renderLastViewed();
+}
+function renderLastViewed(){
+  var card=document.getElementById('lv-card');
+  if(!card) return;
+  var id=null;
+  try{ id=localStorage.getItem('cherryRootQuickLastViewed'); }catch(e){}
+  if(!id || !PAGE_LABELS[id] || id==='cover'){ card.hidden=true; return; }
+  card.hidden=false;
+  document.getElementById('lv-name').textContent=PAGE_LABELS[id];
+  document.getElementById('lv-icon').textContent=(id.split('-')[0]||id).slice(0,2).toUpperCase();
+  card.dataset.target=id;
+}
+function lvGo(){
+  var id=document.getElementById('lv-card').dataset.target;
+  if(id) go(id,null);
+}
+
+/* === BLOCK NOTES === */
+function saveBlockNotes(bid){
+  var ta=document.getElementById('notes-'+bid);
+  if(!ta) return;
+  try{ localStorage.setItem('cherryRootQuickNotes_'+bid, ta.value); }catch(e){}
+  var s=document.getElementById('notes-status-'+bid);
+  if(s){ s.textContent='Salvo automaticamente'; s.classList.remove('saving'); }
+}
+function updateNotesStatus(bid){
+  var s=document.getElementById('notes-status-'+bid);
+  if(s){ s.textContent='Digitando...'; s.classList.add('saving'); }
+  clearTimeout(window['_nt_'+bid]);
+  window['_nt_'+bid]=setTimeout(function(){ saveBlockNotes(bid); }, 600);
+}
+function restoreAllNotes(){
+  document.querySelectorAll('.block-notes textarea').forEach(function(ta){
+    var id=ta.id.replace('notes-','');
+    try{
+      var v=localStorage.getItem('cherryRootQuickNotes_'+id);
+      if(v!==null) ta.value=v;
+    }catch(e){}
+  });
+}
+
+/* === MINI TAGS (review + favorite) === */
+function loadMiniTags(){
+  try{ return JSON.parse(localStorage.getItem('cherryRootQuickTags')||'{}'); }catch(e){ return {}; }
+}
+function saveMiniTags(t){
+  try{ localStorage.setItem('cherryRootQuickTags', JSON.stringify(t)); }catch(e){}
+}
+function toggleMiniTag(itemId, kind, ev){
+  if(ev){ ev.stopPropagation(); }
+  var tags=loadMiniTags();
+  if(!tags[itemId]) tags[itemId]={review:false,fav:false};
+  tags[itemId][kind]=!tags[itemId][kind];
+  saveMiniTags(tags);
+  applyMiniTagState(itemId);
+}
+function applyMiniTagState(itemId){
+  var tags=loadMiniTags();
+  var s=tags[itemId]||{review:false,fav:false};
+  var item=document.getElementById(itemId);
+  if(!item) return;
+  var rev=item.querySelector('.mini-tag-review');
+  var fav=item.querySelector('.mini-tag-fav');
+  if(rev) rev.classList.toggle('on', !!s.review);
+  if(fav) fav.classList.toggle('on', !!s.fav);
+}
+function setupMiniTags(){
+  /* Assign IDs to .mt and .tc items per block, then inject mini tag icons. */
+  BLOCK_IDS.forEach(function(bid){
+    var pg=document.getElementById('pg-'+bid);
+    if(!pg) return;
+    var items=pg.querySelectorAll('.mt, .tc');
+    items.forEach(function(it, idx){
+      var iid=bid+'-item-'+(idx+1);
+      it.id=iid;
+      var head=it.querySelector('.mt-head, .tc-head');
+      if(!head || head.querySelector('.mini-tag-group')) return;
+      var g=document.createElement('span');
+      g.className='mini-tag-group';
+      g.innerHTML='<span class="mini-tag mini-tag-review" title="Revisar" onclick="toggleMiniTag(\''+iid+'\',\'review\',event)">⚑</span><span class="mini-tag mini-tag-fav" title="Favorito" onclick="toggleMiniTag(\''+iid+'\',\'fav\',event)">♡</span>';
+      /* Insert before code badge if any, otherwise append */
+      var code=head.querySelector('.mt-code, .tc-code');
+      if(code) head.insertBefore(g, code);
+      else head.appendChild(g);
+      applyMiniTagState(iid);
+    });
+  });
+}
+
+/* === SEARCH MODAL === */
+var SEARCH_INDEX=[];
+function buildSearchIndex(){
+  SEARCH_INDEX=[];
+  BLOCK_IDS.forEach(function(bid){
+    var pg=document.getElementById('pg-'+bid);
+    if(!pg) return;
+    var label=PAGE_LABELS[bid]||bid;
+    pg.querySelectorAll('.mt, .tc').forEach(function(it){
+      var titleEl=it.querySelector('.mt-title, .tc-title');
+      if(!titleEl) return;
+      var title=titleEl.textContent.trim();
+      var def='';
+      var defEl=it.querySelector('.mt-def, .tc-def');
+      if(defEl) def=defEl.textContent.trim();
+      SEARCH_INDEX.push({id:it.id||bid, block:bid, label:label, title:title, def:def, hay:(title+' '+def).toLowerCase()});
+    });
+  });
+  /* Add pages themselves */
+  Object.keys(PAGE_LABELS).forEach(function(k){
+    SEARCH_INDEX.push({id:k, block:k, label:PAGE_LABELS[k], title:PAGE_LABELS[k], def:'', hay:PAGE_LABELS[k].toLowerCase(), isPage:true});
+  });
+}
+var SEARCH_SEL=0;
+function searchOpen(){
+  document.getElementById('smodal').classList.add('on');
+  var inp=document.getElementById('smodal-input');
+  inp.value=''; SEARCH_SEL=0;
+  searchUpdate();
+  setTimeout(function(){ inp.focus(); }, 30);
+}
+function searchClose(){
+  document.getElementById('smodal').classList.remove('on');
+}
+function searchCloseBg(e){
+  if(e.target.id==='smodal') searchClose();
+}
+function searchUpdate(){
+  var q=(document.getElementById('smodal-input').value||'').toLowerCase().trim();
+  var list=document.getElementById('smodal-list');
+  if(!q){ list.innerHTML='<div class="smodal-empty">Digite pra buscar termos, blocos e cheatsheets.</div>'; return; }
+  var results=SEARCH_INDEX.filter(function(e){ return e.hay.indexOf(q)!==-1; }).slice(0,40);
+  if(!results.length){ list.innerHTML='<div class="smodal-empty">Nenhum resultado.</div>'; return; }
+  SEARCH_SEL=0;
+  list.innerHTML=results.map(function(r,i){
+    return '<div class="smodal-item'+(i===0?' sel':'')+'" data-block="'+r.block+'" data-id="'+r.id+'" onclick="searchJump(\''+r.block+'\',\''+r.id+'\')"><span class="smodal-item-title">'+escHtml(r.title)+'</span><span class="smodal-item-bc">'+escHtml(r.label)+(r.isPage?'':' · '+r.id)+'</span></div>';
+  }).join('');
+}
+function escHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function searchKey(e){
+  var items=document.querySelectorAll('#smodal-list .smodal-item');
+  if(e.key==='Escape'){ searchClose(); return; }
+  if(e.key==='ArrowDown'){ e.preventDefault(); SEARCH_SEL=Math.min(items.length-1, SEARCH_SEL+1); updateSel(items); return; }
+  if(e.key==='ArrowUp'){ e.preventDefault(); SEARCH_SEL=Math.max(0, SEARCH_SEL-1); updateSel(items); return; }
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(items[SEARCH_SEL]) items[SEARCH_SEL].click();
+  }
+}
+function updateSel(items){
+  items.forEach(function(it,i){ it.classList.toggle('sel', i===SEARCH_SEL); });
+  if(items[SEARCH_SEL]) items[SEARCH_SEL].scrollIntoView({block:'nearest'});
+}
+function searchJump(block, id){
+  searchClose();
+  go(block, null);
+  setTimeout(function(){
+    var el=document.getElementById(id);
+    if(el && el!==document.getElementById('pg-'+block)){
+      el.scrollIntoView({behavior:'smooth', block:'center'});
+      el.classList.remove('hflash');
+      void el.offsetWidth;
+      el.classList.add('hflash');
+    }
+  }, 250);
+}
+
+/* Global key shortcuts */
+document.addEventListener('keydown', function(e){
+  var tag=(e.target && e.target.tagName)||'';
+  var inField=(tag==='INPUT'||tag==='TEXTAREA'||e.target.isContentEditable);
+  if(e.key==='/' && !inField){ e.preventDefault(); searchOpen(); }
+  else if(e.key==='Escape'){
+    if(document.getElementById('smodal').classList.contains('on')) searchClose();
+    else if(document.getElementById('gmodal').classList.contains('on')) gClose();
+  }
+});
+
+/* Init */
+document.addEventListener('DOMContentLoaded', function(){
+  setupMiniTags();
+  restoreAllNotes();
+  renderLastViewed();
+  buildSearchIndex();
+});
 </script>
 </body>
 </html>
