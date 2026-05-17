@@ -748,6 +748,16 @@ Modo Revisão
 <div class="ni" onclick="go('defense-depth',this)"><span class="cd">V·DD</span>Defense in Depth</div>
 <div class="ni" onclick="go('kill-chain',this)"><span class="cd">V·KC</span>Cyber Kill Chain</div>
 <div class="ni" onclick="go('osi-visual',this)"><span class="cd">V·OS</span>OSI Model</div>
+<div class="ndiv"></div>
+<div class="ns">Resources &amp; Cheatsheets</div>
+<div class="ni" onclick="go('resources-ctf',this)"><span class="cd">R·CT</span>CTFs for Beginners</div>
+<div class="ni" onclick="go('resources-thm',this)"><span class="cd">R·TH</span>TryHackMe Trail</div>
+<div class="ni" onclick="go('cs-nmap',this)"><span class="cd">CS·N</span>nmap Cheatsheet</div>
+<div class="ni" onclick="go('cs-burp',this)"><span class="cd">CS·B</span>Burp Suite Cheatsheet</div>
+<div class="ni" onclick="go('cs-curl',this)"><span class="cd">CS·C</span>curl Cheatsheet</div>
+<div class="ni" onclick="go('cs-grep',this)"><span class="cd">CS·G</span>grep Cheatsheet</div>
+<div class="ni" onclick="go('cs-git',this)"><span class="cd">CS·GT</span>git Cheatsheet</div>
+<div class="ni" onclick="go('cs-ports',this)"><span class="cd">CS·P</span>Common Ports</div>
 </nav>
 </aside>
 <main class="main">
@@ -5137,6 +5147,636 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 </div>
 </div>
 
+<style>
+.res-card{background:#fff;border:1.5px solid var(--p200);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.85rem;box-shadow:0 1px 0 var(--p100)}
+.res-card .res-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem;flex-wrap:wrap}
+.res-card .res-name{font-weight:700;color:var(--ink1);font-size:.95rem}
+.res-card .res-link{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--p500);text-decoration:none;border:1px solid var(--p300);padding:.18rem .5rem;border-radius:8px}
+.res-card .res-desc{font-size:.82rem;color:var(--ink2);line-height:1.55;margin:.25rem 0}
+.res-card .res-rec{font-size:.74rem;color:var(--p500);font-style:italic;margin-top:.35rem}
+.diff-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
+.diff-beg{background:#e8f7ee;color:#1d7a3a;border:1px solid #b6dec3}
+.diff-int{background:#fff4e0;color:#a35900;border:1px solid #f0c98a}
+.diff-adv{background:#fde4ea;color:#a3174a;border:1px solid #f0a4b8}
+.rec-box{background:#fff5f7;border:1.5px solid var(--p300);border-radius:14px;padding:.9rem 1.1rem;margin-bottom:1.1rem;font-size:.84rem;color:var(--ink2)}
+.rec-box strong{color:var(--p500)}
+.tline{position:relative;padding-left:1.6rem;margin-bottom:1rem}
+.tline:before{content:"";position:absolute;left:.45rem;top:.4rem;bottom:-1rem;width:2px;background:var(--p300)}
+.tline:last-child:before{display:none}
+.tdot{position:absolute;left:0;top:.35rem;width:14px;height:14px;border-radius:50%;background:var(--p500);border:3px solid #fff;box-shadow:0 0 0 2px var(--p300)}
+.tstep{background:#fff;border:1.5px solid var(--p200);border-radius:12px;padding:.8rem 1rem}
+.tstep .tstitle{font-weight:700;color:var(--ink1);font-size:.9rem;margin-bottom:.35rem}
+.tstep .tsroom{font-family:'DM Mono',monospace;font-size:.74rem;color:var(--ink2);padding:.2rem 0;display:flex;justify-content:space-between;gap:.5rem;border-bottom:1px dashed var(--p100)}
+.tstep .tsroom:last-child{border-bottom:none}
+.tstep .tsroom .tslink{color:var(--p500);cursor:pointer}
+.tstep .tsroom .tsmeta{color:var(--ink3);font-size:.68rem}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.9rem;margin-bottom:1rem}
+.cs-card{background:#fff;border:1.5px solid var(--p200);border-radius:12px;padding:.85rem 1rem}
+.cs-card .cs-title{font-weight:700;color:var(--p500);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem;border-bottom:1px solid var(--p200);padding-bottom:.35rem}
+.cs-row{display:flex;gap:.6rem;padding:.22rem 0;font-size:.78rem;line-height:1.5;align-items:flex-start}
+.cs-row code{font-family:'DM Mono',monospace;font-size:.72rem;background:#fff5f7;color:var(--p500);padding:.1rem .4rem;border-radius:6px;border:1px solid var(--p200);white-space:nowrap;flex-shrink:0}
+.cs-row .cs-d{color:var(--ink2);flex:1}
+.cs-flow{background:#fdf4f7;border:1.5px solid var(--p300);border-radius:12px;padding:.85rem 1rem;margin-top:.9rem}
+.cs-flow .cs-flow-t{font-weight:700;color:var(--p500);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.5rem}
+.cs-flow pre{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink1);background:#fff;border:1px solid var(--p200);border-radius:8px;padding:.5rem .7rem;margin:.35rem 0;white-space:pre-wrap;word-break:break-all}
+.cs-flow .cs-flow-d{font-size:.74rem;color:var(--ink2);margin-bottom:.25rem;font-style:italic}
+.port-table{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:1rem}
+.port-table th{background:var(--p500);color:#fff;font-weight:600;text-align:left;padding:.45rem .6rem;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase}
+.port-table td{padding:.4rem .6rem;border-bottom:1px solid var(--p100);vertical-align:top;color:var(--ink2)}
+.port-table tr:nth-child(even) td{background:#fff8fa}
+.port-table .pp{font-family:'DM Mono',monospace;color:var(--p500);font-weight:700;white-space:nowrap}
+.port-table .ps{font-weight:600;color:var(--ink1)}
+.port-cat{font-weight:700;color:var(--p500);font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;margin:1.1rem 0 .4rem}
+</style>
+
+<!-- RESOURCES: CTFs FOR BEGINNERS -->
+<div class="pg" id="pg-resources-ctf">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> resources <span>&rsaquo;</span> CTFs</div><div class="pt">CTFs for Beginners</div><div class="ps">Where to actually practice — picked platforms ranked by friendliness.</div></div>
+
+<div class="rec-box"><strong>Recommended order ✦</strong> &nbsp;If you've never done a CTF: <strong>PicoCTF</strong> &rarr; <strong>OverTheWire Bandit</strong> &rarr; <strong>TryHackMe</strong> paths. Start free, build muscle memory, then move into boxes.</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">PicoCTF</span><span class="diff-badge diff-beg">Beginner</span><span class="res-link">picoctf.org &nearr;</span></div>
+  <div class="res-desc">Carnegie Mellon's flagship beginner CTF. Year-round practice, US high-school-focused but open to anyone. Strong web/crypto/forensics intro.</div>
+  <div class="res-rec">✦ Best first stop. Free, no install, browser-based.</div>
+</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">OverTheWire — Bandit</span><span class="diff-badge diff-beg">Beginner</span><span class="res-link">overthewire.org/wargames/bandit &nearr;</span></div>
+  <div class="res-desc">Pure SSH wargame teaching Linux fundamentals one level at a time. 34 levels, terminal-only, no GUI.</div>
+  <div class="res-rec">✦ Do this before anything else if you're shaky on the shell.</div>
+</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">TryHackMe</span><span class="diff-badge diff-beg">Beginner</span><span class="res-link">tryhackme.com &nearr;</span></div>
+  <div class="res-desc">Gamified rooms with guided learning paths. In-browser AttackBox or your own VPN. Generous free tier, paid unlocks more rooms.</div>
+  <div class="res-rec">✦ Pre-Security &amp; Complete Beginner paths are the gold standard.</div>
+</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">HackTheBox</span><span class="diff-badge diff-int">Intermediate</span><span class="res-link">hackthebox.com &nearr;</span></div>
+  <div class="res-desc">Real-world style boxes — less hand-holding, OSCP-flavoured. Starting Point series gives a softer onramp; retired machines come with writeups.</div>
+  <div class="res-rec">✦ Graduate here once you can solve THM rooms unaided.</div>
+</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">Root-Me</span><span class="diff-badge diff-int">Intermediate</span><span class="res-link">root-me.org &nearr;</span></div>
+  <div class="res-desc">400+ challenges across web, app, crypto, forensic, network, realist. French/English bilingual. Strong on app reversing &amp; web specifics.</div>
+  <div class="res-rec">✦ Great for grinding a single category until it clicks.</div>
+</div>
+
+<div class="res-card">
+  <div class="res-head"><span class="res-name">CTFtime</span><span class="diff-badge diff-adv">Advanced</span><span class="res-link">ctftime.org &nearr;</span></div>
+  <div class="res-desc">Calendar &amp; ranking of live competitive CTFs. Find weekend events, team up, read writeups of past challenges.</div>
+  <div class="res-rec">✦ When you're ready to compete on real timed events.</div>
+</div>
+</div>
+
+<!-- RESOURCES: TRYHACKME TRAIL -->
+<div class="pg" id="pg-resources-thm">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> resources <span>&rsaquo;</span> THM trail</div><div class="pt">TryHackMe Trail</div><div class="ps">An ordered path through TryHackMe — from zero to OSCP-prep.</div></div>
+
+<div class="rec-box">Follow the trail top-to-bottom. Each stage assumes the previous. Estimated times are full-path completion at a comfortable pace.</div>
+
+<div class="tline"><div class="tdot"></div>
+<div class="tstep">
+  <div class="tstitle">1 &middot; Pre-Security Path</div>
+  <div style="font-size:.78rem;color:var(--ink2);margin-bottom:.4rem">Cyber 101 — no prior knowledge needed.</div>
+  <div class="tsroom"><span class="tslink">Network Fundamentals</span><span class="tsmeta">Beginner &middot; 4h</span></div>
+  <div class="tsroom"><span class="tslink">Linux Fundamentals 1, 2, 3</span><span class="tsmeta">Beginner &middot; 6h</span></div>
+  <div class="tsroom"><span class="tslink">Windows Fundamentals 1, 2, 3</span><span class="tsmeta">Beginner &middot; 5h</span></div>
+  <div class="tsroom"><span class="tslink">Security Principles &amp; Careers</span><span class="tsmeta">Beginner &middot; 2h</span></div>
+</div></div>
+
+<div class="tline"><div class="tdot"></div>
+<div class="tstep">
+  <div class="tstitle">2 &middot; Complete Beginner Path</div>
+  <div style="font-size:.78rem;color:var(--ink2);margin-bottom:.4rem">First taste of hacking — small CTF rooms with hand-holding.</div>
+  <div class="tsroom"><span class="tslink">Linux Modules &amp; Web Fundamentals</span><span class="tsmeta">Beginner &middot; 5h</span></div>
+  <div class="tsroom"><span class="tslink">Networking Modules (nmap, recon)</span><span class="tsmeta">Beginner &middot; 6h</span></div>
+  <div class="tsroom"><span class="tslink">Web Hacking Fundamentals</span><span class="tsmeta">Beginner &middot; 7h</span></div>
+  <div class="tsroom"><span class="tslink">Burp Suite — Basics</span><span class="tsmeta">Beginner &middot; 3h</span></div>
+  <div class="tsroom"><span class="tslink">OWASP Top 10 (2021)</span><span class="tsmeta">Beginner &middot; 8h</span></div>
+</div></div>
+
+<div class="tline"><div class="tdot"></div>
+<div class="tstep">
+  <div class="tstitle">3 &middot; Jr Penetration Tester Path</div>
+  <div style="font-size:.78rem;color:var(--ink2);margin-bottom:.4rem">Methodology, real tooling, full kill chain practice.</div>
+  <div class="tsroom"><span class="tslink">Pentesting Fundamentals &amp; Ethics</span><span class="tsmeta">Easy &middot; 4h</span></div>
+  <div class="tsroom"><span class="tslink">Reconnaissance &amp; Enumeration</span><span class="tsmeta">Easy &middot; 8h</span></div>
+  <div class="tsroom"><span class="tslink">Vulnerability Research &amp; Scanning</span><span class="tsmeta">Easy &middot; 6h</span></div>
+  <div class="tsroom"><span class="tslink">Exploitation Basics — Metasploit</span><span class="tsmeta">Easy &middot; 7h</span></div>
+  <div class="tsroom"><span class="tslink">Privilege Escalation (Linux + Win)</span><span class="tsmeta">Medium &middot; 10h</span></div>
+</div></div>
+
+<div class="tline"><div class="tdot"></div>
+<div class="tstep">
+  <div class="tstitle">4 &middot; CompTIA Security+</div>
+  <div style="font-size:.78rem;color:var(--ink2);margin-bottom:.4rem">Exam prep — broader security knowledge, certification-aligned.</div>
+  <div class="tsroom"><span class="tslink">Threats, Attacks &amp; Vulnerabilities</span><span class="tsmeta">Easy &middot; 8h</span></div>
+  <div class="tsroom"><span class="tslink">Architecture &amp; Design</span><span class="tsmeta">Easy &middot; 6h</span></div>
+  <div class="tsroom"><span class="tslink">Implementation, Ops &amp; Governance</span><span class="tsmeta">Medium &middot; 9h</span></div>
+</div></div>
+
+<div class="tline"><div class="tdot"></div>
+<div class="tstep">
+  <div class="tstitle">5 &middot; Offensive Pentesting Path</div>
+  <div style="font-size:.78rem;color:var(--ink2);margin-bottom:.4rem">OSCP-style — harder boxes, less guidance.</div>
+  <div class="tsroom"><span class="tslink">Active Directory Basics</span><span class="tsmeta">Medium &middot; 6h</span></div>
+  <div class="tsroom"><span class="tslink">Advanced Exploitation &amp; Buffer Overflow</span><span class="tsmeta">Hard &middot; 10h</span></div>
+  <div class="tsroom"><span class="tslink">Network Pivoting &amp; Tunneling</span><span class="tsmeta">Hard &middot; 8h</span></div>
+  <div class="tsroom"><span class="tslink">OSCP-style boxes (Steel Mountain, Kenobi, Mr Robot)</span><span class="tsmeta">Hard &middot; 20h+</span></div>
+</div></div>
+</div>
+
+<!-- CS NMAP -->
+<div class="pg" id="pg-cs-nmap">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> nmap</div><div class="pt">nmap Cheatsheet</div><div class="ps">Host discovery, scan types, NSE, evasion — one dense page.</div></div>
+
+<div class="cs-grid">
+<div class="cs-card"><div class="cs-title">Host Discovery</div>
+<div class="cs-row"><code>-sn</code><span class="cs-d">ping sweep — no port scan</span></div>
+<div class="cs-row"><code>-sP</code><span class="cs-d">legacy alias for -sn</span></div>
+<div class="cs-row"><code>-Pn</code><span class="cs-d">skip discovery — assume host up</span></div>
+<div class="cs-row"><code>-PR</code><span class="cs-d">ARP ping (LAN)</span></div>
+<div class="cs-row"><code>-PE / -PP / -PM</code><span class="cs-d">ICMP echo / timestamp / netmask</span></div>
+<div class="cs-row"><code>--top-ports N</code><span class="cs-d">scan most common N ports</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Scan Types</div>
+<div class="cs-row"><code>-sS</code><span class="cs-d">SYN stealth (default as root)</span></div>
+<div class="cs-row"><code>-sT</code><span class="cs-d">full TCP connect (unprivileged)</span></div>
+<div class="cs-row"><code>-sU</code><span class="cs-d">UDP scan</span></div>
+<div class="cs-row"><code>-sA</code><span class="cs-d">ACK — map firewall rules</span></div>
+<div class="cs-row"><code>-sF / -sN / -sX</code><span class="cs-d">FIN / NULL / Xmas stealth</span></div>
+<div class="cs-row"><code>-sV</code><span class="cs-d">service version detection</span></div>
+<div class="cs-row"><code>-O</code><span class="cs-d">OS fingerprint</span></div>
+<div class="cs-row"><code>-A</code><span class="cs-d">aggressive: -O -sV -sC --traceroute</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Port Selection</div>
+<div class="cs-row"><code>-p 80</code><span class="cs-d">single port</span></div>
+<div class="cs-row"><code>-p-</code><span class="cs-d">all 65535 ports</span></div>
+<div class="cs-row"><code>-p 1-1000</code><span class="cs-d">range</span></div>
+<div class="cs-row"><code>-p T:80,U:53</code><span class="cs-d">mixed TCP/UDP</span></div>
+<div class="cs-row"><code>--top-ports 100</code><span class="cs-d">most common 100</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Timing</div>
+<div class="cs-row"><code>-T0</code><span class="cs-d">paranoid (IDS evasion)</span></div>
+<div class="cs-row"><code>-T1</code><span class="cs-d">sneaky</span></div>
+<div class="cs-row"><code>-T2</code><span class="cs-d">polite</span></div>
+<div class="cs-row"><code>-T3</code><span class="cs-d">normal (default)</span></div>
+<div class="cs-row"><code>-T4</code><span class="cs-d">aggressive — common in CTF</span></div>
+<div class="cs-row"><code>-T5</code><span class="cs-d">insane — packet loss likely</span></div>
+<div class="cs-row"><code>--min-rate 1000</code><span class="cs-d">force minimum packets/sec</span></div>
+<div class="cs-row"><code>--max-rate 500</code><span class="cs-d">cap packets/sec</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Output</div>
+<div class="cs-row"><code>-oN file</code><span class="cs-d">normal human-readable</span></div>
+<div class="cs-row"><code>-oX file</code><span class="cs-d">XML — feed to other tools</span></div>
+<div class="cs-row"><code>-oG file</code><span class="cs-d">grepable</span></div>
+<div class="cs-row"><code>-oA base</code><span class="cs-d">all three formats at once</span></div>
+<div class="cs-row"><code>-v / -vv</code><span class="cs-d">verbose / very verbose</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">NSE Scripts</div>
+<div class="cs-row"><code>--script default</code><span class="cs-d">safe default scripts (-sC)</span></div>
+<div class="cs-row"><code>--script vuln</code><span class="cs-d">vulnerability checks</span></div>
+<div class="cs-row"><code>--script "http-*"</code><span class="cs-d">all HTTP scripts</span></div>
+<div class="cs-row"><code>--script-args k=v</code><span class="cs-d">pass arguments to scripts</span></div>
+<div class="cs-row"><code>smb-os-discovery</code><span class="cs-d">Windows version via SMB</span></div>
+<div class="cs-row"><code>ssl-enum-ciphers</code><span class="cs-d">TLS cipher suite audit</span></div>
+<div class="cs-row"><code>http-enum</code><span class="cs-d">web app fingerprint</span></div>
+<div class="cs-row"><code>dns-brute</code><span class="cs-d">subdomain brute-force</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Evasion</div>
+<div class="cs-row"><code>-f</code><span class="cs-d">fragment packets</span></div>
+<div class="cs-row"><code>-D RND:10</code><span class="cs-d">10 random decoy IPs</span></div>
+<div class="cs-row"><code>--source-port 53</code><span class="cs-d">spoof source port (DNS)</span></div>
+<div class="cs-row"><code>--data-length 50</code><span class="cs-d">pad packets to avoid signatures</span></div>
+<div class="cs-row"><code>--spoof-mac 0</code><span class="cs-d">randomize MAC address</span></div>
+<div class="cs-row"><code>--randomize-hosts</code><span class="cs-d">shuffle target order</span></div>
+</div>
+</div>
+
+<div class="cs-flow"><div class="cs-flow-t">Common Workflows</div>
+<div class="cs-flow-d">Full TCP scan with version &amp; default scripts</div>
+<pre>nmap -sS -sV -sC -p- -T4 -oA full 10.10.10.10</pre>
+<div class="cs-flow-d">UDP top 100 (slow — be patient)</div>
+<pre>nmap -sU --top-ports 100 -T4 -oN udp.txt 10.10.10.10</pre>
+<div class="cs-flow-d">Vulnerability scan on discovered services</div>
+<pre>nmap -sV --script vuln -p 80,443,445 10.10.10.10</pre>
+<div class="cs-flow-d">Stealthy scan with decoys + timing</div>
+<pre>nmap -sS -T2 -f -D RND:5 --source-port 53 -p 22,80,443 10.10.10.10</pre>
+</div>
+</div>
+
+<!-- CS BURP -->
+<div class="pg" id="pg-cs-burp">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> Burp Suite</div><div class="pt">Burp Suite Cheatsheet</div><div class="ps">Tools, payload types, extensions, shortcuts.</div></div>
+
+<div class="cs-grid">
+<div class="cs-card"><div class="cs-title">Proxy</div>
+<div class="cs-row"><code>Intercept on/off</code><span class="cs-d">capture requests before they leave</span></div>
+<div class="cs-row"><code>Target &gt; Scope</code><span class="cs-d">restrict to target — silences noise</span></div>
+<div class="cs-row"><code>HTTP history</code><span class="cs-d">filter by scope, status, MIME</span></div>
+<div class="cs-row"><code>Drop</code><span class="cs-d">discard intercepted request</span></div>
+<div class="cs-row"><code>Forward</code><span class="cs-d">send request through unchanged</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Repeater</div>
+<div class="cs-row"><code>Ctrl+R</code><span class="cs-d">send current request to Repeater</span></div>
+<div class="cs-row"><code>Ctrl+Space</code><span class="cs-d">send the request</span></div>
+<div class="cs-row"><code>Tabs</code><span class="cs-d">keep multiple variations side-by-side</span></div>
+<div class="cs-row"><code>Compare</code><span class="cs-d">right-click &rarr; send responses to Comparer</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Intruder — Attack Types</div>
+<div class="cs-row"><code>Sniper</code><span class="cs-d">one payload set, one position at a time</span></div>
+<div class="cs-row"><code>Battering ram</code><span class="cs-d">same payload in all positions</span></div>
+<div class="cs-row"><code>Pitchfork</code><span class="cs-d">parallel sets — same index per position</span></div>
+<div class="cs-row"><code>Cluster bomb</code><span class="cs-d">cartesian product — every combination</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Intruder — Payloads</div>
+<div class="cs-row"><code>Simple list</code><span class="cs-d">paste / load from file</span></div>
+<div class="cs-row"><code>Brute forcer</code><span class="cs-d">charset + length range</span></div>
+<div class="cs-row"><code>Numbers</code><span class="cs-d">from/to/step — IDOR style</span></div>
+<div class="cs-row"><code>Custom iterator</code><span class="cs-d">templated combinations</span></div>
+<div class="cs-row"><code>Grep — Match</code><span class="cs-d">flag responses containing success/error string</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Decoder</div>
+<div class="cs-row"><code>URL</code><span class="cs-d">encode/decode %xx</span></div>
+<div class="cs-row"><code>HTML</code><span class="cs-d">&amp;amp; entities</span></div>
+<div class="cs-row"><code>Base64</code><span class="cs-d">JWT payloads, tokens</span></div>
+<div class="cs-row"><code>Hex / ASCII</code><span class="cs-d">raw bytes</span></div>
+<div class="cs-row"><code>Hash</code><span class="cs-d">MD5, SHA1, SHA256 on the fly</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Comparer &amp; Scanner</div>
+<div class="cs-row"><code>Comparer</code><span class="cs-d">diff two requests or responses — word/byte</span></div>
+<div class="cs-row"><code>Scanner (Pro)</code><span class="cs-d">passive on every request, active on demand</span></div>
+<div class="cs-row"><code>Scan profile</code><span class="cs-d">crawl + audit, light, deep, custom</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Essential Extensions (BApp)</div>
+<div class="cs-row"><code>Logger++</code><span class="cs-d">grep across all traffic</span></div>
+<div class="cs-row"><code>Autorize</code><span class="cs-d">authZ testing — replay as another user</span></div>
+<div class="cs-row"><code>Turbo Intruder</code><span class="cs-d">high-throughput, race conditions</span></div>
+<div class="cs-row"><code>Param Miner</code><span class="cs-d">hidden parameter / header discovery</span></div>
+<div class="cs-row"><code>JWT Editor</code><span class="cs-d">decode + sign JWTs</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Keyboard Shortcuts</div>
+<div class="cs-row"><code>Ctrl+R</code><span class="cs-d">send to Repeater</span></div>
+<div class="cs-row"><code>Ctrl+I</code><span class="cs-d">send to Intruder</span></div>
+<div class="cs-row"><code>Ctrl+B</code><span class="cs-d">forward intercept (also B in proxy)</span></div>
+<div class="cs-row"><code>Ctrl+F</code><span class="cs-d">forward</span></div>
+<div class="cs-row"><code>Ctrl+T</code><span class="cs-d">toggle intercept on/off</span></div>
+<div class="cs-row"><code>Ctrl+U</code><span class="cs-d">URL-decode selection</span></div>
+</div>
+</div>
+
+<div class="cs-flow"><div class="cs-flow-t">Tips</div>
+<div class="cs-flow-d">Scope hygiene saves hours — set it before you start clicking.</div>
+<pre>Target &gt; Scope &gt; Add &gt; target.com  (+ Use advanced control)</pre>
+<div class="cs-flow-d">Auto-add to scope when you hit "Add to scope" from Target tab.</div>
+<div class="cs-flow-d">Hotkey "Forward intercept and don't intercept HTTP responses" lets you breeze past static assets.</div>
+</div>
+</div>
+
+<!-- CS CURL -->
+<div class="pg" id="pg-cs-curl">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> curl</div><div class="pt">curl Cheatsheet</div><div class="ps">The Swiss army knife of HTTP.</div></div>
+
+<div class="cs-grid">
+<div class="cs-card"><div class="cs-title">Basic</div>
+<div class="cs-row"><code>curl URL</code><span class="cs-d">GET, body to stdout</span></div>
+<div class="cs-row"><code>-o file</code><span class="cs-d">save to specific file</span></div>
+<div class="cs-row"><code>-O</code><span class="cs-d">save with remote filename</span></div>
+<div class="cs-row"><code>-L</code><span class="cs-d">follow redirects</span></div>
+<div class="cs-row"><code>-I</code><span class="cs-d">HEAD only — see response headers</span></div>
+<div class="cs-row"><code>-i</code><span class="cs-d">include response headers in body output</span></div>
+<div class="cs-row"><code>-v / -vv</code><span class="cs-d">verbose — see request + response</span></div>
+<div class="cs-row"><code>-s</code><span class="cs-d">silent (no progress bar)</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Methods</div>
+<div class="cs-row"><code>-X POST</code><span class="cs-d">change method</span></div>
+<div class="cs-row"><code>-X PUT</code><span class="cs-d">upsert</span></div>
+<div class="cs-row"><code>-X DELETE</code><span class="cs-d">remove resource</span></div>
+<div class="cs-row"><code>-X PATCH</code><span class="cs-d">partial update</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Headers</div>
+<div class="cs-row"><code>-H "Content-Type: application/json"</code><span class="cs-d">JSON body</span></div>
+<div class="cs-row"><code>-H "Authorization: Bearer TOKEN"</code><span class="cs-d">bearer auth</span></div>
+<div class="cs-row"><code>-H "Cookie: a=1; b=2"</code><span class="cs-d">manual cookies</span></div>
+<div class="cs-row"><code>-A "Mozilla/5.0..."</code><span class="cs-d">User-Agent shortcut</span></div>
+<div class="cs-row"><code>-e "https://ref"</code><span class="cs-d">Referer shortcut</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Data</div>
+<div class="cs-row"><code>-d "name=val"</code><span class="cs-d">URL-encoded POST body</span></div>
+<div class="cs-row"><code>-d @file.json</code><span class="cs-d">read body from file</span></div>
+<div class="cs-row"><code>--data-urlencode</code><span class="cs-d">force URL encoding</span></div>
+<div class="cs-row"><code>-F "file=@photo.jpg"</code><span class="cs-d">multipart upload</span></div>
+<div class="cs-row"><code>-F "k=v"</code><span class="cs-d">multipart form field</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Auth &amp; Cookies</div>
+<div class="cs-row"><code>-u user:pass</code><span class="cs-d">Basic auth</span></div>
+<div class="cs-row"><code>--cookie-jar c.txt</code><span class="cs-d">save received cookies</span></div>
+<div class="cs-row"><code>--cookie c.txt</code><span class="cs-d">send cookies from file</span></div>
+<div class="cs-row"><code>--digest</code><span class="cs-d">use Digest auth</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">SSL / TLS</div>
+<div class="cs-row"><code>-k</code><span class="cs-d">ignore cert errors</span></div>
+<div class="cs-row"><code>--cacert ca.pem</code><span class="cs-d">trust specific CA</span></div>
+<div class="cs-row"><code>--cert client.pem</code><span class="cs-d">mTLS client cert</span></div>
+<div class="cs-row"><code>--tlsv1.2</code><span class="cs-d">force TLS 1.2</span></div>
+<div class="cs-row"><code>--resolve host:port:IP</code><span class="cs-d">override DNS</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Output / Timing</div>
+<div class="cs-row"><code>-w "%{http_code}\n"</code><span class="cs-d">format output (status code, time, size...)</span></div>
+<div class="cs-row"><code>--max-time 10</code><span class="cs-d">total timeout (s)</span></div>
+<div class="cs-row"><code>--connect-timeout 5</code><span class="cs-d">connect-phase timeout</span></div>
+<div class="cs-row"><code>-w "%{time_total}"</code><span class="cs-d">measure total request time</span></div>
+</div>
+</div>
+
+<div class="cs-flow"><div class="cs-flow-t">Common Workflows</div>
+<div class="cs-flow-d">POST JSON to an API</div>
+<pre>curl -X POST https://api.x/v1/login \
+  -H "Content-Type: application/json" \
+  -d '{"user":"a","pass":"b"}'</pre>
+<div class="cs-flow-d">Login &amp; reuse session cookie</div>
+<pre>curl -c jar.txt -d "u=a&amp;p=b" https://site/login
+curl -b jar.txt https://site/dashboard</pre>
+<div class="cs-flow-d">Upload a file (multipart)</div>
+<pre>curl -F "file=@report.pdf" -F "tag=quarter" https://site/upload</pre>
+<div class="cs-flow-d">Follow redirect chain verbosely</div>
+<pre>curl -L -v -o /dev/null https://short.url/abc</pre>
+<div class="cs-flow-d">Test specific TLS version</div>
+<pre>curl --tlsv1.2 -v https://site 2&gt;&amp;1 | grep -i "SSL connection"</pre>
+</div>
+</div>
+
+<!-- CS GREP -->
+<div class="pg" id="pg-cs-grep">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> grep</div><div class="pt">grep Cheatsheet</div><div class="ps">Search text fast — flags, regex flavours, common patterns.</div></div>
+
+<div class="cs-grid">
+<div class="cs-card"><div class="cs-title">Basic Flags</div>
+<div class="cs-row"><code>-i</code><span class="cs-d">case insensitive</span></div>
+<div class="cs-row"><code>-v</code><span class="cs-d">invert — non-matching lines</span></div>
+<div class="cs-row"><code>-r / -R</code><span class="cs-d">recursive into directories</span></div>
+<div class="cs-row"><code>-n</code><span class="cs-d">show line number</span></div>
+<div class="cs-row"><code>-l</code><span class="cs-d">filenames only (with match)</span></div>
+<div class="cs-row"><code>-L</code><span class="cs-d">filenames only (without match)</span></div>
+<div class="cs-row"><code>-c</code><span class="cs-d">count matches per file</span></div>
+<div class="cs-row"><code>-w</code><span class="cs-d">whole word match</span></div>
+<div class="cs-row"><code>-x</code><span class="cs-d">whole line match</span></div>
+<div class="cs-row"><code>-o</code><span class="cs-d">print only matched portion</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Pattern Type</div>
+<div class="cs-row"><code>-E</code><span class="cs-d">extended regex (egrep)</span></div>
+<div class="cs-row"><code>-F</code><span class="cs-d">fixed string — fastest (fgrep)</span></div>
+<div class="cs-row"><code>-P</code><span class="cs-d">Perl regex — full PCRE</span></div>
+<div class="cs-row"><code>-G</code><span class="cs-d">basic regex (default)</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Context</div>
+<div class="cs-row"><code>-A 3</code><span class="cs-d">3 lines after match</span></div>
+<div class="cs-row"><code>-B 3</code><span class="cs-d">3 lines before</span></div>
+<div class="cs-row"><code>-C 3</code><span class="cs-d">3 lines around (both)</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Multi-Pattern</div>
+<div class="cs-row"><code>-e "a" -e "b"</code><span class="cs-d">multiple patterns</span></div>
+<div class="cs-row"><code>grep -E "a|b"</code><span class="cs-d">alternation</span></div>
+<div class="cs-row"><code>-f patterns.txt</code><span class="cs-d">patterns from file (one per line)</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Common Pipes</div>
+<div class="cs-row"><code>grep X | grep -v Y</code><span class="cs-d">filter then exclude</span></div>
+<div class="cs-row"><code>grep X | awk '{print $1}'</code><span class="cs-d">extract first column</span></div>
+<div class="cs-row"><code>... | sort | uniq -c | sort -rn</code><span class="cs-d">count + rank</span></div>
+<div class="cs-row"><code>grep --include="*.php" -r</code><span class="cs-d">limit to file type</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Regex Cheats</div>
+<div class="cs-row"><code>\d</code><span class="cs-d">digit (PCRE)</span></div>
+<div class="cs-row"><code>\w</code><span class="cs-d">word char (PCRE)</span></div>
+<div class="cs-row"><code>\s</code><span class="cs-d">whitespace (PCRE)</span></div>
+<div class="cs-row"><code>^start</code><span class="cs-d">line begins with</span></div>
+<div class="cs-row"><code>end$</code><span class="cs-d">line ends with</span></div>
+<div class="cs-row"><code>[abc]</code><span class="cs-d">character class</span></div>
+<div class="cs-row"><code>[^abc]</code><span class="cs-d">negated class</span></div>
+<div class="cs-row"><code>{2,4}</code><span class="cs-d">2 to 4 repetitions (-E)</span></div>
+<div class="cs-row"><code>(group)</code><span class="cs-d">capturing group (-E or -P)</span></div>
+</div>
+</div>
+
+<div class="cs-flow"><div class="cs-flow-t">Practical Examples</div>
+<div class="cs-flow-d">Find IPv4 addresses in a file</div>
+<pre>grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}" access.log</pre>
+<div class="cs-flow-d">Find email addresses</div>
+<pre>grep -Eio "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" leak.txt</pre>
+<div class="cs-flow-d">Errors in the last 100 log lines</div>
+<pre>tail -n 100 /var/log/syslog | grep -i error</pre>
+<div class="cs-flow-d">Find secrets in source — case-insensitive, recursive</div>
+<pre>grep -rniE "(api[_-]?key|secret|password|token)\s*=" .</pre>
+<div class="cs-flow-d">Top 10 IPs hitting your site</div>
+<pre>grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}" access.log | sort | uniq -c | sort -rn | head</pre>
+</div>
+</div>
+
+<!-- CS GIT -->
+<div class="pg" id="pg-cs-git">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> git</div><div class="pt">git Cheatsheet</div><div class="ps">For developers and red-teamers — including .git/ exposure attacks.</div></div>
+
+<div class="cs-grid">
+<div class="cs-card"><div class="cs-title">Setup</div>
+<div class="cs-row"><code>git config --global user.name "X"</code><span class="cs-d">set author name</span></div>
+<div class="cs-row"><code>git config --global user.email a@b</code><span class="cs-d">set author email</span></div>
+<div class="cs-row"><code>git config --global init.defaultBranch main</code><span class="cs-d">default branch name</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Basics</div>
+<div class="cs-row"><code>git init</code><span class="cs-d">new repo here</span></div>
+<div class="cs-row"><code>git clone URL</code><span class="cs-d">copy remote repo</span></div>
+<div class="cs-row"><code>git status</code><span class="cs-d">current state</span></div>
+<div class="cs-row"><code>git add file</code><span class="cs-d">stage changes</span></div>
+<div class="cs-row"><code>git commit -m "msg"</code><span class="cs-d">commit staged</span></div>
+<div class="cs-row"><code>git push / pull / fetch</code><span class="cs-d">sync with remote</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Branches</div>
+<div class="cs-row"><code>git branch</code><span class="cs-d">list local branches</span></div>
+<div class="cs-row"><code>git checkout -b new</code><span class="cs-d">create + switch</span></div>
+<div class="cs-row"><code>git switch main</code><span class="cs-d">switch (modern)</span></div>
+<div class="cs-row"><code>git merge other</code><span class="cs-d">merge other &rarr; current</span></div>
+<div class="cs-row"><code>git rebase main</code><span class="cs-d">replay commits on main</span></div>
+<div class="cs-row"><code>git cherry-pick HASH</code><span class="cs-d">apply one commit here</span></div>
+<div class="cs-row"><code>git branch -d name</code><span class="cs-d">delete merged branch</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">History</div>
+<div class="cs-row"><code>git log --oneline --graph</code><span class="cs-d">visual history</span></div>
+<div class="cs-row"><code>git log -p</code><span class="cs-d">show diffs</span></div>
+<div class="cs-row"><code>git log --all</code><span class="cs-d">include all refs</span></div>
+<div class="cs-row"><code>git show HASH</code><span class="cs-d">inspect one commit</span></div>
+<div class="cs-row"><code>git blame file</code><span class="cs-d">who last changed each line</span></div>
+<div class="cs-row"><code>git reflog</code><span class="cs-d">local HEAD history (recover lost commits)</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Undo</div>
+<div class="cs-row"><code>git restore file</code><span class="cs-d">discard unstaged changes</span></div>
+<div class="cs-row"><code>git reset file</code><span class="cs-d">unstage</span></div>
+<div class="cs-row"><code>git reset --hard HASH</code><span class="cs-d">move HEAD, wipe working tree</span></div>
+<div class="cs-row"><code>git revert HASH</code><span class="cs-d">new commit that undoes another</span></div>
+<div class="cs-row"><code>git commit --amend</code><span class="cs-d">edit last commit</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">Stash &amp; Remote</div>
+<div class="cs-row"><code>git stash</code><span class="cs-d">shelve changes</span></div>
+<div class="cs-row"><code>git stash pop</code><span class="cs-d">restore most recent</span></div>
+<div class="cs-row"><code>git stash list / apply</code><span class="cs-d">manage stashes</span></div>
+<div class="cs-row"><code>git remote -v</code><span class="cs-d">list remotes</span></div>
+<div class="cs-row"><code>git remote add origin URL</code><span class="cs-d">attach remote</span></div>
+<div class="cs-row"><code>git push -u origin main</code><span class="cs-d">push + set upstream</span></div>
+</div>
+
+<div class="cs-card"><div class="cs-title">For Hackers</div>
+<div class="cs-row"><code>git log --all --source -- file</code><span class="cs-d">find a file across all branches/history</span></div>
+<div class="cs-row"><code>git log -S "password"</code><span class="cs-d">find commits that add/remove a string</span></div>
+<div class="cs-row"><code>git secrets / gitleaks</code><span class="cs-d">scan for keys, AWS creds, tokens</span></div>
+<div class="cs-row"><code>trufflehog git URL</code><span class="cs-d">entropy-based secret hunt</span></div>
+<div class="cs-row"><code>gitrob</code><span class="cs-d">org-wide leaked-secret scanner</span></div>
+</div>
+</div>
+
+<div class="cs-flow"><div class="cs-flow-t">.git/ Exposure on the Web</div>
+<div class="cs-flow-d">Classic misconfig: web server serves <code>.git/</code> directory contents. Full history can be dumped &rarr; leaked credentials, hardcoded keys, internal source code.</div>
+<pre># detect
+curl -s https://target/.git/HEAD
+# expected: "ref: refs/heads/main"
+
+# dump
+git-dumper https://target/.git/ ./loot
+# or
+wget -r --no-parent https://target/.git/
+
+# then grep history for secrets
+cd loot &amp;&amp; git log -p | grep -iE "password|api[_-]?key|secret"</pre>
+<div class="cs-flow-d">Even when directory listing is off, the structure is predictable — tools brute-force expected paths (HEAD, refs/, objects/...).</div>
+</div>
+</div>
+
+<!-- CS PORTS -->
+<div class="pg" id="pg-cs-ports">
+<div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> ports</div><div class="pt">Common Ports</div><div class="ps">Well-known ports grouped by category — service, protocol, attack relevance.</div></div>
+
+<div class="port-cat">File Transfer</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">20 / 21 TCP</td><td class="ps">FTP (data/control)</td><td>Plaintext credentials — check anonymous login</td></tr>
+<tr><td class="pp">69 UDP</td><td class="ps">TFTP</td><td>No auth — config files, firmware images</td></tr>
+<tr><td class="pp">115 TCP</td><td class="ps">SFTP (legacy)</td><td>Rare — modern SFTP uses port 22</td></tr>
+<tr><td class="pp">873 TCP</td><td class="ps">rsync</td><td>Open modules &rarr; arbitrary file read/write</td></tr>
+<tr><td class="pp">2049 TCP</td><td class="ps">NFS</td><td>Check exports — world-readable shares common</td></tr>
+</tbody></table>
+
+<div class="port-cat">Remote Access</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">22 TCP</td><td class="ps">SSH</td><td>Brute-force via Hydra; check for weak keys</td></tr>
+<tr><td class="pp">23 TCP</td><td class="ps">Telnet</td><td>Plaintext — deprecated, default creds common on IoT</td></tr>
+<tr><td class="pp">512-514 TCP</td><td class="ps">rsh / rlogin / rexec</td><td>Legacy — trust-based auth</td></tr>
+<tr><td class="pp">1723 TCP</td><td class="ps">PPTP VPN</td><td>Weak — MS-CHAPv2 crackable</td></tr>
+<tr><td class="pp">3389 TCP</td><td class="ps">RDP</td><td>BlueKeep (CVE-2019-0708); brute-force; NLA check</td></tr>
+<tr><td class="pp">5900 TCP</td><td class="ps">VNC</td><td>Weak or no auth — try unauth first</td></tr>
+<tr><td class="pp">5985 / 5986 TCP</td><td class="ps">WinRM (HTTP/HTTPS)</td><td>PowerShell remoting — psexec alternative</td></tr>
+</tbody></table>
+
+<div class="port-cat">Web</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">80 TCP</td><td class="ps">HTTP</td><td>Primary web target</td></tr>
+<tr><td class="pp">443 TCP</td><td class="ps">HTTPS</td><td>TLS-wrapped web — check cert, ciphers</td></tr>
+<tr><td class="pp">3000 TCP</td><td class="ps">Dev frameworks</td><td>Node, Rails, Grafana — often left exposed</td></tr>
+<tr><td class="pp">3128 TCP</td><td class="ps">Squid proxy</td><td>Open proxy &rarr; internal pivot</td></tr>
+<tr><td class="pp">8000 / 8080 / 8443</td><td class="ps">HTTP / HTTPS alt</td><td>Admin UIs, tomcat, jenkins</td></tr>
+<tr><td class="pp">8888 TCP</td><td class="ps">Web admin / Jupyter</td><td>Notebook servers often without auth</td></tr>
+<tr><td class="pp">9000 TCP</td><td class="ps">PHP-FPM / SonarQube</td><td>FPM exposed &rarr; RCE</td></tr>
+</tbody></table>
+
+<div class="port-cat">Mail</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">25 TCP</td><td class="ps">SMTP</td><td>User enum via VRFY/EXPN; open relay test</td></tr>
+<tr><td class="pp">110 TCP</td><td class="ps">POP3</td><td>Email retrieval, plaintext</td></tr>
+<tr><td class="pp">143 TCP</td><td class="ps">IMAP</td><td>Email retrieval, plaintext</td></tr>
+<tr><td class="pp">465 TCP</td><td class="ps">SMTPS</td><td>SMTP over TLS</td></tr>
+<tr><td class="pp">587 TCP</td><td class="ps">SMTP submission</td><td>Authenticated mail send</td></tr>
+<tr><td class="pp">993 TCP</td><td class="ps">IMAPS</td><td>IMAP over TLS</td></tr>
+<tr><td class="pp">995 TCP</td><td class="ps">POP3S</td><td>POP3 over TLS</td></tr>
+</tbody></table>
+
+<div class="port-cat">Database</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">1433 TCP</td><td class="ps">MSSQL</td><td>sqlmap target; xp_cmdshell &rarr; RCE</td></tr>
+<tr><td class="pp">1521 TCP</td><td class="ps">Oracle DB</td><td>TNS poisoning; default creds (sys/oracle)</td></tr>
+<tr><td class="pp">3306 TCP</td><td class="ps">MySQL / MariaDB</td><td>Brute-force; UDF for RCE</td></tr>
+<tr><td class="pp">5432 TCP</td><td class="ps">PostgreSQL</td><td>COPY PROGRAM &rarr; RCE in older versions</td></tr>
+<tr><td class="pp">5984 TCP</td><td class="ps">CouchDB</td><td>Often no auth; CVE-2017-12635</td></tr>
+<tr><td class="pp">6379 TCP</td><td class="ps">Redis</td><td>Default no auth &rarr; RCE via config rewrite (write SSH key)</td></tr>
+<tr><td class="pp">9200 TCP</td><td class="ps">Elasticsearch</td><td>Often unauthenticated — full data dump</td></tr>
+<tr><td class="pp">11211 TCP/UDP</td><td class="ps">Memcached</td><td>UDP amplification DDoS</td></tr>
+<tr><td class="pp">27017 TCP</td><td class="ps">MongoDB</td><td>Default no auth in older versions</td></tr>
+<tr><td class="pp">50070 TCP</td><td class="ps">Hadoop NameNode</td><td>Web UI — often no auth</td></tr>
+</tbody></table>
+
+<div class="port-cat">Directory &amp; Auth</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">88 TCP/UDP</td><td class="ps">Kerberos</td><td>AS-REP roasting, Kerberoasting</td></tr>
+<tr><td class="pp">389 TCP</td><td class="ps">LDAP</td><td>Anonymous bind &rarr; user enum</td></tr>
+<tr><td class="pp">636 TCP</td><td class="ps">LDAPS</td><td>LDAP over TLS</td></tr>
+<tr><td class="pp">3268 TCP</td><td class="ps">LDAP Global Catalog</td><td>Forest-wide AD queries</td></tr>
+</tbody></table>
+
+<div class="port-cat">Windows / SMB</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">135 TCP</td><td class="ps">MSRPC</td><td>Windows RPC endpoint mapper</td></tr>
+<tr><td class="pp">137-139 UDP/TCP</td><td class="ps">NetBIOS</td><td>Name service / session — SMB enumeration</td></tr>
+<tr><td class="pp">445 TCP</td><td class="ps">SMB (direct)</td><td>EternalBlue, file shares, null sessions</td></tr>
+</tbody></table>
+
+<div class="port-cat">Routing &amp; Network</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">53 TCP/UDP</td><td class="ps">DNS</td><td>Zone transfers (AXFR), DNS tunneling, cache poisoning</td></tr>
+<tr><td class="pp">67 / 68 UDP</td><td class="ps">DHCP (server/client)</td><td>Rogue DHCP attacks</td></tr>
+<tr><td class="pp">111 TCP/UDP</td><td class="ps">RPCbind / portmapper</td><td>Used by NFS — enumerate via rpcinfo</td></tr>
+<tr><td class="pp">123 UDP</td><td class="ps">NTP</td><td>Monlist amplification DDoS</td></tr>
+<tr><td class="pp">161 / 162 UDP</td><td class="ps">SNMP (poll/trap)</td><td>"public" community &rarr; full device inventory</td></tr>
+<tr><td class="pp">179 TCP</td><td class="ps">BGP</td><td>Routing protocol — peer hijack</td></tr>
+<tr><td class="pp">1080 TCP</td><td class="ps">SOCKS proxy</td><td>Often open as pivot</td></tr>
+</tbody></table>
+
+<div class="port-cat">Monitoring &amp; Other</div>
+<table class="port-table"><thead><tr><th>Port</th><th>Service</th><th>Notes / Attack Relevance</th></tr></thead><tbody>
+<tr><td class="pp">514 UDP</td><td class="ps">syslog</td><td>Log forwarding — spoofable</td></tr>
+<tr><td class="pp">631 TCP</td><td class="ps">IPP / CUPS</td><td>Printers — often vulnerable</td></tr>
+<tr><td class="pp">2375 / 2376 TCP</td><td class="ps">Docker API</td><td>Exposed &rarr; container escape &rarr; host RCE</td></tr>
+<tr><td class="pp">4444 TCP</td><td class="ps">Metasploit default</td><td>Common reverse shell handler</td></tr>
+<tr><td class="pp">5601 TCP</td><td class="ps">Kibana</td><td>Elasticsearch UI — auth often weak</td></tr>
+</tbody></table>
+</div>
 
 </main>
 <script>
