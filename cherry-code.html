@@ -12,7 +12,7 @@
 --p50:#fff5f5;--p100:#fde0e0;--p200:#fbc4c4;--p300:#f9a8a8;--p400:#e87373;--p500:#c93f4f;
 --ink:#1c0c14;--ink2:#3d1a26;--ink3:#7a3548;--ink4:#b88090;--line:#f0d4d4;
 /* Code colors — Cherry Noir terminal */
---code-bg:#1a0a12;--code-text:#fde0e0;--code-comment:#8a5066;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#e54a5a;--code-line:#3d1a26;--code-tab-bg:#241019}
+--code-bg:#1c0c14;--code-text:#fde0e0;--code-comment:#8a5066;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#e54a5a;--code-line:#3d1a26;--code-tab-bg:#241019}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden}
 
@@ -150,8 +150,8 @@ main{padding:1rem .9rem 4rem;max-width:680px;margin:0 auto}
 .ri{flex-shrink:0;color:var(--p500);margin-top:.1rem}
 
 /* GLOSSARY stars */
-.gloss{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><text x='0' y='6' font-size='6' fill='%23c93f4f'>%E2%9C%A6</text></svg>") repeat-x 0 100%;background-size:.65em .65em;cursor:pointer;padding-bottom:1px;color:var(--p500);transition:all .12s}
-.gloss:hover{background-color:var(--p100);border-radius:3px}
+.gloss{border-bottom:1px dotted var(--p400);cursor:pointer;padding-bottom:0;color:var(--p500);transition:color .12s, border-color .12s}
+.gloss:hover{color:var(--p500);border-bottom-color:var(--p500)}
 .gov{position:fixed;inset:0;background:rgba(28,12,20,.55);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem}
 .gov.on{display:flex;animation:gfade .15s ease}
 .gmodal{background:white;border-radius:14px;max-width:480px;width:100%;padding:0;overflow:hidden;box-shadow:0 8px 40px rgba(201,63,79,.3)}
@@ -430,6 +430,57 @@ body.dark .quiz-box{background:var(--page)}
 body.dark .quiz-option{background:var(--p50);color:var(--ink);border-color:var(--line)}
 body.dark .quiz-option:hover:not(:disabled){background:var(--p100)}
 body.dark .quiz-score-btn.secondary{background:var(--p50)}
+/* ===== Sprint 9 additions ===== */
+.code-wrap{position:relative}
+.copy-btn{position:absolute;top:.35rem;right:.45rem;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--code-comment);background:var(--code-line);border:1px solid var(--code-line);padding:.3rem .55rem;border-radius:6px;cursor:pointer;z-index:5;font-weight:600;transition:all .15s;opacity:.8}
+.copy-btn:hover{background:var(--p500);color:#fff;border-color:var(--p500);opacity:1}
+.copy-btn.ok{background:#7aa860;color:#fff;border-color:#7aa860;opacity:1}
+.cheat-section{margin:1.1rem 0 .4rem;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--p500);font-weight:700;border-bottom:1px solid var(--line);padding-bottom:.35rem}
+.cheat-grid{display:grid;grid-template-columns:1fr;gap:.6rem;margin-bottom:.8rem}
+@media(min-width:760px){.cheat-grid{grid-template-columns:1fr 1fr}}
+.cheat-card{background:var(--p50);border-radius:10px;padding:.7rem .85rem;border:1px solid var(--p200)}
+.cheat-name{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--p500);font-weight:700;margin-bottom:.2rem}
+.cheat-desc{font-size:.78rem;color:var(--ink3);margin-bottom:.4rem;line-height:1.45}
+.cheat-card pre.code-block{border-radius:8px;border-top:1px solid var(--code-line);font-size:.7rem;padding:.55rem .7rem}
+body.dark .cheat-card{background:var(--p50);border-color:var(--p100)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.74rem;margin-top:.6rem}
+.cmp-table th,.cmp-table td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+.cmp-table th{background:var(--p100);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--p500);font-weight:700}
+.cmp-table td:first-child{font-weight:600;color:var(--ink);background:var(--p50)}
+.cmp-table code{font-family:'JetBrains Mono',monospace;font-size:.68rem;background:var(--code-bg);color:var(--code-text);padding:.1rem .35rem;border-radius:4px}
+body.dark .cmp-table th{background:var(--p100)}
+body.dark .cmp-table td:first-child{background:var(--p50)}
+.cmp-scroll{overflow-x:auto;margin:0 -.2rem}
+.ap-card{background:var(--p50);border:1px solid var(--p200);border-left:4px solid var(--p400);border-radius:10px;padding:.8rem .9rem;margin:.65rem 0}
+.ap-name{font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--p500);margin-bottom:.2rem}
+.ap-desc{font-size:.8rem;color:var(--ink3);margin-bottom:.5rem;line-height:1.5}
+.ap-grid{display:grid;grid-template-columns:1fr;gap:.4rem}
+@media(min-width:680px){.ap-grid{grid-template-columns:1fr 1fr}}
+.ap-side{border-radius:8px;padding:.45rem .6rem;font-family:'JetBrains Mono',monospace;font-size:.68rem;line-height:1.5;white-space:pre-wrap;overflow-x:auto}
+.ap-bad{background:#3a1518;color:#ffd4d4;border:1px solid #5a2025}
+.ap-good{background:#1a3018;color:#d4f5d4;border:1px solid #234a23}
+.ap-side b{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;display:block;margin-bottom:.25rem;opacity:.7;font-weight:700}
+body.dark .ap-card{background:var(--p50);border-color:var(--p100)}
+.method-card{background:var(--p50);border-radius:11px;padding:.85rem 1rem;margin:.7rem 0;display:flex;gap:.85rem;align-items:flex-start;border:1px solid var(--p100)}
+.method-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--p500);font-weight:700;font-style:italic;line-height:1;min-width:1.8rem}
+.method-body{flex:1}
+.method-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.25rem}
+.method-text{font-size:.82rem;color:var(--ink3);line-height:1.5}
+body.dark .method-card{background:var(--p50);border-color:var(--p100)}
+.cover-cta{display:inline-block;margin:1rem auto .4rem;padding:.7rem 1.4rem;border-radius:99px;background:var(--p500);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.cover-cta:hover{background:var(--p400);transform:translateY(-1px)}
+.cover-stats{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem}
+.badge-row{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem}
+.cc-badge{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--ink4);background:#ececec;padding:.35rem .65rem;border-radius:99px;letter-spacing:.06em;border:1px solid var(--line);opacity:.55;font-weight:600}
+.cc-badge.lit{color:var(--p500);background:var(--p100);border-color:var(--p300);opacity:1}
+body.dark .cc-badge{background:#1a0810;border-color:#2a121c}
+.idx-tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.6rem 0 .8rem}
+.idx-search{flex:1;min-width:160px;padding:.5rem .75rem;border-radius:8px;border:1.5px solid var(--p200);background:var(--p50);font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ink);outline:none}
+.idx-search:focus{border-color:var(--p400)}
+.idx-sort-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.1em;text-transform:uppercase}
+.idx-sort{padding:.45rem .65rem;border-radius:8px;border:1.5px solid var(--p200);background:var(--p50);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink);cursor:pointer;outline:none}
+body.dark .idx-search,body.dark .idx-sort{background:var(--p50);color:var(--ink)}
+tr.hidden-by-search{display:none}
 </style>
 </head>
 <body>
@@ -612,6 +663,14 @@ Review Mode
 <div class="ndiv"></div>
 <div class="ns">Practice</div>
 <div class="ni" onclick="go('quiz',this)"><span class="cd">QUIZ</span>Quiz Hub</div>
+<div class="ndiv"></div>
+<div class="ns">Cheatsheets &amp; References</div>
+<div class="ni" onclick="go('cheatsheet-py',this)"><span class="cd">CH·P</span>Python Cheatsheet</div>
+<div class="ni" onclick="go('cheatsheet-js',this)"><span class="cd">CH·J</span>JavaScript Cheatsheet</div>
+<div class="ni" onclick="go('cheatsheet-java',this)"><span class="cd">CH·V</span>Java Cheatsheet</div>
+<div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Languages Comparison</div>
+<div class="ni" onclick="go('anti-patterns',this)"><span class="cd">ANT</span>Anti-patterns</div>
+<div class="ni" onclick="go('method',this)"><span class="cd">MTH</span>Study Method</div>
 
 </nav>
 
@@ -640,6 +699,16 @@ Review Mode
 <span class="cover-lang">Java</span>
 </div>
 <div class="cover-tagline">9 blocks · 98 terms · multi-language</div>
+<div class="cover-stats">9 blocks · 98 terms · 3 languages</div>
+<button class="cover-cta" onclick="go('f01');document.querySelectorAll('.nav .ni').forEach(n=>n.classList.remove('active'));">Start Learning &rarr;</button>
+<div class="badge-row" id="coverBadges">
+<span class="cc-badge" id="badge-firstquiz">First Quiz</span>
+<span class="cc-badge" id="badge-b1-master">Block 1 Mastered</span>
+<span class="cc-badge" id="badge-streak3">3-Day Streak</span>
+<span class="cc-badge" id="badge-50terms">50 Terms Studied</span>
+<span class="cc-badge" id="badge-favs10">10 Favorites</span>
+<span class="cc-badge" id="badge-allcheats">All Cheatsheets</span>
+</div>
 </div>
 </div>
 
@@ -695,6 +764,16 @@ Review Mode
 <div class="progress-row"><span class="progress-label">Block 7 · OOP</span><div class="progress-track"><div class="progress-fill" id="progress-fill-p" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-p">0/12</span></div>
 <div class="progress-row"><span class="progress-label">Block 8 · Errors</span><div class="progress-track"><div class="progress-fill" id="progress-fill-e" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-e">0/10</span></div>
 <div class="progress-row"><span class="progress-label">Block 9 · Best</span><div class="progress-track"><div class="progress-fill" id="progress-fill-b" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-b">0/10</span></div>
+</div>
+
+<div class="idx-tools">
+<input type="text" class="idx-search" id="idxSearch" placeholder="Search terms..." oninput="filterIndex()" autocomplete="off"/>
+<span class="idx-sort-label">sort:</span>
+<select class="idx-sort" id="idxSort" onchange="sortIndex()">
+<option value="block">By Block</option>
+<option value="title">By Title (A-Z)</option>
+<option value="favs">By Favorites first</option>
+</select>
 </div>
 
 <div class="filter-bar">
@@ -7222,6 +7301,612 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 </div>
 </div>
 
+<!-- ===== PYTHON CHEATSHEET ===== -->
+<div class="pg" id="pg-cheatsheet-py">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> cheatsheets &rsaquo; python</div>
+<div class="pt">Python <em>Cheatsheet</em></div>
+<div class="ps">The most-used Python snippets, grouped by topic.</div>
+</div>
+
+<div class="cheat-section">String methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">upper() / lower()</div><div class="cheat-desc">Convert string case.</div><pre class="code-block"><span class="str">"hi"</span>.<span class="fn">upper</span>()  <span class="com"># 'HI'</span>
+<span class="str">"HI"</span>.<span class="fn">lower</span>()  <span class="com"># 'hi'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">split() / join()</div><div class="cheat-desc">Split into list, join list with separator.</div><pre class="code-block"><span class="str">"a,b,c"</span>.<span class="fn">split</span>(<span class="str">","</span>)  <span class="com"># ['a','b','c']</span>
+<span class="str">"-"</span>.<span class="fn">join</span>([<span class="str">"a"</span>,<span class="str">"b"</span>])  <span class="com"># 'a-b'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">replace()</div><div class="cheat-desc">Replace all occurrences.</div><pre class="code-block"><span class="str">"hello"</span>.<span class="fn">replace</span>(<span class="str">"l"</span>, <span class="str">"L"</span>)  <span class="com"># 'heLLo'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">strip()</div><div class="cheat-desc">Remove leading/trailing whitespace.</div><pre class="code-block"><span class="str">"  hi  "</span>.<span class="fn">strip</span>()  <span class="com"># 'hi'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">find() / count()</div><div class="cheat-desc">Find index (-1 if missing) / count occurrences.</div><pre class="code-block"><span class="str">"hello"</span>.<span class="fn">find</span>(<span class="str">"l"</span>)   <span class="com"># 2</span>
+<span class="str">"hello"</span>.<span class="fn">count</span>(<span class="str">"l"</span>)  <span class="com"># 2</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">f-strings / format()</div><div class="cheat-desc">Template strings with variables.</div><pre class="code-block">name = <span class="str">"Ana"</span>
+<span class="fn">print</span>(<span class="str">f"Hi {name}"</span>)
+<span class="str">"Hi {}"</span>.<span class="fn">format</span>(name)</pre></div>
+<div class="cheat-card"><div class="cheat-name">startswith() / endswith()</div><div class="cheat-desc">Prefix/suffix check returning bool.</div><pre class="code-block"><span class="str">"file.py"</span>.<span class="fn">endswith</span>(<span class="str">".py"</span>)  <span class="com"># True</span>
+<span class="str">"hello"</span>.<span class="fn">startswith</span>(<span class="str">"he"</span>) <span class="com"># True</span></pre></div>
+</div>
+
+<div class="cheat-section">List methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">append() / extend()</div><div class="cheat-desc">Add single / multiple items.</div><pre class="code-block">a = [<span class="num">1</span>,<span class="num">2</span>]
+a.<span class="fn">append</span>(<span class="num">3</span>)      <span class="com"># [1,2,3]</span>
+a.<span class="fn">extend</span>([<span class="num">4</span>,<span class="num">5</span>])  <span class="com"># [1,2,3,4,5]</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">pop() / remove()</div><div class="cheat-desc">Remove by index (returns value) / by value.</div><pre class="code-block">a = [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>]
+a.<span class="fn">pop</span>()        <span class="com"># 3, a=[1,2]</span>
+a.<span class="fn">remove</span>(<span class="num">1</span>)   <span class="com"># a=[2]</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">insert()</div><div class="cheat-desc">Insert at index.</div><pre class="code-block">a = [<span class="num">1</span>,<span class="num">3</span>]
+a.<span class="fn">insert</span>(<span class="num">1</span>, <span class="num">2</span>)  <span class="com"># [1,2,3]</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">sort() / reverse()</div><div class="cheat-desc">In-place sort / reverse.</div><pre class="code-block">a = [<span class="num">3</span>,<span class="num">1</span>,<span class="num">2</span>]
+a.<span class="fn">sort</span>()      <span class="com"># [1,2,3]</span>
+a.<span class="fn">reverse</span>()   <span class="com"># [3,2,1]</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">index() / count()</div><div class="cheat-desc">Find first index / total count.</div><pre class="code-block">[<span class="num">1</span>,<span class="num">2</span>,<span class="num">2</span>].<span class="fn">index</span>(<span class="num">2</span>)  <span class="com"># 1</span>
+[<span class="num">1</span>,<span class="num">2</span>,<span class="num">2</span>].<span class="fn">count</span>(<span class="num">2</span>)  <span class="com"># 2</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">List comprehension</div><div class="cheat-desc">Build a list inline from any iterable.</div><pre class="code-block">[x*x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>)]
+<span class="com"># [0,1,4,9,16]</span>
+[x <span class="kw">for</span> x <span class="kw">in</span> data <span class="kw">if</span> x &gt; <span class="num">0</span>]</pre></div>
+</div>
+
+<div class="cheat-section">Dictionary methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">keys() / values() / items()</div><div class="cheat-desc">Iterate keys, values, or both.</div><pre class="code-block">d = {<span class="str">"a"</span>:<span class="num">1</span>, <span class="str">"b"</span>:<span class="num">2</span>}
+<span class="kw">for</span> k, v <span class="kw">in</span> d.<span class="fn">items</span>():
+    <span class="fn">print</span>(k, v)</pre></div>
+<div class="cheat-card"><div class="cheat-name">get()</div><div class="cheat-desc">Safe lookup with default.</div><pre class="code-block">d.<span class="fn">get</span>(<span class="str">"x"</span>, <span class="num">0</span>)  <span class="com"># 0 if 'x' missing</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">update() / pop()</div><div class="cheat-desc">Merge / remove by key.</div><pre class="code-block">d.<span class="fn">update</span>({<span class="str">"c"</span>:<span class="num">3</span>})
+d.<span class="fn">pop</span>(<span class="str">"a"</span>)</pre></div>
+<div class="cheat-card"><div class="cheat-name">Dict comprehension</div><div class="cheat-desc">Build a dict inline.</div><pre class="code-block">{x: x*x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">4</span>)}
+<span class="com"># {0:0, 1:1, 2:4, 3:9}</span></pre></div>
+</div>
+
+<div class="cheat-section">File I/O patterns</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Read whole file</div><div class="cheat-desc">Open with auto-close.</div><pre class="code-block"><span class="kw">with</span> <span class="fn">open</span>(<span class="str">"f.txt"</span>) <span class="kw">as</span> f:
+    text = f.<span class="fn">read</span>()</pre></div>
+<div class="cheat-card"><div class="cheat-name">Read lines</div><div class="cheat-desc">Iterate line by line (memory-friendly).</div><pre class="code-block"><span class="kw">with</span> <span class="fn">open</span>(<span class="str">"f.txt"</span>) <span class="kw">as</span> f:
+    <span class="kw">for</span> line <span class="kw">in</span> f:
+        <span class="fn">print</span>(line.<span class="fn">rstrip</span>())</pre></div>
+<div class="cheat-card"><div class="cheat-name">Write</div><div class="cheat-desc">Open in write mode (overwrites).</div><pre class="code-block"><span class="kw">with</span> <span class="fn">open</span>(<span class="str">"out.txt"</span>, <span class="str">"w"</span>) <span class="kw">as</span> f:
+    f.<span class="fn">write</span>(<span class="str">"hello\n"</span>)</pre></div>
+<div class="cheat-card"><div class="cheat-name">JSON</div><div class="cheat-desc">Read/write JSON.</div><pre class="code-block"><span class="kw">import</span> json
+data = json.<span class="fn">load</span>(<span class="fn">open</span>(<span class="str">"a.json"</span>))
+json.<span class="fn">dump</span>(data, <span class="fn">open</span>(<span class="str">"b.json"</span>,<span class="str">"w"</span>))</pre></div>
+</div>
+
+<div class="cheat-section">Exception handling</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">try / except / else / finally</div><div class="cheat-desc">Full structure.</div><pre class="code-block"><span class="kw">try</span>:
+    x = <span class="num">1</span>/<span class="num">0</span>
+<span class="kw">except</span> ZeroDivisionError <span class="kw">as</span> e:
+    <span class="fn">print</span>(e)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"no error"</span>)
+<span class="kw">finally</span>:
+    <span class="fn">print</span>(<span class="str">"cleanup"</span>)</pre></div>
+<div class="cheat-card"><div class="cheat-name">raise</div><div class="cheat-desc">Signal an error.</div><pre class="code-block"><span class="kw">if</span> n &lt; <span class="num">0</span>:
+    <span class="kw">raise</span> <span class="fn">ValueError</span>(<span class="str">"negative"</span>)</pre></div>
+<div class="cheat-card"><div class="cheat-name">Custom exception</div><div class="cheat-desc">Subclass Exception.</div><pre class="code-block"><span class="kw">class</span> <span class="fn">MyError</span>(Exception): <span class="kw">pass</span>
+<span class="kw">raise</span> <span class="fn">MyError</span>(<span class="str">"oops"</span>)</pre></div>
+</div>
+
+<div class="cheat-section">Useful built-ins</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">len / range</div><div class="cheat-desc">Length and number sequences.</div><pre class="code-block"><span class="fn">len</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>])         <span class="com"># 3</span>
+<span class="fn">list</span>(<span class="fn">range</span>(<span class="num">3</span>))         <span class="com"># [0,1,2]</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">enumerate / zip</div><div class="cheat-desc">Index+value / pair sequences.</div><pre class="code-block"><span class="kw">for</span> i, v <span class="kw">in</span> <span class="fn">enumerate</span>(items): ...
+<span class="kw">for</span> a, b <span class="kw">in</span> <span class="fn">zip</span>(xs, ys): ...</pre></div>
+<div class="cheat-card"><div class="cheat-name">map / filter</div><div class="cheat-desc">Apply a function / keep matches.</div><pre class="code-block"><span class="fn">list</span>(<span class="fn">map</span>(<span class="kw">lambda</span> x: x*<span class="num">2</span>, xs))
+<span class="fn">list</span>(<span class="fn">filter</span>(<span class="kw">lambda</span> x: x&gt;<span class="num">0</span>, xs))</pre></div>
+<div class="cheat-card"><div class="cheat-name">sorted / reversed</div><div class="cheat-desc">Return new sorted/reversed sequence.</div><pre class="code-block"><span class="fn">sorted</span>([<span class="num">3</span>,<span class="num">1</span>,<span class="num">2</span>])      <span class="com"># [1,2,3]</span>
+<span class="fn">list</span>(<span class="fn">reversed</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>]))</pre></div>
+<div class="cheat-card"><div class="cheat-name">sum / any / all</div><div class="cheat-desc">Aggregate values / boolean checks.</div><pre class="code-block"><span class="fn">sum</span>([<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>])    <span class="com"># 6</span>
+<span class="fn">any</span>([<span class="kw">False</span>,<span class="kw">True</span>])  <span class="com"># True</span>
+<span class="fn">all</span>([<span class="kw">True</span>,<span class="kw">True</span>])   <span class="com"># True</span></pre></div>
+</div>
+</div>
+
+<!-- ===== JAVASCRIPT CHEATSHEET ===== -->
+<div class="pg" id="pg-cheatsheet-js">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> cheatsheets &rsaquo; javascript</div>
+<div class="pt">JavaScript <em>Cheatsheet</em></div>
+<div class="ps">The most-used JavaScript snippets, grouped by topic.</div>
+</div>
+
+<div class="cheat-section">Array methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">map / filter / reduce</div><div class="cheat-desc">Transform, keep matches, fold to a value.</div><pre class="code-block">[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>].<span class="fn">map</span>(x =&gt; x*<span class="num">2</span>)        <span class="com">// [2,4,6]</span>
+[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>].<span class="fn">filter</span>(x =&gt; x&gt;<span class="num">1</span>)     <span class="com">// [2,3]</span>
+[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>].<span class="fn">reduce</span>((a,b)=&gt;a+b)  <span class="com">// 6</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">find / forEach</div><div class="cheat-desc">First match / side-effect iteration.</div><pre class="code-block">arr.<span class="fn">find</span>(x =&gt; x.id===<span class="num">3</span>)
+arr.<span class="fn">forEach</span>(x =&gt; <span class="fn">console</span>.<span class="fn">log</span>(x))</pre></div>
+<div class="cheat-card"><div class="cheat-name">some / every</div><div class="cheat-desc">Any match / all match.</div><pre class="code-block">[<span class="num">1</span>,<span class="num">2</span>].<span class="fn">some</span>(x =&gt; x&gt;<span class="num">1</span>)   <span class="com">// true</span>
+[<span class="num">1</span>,<span class="num">2</span>].<span class="fn">every</span>(x =&gt; x&gt;<span class="num">0</span>)  <span class="com">// true</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">slice / splice</div><div class="cheat-desc">Non-destructive slice / destructive splice.</div><pre class="code-block">[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>].<span class="fn">slice</span>(<span class="num">1</span>,<span class="num">3</span>)   <span class="com">// [2,3]</span>
+arr.<span class="fn">splice</span>(<span class="num">1</span>, <span class="num">1</span>)         <span class="com">// removes 1 at idx 1</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">concat / flat</div><div class="cheat-desc">Combine / flatten nested arrays.</div><pre class="code-block">[<span class="num">1</span>].<span class="fn">concat</span>([<span class="num">2</span>,<span class="num">3</span>])      <span class="com">// [1,2,3]</span>
+[[<span class="num">1</span>],[<span class="num">2</span>,[<span class="num">3</span>]]].<span class="fn">flat</span>(<span class="num">2</span>)   <span class="com">// [1,2,3]</span></pre></div>
+</div>
+
+<div class="cheat-section">Object operations</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Spread / rest</div><div class="cheat-desc">Expand / collect properties.</div><pre class="code-block"><span class="kw">const</span> a = {x:<span class="num">1</span>};
+<span class="kw">const</span> b = {...a, y:<span class="num">2</span>};  <span class="com">// {x:1,y:2}</span>
+<span class="kw">const</span> {x, ...rest} = b;</pre></div>
+<div class="cheat-card"><div class="cheat-name">Object.keys/values/entries</div><div class="cheat-desc">Iterate keys, values, or pairs.</div><pre class="code-block">Object.<span class="fn">keys</span>(obj)
+Object.<span class="fn">values</span>(obj)
+Object.<span class="fn">entries</span>(obj).<span class="fn">forEach</span>(([k,v])=&gt;{})</pre></div>
+<div class="cheat-card"><div class="cheat-name">Destructuring</div><div class="cheat-desc">Unpack values into variables.</div><pre class="code-block"><span class="kw">const</span> {name, age} = user;
+<span class="kw">const</span> [first, ...others] = arr;</pre></div>
+</div>
+
+<div class="cheat-section">String methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">split / join</div><div class="cheat-desc">String to array, array to string.</div><pre class="code-block"><span class="str">"a,b,c"</span>.<span class="fn">split</span>(<span class="str">","</span>)  <span class="com">// ['a','b','c']</span>
+[<span class="str">"a"</span>,<span class="str">"b"</span>].<span class="fn">join</span>(<span class="str">"-"</span>)  <span class="com">// 'a-b'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">replace / replaceAll</div><div class="cheat-desc">First / all occurrences.</div><pre class="code-block"><span class="str">"a-b-c"</span>.<span class="fn">replace</span>(<span class="str">"-"</span>,<span class="str">"."</span>)     <span class="com">// 'a.b-c'</span>
+<span class="str">"a-b-c"</span>.<span class="fn">replaceAll</span>(<span class="str">"-"</span>,<span class="str">"."</span>)  <span class="com">// 'a.b.c'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">Template literals</div><div class="cheat-desc">Backticks for interpolation.</div><pre class="code-block"><span class="kw">const</span> name = <span class="str">"Ana"</span>;
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">`Hi ${name}`</span>);</pre></div>
+<div class="cheat-card"><div class="cheat-name">trim / padStart</div><div class="cheat-desc">Strip spaces / pad to width.</div><pre class="code-block"><span class="str">"  hi "</span>.<span class="fn">trim</span>()              <span class="com">// 'hi'</span>
+<span class="str">"7"</span>.<span class="fn">padStart</span>(<span class="num">3</span>,<span class="str">"0"</span>)        <span class="com">// '007'</span></pre></div>
+</div>
+
+<div class="cheat-section">Async</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Promise</div><div class="cheat-desc">Represents a future value.</div><pre class="code-block"><span class="kw">new</span> <span class="fn">Promise</span>((res, rej) =&gt; {
+  <span class="fn">setTimeout</span>(() =&gt; <span class="fn">res</span>(<span class="num">42</span>), <span class="num">100</span>);
+});</pre></div>
+<div class="cheat-card"><div class="cheat-name">async / await</div><div class="cheat-desc">Sequential async code.</div><pre class="code-block"><span class="kw">async function</span> <span class="fn">load</span>(){
+  <span class="kw">const</span> r = <span class="kw">await</span> <span class="fn">fetch</span>(url);
+  <span class="kw">return</span> r.<span class="fn">json</span>();
+}</pre></div>
+<div class="cheat-card"><div class="cheat-name">fetch + then/catch</div><div class="cheat-desc">Chain-based async.</div><pre class="code-block"><span class="fn">fetch</span>(url)
+  .<span class="fn">then</span>(r =&gt; r.<span class="fn">json</span>())
+  .<span class="fn">then</span>(data =&gt; <span class="fn">console</span>.<span class="fn">log</span>(data))
+  .<span class="fn">catch</span>(e =&gt; <span class="fn">console</span>.<span class="fn">error</span>(e));</pre></div>
+<div class="cheat-card"><div class="cheat-name">Promise.all</div><div class="cheat-desc">Wait for all in parallel.</div><pre class="code-block"><span class="kw">const</span> [a, b] = <span class="kw">await</span> Promise.<span class="fn">all</span>([
+  <span class="fn">fetch</span>(<span class="str">"/a"</span>), <span class="fn">fetch</span>(<span class="str">"/b"</span>)
+]);</pre></div>
+</div>
+
+<div class="cheat-section">DOM</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">querySelector</div><div class="cheat-desc">Find one element by CSS selector.</div><pre class="code-block"><span class="kw">const</span> el = document.<span class="fn">querySelector</span>(<span class="str">".btn"</span>);
+document.<span class="fn">querySelectorAll</span>(<span class="str">"li"</span>);</pre></div>
+<div class="cheat-card"><div class="cheat-name">addEventListener</div><div class="cheat-desc">Hook an event handler.</div><pre class="code-block">btn.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, e =&gt; {
+  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"clicked"</span>);
+});</pre></div>
+<div class="cheat-card"><div class="cheat-name">classList</div><div class="cheat-desc">Add/remove/toggle CSS classes.</div><pre class="code-block">el.classList.<span class="fn">add</span>(<span class="str">"on"</span>);
+el.classList.<span class="fn">remove</span>(<span class="str">"on"</span>);
+el.classList.<span class="fn">toggle</span>(<span class="str">"on"</span>);</pre></div>
+<div class="cheat-card"><div class="cheat-name">dataset</div><div class="cheat-desc">Read data-* attributes.</div><pre class="code-block"><span class="com">// &lt;div data-id="42"&gt;</span>
+el.dataset.id  <span class="com">// "42"</span></pre></div>
+</div>
+
+<div class="cheat-section">Common patterns</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Ternary</div><div class="cheat-desc">Inline if/else expression.</div><pre class="code-block"><span class="kw">const</span> msg = age &gt;= <span class="num">18</span> ? <span class="str">"adult"</span> : <span class="str">"minor"</span>;</pre></div>
+<div class="cheat-card"><div class="cheat-name">Optional chaining ?.</div><div class="cheat-desc">Safe property access; returns undefined if null.</div><pre class="code-block">user?.address?.city</pre></div>
+<div class="cheat-card"><div class="cheat-name">Nullish ??</div><div class="cheat-desc">Default only if null/undefined (not falsy).</div><pre class="code-block"><span class="kw">const</span> n = value ?? <span class="num">0</span>;</pre></div>
+<div class="cheat-card"><div class="cheat-name">Default args</div><div class="cheat-desc">Function parameter defaults.</div><pre class="code-block"><span class="kw">function</span> <span class="fn">greet</span>(name = <span class="str">"world"</span>){
+  <span class="kw">return</span> <span class="str">`Hi ${name}`</span>;
+}</pre></div>
+</div>
+</div>
+
+<!-- ===== JAVA CHEATSHEET ===== -->
+<div class="pg" id="pg-cheatsheet-java">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> cheatsheets &rsaquo; java</div>
+<div class="pt">Java <em>Cheatsheet</em></div>
+<div class="ps">The most-used Java snippets, grouped by topic.</div>
+</div>
+
+<div class="cheat-section">String methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">length() / charAt()</div><div class="cheat-desc">Length and character at index.</div><pre class="code-block">String s = <span class="str">"hello"</span>;
+s.<span class="fn">length</span>();      <span class="com">// 5</span>
+s.<span class="fn">charAt</span>(<span class="num">1</span>);    <span class="com">// 'e'</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">substring</div><div class="cheat-desc">Slice from index (end exclusive).</div><pre class="code-block">s.<span class="fn">substring</span>(<span class="num">1</span>, <span class="num">4</span>);  <span class="com">// "ell"</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">indexOf / split</div><div class="cheat-desc">Find index / split by separator.</div><pre class="code-block">s.<span class="fn">indexOf</span>(<span class="str">"l"</span>);     <span class="com">// 2</span>
+<span class="str">"a,b,c"</span>.<span class="fn">split</span>(<span class="str">","</span>);  <span class="com">// {"a","b","c"}</span></pre></div>
+<div class="cheat-card"><div class="cheat-name">toUpperCase / equals</div><div class="cheat-desc">Compare strings with equals, NOT ==.</div><pre class="code-block">s.<span class="fn">toUpperCase</span>();
+<span class="kw">if</span> (a.<span class="fn">equals</span>(b)) { ... }</pre></div>
+<div class="cheat-card"><div class="cheat-name">String.format</div><div class="cheat-desc">printf-style formatting.</div><pre class="code-block">String.<span class="fn">format</span>(<span class="str">"x=%d, y=%s"</span>, <span class="num">5</span>, <span class="str">"hi"</span>);</pre></div>
+</div>
+
+<div class="cheat-section">ArrayList methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">add / get / set</div><div class="cheat-desc">Add, read by index, replace by index.</div><pre class="code-block">List&lt;Integer&gt; a = <span class="kw">new</span> <span class="fn">ArrayList</span>&lt;&gt;();
+a.<span class="fn">add</span>(<span class="num">1</span>);
+a.<span class="fn">get</span>(<span class="num">0</span>);
+a.<span class="fn">set</span>(<span class="num">0</span>, <span class="num">9</span>);</pre></div>
+<div class="cheat-card"><div class="cheat-name">remove / size / clear</div><div class="cheat-desc">Remove by index, length, empty.</div><pre class="code-block">a.<span class="fn">remove</span>(<span class="num">0</span>);
+a.<span class="fn">size</span>();
+a.<span class="fn">clear</span>();</pre></div>
+<div class="cheat-card"><div class="cheat-name">contains</div><div class="cheat-desc">Membership test.</div><pre class="code-block">a.<span class="fn">contains</span>(<span class="num">5</span>);  <span class="com">// true/false</span></pre></div>
+</div>
+
+<div class="cheat-section">HashMap methods</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">put / get / containsKey</div><div class="cheat-desc">Set, read, and check existence.</div><pre class="code-block">Map&lt;String,Integer&gt; m = <span class="kw">new</span> <span class="fn">HashMap</span>&lt;&gt;();
+m.<span class="fn">put</span>(<span class="str">"a"</span>, <span class="num">1</span>);
+m.<span class="fn">get</span>(<span class="str">"a"</span>);
+m.<span class="fn">containsKey</span>(<span class="str">"a"</span>);</pre></div>
+<div class="cheat-card"><div class="cheat-name">remove / keySet / values</div><div class="cheat-desc">Remove and iterate.</div><pre class="code-block">m.<span class="fn">remove</span>(<span class="str">"a"</span>);
+<span class="kw">for</span> (String k : m.<span class="fn">keySet</span>()) { ... }
+<span class="kw">for</span> (Integer v : m.<span class="fn">values</span>()) { ... }</pre></div>
+<div class="cheat-card"><div class="cheat-name">entrySet</div><div class="cheat-desc">Iterate pairs.</div><pre class="code-block"><span class="kw">for</span> (Map.Entry&lt;String,Integer&gt; e : m.<span class="fn">entrySet</span>()){
+  e.<span class="fn">getKey</span>(); e.<span class="fn">getValue</span>();
+}</pre></div>
+</div>
+
+<div class="cheat-section">Streams</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">stream + filter + collect</div><div class="cheat-desc">Filter to a new list.</div><pre class="code-block">List&lt;Integer&gt; pos = nums.<span class="fn">stream</span>()
+  .<span class="fn">filter</span>(n -&gt; n &gt; <span class="num">0</span>)
+  .<span class="fn">collect</span>(Collectors.<span class="fn">toList</span>());</pre></div>
+<div class="cheat-card"><div class="cheat-name">map</div><div class="cheat-desc">Transform each element.</div><pre class="code-block">List&lt;Integer&gt; squared = nums.<span class="fn">stream</span>()
+  .<span class="fn">map</span>(n -&gt; n*n)
+  .<span class="fn">collect</span>(Collectors.<span class="fn">toList</span>());</pre></div>
+<div class="cheat-card"><div class="cheat-name">count</div><div class="cheat-desc">Count matches.</div><pre class="code-block"><span class="kw">long</span> c = nums.<span class="fn">stream</span>()
+  .<span class="fn">filter</span>(n -&gt; n &gt; <span class="num">0</span>)
+  .<span class="fn">count</span>();</pre></div>
+</div>
+
+<div class="cheat-section">try-with-resources</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Auto-close</div><div class="cheat-desc">Resources closed automatically.</div><pre class="code-block"><span class="kw">try</span> (BufferedReader br = <span class="kw">new</span> <span class="fn">BufferedReader</span>(
+        <span class="kw">new</span> <span class="fn">FileReader</span>(<span class="str">"f.txt"</span>))) {
+    String line;
+    <span class="kw">while</span> ((line = br.<span class="fn">readLine</span>()) != <span class="kw">null</span>) {
+        System.out.<span class="fn">println</span>(line);
+    }
+}</pre></div>
+</div>
+
+<div class="cheat-section">Common patterns</div>
+<div class="cheat-grid">
+<div class="cheat-card"><div class="cheat-name">Enhanced for loop</div><div class="cheat-desc">For-each over any iterable.</div><pre class="code-block"><span class="kw">for</span> (String s : list) {
+    System.out.<span class="fn">println</span>(s);
+}</pre></div>
+<div class="cheat-card"><div class="cheat-name">var (Java 10+)</div><div class="cheat-desc">Local type inference.</div><pre class="code-block"><span class="kw">var</span> list = <span class="kw">new</span> <span class="fn">ArrayList</span>&lt;String&gt;();
+<span class="kw">var</span> count = <span class="num">42</span>;</pre></div>
+<div class="cheat-card"><div class="cheat-name">record (Java 14+)</div><div class="cheat-desc">Immutable data class.</div><pre class="code-block"><span class="kw">public record</span> <span class="fn">Point</span>(<span class="kw">int</span> x, <span class="kw">int</span> y) {}
+<span class="kw">var</span> p = <span class="kw">new</span> <span class="fn">Point</span>(<span class="num">1</span>, <span class="num">2</span>);
+p.<span class="fn">x</span>(); <span class="com">// 1</span></pre></div>
+</div>
+</div>
+
+<!-- ===== LANGUAGES COMPARISON ===== -->
+<div class="pg" id="pg-comparison">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> references &rsaquo; comparison</div>
+<div class="pt">Languages <em>Comparison</em></div>
+<div class="ps">Same concepts across Python, JavaScript and Java &mdash; side by side.</div>
+</div>
+<div class="cmp-scroll">
+<table class="cmp-table">
+<thead><tr><th>Concept</th><th>Python</th><th>JavaScript</th><th>Java</th></tr></thead>
+<tbody>
+<tr><td>Print</td><td><code>print(x)</code></td><td><code>console.log(x)</code></td><td><code>System.out.println(x)</code></td></tr>
+<tr><td>Comment line</td><td><code># ...</code></td><td><code>// ...</code></td><td><code>// ...</code></td></tr>
+<tr><td>Comment block</td><td><code>""" ... """</code></td><td><code>/* ... */</code></td><td><code>/* ... */</code></td></tr>
+<tr><td>Variable</td><td><code>x = 5</code></td><td><code>let x = 5</code></td><td><code>int x = 5;</code></td></tr>
+<tr><td>Constant</td><td><code>X = 5</code> (convention)</td><td><code>const x = 5</code></td><td><code>final int X = 5;</code></td></tr>
+<tr><td>If</td><td><code>if x:</code></td><td><code>if (x) {}</code></td><td><code>if (x) {}</code></td></tr>
+<tr><td>For loop</td><td><code>for i in range(10):</code></td><td><code>for (let i=0;i&lt;10;i++)</code></td><td><code>for (int i=0;i&lt;10;i++)</code></td></tr>
+<tr><td>For-each</td><td><code>for x in lst:</code></td><td><code>for (let x of arr)</code></td><td><code>for (Type x : arr)</code></td></tr>
+<tr><td>Function</td><td><code>def f(x):</code></td><td><code>function f(x){}</code> or <code>(x)=&gt;{}</code></td><td><code>static T f(T x){}</code></td></tr>
+<tr><td>Array</td><td><code>[1,2,3]</code></td><td><code>[1,2,3]</code></td><td><code>int[] a = {1,2,3};</code></td></tr>
+<tr><td>Length</td><td><code>len(x)</code></td><td><code>x.length</code></td><td><code>x.length</code> (arr) / <code>x.length()</code> (str)</td></tr>
+<tr><td>String concat</td><td><code>'a' + 'b'</code></td><td><code>'a' + 'b'</code></td><td><code>"a" + "b"</code></td></tr>
+<tr><td>String format</td><td><code>f"{x}"</code></td><td><code>`${x}`</code></td><td><code>String.format("%s", x)</code></td></tr>
+<tr><td>Boolean true</td><td><code>True</code></td><td><code>true</code></td><td><code>true</code></td></tr>
+<tr><td>Null</td><td><code>None</code></td><td><code>null</code> / <code>undefined</code></td><td><code>null</code></td></tr>
+<tr><td>Class</td><td><code>class Foo:</code></td><td><code>class Foo {}</code></td><td><code>class Foo {}</code></td></tr>
+<tr><td>Method</td><td><code>def m(self):</code></td><td><code>m() {}</code></td><td><code>void m() {}</code></td></tr>
+<tr><td>Instance</td><td><code>Foo()</code></td><td><code>new Foo()</code></td><td><code>new Foo()</code></td></tr>
+<tr><td>Try/catch</td><td><code>try: ... except E:</code></td><td><code>try {} catch (e) {}</code></td><td><code>try {} catch (E e) {}</code></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- ===== ANTI-PATTERNS ===== -->
+<div class="pg" id="pg-anti-patterns">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> references &rsaquo; anti-patterns</div>
+<div class="pt">Anti-<em>patterns</em></div>
+<div class="ps">Red flags to avoid &mdash; each shows BAD vs GOOD.</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">God Class</div>
+<div class="ap-desc">A single class that does everything &mdash; mixed responsibilities, impossible to maintain.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>class App {
+  loadUser() {}; saveDB() {};
+  sendEmail() {}; renderUI() {};
+  computeTax() {}; logIO() {};
+}</div>
+<div class="ap-side ap-good"><b>GOOD</b>class User {...}
+class Mailer {...}
+class TaxCalc {...}
+// each has one reason to change</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Magic Numbers</div>
+<div class="ap-desc">Unexplained literals scattered through the code. Future-you won't remember what they mean.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>if (elapsed &gt; 86400) {
+  expire();
+}</div>
+<div class="ap-side ap-good"><b>GOOD</b>const SECONDS_PER_DAY = 86400;
+if (elapsed &gt; SECONDS_PER_DAY) {
+  expire();
+}</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Copy-Paste Programming</div>
+<div class="ap-desc">Duplicating blocks instead of extracting a function. A bug fix now needs N edits.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>total1 = price1 * 1.08;
+total2 = price2 * 1.08;
+total3 = price3 * 1.08;</div>
+<div class="ap-side ap-good"><b>GOOD</b>def with_tax(p):
+    return p * 1.08
+totals = [with_tax(p) for p in prices]</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">No Tests</div>
+<div class="ap-desc">Shipping code without verification. Every change is a gamble.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>// "I checked it manually,
+// looks good, push to prod"</div>
+<div class="ap-side ap-good"><b>GOOD</b>def test_add():
+    assert add(2,3) == 5
+    assert add(-1,1) == 0</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Premature Optimization</div>
+<div class="ap-desc">Micro-optimizing before measuring. You sacrifice clarity for imaginary speed.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>// hand-rolled bit tricks
+// before profiling shows
+// they're a bottleneck</div>
+<div class="ap-side ap-good"><b>GOOD</b>// write clearly first
+// profile, then optimize
+// the actual hot path</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Cryptic Names</div>
+<div class="ap-desc">Single letters and abbreviations everywhere. Code becomes a puzzle.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>def calc(x, y, tmp):
+    d = x - y
+    mgr = d * tmp
+    return mgr</div>
+<div class="ap-side ap-good"><b>GOOD</b>def discount(price, base, rate):
+    diff = price - base
+    return diff * rate</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Long Functions</div>
+<div class="ap-desc">200+ lines doing many things. Hard to read, test, or reuse.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>def process():
+    # 250 lines of mixed
+    # validation + parsing
+    # + saving + emailing
+    ...</div>
+<div class="ap-side ap-good"><b>GOOD</b>def process():
+    data = validate(input)
+    rec  = parse(data)
+    save(rec)
+    notify(rec)</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Deeply Nested Code</div>
+<div class="ap-desc">5+ indentation levels. Use early returns or extract helpers.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>if a:
+  if b:
+    if c:
+      if d:
+        run()</div>
+<div class="ap-side ap-good"><b>GOOD</b>if not a: return
+if not b: return
+if not c: return
+if not d: return
+run()</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Catching All Exceptions</div>
+<div class="ap-desc">A bare except swallows real bugs &mdash; you lose the signal.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>try:
+    risky()
+except:
+    pass  # silent fail!</div>
+<div class="ap-side ap-good"><b>GOOD</b>try:
+    risky()
+except NetworkError as e:
+    log.warning(e)
+    retry()</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Global Mutable State</div>
+<div class="ap-desc">Shared globals modified everywhere. Bugs become impossible to trace.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>counter = 0
+def add(): global counter
+           counter += 1
+# called from 30 places</div>
+<div class="ap-side ap-good"><b>GOOD</b>class Counter:
+    def __init__(self):
+        self.n = 0
+    def add(self):
+        self.n += 1</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Comment Repeats Code</div>
+<div class="ap-desc">Comments that restate the obvious add noise instead of context.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>i = i + 1  # increment i
+x = []     # empty list</div>
+<div class="ap-side ap-good"><b>GOOD</b># Skip the header row
+i = i + 1
+# Collected matches go here
+x = []</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Boolean Trap</div>
+<div class="ap-desc">Several positional booleans &mdash; impossible to read at the call site.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>setVisible(true, false, true);
+// what do these mean?</div>
+<div class="ap-side ap-good"><b>GOOD</b>setVisible({
+  visible: true,
+  animate: false,
+  focus: true
+});</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Stringly-Typed</div>
+<div class="ap-desc">Passing flags as raw strings instead of enums/constants. Typos compile fine.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>order.status = "PENDIGN"
+// silently wrong forever</div>
+<div class="ap-side ap-good"><b>GOOD</b>class Status(Enum):
+    PENDING = "pending"
+    DONE    = "done"
+order.status = Status.PENDING</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Tight Coupling</div>
+<div class="ap-desc">Module A reaches into B's internals. Changing B breaks A.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>// reach into private field
+total = order._items[0].priv;</div>
+<div class="ap-side ap-good"><b>GOOD</b>// use the public API
+total = order.getTotal();</div>
+</div>
+</div>
+
+<div class="ap-card">
+<div class="ap-name">Ignoring Warnings</div>
+<div class="ap-desc">Compiler/linter warnings exist for a reason. Each ignored one is a future bug.</div>
+<div class="ap-grid">
+<div class="ap-side ap-bad"><b>BAD</b>// 247 warnings, who cares
+// just push and ship</div>
+<div class="ap-side ap-good"><b>GOOD</b>// CI fails on new warnings
+// every warning is read
+// and either fixed or
+// explicitly suppressed</div>
+</div>
+</div>
+</div>
+
+<!-- ===== STUDY METHOD ===== -->
+<div class="pg" id="pg-method">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> references &rsaquo; method</div>
+<div class="pt">Study <em>Method</em></div>
+<div class="ps">An 8-step method to actually learn programming &mdash; not just read it.</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">01</div>
+<div class="method-body">
+<div class="method-title">Read the concept first (1 min)</div>
+<div class="method-text">Understand <strong>WHAT</strong> something is before HOW to write it. Read the term's definition slowly, in your own words.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">02</div>
+<div class="method-body">
+<div class="method-title">Predict the code (2 min)</div>
+<div class="method-text">Before opening the example, <strong>guess</strong> what the snippet will look like. Right or wrong, this primes your memory far more than passive reading.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">03</div>
+<div class="method-body">
+<div class="method-title">Read the code examples (3 min)</div>
+<div class="method-text">Now compare your prediction with reality. Surprises are the most valuable signal &mdash; pay attention to them.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">04</div>
+<div class="method-body">
+<div class="method-title">Type it yourself (5 min)</div>
+<div class="method-text">Open a REPL or editor and <strong>type</strong> the snippet character by character. Muscle memory matters. Copy-paste does not stick.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">05</div>
+<div class="method-body">
+<div class="method-title">Modify, break, fix (5 min)</div>
+<div class="method-text">Change values. Remove a line. See what breaks and read the error. Reading errors teaches the language better than reading working code.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">06</div>
+<div class="method-body">
+<div class="method-title">Compare languages (3 min)</div>
+<div class="method-text">Use the language tabs to look at the same concept in <strong>Python, JavaScript and Java</strong>. Spotting the shared idea behind the syntax is what makes you a polyglot.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">07</div>
+<div class="method-body">
+<div class="method-title">Tag the term (1 min)</div>
+<div class="method-text">Mark each term as <strong>Studied</strong>, <strong>Review</strong>, <strong>Hard</strong>, or <strong>Favorite</strong>. Future-you needs this to know what to revisit.</div>
+</div>
+</div>
+
+<div class="method-card">
+<div class="method-num">08</div>
+<div class="method-body">
+<div class="method-title">Move on &mdash; come back later</div>
+<div class="method-text">Don't perfect it now. <strong>Spaced repetition</strong> beats one-shot mastery. Hit Review Mode tomorrow and the day after.</div>
+</div>
+</div>
+</div>
+
 </main>
 <!-- ===== QUIZ OVERLAY ===== -->
 <div class="quiz-overlay" id="quizOverlay" onclick="if(event.target.id==='quizOverlay'){}">
@@ -7725,11 +8410,183 @@ function addLastViewedToCover(){
   }catch(e){}
 }
 
+// ============ COPY BUTTON + LANG PREFERENCE (Sprint 9) ============
+function setupCopyButtons(){
+  document.querySelectorAll('.code-tabs').forEach(tabs => {
+    if(tabs.querySelector('.copy-btn')) return;
+    // Ensure the parent container (e.g. <div id="code-fXX">) is positioned for absolute child.
+    const parent = tabs.parentNode;
+    if(parent && parent.classList){
+      parent.classList.add('code-wrap');
+    }
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.textContent = 'Copy';
+    tabs.appendChild(btn);
+  });
+}
+
+document.addEventListener('click', function(e){
+  // copy button
+  const cb = e.target.closest && e.target.closest('.copy-btn');
+  if(cb){
+    e.stopPropagation();
+    const tabs = cb.closest('.code-tabs');
+    const wrap = (tabs && tabs.parentNode) || cb.closest('.code-wrap');
+    const pane = wrap.querySelector('.code-pane.active pre.code-block') || wrap.querySelector('.code-pane pre.code-block');
+    if(!pane) return;
+    const text = pane.innerText;
+    const done = () => {
+      cb.textContent = '✓ Copied';
+      cb.classList.add('ok');
+      setTimeout(() => { cb.textContent = 'Copy'; cb.classList.remove('ok'); }, 1500);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      try{
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta); done();
+      }catch(err){}
+    }
+    return;
+  }
+  // remember lang preference when a code-tab is clicked
+  const tab = e.target.closest && e.target.closest('.code-tab');
+  if(tab && tab.dataset && tab.dataset.lang){
+    try{ localStorage.setItem('cherryCodePreferredLang', tab.dataset.lang); }catch(err){}
+    applyPreferredLang(tab.dataset.lang);
+  }
+});
+
+function applyPreferredLang(lang){
+  if(!lang) return;
+  document.querySelectorAll('.code-tabs').forEach(tabs => {
+    const wrap = tabs.parentNode;
+    if(!wrap) return;
+    const tab = tabs.querySelector('.code-tab[data-lang="'+lang+'"]');
+    const pane = wrap.querySelector(':scope > .code-pane[data-lang="'+lang+'"]');
+    if(!tab || !pane) return;
+    tabs.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+    wrap.querySelectorAll(':scope > .code-pane').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    pane.classList.add('active');
+  });
+}
+
+function restorePreferredLang(){
+  try{
+    const lang = localStorage.getItem('cherryCodePreferredLang');
+    if(lang) applyPreferredLang(lang);
+  }catch(e){}
+}
+
+// ============ INDEX SEARCH + SORT (Sprint 9) ============
+function filterIndex(){
+  const inp = document.getElementById('idxSearch');
+  if(!inp) return;
+  const q = inp.value.toLowerCase().trim();
+  const rows = document.querySelectorAll('.itbl tbody tr');
+  rows.forEach(row => {
+    if(row.classList.contains('isec')){ row.classList.remove('hidden-by-search'); return; }
+    if(!q){ row.classList.remove('hidden-by-search'); return; }
+    const text = row.textContent.toLowerCase();
+    row.classList.toggle('hidden-by-search', !text.includes(q));
+  });
+  document.querySelectorAll('.itbl tr.isec').forEach(sec => {
+    let hasVisible = false;
+    let next = sec.nextElementSibling;
+    while(next && !next.classList.contains('isec')){
+      if(!next.classList.contains('hidden-by-search') && !next.classList.contains('hidden-by-filter')){ hasVisible = true; break; }
+      next = next.nextElementSibling;
+    }
+    sec.classList.toggle('hidden-by-search', !hasVisible);
+  });
+}
+
+let _idxOriginal = null;
+function sortIndex(){
+  const sel = document.getElementById('idxSort');
+  if(!sel) return;
+  const mode = sel.value;
+  const tbody = document.querySelector('.itbl tbody');
+  if(!tbody) return;
+  if(!_idxOriginal){ _idxOriginal = Array.from(tbody.children).map(n => n.cloneNode(true)); }
+  if(mode === 'block'){
+    tbody.innerHTML = '';
+    _idxOriginal.forEach(n => tbody.appendChild(n.cloneNode(true)));
+    filterIndex();
+    return;
+  }
+  const data = loadData();
+  const tags = data.tags || {};
+  const rows = _idxOriginal.filter(n => !n.classList.contains('isec')).map(n => n.cloneNode(true));
+  if(mode === 'title'){
+    rows.sort((a,b) => {
+      const ta = (a.querySelector('.it')||{}).textContent || '';
+      const tb = (b.querySelector('.it')||{}).textContent || '';
+      return ta.localeCompare(tb);
+    });
+  } else if(mode === 'favs'){
+    rows.sort((a,b) => {
+      const pa = pageIdFromRow(a), pb = pageIdFromRow(b);
+      const fa = pa && tags[pa] && tags[pa].fav ? 1 : 0;
+      const fb = pb && tags[pb] && tags[pb].fav ? 1 : 0;
+      if(fa !== fb) return fb - fa;
+      const ta = (a.querySelector('.it')||{}).textContent || '';
+      const tb = (b.querySelector('.it')||{}).textContent || '';
+      return ta.localeCompare(tb);
+    });
+  }
+  tbody.innerHTML = '';
+  const hdr = document.createElement('tr');
+  hdr.className = 'isec';
+  hdr.innerHTML = '<td colspan="3">'+(mode==='favs' ? 'All terms (Favorites first)' : 'All terms (A-Z)')+'</td>';
+  tbody.appendChild(hdr);
+  rows.forEach(r => tbody.appendChild(r));
+  filterIndex();
+}
+function pageIdFromRow(row){
+  const it = row.querySelector('.it[onclick]');
+  if(!it) return null;
+  const m = it.getAttribute('onclick').match(/go\(\'(\w+)\'\)/);
+  return m ? m[1] : null;
+}
+
+// ============ COVER BADGES (Sprint 9 visual flair) ============
+function updateCoverBadges(){
+  try{
+    const data = loadData();
+    const tags = data.tags || {};
+    let studied = 0, favs = 0, b1Studied = 0;
+    Object.keys(tags).forEach(pid => {
+      if(!/^[a-z]\d+$/.test(pid)) return;
+      if(tags[pid].studied){ studied++; if(pid.startsWith('f')) b1Studied++; }
+      if(tags[pid].fav) favs++;
+    });
+    const litIf = (id, cond) => { const el = document.getElementById(id); if(el) el.classList.toggle('lit', !!cond); };
+    let bestAny = false;
+    try{
+      Object.keys(localStorage).forEach(k => { if(k.startsWith('cherryCodeQuizBest')) bestAny = true; });
+    }catch(e){}
+    litIf('badge-firstquiz', bestAny);
+    litIf('badge-b1-master', b1Studied >= 10);
+    litIf('badge-50terms', studied >= 50);
+    litIf('badge-favs10', favs >= 10);
+    // streak + allcheats: kept as visual placeholders for now
+  }catch(e){}
+}
+
 // Init
 function init(){
   buildSearchIndex();
   restoreUIState();
   addLastViewedToCover();
+  setupCopyButtons();
+  restorePreferredLang();
+  updateCoverBadges();
 }
 if(document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', init);

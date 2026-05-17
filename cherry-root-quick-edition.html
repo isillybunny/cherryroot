@@ -112,11 +112,11 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 /* GLOSSARY MARKERS */
 .gloss{
   cursor:pointer;color:var(--ink);
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><text x='0' y='6' font-size='6' fill='%23e8739a'>%E2%9C%A6</text></svg>");
-  background-repeat:repeat-x;background-position:0 100%;background-size:8px 8px;
-  padding-bottom:7px;transition:color .15s
+  border-bottom:1px dotted var(--p400);
+  padding-bottom:0;
+  transition:color .15s, border-color .15s
 }
-.gloss:hover{color:var(--p500)}
+.gloss:hover{color:var(--p500);border-bottom-color:var(--p500)}
 .gmodal-overlay{position:fixed;inset:0;background:rgba(28,15,20,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem}
 .gmodal-overlay.on{display:flex;animation:gfade .2s ease}
 @keyframes gfade{from{opacity:0}to{opacity:1}}
