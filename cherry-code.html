@@ -22,16 +22,18 @@
 html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden}
 
 /* TOPBAR */
-.topbar{position:sticky;top:0;background:white;border-bottom:1px solid var(--line);padding:.8rem 1rem;display:flex;align-items:center;justify-content:space-between;z-index:100;box-shadow:0 1px 8px rgba(201,63,79,.04)}
+.topbar{position:fixed;top:0;left:0;right:0;height:56px;background:white;border-bottom:1px solid var(--line);padding:0 1rem;display:flex;align-items:center;justify-content:space-between;z-index:100;box-shadow:0 1px 8px rgba(201,63,79,.04)}
 .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--ink);display:flex;align-items:center;gap:.4rem}
 .brand em{color:var(--p500);font-style:italic;font-weight:600}
 .brand-edition{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.15em;text-transform:uppercase;background:var(--p100);padding:.2rem .5rem;border-radius:5px;margin-left:.4rem;font-weight:600}
 .menu-btn{background:none;border:none;cursor:pointer;padding:.4rem;color:var(--ink);display:flex;align-items:center;justify-content:center}
 .menu-btn svg{width:24px;height:24px}
 
-/* NAV (sidebar) */
-.nav{position:fixed;top:0;right:0;height:100vh;width:280px;background:white;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:200;overflow-y:auto;padding:0 0 1rem;box-shadow:-4px 0 24px rgba(201,63,79,.08)}
+/* NAV (left sidebar — matches Cherry Root) */
+.nav{position:fixed;top:56px;left:0;bottom:0;width:280px;background:white;border-right:1px solid var(--line);transform:translateX(-100%);transition:transform .25s ease;z-index:200;overflow-y:auto;padding:0 0 1rem;box-shadow:4px 0 24px rgba(201,63,79,.08)}
 .nav.on{transform:translateX(0)}
+.nav-overlay{position:fixed;inset:0;top:56px;background:rgba(28,12,20,.3);z-index:150;display:none}
+.nav-overlay.on{display:block}
 .nav-close{position:sticky;top:0;background:white;padding:.7rem 1rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;z-index:5}
 .nav-close-x{cursor:pointer;width:32px;height:32px;border-radius:50%;background:var(--p50);display:flex;align-items:center;justify-content:center;color:var(--ink2);border:none}
 .nav-close-x:hover{background:var(--p100)}
@@ -54,7 +56,15 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .dark-toggle:hover{background:var(--p50);border-color:var(--p300)}
 
 /* MAIN */
-main{padding:1rem .9rem 4rem;max-width:680px;margin:0 auto}
+main{margin-top:56px;padding:1.4rem .9rem 4rem;max-width:680px;margin-left:auto;margin-right:auto}
+/* Desktop: nav becomes a permanent left sidebar (matches Cherry Root) */
+@media(min-width:900px){
+.menu-btn{display:none}
+.nav{transform:translateX(0)!important;box-shadow:none}
+.nav-close-x{display:none}
+.nav-overlay{display:none!important}
+main{margin-left:280px;padding:2rem 2.4rem 4rem}
+}
 
 /* PAGE */
 .pg{display:none;background:white;border-radius:14px;padding:1.4rem 1.2rem;box-shadow:0 2px 20px rgba(201,63,79,.06);margin:0 auto;animation:gfade .2s ease;position:relative}
@@ -612,6 +622,8 @@ body.dark .viz-cx.bad,body.dark .res-badge.adv{background:#4d1418;color:#ff9aa0}
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
 </button>
 </div>
+
+<div class="nav-overlay" id="navOverlay" onclick="navToggle()"></div>
 
 <nav class="nav" id="nav">
 <div class="nav-close">
@@ -9208,7 +9220,7 @@ total = order.getTotal();</div>
 </div>
 
 <script>
-function navToggle(){document.getElementById('nav').classList.toggle('on')}
+function navToggle(){document.getElementById('nav').classList.toggle('on');var o=document.getElementById('navOverlay');if(o)o.classList.toggle('on')}
 function go(target, navItem){
   document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
   const pg = document.getElementById('pg-'+target);
@@ -9217,6 +9229,7 @@ function go(target, navItem){
   if(navItem) navItem.classList.add('active');
   window.scrollTo(0,0);
   document.getElementById('nav').classList.remove('on');
+  var _ov=document.getElementById('navOverlay');if(_ov)_ov.classList.remove('on');
   trackLastViewed(target);
 }
 function gOpen(term, def){

@@ -868,7 +868,9 @@ Modo Revisão
 <div class="pg" id="pg-index">
 <div class="ph"><div class="bc">cherry root <span>›</span> index</div><div class="pt">Full Index</div><div class="ps">Every term in the grimoire in order. Click any term to go to its page.</div></div>
 <div class="progress-section">
-<div class="sl" style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem">Progresso · Estudados</div>
+<div class="sl" style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem">Progress Rings</div>
+<div class="rings-grid" id="indexRings"></div>
+<div class="sl" style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin:1rem 0 .5rem">Progresso · Estudados</div>
 <div class="progress-row"><span class="progress-label">Block 0 · PC</span><div class="progress-track"><div class="progress-fill" id="progress-fill-b" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-b">0/14</span></div>
 <div class="progress-row"><span class="progress-label">Block 1 · Internet</span><div class="progress-track"><div class="progress-fill" id="progress-fill-w" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-w">0/14</span></div>
 <div class="progress-row"><span class="progress-label">Block 2 · Networks</span><div class="progress-track"><div class="progress-fill" id="progress-fill-n" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-n">0/17</span></div>
@@ -6379,6 +6381,7 @@ function updateProgressBars(){
       pctEl.textContent = studied + '/' + block.total;
     }
   });
+  if(typeof renderRings === 'function') renderRings();
 }
 
 // Restore on load
@@ -7880,8 +7883,8 @@ function cherryRain(count){
 
 // ---- PROGRESS RINGS ----
 function renderRings(){
-  const wrap = document.getElementById('statsRings');
-  if(!wrap) return;
+  const wraps = [document.getElementById('statsRings'), document.getElementById('indexRings')].filter(Boolean);
+  if(!wraps.length) return;
   const data = (typeof loadData === 'function') ? loadData() : {tags:{}};
   const tags = data.tags || {};
   const counts = {};
@@ -7896,10 +7899,11 @@ function renderRings(){
   });
   const C = 2 * Math.PI * 34;
   const list = BLOCK_LETTERS.filter(l => counts[l].t>0);
-  wrap.innerHTML = list.map(l => {
+  const html = list.map(l => {
     const pct = counts[l].t ? Math.round(counts[l].s/counts[l].t*100) : 0;
     return '<div class="ring"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fg" cx="40" cy="40" r="34" style="stroke-dasharray:'+C.toFixed(1)+';stroke-dashoffset:'+(C*(1-pct/100)).toFixed(1)+'"/></svg><div class="ring-label"><span class="ring-pct">'+pct+'%</span></div><span class="ring-cap">'+escapeHtml(BLOCK_NAMES[l]||l)+'</span></div>';
   }).join('');
+  wraps.forEach(w => w.innerHTML = html);
 }
 
 // ---- INIT ----
