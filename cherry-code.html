@@ -125,6 +125,14 @@ main{padding:1rem .9rem 4rem;max-width:680px;margin:0 auto}
 .how{font-size:.83rem;color:var(--ink2);line-height:1.6;background:var(--p50);border-radius:8px;padding:.7rem .85rem}
 .how strong{color:var(--p500);font-weight:600}
 .how code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:white;color:var(--p500);padding:.08rem .3rem;border-radius:4px;border:1px solid var(--line)}
+.expl{font-size:.83rem;color:var(--ink2);line-height:1.7}
+.expl p{margin-bottom:.6rem}
+.expl p:last-child{margin-bottom:0}
+.expl strong{color:var(--p500);font-weight:600}
+.expl code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);color:var(--p500);padding:.08rem .3rem;border-radius:4px;border:1px solid var(--line)}
+.wg{display:flex;flex-wrap:wrap;gap:.4rem}
+.wi{background:var(--p50);border:1px solid var(--line);border-radius:8px;padding:.4rem .7rem;font-size:.78rem;color:var(--ink2);display:flex;align-items:center;gap:.45rem}
+.wd{width:6px;height:6px;border-radius:50%;background:var(--p400);flex-shrink:0}
 
 /* Keywords */
 .kws{display:flex;flex-wrap:wrap;gap:.3rem}
@@ -312,6 +320,9 @@ body.dark .search-result-item:hover{background:var(--p50)}
 body.dark .defbox{background:var(--p50)}
 body.dark .how{background:var(--p50);color:var(--ink2)}
 body.dark .how code{background:var(--page);color:var(--p500);border-color:var(--line)}
+body.dark .expl{color:var(--ink2)}
+body.dark .expl code{background:var(--page);color:var(--p500);border-color:var(--line)}
+body.dark .wi{background:var(--p50);color:var(--ink2);border-color:var(--line)}
 body.dark .kw{background:var(--p50);color:var(--ink2);border-color:var(--line)}
 body.dark .rem{background:linear-gradient(135deg,var(--p100),var(--p50));color:var(--ink2);border-left-color:var(--p400)}
 body.dark .howto-card{background:var(--p50)}
@@ -1233,15 +1244,25 @@ Click the heart on any term page to add it here.
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Programming&#39;,&#39;Writing instructions a computer can execute, step by step.&#39;)">Programming</span> is telling a computer what to do, step by step."</div>Code is a precise sequence of instructions in a language the computer can interpret. Every app, website, and game is fundamentally a series of programming instructions.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>At its core, programming is the act of translating a human intention into a form a machine can carry out without ambiguity. Computers cannot guess or improvise — they follow instructions literally, which means the programmer must think through every step, every edge case, and every order of operations in advance.</p><p>This precision is what makes programming both powerful and unforgiving. A single misplaced character can change behavior entirely. Good programming is less about typing fast and more about decomposing a fuzzy real-world problem into small, clear, ordered steps that a <code>CPU</code> can execute reliably millions of times.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">code</span><span class="kw">instructions</span><span class="kw">logic</span><span class="kw">execution</span><span class="kw">algorithm</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Building a website or mobile app</div><div class="wi"><span class="wd"></span>Automating a repetitive spreadsheet task</div><div class="wi"><span class="wd"></span>Scripting data analysis in a notebook</div><div class="wi"><span class="wd"></span>Writing firmware for embedded devices</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">You write code → computer reads it → executes the steps one by one. Programs solve problems by breaking them into small, ordered instructions.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f01">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f01','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Your first program</span>
@@ -1254,7 +1275,7 @@ Click the heart on any term page to add it here.
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code is communication — between you and the computer, AND between you and future you (or your team).</div>
 </div>
 
@@ -1288,15 +1309,25 @@ Click the heart on any term page to add it here.
 <div class="defbox"><div class="ds">"Code is the text of a program — written in a specific language with strict rules."</div>Source code is the human-readable version of a program. Tools (interpreters/compilers) convert it into instructions the machine actually runs. Code lives in files with extensions like .py, .js, .java.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Code is the concrete written form of a program — the actual characters, keywords, and symbols a developer types into a file. While <code>programming</code> is the activity, code is the artifact it produces, and it is what gets stored, shared, versioned, and reviewed by teams.</p><p>Because code is read far more often than it is written, clarity matters as much as correctness. Naming, spacing, and structure all communicate intent to other humans, while the machine only cares about whether the code is valid. Source code is later transformed into something the computer can actually run.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">source</span><span class="kw">.py</span><span class="kw">.js</span><span class="kw">.java</span><span class="kw">syntax</span><span class="kw">language</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Files stored in a Git repository</div><div class="wi"><span class="wd"></span>Pull requests reviewed by teammates</div><div class="wi"><span class="wd"></span>Snippets shared on Stack Overflow</div><div class="wi"><span class="wd"></span>Open-source libraries on GitHub</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">You write code in a text editor → save it as a file → run it with the right tool. Code can be a single line or millions of lines across thousands of files.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f02">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f02','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># File: greet.py</span>
@@ -1309,7 +1340,7 @@ name = <span class="str">"Cherry"</span>
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code is text. That is it. Files of text that follow strict rules.</div>
 </div>
 
@@ -1343,15 +1374,25 @@ name = <span class="str">"Cherry"</span>
 <div class="defbox"><div class="ds">"Compilers translate everything before running. Interpreters translate line by line as they go."</div>A <strong>compiler</strong> converts your whole program into machine code once, then runs the result (fast, but slower to start). An <strong>interpreter</strong> reads and executes line by line (slower at runtime, but instant feedback). Java is compiled. Python and JavaScript are interpreted.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>The fundamental difference is timing. A compiler translates the entire source file into machine code <em>before</em> the program runs, producing a standalone executable. An interpreter reads and executes the code line by line <em>while</em> the program runs, with no separate build step.</p><p>This trade-off shapes the developer experience. Compiled languages like C and Java tend to run faster and catch many errors up front, but require a build step. Interpreted languages like Python and JavaScript start instantly and are easier to experiment with, at the cost of slower execution and errors that only surface at <code>runtime</code>.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">compile</span><span class="kw">interpret</span><span class="kw">bytecode</span><span class="kw">runtime</span><span class="kw">JIT</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Choosing Python (interpreted) for quick scripting</div><div class="wi"><span class="wd"></span>Compiling a C++ game for performance</div><div class="wi"><span class="wd"></span>Running JavaScript directly in a browser</div><div class="wi"><span class="wd"></span>Java's hybrid bytecode + JIT approach</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how"><strong><span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">Compiler</span>:</strong> source → executable file → runs.<br><strong><span class="gloss" onclick="gOpen(&#39;Interpreter&#39;,&#39;Reads and executes code line by line at runtime (Python, JavaScript).&#39;)">Interpreter</span>:</strong> source → translated AND run line by line.<br>Modern languages mix both (JIT compilation).</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f03">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f03','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Interpreted — run directly</span>
@@ -1364,7 +1405,7 @@ name = <span class="str">"Cherry"</span>
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Python/JS = type and run. Java = compile, then run. Both end up doing the same thing eventually.</div>
 </div>
 
@@ -1398,15 +1439,25 @@ name = <span class="str">"Cherry"</span>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">bug</span> is any mistake in code that causes wrong behavior or crashes."</div>Bugs are unavoidable — every programmer creates them. The skill is not avoiding bugs, but FINDING and FIXING them quickly. Types: syntax errors (won't even run), runtime errors (crashes mid-execution), logic bugs (runs but wrong output).</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A bug is the gap between what the programmer intended and what the code actually does. Bugs are not random — every bug has a concrete cause in the logic, and the computer is always doing exactly what it was told, just not what the developer meant.</p><p>Bugs range from harmless cosmetic glitches to crashes and security vulnerabilities. The earlier a bug is caught — ideally while writing or testing — the cheaper it is to fix. This is why testing, code review, and careful reading are central to professional development.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">bug</span><span class="kw">error</span><span class="kw">crash</span><span class="kw">logic</span><span class="kw">edge case</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A button that does nothing when clicked</div><div class="wi"><span class="wd"></span>A calculation returning the wrong total</div><div class="wi"><span class="wd"></span>An app crashing on certain input</div><div class="wi"><span class="wd"></span>A security flaw letting attackers in</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">You wrote something the way you meant — but the computer reads exactly what you typed. <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">Bug</span> = gap between what you typed and what you meant.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f04">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f04','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># BUG: wrong operator</span>
@@ -1420,7 +1471,7 @@ age = <span class="num">18</span>
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every senior dev still creates bugs daily. They just got faster at finding them.</div>
 </div>
 
@@ -1454,15 +1505,25 @@ age = <span class="num">18</span>
 <div class="defbox"><div class="ds">"Debugging is the process of investigating WHY code misbehaves and fixing it."</div>Steps: 1) Reproduce the bug consistently. 2) Read the error message (it usually tells you exactly what is wrong). 3) Print intermediate values to find where logic diverges. 4) Fix and test. Most time programming is debugging, not writing.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Debugging is the disciplined process of locating <em>why</em> code misbehaves and then correcting it. It is detective work: forming a hypothesis about the cause, testing it, and narrowing down the problem until the exact faulty line is found.</p><p>Effective debugging relies on tools and techniques — breakpoints, print statements, log inspection, and step-through execution. Developers often spend more time debugging than writing new code, so building strong debugging instincts is one of the most valuable programming skills.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">debug</span><span class="kw">breakpoint</span><span class="kw">log</span><span class="kw">trace</span><span class="kw">reproduce</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Setting breakpoints in an IDE</div><div class="wi"><span class="wd"></span>Reading a stack trace after a crash</div><div class="wi"><span class="wd"></span>Adding print/log statements to trace flow</div><div class="wi"><span class="wd"></span>Using browser dev tools on a web page</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Add prints/logs around suspected code → run → see what values actually flow through → spot the mismatch with what you expected → fix.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f05">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f05','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Add print to debug</span>
@@ -1477,7 +1538,7 @@ result = total / count
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Read the error message FIRST. It is the most important sentence on the screen.</div>
 </div>
 
@@ -1511,15 +1572,25 @@ result = total / count
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;IDE&#39;,&#39;Integrated Development Environment - editor plus tools to write/run/debug code.&#39;)">IDE</span> is software that bundles tools you need to code: editor, <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span>, <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span>, file explorer."</div>Popular IDEs: VS Code (most popular, free, all languages), PyCharm (Python), IntelliJ (Java), WebStorm (JS). They all share: code highlighting, autocomplete, error checking, debugger, integrated terminal.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An IDE bundles everything a developer needs into one application: a code editor, a way to run programs, a debugger, and tools to navigate large projects. It removes the friction of switching between separate tools and keeps focus on the code.</p><p>Beyond editing, modern IDEs offer autocomplete, error highlighting as you type, refactoring shortcuts, and integration with version control. These features catch mistakes early and speed up navigation, which is why most professionals work inside one rather than a plain text editor.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">VS Code</span><span class="kw">PyCharm</span><span class="kw">IntelliJ</span><span class="kw">editor</span><span class="kw">autocomplete</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Writing Python in VS Code or PyCharm</div><div class="wi"><span class="wd"></span>Java development in IntelliJ IDEA</div><div class="wi"><span class="wd"></span>Step-through debugging with breakpoints</div><div class="wi"><span class="wd"></span>Refactoring and autocomplete in a large codebase</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how"><span class="gloss" onclick="gOpen(&#39;IDE&#39;,&#39;Integrated Development Environment - editor plus tools to write/run/debug code.&#39;)">IDE</span> highlights <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span>, suggests completions as you type, marks errors in real time, and lets you run/<span class="gloss" onclick="gOpen(&#39;Debug&#39;,&#39;Finding and removing bugs from code, step by step.&#39;)">debug</span> without leaving the window. Optional but transformative for productivity.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f06">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f06','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># In VS Code with Python extension:</span>
@@ -1535,7 +1606,7 @@ result = total / count
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pick VS Code if unsure. It does everything and is free.</div>
 </div>
 
@@ -1569,15 +1640,25 @@ result = total / count
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span> is where you type commands instead of clicking buttons."</div>Essential for developers: run scripts, install packages, use git, deploy apps. Looks intimidating but you only need ~10 commands daily. Windows: PowerShell/Terminal. Mac/Linux: Terminal.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>The terminal is a text-based gateway to the computer, where commands are typed instead of clicked. It predates graphical interfaces and remains the fastest, most precise way to control a machine — especially servers, which often have no graphical interface at all.</p><p>Mastering the terminal unlocks automation: commands can be chained, scripted, and repeated exactly. Developers use it to run programs, manage files, install tools, and interact with version control, making it an indispensable everyday tool rather than a relic.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">CLI</span><span class="kw">shell</span><span class="kw">bash</span><span class="kw">PowerShell</span><span class="kw">command</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Running build and test commands</div><div class="wi"><span class="wd"></span>Managing a remote Linux server via SSH</div><div class="wi"><span class="wd"></span>Installing packages with npm or pip</div><div class="wi"><span class="wd"></span>Navigating files with cd, ls, and grep</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Type a command → press Enter → <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span> runs it → shows output. Like talking to your computer in text instead of clicking icons.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f07">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f07','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Run a Python file</span>
@@ -1599,7 +1680,7 @@ result = total / count
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span> is intimidating for 2 weeks, then it becomes faster than the mouse forever.</div>
 </div>
 
@@ -1633,15 +1714,25 @@ result = total / count
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">Syntax</span> is the exact way you must write code — wrong syntax = code does not run."</div>Like spoken languages, programming has rules. Python uses indentation. JavaScript uses { }. Java requires semicolons after every statement. Syntax errors are the easiest bugs to find — the compiler/interpreter literally tells you where.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Syntax is the set of structural rules that define what counts as valid code in a language — the placement of brackets, colons, quotes, and keywords. Just as a sentence needs correct grammar to be understood, code must follow its language's syntax exactly.</p><p>When syntax is violated, the <code>compiler</code> or interpreter refuses to run the code and reports a syntax error. These are the most common errors for beginners, but also the easiest to fix because the tool usually points to the exact line and character.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">syntax</span><span class="kw">parser</span><span class="kw">indentation</span><span class="kw">brackets</span><span class="kw">semicolons</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Forgetting a closing bracket or semicolon</div><div class="wi"><span class="wd"></span>Indentation rules in Python</div><div class="wi"><span class="wd"></span>Matching quotes around a string</div><div class="wi"><span class="wd"></span>Syntax errors flagged by the IDE</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Computer parses your code character by character. If anything is wrong (missing bracket, wrong <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span>), it stops and shows an error pointing to the problem.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f08">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f08','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Indentation IS syntax</span>
@@ -1656,7 +1747,7 @@ result = total / count
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">Syntax</span> errors are the EASY ones. The <span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">compiler</span> points right at them.</div>
 </div>
 
@@ -1690,15 +1781,25 @@ result = total / count
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">Runtime</span> is the time when your program is running — opposed to "compile time" when it is just being prepared."</div>Runtime errors happen during execution: dividing by zero, accessing missing data, network failures. Syntax errors happen BEFORE runtime (won't even start). Logic bugs happen DURING runtime.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Runtime refers to the period when a program is actually running, as opposed to when it is being written or compiled. Many things can only be known at runtime — user input, file contents, network responses — because they don't exist until execution begins.</p><p>This distinction matters because some errors and behaviors only appear at runtime, not while writing code. A <code>bug</code> like dividing by zero or accessing missing data may pass <code>syntax</code> checks yet crash the moment the offending line executes with real values.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">runtime</span><span class="kw">execution</span><span class="kw">exception</span><span class="kw">crash</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A crash that only happens on certain input</div><div class="wi"><span class="wd"></span>Reading user-entered data live</div><div class="wi"><span class="wd"></span>Runtime exceptions like null reference errors</div><div class="wi"><span class="wd"></span>Performance measured while the program runs</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Compile time: code is being checked/translated. <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">Runtime</span>: code is actively doing things — reading files, talking to network, calculating. Each has its own type of error.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f09">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f09','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Runtime error — found WHEN running</span>
@@ -1714,7 +1815,7 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">Runtime</span> errors are sneakier than <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span> errors — code looks correct but breaks when run.</div>
 </div>
 
@@ -1748,15 +1849,25 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Paradigm&#39;,&#39;A style of programming - OOP, functional, procedural, etc.&#39;)">paradigm</span> is a way of thinking about code — what to organize around."</div>Main paradigms: <strong>Imperative</strong> (do this then this), <strong>Object-Oriented</strong> (organize around objects), <strong>Functional</strong> (everything is a function). Most modern languages support multiple paradigms — you choose per problem.</div>
 </div>
 
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A paradigm is a fundamental way of organizing and thinking about code. Rather than dictating syntax, it shapes how a problem is modeled — whether as objects and their interactions, as a sequence of steps, or as pure functions transforming data.</p><p>Common paradigms include procedural, object-oriented, and functional programming. Many modern languages are multi-paradigm, letting developers mix styles. Understanding paradigms helps you choose the right mental model for a problem and read code written in unfamiliar styles.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">imperative</span><span class="kw">OOP</span><span class="kw">functional</span><span class="kw">declarative</span></div>
 </div>
 
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Object-oriented design with classes</div><div class="wi"><span class="wd"></span>Functional pipelines (map, filter, reduce)</div><div class="wi"><span class="wd"></span>Procedural scripts running top to bottom</div><div class="wi"><span class="wd"></span>Declarative UI frameworks like React</div></div>
+</div>
+
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Same problem can be solved many ways. Imperative: step-by-step instructions. OOP: create objects with state and methods. Functional: chain functions that transform data.</div>
 </div>
 
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-f10">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-f10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-f10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-f10','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Same task, 3 paradigms</span>
@@ -1787,7 +1898,7 @@ result = [n*<span class="num">2</span> <span class="kw">for</span> n <span class
 </div>
 </div>
 
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No <span class="gloss" onclick="gOpen(&#39;Paradigm&#39;,&#39;A style of programming - OOP, functional, procedural, etc.&#39;)">paradigm</span> is "best". Use what fits the problem — most pros mix all three.</div>
 </div>
 
@@ -1842,9 +1953,19 @@ result = [n*<span class="num">2</span> <span class="kw">for</span> n <span class
 <span class="tag-btn fav" onclick="toggleTag('t01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> is a name that holds a value you can use later."</div>Variables let you store data and refer to it by name. You can change what they store. Naming matters — `x` tells nothing, `userAge` tells everything.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">variable</span><span class="kw">name</span><span class="kw">value</span><span class="kw">assignment</span><span class="kw">identifier</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Create <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> with a name → assign a value to it → use the name later to access the value. You can reassign at any time.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t01"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t01','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">name = <span class="str">"Cherry"</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A variable is a named label attached to a location in memory that holds a value. Instead of working with raw memory addresses, programmers use readable names, and the language tracks where the actual data lives in <code>RAM</code>.</p><p>Variables make programs flexible: the same code can operate on different values depending on what's stored. They can be read, updated, and passed around, forming the basic units of state that programs manipulate as they run.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">variable</span><span class="kw">name</span><span class="kw">value</span><span class="kw">assignment</span><span class="kw">identifier</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Storing user input from a form</div><div class="wi"><span class="wd"></span>Counters inside loops</div><div class="wi"><span class="wd"></span>Config values like an API key</div><div class="wi"><span class="wd"></span>Accumulating a running total</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Create <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> with a name → assign a value to it → use the name later to access the value. You can reassign at any time.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t01"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t01','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">name = <span class="str">"Cherry"</span>
 age = <span class="num">25</span>
 active = <span class="kw">True</span>
 
@@ -1857,7 +1978,7 @@ active = <span class="kw">True</span>
 <span class="kw">boolean</span> active = <span class="kw">true</span>;
 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(name);</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Good <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> names are documentation. Use them liberally.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Good <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> names are documentation. Use them liberally.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t01" placeholder="Write your observations..." onchange="saveNotes('t01')" oninput="updateNotesStatus('t01')"></textarea><div class="notes-status" id="notes-status-t01">Auto-saved</div></div>
 </div>
 
@@ -1877,9 +1998,19 @@ active = <span class="kw">True</span>
 <span class="tag-btn fav" onclick="toggleTag('t02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A type tells you what kind of data: number, text, true/false, <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span>, etc."</div>Types determine what operations make sense. Adding numbers makes sense. Adding two booleans is weird. Python is "dynamic" (figures out types automatically). Java is "static" (you declare types).</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">type</span><span class="kw">int</span><span class="kw">string</span><span class="kw">boolean</span><span class="kw">static</span><span class="kw">dynamic</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Each value has a type. Operations on types follow rules. <code>"5" + 3</code> behavior differs by language — some error, some concatenate, some convert.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t02"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t02','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Dynamic typing — auto-detected</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A data type defines what kind of value a variable holds and what operations are allowed on it. Numbers can be added, strings can be concatenated, and booleans can be combined — the type tells the language how to interpret the raw bits in memory.</p><p>Types prevent meaningless operations and help catch <code>bug</code>s early. Some languages enforce types strictly at compile time, while others check them at <code>runtime</code>. Either way, understanding types is essential to predicting how code behaves.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">type</span><span class="kw">int</span><span class="kw">string</span><span class="kw">boolean</span><span class="kw">static</span><span class="kw">dynamic</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Validating a numeric form field</div><div class="wi"><span class="wd"></span>Choosing a column type in a database</div><div class="wi"><span class="wd"></span>Preventing 'string + number' mistakes</div><div class="wi"><span class="wd"></span>API responses with typed JSON fields</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Each value has a type. Operations on types follow rules. <code>"5" + 3</code> behavior differs by language — some error, some concatenate, some convert.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t02"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t02','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Dynamic typing — auto-detected</span>
 age = <span class="num">25</span>           <span class="com"># int</span>
 name = <span class="str">"Cherry"</span>      <span class="com"># str</span>
 price = <span class="num">9.99</span>        <span class="com"># float</span>
@@ -1897,7 +2028,7 @@ active = <span class="kw">True</span>       <span class="com"># bool</span>
 <span class="kw">boolean</span> active = <span class="kw">true</span>;
 
 <span class="com">// Type is FIXED at declaration</span></pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Type errors are some of the most common bugs. Knowing types prevents many.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Type errors are some of the most common bugs. Knowing types prevents many.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t02" placeholder="Write your observations..." onchange="saveNotes('t02')" oninput="updateNotesStatus('t02')"></textarea><div class="notes-status" id="notes-status-t02">Auto-saved</div></div>
 </div>
 
@@ -1917,9 +2048,19 @@ active = <span class="kw">True</span>       <span class="com"># bool</span>
 <span class="tag-btn fav" onclick="toggleTag('t03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span> is text — anything between quotes."</div>Strings hold any text: a single letter, a word, a paragraph, JSON, HTML. Operations: concatenation (+), length, indexing, slicing, search, replace, upper/lower.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">string</span><span class="kw">str</span><span class="kw">text</span><span class="kw">concatenation</span><span class="kw">template</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Wrap text in quotes (single or double) to make a <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span>. Join strings with + or templates (cleaner). Access characters by <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> starting at 0.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t03"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t03','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">greeting = <span class="str">"Hello"</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A string is a sequence of characters used to represent text — anything from a single letter to an entire document. Internally it's stored as an ordered collection of character codes, which is why strings can be indexed, sliced, and searched.</p><p>Strings are everywhere in software because most human-facing data is text. Languages provide rich operations — concatenation, formatting, splitting, replacing — and care must be taken with encoding and with user-supplied text, which is a common source of security issues.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">string</span><span class="kw">str</span><span class="kw">text</span><span class="kw">concatenation</span><span class="kw">template</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Displaying messages and labels in a UI</div><div class="wi"><span class="wd"></span>Reading names and emails from a form</div><div class="wi"><span class="wd"></span>Parsing text from a file or API</div><div class="wi"><span class="wd"></span>Building SQL or URLs (watch for injection)</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Wrap text in quotes (single or double) to make a <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span>. Join strings with + or templates (cleaner). Access characters by <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> starting at 0.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t03"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t03','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">greeting = <span class="str">"Hello"</span>
 name = <span class="str">"Cherry"</span>
 
 <span class="com"># Concatenation</span>
@@ -1953,7 +2094,7 @@ name.length;            <span class="com">// 6</span></pre></div><div class="cod
 <span class="com">// Methods</span>
 name.<span class="fn">toUpperCase</span>();
 name.<span class="fn">length</span>();</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Template strings (f-strings, backticks) are way cleaner than + + +. Use them.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Template strings (f-strings, backticks) are way cleaner than + + +. Use them.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t03" placeholder="Write your observations..." onchange="saveNotes('t03')" oninput="updateNotesStatus('t03')"></textarea><div class="notes-status" id="notes-status-t03">Auto-saved</div></div>
 </div>
 
@@ -1973,9 +2114,19 @@ name.<span class="fn">length</span>();</pre></div></div></div>
 <span class="tag-btn fav" onclick="toggleTag('t04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> is a number without a decimal point: 0, 1, -5, 9999."</div>Used for counting, indexing, IDs, ages — anything discrete. Math operations: +, -, *, /, % (modulo). Integer division varies by language — Python uses // for floor division.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">int</span><span class="kw">integer</span><span class="kw">number</span><span class="kw">arithmetic</span><span class="kw">modulo</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Store whole numbers, do math. Be aware: <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> overflow exists in some languages (Java <code>int</code> max is ~2.1 billion). Python handles huge integers natively.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t04"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t04','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">age = <span class="num">25</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An integer represents a whole number with no fractional part, used for anything that is counted rather than measured. Integers are stored exactly in memory, so arithmetic on them is precise — there's no rounding error.</p><p>Because integers have a fixed size in many languages, they can overflow if a value grows beyond the maximum. Choosing integer versus <code>float</code> depends on whether the quantity is discrete (counts, indices, ages) or continuous (prices, measurements).</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">int</span><span class="kw">integer</span><span class="kw">number</span><span class="kw">arithmetic</span><span class="kw">modulo</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Loop counters and array indices</div><div class="wi"><span class="wd"></span>Counting items in a cart</div><div class="wi"><span class="wd"></span>User IDs and database keys</div><div class="wi"><span class="wd"></span>Quantities like 'number of attempts'</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Store whole numbers, do math. Be aware: <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> overflow exists in some languages (Java <code>int</code> max is ~2.1 billion). Python handles huge integers natively.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t04"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t04','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">age = <span class="num">25</span>
 count = -<span class="num">10</span>
 big = <span class="num">999999999999</span>   <span class="com"># No overflow</span>
 
@@ -1999,7 +2150,7 @@ big = <span class="num">999999999999</span>   <span class="com"># No overflow</s
 <span class="num">10</span> / <span class="num">3</span>;   <span class="com">// 3 (int div!)</span>
 <span class="num">10</span>.<span class="num">0</span> / <span class="num">3</span>; <span class="com">// 3.333 (double)</span>
 <span class="num">10</span> % <span class="num">3</span>;   <span class="com">// 1</span></pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">Integer</span> math: simple but watch for division behavior — Java integer division truncates!</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">Integer</span> math: simple but watch for division behavior — Java integer division truncates!</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t04" placeholder="Write your observations..." onchange="saveNotes('t04')" oninput="updateNotesStatus('t04')"></textarea><div class="notes-status" id="notes-status-t04">Auto-saved</div></div>
 </div>
 
@@ -2019,9 +2170,19 @@ big = <span class="num">999999999999</span>   <span class="com"># No overflow</s
 <span class="tag-btn fav" onclick="toggleTag('t05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Float&#39;,&#39;A number with a decimal point - fractional values.&#39;)">float</span> represents a number with a decimal point: 3.14, -0.5, 99.99."</div>Used for prices, measurements, scientific calculations. Floats have <strong>precision issues</strong> — <code>0.1 + 0.2</code> often equals <code>0.30000000000000004</code>. Never use floats for money — use specialized decimal types.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">float</span><span class="kw">double</span><span class="kw">decimal</span><span class="kw">precision</span><span class="kw">IEEE 754</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Internally, floats use binary scientific notation, which can't represent some decimals exactly. Real-world impact: comparisons fail for "obviously equal" numbers.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t05"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t05','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">price = <span class="num">9.99</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A float (floating-point number) represents values with a fractional part, like 3.14 or -0.5. It stores numbers in a binary scientific-notation form, which lets it cover a huge range of magnitudes with limited memory.</p><p>The catch is that floats are approximate: many decimal values cannot be represented exactly in binary, leading to tiny rounding errors. This is why money is often handled with integers (cents) or decimal types rather than raw floats.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">float</span><span class="kw">double</span><span class="kw">decimal</span><span class="kw">precision</span><span class="kw">IEEE 754</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Prices and measurements</div><div class="wi"><span class="wd"></span>Scientific and engineering calculations</div><div class="wi"><span class="wd"></span>Percentages and averages</div><div class="wi"><span class="wd"></span>Coordinates in graphics or maps</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Internally, floats use binary scientific notation, which can't represent some decimals exactly. Real-world impact: comparisons fail for "obviously equal" numbers.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t05"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t05','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">price = <span class="num">9.99</span>
 pi = <span class="num">3.14159</span>
 
 <span class="com"># Precision issue!</span>
@@ -2048,7 +2209,7 @@ price = Decimal(<span class="str">"9.99"</span>)</pre></div><div class="code-pan
 
 <span class="com">// For money use BigDecimal</span>
 BigDecimal price = <span class="kw">new</span> BigDecimal(<span class="str">"9.99"</span>);</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>NEVER use <span class="gloss" onclick="gOpen(&#39;Float&#39;,&#39;A number with a decimal point - fractional values.&#39;)">float</span>/double for money. Always use Decimal/BigDecimal or store cents as integers.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>NEVER use <span class="gloss" onclick="gOpen(&#39;Float&#39;,&#39;A number with a decimal point - fractional values.&#39;)">float</span>/double for money. Always use Decimal/BigDecimal or store cents as integers.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t05" placeholder="Write your observations..." onchange="saveNotes('t05')" oninput="updateNotesStatus('t05')"></textarea><div class="notes-status" id="notes-status-t05">Auto-saved</div></div>
 </div>
 
@@ -2068,9 +2229,19 @@ BigDecimal price = <span class="kw">new</span> BigDecimal(<span class="str">"9.9
 <span class="tag-btn fav" onclick="toggleTag('t06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span> represents truth: either true or false. That is it."</div>Booleans drive all decisions in code: <strong>if</strong> statements, <strong>while</strong> loops, conditions. They come from comparisons (<code>a > b</code>), checks (<code>list.isEmpty()</code>), or direct assignment.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">boolean</span><span class="kw">bool</span><span class="kw">true</span><span class="kw">false</span><span class="kw">condition</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Comparisons produce booleans. Logical operators combine them: AND (both must be true), OR (at least one true), NOT (flip).</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t06"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t06','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">active = <span class="kw">True</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A boolean holds one of exactly two values — true or false — making it the foundation of all decision-making in code. Every condition in an <code>if</code> statement or loop ultimately reduces to a boolean.</p><p>Booleans are produced by comparisons and combined with logical operators (and, or, not) to express complex conditions. Many languages also treat other values as 'truthy' or 'falsy', a convenient shortcut that can also be a subtle source of <code>bug</code>s.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">boolean</span><span class="kw">bool</span><span class="kw">true</span><span class="kw">false</span><span class="kw">condition</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Conditions in if statements</div><div class="wi"><span class="wd"></span>Feature flags turning behavior on/off</div><div class="wi"><span class="wd"></span>Form validation (isValid)</div><div class="wi"><span class="wd"></span>Loop control (keepRunning)</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Comparisons produce booleans. Logical operators combine them: AND (both must be true), OR (at least one true), NOT (flip).</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t06"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t06','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">active = <span class="kw">True</span>
 logged_in = <span class="kw">False</span>
 
 <span class="com"># From comparison</span>
@@ -2108,7 +2279,7 @@ block = <span class="kw">not</span> active <span class="kw">or</span> banned
 <span class="com">// Java: strict boolean only</span>
 <span class="com">// no truthy/falsy</span>
 <span class="kw">if</span> (active) { ... }</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Booleans are the foundation of all logic. Every <code>if</code> reduces to a <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span>.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Booleans are the foundation of all logic. Every <code>if</code> reduces to a <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span>.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t06" placeholder="Write your observations..." onchange="saveNotes('t06')" oninput="updateNotesStatus('t06')"></textarea><div class="notes-status" id="notes-status-t06">Auto-saved</div></div>
 </div>
 
@@ -2128,9 +2299,19 @@ block = <span class="kw">not</span> active <span class="kw">or</span> banned
 <span class="tag-btn fav" onclick="toggleTag('t07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">Null</span>/None means: this <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> intentionally has NO value."</div>Different from 0, empty string, or false — those ARE values. Null means absence. Famously called "the billion dollar mistake" because misusing it causes <strong>null pointer exceptions</strong>.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">null</span><span class="kw">None</span><span class="kw">nil</span><span class="kw">undefined</span><span class="kw">NullPointerException</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Use it to signal: data not provided, lookup failed, optional field absent. ALWAYS check before using — accessing <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span>.something crashes.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t07"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t07','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">data = <span class="kw">None</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Null (or None, nil) represents the deliberate absence of a value — a variable that points to nothing. It is distinct from zero or an empty string: those are real values, while null means 'there is no value here at all'.</p><p>Null is useful for modeling missing or optional data, but it is also a famous source of crashes — the 'null reference' error happens when code tries to use something that isn't there. Modern languages add safeguards like optional types to tame it.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">null</span><span class="kw">None</span><span class="kw">nil</span><span class="kw">undefined</span><span class="kw">NullPointerException</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A database field with no entry yet</div><div class="wi"><span class="wd"></span>An optional function argument left out</div><div class="wi"><span class="wd"></span>API responses with missing fields</div><div class="wi"><span class="wd"></span>Initializing a variable before it has data</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Use it to signal: data not provided, lookup failed, optional field absent. ALWAYS check before using — accessing <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span>.something crashes.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t07"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t07','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">data = <span class="kw">None</span>
 
 <span class="kw">if</span> data <span class="kw">is</span> <span class="kw">None</span>:
     <span class="fn">print</span>(<span class="str">"No data"</span>)
@@ -2162,7 +2343,7 @@ name = data <span class="kw">or</span> <span class="str">"default"</span></pre><
 
 <span class="com">// Better: Optional</span>
 Optional&lt;<span class="kw">String</span>&gt; opt = Optional.<span class="fn">ofNullable</span>(data);</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ALWAYS check for <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span> before using. NullPointerException is the #1 <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span> crash.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ALWAYS check for <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span> before using. NullPointerException is the #1 <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span> crash.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t07" placeholder="Write your observations..." onchange="saveNotes('t07')" oninput="updateNotesStatus('t07')"></textarea><div class="notes-status" id="notes-status-t07">Auto-saved</div></div>
 </div>
 
@@ -2182,9 +2363,19 @@ Optional&lt;<span class="kw">String</span>&gt; opt = Optional.<span class="fn">o
 <span class="tag-btn fav" onclick="toggleTag('t08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> (or <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span>) holds multiple values in order, accessed by <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>."</div>Index starts at <strong>0</strong>. Operations: add, remove, get by index, length, iterate. Python lists and JS arrays can hold mixed types. Java arrays are fixed-size with single type — use ArrayList for dynamic.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">array</span><span class="kw">list</span><span class="kw">index</span><span class="kw">element</span><span class="kw">iterate</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Each item has a position (<span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>) starting at 0. <code>arr[0]</code> is first, <code>arr[1]</code> is second. Length is total count. Out-of-bounds = crash.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t08"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t08','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># List = dynamic array</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An array or list stores multiple values in a single, ordered structure, accessed by numeric index. Instead of dozens of separate variables, related data is grouped together and can be processed uniformly with loops.</p><p>Order is preserved, so the first element is at index 0 in most languages. Lists are central to almost every program because real data usually comes in collections — and iterating, filtering, and transforming them is a daily task.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">array</span><span class="kw">list</span><span class="kw">index</span><span class="kw">element</span><span class="kw">iterate</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A list of search results</div><div class="wi"><span class="wd"></span>Items in a shopping cart</div><div class="wi"><span class="wd"></span>Rows returned from a database query</div><div class="wi"><span class="wd"></span>Collecting values inside a loop</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Each item has a position (<span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>) starting at 0. <code>arr[0]</code> is first, <code>arr[1]</code> is second. Length is total count. Out-of-bounds = crash.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t08"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t08','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># List = dynamic array</span>
 fruits = [<span class="str">"cherry"</span>, <span class="str">"apple"</span>, <span class="str">"plum"</span>]
 
 fruits[<span class="num">0</span>]              <span class="com"># "cherry"</span>
@@ -2213,7 +2404,7 @@ List&lt;<span class="kw">String</span>&gt; list = <span class="kw">new</span> Ar
 list.<span class="fn">add</span>(<span class="str">"cherry"</span>);
 list.<span class="fn">remove</span>(<span class="num">0</span>);
 list.<span class="fn">size</span>();</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">Index</span> starts at 0. ALWAYS. Memorize: <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> of length 3 has indices 0, 1, 2.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">Index</span> starts at 0. ALWAYS. Memorize: <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> of length 3 has indices 0, 1, 2.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t08" placeholder="Write your observations..." onchange="saveNotes('t08')" oninput="updateNotesStatus('t08')"></textarea><div class="notes-status" id="notes-status-t08">Auto-saved</div></div>
 </div>
 
@@ -2233,9 +2424,19 @@ list.<span class="fn">size</span>();</pre></div></div></div>
 <span class="tag-btn fav" onclick="toggleTag('t09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Dict&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dict</span> (or <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>, or map) stores values associated with named keys."</div>Unlike arrays (indexed by number), dicts use any key — usually strings. Perfect for representing structured data: a user has name, email, age. Order may or may not matter depending on language/version.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">dict</span><span class="kw">map</span><span class="kw">object</span><span class="kw">key</span><span class="kw">value</span><span class="kw">JSON</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Access by <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span>: <code>user["name"]</code> or <code>user.name</code>. Add new keys anytime. Missing key = error or default depending on access <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span>.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t09"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t09','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">user = {
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A dictionary (also called object, map, or hash) stores data as key-value pairs, letting you look up a value by a meaningful name rather than a numeric position. This makes data self-describing and fast to access.</p><p>Where arrays answer 'what's at position 3?', dictionaries answer 'what's the value for this key?'. They are the natural way to model records with named fields and underpin formats like JSON used across the web.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">dict</span><span class="kw">map</span><span class="kw">object</span><span class="kw">key</span><span class="kw">value</span><span class="kw">JSON</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Representing a user record (name, email)</div><div class="wi"><span class="wd"></span>Parsing JSON from an API</div><div class="wi"><span class="wd"></span>Counting word frequencies</div><div class="wi"><span class="wd"></span>Config settings keyed by name</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Access by <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span>: <code>user["name"]</code> or <code>user.name</code>. Add new keys anytime. Missing key = error or default depending on access <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span>.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t09"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t09','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">user = {
     <span class="str">"name"</span>: <span class="str">"Cherry"</span>,
     <span class="str">"age"</span>: <span class="num">25</span>,
     <span class="str">"active"</span>: <span class="kw">True</span>
@@ -2270,7 +2471,7 @@ user.<span class="fn">getOrDefault</span>(<span class="str">"email"</span>, <spa
 <span class="kw">for</span> (<span class="kw">var</span> e : user.<span class="fn">entrySet</span>()) {
   <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(e.<span class="fn">getKey</span>());
 }</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dicts are everywhere — JSON, configs, API responses. Master them early.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dicts are everywhere — JSON, configs, API responses. Master them early.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t09" placeholder="Write your observations..." onchange="saveNotes('t09')" oninput="updateNotesStatus('t09')"></textarea><div class="notes-status" id="notes-status-t09">Auto-saved</div></div>
 </div>
 
@@ -2290,9 +2491,19 @@ user.<span class="fn">getOrDefault</span>(<span class="str">"email"</span>, <spa
 <span class="tag-btn fav" onclick="toggleTag('t10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Constant&#39;,&#39;A named value that cannot be reassigned after creation.&#39;)">constant</span> is a value that stays fixed after declaration."</div>Used for values that should never change: PI, max retries, API URLs, configuration. Trying to reassign = error. Convention: name them in UPPER_SNAKE_CASE.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">const</span><span class="kw">final</span><span class="kw">immutable</span><span class="kw">CONSTANT_CASE</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Declare with <code>const</code> (JS), <code>final</code> (Java), or use ALL_CAPS convention (Python). <span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">Compiler</span>/<span class="gloss" onclick="gOpen(&#39;Interpreter&#39;,&#39;Reads and executes code line by line at runtime (Python, JavaScript).&#39;)">interpreter</span> prevents reassignment, catching bugs early.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t10"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t10','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Convention only — uppercase</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A constant is a named value that is fixed once set and cannot be reassigned. Declaring something constant signals intent — to other developers and to the compiler — that this value should never change during execution.</p><p>Constants make code safer and clearer: they prevent accidental reassignment, give meaning to 'magic numbers', and let the language optimize. Using a named constant like <code>MAX_RETRIES</code> is far clearer than scattering the number 5 throughout the code.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">const</span><span class="kw">final</span><span class="kw">immutable</span><span class="kw">CONSTANT_CASE</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Mathematical values like PI</div><div class="wi"><span class="wd"></span>Configuration limits (MAX_USERS)</div><div class="wi"><span class="wd"></span>Fixed API endpoints or keys</div><div class="wi"><span class="wd"></span>Replacing 'magic numbers' with names</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Declare with <code>const</code> (JS), <code>final</code> (Java), or use ALL_CAPS convention (Python). <span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">Compiler</span>/<span class="gloss" onclick="gOpen(&#39;Interpreter&#39;,&#39;Reads and executes code line by line at runtime (Python, JavaScript).&#39;)">interpreter</span> prevents reassignment, catching bugs early.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t10"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t10','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Convention only — uppercase</span>
 MAX_RETRIES = <span class="num">3</span>
 API_URL = <span class="str">"https://api.cherry.com"</span>
 PI = <span class="num">3.14159</span>
@@ -2321,7 +2532,7 @@ MAX_RETRIES = <span class="num">5</span>;
 
 <span class="com">// static final for true constants</span>
 <span class="kw">public static final int</span> MAX = <span class="num">100</span>;</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Use <code>const</code> by default. Switch to <code>let</code>/<span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> only when value MUST change.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Use <code>const</code> by default. Switch to <code>let</code>/<span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> only when value MUST change.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t10" placeholder="Write your observations..." onchange="saveNotes('t10')" oninput="updateNotesStatus('t10')"></textarea><div class="notes-status" id="notes-status-t10">Auto-saved</div></div>
 </div>
 
@@ -2341,9 +2552,19 @@ MAX_RETRIES = <span class="num">5</span>;
 <span class="tag-btn fav" onclick="toggleTag('t11','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">Scope</span> defines where you can use a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>: global, local to a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>, local to a block."</div>A variable inside a function does not exist outside it. Inside a block <code>{ }</code> may also limit scope (in JS/Java). This isolation prevents naming conflicts and bugs.</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">scope</span><span class="kw">global</span><span class="kw">local</span><span class="kw">block</span><span class="kw">hoisting</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">When code asks for a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>, the language looks in current <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> → enclosing scope → global. If not found anywhere = error.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t11"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t11','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t11','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t11','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">x = <span class="num">10</span>          <span class="com"># global</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Scope defines the region of code where a variable can be seen and used. A variable declared inside a <code>function</code> typically lives only there, while one declared at the top level may be visible everywhere.</p><p>Scope prevents naming collisions and keeps state contained, which makes large programs manageable. Misunderstanding scope is a frequent source of <code>bug</code>s — using a variable outside where it exists, or accidentally shadowing one with the same name.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">scope</span><span class="kw">global</span><span class="kw">local</span><span class="kw">block</span><span class="kw">hoisting</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Local variables inside a function</div><div class="wi"><span class="wd"></span>Block scope in if/for blocks</div><div class="wi"><span class="wd"></span>Global config visible everywhere</div><div class="wi"><span class="wd"></span>Closures capturing outer variables</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">When code asks for a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>, the language looks in current <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> → enclosing scope → global. If not found anywhere = error.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t11"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t11','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t11','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t11','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block">x = <span class="num">10</span>          <span class="com"># global</span>
 
 <span class="kw">def</span> <span class="fn">my_func</span>():
     y = <span class="num">20</span>      <span class="com"># local to function</span>
@@ -2373,7 +2594,7 @@ MAX_RETRIES = <span class="num">5</span>;
     <span class="com">// z is gone here</span>
   }
 }</pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Smaller <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> = safer code. Keep variables as local as possible.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Smaller <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> = safer code. Keep variables as local as possible.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t11" placeholder="Write your observations..." onchange="saveNotes('t11')" oninput="updateNotesStatus('t11')"></textarea><div class="notes-status" id="notes-status-t11">Auto-saved</div></div>
 </div>
 
@@ -2393,9 +2614,19 @@ MAX_RETRIES = <span class="num">5</span>;
 <span class="tag-btn fav" onclick="toggleTag('t12','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 <div class="sec"><div class="sl">① Definition</div><div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Type Casting&#39;,&#39;Converting a value from one type to another.&#39;)">Casting</span> = converting a value from one type to another, like <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span> to <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span>."</div>Common: user input is always a string — cast to int/float to do math. Float to int truncates decimals. Some conversions can fail (<code>"abc"</code> to int crashes). Two types: explicit (you ask) and implicit (auto, sometimes surprising).</div></div>
-<div class="sec"><div class="sl">② Keywords</div><div class="kws"><span class="kw">cast</span><span class="kw">convert</span><span class="kw">parse</span><span class="kw">coerce</span></div></div>
-<div class="sec"><div class="sl">③ How It Works</div><div class="how">Use built-in functions: <code>int()</code>, <code>str()</code>, <code>float()</code> (Python), <code>Number()</code>, <code>String()</code> (JS), <code>Integer.parseInt()</code> (Java). Validate input first to avoid crashes.</div></div>
-<div class="sec"><div class="sl">④ Code Example</div><div id="code-t12"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t12','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t12','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t12','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># String to int</span>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Type casting is the act of converting a value from one data type to another — turning the string '42' into the integer 42, or a number into text for display. It bridges the gap between types when data arrives in the wrong form.</p><p>Casting can be explicit (the programmer requests it) or implicit (the language does it automatically). Implicit conversions are convenient but can hide <code>bug</code>s, such as '5' + 3 producing '53' instead of 8 when a string sneaks into arithmetic.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div><div class="kws"><span class="kw">cast</span><span class="kw">convert</span><span class="kw">parse</span><span class="kw">coerce</span></div></div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Converting form input (string) to a number</div><div class="wi"><span class="wd"></span>Formatting a number for display</div><div class="wi"><span class="wd"></span>Parsing JSON values into typed objects</div><div class="wi"><span class="wd"></span>Reading numeric data from a CSV file</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div><div class="how">Use built-in functions: <code>int()</code>, <code>str()</code>, <code>float()</code> (Python), <code>Number()</code>, <code>String()</code> (JS), <code>Integer.parseInt()</code> (Java). Validate input first to avoid crashes.</div></div>
+<div class="sec"><div class="sl">⑥ Code Example</div><div id="code-t12"><div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-t12','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-t12','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-t12','Java')">Java</button></div><div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># String to int</span>
 age_str = <span class="str">"25"</span>
 age = <span class="fn">int</span>(age_str)        <span class="com"># 25</span>
 
@@ -2432,7 +2663,7 @@ text = <span class="fn">str</span>(num)            <span class="com"># "42"</spa
 <span class="com">// Throws if invalid:</span>
 <span class="kw">Integer</span>.<span class="fn">parseInt</span>(<span class="str">"abc"</span>);
 <span class="com">// NumberFormatException</span></pre></div></div></div>
-<div class="sec"><div class="sl">⑤ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>User input is ALWAYS <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span>. Cast carefully — wrap in try/catch when source isn't trusted.</div></div>
+<div class="sec"><div class="sl">⑦ Remember</div><div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>User input is ALWAYS <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span>. Cast carefully — wrap in try/catch when source isn't trusted.</div></div>
 <div class="notes-area"><div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div><textarea class="notes-textarea" id="notes-t12" placeholder="Write your observations..." onchange="saveNotes('t12')" oninput="updateNotesStatus('t12')"></textarea><div class="notes-status" id="notes-status-t12">Auto-saved</div></div>
 </div>
 
@@ -2480,13 +2711,23 @@ text = <span class="fn">str</span>(num)            <span class="com"># "42"</spa
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Arithmetic operators perform math — addition, subtraction, multiplication, division."</div>They take numeric operands and return a result. Every language supports the four basic operators: <code>+</code> <code>-</code> <code>*</code> <code>/</code> and usually also exponentiation and modulo.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Arithmetic operators perform the basic mathematical operations — addition, subtraction, multiplication, and division — on numeric values. They are the building blocks of any calculation a program performs.</p><p>Their behavior can subtly depend on types: dividing two <code>integer</code>s may truncate the result in some languages, while mixing integers and <code>float</code>s promotes to float. Knowing these rules avoids surprising results in calculations.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">+</span><span class="kw">-</span><span class="kw">*</span><span class="kw">/</span><span class="kw">**</span><span class="kw">%</span><span class="kw">operand</span><span class="kw">result</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Computing a shopping cart total</div><div class="wi"><span class="wd"></span>Calculating averages and percentages</div><div class="wi"><span class="wd"></span>Converting units (km to miles)</div><div class="wi"><span class="wd"></span>Positioning elements in graphics</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">An <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> sits between two <strong>operands</strong> and produces a result. <code>5 + 3</code> evaluates to <code>8</code>. <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">Integer</span> division truncates the decimal in statically typed languages. Division by zero raises an error in all languages.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o01">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o01','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">a <span class="op">=</span> <span class="num">10</span>
@@ -2513,7 +2754,7 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(a <span class="op">%</span> b); <span class="com">// 1</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">Integer</span> division truncates — <code>7 / 2</code> in Java is <code>3</code>, not <code>3.5</code>. Cast to <span class="gloss" onclick="gOpen(&#39;Float&#39;,&#39;A number with a decimal point - fractional values.&#39;)">float</span> first when you need decimals.</div>
 </div>
 <div class="notes-area">
@@ -2542,13 +2783,23 @@ b <span class="op">=</span> <span class="num">3</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Comparison operators evaluate a relationship between two values and <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> a <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span>."</div>They are the building blocks of every conditional. Common operators: <code>==</code> (equal), <code>!=</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Comparison operators test the relationship between two values — equal, greater than, less than — and always produce a <code>boolean</code> result. They are how programs ask questions about data.</p><p>A classic pitfall is confusing assignment (=) with equality (== or ===). Languages also distinguish loose from strict equality, where strict checks both value and type, avoiding surprises like 0 equalling false.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">==</span><span class="kw">!=</span><span class="kw">&gt;</span><span class="kw">&lt;</span><span class="kw">&gt;=</span><span class="kw">&lt;=</span><span class="kw">===</span><span class="kw">boolean</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Conditions in if statements</div><div class="wi"><span class="wd"></span>Sorting items by a key</div><div class="wi"><span class="wd"></span>Validating a password length</div><div class="wi"><span class="wd"></span>Checking if a score beats a record</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Each comparison evaluates to <code>true</code> or <code>false</code>. In JavaScript, <code>==</code> does type coercion (<code>"3" == 3</code> is <code>true</code>), while <code>===</code> checks type and value strictly. Python uses <code>==</code> for equality and <code>is</code> for identity.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o02">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o02','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">x <span class="op">=</span> <span class="num">5</span>
@@ -2571,7 +2822,7 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(x <span class="op">&lt;=</span> <span class="num">5</span>); <span class="com">// true</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always prefer <code>===</code> over <code>==</code> in JavaScript. Type coercion causes subtle bugs that are hard to trace.</div>
 </div>
 <div class="notes-area">
@@ -2600,13 +2851,23 @@ b <span class="op">=</span> <span class="num">3</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Logical operators combine <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span> expressions into a single true/false result."</div>The three core logical operators are <code>AND</code> (both must be true), <code>OR</code> (at least one must be true), and <code>NOT</code> (inverts the value). They are essential for building complex conditions.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Logical operators combine or invert boolean values: <code>and</code> requires both sides true, <code>or</code> requires at least one, and <code>not</code> flips the value. They let programs express compound conditions.</p><p>Most languages use short-circuit evaluation: <code>and</code> stops at the first false, <code>or</code> stops at the first true. This is both a performance optimization and a common idiom for guarding against errors like checking a value exists before using it.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">and</span><span class="kw">or</span><span class="kw">not</span><span class="kw">&amp;&amp;</span><span class="kw">||</span><span class="kw">!</span><span class="kw">short-circuit</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Combining multiple form validations</div><div class="wi"><span class="wd"></span>Access control (isAdmin and isLoggedIn)</div><div class="wi"><span class="wd"></span>Guard clauses (if user and user.name)</div><div class="wi"><span class="wd"></span>Filtering data with several conditions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Logical operators use <strong>short-circuit evaluation</strong> — with <code>AND</code>, if the first operand is false the second is never checked. With <code>OR</code>, if the first is true the second is skipped. This can prevent errors and is used for default-value patterns in Python and JS.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o03">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o03','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">age <span class="op">=</span> <span class="num">20</span>
@@ -2630,7 +2891,7 @@ has_id <span class="op">=</span> <span class="kw">True</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="op">!</span>hasId);              <span class="com">// false</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Short-circuit evaluation means the right side may never run. Use this to guard against <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span> errors: <code>obj &amp;&amp; obj.name</code>.</div>
 </div>
 <div class="notes-area">
@@ -2659,13 +2920,23 @@ has_id <span class="op">=</span> <span class="kw">True</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Assignment operators store a value into a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>, sometimes combining with arithmetic."</div>The basic operator is <code>=</code>. Compound operators like <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> combine assignment with an operation — they are shorthand that modifies a variable in place.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Assignment operators store a value into a variable. The basic = sets a value, while compound forms like += or *= update a variable based on its current value, combining an operation with assignment.</p><p>These shortcuts make code shorter and clearer — <code>total += price</code> reads better than <code>total = total + price</code>. Note that = is assignment, not equality; mixing the two up is one of the most common beginner <code>bug</code>s.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">=</span><span class="kw">+=</span><span class="kw">-=</span><span class="kw">*=</span><span class="kw">/=</span><span class="kw">%=</span><span class="kw">compound</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Initializing a variable</div><div class="wi"><span class="wd"></span>Accumulating a sum with +=</div><div class="wi"><span class="wd"></span>Building a string with +=</div><div class="wi"><span class="wd"></span>Toggling or updating counters</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The right side is evaluated first, then the result is stored in the <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> on the left. <code>x += 5</code> is exactly equivalent to <code>x = x + 5</code>. Compound operators are not just shorthand — they also make the intent clearer: "add 5 to x".</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o04">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o04','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">x <span class="op">=</span> <span class="num">10</span>
@@ -2691,7 +2962,7 @@ x <span class="op">%=</span> <span class="num">4</span>;   <span class="com">// 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(x); <span class="com">// 2</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>=</code> is assignment; <code>==</code> is comparison. Confusing them is one of the most common beginner errors.</div>
 </div>
 <div class="notes-area">
@@ -2720,13 +2991,23 @@ x <span class="op">%=</span> <span class="num">4</span>;   <span class="com">// 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">String</span> <span class="gloss" onclick="gOpen(&#39;String Concatenation&#39;,&#39;Joining strings together with + or similar.&#39;)">concatenation</span> joins two or more strings into one longer string."</div>In most languages, <code>+</code> is overloaded to concatenate strings. Modern languages also offer interpolation (template literals, f-strings) as a cleaner alternative for embedding values inside strings.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>String concatenation joins two or more pieces of text into one. It's how programs assemble dynamic messages, combining fixed text with variable data like a user's name or a result value.</p><p>While the + operator works in many languages, modern code often prefers templates or interpolation (like f-strings or template literals) for readability. Naive concatenation when building queries or HTML can also open security holes such as injection.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">+</span><span class="kw">f-string</span><span class="kw">template literal</span><span class="kw">interpolation</span><span class="kw">join</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Building a greeting from a username</div><div class="wi"><span class="wd"></span>Assembling a full file path</div><div class="wi"><span class="wd"></span>Constructing a URL with parameters</div><div class="wi"><span class="wd"></span>Composing log messages</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The <code>+</code> <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> appends the right <span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">string</span> to the end of the left. For dynamic content, interpolation is preferred: Python's <code>f"Hello {name}"</code> and JavaScript's <code>`Hello ${name}`</code> are more readable than chaining <code>+</code>. Java uses <code>String.format()</code> or <code>StringBuilder</code> for performance.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o05">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o05','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">first <span class="op">=</span> <span class="str">"Cherry"</span>
@@ -2741,7 +3022,7 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">String</span>.<span class="fn">format</span>(<span class="str">"Hello, %s!"</span>, first));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Prefer f-strings/template literals over <code>+</code> for readability. Concatenating many strings in a <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> creates many temporary objects — use <code>join()</code> or <code>StringBuilder</code> instead.</div>
 </div>
 <div class="notes-area">
@@ -2770,13 +3051,23 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Modulo&#39;,&#39;Returns the remainder of a division.&#39;)">modulo</span> <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> returns the remainder left over after <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> division."</div><code>10 % 3</code> is <code>1</code> because 10 divided by 3 is 3 remainder 1. It is used for cycling through ranges, checking even/odd, and wrapping indices.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>The modulo operator (%) returns the remainder left over after dividing one number by another. While simple, it is surprisingly powerful for problems involving cycles, grouping, and divisibility.</p><p>A key use is testing divisibility: <code>n % 2 == 0</code> checks if a number is even. It also wraps values around a range, such as cycling through colors or computing positions on a clock, making it a staple of everyday logic.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">%</span><span class="kw">remainder</span><span class="kw">even/odd</span><span class="kw">wrap</span><span class="kw">cycle</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Checking if a number is even or odd</div><div class="wi"><span class="wd"></span>Wrapping an index around an array</div><div class="wi"><span class="wd"></span>Formatting time (seconds to mm:ss)</div><div class="wi"><span class="wd"></span>Distributing items into buckets</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">If <code>a % b == 0</code>, then <code>a</code> is divisible by <code>b</code>. This is the standard even/odd check: <code>n % 2 == 0</code> means even. <span class="gloss" onclick="gOpen(&#39;Modulo&#39;,&#39;Returns the remainder of a division.&#39;)">Modulo</span> also wraps values — <code>index % length</code> keeps an <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> within bounds of an <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> when cycling.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o06">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o06','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="fn">print</span>(<span class="num">10</span> <span class="op">%</span> <span class="num">3</span>)   <span class="com"># 1</span>
@@ -2798,7 +3089,7 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>n % 2 == 0</code> checks for even numbers. <code>n % 2 != 0</code> checks for odd. This pattern appears constantly in interview problems.</div>
 </div>
 <div class="notes-area">
@@ -2827,13 +3118,23 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Increment adds 1 to a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>; decrement subtracts 1."</div><code>++</code> and <code>--</code> are shorthand operators in Java and JavaScript. Python does not have <code>++</code>; instead you use <code>+= 1</code>. These operators are most common in loop counters.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Increment (++) and decrement (--) add or subtract one from a variable, a pattern so common that many languages give it a dedicated shorthand. They are most often seen driving loop counters.</p><p>The pre- versus post- form (++i vs i++) differs in whether the change happens before or after the value is used — a subtle distinction that causes confusion. Python notably omits these operators in favor of <code>+= 1</code>.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">++</span><span class="kw">--</span><span class="kw">+= 1</span><span class="kw">pre-increment</span><span class="kw">post-increment</span><span class="kw">counter</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Advancing a for-loop counter</div><div class="wi"><span class="wd"></span>Tracking how many times something happened</div><div class="wi"><span class="wd"></span>Stepping through array indices</div><div class="wi"><span class="wd"></span>Countdown timers</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how"><strong>Post-increment</strong> (<code>x++</code>) returns the current value then increments. <strong>Pre-increment</strong> (<code>++x</code>) increments first then returns the new value. This distinction matters when the <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> is used inside another expression: <code>y = x++</code> gives <code>y</code> the old value of <code>x</code>.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o07">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o07','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Python has no ++ operator</span>
@@ -2855,7 +3156,7 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(y <span class="op">+</span> <span class="str">" "</span> <span class="op">+</span> z); <span class="com">// 5 7</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Avoid using <code>x++</code> inside larger expressions. Keep increment on its own line to avoid subtle pre/post bugs that are hard to spot in code review.</div>
 </div>
 <div class="notes-area">
@@ -2884,13 +3185,23 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">Operator</span> precedence defines which operators are evaluated first when multiple appear in one <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>."</div>Just like PEMDAS/BODMAS in math, programming languages have a precedence table. Multiplication before addition, comparisons before logical operators, and so on.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Operator precedence is the set of rules that decides which operations are performed first in an expression without explicit parentheses — much like multiplication before addition in math.</p><p>Relying on memory of precedence rules is error-prone, so experienced developers add parentheses to make intent explicit. This prevents subtle <code>bug</code>s where an expression evaluates in an unexpected order.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">precedence</span><span class="kw">parentheses</span><span class="kw">PEMDAS</span><span class="kw">evaluation order</span><span class="kw">associativity</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Math expressions mixing * and +</div><div class="wi"><span class="wd"></span>Combining comparisons and logical ops</div><div class="wi"><span class="wd"></span>Clarifying intent with parentheses</div><div class="wi"><span class="wd"></span>Reading unfamiliar code correctly</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Higher precedence operators bind tighter: <code>2 + 3 * 4</code> is <code>14</code>, not <code>20</code>, because <code>*</code> has higher precedence than <code>+</code>. Parentheses always override precedence. When operators have equal precedence, <strong>associativity</strong> determines direction — most operators are left-to-right.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o08">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o08','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="fn">print</span>(<span class="num">2</span> <span class="op">+</span> <span class="num">3</span> <span class="op">*</span> <span class="num">4</span>)      <span class="com"># 14  (* first)</span>
@@ -2905,7 +3216,7 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="kw">true</span> <span class="op">||</span> <span class="kw">false</span> <span class="op">&amp;&amp;</span> <span class="kw">false</span>); <span class="com">// true</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>When in doubt, use parentheses. They cost nothing and make intent explicit. Code clarity always beats relying on implicit precedence rules.</div>
 </div>
 <div class="notes-area">
@@ -2934,13 +3245,23 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> evaluates to a value; a <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span> executes an action."</div><code>2 + 3</code> is an expression — it produces <code>5</code>. <code>if x &gt; 0: print(x)</code> is a statement — it directs program flow but does not produce a value itself. The distinction matters in contexts where only one or the other is allowed.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An expression is any piece of code that evaluates to a value — like <code>2 + 3</code> or a function call that returns something. A statement is a complete instruction that performs an action, like assigning a variable or running a loop.</p><p>The distinction matters because expressions can be nested and combined, while statements form the steps of a program. Some constructs blur the line: in many languages an assignment or function call is both, used for its value or its effect.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">expression</span><span class="kw">statement</span><span class="kw">value</span><span class="kw">side effect</span><span class="kw">evaluate</span><span class="kw">execute</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A calculation passed as a function argument</div><div class="wi"><span class="wd"></span>An if/for block (statement)</div><div class="wi"><span class="wd"></span>A ternary returning a value (expression)</div><div class="wi"><span class="wd"></span>Assigning the result of a computation</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Expressions can appear anywhere a value is expected — in assignments, as <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> arguments, inside other expressions. Statements form the structure of a program: loops, conditionals, declarations. In Python, the walrus <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> <code>:=</code> makes assignments into expressions.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o09">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o09','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Expressions — produce a value</span>
@@ -2968,7 +3289,7 @@ flag <span class="op">=</span> result <span class="op">&gt;</span> <span class="
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>If you can substitute it with a value, it is an <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>. If it controls flow or declares something, it is a <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span>. Lambdas are expressions; <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> declarations are statements.</div>
 </div>
 <div class="notes-area">
@@ -2997,13 +3318,23 @@ flag <span class="op">=</span> result <span class="op">&gt;</span> <span class="
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Side Effects&#39;,&#39;Anything a function does besides returning a value (I/O, mutation).&#39;)">side effect</span> is any observable change a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> causes outside its own <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span>."</div>Side effects include modifying a global variable, writing to a file, printing to the screen, changing a passed-in list, or making a network request. Functions without side effects are called <strong>pure functions</strong>.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+
+
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A side effect is any observable change a piece of code makes beyond computing and returning a value — writing to a file, modifying a global variable, printing to the screen, or making a network call.</p><p>Functions without side effects ('pure' functions) are easier to test, reason about, and reuse because they depend only on their inputs. Managing side effects carefully is a core idea in functional programming and in writing predictable, <code>debug</code>gable code.</p></div>
+</div>
+
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">side effect</span><span class="kw">pure function</span><span class="kw">mutation</span><span class="kw">global state</span><span class="kw">I/O</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Writing data to a database</div><div class="wi"><span class="wd"></span>Logging to the console</div><div class="wi"><span class="wd"></span>Modifying a shared global variable</div><div class="wi"><span class="wd"></span>Sending an email or HTTP request</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Side effects are not inherently bad — printing, saving data, and updating UI all require them. The problem is <strong>unexpected</strong> side effects: a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> that secretly modifies a <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> the caller passed in can lead to hard-to-trace bugs. Functional <span class="gloss" onclick="gOpen(&#39;Programming&#39;,&#39;Writing instructions a computer can execute, step by step.&#39;)">programming</span> minimizes side effects to improve predictability.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-o10">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-o10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-o10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-o10','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Side effect: modifies the list in place</span>
@@ -3028,7 +3359,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="com">// Caller's list is now modified</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Make side effects explicit and intentional. A <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> that modifies its input should be clearly named — e.g., <code>sort_in_place()</code> — so callers know to expect mutation.</div>
 </div>
 <div class="notes-area">
