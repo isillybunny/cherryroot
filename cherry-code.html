@@ -3411,13 +3411,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;If Statement&#39;,&#39;Runs a block only when a condition is true.&#39;)">if statement</span> runs a block of code only when its condition evaluates to true."</div>It is the most fundamental control structure. The condition is an expression that must evaluate to a boolean. If true, the body executes; if false, it is skipped entirely.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An if statement is the program's most basic decision point. The runtime evaluates the condition to a single boolean value, and that one yes-or-no answer decides whether the guarded block of code runs at all. Without conditionals, a program could only ever do exactly the same thing every time it ran.</p><p>Conditions are built from comparison and logical operators, so an if can ask rich questions like "is the user logged in and is their balance positive?". The block stays skipped entirely when the answer is false, which lets you protect code that should only run in specific situations.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">if</span><span class="kw">condition</span><span class="kw">boolean</span><span class="kw">block</span><span class="kw">branch</span><span class="kw">truthy</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Validating a form before submitting it</div><div class="wi"><span class="wd"></span>Showing a discount only when a coupon is valid</div><div class="wi"><span class="wd"></span>Guarding against division by zero</div><div class="wi"><span class="wd"></span>Checking permissions before an action</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The condition in parentheses (or after <code>if</code> in Python) is evaluated first. If it is <strong>truthy</strong>, the indented block runs. In Python, indentation defines the block; in Java and JavaScript, curly braces <code>{}</code> define it. Always use braces in Java/JS even for single-line bodies to avoid bugs.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c01">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c01','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">score <span class="op">=</span> <span class="num">85</span>
@@ -3447,7 +3453,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always use curly braces in Java and JavaScript even for one-line bodies. Omitting them is a common source of bugs when adding a second line later.</div>
 </div>
 <div class="notes-area">
@@ -3476,13 +3482,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Else&#39;,&#39;Runs when the previous if condition is false.&#39;)">else</span> runs when the if condition is false; elif (else-if) adds additional conditions to check."</div><code>else</code> provides a fallback path. <code>elif</code> (Python) / <code>else if</code> (Java, JS) chains additional conditions. Only one branch in the chain executes — the first one whose condition is true.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Else and elif extend an if into a complete decision tree. Where a lone if either acts or does nothing, an if/elif/else chain guarantees that exactly one branch runs, covering every possible outcome with a clear fallback.</p><p>The runtime tests each condition top to bottom and stops at the first one that is true, skipping the rest. This short-circuit ordering means you should place the most specific or most likely conditions first, and use the final else as a catch-all default.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">else</span><span class="kw">elif</span><span class="kw">else if</span><span class="kw">branch</span><span class="kw">fallback</span><span class="kw">chain</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Grading a score into A, B, C, or F</div><div class="wi"><span class="wd"></span>Routing a request by user role</div><div class="wi"><span class="wd"></span>Choosing a message for empty, single, or many results</div><div class="wi"><span class="wd"></span>Picking a shipping rate by region</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The <span class="gloss" onclick="gOpen(&#39;Interpreter&#39;,&#39;Reads and executes code line by line at runtime (Python, JavaScript).&#39;)">interpreter</span> checks conditions top to bottom and executes the first matching branch, then skips the rest. The final <code>else</code> is a catch-all with no condition — it runs if nothing above was true. An <code>if</code> chain without <code>else</code> may execute nothing at all.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c02">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c02','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">score <span class="op">=</span> <span class="num">72</span>
@@ -3519,7 +3531,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Order matters — put the most specific conditions first. Checking <code>&gt;= 70</code> before <code>&gt;= 90</code> would catch everything at 70+ in the first branch.</div>
 </div>
 <div class="notes-area">
@@ -3548,13 +3560,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A switch <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span> tests one value against several cases, running the matching branch."</div>It is a cleaner alternative to long <code>if-elif-else</code> chains when you are comparing one variable to many discrete values. Python added <code>match/case</code> in 3.10.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A switch (or match) statement compares one value against many possible cases, offering a flatter, more readable alternative to a long if/elif chain when every branch tests the same variable. Each case lists a literal to match, and the matching block runs.</p><p>Many languages "fall through" from one case to the next unless you add a break, which is a classic source of bugs; modern forms like Python's match or JavaScript's switch with break give cleaner control. A default case handles values that match nothing.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">switch</span><span class="kw">case</span><span class="kw">break</span><span class="kw">default</span><span class="kw">fall-through</span><span class="kw">match</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Handling menu selections by command name</div><div class="wi"><span class="wd"></span>Mapping HTTP status codes to messages</div><div class="wi"><span class="wd"></span>Dispatching events by their type</div><div class="wi"><span class="wd"></span>Translating enum values to labels</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> is evaluated once, then matched against each <code>case</code>. In Java and JavaScript, execution <strong>falls through</strong> to the next case unless you add <code>break</code>. The <code>default</code> case is the catch-all, like <code>else</code>. Python's <code>match</code> does not fall through by default.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c03">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c03','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Python 3.10+ match/case</span>
@@ -3588,7 +3606,7 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always add <code>break</code> in Java/JS switch cases unless fall-through is intentional. A missing <code>break</code> is one of the sneakiest bugs — execution silently continues into the next case.</div>
 </div>
 <div class="notes-area">
@@ -3617,13 +3635,19 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A while <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> repeats its body as long as the condition at the top remains true."</div>The condition is checked before each iteration. If it starts false, the body never runs. Use a while loop when you don't know in advance how many iterations are needed.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A while loop repeats its body as long as a condition remains true, checking that condition before every pass. It is the right tool when you do not know in advance how many iterations you will need — you loop until something changes.</p><p>Because the condition is re-tested each time, the body must eventually make it false, otherwise the loop runs forever. Beginners often forget to update the variable the condition depends on, producing an infinite loop that hangs the program.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">while</span><span class="kw">condition</span><span class="kw">iteration</span><span class="kw">infinite loop</span><span class="kw">counter</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Reading input until the user types 'quit'</div><div class="wi"><span class="wd"></span>Polling a sensor until a value is ready</div><div class="wi"><span class="wd"></span>Game loops that run until the player loses</div><div class="wi"><span class="wd"></span>Retrying a network request until it succeeds</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> checks the condition; if true, runs the body, then checks again. You must update something inside the body that will eventually make the condition false, or you get an <strong>infinite loop</strong>. Use <code>while True:</code> with an explicit <code>break</code> for game loops or user input prompts.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c04">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c04','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">count <span class="op">=</span> <span class="num">0</span>
@@ -3645,7 +3669,7 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <span class="com">// prints 0 1 2 3 4</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every while <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> needs a clear exit condition. Always ask: "what changes so this condition becomes false?" If nothing changes, the loop runs forever and freezes the program.</div>
 </div>
 <div class="notes-area">
@@ -3674,13 +3698,19 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A for <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> iterates a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> number of times, typically using a counter <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>."</div>In Java and JavaScript the classic form uses <code>init; condition; update</code>. Python's <code>for</code> is always a for-each over an iterable — use <code>range()</code> to mimic a counter loop.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A for loop is built for counting: it bundles initialization, a condition, and an update step into one compact header, then repeats its body a known number of times. This makes it the natural choice when you already know how many iterations you need.</p><p>The loop counter is usually available inside the body, so you can use it as an index into a sequence or to label each pass. Keeping the start, end, and step explicit in one place makes for loops easier to read and less error-prone than equivalent while loops.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">for</span><span class="kw">range</span><span class="kw">counter</span><span class="kw">iteration</span><span class="kw">init</span><span class="kw">update</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Processing every row of a fixed-size dataset</div><div class="wi"><span class="wd"></span>Repeating an action a set number of times</div><div class="wi"><span class="wd"></span>Building a multiplication table</div><div class="wi"><span class="wd"></span>Iterating with an index to modify list positions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Java/JS: initialize a counter, check the condition, run the body, execute the update, repeat. Python: <code>for i in range(n)</code> generates integers <code>0</code> to <code>n-1</code>. <code>range(start, stop, step)</code> gives full control over the sequence.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c05">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c05','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
@@ -3704,7 +3734,7 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>range(n)</code> produces <code>0</code> to <code>n-1</code>, not <code>1</code> to <code>n</code>. Off-by-one errors are among the most common bugs — always check your range boundaries.</div>
 </div>
 <div class="notes-area">
@@ -3733,13 +3763,19 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A for-each <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> visits every element in a collection in order, without managing an <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>."</div>It is cleaner than a counter-based loop when you need the values but not the positions. Python's <code>for</code> is always for-each. Java uses <code>for (Type x : collection)</code>. JavaScript uses <code>for...of</code>.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A for-each loop walks directly over the elements of a collection, handing you each item in turn without any index bookkeeping. It expresses intent more clearly than a counter-based loop: you say "do this to every item" rather than "count from zero to length minus one".</p><p>Because there is no manual index, for-each loops eliminate off-by-one errors and out-of-bounds mistakes. The tradeoff is that you usually cannot easily change the collection's structure while iterating, and in many languages you do not get the position of the current element for free.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">for...of</span><span class="kw">for...in</span><span class="kw">foreach</span><span class="kw">iterable</span><span class="kw">element</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Printing every name in a guest list</div><div class="wi"><span class="wd"></span>Summing the values in an array</div><div class="wi"><span class="wd"></span>Rendering each item in a UI list</div><div class="wi"><span class="wd"></span>Applying a transform to every file in a folder</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">On each iteration the <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> is assigned the next element from the collection. In JavaScript, <code>for...of</code> gives values; <code>for...in</code> gives keys/indices — a common source of confusion. Use <code>enumerate()</code> in Python when you need both the <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> and value.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c06">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c06','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">fruits <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>, <span class="str">"cherry"</span>]
@@ -3765,7 +3801,7 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In JavaScript, always use <code>for...of</code> for arrays, not <code>for...in</code>. <code>for...in</code> iterates over property keys and will also iterate inherited properties — rarely what you want.</div>
 </div>
 <div class="notes-area">
@@ -3794,13 +3830,19 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Break&#39;,&#39;Exits the current loop immediately.&#39;)">break</span> exits the innermost <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> immediately, skipping any remaining iterations."</div>It is used when you have found what you were looking for or when a condition makes continuing pointless. Execution resumes at the first statement after the loop.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Break gives you an emergency exit from a loop: the moment it runs, the loop stops immediately and execution jumps to the first statement after the loop, regardless of whether the loop condition is still true. It turns an open-ended loop into one that can stop early.</p><p>Break is most useful in search-style loops where you scan until you find what you want and then have no reason to keep going. Inside nested loops, break only exits the innermost loop, which is a common surprise for newcomers.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">break</span><span class="kw">exit loop</span><span class="kw">early exit</span><span class="kw">search</span><span class="kw">innermost</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Stopping a search once a match is found</div><div class="wi"><span class="wd"></span>Exiting a menu loop when the user picks 'exit'</div><div class="wi"><span class="wd"></span>Aborting a scan when an error is detected</div><div class="wi"><span class="wd"></span>Limiting how many results you collect</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how"><code>break</code> only exits the <strong>innermost</strong> <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span>. In <span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">nested</span> loops, a <code>break</code> in the inner loop does not affect the outer loop. Use a flag <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> or structured code to <span class="gloss" onclick="gOpen(&#39;Break&#39;,&#39;Exits the current loop immediately.&#39;)">break</span> out of multiple levels. In Python, a <code>for</code> loop's optional <code>else</code> clause runs only if no <code>break</code> was executed.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c07">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c07','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">numbers <span class="op">=</span> [<span class="num">1</span>, <span class="num">3</span>, <span class="num">7</span>, <span class="num">4</span>, <span class="num">9</span>]
@@ -3827,7 +3869,7 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <span class="com">// Found even: 4</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>break</code> only exits the innermost <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span>. If you have <span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">nested</span> loops and need to escape both, consider refactoring into a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> and using <code>return</code> instead.</div>
 </div>
 <div class="notes-area">
@@ -3856,13 +3898,19 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Continue&#39;,&#39;Skips to the next iteration of the loop.&#39;)">continue</span> skips the remaining code in the current <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> iteration and jumps to the next one."</div>Unlike <code>break</code>, the loop keeps running — only this iteration is cut short. It is useful for filtering: skip invalid values and process only the valid ones.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Continue skips the remainder of the current iteration and jumps straight to the loop's next pass. Unlike break, it does not end the loop — it simply abandons the work for the current item and moves on to the following one.</p><p>Continue is a clean way to filter inside a loop: you check a condition at the top, and if the item is not interesting you continue, keeping the rest of the body free of deep nesting. It makes the "happy path" of a loop easier to read.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">continue</span><span class="kw">skip</span><span class="kw">next iteration</span><span class="kw">filter</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Skipping blank lines while reading a file</div><div class="wi"><span class="wd"></span>Ignoring invalid records during import</div><div class="wi"><span class="wd"></span>Processing only even numbers in a range</div><div class="wi"><span class="wd"></span>Bypassing items that fail a validation check</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">When <code>continue</code> is hit, execution jumps immediately to the <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span>'s update step (for-loop) or back to the condition check (while-loop). The loop does not exit — it just skips the code below <code>continue</code> for this pass.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c08">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c08','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>):
@@ -3879,7 +3927,7 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>continue</code> does not exit the <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> — the loop keeps going. To exit entirely, use <code>break</code>. Mixing them up is a common beginner mistake.</div>
 </div>
 <div class="notes-area">
@@ -3908,13 +3956,19 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Ternary Operator&#39;,&#39;A one-line if/else expression: cond ? a : b.&#39;)">ternary</span> <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> is a compact if-<span class="gloss" onclick="gOpen(&#39;Else&#39;,&#39;Runs when the previous if condition is false.&#39;)">else</span> that returns one of two values based on a condition."</div>It takes three operands: a condition, a value if true, and a value if false. It is an <strong>expression</strong> (produces a value), not a statement, so it can be used inside assignments and function calls.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>The ternary operator compresses a simple if/else into a single expression that produces a value. Because it is an expression rather than a statement, you can use its result directly — assign it to a variable, pass it as an argument, or embed it in a larger expression.</p><p>It shines for short, value-choosing decisions like picking one of two labels, but it becomes unreadable when nested or stuffed with logic. The rule of thumb is to reach for it when both branches are tiny and to fall back to a full if/else otherwise.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">? :</span><span class="kw">conditional expression</span><span class="kw">inline if</span><span class="kw">ternary</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Choosing a label like 'on' or 'off'</div><div class="wi"><span class="wd"></span>Setting a default when a value is missing</div><div class="wi"><span class="wd"></span>Picking singular vs plural wording</div><div class="wi"><span class="wd"></span>Inline class names in UI templates</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Java/JS <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span>: <code>condition ? valueIfTrue : valueIfFalse</code>. Python syntax: <code>valueIfTrue if condition else valueIfFalse</code>. Use it for simple, readable two-branch choices. Avoid chaining ternaries — <span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">nested</span> ternaries are very hard to read.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c09">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c09','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">age <span class="op">=</span> <span class="num">20</span>
@@ -3933,7 +3987,7 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(status); <span class="com">// adult</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Use the <span class="gloss" onclick="gOpen(&#39;Ternary Operator&#39;,&#39;A one-line if/else expression: cond ? a : b.&#39;)">ternary</span> only for simple, clear two-branch expressions. If your condition or values are complex, use a regular <code>if/else</code> — readability beats brevity.</div>
 </div>
 <div class="notes-area">
@@ -3962,13 +4016,19 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">Nested</span> loops place one <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> inside another to iterate over multi-dimensional data or all combinations."</div>For each iteration of the outer loop, the inner loop runs to completion. They are used for grids, matrices, and generating all pairs from two collections.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Nested loops place one loop inside another so the inner loop runs completely for every single pass of the outer loop. This is how programs work across two dimensions — rows and columns, or every pairing between two lists.</p><p>The cost grows multiplicatively: an outer loop of n and an inner loop of m run n×m times, which is why deeply nested loops can become slow on large inputs. Keeping the inner work cheap and limiting nesting depth are key to keeping them efficient.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">nested</span><span class="kw">outer loop</span><span class="kw">inner loop</span><span class="kw">matrix</span><span class="kw">O(n²)</span><span class="kw">grid</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Iterating over a 2D grid or matrix</div><div class="wi"><span class="wd"></span>Comparing every pair of items in a list</div><div class="wi"><span class="wd"></span>Rendering a calendar of weeks and days</div><div class="wi"><span class="wd"></span>Generating combinations like a seating chart</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">If the outer <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> runs <code>m</code> times and the inner loop runs <code>n</code> times, the body executes <code>m × n</code> times total. This is <strong>O(n²)</strong> complexity for equal-sized loops — something to watch for with large datasets. Keep nesting shallow; deeply <span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">nested</span> loops are hard to read and slow.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-c10">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-c10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-c10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-c10','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Multiplication table 1-3</span>
@@ -3994,7 +4054,7 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">Nested</span> loops have O(n²) cost — fine for small data, but slow for large collections. If you find yourself writing three nested loops, look for a better <span class="gloss" onclick="gOpen(&#39;Algorithm&#39;,&#39;A finite series of steps that solves a problem.&#39;)">algorithm</span>.</div>
 </div>
 <div class="notes-area">
@@ -4046,13 +4106,19 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is a named, reusable block of code that performs a specific task."</div>You define it once and call it as many times as you need. Functions take inputs (parameters), do work, and optionally return a result.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A function packages a chunk of logic behind a name so you can run it again and again just by calling that name. This is the single most important tool for fighting repetition: write the steps once, then reuse them everywhere instead of copying code.</p><p>Functions also let you think at a higher level. Once a task is wrapped in a well-named function, you can use it without remembering how it works inside, which keeps the rest of your program short and focused on what it does rather than how.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">def</span><span class="kw">function</span><span class="kw">return</span><span class="kw">call</span><span class="kw">invoke</span><span class="kw">reuse</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Reusing a calculation in many places</div><div class="wi"><span class="wd"></span>Breaking a large program into named steps</div><div class="wi"><span class="wd"></span>Sharing logic across files via a library</div><div class="wi"><span class="wd"></span>Wrapping a complex API call behind one name</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Define a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> with a name, parameters, and body. Call it by writing the name followed by parentheses with arguments. The function executes its body and may <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> a value back to the caller.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n01">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n01','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">greet</span>(name):
@@ -4069,7 +4135,7 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">greet</span>(<span class="str">"Ada"</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A good <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> does <strong>one thing</strong>. If you find yourself writing "and" in its name, split it in two.</div>
 </div>
 <div class="notes-area">
@@ -4098,13 +4164,19 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Parameter&#39;,&#39;A named input declared in a function signature.&#39;)">parameter</span> is a placeholder name listed in a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>'s definition for the values it will receive."</div>Parameters act as local variables inside the function, holding whatever arguments the caller passes in.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A parameter is a placeholder named in a function's definition, standing in for a value the caller will supply later. Parameters are what make a function general instead of hard-coded — the same function can act on whatever data you feed it.</p><p>Inside the function the parameter behaves like a local variable, initialized to whatever was passed in. Choosing clear parameter names and ordering them sensibly is part of designing a function that is pleasant to call.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">parameter</span><span class="kw">signature</span><span class="kw">formal</span><span class="kw">placeholder</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Defining a greet(name) that works for anyone</div><div class="wi"><span class="wd"></span>Configuring behavior with option parameters</div><div class="wi"><span class="wd"></span>Passing data into a calculation function</div><div class="wi"><span class="wd"></span>Accepting a callback to customize behavior</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">When the <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is called, each <span class="gloss" onclick="gOpen(&#39;Parameter&#39;,&#39;A named input declared in a function signature.&#39;)">parameter</span> is bound to the corresponding <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span>. Parameters exist only inside the function — they vanish when the function returns.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n02">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n02','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># 'a' and 'b' are parameters</span>
@@ -4122,7 +4194,7 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">add</span>(<span class="num">2</span>, <span class="num">3</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Parameters are the <strong>recipe</strong>; arguments are the <strong>ingredients</strong> you actually pour in.</div>
 </div>
 <div class="notes-area">
@@ -4151,13 +4223,19 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span> is the concrete value supplied to a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> when it is called."</div>Arguments fill the slots defined by parameters. They can be literals, variables, or even other function calls.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An argument is the concrete value you actually hand to a function at the moment you call it. Where a parameter is the named slot in the definition, the argument is the real thing that fills that slot for this particular call.</p><p>Languages match arguments to parameters either by position or by name, and getting the order or count wrong is a frequent bug. Understanding the parameter/argument distinction clears up a lot of confusion when reading function calls.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">argument</span><span class="kw">actual</span><span class="kw">positional</span><span class="kw">keyword</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Passing 3 and 5 to an add function</div><div class="wi"><span class="wd"></span>Supplying a filename to an open call</div><div class="wi"><span class="wd"></span>Sending user input into a validator</div><div class="wi"><span class="wd"></span>Providing config values to a setup routine</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Arguments are matched to parameters either by position (in order) or by name (keyword arguments in Python). Mismatch in count usually raises an error.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n03">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n03','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">power</span>(base, exp):
@@ -4175,7 +4253,7 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="fn">power</span>(<span class="num">2</span>, <span class="num">8</span>);  <span class="com">// arguments</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Parameters are <strong>defined</strong>, arguments are <strong>passed</strong>. Two words for two sides of the same handshake.</div>
 </div>
 <div class="notes-area">
@@ -4204,13 +4282,19 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> value is the result a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> produces and sends back to the caller."</div>The <code>return</code> statement ends the function immediately and passes its expression back. If a function has no return, it implicitly returns nothing (<code>None</code>, <code>undefined</code>, or <code>void</code>).</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A return value is the result a function sends back to its caller, ending the function's execution at that point. It is how a function communicates its answer, turning input into a usable output that the surrounding code can store or pass along.</p><p>A function without a return (or with a bare return) hands back nothing meaningful — it exists only for its side effects. Returning a value instead of printing it keeps functions composable, because the caller decides what to do with the result.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">return</span><span class="kw">result</span><span class="kw">output</span><span class="kw">void</span><span class="kw">None</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A square(n) that hands back n*n</div><div class="wi"><span class="wd"></span>Returning whether a password is valid</div><div class="wi"><span class="wd"></span>Producing a formatted string to display later</div><div class="wi"><span class="wd"></span>Returning a list of search results</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">When <code>return</code> executes, the <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> stops and its <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> replaces the call site. You can capture the <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> value in a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> or feed it directly into another expression.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n04">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n04','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">square</span>(x):
@@ -4229,7 +4313,7 @@ result <span class="op">=</span> <span class="fn">square</span>(<span class="num
 <span class="kw">int</span> result <span class="op">=</span> <span class="fn">square</span>(<span class="num">5</span>);  <span class="com">// 25</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>return</code> exits the <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> <strong>immediately</strong>. Any code after a triggered <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> is unreachable.</div>
 </div>
 <div class="notes-area">
@@ -4258,13 +4342,19 @@ result <span class="op">=</span> <span class="fn">square</span>(<span class="num
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A pure <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> depends only on its inputs and produces no observable side effects."</div>It does not modify external state, write files, print, or alter its arguments. Given the same inputs, it always returns the same output.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A pure function depends only on its arguments and changes nothing outside itself: given the same inputs, it always returns the same output and leaves the rest of the program untouched. This predictability makes it the easiest kind of code to reason about and test.</p><p>Because pure functions have no hidden state, they can be cached, run in parallel, and reordered safely. Pushing as much logic as possible into pure functions and isolating the messy side-effect code is a core idea in functional programming.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">pure</span><span class="kw">deterministic</span><span class="kw">side effects</span><span class="kw">functional</span><span class="kw">testable</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Math helpers like calculating a total</div><div class="wi"><span class="wd"></span>Data transformations in a pipeline</div><div class="wi"><span class="wd"></span>Formatting values for display</div><div class="wi"><span class="wd"></span>Easily unit-tested business rules</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Pure functions are easy to test, easy to cache, and safe to parallelize because they never reach outside themselves. Impure functions touch the world — they read clocks, mutate globals, or perform I/O.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n05">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n05','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Pure: depends only on inputs</span>
@@ -4294,7 +4384,7 @@ counter <span class="op">=</span> <span class="num">0</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Prefer pure functions for the <strong>core logic</strong>; isolate impure code at the edges of your app.</div>
 </div>
 <div class="notes-area">
@@ -4323,13 +4413,19 @@ counter <span class="op">=</span> <span class="num">0</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Recursion&#39;,&#39;A function that calls itself to solve smaller versions of a problem.&#39;)">Recursion</span> is when a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> calls itself, breaking the problem into smaller subproblems until reaching a base case."</div>It needs two parts: a <strong>base case</strong> that stops the recursion, and a <strong>recursive case</strong> that moves closer to the base.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Recursion is when a function solves a problem by calling itself on a smaller piece of that same problem, combining the partial results as the calls unwind. It mirrors problems that are naturally self-similar, like exploring a folder full of folders.</p><p>Every recursion needs a base case — a condition that stops the calls — or it will run until the call stack overflows. Recursion can express tree- and divide-and-conquer algorithms far more cleanly than loops, at the cost of extra memory for the call stack.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">recursion</span><span class="kw">base case</span><span class="kw">stack</span><span class="kw">divide</span><span class="kw">factorial</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Walking a file system tree</div><div class="wi"><span class="wd"></span>Traversing tree and graph structures</div><div class="wi"><span class="wd"></span>Divide-and-conquer like merge sort</div><div class="wi"><span class="wd"></span>Computing factorials or Fibonacci numbers</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Each recursive call adds a frame to the call <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span>. When the base case returns, the stack unwinds, each frame combining its result. Forget the base case and you get a stack overflow.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n06">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n06','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">factorial</span>(n):
@@ -4349,7 +4445,7 @@ counter <span class="op">=</span> <span class="num">0</span>
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always write the <strong>base case first</strong>. Without it, <span class="gloss" onclick="gOpen(&#39;Recursion&#39;,&#39;A function that calls itself to solve smaller versions of a problem.&#39;)">recursion</span> is just an infinite <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> with extra steps.</div>
 </div>
 <div class="notes-area">
@@ -4378,13 +4474,19 @@ counter <span class="op">=</span> <span class="num">0</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Closure&#39;,&#39;A function that remembers variables from its outer scope.&#39;)">closure</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> bundled with references to its surrounding state."</div>When a function is defined inside another function, it can keep using the outer function's variables even after the outer function has returned.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A closure is a function that captures and remembers variables from the scope where it was defined, even after that outer scope has finished running. The inner function carries its surrounding environment with it like a backpack.</p><p>Closures are the foundation of data privacy and stateful functions in many languages: the captured variables are accessible only through the closure, not from outside. This is how patterns like counters, callbacks, and module-private state are built.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">closure</span><span class="kw">scope</span><span class="kw">capture</span><span class="kw">lexical</span><span class="kw">enclosing</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Creating a counter that keeps its own count</div><div class="wi"><span class="wd"></span>Building event handlers that remember context</div><div class="wi"><span class="wd"></span>Private variables in module patterns</div><div class="wi"><span class="wd"></span>Function factories that pre-fill arguments</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The inner <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> "closes over" the outer variables. Each call to the outer function creates a fresh <span class="gloss" onclick="gOpen(&#39;Closure&#39;,&#39;A function that remembers variables from its outer scope.&#39;)">closure</span> with its own copy of the captured state — useful for factories, counters, and private data.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n07">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n07','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">make_counter</span>():
@@ -4410,7 +4512,7 @@ c <span class="op">=</span> <span class="fn">make_counter</span>()
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Closure&#39;,&#39;A function that remembers variables from its outer scope.&#39;)">closure</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> plus its <strong>backpack</strong> — it carries its birthplace's variables wherever it goes.</div>
 </div>
 <div class="notes-area">
@@ -4439,13 +4541,19 @@ c <span class="op">=</span> <span class="fn">make_counter</span>()
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Lambda&#39;,&#39;A short anonymous function expression.&#39;)">lambda</span> (or arrow <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>) is a compact, anonymous function <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>."</div>It has no name and is usually used inline as an argument to another function, especially for callbacks and quick transformations.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A lambda or arrow function is a compact, nameless function written inline, usually as a single expression. It exists for situations where defining a full named function would be overkill — you just need a small piece of behavior right where you use it.</p><p>These functions are most often passed as arguments to other functions, such as the test in a filter or the rule in a sort. Their brevity is a strength for short logic and a weakness when the body grows, at which point a named function reads better.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">lambda</span><span class="kw">arrow</span><span class="kw">=&gt;</span><span class="kw">anonymous</span><span class="kw">inline</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>The key function for sorting a list</div><div class="wi"><span class="wd"></span>Callbacks passed to map and filter</div><div class="wi"><span class="wd"></span>Short event handlers in UI code</div><div class="wi"><span class="wd"></span>One-line transforms in data pipelines</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Python uses the <code>lambda</code> keyword for single-<span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> functions. JavaScript uses arrow <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span> <code>(x) =&gt; x * 2</code>. Java uses the same arrow syntax for functional interfaces.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n08">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n08','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">double <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> <span class="num">2</span>
@@ -4461,7 +4569,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(doubler.<span class="fn">apply</span>(<span class="num">5</span>));  <span class="com">// 10</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>If a <span class="gloss" onclick="gOpen(&#39;Lambda&#39;,&#39;A short anonymous function expression.&#39;)">lambda</span> grows past one line, give it a <strong>real name</strong>. Anonymous functions stop helping when they get complex.</div>
 </div>
 <div class="notes-area">
@@ -4490,13 +4598,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A default <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span> is a fallback value assigned to a <span class="gloss" onclick="gOpen(&#39;Parameter&#39;,&#39;A named input declared in a function signature.&#39;)">parameter</span> when no argument is passed."</div>It makes parameters optional and removes the need for repetitive null checks in callers.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Default arguments let a parameter fall back to a preset value when the caller omits it, so a single function can serve both the common case and customized calls. This trims the number of overloads or wrapper functions you would otherwise need.</p><p>Defaults are evaluated according to language-specific rules — Python notably evaluates them once at definition time, which makes mutable defaults like an empty list a famous trap. Used carefully, they make function signatures cleaner and calls shorter.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">default</span><span class="kw">optional</span><span class="kw">fallback</span><span class="kw">override</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A connect(timeout=30) with a sensible default</div><div class="wi"><span class="wd"></span>Optional formatting options on a function</div><div class="wi"><span class="wd"></span>Config functions where most values rarely change</div><div class="wi"><span class="wd"></span>APIs that stay backward-compatible as they grow</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Python and JS let you write <code>def f(x=10)</code> or <code>function f(x = 10)</code>. If the caller omits the <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span>, the default is used. Java has no built-in defaults — you overload methods instead.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n09">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n09','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">greet</span>(name, greeting<span class="op">=</span><span class="str">"Hello"</span>):
@@ -4518,7 +4632,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In Python, <strong>never use mutable defaults</strong> like <code>def f(x=[])</code>. The <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is shared across calls and causes infamous bugs.</div>
 </div>
 <div class="notes-area">
@@ -4547,13 +4661,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Variadic parameters let a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> accept an arbitrary number of arguments."</div>Python uses <code>*args</code> for positional and <code>**kwargs</code> for keyword arguments. JavaScript uses rest parameters <code>...args</code>. Java uses <code>Type... args</code>.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>The *args and **kwargs syntax lets a function accept any number of positional or keyword arguments, gathering the extras into a tuple and a dictionary. This frees a function from committing to a fixed parameter count.</p><p>They are essential for writing wrappers and decorators that forward arbitrary arguments to another function without knowing them in advance. The same star/double-star can also unpack a collection back into individual arguments at the call site.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">*args</span><span class="kw">**kwargs</span><span class="kw">rest</span><span class="kw">variadic</span><span class="kw">spread</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>A sum that accepts any count of numbers</div><div class="wi"><span class="wd"></span>Decorators forwarding arguments transparently</div><div class="wi"><span class="wd"></span>Flexible logging or formatting helpers</div><div class="wi"><span class="wd"></span>Building wrapper functions around other APIs</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Inside the <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>, <code>args</code> behaves like a <span class="gloss" onclick="gOpen(&#39;Tuple&#39;,&#39;An ordered, immutable sequence of items.&#39;)">tuple</span>/<span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> and <code>kwargs</code> like a <span class="gloss" onclick="gOpen(&#39;Dict&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dict</span>/<span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>. The caller can pass zero or more values; they are collected automatically.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n10">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n10','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">total</span>(<span class="op">*</span>args, <span class="op">**</span>kwargs):
@@ -4572,7 +4692,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="fn">total</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>);  <span class="com">// 10</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The names <code>args</code> and <code>kwargs</code> are convention, not law — what matters are the stars <code>*</code> and <code>**</code>.</div>
 </div>
 <div class="notes-area">
@@ -4601,13 +4721,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">Function</span> <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> means variables declared inside a function are visible only within that function."</div>Outside the function, those names don't exist. This keeps internal details from leaking and prevents accidental conflicts.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Function scope means variables created inside a function live only there — they are born when the function is called and vanish when it returns, invisible to the outside world. This isolation is what keeps functions from clobbering each other's data.</p><p>Scope is what makes functions safe to reuse: two functions can both have a variable named i without interfering. Understanding the boundary between local and outer scope explains why a value computed inside a function must be returned to be used elsewhere.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">local</span><span class="kw">global</span><span class="kw">scope</span><span class="kw">visibility</span><span class="kw">stack frame</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Loop counters that stay local to a function</div><div class="wi"><span class="wd"></span>Temporary variables in a calculation</div><div class="wi"><span class="wd"></span>Avoiding name clashes between functions</div><div class="wi"><span class="wd"></span>Protecting helper state from outside code</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">When a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is called, a new local namespace is created. When it returns, that namespace is discarded. Variables defined outside the function (global) are visible inside unless shadowed by a local with the same name.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n11">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n11','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n11','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n11','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">def</span> <span class="fn">demo</span>():
@@ -4629,7 +4755,7 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="com">// secret not visible here</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Locals beat globals. Reaching out to a global <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> from inside a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is a sign your design needs work.</div>
 </div>
 <div class="notes-area">
@@ -4658,13 +4784,19 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A higher-order <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> takes another function as input, returns a function, or both."</div>This treats functions like values — passing them around, storing them in lists, building them on the fly.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A higher-order function treats other functions as ordinary data: it either accepts a function as an argument, returns a function, or both. This turns behavior itself into something you can pass around and customize.</p><p>They are the backbone of expressive collection processing — map, filter, and reduce all take a function describing what to do with each element. Higher-order functions let you separate the structure of an operation from the specific logic plugged into it.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">map</span><span class="kw">filter</span><span class="kw">reduce</span><span class="kw">callback</span><span class="kw">first-class</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>map, filter, and reduce on collections</div><div class="wi"><span class="wd"></span>Sort that takes a custom comparator</div><div class="wi"><span class="wd"></span>Decorators that wrap another function</div><div class="wi"><span class="wd"></span>Event systems that accept handler functions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Common examples are <code>map</code>, <code>filter</code>, and <code>reduce</code>, which take a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> and apply it to every element of a collection. They let you express transformations as data flow rather than loops.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-n12">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-n12','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-n12','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-n12','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>]
@@ -4681,7 +4813,7 @@ nums.<span class="fn">stream</span>()
     .<span class="fn">forEach</span>(<span class="fn">System</span>.<span class="fn">out</span>::<span class="fn">println</span>);</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Functions are <strong>first-<span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> citizens</strong> — anywhere a value can go, a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> can go too.</div>
 </div>
 <div class="notes-area">
@@ -4733,13 +4865,19 @@ nums.<span class="fn">stream</span>()
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> is a contiguous block of memory holding a fixed number of elements of the same type."</div>You access elements in constant time with a numeric index that starts at 0 in most languages.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>An array stores a fixed number of elements of the same type in one contiguous block of memory, reachable instantly by their numeric index. That contiguous layout is what gives arrays their signature strength: constant-time access to any element.</p><p>The fixed size is the tradeoff — you must know the capacity up front, and growing means allocating a new, larger array and copying everything over. Arrays are the low-level building block underneath many higher-level structures like lists and hash tables.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">array</span><span class="kw">index</span><span class="kw">length</span><span class="kw">fixed size</span><span class="kw">O(1) access</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Storing pixel data for an image</div><div class="wi"><span class="wd"></span>Fixed-size lookup tables</div><div class="wi"><span class="wd"></span>Buffers for reading file or network data</div><div class="wi"><span class="wd"></span>The backing store inside dynamic lists</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Because elements are stored side by side in memory, the address of element <code>i</code> is just <code>base + i * size</code>. That's why <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> access is <span class="gloss" onclick="gOpen(&#39;Constant&#39;,&#39;A named value that cannot be reassigned after creation.&#39;)">constant</span> time. Insertion in the middle, however, requires shifting elements.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s01">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s01','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s01','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s01','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># Python uses 'list' for arrays</span>
@@ -4754,7 +4892,7 @@ arr <span class="op">=</span> [<span class="num">10</span>, <span class="num">20
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(arr.length); <span class="com">// 4</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Indices start at <strong>0</strong> in almost every language. The last <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> is <code>length - 1</code>.</div>
 </div>
 <div class="notes-area">
@@ -4783,13 +4921,19 @@ arr <span class="op">=</span> [<span class="num">10</span>, <span class="num">20
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is a dynamic <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> — an ordered collection that can grow or shrink at <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span>."</div>Lists support adding, removing, and inserting items at any position. They are the everyday workhorse data structure.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A list is a resizable, ordered collection that grows and shrinks as you add or remove items, freeing you from declaring a size in advance. It is the everyday workhorse container in most high-level languages.</p><p>Under the hood a list usually wraps a dynamic array that quietly reallocates as it fills, so appends are fast on average while inserting in the middle requires shifting elements. Its flexibility makes it the default choice when you are not sure how many items you will have.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">list</span><span class="kw">append</span><span class="kw">pop</span><span class="kw">insert</span><span class="kw">ArrayList</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Collecting user inputs as they arrive</div><div class="wi"><span class="wd"></span>Building up search results dynamically</div><div class="wi"><span class="wd"></span>A to-do list that items are added to and removed from</div><div class="wi"><span class="wd"></span>Accumulating rows parsed from a file</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Under the hood a <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is usually backed by an <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> that the <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span> resizes as needed (doubling its capacity). Appending at the end is amortized O(1); inserting in the middle is O(n).</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s02">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s02','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s02','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s02','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">items <span class="op">=</span> [<span class="str">"a"</span>, <span class="str">"b"</span>]
@@ -4809,7 +4953,7 @@ items.<span class="fn">add</span>(<span class="num">0</span>, <span class="str">
 items.<span class="fn">remove</span>(items.<span class="fn">size</span>() <span class="op">-</span> <span class="num">1</span>);</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Append at the end whenever you can. Inserting at <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> 0 in a long <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is <strong>slow</strong> — it shifts everything.</div>
 </div>
 <div class="notes-area">
@@ -4838,13 +4982,19 @@ items.<span class="fn">remove</span>(items.<span class="fn">size</span>() <span 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Tuple&#39;,&#39;An ordered, immutable sequence of items.&#39;)">tuple</span> is an ordered, fixed-size sequence of values that cannot be changed after creation."</div>Tuples are often used to group related values, like coordinates or a function's multiple return values.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A tuple is an ordered, fixed group of values that cannot be changed after creation. Its immutability is a feature: once built, a tuple is a guaranteed-stable bundle that can be safely shared and used as a dictionary key or set member.</p><p>Tuples are ideal for grouping a small, fixed set of related values that belong together, such as coordinates or a function returning several results at once. They signal intent — "this collection has a fixed shape" — in a way a mutable list does not.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">tuple</span><span class="kw">immutable</span><span class="kw">fixed</span><span class="kw">pair</span><span class="kw">record</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Returning multiple values from a function</div><div class="wi"><span class="wd"></span>Representing (x, y) coordinate pairs</div><div class="wi"><span class="wd"></span>Fixed records like (name, age, city)</div><div class="wi"><span class="wd"></span>Keys in a dictionary that need composite values</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Python has a dedicated <span class="gloss" onclick="gOpen(&#39;Tuple&#39;,&#39;An ordered, immutable sequence of items.&#39;)">tuple</span> type with <code>(a, b)</code> <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span>. JavaScript and Java fake it with arrays or small records. Because tuples are immutable, they can be used as <span class="gloss" onclick="gOpen(&#39;Dictionary&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dictionary</span> keys in Python.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s03">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s03','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s03','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s03','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">point <span class="op">=</span> (<span class="num">3</span>, <span class="num">4</span>)
@@ -4861,7 +5011,7 @@ x, y <span class="op">=</span> point        <span class="com"># unpacking</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(p.<span class="fn">x</span>() <span class="op">+</span> <span class="str">","</span> <span class="op">+</span> p.<span class="fn">y</span>());</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuples scream <strong>"this won't change"</strong>. They're for fixed bundles of data, not for collections that grow.</div>
 </div>
 <div class="notes-area">
@@ -4890,13 +5040,19 @@ x, y <span class="op">=</span> point        <span class="com"># unpacking</span>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Dictionary&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dictionary</span> (or map) stores values indexed by unique keys instead of <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> positions."</div>You look up data by key name, getting O(1) average-time access for both reads and writes.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A dictionary stores data as key-value pairs, letting you look up a value by its key almost instantly instead of scanning through positions. It models any "this maps to that" relationship directly, the way a real dictionary maps words to definitions.</p><p>Keys must be unique and are typically hashed to locate values in roughly constant time, which is why dictionaries are the go-to structure whenever fast lookup by name or id matters more than order. The tradeoff is extra memory and, traditionally, no guaranteed ordering.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">dict</span><span class="kw">map</span><span class="kw">key</span><span class="kw">value</span><span class="kw">hash</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Looking up a user by their id</div><div class="wi"><span class="wd"></span>Counting word frequencies in text</div><div class="wi"><span class="wd"></span>Caching results keyed by input</div><div class="wi"><span class="wd"></span>Storing configuration as name-value settings</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Internally, the <span class="gloss" onclick="gOpen(&#39;Dictionary&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dictionary</span> computes a hash of the <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span> to find its slot in a backing <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span>. Two different keys can hash to the same slot (a collision), which the implementation resolves transparently.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s04">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s04','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s04','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s04','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">user <span class="op">=</span> {<span class="str">"name"</span>: <span class="str">"Ada"</span>, <span class="str">"age"</span>: <span class="num">30</span>}
@@ -4916,7 +5072,7 @@ user.<span class="fn">put</span>(<span class="str">"age"</span>, <span class="nu
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(user.<span class="fn">get</span>(<span class="str">"name"</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Keys must be <strong>hashable</strong>. In Python you can use strings, numbers, or tuples — but not lists.</div>
 </div>
 <div class="notes-area">
@@ -4945,13 +5101,19 @@ user.<span class="fn">put</span>(<span class="str">"age"</span>, <span class="nu
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> is a collection that holds each value at most once and has no defined order."</div>Sets are perfect for membership tests and removing duplicates from data.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A set is a collection that holds only unique items and answers membership questions — "is x in here?" — very quickly. Adding a duplicate simply does nothing, which makes sets a natural way to eliminate repeats.</p><p>Built on hashing like dictionaries, sets sacrifice ordering and indexed access in exchange for fast lookup, insertion, and mathematical operations like union and intersection. Reach for a set whenever uniqueness or fast membership testing is the point.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">set</span><span class="kw">unique</span><span class="kw">union</span><span class="kw">intersection</span><span class="kw">membership</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Removing duplicates from a list</div><div class="wi"><span class="wd"></span>Tracking which items have been seen</div><div class="wi"><span class="wd"></span>Fast 'is this allowed?' membership checks</div><div class="wi"><span class="wd"></span>Finding common elements between two groups</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Sets are typically implemented with a <span class="gloss" onclick="gOpen(&#39;Hash Table&#39;,&#39;Stores key-value pairs with O(1) average lookup.&#39;)">hash table</span> just like dictionaries, but storing only the keys. Adding a duplicate is a no-op. <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">Set</span> operations like union and intersection are built in.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s05">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s05','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s05','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s05','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">tags <span class="op">=</span> {<span class="str">"a"</span>, <span class="str">"b"</span>, <span class="str">"a"</span>}
@@ -4969,7 +5131,7 @@ tags.<span class="fn">add</span>(<span class="str">"a"</span>); tags.<span class
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(tags.<span class="fn">contains</span>(<span class="str">"a"</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>To deduplicate a <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span>, wrap it in a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> and back to a list: <code>list(set(items))</code>.</div>
 </div>
 <div class="notes-area">
@@ -4998,13 +5160,19 @@ tags.<span class="fn">add</span>(<span class="str">"a"</span>); tags.<span class
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span> is a Last-In-First-Out (LIFO) collection: the most recently added item is the first one removed."</div>Think of a pile of plates — you take from the top. The two main operations are <code>push</code> (add) and <code>pop</code> (remove).</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A stack is a last-in, first-out collection: you can only add (push) or remove (pop) at the top, like a stack of plates. The most recently added item is always the first one to come back out.</p><p>This restriction is exactly what you want for tracking nested or reversible activity — the program remembers where it has been and unwinds in reverse order. The runtime itself uses a stack to manage function calls, which is why deep recursion can overflow it.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">push</span><span class="kw">pop</span><span class="kw">peek</span><span class="kw">LIFO</span><span class="kw">call stack</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Undo/redo history in editors</div><div class="wi"><span class="wd"></span>The browser's back button</div><div class="wi"><span class="wd"></span>The call stack of running functions</div><div class="wi"><span class="wd"></span>Matching brackets and evaluating expressions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Stacks power <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> calls (the call <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span>), undo history, and <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> parsing. Both <code>push</code> and <code>pop</code> are O(1). You can implement one with an <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> and a top pointer.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s06">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s06','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s06','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s06','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">stack <span class="op">=</span> []
@@ -5026,7 +5194,7 @@ stack.<span class="fn">push</span>(<span class="num">3</span>);
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(stack.<span class="fn">pop</span>());  <span class="com">// 3</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> call you make uses a <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span> — your code's history is literally a pile of frames.</div>
 </div>
 <div class="notes-area">
@@ -5055,13 +5223,19 @@ stack.<span class="fn">push</span>(<span class="num">3</span>);
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Queue&#39;,&#39;FIFO - first in, first out. Enqueue and dequeue.&#39;)">queue</span> is a First-In-First-Out (FIFO) collection: items are removed in the same order they were added."</div>Like a line at a checkout — the first to arrive is the first served. Operations are <code>enqueue</code> and <code>dequeue</code>.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A queue is a first-in, first-out collection: items are added at the back (enqueue) and removed from the front (dequeue), exactly like a line of people waiting their turn. The earliest arrival is always served first.</p><p>This fairness makes queues the standard structure for buffering work that must be handled in arrival order. They underpin scheduling, message passing, and breadth-first traversal, where order of processing matters as much as the items themselves.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">enqueue</span><span class="kw">dequeue</span><span class="kw">FIFO</span><span class="kw">deque</span><span class="kw">buffer</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Print jobs waiting for the printer</div><div class="wi"><span class="wd"></span>Task and job scheduling systems</div><div class="wi"><span class="wd"></span>Message queues between services</div><div class="wi"><span class="wd"></span>Breadth-first search over a graph</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Queues power task scheduling, message buses, and breadth-first search. Implementations use a linked <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> or a double-ended <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> (deque) to keep both ends O(1).</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s07">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s07','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s07','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s07','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">from</span> collections <span class="kw">import</span> deque
@@ -5081,7 +5255,7 @@ q.<span class="fn">offer</span>(<span class="str">"b"</span>);
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(q.<span class="fn">poll</span>());  <span class="com">// 'a'</span></pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Don't use <code>list.pop(0)</code> in Python — it's O(n). Use <code>collections.deque</code> for real queues.</div>
 </div>
 <div class="notes-area">
@@ -5110,13 +5284,19 @@ q.<span class="fn">offer</span>(<span class="str">"b"</span>);
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A linked <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is a sequence of nodes where each node contains a value and a pointer to the next node."</div>Unlike an array, nodes are scattered in memory. Insertion and removal at known positions are O(1), but lookup by index is O(n).</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A linked list strings data together as a chain of nodes, where each node holds a value and a pointer to the next node. Instead of one contiguous block, the items can live anywhere in memory, connected only by these links.</p><p>This makes inserting or deleting in the middle cheap — you just rewire a couple of pointers — but accessing the nth item is slow because you must walk the chain from the start. It is the right structure when you do frequent insertions and removals and rarely need random access.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">node</span><span class="kw">next</span><span class="kw">head</span><span class="kw">tail</span><span class="kw">pointer</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Implementing stacks and queues</div><div class="wi"><span class="wd"></span>Playlists with next/previous links</div><div class="wi"><span class="wd"></span>Undo chains that grow and shrink</div><div class="wi"><span class="wd"></span>Hash table buckets that chain collisions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">A singly linked <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> has a single <code>next</code> pointer per node. A doubly linked list also has a <code>prev</code> pointer. To find element <em>i</em>, you must walk from the head, one node at a time.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s08">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s08','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s08','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s08','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">class</span> <span class="fn">Node</span>:
@@ -5142,7 +5322,7 @@ head <span class="op">=</span> <span class="fn">Node</span>(<span class="num">1<
 head.next <span class="op">=</span> <span class="kw">new</span> <span class="fn">Node</span>(<span class="num">2</span>);</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Linked lists are famous in interviews, rare in real code. Most languages prefer dynamic arrays for everyday work.</div>
 </div>
 <div class="notes-area">
@@ -5171,13 +5351,19 @@ head.next <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Tree&#39;,&#39;Hierarchical structure with a root and child nodes.&#39;)">tree</span> is a hierarchical data structure with one root node and child nodes branching out below."</div>Each node has zero or more children and exactly one parent (except the root, which has none).</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A tree is a hierarchical structure where each node has one parent and any number of children, branching out from a single root. It captures relationships that are naturally nested — anything that contains things which contain other things.</p><p>Trees enable fast, structured search and organization: balanced trees keep operations logarithmic, and the parent-child layout maps cleanly onto real hierarchies. Most variations differ in how many children a node may have and how the data is ordered.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">root</span><span class="kw">parent</span><span class="kw">child</span><span class="kw">leaf</span><span class="kw">binary tree</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>File systems with nested folders</div><div class="wi"><span class="wd"></span>The DOM behind every web page</div><div class="wi"><span class="wd"></span>Decision trees and game move trees</div><div class="wi"><span class="wd"></span>Database indexes for fast lookup</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">Trees model hierarchies — file systems, the DOM, decision trees. A <strong>binary <span class="gloss" onclick="gOpen(&#39;Tree&#39;,&#39;Hierarchical structure with a root and child nodes.&#39;)">tree</span></strong> limits each node to at most two children. Traversals (in-order, pre-order, post-order) visit every node in a specific sequence.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s09">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s09','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s09','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s09','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="kw">class</span> <span class="fn">TreeNode</span>:
@@ -5205,7 +5391,7 @@ root.left <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <span class="fn">TreeNode</span> root <span class="op">=</span> <span class="kw">new</span> <span class="fn">TreeNode</span>(<span class="num">1</span>);</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Folders, family trees, the DOM, JSON — most hierarchies you meet are trees in disguise.</div>
 </div>
 <div class="notes-area">
@@ -5234,13 +5420,19 @@ root.left <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Graph&#39;,&#39;Nodes connected by edges - can be cyclic or directed.&#39;)">graph</span> is a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> of nodes (vertices) connected by edges, with no required hierarchy."</div>Graphs model networks: social connections, maps, dependencies. Edges can be directed or undirected, weighted or unweighted.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A graph models things and the connections between them as nodes joined by edges, with no restriction on shape — connections can form cycles, run in one or both directions, and carry weights. It is the most general way to represent relationships.</p><p>Because so many real systems are networks of related entities, graphs power routing, recommendation, and dependency analysis. The price of that generality is more complex algorithms for traversal, shortest paths, and cycle detection than simpler structures need.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">vertex</span><span class="kw">edge</span><span class="kw">directed</span><span class="kw">weighted</span><span class="kw">adjacency</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Social networks of friends and follows</div><div class="wi"><span class="wd"></span>Maps and GPS shortest-path routing</div><div class="wi"><span class="wd"></span>Dependency graphs between software modules</div><div class="wi"><span class="wd"></span>Recommendation engines linking items</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">A common representation is an <strong>adjacency <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span></strong>: a <span class="gloss" onclick="gOpen(&#39;Dict&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dict</span> mapping each node to its neighbors. Common algorithms include BFS (breadth-first) and DFS (depth-first) for traversal, and Dijkstra for shortest paths.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s10">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s10','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s10','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s10','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block">graph <span class="op">=</span> {
@@ -5262,7 +5454,7 @@ graph.<span class="fn">put</span>(<span class="str">"A"</span>, <span class="fn"
 graph.<span class="fn">put</span>(<span class="str">"B"</span>, <span class="fn">List</span>.<span class="fn">of</span>(<span class="str">"D"</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Tree&#39;,&#39;Hierarchical structure with a root and child nodes.&#39;)">tree</span> is a <span class="gloss" onclick="gOpen(&#39;Graph&#39;,&#39;Nodes connected by edges - can be cyclic or directed.&#39;)">graph</span> with rules. A graph is what you get when you let trees have <strong>any</strong> shape.</div>
 </div>
 <div class="notes-area">
@@ -5291,13 +5483,19 @@ graph.<span class="fn">put</span>(<span class="str">"B"</span>, <span class="fn"
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Hash Table&#39;,&#39;Stores key-value pairs with O(1) average lookup.&#39;)">hash table</span> stores <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span>-value pairs in an <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span>, using a hash <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> to map each key to an <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>."</div>It is the implementation behind Python dicts, JavaScript objects, and Java HashMaps.</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>A hash table is the machinery that makes key-value lookup fast: it runs each key through a hash function to compute an index into an underlying array, so the value can be found directly rather than by searching. This is what gives dictionaries and sets their near-constant-time speed.</p><p>When two keys hash to the same slot — a collision — the table resolves it by chaining entries or probing for an open slot. A good hash function and a sensible load factor keep collisions rare, which is why performance stays fast in practice.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">hash function</span><span class="kw">bucket</span><span class="kw">collision</span><span class="kw">load factor</span><span class="kw">rehash</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>The engine inside dictionaries and sets</div><div class="wi"><span class="wd"></span>Database indexing for instant lookup</div><div class="wi"><span class="wd"></span>Caches keyed by request or url</div><div class="wi"><span class="wd"></span>Deduplication and fast membership tests</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how">The hash <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> turns a <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span> into a number, then takes that number <span class="gloss" onclick="gOpen(&#39;Modulo&#39;,&#39;Returns the remainder of a division.&#39;)">modulo</span> the <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> size to pick a slot. Collisions are resolved with chaining (a <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> per slot) or open addressing (probe to the next slot).</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s11">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s11','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s11','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s11','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># dict is a hash table</span>
@@ -5315,7 +5513,7 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(table.<span class="fn">get</span>(<span class="str">"hello"</span>));</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Average O(1) is the dream. With a bad hash, worst case becomes O(n) — collisions matter.</div>
 </div>
 <div class="notes-area">
@@ -5344,13 +5542,19 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Big O&#39;,&#39;Notation describing how runtime/space grows with input size.&#39;)">Big O</span> describes how an <span class="gloss" onclick="gOpen(&#39;Algorithm&#39;,&#39;A finite series of steps that solves a problem.&#39;)">algorithm</span>'s resource use scales with the size of the input."</div>It's the language for talking about efficiency. Common classes: O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ).</div>
 </div>
-<div class="sec"><div class="sl">② Keywords</div>
+<div class="sec"><div class="sl">② Explanation</div>
+<div class="expl"><p>Big O notation describes how an algorithm's running time or memory grows as the input gets larger, ignoring constant factors and focusing on the dominant term. It lets you compare algorithms by their scaling behavior rather than by raw speed on one machine.</p><p>The point is to predict what happens at scale: an O(n) algorithm that doubles work when input doubles will crush an O(n²) one on big data, even if the slower one wins on tiny inputs. Knowing the common classes — O(1), O(log n), O(n), O(n log n), O(n²) — guides which data structure or approach to choose.</p></div>
+</div>
+<div class="sec"><div class="sl">③ Keywords</div>
 <div class="kws"><span class="kw">O(1)</span><span class="kw">O(n)</span><span class="kw">O(log n)</span><span class="kw">O(n²)</span><span class="kw">complexity</span></div>
 </div>
-<div class="sec"><div class="sl">③ How It Works</div>
+<div class="sec"><div class="sl">④ Where It Appears</div>
+<div class="wg"><div class="wi"><span class="wd"></span>Comparing two sorting algorithms</div><div class="wi"><span class="wd"></span>Choosing a data structure for scale</div><div class="wi"><span class="wd"></span>Spotting why code slows on large inputs</div><div class="wi"><span class="wd"></span>Technical interview complexity questions</div></div>
+</div>
+<div class="sec"><div class="sl">⑤ How It Works</div>
 <div class="how"><span class="gloss" onclick="gOpen(&#39;Big O&#39;,&#39;Notation describing how runtime/space grows with input size.&#39;)">Big O</span> ignores constants and lower-order terms — it shows the <em>shape</em> of growth. An O(n²) <span class="gloss" onclick="gOpen(&#39;Algorithm&#39;,&#39;A finite series of steps that solves a problem.&#39;)">algorithm</span> slows down quadratically, so doubling the input quadruples the work. O(log n) barely flinches.</div>
 </div>
-<div class="sec"><div class="sl">④ Code Example</div>
+<div class="sec"><div class="sl">⑥ Code Example</div>
 <div id="code-s12">
 <div class="code-tabs"><button class="code-tab active" data-lang="Python" onclick="switchCodeTab('code-s12','Python')">Python</button><button class="code-tab" data-lang="JavaScript" onclick="switchCodeTab('code-s12','JavaScript')">JavaScript</button><button class="code-tab" data-lang="Java" onclick="switchCodeTab('code-s12','Java')">Java</button></div>
 <div class="code-pane active" data-lang="Python"><pre class="code-block"><span class="com"># O(1) — constant time</span>
@@ -5389,7 +5593,7 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 }</pre></div>
 </div>
 </div>
-<div class="sec"><div class="sl">⑤ Remember</div>
+<div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>O(n²) inside a <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> with a million items is a disaster. Always ask: <strong>how does this scale?</strong></div>
 </div>
 <div class="notes-area">
