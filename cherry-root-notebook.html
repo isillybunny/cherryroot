@@ -102,7 +102,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p5
 .cmeta{margin-top:1.8rem;display:flex;flex-direction:column;gap:.55rem;width:100%;max-width:280px;text-align:left}
 .cff{display:flex;align-items:center;gap:.7rem}
 .cfl{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;min-width:52px}
-.cfline{flex:1;border-bottom:1px solid var(--p200);height:20px}
+.cfline{flex:1;border-bottom:1px solid var(--p200);min-height:20px;display:flex;align-items:flex-end;padding-bottom:2px;font-family:'Playfair Display',serif;font-style:italic;color:var(--ink2);font-size:.88rem}
 .itbl{width:100%;border-collapse:collapse}
 .itbl th{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);padding:.55rem .7rem;text-align:left;border-bottom:1.5px solid var(--p200)}
 .itbl td{padding:.55rem .7rem;font-size:.79rem;color:var(--ink2);border-bottom:1px solid var(--line)}
@@ -592,11 +592,11 @@ body.dark .progress-track{background:var(--p50)}
 
 <button class="review-trigger" onclick="startReviewMode()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="13" r="1.2" fill="currentColor"/><circle cx="12" cy="13" r="1.2" fill="currentColor"/><circle cx="16" cy="13" r="1.2" fill="currentColor"/></svg>
-Modo Revisão
+Review Mode
 </button>
 <button class="dark-toggle" onclick="toggleDark()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M21 12.79 A9 9 0 0 1 11.21 3 A7 7 0 0 0 21 12.79 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-<span id="dark-label">Tema escuro</span>
+<span id="dark-label">Dark theme</span>
 </button>
 <div class="ndiv"></div>
 <div class="ns">Block 0 · PC Basics</div>
@@ -851,9 +851,9 @@ Modo Revisão
 <div class="csb">— A Breach Diary —</div>
 <div class="cdesc">A personal reference manual for understanding attacks, defenses, and how the internet really works.</div>
 <div class="cmeta">
-<div class="cff"><span class="cfl">Name</span><span class="cfline"></span></div>
-<div class="cff"><span class="cfl">Started</span><span class="cfline"></span></div>
-<div class="cff"><span class="cfl">Goal</span><span class="cfline"></span></div>
+<div class="cff"><span class="cfl">Name</span><span class="cfline">Kaylla Dearo</span></div>
+<div class="cff"><span class="cfl">Started</span><span class="cfline">April 23</span></div>
+<div class="cff"><span class="cfl">Goal</span><span class="cfline">Cybersecurity Expert</span></div>
 </div>
 <div class="cover-stats">12 blocks &middot; 146 terms &middot; attack &amp; defense</div>
 <button class="cover-cta" onclick="go('b01');document.querySelectorAll('.nav .ni').forEach(function(n){n.classList.remove('active')});">Start Learning &rarr;</button>
@@ -868,19 +868,19 @@ Modo Revisão
 
 <!-- FULL INDEX -->
 <div class="pg" id="pg-index">
-<div class="ph"><div class="bc">cherry root <span>›</span> index</div><div class="pt">Full Index</div><div class="ps">Every term in the grimoire in order. Click any term to go to its page.</div></div>
+<div class="ph"><div class="bc">cherry root <span>›</span> index</div><div class="pt">Index</div><div class="ps">Every term in the grimoire in order. Click any term to go to its page.</div></div>
 <div class="progress-section">
 <div class="sl" style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem">Progress Rings</div>
 <div class="rings-grid" id="indexRings"></div>
 </div>
 
 <div class="filter-bar">
-<span class="filter-bar-label">filtrar:</span>
-<span class="filter-chip on" onclick="applyFilter('all',this)">Todos</span>
-<span class="filter-chip" onclick="applyFilter('studied',this)"><span class="filter-chip-dot" style="background:#7aa860"></span>Estudados</span>
-<span class="filter-chip" onclick="applyFilter('review',this)"><span class="filter-chip-dot" style="background:var(--p400)"></span>Revisar</span>
-<span class="filter-chip" onclick="applyFilter('hard',this)"><span class="filter-chip-dot" style="background:#c89060"></span>Difíceis</span>
-<span class="filter-chip" onclick="applyFilter('fav',this)"><span class="filter-chip-dot" style="background:var(--p500)"></span>Favoritos</span>
+<span class="filter-bar-label">filter:</span>
+<span class="filter-chip on" onclick="applyFilter('all',this)">All</span>
+<span class="filter-chip" onclick="applyFilter('studied',this)"><span class="filter-chip-dot" style="background:#7aa860"></span>Studied</span>
+<span class="filter-chip" onclick="applyFilter('review',this)"><span class="filter-chip-dot" style="background:var(--p400)"></span>Review</span>
+<span class="filter-chip" onclick="applyFilter('hard',this)"><span class="filter-chip-dot" style="background:#c89060"></span>Hard</span>
+<span class="filter-chip" onclick="applyFilter('fav',this)"><span class="filter-chip-dot" style="background:var(--p500)"></span>Favorites</span>
 </div>
 
 <div class="idx-tools">
@@ -1072,7 +1072,7 @@ Modo Revisão
 
 <!-- GLOSSARY -->
 <div class="pg" id="pg-glossary">
-<div class="ph"><div class="bc">cherry root <span>›</span> glossary</div><div class="pt">Personal Glossary</div><div class="ps">One-liner definitions for fast memory triggers. Alphabetical order. All blocks covered.</div></div>
+<div class="ph"><div class="bc">cherry root <span>›</span> glossary</div><div class="pt">Glossary</div><div class="ps">One-liner definitions for fast memory triggers. Alphabetical order. All blocks covered.</div></div>
 <div class="gl-search">
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--p400)" stroke-width="2"/><line x1="16" y1="16" x2="21" y2="21" stroke="var(--p400)" stroke-width="2" stroke-linecap="round"/></svg>
   <input type="text" id="glSearch" placeholder="Search definitions..." oninput="filterGlossary()">
@@ -3427,7 +3427,7 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 
 <!-- HOW TO USE PAGE -->
 <div class="pg" id="pg-howto">
-<div class="ph"><div class="bc">cherry root <span>›</span> how to use</div><div class="pt">How to Use This Grimoire</div><div class="ps">A quick guide so you always know where to look and how to navigate.</div></div>
+<div class="ph"><div class="bc">cherry root <span>›</span> how to use</div><div class="pt">How to Use</div><div class="ps">A quick guide so you always know where to look and how to navigate.</div></div>
 
 <div class="sec"><div class="sl">The Page Format</div>
 <div class="guide-block">
@@ -6634,7 +6634,7 @@ function toggleDark(){
   const isDark = document.body.classList.contains('dark');
   try{ localStorage.setItem('cherryRootDark', isDark ? '1' : '0'); } catch(e){}
   const label = document.getElementById('dark-label');
-  if(label) label.textContent = isDark ? 'Tema claro' : 'Tema escuro';
+  if(label) label.textContent = isDark ? 'Light theme' : 'Dark theme';
 }
 
 function restoreDarkMode(){
@@ -6642,7 +6642,7 @@ function restoreDarkMode(){
     if(localStorage.getItem('cherryRootDark') === '1'){
       document.body.classList.add('dark');
       const label = document.getElementById('dark-label');
-      if(label) label.textContent = 'Tema claro';
+      if(label) label.textContent = 'Light theme';
     }
   } catch(e){}
 }
@@ -7756,7 +7756,7 @@ function quizMixedStart(){
   quizState.answers = [];
   quizState.active = true;
   // Show overlay
-  document.getElementById('quizBlockLabel').textContent = 'Quiz Misto · All Blocks';
+  document.getElementById('quizBlockLabel').textContent = 'Mixed Quiz · All Blocks';
   document.getElementById('quizOverlay').classList.add('on');
   document.getElementById('quizIntro').style.display = 'none';
   document.getElementById('quizQuestion').style.display = 'block';
@@ -7839,8 +7839,8 @@ function injectQuizEnhancements(){
   const wrap = document.createElement('div');
   wrap.style.cssText = 'display:flex;flex-direction:column;gap:.5rem;margin:.6rem 0';
   wrap.innerHTML =
-    '<label style="display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--ink2);cursor:pointer;justify-content:center"><input type="checkbox" id="quizTimedToggle" onchange="quizToggleTimed(this.checked)" style="accent-color:var(--p500)"> Modo Cronometrado (5 min)</label>' +
-    '<button type="button" onclick="quizMixedStart()" style="font-family:JetBrains Mono,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:white;border:none;border-radius:10px;padding:.55rem 1rem;cursor:pointer">Quiz Misto · 20 random</button>';
+    '<label style="display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--ink2);cursor:pointer;justify-content:center"><input type="checkbox" id="quizTimedToggle" onchange="quizToggleTimed(this.checked)" style="accent-color:var(--p500)"> Timed Mode (5 min)</label>' +
+    '<button type="button" onclick="quizMixedStart()" style="font-family:JetBrains Mono,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:white;border:none;border-radius:10px;padding:.55rem 1rem;cursor:pointer">Mixed Quiz · 20 random</button>';
   if(startBtn && startBtn.parentNode) startBtn.parentNode.insertBefore(wrap, startBtn);
 }
 

@@ -509,6 +509,19 @@ body.dark .ap-card{background:var(--p50);border-color:var(--p100)}
 body.dark .method-card{background:var(--p50);border-color:var(--p100)}
 .cover-cta{display:inline-block;margin:1rem auto .4rem;padding:.7rem 1.4rem;border-radius:99px;background:var(--p500);color:#fff;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:all .15s}
 .cover-cta:hover{background:var(--p400);transform:translateY(-1px)}
+/* Root-style cover (unified look) */
+.cw{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;text-align:center;gap:.75rem;padding:1rem}
+.cb{width:60px;height:5px;background:linear-gradient(90deg,var(--p300),var(--p200));border-radius:99px;margin-bottom:.4rem}
+.ce{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--ink4);letter-spacing:.22em;text-transform:uppercase}
+.ct{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,10vw,3.8rem);font-weight:700;line-height:1.05}
+.ct em{color:var(--p500);font-style:italic}
+.cdiv{width:44px;height:2px;background:var(--p300);border-radius:99px;margin:.15rem auto}
+.csb{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--ink4);letter-spacing:.15em}
+.cdesc{font-size:.86rem;color:var(--ink3);max-width:340px;line-height:1.7;margin-top:.35rem}
+.cmeta{margin-top:1.8rem;display:flex;flex-direction:column;gap:.55rem;width:100%;max-width:280px;text-align:left}
+.cff{display:flex;align-items:center;gap:.7rem}
+.cfl{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;min-width:52px}
+.cfline{flex:1;border-bottom:1px solid var(--p200);min-height:20px;display:flex;align-items:flex-end;padding-bottom:2px;font-family:'Playfair Display',serif;font-style:italic;color:var(--ink2);font-size:.88rem}
 .cover-stats{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem}
 .badge-row{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem}
 .cc-badge{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--ink4);background:#ececec;padding:.35rem .65rem;border-radius:99px;letter-spacing:.06em;border:1px solid var(--line);opacity:.55;font-weight:600}
@@ -627,7 +640,7 @@ body.dark .viz-cx.bad,body.dark .res-badge.adv{background:#4d1418;color:#ff9aa0}
 
 <nav class="nav" id="nav">
 <div class="nav-close">
-<div class="nav-title">Navigation</div>
+<div class="nav-title"></div>
 <button class="nav-close-x" onclick="navToggle()">
 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
 </button>
@@ -825,29 +838,26 @@ Review Mode
 
 <!-- COVER -->
 <div class="pg on" id="pg-cover">
-<div class="cover-wrap">
-<div class="cover-cherry">
-<svg width="88" height="88" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-label="Cherry"><circle cx="36" cy="70" r="15"/><circle cx="66" cy="72" r="15"/><path d="M40 56 C42 42 46 34 52 28"/><path d="M64 58 C58 44 56 35 52 28"/><path d="M52 28 C52 28 42 22 35 25 C38 32 47 32 52 28Z"/><path d="M52 28 C52 28 62 22 69 25 C66 32 57 32 52 28Z"/></svg>
+<div class="cw">
+<div style="color:var(--ink);margin-bottom:.4rem"><svg width="76" height="76" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-label="Cherry"><circle cx="36" cy="70" r="15"/><circle cx="66" cy="72" r="15"/><path d="M40 56 C42 42 46 34 52 28"/><path d="M64 58 C58 44 56 35 52 28"/><path d="M52 28 C52 28 42 22 35 25 C38 32 47 32 52 28Z"/><path d="M52 28 C52 28 62 22 69 25 C66 32 57 32 52 28Z"/></svg></div>
+<div class="cb"></div>
+<div class="ce">personal manual · programming</div>
+<div class="ct">Cherry <em>Code</em></div>
+<div class="cdiv"></div>
+<div class="csb">— A Code Diary —</div>
+<div class="cdesc">A personal reference manual for learning programming — core concepts, multi-language examples, zero fluff.</div>
+<div class="cmeta">
+<div class="cff"><span class="cfl">Name</span><span class="cfline">Kaylla Dearo</span></div>
+<div class="cff"><span class="cfl">Started</span><span class="cfline">April 23</span></div>
+<div class="cff"><span class="cfl">Goal</span><span class="cfline">Cybersecurity Expert</span></div>
 </div>
-<div class="cover-edition">Programming Notebook</div>
-<div class="cover-title">Cherry <em>Code</em></div>
-<div class="cover-subtitle">A programming notebook — core concepts, multi-language examples, zero fluff.</div>
-<div class="cover-line"></div>
-<div class="cover-langs">
-<span class="cover-lang">Python</span>
-<span class="cover-lang">JavaScript</span>
-<span class="cover-lang">Java</span>
-</div>
-<div class="cover-tagline">9 blocks · 98 terms · multi-language</div>
-<div class="cover-stats">9 blocks · 98 terms · 3 languages</div>
-<button class="cover-cta" onclick="go('f01');document.querySelectorAll('.nav .ni').forEach(n=>n.classList.remove('active'));">Start Learning &rarr;</button>
+<div class="cover-stats">9 blocks &middot; 98 terms &middot; 3 languages</div>
+<button class="cover-cta" onclick="go('f01');document.querySelectorAll('.nav .ni').forEach(function(n){n.classList.remove('active')});">Start Learning &rarr;</button>
 <div class="badge-row" id="coverBadges">
 <span class="cc-badge" id="badge-firstquiz">First Quiz</span>
 <span class="cc-badge" id="badge-b1-master">Block 1 Mastered</span>
-<span class="cc-badge" id="badge-streak3">3-Day Streak</span>
-<span class="cc-badge" id="badge-50terms">50 Terms Studied</span>
+<span class="cc-badge" id="badge-50terms">50 Studied</span>
 <span class="cc-badge" id="badge-favs10">10 Favorites</span>
-<span class="cc-badge" id="badge-allcheats">All Cheatsheets</span>
 </div>
 </div>
 </div>
