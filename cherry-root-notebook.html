@@ -581,26 +581,13 @@ body.dark .progress-track{background:var(--p50)}
 <div class="ns">Start Here</div>
 <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Cover</div>
 <div class="ni" onclick="go('index',this)"><span class="cd">IDX</span>Full Index</div>
+<div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span>How to Use</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLS</span>Glossary</div>
-<div class="ni" onclick="go('method',this)"><span class="cd">MTD</span>Study Method</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
-<div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
-<div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
-<div class="ndiv"></div>
-<div class="ns">Mind Maps</div>
-<div class="ni" onclick="go('mm-master',this)"><span class="cd">MM·</span>Master Map</div>
-<div class="ni" onclick="go('mm-b0',this)"><span class="cd">MM·0</span>PC Basics</div>
-<div class="ni" onclick="go('mm-b1',this)"><span class="cd">MM·1</span>Internet</div>
-<div class="ni" onclick="go('mm-b2',this)"><span class="cd">MM·2</span>Networks</div>
-<div class="ni" onclick="go('mm-b3',this)"><span class="cd">MM·3</span>Linux</div>
-<div class="ni" onclick="go('mm-b4',this)"><span class="cd">MM·4</span>Programming</div>
-<div class="ni" onclick="go('mm-b5',this)"><span class="cd">MM·5</span>Security</div>
-<div class="ni" onclick="go('mm-b6',this)"><span class="cd">MM·6</span>Web Attacks</div>
-<div class="ni" onclick="go('mm-b7',this)"><span class="cd">MM·7</span>Pentest Tools</div>
-<div class="ni" onclick="go('mm-b8',this)"><span class="cd">MM·8</span>Methodology</div>
-<div class="ni" onclick="go('mm-b9',this)"><span class="cd">MM·9</span>Social Eng</div>
-<div class="ni" onclick="go('mm-b10',this)"><span class="cd">MM·10</span>Malware</div>
-<div class="ni" onclick="go('mm-b11',this)"><span class="cd">MM·11</span>Defense</div>
+<div class="ns">Progress &amp; Goals</div>
+<div class="ni" onclick="go('goals',this)"><span class="cd">GLS</span>Goals &amp; Progress</div>
+<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span>Statistics</div>
+<div class="ni" onclick="go('progress-management',this)"><span class="cd">PRG</span>Manage Progress</div>
 
 <button class="review-trigger" onclick="startReviewMode()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="13" r="1.2" fill="currentColor"/><circle cx="12" cy="13" r="1.2" fill="currentColor"/><circle cx="16" cy="13" r="1.2" fill="currentColor"/></svg>
@@ -808,15 +795,35 @@ Modo Revisão
 <div class="ndiv"></div>
 
 
-<div class="ns">Progress &amp; Goals</div>
-<div class="ni" onclick="go('goals',this)"><span class="cd">GLS</span>Goals &amp; Progress</div>
-<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span>Statistics</div>
-<div class="ni" onclick="go('progress-management',this)"><span class="cd">PRG</span>Manage Progress</div>
+<div class="ns">Mind Maps</div>
+<div class="ni" onclick="go('mm-master',this)"><span class="cd">MM·</span>Master Map</div>
+<div class="ni" onclick="go('mm-b0',this)"><span class="cd">MM·0</span>PC Basics</div>
+<div class="ni" onclick="go('mm-b1',this)"><span class="cd">MM·1</span>Internet</div>
+<div class="ni" onclick="go('mm-b2',this)"><span class="cd">MM·2</span>Networks</div>
+<div class="ni" onclick="go('mm-b3',this)"><span class="cd">MM·3</span>Linux</div>
+<div class="ni" onclick="go('mm-b4',this)"><span class="cd">MM·4</span>Programming</div>
+<div class="ni" onclick="go('mm-b5',this)"><span class="cd">MM·5</span>Security</div>
+<div class="ni" onclick="go('mm-b6',this)"><span class="cd">MM·6</span>Web Attacks</div>
+<div class="ni" onclick="go('mm-b7',this)"><span class="cd">MM·7</span>Pentest Tools</div>
+<div class="ni" onclick="go('mm-b8',this)"><span class="cd">MM·8</span>Methodology</div>
+<div class="ni" onclick="go('mm-b9',this)"><span class="cd">MM·9</span>Social Eng</div>
+<div class="ni" onclick="go('mm-b10',this)"><span class="cd">MM·10</span>Malware</div>
+<div class="ni" onclick="go('mm-b11',this)"><span class="cd">MM·11</span>Defense</div>
 <div class="ndiv"></div>
-<div class="ns">Extra Pages</div>
-<div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span>How to Use</div>
+<div class="ns">Practice</div>
+<div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
+<div class="ndiv"></div>
+<div class="ns">Cheatsheets &amp; References</div>
+<div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
+<div class="ni" onclick="go('method',this)"><span class="cd">MTD</span>Study Method</div>
 <div class="ni" onclick="go('redflag',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="5" y1="22" x2="5" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4 L18 4 L15 9 L18 14 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Red Flags</div>
 <div class="ni" onclick="go('masterqr',this)"><span class="cd">QR</span>Master Quick Ref</div>
+<div class="ni" onclick="go('cs-nmap',this)"><span class="cd">CS·N</span>nmap Cheatsheet</div>
+<div class="ni" onclick="go('cs-burp',this)"><span class="cd">CS·B</span>Burp Suite Cheatsheet</div>
+<div class="ni" onclick="go('cs-curl',this)"><span class="cd">CS·C</span>curl Cheatsheet</div>
+<div class="ni" onclick="go('cs-grep',this)"><span class="cd">CS·G</span>grep Cheatsheet</div>
+<div class="ni" onclick="go('cs-git',this)"><span class="cd">CS·GT</span>git Cheatsheet</div>
+<div class="ni" onclick="go('cs-ports',this)"><span class="cd">CS·P</span>Common Ports</div>
 <div class="ndiv"></div>
 <div class="ns">Visuals</div>
 <div class="ni" onclick="go('http-anatomy',this)"><span class="cd">V·HT</span>HTTP Anatomy</div>
@@ -825,15 +832,9 @@ Modo Revisão
 <div class="ni" onclick="go('kill-chain',this)"><span class="cd">V·KC</span>Cyber Kill Chain</div>
 <div class="ni" onclick="go('osi-visual',this)"><span class="cd">V·OS</span>OSI Model</div>
 <div class="ndiv"></div>
-<div class="ns">Resources &amp; Cheatsheets</div>
+<div class="ns">Resources</div>
 <div class="ni" onclick="go('resources-ctf',this)"><span class="cd">R·CT</span>CTFs for Beginners</div>
 <div class="ni" onclick="go('resources-thm',this)"><span class="cd">R·TH</span>TryHackMe Trail</div>
-<div class="ni" onclick="go('cs-nmap',this)"><span class="cd">CS·N</span>nmap Cheatsheet</div>
-<div class="ni" onclick="go('cs-burp',this)"><span class="cd">CS·B</span>Burp Suite Cheatsheet</div>
-<div class="ni" onclick="go('cs-curl',this)"><span class="cd">CS·C</span>curl Cheatsheet</div>
-<div class="ni" onclick="go('cs-grep',this)"><span class="cd">CS·G</span>grep Cheatsheet</div>
-<div class="ni" onclick="go('cs-git',this)"><span class="cd">CS·GT</span>git Cheatsheet</div>
-<div class="ni" onclick="go('cs-ports',this)"><span class="cd">CS·P</span>Common Ports</div>
 </nav>
 </aside>
 <main class="main">
