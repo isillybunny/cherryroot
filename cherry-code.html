@@ -513,6 +513,84 @@ tr.hidden-by-search{display:none}
 .ring-ctr{position:absolute;top:0;left:0;width:78px;height:78px;display:flex;align-items:center;justify-content:center}
 .ring-pct{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--p500)}
 .ring-cap{font-size:.56rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;text-align:center;line-height:1.2;max-width:84px}
+
+/* ===== VISUALS + RESOURCES (viz- / res-) ===== */
+.viz-expl{font-size:.85rem;line-height:1.6;color:var(--ink2)}
+.viz-expl p{margin-bottom:.55rem}
+.viz-expl strong{color:var(--p500)}
+.viz-svg{width:100%;height:auto;display:block;background:var(--page);border:1.5px solid var(--line);border-radius:10px;padding:.6rem}
+.viz-wrap{margin:1rem 0 1.5rem}
+
+/* execution pipeline */
+.viz-flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:.5rem;margin:1rem 0}
+.viz-step{flex:1 1 130px;min-width:120px;background:var(--p50);border:1.5px solid var(--line);border-radius:10px;padding:.7rem .6rem;display:flex;flex-direction:column;gap:.35rem;position:relative}
+.viz-step .viz-ic{color:var(--p500)}
+.viz-step h5{font-size:.82rem;color:var(--ink);font-family:'Playfair Display',serif}
+.viz-step p{font-size:.7rem;color:var(--ink3);line-height:1.45}
+.viz-arrow{display:flex;align-items:center;justify-content:center;color:var(--p400);flex:0 0 auto;font-size:1.1rem}
+@media(max-width:560px){.viz-arrow{transform:rotate(90deg)}}
+.viz-lane{display:grid;grid-template-columns:1fr;gap:.8rem;margin:1rem 0}
+@media(min-width:640px){.viz-lane{grid-template-columns:1fr 1fr}}
+.viz-lanebox{background:var(--p50);border:1.5px solid var(--line);border-radius:10px;padding:.85rem}
+.viz-lanebox h4{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--p500);margin-bottom:.3rem}
+.viz-lanebox .viz-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.1em;text-transform:uppercase}
+.viz-lanebox p{font-size:.76rem;color:var(--ink2);line-height:1.55;margin-top:.4rem}
+
+/* call stack */
+.viz-stack{display:flex;flex-direction:column-reverse;gap:.35rem;max-width:360px;margin:1rem auto}
+.viz-frame{background:var(--p50);border:1.5px solid var(--line);border-left:4px solid var(--p400);border-radius:8px;padding:.6rem .8rem}
+.viz-frame.top{border-left-color:var(--p500);background:var(--p100)}
+.viz-frame .fn{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--ink);font-weight:600}
+.viz-frame .fm{font-size:.66rem;color:var(--ink3);margin-top:.2rem;font-family:'JetBrains Mono',monospace}
+.viz-stack-base{text-align:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--ink4);letter-spacing:.15em;text-transform:uppercase;margin-top:.4rem}
+.viz-callmap{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;justify-content:center;margin:.8rem 0;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--ink2)}
+.viz-callmap code{background:var(--p100);color:var(--p500);padding:.15rem .45rem;border-radius:5px}
+
+/* data structures grid */
+.viz-dsgroup{margin:1rem 0}
+.viz-dsgroup-t{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.5rem;font-weight:600}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem}
+.viz-ds{background:var(--p50);border:1.5px solid var(--line);border-radius:10px;padding:.7rem;display:flex;flex-direction:column;gap:.35rem}
+.viz-ds svg{color:var(--p500)}
+.viz-ds h5{font-size:.8rem;color:var(--ink);font-family:'Playfair Display',serif}
+.viz-ds p{font-size:.68rem;color:var(--ink3);line-height:1.4}
+
+/* big-o */
+.viz-bigo-legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1rem;justify-content:center}
+.viz-bigo-legend span{font-family:'JetBrains Mono',monospace;font-size:.66rem;display:flex;align-items:center;gap:.3rem;color:var(--ink2)}
+.viz-bigo-legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.viz-table{width:100%;border-collapse:collapse;font-size:.76rem;margin:.6rem 0}
+.viz-table th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p400);padding:.45rem .5rem;border-bottom:1.5px solid var(--line)}
+.viz-table td{padding:.45rem .5rem;border-bottom:1px solid var(--line);color:var(--ink2)}
+.viz-table code{font-family:'JetBrains Mono',monospace;color:var(--ink);background:var(--p50);padding:.1rem .35rem;border-radius:4px}
+.viz-cx{font-family:'JetBrains Mono',monospace;font-weight:600;padding:.1rem .45rem;border-radius:5px;font-size:.72rem}
+.viz-cx.good{background:#d6f0dd;color:#1c7a3a}
+.viz-cx.ok{background:var(--p100);color:var(--p500)}
+.viz-cx.bad{background:#fbd5d5;color:#b32030}
+
+/* oop */
+.viz-oop{display:grid;grid-template-columns:1fr;gap:1rem;margin:1rem 0}
+.viz-ooprow{background:var(--p50);border:1.5px solid var(--line);border-radius:10px;padding:.85rem}
+.viz-ooprow h4{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--p500);margin-bottom:.5rem}
+.viz-ooprow p{font-size:.74rem;color:var(--ink2);line-height:1.55;margin-top:.5rem}
+
+/* resources */
+.res-recbox{background:var(--p100);border:1.5px solid var(--p200);border-radius:10px;padding:.85rem 1rem;font-size:.82rem;color:var(--ink2);line-height:1.6;margin:1rem 0}
+.res-recbox strong{color:var(--p500)}
+.res-card{background:var(--p50);border:1.5px solid var(--line);border-radius:10px;padding:.85rem 1rem;margin-bottom:.7rem}
+.res-head{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin-bottom:.4rem}
+.res-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--ink)}
+.res-badge{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;border-radius:6px;font-weight:600}
+.res-badge.beg{background:#d6f0dd;color:#1c7a3a}
+.res-badge.int{background:var(--p100);color:var(--p500)}
+.res-badge.adv{background:#fbd5d5;color:#b32030}
+.res-badge.ref{background:var(--p200);color:var(--ink)}
+.res-link{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--p400)}
+.res-desc{font-size:.78rem;color:var(--ink2);line-height:1.55;margin-bottom:.4rem}
+.res-rec{font-size:.74rem;color:var(--ink3)}
+
+body.dark .viz-cx.good,body.dark .res-badge.beg{background:#173d22;color:#7fe0a0}
+body.dark .viz-cx.bad,body.dark .res-badge.adv{background:#4d1418;color:#ff9aa0}
 </style>
 </head>
 <body>
@@ -707,6 +785,16 @@ Review Mode
 <div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Languages Comparison</div>
 <div class="ni" onclick="go('anti-patterns',this)"><span class="cd">ANT</span>Anti-patterns</div>
 <div class="ni" onclick="go('method',this)"><span class="cd">MTH</span>Study Method</div>
+<div class="ndiv"></div>
+<div class="ns">Visuals</div>
+<div class="ni" onclick="go('viz-execution',this)"><span class="cd">V·01</span>How Code Runs</div>
+<div class="ni" onclick="go('viz-callstack',this)"><span class="cd">V·02</span>The Call Stack</div>
+<div class="ni" onclick="go('viz-datastructures',this)"><span class="cd">V·03</span>Data Structures Map</div>
+<div class="ni" onclick="go('viz-bigo',this)"><span class="cd">V·04</span>Big-O Complexity</div>
+<div class="ni" onclick="go('viz-oop',this)"><span class="cd">V·05</span>OOP Relationships</div>
+<div class="ndiv"></div>
+<div class="ns">Resources</div>
+<div class="ni" onclick="go('resources',this)"><span class="cd">RES</span>Learning Resources</div>
 
 </nav>
 
@@ -8027,6 +8115,308 @@ total = order.getTotal();</div>
 <div class="pcard pm-danger">
 <p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem"><strong>Danger zone.</strong> This will permanently delete all your tags, notes, goals, and quiz scores from this browser.</p>
 <button onclick="resetProgress()" class="pm-btn">Reset everything</button>
+</div>
+</div>
+</div>
+
+<!-- ===================== VISUALS ===================== -->
+
+<!-- VIZ 1: HOW CODE RUNS -->
+<div class="pg" id="pg-viz-execution">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> visuals <span>&rsaquo;</span> execution</div>
+<div class="pt">How Code <em>Runs</em></div>
+<div class="ps">From the text you type to the instructions your CPU actually executes.</div>
+</div>
+
+<div class="sec"><div class="sl">The Execution Pipeline</div>
+<div class="viz-flow">
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 4 H5 a1 1 0 0 0-1 1 V19 a1 1 0 0 0 1 1 H19 a1 1 0 0 0 1-1 V9 L15 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 12 H16 M8 15 H14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><h5>Source Code</h5><p>The human-readable text you write.</p></div>
+  <div class="viz-arrow">&rarr;</div>
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="4" height="4" stroke="currentColor" stroke-width="1.6"/><rect x="10" y="6" width="4" height="4" stroke="currentColor" stroke-width="1.6"/><rect x="17" y="6" width="4" height="4" stroke="currentColor" stroke-width="1.6"/><path d="M3 16 H21" stroke="currentColor" stroke-width="1.4"/></svg><h5>Lexer / Tokenizer</h5><p>Splits text into tokens (keywords, names, symbols).</p></div>
+  <div class="viz-arrow">&rarr;</div>
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="18" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M11 7 L7 16 M13 7 L17 16" stroke="currentColor" stroke-width="1.4"/></svg><h5>Parser (AST)</h5><p>Builds a tree showing the structure &amp; grammar.</p></div>
+  <div class="viz-arrow">&rarr;</div>
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 3 L3 12 L6 21 M18 3 L21 12 L18 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 16 L14 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><h5>Compiler / Interpreter</h5><p>Translates the tree into lower-level instructions.</p></div>
+  <div class="viz-arrow">&rarr;</div>
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 7 H19 M5 12 H19 M5 17 H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><h5>Bytecode / Machine Code</h5><p>Compact instructions a machine can read.</p></div>
+  <div class="viz-arrow">&rarr;</div>
+  <div class="viz-step"><svg class="viz-ic" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="7" y="7" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.6"/><path d="M10 3 V6 M14 3 V6 M10 18 V21 M14 18 V21 M3 10 H6 M3 14 H6 M18 10 H21 M18 14 H21" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><h5>CPU Executes</h5><p>Hardware runs the instructions, step by step.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sl">Compiled vs Interpreted</div>
+<div class="viz-lane">
+  <div class="viz-lanebox"><h4>Compiled</h4><div class="viz-tag">Java · C · C++ · Rust · Go</div><p>The whole program is translated <strong>ahead of time</strong> into machine code (or bytecode). You compile once, then run the result many times. Errors surface at compile time; execution is fast.</p></div>
+  <div class="viz-lanebox"><h4>Interpreted</h4><div class="viz-tag">Python · JavaScript · Ruby</div><p>An interpreter reads and runs the program <strong>line by line</strong> at runtime — no separate build step. Faster to iterate, but slower per run, and many errors only appear when that line executes.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sl">Reading It</div>
+<div class="viz-expl"><p>The line between the two blurs in practice: Python compiles to bytecode before interpreting it, and JavaScript engines use JIT compilation to turn hot code into machine code on the fly. What matters is <strong>when</strong> the translation happens — before you run (compiled) or while you run (interpreted).</p></div>
+</div>
+</div>
+
+<!-- VIZ 2: THE CALL STACK -->
+<div class="pg" id="pg-viz-callstack">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> visuals <span>&rsaquo;</span> call stack</div>
+<div class="pt">The Call <em>Stack</em></div>
+<div class="ps">How a program keeps track of which function is running and where to return.</div>
+</div>
+
+<div class="sec"><div class="sl">A Small Example</div>
+<div class="viz-callmap"><code>main()</code> &rarr; calls <code>greet()</code> &rarr; calls <code>format()</code></div>
+<div class="viz-stack">
+  <div class="viz-frame top"><div class="fn">format()</div><div class="fm">locals: text · return &rarr; greet()</div></div>
+  <div class="viz-frame"><div class="fn">greet()</div><div class="fm">locals: name · return &rarr; main()</div></div>
+  <div class="viz-frame"><div class="fn">main()</div><div class="fm">locals: user · return &rarr; runtime</div></div>
+</div>
+<div class="viz-stack-base">&darr; stack base &middot; frames pushed on top &uarr;</div>
+</div>
+
+<div class="sec"><div class="sl">How It Works</div>
+<div class="viz-expl">
+<p>Every time a function is <strong>called</strong>, a new <em>stack frame</em> is pushed on top. Each frame holds that call's <strong>local variables</strong> and a <strong>return address</strong> — the spot to jump back to when it finishes.</p>
+<p>When a function <strong>returns</strong>, its frame is popped off and control unwinds to the caller below it. The stack shrinks back down — last in, first out.</p>
+<p><strong>Stack overflow</strong> happens when recursion goes too deep (or never stops): frames keep stacking until the stack runs out of memory and the program crashes. That's why recursive functions need a base case.</p>
+</div>
+</div>
+</div>
+
+<!-- VIZ 3: DATA STRUCTURES MAP -->
+<div class="pg" id="pg-viz-datastructures">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> visuals <span>&rsaquo;</span> data structures</div>
+<div class="pt">Data Structures <em>Map</em></div>
+<div class="ps">The everyday containers, grouped by shape — and when to reach for each.</div>
+</div>
+
+<div class="viz-dsgroup"><div class="viz-dsgroup-t">Linear</div>
+<div class="viz-grid">
+  <div class="viz-ds"><svg width="44" height="20" viewBox="0 0 44 20" fill="none"><rect x="1" y="2" width="10" height="16" stroke="currentColor" stroke-width="1.4"/><rect x="11" y="2" width="10" height="16" stroke="currentColor" stroke-width="1.4"/><rect x="21" y="2" width="10" height="16" stroke="currentColor" stroke-width="1.4"/><rect x="31" y="2" width="10" height="16" stroke="currentColor" stroke-width="1.4"/></svg><h5>Array</h5><p>Fixed slots, instant index access.</p></div>
+  <div class="viz-ds"><svg width="44" height="20" viewBox="0 0 44 20" fill="none"><rect x="1" y="4" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M13 10 H17" stroke="currentColor" stroke-width="1.4"/><rect x="17" y="4" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M29 10 H33" stroke="currentColor" stroke-width="1.4"/><rect x="33" y="4" width="10" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/></svg><h5>Linked List</h5><p>Cheap inserts/removes, no random access.</p></div>
+  <div class="viz-ds"><svg width="44" height="20" viewBox="0 0 44 20" fill="none"><rect x="1" y="2" width="14" height="16" stroke="currentColor" stroke-width="1.4"/><path d="M22 2 H42 M22 7 H42 M22 12 H42 M22 17 H42" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><h5>List</h5><p>Growable, ordered, general purpose.</p></div>
+  <div class="viz-ds"><svg width="30" height="24" viewBox="0 0 30 24" fill="none"><rect x="6" y="2" width="18" height="6" stroke="currentColor" stroke-width="1.4"/><rect x="6" y="9" width="18" height="6" stroke="currentColor" stroke-width="1.4"/><rect x="6" y="16" width="18" height="6" stroke="currentColor" stroke-width="1.4"/></svg><h5>Stack</h5><p>LIFO — undo, call frames, backtracking.</p></div>
+  <div class="viz-ds"><svg width="44" height="20" viewBox="0 0 44 20" fill="none"><path d="M3 6 H41" stroke="currentColor" stroke-width="1.4" marker-end=""/><rect x="3" y="6" width="9" height="9" stroke="currentColor" stroke-width="1.4"/><rect x="13" y="6" width="9" height="9" stroke="currentColor" stroke-width="1.4"/><rect x="23" y="6" width="9" height="9" stroke="currentColor" stroke-width="1.4"/></svg><h5>Queue</h5><p>FIFO — tasks, buffers, scheduling.</p></div>
+</div></div>
+
+<div class="viz-dsgroup"><div class="viz-dsgroup-t">Map-based</div>
+<div class="viz-grid">
+  <div class="viz-ds"><svg width="44" height="22" viewBox="0 0 44 22" fill="none"><rect x="1" y="3" width="16" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M19 6.5 H25" stroke="currentColor" stroke-width="1.4"/><rect x="27" y="3" width="16" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="13" width="16" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M19 16.5 H25" stroke="currentColor" stroke-width="1.4"/><rect x="27" y="13" width="16" height="7" rx="1.5" stroke="currentColor" stroke-width="1.4"/></svg><h5>Dict / Map</h5><p>Key &rarr; value lookups, fast by key.</p></div>
+  <div class="viz-ds"><svg width="40" height="22" viewBox="0 0 40 22" fill="none"><circle cx="12" cy="11" r="9" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="11" r="9" stroke="currentColor" stroke-width="1.4"/></svg><h5>Set</h5><p>Unique items, fast membership tests.</p></div>
+  <div class="viz-ds"><svg width="44" height="22" viewBox="0 0 44 22" fill="none"><rect x="1" y="2" width="12" height="18" stroke="currentColor" stroke-width="1.4"/><path d="M1 7 H13 M1 13 H13" stroke="currentColor" stroke-width="1.2"/><path d="M16 5 L42 5 M16 11 L42 11 M16 17 L42 17" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/></svg><h5>Hash Table</h5><p>Engine behind dicts/sets — O(1) average.</p></div>
+</div></div>
+
+<div class="viz-dsgroup"><div class="viz-dsgroup-t">Hierarchical</div>
+<div class="viz-grid">
+  <div class="viz-ds"><svg width="40" height="24" viewBox="0 0 40 24" fill="none"><circle cx="20" cy="4" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="14" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="30" cy="14" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="6" cy="22" r="2.5" stroke="currentColor" stroke-width="1.4"/><circle cx="14" cy="22" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M18 6 L12 12 M22 6 L28 12 M9 16 L7 20 M11 16 L13 20" stroke="currentColor" stroke-width="1.2"/></svg><h5>Tree</h5><p>Hierarchies — files, parsing, search trees.</p></div>
+  <div class="viz-ds"><svg width="40" height="24" viewBox="0 0 40 24" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="32" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="20" cy="18" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="20" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M11 7 L29 7 M10 8 L18 16 M30 8 L22 16 M9 9 L9 17" stroke="currentColor" stroke-width="1.2"/></svg><h5>Graph</h5><p>Networks — maps, social, dependencies.</p></div>
+</div></div>
+
+<div class="sec"><div class="sl">Reading It</div>
+<div class="viz-expl"><p>Pick by the operation you do most. Need fast lookup by key? A <strong>dict</strong>. Order matters and you append a lot? A <strong>list</strong>. Need uniqueness? A <strong>set</strong>. Most data structures are trade-offs: speed for one operation usually costs speed in another.</p></div>
+</div>
+</div>
+
+<!-- VIZ 4: BIG-O COMPLEXITY -->
+<div class="pg" id="pg-viz-bigo">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> visuals <span>&rsaquo;</span> big-o</div>
+<div class="pt">Big-O <em>Complexity</em></div>
+<div class="ps">How an algorithm's cost grows as the input gets bigger.</div>
+</div>
+
+<div class="viz-wrap">
+<svg class="viz-svg" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Big-O growth curves">
+  <defs><style>.axl{font-family:'JetBrains Mono',monospace;font-size:9px;fill:#7a3548}.cvl{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600}</style></defs>
+  <line x1="40" y1="20" x2="40" y2="240" stroke="#b88090" stroke-width="1.5"/>
+  <line x1="40" y1="240" x2="400" y2="240" stroke="#b88090" stroke-width="1.5"/>
+  <text x="14" y="130" class="axl" transform="rotate(-90 14 130)">operations</text>
+  <text x="220" y="266" text-anchor="middle" class="axl">input size (n)</text>
+  <!-- O(1) -->
+  <path d="M40 232 L400 232" fill="none" stroke="#1c7a3a" stroke-width="2"/>
+  <text x="404" y="232" class="cvl" fill="#1c7a3a">O(1)</text>
+  <!-- O(log n) -->
+  <path d="M40 230 Q120 210 200 200 T400 188" fill="none" stroke="#3a9c5a" stroke-width="2"/>
+  <text x="360" y="180" class="cvl" fill="#3a9c5a">O(log n)</text>
+  <!-- O(n) -->
+  <path d="M40 235 L380 70" fill="none" stroke="#c93f4f" stroke-width="2"/>
+  <text x="360" y="60" class="cvl" fill="#c93f4f">O(n)</text>
+  <!-- O(n log n) -->
+  <path d="M40 236 Q200 150 300 40 T330 24" fill="none" stroke="#e87373" stroke-width="2"/>
+  <text x="300" y="20" class="cvl" fill="#e87373">O(n log n)</text>
+  <!-- O(n^2) -->
+  <path d="M40 238 Q150 230 200 150 T250 24" fill="none" stroke="#b32030" stroke-width="2"/>
+  <text x="244" y="20" class="cvl" fill="#b32030">O(n&#178;)</text>
+  <!-- O(2^n) -->
+  <path d="M40 238 Q90 236 110 150 T140 24" fill="none" stroke="#7a0d18" stroke-width="2"/>
+  <text x="120" y="20" class="cvl" fill="#7a0d18">O(2&#8319;)</text>
+</svg>
+</div>
+<div class="viz-bigo-legend">
+  <span><i style="background:#1c7a3a"></i>O(1) constant</span>
+  <span><i style="background:#3a9c5a"></i>O(log n)</span>
+  <span><i style="background:#c93f4f"></i>O(n)</span>
+  <span><i style="background:#e87373"></i>O(n log n)</span>
+  <span><i style="background:#b32030"></i>O(n&#178;)</span>
+  <span><i style="background:#7a0d18"></i>O(2&#8319;)</span>
+</div>
+
+<div class="sec"><div class="sl">Common Operations</div>
+<table class="viz-table">
+<thead><tr><th>Operation</th><th>Complexity</th><th>Cost</th></tr></thead>
+<tbody>
+<tr><td>Array access by index</td><td><code>O(1)</code></td><td><span class="viz-cx good">great</span></td></tr>
+<tr><td>Hash / dict lookup (avg)</td><td><code>O(1)</code></td><td><span class="viz-cx good">great</span></td></tr>
+<tr><td>Binary search (sorted)</td><td><code>O(log n)</code></td><td><span class="viz-cx good">great</span></td></tr>
+<tr><td>Linear search</td><td><code>O(n)</code></td><td><span class="viz-cx ok">ok</span></td></tr>
+<tr><td>Merge / quick sort (avg)</td><td><code>O(n log n)</code></td><td><span class="viz-cx ok">ok</span></td></tr>
+<tr><td>Bubble / insertion sort</td><td><code>O(n&#178;)</code></td><td><span class="viz-cx bad">slow</span></td></tr>
+<tr><td>Nested loop over pairs</td><td><code>O(n&#178;)</code></td><td><span class="viz-cx bad">slow</span></td></tr>
+<tr><td>Naive recursive subsets</td><td><code>O(2&#8319;)</code></td><td><span class="viz-cx bad">slow</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sec"><div class="sl">Reading It</div>
+<div class="viz-expl"><p>Big-O describes the <strong>shape</strong> of growth, not exact timing. We drop constants — <code>O(2n)</code> is just <code>O(n)</code>. What matters is how cost scales: doubling the input barely touches an <strong>O(log n)</strong> algorithm but quadruples an <strong>O(n&#178;)</strong> one. At large n, the curve is everything.</p></div>
+</div>
+</div>
+
+<!-- VIZ 5: OOP RELATIONSHIPS -->
+<div class="pg" id="pg-viz-oop">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> visuals <span>&rsaquo;</span> oop</div>
+<div class="pt">OOP <em>Relationships</em></div>
+<div class="ps">The four pillars, drawn out — class, inheritance, encapsulation, polymorphism.</div>
+</div>
+
+<div class="viz-oop">
+  <div class="viz-ooprow"><h4>Class &rarr; Objects</h4>
+    <svg class="viz-svg" viewBox="0 0 420 130" role="img" aria-label="Class blueprint creating object instances">
+      <rect x="20" y="35" width="110" height="60" rx="6" fill="var(--p100)" stroke="var(--p400)" stroke-width="1.6"/>
+      <text x="75" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="600" fill="var(--p500)">Dog</text>
+      <text x="75" y="76" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--ink3)">blueprint</text>
+      <path d="M130 65 H190" stroke="var(--p400)" stroke-width="1.6"/>
+      <path d="M183 60 L190 65 L183 70" fill="none" stroke="var(--p400)" stroke-width="1.6"/>
+      <rect x="195" y="18" width="90" height="40" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.6"/>
+      <text x="240" y="42" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">rex : Dog</text>
+      <rect x="195" y="72" width="90" height="40" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.6"/>
+      <text x="240" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">fido : Dog</text>
+      <rect x="300" y="45" width="100" height="40" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.6"/>
+      <text x="350" y="69" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">luna : Dog</text>
+    </svg>
+    <p>A <strong>class</strong> is a blueprint; an <strong>object</strong> is a concrete instance built from it. One class, many objects — each with its own data.</p>
+  </div>
+
+  <div class="viz-ooprow"><h4>Inheritance</h4>
+    <svg class="viz-svg" viewBox="0 0 420 130" role="img" aria-label="Animal parent class with Dog and Cat subclasses">
+      <rect x="160" y="12" width="100" height="34" rx="6" fill="var(--p100)" stroke="var(--p400)" stroke-width="1.6"/>
+      <text x="210" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="var(--p500)">Animal</text>
+      <path d="M210 46 V70 M110 70 H310 M110 70 V90 M310 70 V90" fill="none" stroke="var(--p400)" stroke-width="1.4"/>
+      <rect x="60" y="90" width="100" height="34" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.6"/>
+      <text x="110" y="112" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink2)">Dog</text>
+      <rect x="260" y="90" width="100" height="34" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.6"/>
+      <text x="310" y="112" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="var(--ink2)">Cat</text>
+    </svg>
+    <p><strong>Dog</strong> and <strong>Cat</strong> inherit shared behaviour from <strong>Animal</strong> (eat, sleep) and add their own. Reuse without copy-paste.</p>
+  </div>
+
+  <div class="viz-ooprow"><h4>Encapsulation</h4>
+    <svg class="viz-svg" viewBox="0 0 420 120" role="img" aria-label="Public and private members of a class">
+      <rect x="120" y="14" width="180" height="92" rx="8" fill="var(--p50)" stroke="var(--p400)" stroke-width="1.6"/>
+      <text x="210" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="600" fill="var(--p500)">BankAccount</text>
+      <rect x="138" y="44" width="144" height="22" rx="4" fill="#fbd5d5" stroke="#b32030" stroke-width="1.2"/>
+      <text x="210" y="59" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#b32030">- balance  (private)</text>
+      <rect x="138" y="72" width="144" height="22" rx="4" fill="#d6f0dd" stroke="#1c7a3a" stroke-width="1.2"/>
+      <text x="210" y="87" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#1c7a3a">+ deposit()  (public)</text>
+    </svg>
+    <p><strong>Private</strong> data is hidden behind <strong>public</strong> methods. Outside code can call <code>deposit()</code> but can't touch <code>balance</code> directly — the object guards its own state.</p>
+  </div>
+
+  <div class="viz-ooprow"><h4>Polymorphism</h4>
+    <svg class="viz-svg" viewBox="0 0 420 120" role="img" aria-label="Same method name, different behaviour per class">
+      <rect x="20" y="44" width="120" height="32" rx="6" fill="var(--p100)" stroke="var(--p400)" stroke-width="1.6"/>
+      <text x="80" y="64" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="var(--p500)">.speak()</text>
+      <path d="M140 60 H190" stroke="var(--p400)" stroke-width="1.4"/>
+      <rect x="195" y="14" width="120" height="28" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.4"/>
+      <text x="255" y="33" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">Dog &rarr; "Woof"</text>
+      <rect x="195" y="48" width="120" height="28" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.4"/>
+      <text x="255" y="67" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">Cat &rarr; "Meow"</text>
+      <rect x="195" y="82" width="120" height="28" rx="6" fill="var(--page)" stroke="var(--line)" stroke-width="1.4"/>
+      <text x="255" y="101" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--ink2)">Cow &rarr; "Moo"</text>
+    </svg>
+    <p>The <strong>same method call</strong> behaves differently depending on the object's type. Call <code>.speak()</code> on any animal and each one answers in its own way.</p>
+  </div>
+</div>
+
+<div class="sec"><div class="sl">Reading It</div>
+<div class="viz-expl"><p>These four pillars work together: <strong>encapsulation</strong> hides the messy details, <strong>inheritance</strong> shares the common ones, <strong>polymorphism</strong> lets you treat different types uniformly, and <strong>classes</strong> tie it all into reusable blueprints. Good OOP is about modelling your problem, not adding boxes for their own sake.</p></div>
+</div>
+</div>
+
+<!-- ===================== RESOURCES ===================== -->
+<div class="pg" id="pg-resources">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> resources <span>&rsaquo;</span> learning</div>
+<div class="pt">Learning <em>Resources</em></div>
+<div class="ps">Where to actually practice — picked platforms, ranked by friendliness.</div>
+</div>
+
+<div class="res-recbox"><strong>Recommended order for beginners ✦</strong> &nbsp;<strong>CS50</strong> &rarr; <strong>freeCodeCamp</strong> &rarr; <strong>The Odin Project</strong> &rarr; <strong>LeetCode (easy)</strong>. Build the fundamentals, then a real project path, then drill problem-solving.</div>
+
+<div class="sec"><div class="sl">Foundations &amp; Curricula</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">CS50 (Harvard)</span><span class="res-badge beg">Beginner</span><span class="res-link">cs50.harvard.edu &nearr;</span></div>
+  <div class="res-desc">Harvard's legendary intro to computer science. Free, lectures + problem sets covering C, Python, SQL, algorithms and how computers actually work.</div>
+  <div class="res-rec">✦ Best for building real CS fundamentals from scratch.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">freeCodeCamp</span><span class="res-badge beg">Beginner</span><span class="res-link">freecodecamp.org &nearr;</span></div>
+  <div class="res-desc">Free, full curriculum with thousands of hands-on exercises and certifications — web dev, data, Python, and more. Browser-based, no install.</div>
+  <div class="res-rec">✦ Best for a structured, project-driven first path.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">The Odin Project</span><span class="res-badge beg">Beginner</span><span class="res-link">theodinproject.com &nearr;</span></div>
+  <div class="res-desc">Free, project-based full-stack web development path (HTML/CSS, JS, Ruby/Node). Teaches you to use real tools and build a portfolio.</div>
+  <div class="res-rec">✦ Best for going from basics to employable web dev.</div>
+</div>
+</div>
+
+<div class="sec"><div class="sl">Practice &amp; Challenges</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">LeetCode</span><span class="res-badge int">Easy &rarr; Hard</span><span class="res-link">leetcode.com &nearr;</span></div>
+  <div class="res-desc">The standard for algorithm &amp; data-structure practice and coding-interview prep. Thousands of problems graded by difficulty, with discussions.</div>
+  <div class="res-rec">✦ Best for interview prep — start with the Easy set.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">HackerRank</span><span class="res-badge int">Practice</span><span class="res-link">hackerrank.com &nearr;</span></div>
+  <div class="res-desc">Practice tracks and challenges across languages, plus skill certifications used by employers. Gentler ramp than LeetCode for many topics.</div>
+  <div class="res-rec">✦ Best for warming up and broad language drills.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">Exercism</span><span class="res-badge beg">Mentored</span><span class="res-link">exercism.org &nearr;</span></div>
+  <div class="res-desc">Free exercises across 70+ languages with optional human mentoring and code feedback. Focuses on idiomatic, clean solutions.</div>
+  <div class="res-rec">✦ Best for learning a new language the right way.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">Codewars</span><span class="res-badge int">Gamified</span><span class="res-link">codewars.com &nearr;</span></div>
+  <div class="res-desc">Bite-sized "kata" challenges with belts and ranks. Compare your solution against others after solving — great for sharpening fluency.</div>
+  <div class="res-rec">✦ Best for daily, gamified short practice.</div>
+</div>
+</div>
+
+<div class="sec"><div class="sl">Reference &amp; Docs</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">MDN Web Docs</span><span class="res-badge ref">Reference</span><span class="res-link">developer.mozilla.org &nearr;</span></div>
+  <div class="res-desc">The authoritative reference for JavaScript, HTML, CSS and web APIs. Accurate, example-rich, and the first place to check how something works.</div>
+  <div class="res-rec">✦ Best for looking up anything web/JS.</div>
+</div>
+<div class="res-card">
+  <div class="res-head"><span class="res-name">Python.org docs / Real Python</span><span class="res-badge ref">Reference</span><span class="res-link">docs.python.org &middot; realpython.com &nearr;</span></div>
+  <div class="res-desc">The official Python docs for precise language/library detail, plus Real Python's tutorials for clear, practical walkthroughs of Python topics.</div>
+  <div class="res-rec">✦ Best for Python reference and deeper how-tos.</div>
 </div>
 </div>
 </div>
