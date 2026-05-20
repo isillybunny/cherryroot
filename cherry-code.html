@@ -315,6 +315,20 @@ body.dark .how code{background:var(--page);color:var(--p500);border-color:var(--
 body.dark .kw{background:var(--p50);color:var(--ink2);border-color:var(--line)}
 body.dark .rem{background:linear-gradient(135deg,var(--p100),var(--p50));color:var(--ink2);border-left-color:var(--p400)}
 body.dark .howto-card{background:var(--p50)}
+/* Progress & Goals pages */
+.pcard{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem}
+.pm-counter{background:var(--p50);border:1.5px solid var(--p200);border-radius:14px;padding:1.1rem 1.3rem;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-align:center}
+.pm-input{flex:1;min-width:200px;font-family:'DM Sans',sans-serif;font-size:.86rem;padding:.6rem .85rem;border:1.5px solid var(--p200);border-radius:10px;background:#fff;color:var(--ink);outline:none}
+.pm-btn{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--p500);color:#fff;border:none;border-radius:10px;padding:.6rem 1.1rem;cursor:pointer}
+.pm-btn-dark{background:var(--ink)}
+.pm-danger{background:#fff5f7;border-color:var(--p300)}
+.goal-row{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.7rem}
+.goal-empty{background:#fff;border:1.5px dashed var(--p200);border-radius:12px;padding:1.2rem;text-align:center;font-size:.82rem;color:var(--ink3);font-style:italic}
+.stat-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:1rem;display:flex;flex-direction:column;gap:.3rem;min-width:0}
+body.dark .pcard,body.dark .pm-input,body.dark .goal-row,body.dark .goal-empty,body.dark .stat-card{background:var(--page);border-color:var(--line)}
+body.dark .pm-counter{background:var(--p50);border-color:var(--p200);color:var(--ink)}
+body.dark .pm-btn-dark{background:var(--p100);color:var(--ink)}
+body.dark .pm-danger{background:var(--p50);border-color:var(--p300)}
 body.dark .howto-text code{background:var(--page);color:var(--p500);border-color:var(--line)}
 body.dark .gl-item{background:var(--p50)}
 body.dark .ptag{background:var(--p50);color:var(--p400);border-color:var(--p200)}
@@ -530,6 +544,10 @@ tr.hidden-by-search{display:none}
 <div class="ni" onclick="go('howto',this)"><span class="cd">HOW</span>How to Use</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLO</span>Glossary</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
+<div class="ns">Progress &amp; Goals</div>
+<div class="ni" onclick="go('goals',this)"><span class="cd">GOL</span>Goals</div>
+<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span>Statistics</div>
+<div class="ni" onclick="go('progress-management',this)"><span class="cd">MNG</span>Manage Progress</div>
 
 <button class="review-trigger" onclick="startReviewMode()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="13" r="1.2" fill="currentColor"/><circle cx="12" cy="13" r="1.2" fill="currentColor"/><circle cx="16" cy="13" r="1.2" fill="currentColor"/></svg>
@@ -7920,6 +7938,99 @@ total = order.getTotal();</div>
 </div>
 </div>
 
+<!-- ============ GOALS ============ -->
+<div class="pg" id="pg-goals">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> goals</div>
+<div class="pt">Goals &amp; Progress</div>
+<div class="ps">Define your learning objectives. Track what matters. Celebrate small wins.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Counter</div>
+<div class="pm-counter" id="goalsCounter">0 / 0 goals completed</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Add a goal</div>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap">
+<input id="goalInput" type="text" placeholder="e.g. Finish one block every week" class="pm-input" onkeydown="if(event.key==='Enter')addGoal()">
+<button onclick="addGoal()" class="pm-btn">+ Add</button>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Suggested goals</div>
+<div id="goalSuggestions" style="display:flex;flex-wrap:wrap;gap:.4rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9315; Your goals</div>
+<div id="goalsList"></div>
+</div>
+</div>
+
+<!-- ============ STATISTICS ============ -->
+<div class="pg" id="pg-stats">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> statistics</div>
+<div class="pt">Statistics Dashboard</div>
+<div class="ps">A snapshot of everything you have tagged, studied, and quizzed.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Overview</div>
+<div id="statsGrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Quizzes</div>
+<div id="statsQuizzes" class="pcard"></div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Blocks</div>
+<div class="sl" style="margin-top:.2rem">Progress Rings</div>
+<div class="rings-grid" id="statsRings"></div>
+<div id="statsBlocks" class="pcard"></div>
+</div>
+</div>
+
+<!-- ============ PROGRESS MANAGEMENT ============ -->
+<div class="pg" id="pg-progress-management">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> progress</div>
+<div class="pt">Manage Progress</div>
+<div class="ps">Export your progress to a file, import it on another device, or wipe everything and start fresh.</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9312; Export</div>
+<div class="pcard">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem">Download all your tags, notes, goals and quiz scores as a single <code>.cherry.json</code> file.</p>
+<button onclick="exportProgress()" class="pm-btn">Download backup</button>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9313; Import</div>
+<div class="pcard">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem">Restore progress from a previously exported file. You will be asked to confirm before anything is written.</p>
+<input type="file" id="importFileInput" accept=".json,.cherry.json,application/json" style="display:none" onchange="importProgress(this.files[0])">
+<button onclick="document.getElementById('importFileInput').click()" class="pm-btn pm-btn-dark">Choose file</button>
+<div id="importStatus" style="margin-top:.7rem;font-size:.78rem;color:var(--ink3)"></div>
+</div>
+</div>
+
+<div class="sec">
+<div class="sl">&#9314; Reset</div>
+<div class="pcard pm-danger">
+<p style="font-size:.84rem;line-height:1.65;color:var(--ink2);margin-bottom:.7rem"><strong>Danger zone.</strong> This will permanently delete all your tags, notes, goals, and quiz scores from this browser.</p>
+<button onclick="resetProgress()" class="pm-btn">Reset everything</button>
+</div>
+</div>
+</div>
+
 </main>
 <!-- ===== QUIZ OVERLAY ===== -->
 <div class="quiz-overlay" id="quizOverlay" onclick="if(event.target.id==='quizOverlay'){}">
@@ -8455,11 +8566,301 @@ function renderFavorites(){
   container.innerHTML = html;
 }
 
+// ============ GOALS, STATS, EXPORT/IMPORT/RESET ============
+
+// ---- GOALS ----
+const GOALS_KEY = 'cherryCodeGoals';
+const SUGGESTED_GOALS = [
+  "Finish all 9 blocks of Cherry Code",
+  "Build a project using each paradigm (OOP, functional)",
+  "Solve 50 LeetCode easy problems",
+  "Learn Python, JavaScript AND Java basics",
+  "Write tests for every function I build"
+];
+function loadGoals(){
+  try{ const raw = localStorage.getItem(GOALS_KEY); return raw ? JSON.parse(raw) : []; }catch(e){ return []; }
+}
+function saveGoals(goals){
+  try{ localStorage.setItem(GOALS_KEY, JSON.stringify(goals)); }catch(e){}
+}
+function addGoal(text){
+  const input = document.getElementById('goalInput');
+  const value = (typeof text === 'string') ? text : (input ? input.value.trim() : '');
+  if(!value) return;
+  const goals = loadGoals();
+  goals.push({id:'g_'+Date.now()+'_'+Math.random().toString(36).slice(2,7), text:value, done:false, created:new Date().toISOString()});
+  saveGoals(goals);
+  if(input && typeof text !== 'string') input.value = '';
+  renderGoals();
+}
+function toggleGoal(id){
+  const goals = loadGoals();
+  const g = goals.find(x=>x.id===id);
+  if(g){ g.done = !g.done; saveGoals(goals); renderGoals(); }
+}
+function deleteGoal(id){
+  const goals = loadGoals().filter(x=>x.id!==id);
+  saveGoals(goals); renderGoals();
+}
+function renderGoals(){
+  const goals = loadGoals();
+  const counter = document.getElementById('goalsCounter');
+  const list = document.getElementById('goalsList');
+  if(!list) return;
+  const done = goals.filter(g=>g.done).length;
+  if(counter) counter.textContent = done + ' / ' + goals.length + ' goals completed';
+  if(goals.length === 0){
+    list.innerHTML = '<div class="goal-empty">No goals yet. Add one above or pick a suggestion.</div>';
+    return;
+  }
+  list.innerHTML = goals.map(g => {
+    const d = new Date(g.created).toLocaleDateString();
+    const style = g.done ? 'opacity:.5;text-decoration:line-through' : '';
+    return '<div class="goal-row">' +
+      '<input type="checkbox" ' + (g.done?'checked':'') + ' onchange="toggleGoal(\''+g.id+'\')" style="width:18px;height:18px;cursor:pointer;accent-color:var(--p500);flex-shrink:0">' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="font-size:.88rem;color:var(--ink);line-height:1.4;'+style+'">'+esc(g.text)+'</div>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.62rem;color:var(--ink4);margin-top:.2rem">added '+d+'</div>' +
+      '</div>' +
+      '<button onclick="deleteGoal(\''+g.id+'\')" title="Delete" style="background:none;border:none;color:var(--p400);cursor:pointer;font-size:1.1rem;padding:.2rem .4rem">&times;</button>' +
+    '</div>';
+  }).join('');
+}
+function renderGoalSuggestions(){
+  const wrap = document.getElementById('goalSuggestions');
+  if(!wrap) return;
+  wrap.innerHTML = SUGGESTED_GOALS.map(s =>
+    '<button onclick="addGoal('+JSON.stringify(s)+')" style="font-family:\'JetBrains Mono\',monospace;font-size:.66rem;background:var(--p100);border:1px solid var(--p200);color:var(--ink2);border-radius:8px;padding:.4rem .75rem;cursor:pointer">+ '+esc(s)+'</button>'
+  ).join('');
+}
+
+// ---- STATS ----
+const STATS_BLOCKS = [
+  {prefix:'f', total:10, name:'Fundamentals'},
+  {prefix:'t', total:12, name:'Types & Variables'},
+  {prefix:'o', total:10, name:'Operators'},
+  {prefix:'c', total:10, name:'Control Flow'},
+  {prefix:'n', total:12, name:'Functions'},
+  {prefix:'s', total:12, name:'Data Structures'},
+  {prefix:'p', total:12, name:'OOP'},
+  {prefix:'e', total:10, name:'Errors & Debugging'},
+  {prefix:'b', total:10, name:'Best Practices'}
+];
+function countTerms(){
+  return Array.from(document.querySelectorAll('.pg[id^="pg-"]')).filter(el => /^[a-z]\d+$/.test(el.id.replace('pg-',''))).length;
+}
+function statCard(num, label, sub, svg){
+  return '<div class="stat-card">' +
+    '<div style="display:flex;align-items:center;justify-content:space-between;gap:.4rem"><div style="font-family:\'Playfair Display\',serif;font-size:1.8rem;font-weight:700;color:var(--p500);line-height:1">'+num+'</div>'+
+    '<div style="color:var(--p300);flex-shrink:0">'+svg+'</div></div>'+
+    '<div style="font-family:\'JetBrains Mono\',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3)">'+label+'</div>'+
+    (sub ? '<div style="font-size:.72rem;color:var(--ink4)">'+sub+'</div>' : '') +
+  '</div>';
+}
+function renderStatsRings(){
+  const grid = document.getElementById('statsRings');
+  if(!grid) return;
+  const data = loadData();
+  const tags = data.tags || {};
+  const C = 2 * Math.PI * 34;
+  grid.innerHTML = RING_BLOCKS.map(b => {
+    const studied = ringStudied(tags, b);
+    const pct = b.total ? studied / b.total : 0;
+    return '<div class="ring"><svg viewBox="0 0 78 78"><circle class="ring-bg" cx="39" cy="39" r="34"/>'
+      + '<circle class="ring-fg" cx="39" cy="39" r="34" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + (C*(1-pct)).toFixed(1) + '"/></svg>'
+      + '<div class="ring-ctr"><span class="ring-pct">' + Math.round(pct*100) + '%</span></div>'
+      + '<span class="ring-cap">' + b.cap + '</span></div>';
+  }).join('');
+}
+function renderStats(){
+  const grid = document.getElementById('statsGrid');
+  if(!grid) return;
+  const data = loadData();
+  const tags = data.tags || {};
+  const notes = data.notes || {};
+  const total = countTerms();
+  let studied=0, fav=0, review=0, hard=0;
+  Object.keys(tags).forEach(k => {
+    if(tags[k].studied) studied++;
+    if(tags[k].fav) fav++;
+    if(tags[k].review) review++;
+    if(tags[k].hard) hard++;
+  });
+  const notesCount = Object.keys(notes).filter(k => (notes[k]||'').trim().length>0).length;
+
+  const quizKeys = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryCodeQuizBest_')===0) quizKeys.push(k);
+  }
+  const scores = quizKeys.map(k => parseInt(localStorage.getItem(k)||'0')).filter(n=>!isNaN(n));
+  const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
+
+  const ico = {
+    book:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4 L11 4 L12 5 L13 4 L20 4 L20 19 L13 19 L12 20 L11 19 L4 19 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    check:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><polyline points="8 12 11 15 16 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    heart:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21 L4 13 Q1 10 4 7 Q7 4 12 9 Q17 4 20 7 Q23 10 20 13 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    eye:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M2 12 Q7 5 12 5 Q17 5 22 12 Q17 19 12 19 Q7 19 2 12 Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg>',
+    flame:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 Q14 8 18 11 Q20 14 18 18 Q15 22 9 21 Q4 19 5 13 Q7 14 8 12 Q10 8 12 3 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    trophy:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 4 L17 4 L17 9 Q17 13 12 13 Q7 13 7 9 Z" stroke="currentColor" stroke-width="1.8"/><line x1="10" y1="14" x2="14" y2="14" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="13" x2="12" y2="17" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    pen:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M14 4 L20 10 L9 21 L3 21 L3 15 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+    bar:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="5" y1="20" x2="5" y2="13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="19" y1="20" x2="19" y2="15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>'
+  };
+
+  grid.innerHTML = [
+    statCard(total, 'Total terms', null, ico.book),
+    statCard(studied, 'Studied', total ? Math.round(studied/total*100)+'%' : '0%', ico.check),
+    statCard(fav, 'Favorites', null, ico.heart),
+    statCard(review, 'To review', null, ico.eye),
+    statCard(hard, 'Hard', null, ico.flame),
+    statCard(quizKeys.length, 'Quizzes done', null, ico.trophy),
+    statCard(avg+'%', 'Avg quiz score', null, ico.bar),
+    statCard(notesCount, 'Notes written', null, ico.pen)
+  ].join('');
+
+  const qWrap = document.getElementById('statsQuizzes');
+  if(qWrap){
+    if(quizKeys.length === 0){
+      qWrap.innerHTML = '<div style="font-size:.82rem;color:var(--ink3);font-style:italic">No quizzes completed yet.</div>';
+    } else {
+      qWrap.innerHTML = quizKeys.sort().map(k => {
+        const score = parseInt(localStorage.getItem(k)||'0');
+        const label = k.replace('cherryCodeQuizBest_','').replace('_',' · ');
+        return '<div style="display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--line);font-size:.8rem"><span style="font-family:\'JetBrains Mono\',monospace;font-size:.7rem;color:var(--p500);min-width:90px">'+esc(label)+'</span><div style="flex:1;height:6px;background:var(--p100);border-radius:99px;overflow:hidden"><div style="height:100%;background:var(--p400);width:'+score+'%"></div></div><span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;color:var(--ink2);min-width:40px;text-align:right">'+score+'%</span></div>';
+      }).join('');
+    }
+  }
+
+  const bWrap = document.getElementById('statsBlocks');
+  if(bWrap){
+    let best={pct:-1,name:'—'}, worst={pct:101,name:'—'};
+    STATS_BLOCKS.forEach(b => {
+      let s = 0;
+      Object.keys(tags).forEach(k => { if(k[0]===b.prefix && /^[a-z]\d+$/.test(k) && tags[k].studied) s++; });
+      b._s = s;
+      const pct = b.total ? Math.round(s/b.total*100) : 0;
+      if(pct > best.pct){ best = {pct, name:b.name}; }
+      if(pct < worst.pct){ worst = {pct, name:b.name}; }
+    });
+    let html = STATS_BLOCKS.map(b => {
+      const pct = b.total ? Math.round(b._s/b.total*100) : 0;
+      return '<div style="display:flex;align-items:center;gap:.6rem;padding:.35rem 0;border-bottom:1px solid var(--line);font-size:.78rem"><span style="font-family:\'JetBrains Mono\',monospace;font-size:.68rem;color:var(--p500);min-width:120px">'+esc(b.name)+'</span><div style="flex:1;height:6px;background:var(--p100);border-radius:99px;overflow:hidden"><div style="height:100%;background:var(--p400);width:'+pct+'%"></div></div><span style="font-family:\'JetBrains Mono\',monospace;font-size:.7rem;color:var(--ink2);min-width:60px;text-align:right">'+b._s+'/'+b.total+'</span></div>';
+    }).join('');
+    html += '<div style="margin-top:.7rem;padding-top:.7rem;border-top:1.5px solid var(--p200);display:flex;flex-wrap:wrap;gap:.6rem;font-size:.78rem"><div style="flex:1;min-width:140px"><strong style="color:var(--p500)">Best:</strong> '+esc(best.name)+' ('+best.pct+'%)</div><div style="flex:1;min-width:140px"><strong style="color:var(--ink3)">Lowest:</strong> '+esc(worst.name)+' ('+worst.pct+'%)</div></div>';
+    bWrap.innerHTML = html;
+  }
+
+  renderStatsRings();
+}
+
+// ---- EXPORT / IMPORT / RESET ----
+function collectCherryKeys(){
+  const out = {};
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryCode')===0) out[k] = localStorage.getItem(k);
+  }
+  return out;
+}
+function exportProgress(){
+  const keys = collectCherryKeys();
+  const payload = {exportedAt: new Date().toISOString(), version:1, data:{}};
+  Object.keys(keys).forEach(k => {
+    try{ payload.data[k] = JSON.parse(keys[k]); }
+    catch(e){ payload.data[k] = keys[k]; }
+  });
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const stamp = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = 'cherry-code-progress-' + stamp + '.cherry.json';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+function importProgress(file){
+  const status = document.getElementById('importStatus');
+  if(!file){ if(status) status.textContent = 'No file selected.'; return; }
+  const reader = new FileReader();
+  reader.onload = function(ev){
+    let parsed;
+    try{ parsed = JSON.parse(ev.target.result); }
+    catch(e){ if(status) status.textContent = 'Could not read file: invalid JSON.'; return; }
+    const data = parsed.data || parsed;
+    let tagsCount = 0, notesCount = 0, quizCount = 0, goalsCount = 0;
+    try{
+      const root = data.cherryCodeData;
+      if(root && root.tags) tagsCount = Object.keys(root.tags).length;
+      if(root && root.notes) notesCount = Object.keys(root.notes).length;
+    }catch(e){}
+    if(data.cherryCodeGoals && Array.isArray(data.cherryCodeGoals)) goalsCount = data.cherryCodeGoals.length;
+    Object.keys(data).forEach(k => { if(k.indexOf('cherryCodeQuizBest_')===0) quizCount++; });
+    const summary = tagsCount+' tags, '+notesCount+' notes, '+quizCount+' quiz scores, '+goalsCount+' goals';
+    const choice = window.prompt('This will modify your current progress.\n\nFound: '+summary+'\n\nType MERGE to combine with existing data, or REPLACE to overwrite everything.');
+    if(!choice) { if(status) status.textContent = 'Import cancelled.'; return; }
+    const mode = choice.trim().toUpperCase();
+    if(mode !== 'MERGE' && mode !== 'REPLACE'){ if(status) status.textContent = 'Import cancelled (invalid keyword).'; return; }
+    if(mode === 'REPLACE'){
+      const cur = collectCherryKeys();
+      Object.keys(cur).forEach(k => localStorage.removeItem(k));
+      Object.keys(data).forEach(k => {
+        const v = data[k];
+        localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v));
+      });
+    } else {
+      Object.keys(data).forEach(k => {
+        const v = data[k];
+        if(k === 'cherryCodeData'){
+          let cur = {tags:{},notes:{}};
+          try{ const raw = localStorage.getItem(k); if(raw) cur = JSON.parse(raw); }catch(e){}
+          const incoming = (typeof v === 'string') ? JSON.parse(v) : v;
+          cur.tags = Object.assign({}, cur.tags||{}, incoming.tags||{});
+          cur.notes = Object.assign({}, cur.notes||{}, incoming.notes||{});
+          localStorage.setItem(k, JSON.stringify(cur));
+        } else if(k === 'cherryCodeGoals'){
+          let cur = [];
+          try{ const raw = localStorage.getItem(k); if(raw) cur = JSON.parse(raw); }catch(e){}
+          const incoming = (typeof v === 'string') ? JSON.parse(v) : v;
+          const ids = new Set(cur.map(g=>g.id));
+          (incoming||[]).forEach(g => { if(!ids.has(g.id)) cur.push(g); });
+          localStorage.setItem(k, JSON.stringify(cur));
+        } else if(k.indexOf('cherryCodeQuizBest_')===0){
+          const prev = parseInt(localStorage.getItem(k)||'0');
+          const incoming = parseInt(typeof v==='string' ? v : (v||0));
+          if(incoming > prev) localStorage.setItem(k, String(incoming));
+        } else {
+          localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v));
+        }
+      });
+    }
+    if(status) status.textContent = 'Imported successfully ('+mode.toLowerCase()+'). Reloading...';
+    setTimeout(()=>location.reload(), 800);
+  };
+  reader.readAsText(file);
+}
+function resetProgress(){
+  const c1 = window.confirm('Are you SURE you want to delete ALL your Cherry Code progress?\n\nThis cannot be undone.');
+  if(!c1) return;
+  const typed = window.prompt('Type DELETE (in caps) to confirm.');
+  if(!typed || typed.trim() !== 'DELETE'){ alert('Reset cancelled.'); return; }
+  const keys = [];
+  for(let i=0;i<localStorage.length;i++){
+    const k = localStorage.key(i);
+    if(k && k.indexOf('cherryCode')===0) keys.push(k);
+  }
+  keys.forEach(k => localStorage.removeItem(k));
+  alert('All progress wiped. Reloading.');
+  location.reload();
+}
+
 // Hook go() to render favs and track
 const _origGo = window.go;
 window.go = function(target, navItem){
   _origGo(target, navItem);
   if(target === 'myfavs') setTimeout(renderFavorites, 50);
+  if(target === 'goals') setTimeout(function(){ renderGoals(); renderGoalSuggestions(); }, 50);
+  if(target === 'stats') setTimeout(renderStats, 50);
 };
 
 // Last viewed widget on cover
