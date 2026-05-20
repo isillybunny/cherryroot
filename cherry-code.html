@@ -486,6 +486,19 @@ body.dark .cc-badge{background:#1a0810;border-color:#2a121c}
 .idx-sort{padding:.45rem .65rem;border-radius:8px;border:1.5px solid var(--p200);background:var(--p50);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ink);cursor:pointer;outline:none}
 body.dark .idx-search,body.dark .idx-sort{background:var(--p50);color:var(--ink)}
 tr.hidden-by-search{display:none}
+/* Cherry rain */
+.cherry-rain{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.cherry-drop{position:absolute;top:-40px;will-change:transform,opacity;animation:cherryFall linear forwards}
+@keyframes cherryFall{0%{transform:translateY(-40px) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(105vh) rotate(var(--spin));opacity:.85}}
+/* Progress rings */
+.rings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:.7rem;margin:1rem 0}
+.ring{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ring svg{width:78px;height:78px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--p100);stroke-width:7}
+.ring-fg{fill:none;stroke:var(--p500);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .7s ease}
+.ring-ctr{position:absolute;top:0;left:0;width:78px;height:78px;display:flex;align-items:center;justify-content:center}
+.ring-pct{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--p500)}
+.ring-cap{font-size:.56rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;text-align:center;line-height:1.2;max-width:84px}
 </style>
 </head>
 <body>
@@ -752,6 +765,8 @@ Review Mode
 </div>
 
 <div class="progress-section">
+<div class="sl">Progress Rings</div>
+<div class="rings-grid" id="ringsGrid"></div>
 <div class="sl">Progress · Studied</div>
 <div class="progress-row"><span class="progress-label">Block 1 · Fund</span><div class="progress-track"><div class="progress-fill" id="progress-fill-f" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-f">0/10</span></div>
 <div class="progress-row"><span class="progress-label">Block 2 · Types</span><div class="progress-track"><div class="progress-fill" id="progress-fill-t" style="width:0%"></div></div><span class="progress-pct" id="progress-pct-t">0/12</span></div>
@@ -8173,6 +8188,68 @@ function updateProgressBars(){
     if(fill) fill.style.width = Math.round((studied/b.total)*100) + '%';
     if(pct) pct.textContent = studied + '/' + b.total;
   });
+  renderRings();
+}
+
+// Same block map + counting logic as updateProgressBars (single source of truth)
+const RING_BLOCKS = [
+  {prefix:'f', total:10, cap:'Fund'},
+  {prefix:'t', total:12, cap:'Types'},
+  {prefix:'o', total:10, cap:'Ops'},
+  {prefix:'c', total:10, cap:'Flow'},
+  {prefix:'n', total:12, cap:'Func'},
+  {prefix:'s', total:12, cap:'Structs'},
+  {prefix:'p', total:12, cap:'OOP'},
+  {prefix:'e', total:10, cap:'Errors'},
+  {prefix:'b', total:10, cap:'Best'}
+];
+function ringStudied(tags, b){
+  let studied = 0;
+  Object.keys(tags).forEach(pageId => {
+    if(pageId.startsWith(b.prefix) && /^[a-z]\d+$/.test(pageId) && tags[pageId].studied) studied++;
+  });
+  return studied;
+}
+function renderRings(){
+  const grid = document.getElementById('ringsGrid');
+  if(!grid) return;
+  const data = loadData();
+  const tags = data.tags || {};
+  const C = 2 * Math.PI * 34;
+  grid.innerHTML = RING_BLOCKS.map(b => {
+    const studied = ringStudied(tags, b);
+    const pct = b.total ? studied / b.total : 0;
+    return '<div class="ring"><svg viewBox="0 0 78 78"><circle class="ring-bg" cx="39" cy="39" r="34"/>'
+      + '<circle class="ring-fg" cx="39" cy="39" r="34" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + C.toFixed(1) + '"/></svg>'
+      + '<div class="ring-ctr"><span class="ring-pct">' + Math.round(pct*100) + '%</span></div>'
+      + '<span class="ring-cap">' + b.cap + '</span></div>';
+  }).join('');
+  requestAnimationFrame(() => { requestAnimationFrame(() => {
+    grid.querySelectorAll('.ring-fg').forEach((c, i) => {
+      const b = RING_BLOCKS[i];
+      const studied = ringStudied(tags, b);
+      const pct = b.total ? studied / b.total : 0;
+      c.setAttribute('stroke-dashoffset', (C*(1-pct)).toFixed(1));
+    });
+  }); });
+}
+
+function cherryRain(count){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  count = count || 30;
+  let layer = document.querySelector('.cherry-rain');
+  if(!layer){ layer = document.createElement('div'); layer.className='cherry-rain'; document.body.appendChild(layer); }
+  const svg = '<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="18" r="4" fill="#e87373"/><circle cx="16" cy="19" r="4" fill="#c93f4f"/><path d="M9 14 Q11 7 14 5" stroke="#7a3548" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M16 15 Q15 9 14 5" stroke="#7a3548" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>';
+  for(let i=0;i<count;i++){
+    const d=document.createElement('div'); d.className='cherry-drop';
+    const size=16+Math.random()*22, dur=2.2+Math.random()*2.2, delay=Math.random()*1.2;
+    d.style.left=Math.random()*100+'vw'; d.style.width=size+'px'; d.style.height=size+'px';
+    d.style.animationDuration=dur+'s'; d.style.animationDelay=delay+'s';
+    d.style.setProperty('--spin',(Math.random()*720-360)+'deg');
+    d.innerHTML=svg; layer.appendChild(d);
+    setTimeout(()=>d.remove(),(dur+delay)*1000+200);
+  }
+  setTimeout(()=>{ if(layer && !layer.children.length) layer.remove(); }, 7000);
 }
 
 // ============ GLOSSARY ============
@@ -8947,6 +9024,9 @@ function finishQuiz(){
       '</div>' +
     '</div>';
   refreshQuizHubBest();
+  // Cherry rain celebration (once per result, intensity by score)
+  if(pct === 100) cherryRain(50);
+  else if(pct >= 70) cherryRain(28);
 }
 
 function refreshQuizHubBest(){

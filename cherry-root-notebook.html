@@ -501,6 +501,23 @@ body.dark .progress-track{background:var(--p50)}
 .mm-legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0;font-size:.7rem;color:var(--ink3)}
 .mm-legend-item{display:inline-flex;align-items:center;gap:.35rem;padding:.25rem .55rem;background:var(--p50);border-radius:7px}
 .mm-legend-dot{width:6px;height:6px;border-radius:50%}
+/* Cherry rain */
+.cherry-rain{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.cherry-drop{position:absolute;top:-40px;will-change:transform,opacity;animation:cherryFall linear forwards}
+@keyframes cherryFall{
+  0%{transform:translateY(-40px) rotate(0deg);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(105vh) rotate(var(--spin));opacity:.9}
+}
+/* Progress rings */
+.rings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:.8rem;margin:0 0 1rem}
+.ring{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ring svg{width:80px;height:80px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--p100);stroke-width:7}
+.ring-fg{fill:none;stroke:var(--p500);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.ring-label{position:absolute;top:24px;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.ring-pct{font-family:'DM Mono',monospace;font-weight:600;font-size:.8rem;color:var(--p500)}
+.ring-cap{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem;text-align:center}
 </style>
 </head>
 <body>
@@ -5116,6 +5133,8 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 
 <div class="sec">
 <div class="sl">&#9314; Blocks</div>
+<div class="sl" style="margin-top:.2rem">Progress Rings</div>
+<div class="rings-grid" id="statsRings"></div>
 <div id="statsBlocks" style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem"></div>
 </div>
 
@@ -7003,6 +7022,12 @@ function quizShowResult(){
   }
   document.getElementById('quizResultTitle').textContent = title;
   document.getElementById('quizResultMsg').textContent = msg;
+
+  // Cherry rain celebration (once per result render, intensity by score)
+  if(typeof cherryRain === 'function'){
+    if(pct === 100) cherryRain(50);
+    else if(pct >= 70) cherryRain(28);
+  }
   
   // Build review list (only wrong answers)
   const reviewList = document.getElementById('quizReviewList');
@@ -7322,6 +7347,9 @@ function renderStats(){
 
   // Streak
   renderStreak();
+
+  // Progress rings
+  if(typeof renderRings === 'function') renderRings();
 }
 
 function recordStreak(){
@@ -7564,6 +7592,56 @@ function injectQuizEnhancements(){
     '<label style="display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--ink2);cursor:pointer;justify-content:center"><input type="checkbox" id="quizTimedToggle" onchange="quizToggleTimed(this.checked)" style="accent-color:var(--p500)"> Modo Cronometrado (5 min)</label>' +
     '<button type="button" onclick="quizMixedStart()" style="font-family:DM Mono,monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:white;border:none;border-radius:10px;padding:.55rem 1rem;cursor:pointer">Quiz Misto · 20 random</button>';
   if(startBtn && startBtn.parentNode) startBtn.parentNode.insertBefore(wrap, startBtn);
+}
+
+// ---- CHERRY RAIN ----
+function cherryRain(count){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  count = count || 30;
+  let layer = document.querySelector('.cherry-rain');
+  if(!layer){ layer = document.createElement('div'); layer.className='cherry-rain'; document.body.appendChild(layer); }
+  const cherrySVG = '<svg width="100%" height="100%" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="18" r="4" fill="#e8739a"/><circle cx="16" cy="19" r="4" fill="#c9426e"/><path d="M9 14 Q11 7 14 5" stroke="#7a5060" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M16 15 Q15 9 14 5" stroke="#7a5060" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>';
+  for(let i=0;i<count;i++){
+    const d = document.createElement('div');
+    d.className = 'cherry-drop';
+    const size = 16 + Math.random()*22;
+    const dur = 2.2 + Math.random()*2.2;
+    const delay = Math.random()*1.2;
+    const spin = (Math.random()*720-360) + 'deg';
+    d.style.left = Math.random()*100 + 'vw';
+    d.style.width = size+'px'; d.style.height = size+'px';
+    d.style.animationDuration = dur+'s';
+    d.style.animationDelay = delay+'s';
+    d.style.setProperty('--spin', spin);
+    d.innerHTML = cherrySVG;
+    layer.appendChild(d);
+    setTimeout(()=>d.remove(), (dur+delay)*1000+200);
+  }
+  setTimeout(()=>{ if(layer && !layer.children.length) layer.remove(); }, (count>0? 6000:0));
+}
+
+// ---- PROGRESS RINGS ----
+function renderRings(){
+  const wrap = document.getElementById('statsRings');
+  if(!wrap) return;
+  const data = (typeof loadData === 'function') ? loadData() : {tags:{}};
+  const tags = data.tags || {};
+  const counts = {};
+  BLOCK_LETTERS.forEach(l => counts[l] = {s:0,t:0});
+  Array.from(document.querySelectorAll('.pg')).forEach(el => {
+    const m = el.id.match(/^pg-([a-z])\d{2}$/);
+    if(m && counts[m[1]]) counts[m[1]].t++;
+  });
+  Object.keys(tags).forEach(k => {
+    const letter = k[0];
+    if(counts[letter] && tags[k].studied) counts[letter].s++;
+  });
+  const C = 2 * Math.PI * 34;
+  const list = BLOCK_LETTERS.filter(l => counts[l].t>0);
+  wrap.innerHTML = list.map(l => {
+    const pct = counts[l].t ? Math.round(counts[l].s/counts[l].t*100) : 0;
+    return '<div class="ring"><svg viewBox="0 0 80 80"><circle class="ring-bg" cx="40" cy="40" r="34"/><circle class="ring-fg" cx="40" cy="40" r="34" style="stroke-dasharray:'+C.toFixed(1)+';stroke-dashoffset:'+(C*(1-pct/100)).toFixed(1)+'"/></svg><div class="ring-label"><span class="ring-pct">'+pct+'%</span></div><span class="ring-cap">'+escapeHtml(BLOCK_NAMES[l]||l)+'</span></div>';
+  }).join('');
 }
 
 // ---- INIT ----
