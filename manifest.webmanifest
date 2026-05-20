@@ -1,0 +1,20 @@
+{
+  "name": "Cherry Notebooks",
+  "short_name": "Cherry",
+  "description": "Cadernos interativos de cibersegurança e programação — Cherry Root & Cherry Code",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fdf0f3",
+  "theme_color": "#c9426e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
