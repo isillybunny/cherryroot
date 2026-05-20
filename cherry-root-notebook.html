@@ -112,6 +112,50 @@ code{font-family:'DM Mono',monospace;font-size:.76rem;background:var(--p100);pad
 .it:hover{color:var(--p500);text-decoration:underline}
 .isec td{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.14em;text-transform:uppercase;padding-top:1.1rem;padding-bottom:.25rem;border-bottom:1.5px solid var(--p200);background:transparent!important}
 .isp td{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--ink4);font-style:italic;background:var(--p50)!important}
+.itbl tr.hidden-by-search{display:none}
+/* ===== PARITY: comparison tables ===== */
+.cmp-scroll{overflow-x:auto;margin:.6rem -.2rem 1.4rem}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.74rem;margin-top:.4rem}
+.cmp-table th,.cmp-table td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top;color:var(--ink2)}
+.cmp-table th{background:var(--p100);font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);font-weight:700}
+.cmp-table td:first-child{font-weight:600;color:var(--ink);background:var(--p50);white-space:nowrap}
+.cmp-table code{font-family:'DM Mono',monospace;font-size:.68rem;background:var(--p100);color:var(--p500);padding:.1rem .35rem;border-radius:4px}
+.cmp-yes{color:#7aa860;font-weight:700}
+.cmp-no{color:var(--p500);font-weight:700}
+.cmp-sub{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin:1.6rem 0 .2rem}
+body.dark .cmp-table th{background:var(--p100)}
+body.dark .cmp-table td:first-child{background:var(--p50)}
+body.dark .cmp-table code{background:var(--p100)}
+/* ===== PARITY: quiz hub ===== */
+.quiz-hub-grid{display:grid;grid-template-columns:1fr;gap:.7rem;margin:.8rem 0}
+.quiz-hub-card{background:var(--p50);border:1.5px solid var(--p200);border-radius:11px;padding:.85rem 1rem}
+.quiz-hub-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.55rem}
+.quiz-hub-num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--p500);font-style:italic;line-height:1}
+.quiz-hub-title{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:600;color:var(--ink)}
+.quiz-hub-code{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--p400);letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+.quiz-hub-btns{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}
+.quiz-hub-btn{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.42rem .75rem;border-radius:7px;border:1.5px solid var(--p300);background:#fff;color:var(--p500);cursor:pointer;font-weight:600;transition:all .15s}
+.quiz-hub-btn:hover{background:var(--p100);border-color:var(--p400)}
+.quiz-hub-best{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:var(--ink3);background:#fff;padding:.25rem .55rem;border-radius:99px;border:1px solid var(--line);font-weight:500}
+.quiz-hub-best b{color:var(--p500);font-weight:700}
+body.dark .quiz-hub-card{background:var(--p50);border-color:var(--p200)}
+body.dark .quiz-hub-btn{background:var(--p50);color:var(--p400);border-color:var(--p300)}
+body.dark .quiz-hub-best{background:var(--p50);border-color:var(--line)}
+/* ===== PARITY: cover cta + badges ===== */
+.cover-cta{display:inline-block;margin:1rem auto .4rem;padding:.7rem 1.4rem;border-radius:99px;background:var(--p500);color:#fff;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.cover-cta:hover{background:var(--p400);transform:translateY(-1px)}
+.cover-stats{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem}
+.badge-row{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1.1rem;max-width:340px}
+.cc-badge{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--ink4);background:#ececec;padding:.35rem .65rem;border-radius:99px;letter-spacing:.06em;border:1px solid var(--line);opacity:.55;font-weight:600}
+.cc-badge.lit{color:var(--p500);background:var(--p100);border-color:var(--p300);opacity:1}
+body.dark .cc-badge{background:#1a0810;border-color:#2a121c}
+/* ===== PARITY: index search + sort ===== */
+.idx-tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.6rem 0 .8rem}
+.idx-search{flex:1;min-width:160px;padding:.5rem .75rem;border-radius:8px;border:1.5px solid var(--p200);background:var(--p50);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink);outline:none}
+.idx-search:focus{border-color:var(--p400)}
+.idx-sort-label{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--p400);letter-spacing:.1em;text-transform:uppercase}
+.idx-sort{padding:.45rem .65rem;border-radius:8px;border:1.5px solid var(--p200);background:var(--p50);font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink);cursor:pointer;outline:none}
+body.dark .idx-search,body.dark .idx-sort{background:var(--p50);color:var(--ink)}
 .gl{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--p300);padding:.8rem .3rem .2rem;border-bottom:1.5px solid var(--p200);margin-bottom:.1rem}
 .gi{display:grid;grid-template-columns:155px 1fr;gap:0 .8rem;border-bottom:1px solid var(--line);padding:.5rem .3rem;align-items:baseline}
 @media(max-width:400px){.gi{grid-template-columns:105px 1fr}}
@@ -540,6 +584,8 @@ body.dark .progress-track{background:var(--p50)}
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLS</span>Glossary</div>
 <div class="ni" onclick="go('method',this)"><span class="cd">MTD</span>Study Method</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
+<div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
+<div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
 <div class="ndiv"></div>
 <div class="ns">Mind Maps</div>
 <div class="ni" onclick="go('mm-master',this)"><span class="cd">MM·</span>Master Map</div>
@@ -807,6 +853,14 @@ Modo Revisão
 <div class="cff"><span class="cfl">Started</span><span class="cfline"></span></div>
 <div class="cff"><span class="cfl">Goal</span><span class="cfline"></span></div>
 </div>
+<div class="cover-stats">12 blocks &middot; 146 terms &middot; attack &amp; defense</div>
+<button class="cover-cta" onclick="go('b01');document.querySelectorAll('.nav .ni').forEach(function(n){n.classList.remove('active')});">Start Learning &rarr;</button>
+<div class="badge-row" id="coverBadges">
+<span class="cc-badge" id="badge-firstquiz">First Quiz</span>
+<span class="cc-badge" id="badge-b0-master">Block Mastered</span>
+<span class="cc-badge" id="badge-50terms">50 Studied</span>
+<span class="cc-badge" id="badge-favs10">10 Favorites</span>
+</div>
 </div>
 </div>
 
@@ -836,6 +890,16 @@ Modo Revisão
 <span class="filter-chip" onclick="applyFilter('review',this)"><span class="filter-chip-dot" style="background:var(--p400)"></span>Revisar</span>
 <span class="filter-chip" onclick="applyFilter('hard',this)"><span class="filter-chip-dot" style="background:#c89060"></span>Difíceis</span>
 <span class="filter-chip" onclick="applyFilter('fav',this)"><span class="filter-chip-dot" style="background:var(--p500)"></span>Favoritos</span>
+</div>
+
+<div class="idx-tools">
+<input type="text" class="idx-search" id="idxSearch" placeholder="Search terms..." oninput="filterIndex()" autocomplete="off"/>
+<span class="idx-sort-label">sort:</span>
+<select class="idx-sort" id="idxSort" onchange="sortIndex()">
+<option value="block">By Block</option>
+<option value="title">By Title (A-Z)</option>
+<option value="favs">Favorites first</option>
+</select>
 </div>
 
 <table class="itbl"><thead><tr><th>Code</th><th>Term</th><th>One-liner</th></tr></thead><tbody>
@@ -5810,6 +5874,57 @@ cd loot &amp;&amp; git log -p | grep -iE "password|api[_-]?key|secret"</pre>
 </tbody></table>
 </div>
 
+<!-- ===== PARITY: PROTOCOLS & TOOLS COMPARISON ===== -->
+<div class="pg" id="pg-comparison">
+<div class="ph"><div class="bc">cherry root <span>›</span> references <span>›</span> comparison</div><div class="pt">Protocols &amp; <span>Ports</span></div><div class="ps">Common protocols side by side — port, transport, encryption and attack surface.</div></div>
+<div class="cmp-scroll">
+<table class="cmp-table">
+<thead><tr><th>Port</th><th>Protocol</th><th>Transport</th><th>Encrypted?</th><th>Common Use</th><th>Attack Surface</th></tr></thead>
+<tbody>
+<tr><td>20/21</td><td>FTP</td><td>TCP</td><td><span class="cmp-no">No</span></td><td>File transfer</td><td>Cleartext creds, anon login, bounce</td></tr>
+<tr><td>22</td><td>SSH</td><td>TCP</td><td><span class="cmp-yes">Yes</span></td><td>Remote shell / SFTP</td><td>Brute force, weak keys, old ciphers</td></tr>
+<tr><td>22</td><td>SFTP</td><td>TCP</td><td><span class="cmp-yes">Yes</span></td><td>File transfer over SSH</td><td>Inherits SSH exposure</td></tr>
+<tr><td>23</td><td>Telnet</td><td>TCP</td><td><span class="cmp-no">No</span></td><td>Legacy remote shell</td><td>Cleartext creds, full session sniffing</td></tr>
+<tr><td>25</td><td>SMTP</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>Mail sending</td><td>Open relay, spoofing, user enum</td></tr>
+<tr><td>53</td><td>DNS</td><td>UDP/TCP</td><td><span class="cmp-no">No</span></td><td>Name resolution</td><td>Spoofing, cache poison, tunneling, AXFR</td></tr>
+<tr><td>80</td><td>HTTP</td><td>TCP</td><td><span class="cmp-no">No</span></td><td>Web pages</td><td>Injection, MITM, full app attack surface</td></tr>
+<tr><td>110</td><td>POP3</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>Mail retrieval</td><td>Cleartext creds, sniffing</td></tr>
+<tr><td>123</td><td>NTP</td><td>UDP</td><td><span class="cmp-no">No</span></td><td>Time sync</td><td>Amplification DDoS, spoofing</td></tr>
+<tr><td>143</td><td>IMAP</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>Mail retrieval</td><td>Cleartext creds, sniffing</td></tr>
+<tr><td>161</td><td>SNMP</td><td>UDP</td><td><span class="cmp-no">No</span></td><td>Device management</td><td>Default community strings, info leak</td></tr>
+<tr><td>389</td><td>LDAP</td><td>TCP/UDP</td><td><span class="cmp-no">No</span></td><td>Directory services</td><td>Anon bind, injection, enum</td></tr>
+<tr><td>443</td><td>HTTPS</td><td>TCP</td><td><span class="cmp-yes">Yes</span></td><td>Encrypted web</td><td>Weak TLS, app-layer attacks, cert issues</td></tr>
+<tr><td>445</td><td>SMB</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>File / printer sharing</td><td>EternalBlue, null sessions, relay</td></tr>
+<tr><td>636</td><td>LDAPS</td><td>TCP</td><td><span class="cmp-yes">Yes</span></td><td>Encrypted directory</td><td>Weak TLS, enum if bound</td></tr>
+<tr><td>1433</td><td>MSSQL</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>Microsoft SQL DB</td><td>Brute force, xp_cmdshell, injection</td></tr>
+<tr><td>3306</td><td>MySQL</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>MySQL database</td><td>Brute force, weak creds, injection</td></tr>
+<tr><td>3389</td><td>RDP</td><td>TCP</td><td><span class="cmp-yes">Yes</span></td><td>Remote desktop</td><td>BlueKeep, brute force, MITM</td></tr>
+<tr><td>5900</td><td>VNC</td><td>TCP</td><td><span class="cmp-no">No*</span></td><td>Remote desktop</td><td>No/weak auth, sniffing</td></tr>
+</tbody>
+</table>
+</div>
+<div class="cmp-sub">Defensive Layers · IDS vs IPS vs WAF vs Firewall vs EDR</div>
+<div class="cmp-scroll">
+<table class="cmp-table">
+<thead><tr><th>Layer</th><th>Detects</th><th>Blocks</th><th>Scope</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>Firewall</td><td>Ports / IPs / rules</td><td><span class="cmp-yes">Yes</span></td><td>Network perimeter (L3/L4)</td><td>iptables, pfSense</td></tr>
+<tr><td>IDS</td><td>Suspicious traffic / signatures</td><td><span class="cmp-no">No</span> (alerts only)</td><td>Network / host monitoring</td><td>Snort, Zeek</td></tr>
+<tr><td>IPS</td><td>Suspicious traffic / signatures</td><td><span class="cmp-yes">Yes</span> (inline)</td><td>Inline network traffic</td><td>Suricata, Snort inline</td></tr>
+<tr><td>WAF</td><td>Web app attacks (L7)</td><td><span class="cmp-yes">Yes</span></td><td>HTTP/HTTPS application layer</td><td>ModSecurity, Cloudflare</td></tr>
+<tr><td>EDR</td><td>Endpoint behavior / malware</td><td><span class="cmp-yes">Yes</span></td><td>Hosts / endpoints</td><td>CrowdStrike, Defender ATP</td></tr>
+</tbody>
+</table>
+</div>
+<div class="ps" style="margin-top:.6rem;font-style:italic">* = plaintext by default; may run over TLS (e.g. SMTPS 465, IMAPS 993, POP3S 995) or VPN.</div>
+</div>
+
+<!-- ===== PARITY: QUIZ HUB ===== -->
+<div class="pg" id="pg-quiz">
+<div class="ph"><div class="bc">cherry root <span>›</span> quiz hub</div><div class="pt">Quiz <span>Hub</span></div><div class="ps">Two quizzes per block: Theory (concepts) and Practice (hands-on). Pick a block and test yourself.</div></div>
+<div class="quiz-hub-grid" id="quizHubGrid"></div>
+</div>
+
 </main>
 <script>
 function go(id,el){
@@ -5818,6 +5933,7 @@ function go(id,el){
   var pg=document.getElementById('pg-'+id);
   if(pg)pg.classList.add('on');
   if(el)el.classList.add('active');
+  if(id==='quiz' && typeof renderQuizHub==='function') renderQuizHub();
   window.scrollTo({top:0,behavior:'smooth'});
   closeDrawer();
 }
@@ -5884,6 +6000,148 @@ function gGo(){
     var glossNav = document.querySelector(".ni[onclick*=\"'glossary'\"]");
     if(glossNav) glossNav.classList.add('active');
   },50);
+}
+
+// ============ PARITY: INDEX SEARCH + SORT ============
+function filterIndex(){
+  var inp = document.getElementById('idxSearch');
+  if(!inp) return;
+  var q = inp.value.toLowerCase().trim();
+  var rows = document.querySelectorAll('#pg-index .itbl tbody tr');
+  rows.forEach(function(row){
+    if(row.classList.contains('isec')){ row.classList.remove('hidden-by-search'); return; }
+    if(!q){ row.classList.remove('hidden-by-search'); return; }
+    var text = row.textContent.toLowerCase();
+    row.classList.toggle('hidden-by-search', text.indexOf(q) === -1);
+  });
+  document.querySelectorAll('#pg-index .itbl tr.isec').forEach(function(sec){
+    var hasVisible = false;
+    var next = sec.nextElementSibling;
+    while(next && !next.classList.contains('isec')){
+      if(!next.classList.contains('hidden-by-search') && !next.classList.contains('hidden-by-filter')){ hasVisible = true; break; }
+      next = next.nextElementSibling;
+    }
+    sec.classList.toggle('hidden-by-search', !hasVisible);
+  });
+}
+var _idxOriginal = null;
+function pageIdFromRow(row){
+  var it = row.querySelector('.it[onclick]');
+  if(!it) return null;
+  var m = it.getAttribute('onclick').match(/go\('(\w+)'/);
+  return m ? m[1] : null;
+}
+function sortIndex(){
+  var sel = document.getElementById('idxSort');
+  if(!sel) return;
+  var mode = sel.value;
+  var tbody = document.querySelector('#pg-index .itbl tbody');
+  if(!tbody) return;
+  if(!_idxOriginal){ _idxOriginal = Array.from(tbody.children).map(function(n){return n.cloneNode(true)}); }
+  if(mode === 'block'){
+    tbody.innerHTML = '';
+    _idxOriginal.forEach(function(n){ tbody.appendChild(n.cloneNode(true)); });
+    filterIndex();
+    return;
+  }
+  var data = loadData();
+  var tags = data.tags || {};
+  // only sortable term rows (skip section headers and special rows)
+  var rows = _idxOriginal.filter(function(n){ return !n.classList.contains('isec') && !n.classList.contains('isp'); }).map(function(n){return n.cloneNode(true)});
+  if(mode === 'title'){
+    rows.sort(function(a,b){
+      var ta = (a.querySelector('.it')||{}).textContent || '';
+      var tb = (b.querySelector('.it')||{}).textContent || '';
+      return ta.localeCompare(tb);
+    });
+  } else if(mode === 'favs'){
+    rows.sort(function(a,b){
+      var pa = pageIdFromRow(a), pb = pageIdFromRow(b);
+      var fa = pa && tags[pa] && tags[pa].fav ? 1 : 0;
+      var fb = pb && tags[pb] && tags[pb].fav ? 1 : 0;
+      if(fa !== fb) return fb - fa;
+      var ta = (a.querySelector('.it')||{}).textContent || '';
+      var tb = (b.querySelector('.it')||{}).textContent || '';
+      return ta.localeCompare(tb);
+    });
+  }
+  tbody.innerHTML = '';
+  var hdr = document.createElement('tr');
+  hdr.className = 'isec';
+  hdr.innerHTML = '<td colspan="3">' + (mode === 'favs' ? 'All terms (Favorites first)' : 'All terms (A-Z)') + '</td>';
+  tbody.appendChild(hdr);
+  rows.forEach(function(r){ tbody.appendChild(r); });
+  filterIndex();
+}
+
+// ============ PARITY: COVER BADGES ============
+function updateCoverBadges(){
+  try{
+    var data = loadData();
+    var tags = data.tags || {};
+    var studied = 0, favs = 0, b0Studied = 0;
+    Object.keys(tags).forEach(function(pid){
+      if(!/^[a-z]\d+$/.test(pid)) return;
+      if(tags[pid] && tags[pid].studied){ studied++; if(pid.charAt(0) === 'b') b0Studied++; }
+      if(tags[pid] && tags[pid].fav) favs++;
+    });
+    var litIf = function(id, cond){ var el = document.getElementById(id); if(el) el.classList.toggle('lit', !!cond); };
+    var bestAny = false;
+    try{ Object.keys(localStorage).forEach(function(k){ if(k.indexOf('cherryRootQuizBest_') === 0) bestAny = true; }); }catch(e){}
+    litIf('badge-firstquiz', bestAny);
+    litIf('badge-b0-master', b0Studied >= 14);
+    litIf('badge-50terms', studied >= 50);
+    litIf('badge-favs10', favs >= 10);
+  }catch(e){}
+}
+
+// ============ PARITY: QUIZ HUB ============
+var QUIZ_HUB_BLOCKS = [
+  {key:'b', n:'0', name:'PC Basics'},
+  {key:'w', n:'1', name:'Internet'},
+  {key:'n', n:'2', name:'Networks'},
+  {key:'l', n:'3', name:'Linux'},
+  {key:'p', n:'4', name:'Programming Basics'},
+  {key:'s', n:'5', name:'Security Fundamentals'},
+  {key:'a', n:'6', name:'Web Attacks'},
+  {key:'t', n:'7', name:'Pentest Tools'},
+  {key:'m', n:'8', name:'Methodology'},
+  {key:'e', n:'9', name:'Social Engineering'},
+  {key:'x', n:'10', name:'Malware'},
+  {key:'d', n:'11', name:'Defense'}
+];
+function renderQuizHub(){
+  var grid = document.getElementById('quizHubGrid');
+  if(!grid) return;
+  var html = '';
+  QUIZ_HUB_BLOCKS.forEach(function(b){
+    var bt = localStorage.getItem('cherryRootQuizBest_' + b.key + '_theory');
+    var bp = localStorage.getItem('cherryRootQuizBest_' + b.key + '_practice');
+    html += '<div class="quiz-hub-card">'
+      + '<div class="quiz-hub-head"><div class="quiz-hub-num">' + b.n + '</div>'
+      + '<div><div class="quiz-hub-code">Block ' + b.n + '</div>'
+      + '<div class="quiz-hub-title">' + b.name + '</div></div></div>'
+      + '<div class="quiz-hub-btns">'
+      + '<button class="quiz-hub-btn" onclick="startQuizHub(\'' + b.key + '\',\'theory\')">Theory</button>'
+      + '<button class="quiz-hub-btn" onclick="startQuizHub(\'' + b.key + '\',\'practice\')">Practice</button>'
+      + '<span class="quiz-hub-best">Theory: <b>' + (bt ? bt + '%' : '&mdash;') + '</b></span>'
+      + '<span class="quiz-hub-best">Practice: <b>' + (bp ? bp + '%' : '&mdash;') + '</b></span>'
+      + '</div></div>';
+  });
+  grid.innerHTML = html;
+}
+function startQuizHub(blockKey, type){
+  quizOpen(blockKey);
+  quizSelectTab(type);
+}
+function initParityFeatures(){
+  updateCoverBadges();
+  renderQuizHub();
+}
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', initParityFeatures);
+} else {
+  initParityFeatures();
 }
 
 // ============ TAGS + FAVORITES + NOTES SYSTEM ============
