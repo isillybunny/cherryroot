@@ -157,6 +157,22 @@ main{margin-top:56px;padding:1.4rem 1rem 4rem;max-width:760px;margin-left:auto;m
 .htc-text{font-size:.82rem;color:var(--ink2);line-height:1.6}
 .htc-text strong{color:var(--p500)}
 .htc-text kbd{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:white;border:1px solid var(--line);border-radius:4px;padding:.05rem .35rem;color:var(--p500)}
+/* Cheatsheet */
+.cs-table{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin:1rem 0}
+.cs-head,.cs-row{display:grid;grid-template-columns:130px 1fr 1fr 1fr;gap:0}
+.cs-head{background:var(--p100);font-family:'Playfair Display',serif;font-size:.74rem;font-weight:700;color:var(--p500);text-transform:uppercase;letter-spacing:.04em}
+.cs-head>span,.cs-row>span{padding:.5rem .65rem;border-bottom:1px solid var(--line)}
+.cs-head>span+span,.cs-row>span+span{border-left:1px solid var(--line)}
+.cs-row:last-child>span{border-bottom:none}
+.cs-row{font-size:.74rem}
+.cs-row .cs-c{font-weight:600;color:var(--ink);font-family:'Playfair Display',serif}
+.cs-row code{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:var(--code-bg);color:var(--code-text);padding:.12rem .4rem;border-radius:5px;display:inline-block;line-height:1.5;white-space:pre-wrap}
+@media(max-width:760px){.cs-head{display:none}.cs-row{grid-template-columns:1fr;gap:0}.cs-row>span{border-left:none !important;border-bottom:1px solid var(--line)}.cs-row .cs-c{background:var(--p50)}}
+/* Patterns */
+.pat{background:var(--page);border:1px solid var(--line);border-left:3px solid var(--p300);border-radius:11px;padding:.85rem 1rem;margin-bottom:.7rem}
+.pat-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:.18rem}
+.pat-when{font-size:.78rem;color:var(--ink3);line-height:1.5;margin-bottom:.3rem}
+.pat-when strong{color:var(--p500)}
 /* SEARCH */
 .smod{position:fixed;inset:0;background:rgba(28,12,20,.5);z-index:300;display:none;padding:1rem;padding-top:4rem;justify-content:center;align-items:flex-start}
 .smod.on{display:flex;animation:fi .15s ease}
@@ -270,6 +286,7 @@ body.dark .mm-leaf{color:var(--ink)}
   <div class="ni" onclick="go('b7',this)"><span class="cd">P·</span>7 · POO</div>
   <div class="ni" onclick="go('b8',this)"><span class="cd">E·</span>8 · Erros & Debug</div>
   <div class="ni" onclick="go('b9',this)"><span class="cd">B·</span>9 · Boas Práticas</div>
+  <div class="ni" onclick="go('b10',this)"><span class="cd">A·</span>10 · Async & Concorrência</div>
   <div class="ndiv"></div>
   <div class="ns">Mapas Mentais</div>
   <div class="ni" onclick="go('mm-master',this)"><span class="cd">MM</span>Visão Geral</div>
@@ -282,6 +299,10 @@ body.dark .mm-leaf{color:var(--ink)}
   <div class="ni" onclick="go('mm-b7',this)"><span class="cd">M·7</span>POO</div>
   <div class="ni" onclick="go('mm-b8',this)"><span class="cd">M·8</span>Erros &amp; Debug</div>
   <div class="ni" onclick="go('mm-b9',this)"><span class="cd">M·9</span>Boas Práticas</div>
+  <div class="ndiv"></div>
+  <div class="ns">Referência</div>
+  <div class="ni" onclick="go('cheat',this)"><span class="cd">{ }</span>Cheatsheet de Sintaxe</div>
+  <div class="ni" onclick="go('patterns',this)"><span class="cd">[ ]</span>Galeria de Padrões</div>
 </aside>
 
 <main>
@@ -842,6 +863,64 @@ git push</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry
     <span class="k">return</span> price * <span class="n">1.21</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Doc desatualizada engana. Se não dá pra manter, é melhor não ter.</span></div></div></div>
 </div>
 
+<!-- BLOCK 10 · ASYNC & CONCORRÊNCIA -->
+<div class="pg" id="pg-b10">
+<div class="bdiv"><div class="bdiv-bar"></div><div class="bdiv-body"><div class="bdiv-num">10</div><div class="bdiv-code">Bloco 10 · Async &amp; Concorrência</div><h2 class="bdiv-title">Várias Coisas <em>ao Mesmo Tempo</em></h2><div class="bdiv-intro">Programas modernos não esperam parados. Enquanto um download acontece, outra coisa roda. Entender concorrência é entender como o tempo flui no seu código.</div><div class="bdiv-pills"><span class="pill">Thread</span><span class="pill">Async</span><span class="pill">await</span><span class="pill">Event Loop</span><span class="pill">Promise</span><span class="pill">Deadlock</span></div></div><div class="bdiv-footer"><span class="bdiv-count">10 termos · A·01 → A·10</span><span class="bdiv-motto">em paralelo <svg width="14" height="14"><use href="#cherry"/></svg></span></div></div>
+
+<div class="tc" id="tc-a01"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Concorrência vs Paralelismo</span><span class="tc-code">A·01</span></div><div class="tc-def"><em>"Concorrência é lidar com várias tarefas; paralelismo é executá-las ao mesmo tempo de verdade."</em><br>Concorrência intercala tarefas num só núcleo; paralelismo usa vários núcleos simultaneamente. Toda execução paralela é concorrente, mas nem toda concorrência é paralela.</div><div class="kws"><span class="kw">concurrency</span><span class="kw">parallelism</span><span class="kw">cores</span></div><pre class="snippet"><span class="c"># Concorrente: intercala (1 núcleo)</span>
+tarefa_a()  <span class="c"># pausa no I/O</span>
+tarefa_b()  <span class="c"># roda enquanto a espera</span>
+<span class="c"># Paralelo: ao mesmo tempo (N núcleos)</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Concorrência é estrutura; paralelismo é execução. Não confunda os dois.</span></div></div></div>
+
+<div class="tc" id="tc-a02"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Thread</span><span class="tc-code">A·02</span></div><div class="tc-def"><em>"Thread é a menor unidade de execução dentro de um processo."</em><br>Threads de um mesmo <span class="gloss" onclick="gOpen('Processo','Programa em execução com sua própria memória isolada.')">processo</span> compartilham memória, o que é rápido mas perigoso — daí surgem as <span class="gloss" onclick="gOpen('Race Condition','Bug onde o resultado depende da ordem imprevisível de execução.')">race conditions</span>.</div><div class="kws"><span class="kw">thread</span><span class="kw">threading</span><span class="kw">shared</span></div><pre class="snippet"><span class="k">import</span> threading
+t = threading.<span class="f">Thread</span>(target=tarefa)
+t.<span class="f">start</span>()
+t.<span class="f">join</span>()  <span class="c"># espera terminar</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Threads compartilham memória. Poder e perigo vêm juntos.</span></div></div></div>
+
+<div class="tc" id="tc-a03"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Processo</span><span class="tc-code">A·03</span></div><div class="tc-def"><em>"Processo é um programa em execução com sua própria memória isolada."</em><br>Diferente de <span class="gloss" onclick="gOpen('Thread','Menor unidade de execução dentro de um processo.')">threads</span>, processos não compartilham memória — mais seguros, porém mais caros de criar e comunicar.</div><div class="kws"><span class="kw">process</span><span class="kw">isolation</span><span class="kw">PID</span></div><pre class="snippet"><span class="k">from</span> multiprocessing <span class="k">import</span> Process
+p = <span class="f">Process</span>(target=tarefa)
+p.<span class="f">start</span>()
+p.<span class="f">join</span>()</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Processo isola; thread compartilha. Escolha pelo que você precisa proteger.</span></div></div></div>
+
+<div class="tc" id="tc-a04"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Síncrono vs Assíncrono</span><span class="tc-code">A·04</span></div><div class="tc-def"><em>"Síncrono espera cada passo terminar; assíncrono dispara e continua."</em><br>Código síncrono bloqueia na chamada de I/O. Assíncrono libera a execução pra outra coisa enquanto espera a resposta chegar.</div><div class="kws"><span class="kw">sync</span><span class="kw">async</span><span class="kw">blocking</span></div><pre class="snippet"><span class="c"># Síncrono: bloqueia até responder</span>
+dados = <span class="f">requests_get</span>(url)
+<span class="c"># Assíncrono: não bloqueia</span>
+dados = <span class="k">await</span> <span class="f">fetch</span>(url)</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Síncrono é simples; assíncrono é eficiente quando há muita espera.</span></div></div></div>
+
+<div class="tc" id="tc-a05"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Callback</span><span class="tc-code">A·05</span></div><div class="tc-def"><em>"Callback é uma função passada pra ser chamada depois, quando algo terminar."</em><br>Padrão clássico do assíncrono. Aninhar muitos callbacks gera o temido <em>callback hell</em>, resolvido por <span class="gloss" onclick="gOpen('Promise / Future','Objeto que representa um valor que ainda vai chegar.')">Promises</span>.</div><div class="kws"><span class="kw">callback</span><span class="kw">handler</span><span class="kw">.then</span></div><pre class="snippet"><span class="k">function</span> <span class="f">baixar</span>(url, callback) {
+  <span class="f">buscar</span>(url, <span class="k">function</span>(dados) {
+    <span class="f">callback</span>(dados);  <span class="c">// chamado depois</span>
+  });
+}</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Callback é "me avise quando terminar". Muitos aninhados viram pesadelo.</span></div></div></div>
+
+<div class="tc" id="tc-a06"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Promise / Future</span><span class="tc-code">A·06</span></div><div class="tc-def"><em>"Um objeto que representa um valor que ainda vai chegar — um resultado futuro."</em><br>Tem estados: pendente, resolvido ou rejeitado. Substitui <span class="gloss" onclick="gOpen('Callback','Função passada pra ser chamada quando algo terminar.')">callbacks</span> aninhados por uma cadeia legível.</div><div class="kws"><span class="kw">Promise</span><span class="kw">Future</span><span class="kw">.then</span></div><pre class="snippet"><span class="f">fetch</span>(url)
+  .<span class="f">then</span>(r => r.<span class="f">json</span>())
+  .<span class="f">then</span>(dados => <span class="f">console_log</span>(dados))
+  .<span class="f">catch</span>(erro => <span class="f">tratar</span>(erro));</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Promise é uma promessa: "vou te entregar um valor — ou um erro — depois".</span></div></div></div>
+
+<div class="tc" id="tc-a07"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">async / await</span><span class="tc-code">A·07</span></div><div class="tc-def"><em>"Açúcar sintático que faz código assíncrono parecer síncrono."</em><br><code>async</code> marca a <span class="gloss" onclick="gOpen('Função','Bloco de código com nome que pode ser chamado várias vezes.')">função</span>; <code>await</code> pausa nela até a <span class="gloss" onclick="gOpen('Promise / Future','Objeto que representa um valor que ainda vai chegar.')">Promise</span> resolver, sem bloquear o resto.</div><div class="kws"><span class="kw">async</span><span class="kw">await</span><span class="kw">coroutine</span></div><pre class="snippet"><span class="k">async def</span> <span class="f">main</span>():
+    dados = <span class="k">await</span> <span class="f">fetch</span>(url)
+    <span class="f">print</span>(dados)
+
+asyncio.<span class="f">run</span>(<span class="f">main</span>())</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>await diz "espere aqui, mas deixe o resto rodar". Leitura linear, execução paralela.</span></div></div></div>
+
+<div class="tc" id="tc-a08"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Event Loop</span><span class="tc-code">A·08</span></div><div class="tc-def"><em>"O laço que orquestra tarefas assíncronas — pega a próxima pronta e a executa."</em><br>Coração do <span class="gloss" onclick="gOpen('async / await','Açúcar sintático que faz código assíncrono parecer síncrono.')">async</span> em JS e no asyncio. Roda em uma só thread, intercalando tarefas que não estão esperando I/O.</div><div class="kws"><span class="kw">event loop</span><span class="kw">asyncio</span><span class="kw">queue</span></div><pre class="snippet"><span class="k">import</span> asyncio
+loop = asyncio.<span class="f">get_event_loop</span>()
+loop.<span class="f">run_until_complete</span>(<span class="f">main</span>())
+<span class="c"># pega tarefa pronta, executa, repete</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Uma thread, muitas tarefas. O loop é o maestro que decide quem toca agora.</span></div></div></div>
+
+<div class="tc" id="tc-a09"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Race Condition</span><span class="tc-code">A·09</span></div><div class="tc-def"><em>"Bug onde o resultado depende da ordem imprevisível de execução das tarefas."</em><br>Acontece quando duas <span class="gloss" onclick="gOpen('Thread','Menor unidade de execução dentro de um processo.')">threads</span> mexem no mesmo dado sem coordenação. Resolve-se com <em>locks</em> ou regiões críticas protegidas.</div><div class="kws"><span class="kw">race</span><span class="kw">lock</span><span class="kw">mutex</span></div><pre class="snippet"><span class="c"># Race: duas threads, mesmo saldo</span>
+saldo = saldo + <span class="n">100</span>  <span class="c"># lê, soma, grava</span>
+<span class="c"># Proteção com lock</span>
+<span class="k">with</span> lock:
+    saldo = saldo + <span class="n">100</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Race condition é bug que só aparece às vezes — o pior tipo de achar.</span></div></div></div>
+
+<div class="tc" id="tc-a10"><div class="tc-bar"></div><div class="tc-body"><div class="tc-head"><span class="tc-title">Deadlock</span><span class="tc-code">A·10</span></div><div class="tc-def"><em>"Travamento onde tarefas esperam umas pelas outras pra sempre, e nada avança."</em><br>A trava espera a B; a B espera a A. Ninguém solta o <em>lock</em>. Evita-se sempre adquirindo locks na mesma ordem.</div><div class="kws"><span class="kw">deadlock</span><span class="kw">lock</span><span class="kw">wait</span></div><pre class="snippet"><span class="c"># Deadlock: ordem cruzada de locks</span>
+<span class="c"># Thread 1: lock A, espera B</span>
+<span class="c"># Thread 2: lock B, espera A</span>
+<span class="c"># Solução: sempre A antes de B</span></pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry"/></svg><span>Deadlock é abraço fatal: cada um espera o outro soltar primeiro.</span></div></div></div>
+</div>
+
 <!-- GLOSSARY -->
 <div class="pg" id="pg-gloss">
   <div class="ph">
@@ -981,6 +1060,85 @@ git push</pre><div class="tc-rem"><svg width="14" height="14"><use href="#cherry
 
 <div class="gl-let">W</div>
 <div class="gl-row"><span class="gl-term">While</span><span class="gl-def">Repete enquanto a condição for verdadeira.</span></div>
+</div>
+
+<!-- CHEATSHEET -->
+<div class="pg" id="pg-cheat">
+  <div class="ph">
+    <div class="bc">cherry code <span>›</span> referência</div>
+    <div class="pt">Cheatsheet de Sintaxe</div>
+    <div class="ps">As mesmas ideias em Python, JavaScript e Java — lado a lado.</div>
+  </div>
+  <div class="cs-table">
+    <div class="cs-head"><span>Conceito</span><span>Python</span><span>JavaScript</span><span>Java</span></div>
+    <div class="cs-row"><span class="cs-c">print</span><span><code>print(x)</code></span><span><code>console.log(x)</code></span><span><code>System.out.println(x)</code></span></div>
+    <div class="cs-row"><span class="cs-c">comentário</span><span><code># nota</code></span><span><code>// nota</code></span><span><code>// nota</code></span></div>
+    <div class="cs-row"><span class="cs-c">variável</span><span><code>x = 5</code></span><span><code>let x = 5;</code></span><span><code>int x = 5;</code></span></div>
+    <div class="cs-row"><span class="cs-c">constante</span><span><code>X = 5  # convenção</code></span><span><code>const X = 5;</code></span><span><code>final int X = 5;</code></span></div>
+    <div class="cs-row"><span class="cs-c">if</span><span><code>if x &gt; 0:</code></span><span><code>if (x &gt; 0) { }</code></span><span><code>if (x &gt; 0) { }</code></span></div>
+    <div class="cs-row"><span class="cs-c">for</span><span><code>for i in range(5):</code></span><span><code>for (let i=0;i&lt;5;i++)</code></span><span><code>for (int i=0;i&lt;5;i++)</code></span></div>
+    <div class="cs-row"><span class="cs-c">for-each</span><span><code>for x in lista:</code></span><span><code>for (const x of arr)</code></span><span><code>for (int x : arr)</code></span></div>
+    <div class="cs-row"><span class="cs-c">função</span><span><code>def f(a):</code></span><span><code>function f(a) { }</code></span><span><code>int f(int a) { }</code></span></div>
+    <div class="cs-row"><span class="cs-c">lista/array</span><span><code>[1, 2, 3]</code></span><span><code>[1, 2, 3]</code></span><span><code>int[] a = {1,2,3};</code></span></div>
+    <div class="cs-row"><span class="cs-c">dicionário/map</span><span><code>{"a": 1}</code></span><span><code>{a: 1}</code></span><span><code>Map&lt;String,Integer&gt;</code></span></div>
+    <div class="cs-row"><span class="cs-c">string format</span><span><code>f"oi {nome}"</code></span><span><code>`oi ${nome}`</code></span><span><code>String.format("oi %s",n)</code></span></div>
+    <div class="cs-row"><span class="cs-c">classe</span><span><code>class C:</code></span><span><code>class C { }</code></span><span><code>class C { }</code></span></div>
+    <div class="cs-row"><span class="cs-c">try/catch</span><span><code>try: ... except E:</code></span><span><code>try { } catch (e) { }</code></span><span><code>try { } catch (E e) { }</code></span></div>
+    <div class="cs-row"><span class="cs-c">comprehension / stream</span><span><code>[x*2 for x in xs]</code></span><span><code>xs.map(x =&gt; x*2)</code></span><span><code>xs.stream().map(x-&gt;x*2)</code></span></div>
+  </div>
+  <div class="htc"><div class="htc-title">Por que comparar?</div><div class="htc-text">A <strong>lógica</strong> é a mesma em quase toda linguagem — muda só a <strong>roupa</strong>. Aprender um conceito uma vez e reconhecê-lo em três sintaxes acelera muito a leitura de código novo.</div></div>
+</div>
+
+<!-- PATTERNS -->
+<div class="pg" id="pg-patterns">
+  <div class="ph">
+    <div class="bc">cherry code <span>›</span> referência</div>
+    <div class="pt">Galeria de Padrões</div>
+    <div class="ps">Receitas curtas de Python que aparecem o tempo todo no dia a dia.</div>
+  </div>
+  <div class="pat"><div class="pat-title">List comprehension</div><div class="pat-when"><strong>Quando:</strong> transformar ou filtrar uma lista em uma linha legível.</div><pre class="snippet">pares = [x <span class="k">for</span> x <span class="k">in</span> <span class="f">range</span>(<span class="n">10</span>) <span class="k">if</span> x % <span class="n">2</span> == <span class="n">0</span>]
+quadrados = [x*x <span class="k">for</span> x <span class="k">in</span> nums]</pre></div>
+  <div class="pat"><div class="pat-title">map / filter / reduce</div><div class="pat-when"><strong>Quando:</strong> aplicar uma função a cada item, selecionar ou acumular.</div><pre class="snippet"><span class="k">from</span> functools <span class="k">import</span> reduce
+dobro = <span class="f">list</span>(<span class="f">map</span>(<span class="k">lambda</span> x: x*<span class="n">2</span>, nums))
+pares = <span class="f">list</span>(<span class="f">filter</span>(<span class="k">lambda</span> x: x%<span class="n">2</span>==<span class="n">0</span>, nums))
+total = <span class="f">reduce</span>(<span class="k">lambda</span> a,b: a+b, nums)</pre></div>
+  <div class="pat"><div class="pat-title">try/except com finally</div><div class="pat-when"><strong>Quando:</strong> tratar erro e garantir limpeza, mesmo se algo falhar.</div><pre class="snippet"><span class="k">try</span>:
+    arq = <span class="f">open</span>(<span class="s">"dados.txt"</span>)
+<span class="k">except</span> FileNotFoundError:
+    <span class="f">print</span>(<span class="s">"sem arquivo"</span>)
+<span class="k">finally</span>:
+    <span class="f">print</span>(<span class="s">"sempre roda"</span>)</pre></div>
+  <div class="pat"><div class="pat-title">Context manager (with)</div><div class="pat-when"><strong>Quando:</strong> abrir e fechar recursos com segurança automática.</div><pre class="snippet"><span class="k">with</span> <span class="f">open</span>(<span class="s">"dados.txt"</span>) <span class="k">as</span> arq:
+    conteudo = arq.<span class="f">read</span>()
+<span class="c"># arquivo fechado automaticamente aqui</span></pre></div>
+  <div class="pat"><div class="pat-title">Enumerate / zip</div><div class="pat-when"><strong>Quando:</strong> iterar com índice ou percorrer duas listas em paralelo.</div><pre class="snippet"><span class="k">for</span> i, nome <span class="k">in</span> <span class="f">enumerate</span>(nomes):
+    <span class="f">print</span>(i, nome)
+<span class="k">for</span> nome, idade <span class="k">in</span> <span class="f">zip</span>(nomes, idades):
+    <span class="f">print</span>(nome, idade)</pre></div>
+  <div class="pat"><div class="pat-title">Dictionary get com default</div><div class="pat-when"><strong>Quando:</strong> ler uma chave que pode não existir sem quebrar.</div><pre class="snippet">cfg = {<span class="s">"tema"</span>: <span class="s">"escuro"</span>}
+tema = cfg.<span class="f">get</span>(<span class="s">"tema"</span>, <span class="s">"claro"</span>)
+fonte = cfg.<span class="f">get</span>(<span class="s">"fonte"</span>, <span class="s">"padrão"</span>)  <span class="c"># sem KeyError</span></pre></div>
+  <div class="pat"><div class="pat-title">f-strings / template strings</div><div class="pat-when"><strong>Quando:</strong> montar texto com variáveis de forma legível.</div><pre class="snippet">nome, n = <span class="s">"Cherry"</span>, <span class="n">3</span>
+<span class="f">print</span>(<span class="s">f"Olá {nome}, você tem {n} itens"</span>)
+<span class="f">print</span>(<span class="s">f"preço: {valor:.2f}"</span>)  <span class="c"># 2 casas</span></pre></div>
+  <div class="pat"><div class="pat-title">Guard clause (early return)</div><div class="pat-when"><strong>Quando:</strong> tratar casos inválidos no topo e evitar aninhamento.</div><pre class="snippet"><span class="k">def</span> <span class="f">processar</span>(user):
+    <span class="k">if</span> user <span class="k">is</span> <span class="k">None</span>:
+        <span class="k">return</span>          <span class="c"># sai cedo</span>
+    <span class="k">if</span> <span class="k">not</span> user.active:
+        <span class="k">return</span>
+    <span class="c"># lógica principal sem indentação extra</span></pre></div>
+  <div class="pat"><div class="pat-title">Singleton / factory (breve)</div><div class="pat-when"><strong>Quando:</strong> garantir uma única instância, ou criar objetos por nome.</div><pre class="snippet"><span class="c"># Factory: cria pelo tipo pedido</span>
+<span class="k">def</span> <span class="f">criar_forma</span>(tipo):
+    <span class="k">return</span> {<span class="s">"círculo"</span>: Circulo, <span class="s">"quadrado"</span>: Quadrado}[tipo]()
+<span class="c"># Singleton: módulo Python já é único por import</span></pre></div>
+  <div class="pat"><div class="pat-title">Decorator (breve)</div><div class="pat-when"><strong>Quando:</strong> embrulhar uma função pra adicionar comportamento sem alterá-la.</div><pre class="snippet"><span class="k">def</span> <span class="f">log</span>(fn):
+    <span class="k">def</span> <span class="f">wrap</span>(*args):
+        <span class="f">print</span>(<span class="s">"chamando"</span>, fn.__name__)
+        <span class="k">return</span> <span class="f">fn</span>(*args)
+    <span class="k">return</span> wrap
+
+<span class="op">@log</span>
+<span class="k">def</span> <span class="f">soma</span>(a, b): <span class="k">return</span> a + b</pre></div>
 </div>
 
 <!-- MIND MAP · MASTER -->
@@ -1480,7 +1638,8 @@ document.addEventListener('keydown', function(e){
 var RING_BLOCKS=[
   {id:'b1',cap:'Fundamentos'},{id:'b2',cap:'Tipos'},{id:'b3',cap:'Operadores'},
   {id:'b4',cap:'Controle'},{id:'b5',cap:'Funções'},{id:'b6',cap:'Estruturas'},
-  {id:'b7',cap:'POO'},{id:'b8',cap:'Erros'},{id:'b9',cap:'Boas Práticas'}
+  {id:'b7',cap:'POO'},{id:'b8',cap:'Erros'},{id:'b9',cap:'Boas Práticas'},
+  {id:'b10',cap:'Async'}
 ];
 function loadStudied(){
   try{ return JSON.parse(localStorage.getItem('cherryCodeCompactStudied')||'{}'); }catch(e){ return {}; }
