@@ -126,7 +126,7 @@ code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p5
 .cmp-table th{background:var(--p100);font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);font-weight:700}
 .cmp-table td:first-child{font-weight:600;color:var(--ink);background:var(--p50);white-space:nowrap}
 .cmp-table code{font-family:'JetBrains Mono',monospace;font-size:.68rem;background:var(--p100);color:var(--p500);padding:.1rem .35rem;border-radius:4px}
-.cmp-yes{color:#7aa860;font-weight:700}
+.cmp-yes{color:var(--p500);font-weight:700}
 .cmp-no{color:var(--p500);font-weight:700}
 .cmp-sub{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin:1.6rem 0 .2rem}
 body.dark .cmp-table th{background:var(--p100)}
@@ -152,7 +152,7 @@ body.dark .quiz-hub-best{background:var(--p50);border-color:var(--line)}
 .cover-cta:hover{background:var(--p400);transform:translateY(-1px)}
 .cover-stats{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem}
 .badge-row{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1.1rem;max-width:340px}
-.cc-badge{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);background:#ececec;padding:.35rem .65rem;border-radius:99px;letter-spacing:.06em;border:1px solid var(--line);opacity:.55;font-weight:600}
+.cc-badge{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);background:var(--line);padding:.35rem .65rem;border-radius:99px;letter-spacing:.06em;border:1px solid var(--line);opacity:.55;font-weight:600}
 .cc-badge.lit{color:var(--p500);background:var(--p100);border-color:var(--p300);opacity:1}
 body.dark .cc-badge{background:#1a0810;border-color:#2a121c}
 /* ===== PARITY: index search + sort ===== */
@@ -249,16 +249,16 @@ body.dark .idx-search,body.dark .idx-sort{background:var(--p50);color:var(--ink)
 .tag-bar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin:.5rem 0 .9rem;padding:.5rem .7rem;background:var(--p50);border:1px solid var(--line);border-radius:9px}
 .tag-bar-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-right:.2rem;font-weight:600}
 .tag-btn{display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;padding:.28rem .55rem;border-radius:6px;cursor:pointer;transition:all .15s;background:white;color:var(--ink3);border:1px solid var(--line);user-select:none;font-weight:500}
-.tag-btn-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:#d0d0d0;transition:background .15s}
+.tag-btn-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;background:var(--ink4);transition:background .15s}
 .tag-btn:hover{background:var(--p50);border-color:var(--p200)}
 .tag-btn.on{background:var(--p100);border-color:var(--p300)}
-.tag-btn.on.studied .tag-btn-dot{background:#7aa860}
+.tag-btn.on.studied .tag-btn-dot{background:var(--ink2)}
 .tag-btn.on.review .tag-btn-dot{background:var(--p400)}
-.tag-btn.on.hard .tag-btn-dot{background:#c89060}
+.tag-btn.on.hard .tag-btn-dot{background:var(--p300)}
 .tag-btn.on.fav .tag-btn-dot{background:var(--p500)}
-.tag-btn.on.studied{color:#5a8050}
+.tag-btn.on.studied{color:var(--ink2)}
 .tag-btn.on.review{color:var(--p500)}
-.tag-btn.on.hard{color:#8a4020}
+.tag-btn.on.hard{color:var(--ink3)}
 .tag-btn.on.fav{color:var(--p500)}
 
 /* Favorite heart button (top-right of page) */
@@ -884,9 +884,9 @@ Review Mode
 <div class="filter-bar">
 <span class="filter-bar-label">filter:</span>
 <span class="filter-chip on" onclick="applyFilter('all',this)">All</span>
-<span class="filter-chip" onclick="applyFilter('studied',this)"><span class="filter-chip-dot" style="background:#7aa860"></span>Studied</span>
+<span class="filter-chip" onclick="applyFilter('studied',this)"><span class="filter-chip-dot" style="background:var(--ink2)"></span>Studied</span>
 <span class="filter-chip" onclick="applyFilter('review',this)"><span class="filter-chip-dot" style="background:var(--p400)"></span>Review</span>
-<span class="filter-chip" onclick="applyFilter('hard',this)"><span class="filter-chip-dot" style="background:#c89060"></span>Hard</span>
+<span class="filter-chip" onclick="applyFilter('hard',this)"><span class="filter-chip-dot" style="background:var(--p300)"></span>Hard</span>
 <span class="filter-chip" onclick="applyFilter('fav',this)"><span class="filter-chip-dot" style="background:var(--p500)"></span>Favorites</span>
 </div>
 
@@ -5249,8 +5249,8 @@ Visualize como os termos se conectam. Clique em qualquer termo pra ir direto pra
 .res-card .res-desc{font-size:.82rem;color:var(--ink2);line-height:1.55;margin:.25rem 0}
 .res-card .res-rec{font-size:.74rem;color:var(--p500);font-style:italic;margin-top:.35rem}
 .diff-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px}
-.diff-beg{background:#e8f7ee;color:#1d7a3a;border:1px solid #b6dec3}
-.diff-int{background:#fff4e0;color:#a35900;border:1px solid #f0c98a}
+.diff-beg{background:var(--p50);color:var(--p400);border:1px solid var(--p200)}
+.diff-int{background:var(--p100);color:var(--p500);border:1px solid var(--p300)}
 .diff-adv{background:#fde4ea;color:#a3174a;border:1px solid #f0a4b8}
 .rec-box{background:#fff5f7;border:1.5px solid var(--p300);border-radius:14px;padding:.9rem 1.1rem;margin-bottom:1.1rem;font-size:.84rem;color:var(--ink2)}
 .rec-box strong{color:var(--p500)}
