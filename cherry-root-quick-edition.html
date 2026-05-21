@@ -32,11 +32,10 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .nav{padding:.6rem 0 3rem}
 .ns{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.2em;text-transform:uppercase;padding:.8rem 1.4rem .25rem}
 .ndiv{height:1px;background:var(--line);margin:.4rem 1.2rem}
-/* Collapsible nav sections (accordion) — prominent header */
-.ns{cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:.66rem;font-weight:700;color:var(--p500);background:var(--p50);margin:.35rem .6rem;padding:.6rem .7rem;border-radius:9px;border:1px solid var(--line);transition:background .15s}
-.ns:hover{background:var(--p100)}
-.ns.ns-open{background:var(--p100)}
-.ns::after{content:'\25B8';font-size:.72rem;color:var(--p400);transition:transform .2s;font-weight:400;flex-shrink:0;margin-left:.4rem}
+/* Collapsible nav sections (accordion) — delicate header */
+.ns{cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--ink);text-transform:none;letter-spacing:0;background:none;border:none;margin:0;padding:.7rem 1.2rem .45rem;transition:color .15s}
+.ns:hover{color:var(--p500)}
+.ns::after{content:'\25B8';font-size:.66rem;color:var(--p400);transition:transform .2s;font-weight:400;flex-shrink:0;margin-left:.4rem}
 .ns.ns-open::after{transform:rotate(90deg)}
 .ni.ni-collapsed{display:none!important}
 .ni{display:flex;align-items:center;gap:.6rem;padding:.48rem 1.4rem;cursor:pointer;font-size:.78rem;color:var(--ink3);border-left:2px solid transparent;transition:all .15s;line-height:1.3}
