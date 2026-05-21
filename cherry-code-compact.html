@@ -45,6 +45,12 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .ni.ni-collapsed{display:none!important}
 .review-btn{margin:.6rem 1.1rem;padding:.55rem .8rem;border-radius:9px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;width:calc(100% - 2.2rem);background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;display:flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;transition:transform .15s}
 .review-btn:hover{transform:translateY(-1px)}
+.dark-toggle{margin:.6rem 1.1rem;padding:.55rem .8rem;border-radius:9px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;width:calc(100% - 2.2rem);background:var(--page);color:var(--ink2);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;transition:all .15s}
+.dark-toggle:hover{background:var(--p50);border-color:var(--p300)}
+.cmeta{margin-top:1.6rem;display:flex;flex-direction:column;gap:.55rem;width:100%;max-width:280px;margin-left:auto;margin-right:auto;text-align:left}
+.cff{display:flex;align-items:center;gap:.7rem}
+.cfl{font-family:'JetBrains Mono',monospace;font-size:.57rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;min-width:56px}
+.cfline{flex:1;border-bottom:1px solid var(--p200);min-height:20px;display:flex;align-items:flex-end;padding-bottom:2px;font-family:'Playfair Display',serif;font-style:italic;color:var(--ink2);font-size:.88rem}
 main{margin-top:56px;padding:1.4rem 1rem 4rem;max-width:760px;margin-left:auto;margin-right:auto}
 @media(min-width:900px){.hbtn{display:none}.drawer{transform:translateX(0)!important}.overlay{display:none!important}main{margin-left:270px;padding:2.2rem 2.4rem 4rem;max-width:760px}}
 .pg{display:none}.pg.on{display:block;animation:fi .28s ease}
@@ -236,12 +242,12 @@ body.dark .mm-leaf{color:var(--ink)}
 <div class="overlay" id="overlay" onclick="toggleDrawer()"></div>
 
 <aside class="drawer" id="drawer">
-  <div class="ns">Início</div>
+  <button class="review-btn" onclick="startReview()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="12" r="1.3" fill="currentColor"/></svg>Modo Revisão</button>
+  <button class="dark-toggle" onclick="toggleDark()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M21 12.79 A9 9 0 0 1 11.21 3 A7 7 0 0 0 21 12.79 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span id="dark-label">Tema Escuro</span></button>
   <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Capa</div>
   <div class="ni" onclick="go('idx',this)"><span class="cd">IDX</span>Índice</div>
   <div class="ni" onclick="go('howto',this)"><span class="cd">USO</span>Como Usar</div>
-  <button class="review-btn" onclick="startReview()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="12" r="1.3" fill="currentColor"/></svg>Modo Revisão</button>
-  <div class="ndiv"></div>
+  <div class="ni" onclick="go('gloss',this)"><span class="cd">GLO</span>Glossário</div>
   <div class="ns">Blocos</div>
   <div class="ni" onclick="go('b1',this)"><span class="cd">F·</span>1 · Fundamentos</div>
   <div class="ni" onclick="go('b2',this)"><span class="cd">T·</span>2 · Tipos & Variáveis</div>
@@ -264,9 +270,6 @@ body.dark .mm-leaf{color:var(--ink)}
   <div class="ni" onclick="go('mm-b7',this)"><span class="cd">M·7</span>POO</div>
   <div class="ni" onclick="go('mm-b8',this)"><span class="cd">M·8</span>Erros &amp; Debug</div>
   <div class="ni" onclick="go('mm-b9',this)"><span class="cd">M·9</span>Boas Práticas</div>
-  <div class="ndiv"></div>
-  <div class="ns">Referência</div>
-  <div class="ni" onclick="go('gloss',this)"><span class="cd">A-Z</span>Glossário</div>
 </aside>
 
 <main>
@@ -280,6 +283,11 @@ body.dark .mm-leaf{color:var(--ink)}
     <div class="cover-line"></div>
     <div class="cover-sub">Revisão veloz dos 98 conceitos fundamentais — uma frase por ideia, um snippet por exemplo, uma cereja pra lembrar.</div>
     <div class="cover-tag">9 blocos · 98 termos · revisão rápida</div>
+    <div class="cmeta">
+      <div class="cff"><span class="cfl">Nome</span><span class="cfline">Kaylla Dearo</span></div>
+      <div class="cff"><span class="cfl">Início</span><span class="cfline">April 23</span></div>
+      <div class="cff"><span class="cfl">Objetivo</span><span class="cfline">Cybersecurity Expert</span></div>
+    </div>
   </div>
 </div>
 

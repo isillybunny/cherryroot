@@ -44,6 +44,36 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .cd{font-family:'DM Mono',monospace;font-size:.55rem;color:var(--p400);min-width:34px;flex-shrink:0}
 .ni.active .cd{color:var(--p500)}
 .ni.sp{font-style:italic;color:var(--ink4);font-size:.75rem}
+.review-trigger,.dark-toggle{margin:.5rem 1.2rem;padding:.55rem .8rem;border-radius:10px;cursor:pointer;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;width:calc(100% - 2.4rem);transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.4rem;border:none}
+.review-trigger{background:linear-gradient(135deg,var(--p400),var(--p500));color:white;font-weight:600}
+.review-trigger:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,66,110,.3)}
+.dark-toggle{background:var(--page);color:var(--ink2);border:1.5px solid var(--line)}
+.dark-toggle:hover{background:var(--p50);border-color:var(--p300)}
+.cmeta{margin-top:1.6rem;display:flex;flex-direction:column;gap:.55rem;width:100%;max-width:280px;margin-left:auto;margin-right:auto;text-align:left}
+.cff{display:flex;align-items:center;gap:.7rem}
+.cfl{font-family:'DM Mono',monospace;font-size:.57rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;min-width:56px}
+.cfline{flex:1;border-bottom:1px solid var(--p200);min-height:20px;display:flex;align-items:flex-end;padding-bottom:2px;font-family:'Playfair Display',serif;font-style:italic;color:var(--ink2);font-size:.88rem}
+/* Review overlay */
+.rev-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(28,15,20,.55);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1.2rem}
+.rev-overlay.on{display:flex}
+.rev-box{background:var(--page);border:1.5px solid var(--line);border-radius:16px;width:100%;max-width:440px;padding:1.6rem 1.4rem 1.3rem;box-shadow:0 18px 50px rgba(28,15,20,.3);display:flex;flex-direction:column}
+.rev-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.rev-count{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--p400);letter-spacing:.12em}
+.rev-x{border:none;background:none;cursor:pointer;color:var(--ink4);font-size:1.3rem;line-height:1;padding:.1rem .3rem}
+.rev-x:hover{color:var(--p500)}
+.rev-card{min-height:170px;border:1.5px solid var(--line);border-radius:12px;padding:1.4rem 1.2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.8rem;background:var(--p50)}
+.rev-q{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--ink)}
+.rev-a{font-size:.86rem;color:var(--ink2);line-height:1.55;display:none}
+.rev-card.flip .rev-a{display:block}
+.rev-card.flip .rev-reveal{display:none}
+.rev-reveal{margin-top:.4rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:var(--p100);color:var(--p500);border:none;border-radius:8px;padding:.5rem .9rem;cursor:pointer}
+.rev-reveal:hover{background:var(--p200)}
+.rev-nav{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:1.1rem}
+.rev-btn{flex:1;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.6rem;border-radius:9px;cursor:pointer;border:1.5px solid var(--line);background:var(--page);color:var(--ink2);transition:all .15s}
+.rev-btn:hover{background:var(--p50);border-color:var(--p300)}
+.rev-btn.primary{background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none}
+.rev-empty{text-align:center;color:var(--ink3);font-size:.86rem;line-height:1.6;padding:1.5rem .5rem}
+body.dark .rev-box,body.dark .rev-card{background:var(--page);border-color:var(--line);color:var(--ink)}
 .main{margin-top:56px;padding:1.8rem 1.2rem 4rem;max-width:760px;margin-left:auto;margin-right:auto}
 @media(min-width:900px){.hbtn{display:none}.drawer{transform:translateX(0)!important}.overlay{display:none!important}.main{margin-left:260px;padding:2.5rem 2.5rem 4rem}}
 .pg{display:none}.pg.on{display:block;animation:fi .3s ease}
@@ -275,13 +305,36 @@ body.dark .atk{background:var(--p50)}
 </div>
 <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
 
+<!-- REVIEW MODE -->
+<div class="rev-overlay" id="rev-overlay">
+  <div class="rev-box">
+    <div class="rev-top">
+      <span class="rev-count" id="rev-count">0 / 0</span>
+      <button class="rev-x" onclick="closeReview()" aria-label="Fechar">&times;</button>
+    </div>
+    <div id="rev-body">
+      <div class="rev-card" id="rev-card">
+        <div class="rev-q" id="rev-q"></div>
+        <div class="rev-a" id="rev-a"></div>
+        <button class="rev-reveal" onclick="revReveal()">Revelar</button>
+      </div>
+      <div class="rev-nav">
+        <button class="rev-btn" onclick="revPrev()">‹ Anterior</button>
+        <button class="rev-btn primary" onclick="revNext()">Próximo ›</button>
+      </div>
+    </div>
+    <div class="rev-empty" id="rev-empty" style="display:none">Marque termos como Revisar para começar.</div>
+  </div>
+</div>
+
 <aside class="drawer" id="drawer">
 <nav class="nav">
-  <div class="ns">Início</div>
+  <button class="review-trigger" onclick="startReview()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="16" cy="12" r="1.3" fill="currentColor"/></svg>Modo Revisão</button>
+  <button class="dark-toggle" onclick="toggleDark()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M21 12.79 A9 9 0 0 1 11.21 3 A7 7 0 0 0 21 12.79 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Tema Escuro</button>
   <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Capa</div>
   <div class="ni" onclick="go('index',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="8" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="8" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="4" cy="6" r="1.2" fill="currentColor"/><circle cx="4" cy="12" r="1.2" fill="currentColor"/><circle cx="4" cy="18" r="1.2" fill="currentColor"/></svg></span>Índice</div>
   <div class="ni" onclick="go('howto',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M4 4 Q4 3 5 3 L11 3 L12 4 L13 3 L19 3 Q20 3 20 4 L20 19 Q20 20 19 20 L13 20 L12 21 L11 20 L5 20 Q4 20 4 19 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.5"/></svg></span>Como Usar</div>
-  <div class="ndiv"></div>
+  <div class="ni" onclick="go('glossary',this)"><span class="cd">A-Z</span>Glossário</div>
   <div class="ns">Blocos</div>
   <div class="ni" onclick="go('b0',this)"><span class="cd">B·</span>Bloco 0 · PC Basics</div>
   <div class="ni" onclick="go('w01',this)"><span class="cd">W·</span>Bloco 1 · Internet</div>
@@ -297,7 +350,6 @@ body.dark .atk{background:var(--p50)}
   <div class="ni" onclick="go('d0',this)"><span class="cd">D·</span>Bloco 11 · Defense</div>
   <div class="ndiv"></div>
   <div class="ns">Referência</div>
-  <div class="ni" onclick="go('glossary',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><rect x="3" y="3" width="4" height="18" rx="0.5" stroke="currentColor" stroke-width="1.6"/><rect x="9" y="5" width="4" height="16" rx="0.5" stroke="currentColor" stroke-width="1.6"/><rect x="15" y="3" width="4" height="18" rx="0.5" stroke="currentColor" stroke-width="1.6"/></svg></span>Glossário</div>
   <div class="ni" onclick="go('redflags',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="5" y1="22" x2="5" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4 L18 4 L15 9 L18 14 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Red Flags</div>
   <div class="ndiv"></div>
   <div class="ns">Cheatsheets</div>
@@ -322,6 +374,11 @@ body.dark .atk{background:var(--p50)}
   <div class="csb">— A Breach Diary —</div>
   <div class="cdesc">O essencial de cada bloco — definições, mind maps e o que você precisa lembrar. Rápido, visual e em português.</div>
   <div class="badge"><svg class="cherry-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> consulta rápida · todos os blocos</div>
+  <div class="cmeta">
+    <div class="cff"><span class="cfl">Nome</span><span class="cfline">Kaylla Dearo</span></div>
+    <div class="cff"><span class="cfl">Início</span><span class="cfline">April 23</span></div>
+    <div class="cff"><span class="cfl">Objetivo</span><span class="cfline">Cybersecurity Expert</span></div>
+  </div>
   <div class="lv-card" id="lv-card" hidden onclick="lvGo()">
     <div class="lv-icon" id="lv-icon">·</div>
     <div class="lv-text">
@@ -2532,6 +2589,53 @@ function setupMiniTags(){
   });
 }
 
+/* === REVIEW MODE (flashcards) === */
+var REV_ITEMS=[];
+var REV_IDX=0;
+function startReview(){
+  setupMiniTags(); /* ensure IDs assigned */
+  var tags=loadMiniTags();
+  REV_ITEMS=[];
+  Object.keys(tags).forEach(function(iid){
+    if(!tags[iid] || !tags[iid].review) return;
+    var item=document.getElementById(iid);
+    if(!item) return;
+    var titleEl=item.querySelector('.mt-title, .tc-title');
+    var defEl=item.querySelector('.mt-def, .tc-def');
+    if(!titleEl) return;
+    REV_ITEMS.push({
+      q:(titleEl.textContent||'').trim(),
+      a:defEl?(defEl.textContent||'').trim():''
+    });
+  });
+  REV_IDX=0;
+  var ov=document.getElementById('rev-overlay');
+  var body=document.getElementById('rev-body');
+  var empty=document.getElementById('rev-empty');
+  if(REV_ITEMS.length===0){
+    body.style.display='none';
+    empty.style.display='';
+  }else{
+    body.style.display='';
+    empty.style.display='none';
+    revRender();
+  }
+  ov.classList.add('on');
+  closeDrawer();
+}
+function revRender(){
+  var it=REV_ITEMS[REV_IDX];
+  if(!it) return;
+  document.getElementById('rev-count').textContent=(REV_IDX+1)+' / '+REV_ITEMS.length;
+  document.getElementById('rev-q').textContent=it.q;
+  document.getElementById('rev-a').textContent=it.a||'(sem definição)';
+  document.getElementById('rev-card').classList.remove('flip');
+}
+function revReveal(){ document.getElementById('rev-card').classList.add('flip'); }
+function revNext(){ if(REV_IDX<REV_ITEMS.length-1){ REV_IDX++; revRender(); } }
+function revPrev(){ if(REV_IDX>0){ REV_IDX--; revRender(); } }
+function closeReview(){ document.getElementById('rev-overlay').classList.remove('on'); }
+
 /* === SEARCH MODAL === */
 var SEARCH_INDEX=[];
 function buildSearchIndex(){
@@ -2615,7 +2719,8 @@ document.addEventListener('keydown', function(e){
   var inField=(tag==='INPUT'||tag==='TEXTAREA'||e.target.isContentEditable);
   if(e.key==='/' && !inField){ e.preventDefault(); searchOpen(); }
   else if(e.key==='Escape'){
-    if(document.getElementById('smodal').classList.contains('on')) searchClose();
+    if(document.getElementById('rev-overlay').classList.contains('on')) closeReview();
+    else if(document.getElementById('smodal').classList.contains('on')) searchClose();
     else if(document.getElementById('gmodal').classList.contains('on')) gClose();
   }
 });
