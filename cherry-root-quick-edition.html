@@ -226,6 +226,17 @@ body.dark .rev-box,body.dark .rev-card{background:var(--page);border-color:var(-
 .mini-tag:hover{border-color:var(--p300);color:var(--p400)}
 .mini-tag.on{background:var(--p400);color:white;border-color:var(--p400)}
 .mini-tag.on.mini-tag-fav{background:var(--p500);border-color:var(--p500)}
+.mini-tag.on.mini-tag-studied{background:#3aa76d;border-color:#3aa76d;color:#fff}
+
+/* Progress rings */
+.rings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:.7rem;margin:1rem 0}
+.ring{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ring svg{width:78px;height:78px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--p100);stroke-width:7}
+.ring-fg{fill:none;stroke:var(--p500);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .7s ease}
+.ring-ctr{position:absolute;top:0;left:0;width:78px;height:78px;display:flex;align-items:center;justify-content:center}
+.ring-pct{font-family:'DM Mono',monospace;font-weight:600;font-size:.82rem;color:var(--p500)}
+.ring-cap{font-size:.56rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;text-align:center;line-height:1.2;max-width:84px}
 
 /* Search modal */
 .smodal-overlay{position:fixed;inset:0;background:rgba(28,15,20,.55);display:none;align-items:flex-start;justify-content:center;z-index:300;padding:5vh 1rem 1rem}
@@ -393,6 +404,11 @@ body.dark .atk{background:var(--p50)}
 <!-- ÍNDICE -->
 <div class="pg" id="pg-index">
 <div class="ph"><div class="bc">cherry root quick edition <span>›</span> índice</div><div class="pt">Índice</div><div class="ps">Toda a estrutura do grimório de uma vez. Clique para navegar.</div></div>
+
+<div class="idx-section">
+  <div class="idx-title">Progresso</div>
+  <div class="rings-grid" id="ringsGrid"></div>
+</div>
 
 <div class="idx-section">
   <div class="idx-title">Início</div>
@@ -2551,20 +2567,23 @@ function saveMiniTags(t){
 function toggleMiniTag(itemId, kind, ev){
   if(ev){ ev.stopPropagation(); }
   var tags=loadMiniTags();
-  if(!tags[itemId]) tags[itemId]={review:false,fav:false};
+  if(!tags[itemId]) tags[itemId]={review:false,fav:false,studied:false};
   tags[itemId][kind]=!tags[itemId][kind];
   saveMiniTags(tags);
   applyMiniTagState(itemId);
+  if(kind==='studied') renderRings();
 }
 function applyMiniTagState(itemId){
   var tags=loadMiniTags();
-  var s=tags[itemId]||{review:false,fav:false};
+  var s=tags[itemId]||{review:false,fav:false,studied:false};
   var item=document.getElementById(itemId);
   if(!item) return;
   var rev=item.querySelector('.mini-tag-review');
   var fav=item.querySelector('.mini-tag-fav');
+  var stu=item.querySelector('.mini-tag-studied');
   if(rev) rev.classList.toggle('on', !!s.review);
   if(fav) fav.classList.toggle('on', !!s.fav);
+  if(stu) stu.classList.toggle('on', !!s.studied);
 }
 function setupMiniTags(){
   /* Assign IDs to .mt and .tc items per block, then inject mini tag icons. */
@@ -2579,7 +2598,7 @@ function setupMiniTags(){
       if(!head || head.querySelector('.mini-tag-group')) return;
       var g=document.createElement('span');
       g.className='mini-tag-group';
-      g.innerHTML='<span class="mini-tag mini-tag-review" title="Revisar" onclick="toggleMiniTag(\''+iid+'\',\'review\',event)">⚑</span><span class="mini-tag mini-tag-fav" title="Favorito" onclick="toggleMiniTag(\''+iid+'\',\'fav\',event)">♡</span>';
+      g.innerHTML='<span class="mini-tag mini-tag-review" title="Revisar" onclick="toggleMiniTag(\''+iid+'\',\'review\',event)">⚑</span><span class="mini-tag mini-tag-fav" title="Favorito" onclick="toggleMiniTag(\''+iid+'\',\'fav\',event)">♡</span><span class="mini-tag mini-tag-studied" title="Estudado" onclick="toggleMiniTag(\''+iid+'\',\'studied\',event)">✓</span>';
       /* Insert before code badge if any, otherwise append */
       var code=head.querySelector('.mt-code, .tc-code');
       if(code) head.insertBefore(g, code);
@@ -2587,6 +2606,38 @@ function setupMiniTags(){
       applyMiniTagState(iid);
     });
   });
+}
+
+/* === PROGRESS RINGS === */
+var RING_CAPS={'b0':'PC Basics','w01':'Internet','n0':'Networks','l0':'Linux','p0':'Programming','s0':'Security','a0':'Web Attacks','t0':'Tools','m0':'Methodology','se0':'Social Eng','ml0':'Malware','d0':'Defense'};
+function renderRings(){
+  var grid=document.getElementById('ringsGrid');
+  if(!grid) return;
+  setupMiniTags();
+  var tags=loadMiniTags();
+  var C=2*Math.PI*34;
+  grid.innerHTML=BLOCK_IDS.map(function(bid){
+    var pg=document.getElementById('pg-'+bid);
+    var items=pg?pg.querySelectorAll('.mt, .tc'):[];
+    var total=items.length, studied=0;
+    items.forEach(function(it){ if(it.id && tags[it.id] && tags[it.id].studied) studied++; });
+    var pct=total?studied/total:0;
+    return '<div class="ring"><svg viewBox="0 0 78 78"><circle class="ring-bg" cx="39" cy="39" r="34"/>'
+      +'<circle class="ring-fg" cx="39" cy="39" r="34" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+C.toFixed(1)+'"/></svg>'
+      +'<div class="ring-ctr"><span class="ring-pct">'+Math.round(pct*100)+'%</span></div>'
+      +'<span class="ring-cap">'+(RING_CAPS[bid]||bid)+'</span></div>';
+  }).join('');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    var rings=grid.querySelectorAll('.ring-fg');
+    BLOCK_IDS.forEach(function(bid, i){
+      var pg=document.getElementById('pg-'+bid);
+      var items=pg?pg.querySelectorAll('.mt, .tc'):[];
+      var total=items.length, studied=0;
+      items.forEach(function(it){ if(it.id && tags[it.id] && tags[it.id].studied) studied++; });
+      var pct=total?studied/total:0;
+      if(rings[i]) rings[i].setAttribute('stroke-dashoffset',(C*(1-pct)).toFixed(1));
+    });
+  }); });
 }
 
 /* === REVIEW MODE (flashcards) === */
@@ -2731,6 +2782,7 @@ document.addEventListener('DOMContentLoaded', function(){
   restoreAllNotes();
   renderLastViewed();
   buildSearchIndex();
+  renderRings();
 });
 </script>
 <script>

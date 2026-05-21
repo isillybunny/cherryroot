@@ -97,6 +97,18 @@ main{margin-top:56px;padding:1.4rem 1rem 4rem;max-width:760px;margin-left:auto;m
 .tc-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:.5rem;gap:.5rem;flex-wrap:wrap}
 .tc-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--ink);line-height:1.2}
 .tc-code{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--p500);background:var(--p100);border:1px solid var(--p200);border-radius:99px;padding:.18rem .55rem;flex-shrink:0;font-weight:600;letter-spacing:.05em}
+.studied-btn{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--ink4);background:transparent;border:1px solid var(--line);border-radius:99px;padding:.16rem .5rem;flex-shrink:0;font-weight:600;letter-spacing:.05em;cursor:pointer;display:inline-flex;align-items:center;gap:.25rem;transition:all .15s;user-select:none}
+.studied-btn:hover{border-color:var(--p300);color:var(--p400)}
+.studied-btn.on{background:#3aa76d;border-color:#3aa76d;color:#fff}
+/* Progress rings */
+.rings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:.7rem;margin:1rem 0}
+.ring{position:relative;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.ring svg{width:78px;height:78px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--p100);stroke-width:7}
+.ring-fg{fill:none;stroke:var(--p500);stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset .7s ease}
+.ring-ctr{position:absolute;top:0;left:0;width:78px;height:78px;display:flex;align-items:center;justify-content:center}
+.ring-pct{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--p500)}
+.ring-cap{font-size:.56rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;text-align:center;line-height:1.2;max-width:84px}
 .tc-def{font-size:.81rem;color:var(--ink2);line-height:1.6;margin-bottom:.55rem;padding:.55rem .75rem;background:var(--p50);border-radius:8px;border-left:2.5px solid var(--p300)}
 .tc-def em{color:var(--p500);font-style:italic;font-weight:500}
 .kws{display:flex;flex-wrap:wrap;gap:.28rem;margin:.45rem 0}
@@ -297,6 +309,10 @@ body.dark .mm-leaf{color:var(--ink)}
     <div class="bc">cherry code <span>›</span> índice</div>
     <div class="pt">Índice</div>
     <div class="ps">Navegue pelos 9 blocos ou abra o modo revisão.</div>
+  </div>
+  <div class="idx-sec">
+    <div class="idx-title">Progresso</div>
+    <div class="rings-grid" id="ringsGrid"></div>
   </div>
   <div class="idx-sec">
     <div class="idx-title">Blocos</div>
@@ -1460,9 +1476,79 @@ document.addEventListener('keydown', function(e){
   }
 });
 
+/* === STUDIED TRACKING + PROGRESS RINGS === */
+var RING_BLOCKS=[
+  {id:'b1',cap:'Fundamentos'},{id:'b2',cap:'Tipos'},{id:'b3',cap:'Operadores'},
+  {id:'b4',cap:'Controle'},{id:'b5',cap:'Funções'},{id:'b6',cap:'Estruturas'},
+  {id:'b7',cap:'POO'},{id:'b8',cap:'Erros'},{id:'b9',cap:'Boas Práticas'}
+];
+function loadStudied(){
+  try{ return JSON.parse(localStorage.getItem('cherryCodeCompactStudied')||'{}'); }catch(e){ return {}; }
+}
+function saveStudied(s){
+  try{ localStorage.setItem('cherryCodeCompactStudied', JSON.stringify(s)); }catch(e){}
+}
+function toggleStudied(termId, ev){
+  if(ev){ ev.stopPropagation(); }
+  var s=loadStudied();
+  if(s[termId]) delete s[termId]; else s[termId]=true;
+  saveStudied(s);
+  var item=document.getElementById(termId);
+  if(item){ var b=item.querySelector('.studied-btn'); if(b) b.classList.toggle('on', !!s[termId]); }
+  renderRings();
+}
+function setupStudied(){
+  var studied=loadStudied();
+  RING_BLOCKS.forEach(function(b){
+    var pg=document.getElementById('pg-'+b.id);
+    if(!pg) return;
+    pg.querySelectorAll('.tc').forEach(function(it, idx){
+      if(!it.id) it.id=b.id+'-t'+(idx+1);
+      var head=it.querySelector('.tc-head');
+      if(!head || head.querySelector('.studied-btn')) return;
+      var btn=document.createElement('span');
+      btn.className='studied-btn'+(studied[it.id]?' on':'');
+      btn.title='Marcar como estudado';
+      btn.setAttribute('onclick',"toggleStudied('"+it.id+"',event)");
+      btn.innerHTML='✓ Sei';
+      var code=head.querySelector('.tc-code');
+      if(code) head.insertBefore(btn, code); else head.appendChild(btn);
+    });
+  });
+}
+function renderRings(){
+  var grid=document.getElementById('ringsGrid');
+  if(!grid) return;
+  setupStudied();
+  var studied=loadStudied();
+  var C=2*Math.PI*34;
+  function count(b){
+    var pg=document.getElementById('pg-'+b.id);
+    var items=pg?pg.querySelectorAll('.tc'):[];
+    var done=0; items.forEach(function(it){ if(it.id && studied[it.id]) done++; });
+    return {done:done, total:items.length};
+  }
+  grid.innerHTML=RING_BLOCKS.map(function(b){
+    var c=count(b); var pct=c.total?c.done/c.total:0;
+    return '<div class="ring"><svg viewBox="0 0 78 78"><circle class="ring-bg" cx="39" cy="39" r="34"/>'
+      +'<circle class="ring-fg" cx="39" cy="39" r="34" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+C.toFixed(1)+'"/></svg>'
+      +'<div class="ring-ctr"><span class="ring-pct">'+Math.round(pct*100)+'%</span></div>'
+      +'<span class="ring-cap">'+b.cap+'</span></div>';
+  }).join('');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    var rings=grid.querySelectorAll('.ring-fg');
+    RING_BLOCKS.forEach(function(b, i){
+      var c=count(b); var pct=c.total?c.done/c.total:0;
+      if(rings[i]) rings[i].setAttribute('stroke-dashoffset',(C*(1-pct)).toFixed(1));
+    });
+  }); });
+}
+
 // Init
 document.addEventListener('DOMContentLoaded', function(){
   addLastViewedWidget();
+  setupStudied();
+  renderRings();
 });
 </script>
 <script>
