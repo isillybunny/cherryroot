@@ -37,6 +37,13 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .cd{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);min-width:34px;flex-shrink:0;font-weight:600}
 .ni.active .cd{color:var(--p500)}
 .ndiv{height:1px;background:var(--line);margin:.4rem 1.1rem}
+/* Collapsible nav sections (accordion) — prominent header */
+.ns{cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:.66rem;font-weight:700;color:var(--p500);background:var(--p50);margin:.35rem .6rem;padding:.6rem .7rem;border-radius:9px;border:1px solid var(--line);transition:background .15s}
+.ns:hover{background:var(--p100)}
+.ns.ns-open{background:var(--p100)}
+.ns::after{content:'\25B8';font-size:.72rem;color:var(--p400);transition:transform .2s;font-weight:400;flex-shrink:0;margin-left:.4rem}
+.ns.ns-open::after{transform:rotate(90deg)}
+.ni.ni-collapsed{display:none!important}
 .review-btn{margin:.6rem 1.1rem;padding:.55rem .8rem;border-radius:9px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;width:calc(100% - 2.2rem);background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;display:flex;align-items:center;justify-content:center;gap:.4rem;font-weight:600;transition:transform .15s}
 .review-btn:hover{transform:translateY(-1px)}
 main{margin-top:56px;padding:1.4rem 1rem 4rem;max-width:760px;margin-left:auto;margin-right:auto}
@@ -1451,6 +1458,38 @@ document.addEventListener('DOMContentLoaded', function(){
   addLastViewedWidget();
 });
 </script>
-
+<script>
+/* Collapsible nav sections (accordion) */
+(function(){
+  function walk(ns, fn){
+    var n = ns.nextElementSibling;
+    while(n){
+      if(n.classList && n.classList.contains('ns')) break;
+      if(n.tagName === 'BUTTON') break;
+      if(n.classList && n.classList.contains('ni')) fn(n);
+      n = n.nextElementSibling;
+    }
+  }
+  window.toggleNavSection = function(ns){
+    var open = ns.classList.toggle('ns-open');
+    walk(ns, function(ni){ ni.classList.toggle('ni-collapsed', !open); });
+  };
+  function init(){
+    var nav = document.querySelector('nav.nav') || document.querySelector('.drawer') || document.querySelector('.nav');
+    if(!nav) return;
+    nav.querySelectorAll('.ns').forEach(function(ns){
+      ns.addEventListener('click', function(){ window.toggleNavSection(ns); });
+      walk(ns, function(ni){ ni.classList.add('ni-collapsed'); });
+    });
+    var active = nav.querySelector('.ni.active');
+    if(active){
+      var p = active.previousElementSibling;
+      while(p){ if(p.classList && p.classList.contains('ns')){ window.toggleNavSection(p); break; } if(p.tagName==='BUTTON') break; p = p.previousElementSibling; }
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>

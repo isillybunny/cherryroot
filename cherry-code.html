@@ -49,9 +49,11 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .ni .cd{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.05em;min-width:48px;font-weight:500;flex-shrink:0}
 .ni.active .cd{color:var(--p500)}
 .ndiv{height:1px;background:var(--line);margin:.4rem 1rem}
-/* Collapsible nav sections (accordion) */
-.ns{cursor:pointer;display:flex;align-items:center;justify-content:space-between}
-.ns::after{content:'\25B8';font-size:.7rem;color:var(--p400);transition:transform .2s;font-weight:400}
+/* Collapsible nav sections (accordion) — prominent header */
+.ns{cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:.66rem;font-weight:700;color:var(--p500);background:var(--p50);margin:.35rem .6rem;padding:.6rem .7rem;border-radius:9px;border:1px solid var(--line);transition:background .15s}
+.ns:hover{background:var(--p100)}
+.ns.ns-open{background:var(--p100)}
+.ns::after{content:'\25B8';font-size:.72rem;color:var(--p400);transition:transform .2s;font-weight:400;flex-shrink:0;margin-left:.4rem}
 .ns.ns-open::after{transform:rotate(90deg)}
 .ni.ni-collapsed{display:none!important}
 .review-trigger,.dark-toggle{margin:.5rem 1rem;padding:.55rem .8rem;border-radius:10px;cursor:pointer;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;width:calc(100% - 2rem);transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.4rem;border:none}
@@ -10587,7 +10589,6 @@ document.addEventListener('DOMContentLoaded', refreshQuizHubBest);
     while(n){
       if(n.classList && n.classList.contains('ns')) break;
       if(n.tagName === 'BUTTON') break;
-      if(n.classList && n.classList.contains('ndiv')) break;
       if(n.classList && n.classList.contains('ni')) fn(n);
       n = n.nextElementSibling;
     }
