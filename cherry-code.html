@@ -8066,6 +8066,8 @@ s.<span class="fn">length</span>();        <span class="com">// NullPointerExcep
 <span class="tag-btn hard" onclick="toggleTag('b01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 Variable</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Naming conventions are agreed-upon rules for how to name variables, functions, classes, and files."</div>Good names act as inline documentation — they describe intent, not implementation.</div>
 </div>
@@ -8103,14 +8105,24 @@ SECONDS_IN_DAY <span class="op">=</span> <span class="num">86400</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mixed styles</span><code class="code-mini">userName = 1
+user_age = 2</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Consistent per language</span><code class="code-mini">user_name = 1
+user_age = 2</code></div><div class="mistake-why"><strong>Why:</strong> Python uses snake_case throughout. Mixing conventions in one file looks careless and slows readers.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Cryptic names</span><code class="code-mini">d = {}
+tmp = f(d)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Descriptive names</span><code class="code-mini">scores = {}
+average = mean(scores)</code></div><div class="mistake-why"><strong>Why:</strong> a good name removes the need for a comment.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>If your reader needs to scroll to find out what a name means, the name is wrong.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Python convention?</summary><div class="faq-a">snake_case for variables and functions, PascalCase for classes.</div></details><details class="faq-item"><summary class="faq-q">JavaScript convention?</summary><div class="faq-a">camelCase for variables and functions.</div></details><details class="faq-item"><summary class="faq-q">What about constants?</summary><div class="faq-a">UPPER_CASE in most languages.</div></details><details class="faq-item"><summary class="faq-q">Why does consistency matter?</summary><div class="faq-a">It makes a shared codebase predictable and easy to read.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b01" placeholder="Write your observations about this term..." onchange="saveNotes('b01')" oninput="updateNotesStatus('b01')"></textarea>
 <div class="notes-status" id="notes-status-b01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b02')">B&middot;02 Indentation</span><span class="next-chip" onclick="go('t01')">T&middot;01 Variable</span></div>
 </div>
 
 <!-- B·02 Indentation -->
@@ -8129,6 +8141,8 @@ SECONDS_IN_DAY <span class="op">=</span> <span class="num">86400</span>
 <span class="tag-btn hard" onclick="toggleTag('b02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Indentation is the leading whitespace that visually shows the nesting level of code blocks."</div>In Python, indentation is part of the grammar — wrong indentation is an error. In other languages, it's just convention but still essential for readability.</div>
 </div>
@@ -8162,14 +8176,28 @@ SECONDS_IN_DAY <span class="op">=</span> <span class="num">86400</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mix tabs and spaces</span><code class="code-mini">if ok:
+&rarr;   do_a()
+    do_b()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Spaces only</span><code class="code-mini">if ok:
+    do_a()
+    do_b()</code></div><div class="mistake-why"><strong>Why:</strong> Python treats tabs and spaces differently, so mixing them breaks blocks that look aligned.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Inconsistent depth</span><code class="code-mini">def f():
+  a()
+      b()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Four spaces per level</span><code class="code-mini">def f():
+    a()
+    b()</code></div><div class="mistake-why"><strong>Why:</strong> a steady indent width keeps structure obvious and avoids syntax errors.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Let a formatter handle indentation. Don't argue about tabs vs spaces — run <code>black</code>, <code>prettier</code>, or <code>google-java-format</code> and move on.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Is indentation required?</summary><div class="faq-a">In Python it defines blocks; in most other languages it is style only.</div></details><details class="faq-item"><summary class="faq-q">Tabs or spaces?</summary><div class="faq-a">The Python community prefers four spaces.</div></details><details class="faq-item"><summary class="faq-q">Why does mixing break things?</summary><div class="faq-a">Python counts tabs and spaces as different, so blocks no longer line up.</div></details><details class="faq-item"><summary class="faq-q">Can it be auto-fixed?</summary><div class="faq-a">Yes &mdash; a formatter normalizes indentation for you.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b02" placeholder="Write your observations about this term..." onchange="saveNotes('b02')" oninput="updateNotesStatus('b02')"></textarea>
 <div class="notes-status" id="notes-status-b02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b03')">B&middot;03 Comments</span><span class="next-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
 </div>
 
 <!-- B·03 Comments -->
@@ -8188,6 +8216,8 @@ SECONDS_IN_DAY <span class="op">=</span> <span class="num">86400</span>
 <span class="tag-btn hard" onclick="toggleTag('b03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A comment is text inside the source file that is ignored by the <span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">compiler</span>/<span class="gloss" onclick="gOpen(&#39;Interpreter&#39;,&#39;Reads and executes code line by line at runtime (Python, JavaScript).&#39;)">interpreter</span>, used to explain intent to humans."</div>The best comments explain WHY a piece of code exists — not WHAT it does, because the code itself already says that.</div>
 </div>
@@ -8225,14 +8255,22 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; State the obvious</span><code class="code-mini">x += 1   # add one to x</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Explain the why</span><code class="code-mini">x += 1   # skip the header row</code></div><div class="mistake-why"><strong>Why:</strong> code already says what it does. A comment should explain why, when that is not obvious.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Stale comment</span><code class="code-mini"># returns a list
+def get(): return {}</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep it in sync</span><code class="code-mini"># returns a dict
+def get(): return {}</code></div><div class="mistake-why"><strong>Why:</strong> a comment that contradicts the code is worse than none &mdash; it misleads.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Stale comments are worse than no comments. If you change the code, update the comment in the same commit.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">When should I comment?</summary><div class="faq-a">When the reason behind the code is not obvious from the code itself.</div></details><details class="faq-item"><summary class="faq-q">Comment vs docstring?</summary><div class="faq-a">A docstring documents a function or module; a comment explains a line.</div></details><details class="faq-item"><summary class="faq-q">Can there be too many?</summary><div class="faq-a">Yes &mdash; if you need many, the code may be unclear. Improve the code first.</div></details><details class="faq-item"><summary class="faq-q">What about commented-out code?</summary><div class="faq-a">Delete it &mdash; version control remembers it for you.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b03" placeholder="Write your observations about this term..." onchange="saveNotes('b03')" oninput="updateNotesStatus('b03')"></textarea>
 <div class="notes-status" id="notes-status-b03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b10')">B&middot;10 Documentation</span><span class="next-chip" onclick="go('b04')">B&middot;04 DRY Principle</span></div>
 </div>
 
 <!-- B·04 DRY Principle -->
@@ -8251,6 +8289,8 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
 <span class="tag-btn hard" onclick="toggleTag('b04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"DRY — Don't Repeat Yourself — means every piece of knowledge in a system should have a single, authoritative source."</div>Duplicated logic is duplicated maintenance — fix a bug in one copy and the others still bite you.</div>
 </div>
@@ -8285,14 +8325,21 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
     <span class="fn">greet</span>(n);</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Copy-paste a block</span><code class="code-mini"># same 8 lines in three places</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Extract a function</span><code class="code-mini">def process(row): ...
+# call it three times</code></div><div class="mistake-why"><strong>Why:</strong> duplicated code means fixing a bug in three places. One function means one fix.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Force unrelated code together</span><code class="code-mini"># merge two functions that just look alike</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Only unify true duplication</span><code class="code-mini"># keep them separate if they differ in purpose</code></div><div class="mistake-why"><strong>Why:</strong> code that looks similar but means different things should stay apart.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Wait for the <strong>third</strong> repetition before extracting. Two looks like a coincidence — three is a pattern.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What does DRY mean?</summary><div class="faq-a">Don't Repeat Yourself &mdash; keep each piece of knowledge in one place.</div></details><details class="faq-item"><summary class="faq-q">Why follow it?</summary><div class="faq-a">One source of truth means fewer places for bugs to hide.</div></details><details class="faq-item"><summary class="faq-q">Can you over-apply it?</summary><div class="faq-a">Yes &mdash; forcing unrelated code together creates awkward coupling.</div></details><details class="faq-item"><summary class="faq-q">What is WET?</summary><div class="faq-a">"Write Everything Twice" &mdash; the duplicated anti-pattern.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b04" placeholder="Write your observations about this term..." onchange="saveNotes('b04')" oninput="updateNotesStatus('b04')"></textarea>
 <div class="notes-status" id="notes-status-b04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b05')">B&middot;05 SOLID Principles</span><span class="next-chip" onclick="go('b06')">B&middot;06 Refactor</span></div>
 </div>
 
 <!-- B·05 SOLID Principles -->
@@ -8311,6 +8358,8 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
 <span class="tag-btn hard" onclick="toggleTag('b05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p07')">P&middot;07 Inheritance</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"SOLID is an acronym for five OOP design principles that produce flexible, maintainable systems."</div><strong>S</strong>ingle responsibility, <strong>O</strong>pen-closed, <strong>L</strong>iskov substitution, <strong>I</strong>nterface segregation, <strong>D</strong>ependency inversion.</div>
 </div>
@@ -8346,14 +8395,21 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
 <span class="com">// Don't force one big interface on everyone</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; One class does everything</span><code class="code-mini">class App:  # parses, saves, emails, logs</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Single responsibility</span><code class="code-mini">class Parser: ...
+class Mailer: ...</code></div><div class="mistake-why"><strong>Why:</strong> a class with one reason to change is easier to test, reuse, and reason about.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Apply all five dogmatically</span><code class="code-mini"># 6 interfaces for a 20-line script</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Treat them as guidance</span><code class="code-mini"># apply where the design actually benefits</code></div><div class="mistake-why"><strong>Why:</strong> SOLID is a set of guidelines, not laws. Over-applying adds needless ceremony.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SOLID is a compass, not a checklist. Reach for it when a system feels rigid or fragile.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is SOLID?</summary><div class="faq-a">Five object-oriented design principles for maintainable code.</div></details><details class="faq-item"><summary class="faq-q">Which matters most for beginners?</summary><div class="faq-a">Single Responsibility &mdash; one class, one job.</div></details><details class="faq-item"><summary class="faq-q">Are they required?</summary><div class="faq-a">No &mdash; they are guidelines that help as systems grow.</div></details><details class="faq-item"><summary class="faq-q">When should I apply them?</summary><div class="faq-a">As designs get complex and change often.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b05" placeholder="Write your observations about this term..." onchange="saveNotes('b05')" oninput="updateNotesStatus('b05')"></textarea>
 <div class="notes-status" id="notes-status-b05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b06')">B&middot;06 Refactor</span><span class="next-chip" onclick="go('p07')">P&middot;07 Inheritance</span></div>
 </div>
 
 <!-- B·06 Refactor -->
@@ -8372,6 +8428,8 @@ i<span class="op">++</span>;  <span class="com">// increment i</span>
 <span class="tag-btn hard" onclick="toggleTag('b06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('b09')">B&middot;09 Testing</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Refactoring is changing the internal structure of code while keeping its observable behavior the same."</div>You rename, extract, simplify, and reorganize — without adding features or fixing bugs in the same step.</div>
 </div>
@@ -8417,14 +8475,20 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Refactor without tests</span><code class="code-mini"># rewrite, hope nothing broke</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Tests first</span><code class="code-mini"># green tests, refactor, green tests again</code></div><div class="mistake-why"><strong>Why:</strong> tests prove the behavior stayed the same while you change the structure.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Refactor and add features at once</span><code class="code-mini"># cleanup + new feature in one commit</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Separate the changes</span><code class="code-mini"># refactor commit, then feature commit</code></div><div class="mistake-why"><strong>Why:</strong> mixing the two makes it hard to tell what caused a new bug.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Refactor&#39;,&#39;Restructure code without changing behavior.&#39;)">Refactor</span> and fix bugs in <strong>separate commits</strong>. Mixing them makes review and reverting much harder.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is refactoring?</summary><div class="faq-a">Improving code structure without changing what it does.</div></details><details class="faq-item"><summary class="faq-q">Why tests first?</summary><div class="faq-a">They confirm behavior is unchanged after each step.</div></details><details class="faq-item"><summary class="faq-q">When should I refactor?</summary><div class="faq-a">When the code has become hard to read or change.</div></details><details class="faq-item"><summary class="faq-q">Big or small steps?</summary><div class="faq-a">Small, verified steps &mdash; run the tests between each.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b06" placeholder="Write your observations about this term..." onchange="saveNotes('b06')" oninput="updateNotesStatus('b06')"></textarea>
 <div class="notes-status" id="notes-status-b06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b07')">B&middot;07 Code Review</span><span class="next-chip" onclick="go('b09')">B&middot;09 Testing</span></div>
 </div>
 
 <!-- B·07 Code Review -->
@@ -8443,6 +8507,8 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 <span class="tag-btn hard" onclick="toggleTag('b07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('b08')">B&middot;08 Version Control</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Code review is the practice of having other developers read your code and suggest improvements before it's merged."</div>It catches bugs, spreads knowledge across the team, and keeps style consistent.</div>
 </div>
@@ -8481,14 +8547,20 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Rubber-stamp approve</span><code class="code-mini"># "LGTM" without reading</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Actually read it</span><code class="code-mini"># check logic, names, and edge cases</code></div><div class="mistake-why"><strong>Why:</strong> a review that does not read the change adds no value and lets bugs through.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Make it personal</span><code class="code-mini"># "why would you write this?"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Critique the code</span><code class="code-mini"># "this loop could miss the empty case"</code></div><div class="mistake-why"><strong>Why:</strong> reviews are about the code, not the author. Keep feedback specific and kind.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Review the <strong>code</strong>, not the person. "This <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>" is feedback. "You always" is an <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a code review?</summary><div class="faq-a">A teammate reading your changes before they are merged.</div></details><details class="faq-item"><summary class="faq-q">Why do it?</summary><div class="faq-a">It catches bugs early and spreads knowledge across the team.</div></details><details class="faq-item"><summary class="faq-q">What should I look for?</summary><div class="faq-a">Correctness, clarity, and missed edge cases.</div></details><details class="faq-item"><summary class="faq-q">What tone works best?</summary><div class="faq-a">Kind, specific, and focused on the code.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b07" placeholder="Write your observations about this term..." onchange="saveNotes('b07')" oninput="updateNotesStatus('b07')"></textarea>
 <div class="notes-status" id="notes-status-b07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b08')">B&middot;08 Version Control</span><span class="next-chip" onclick="go('b09')">B&middot;09 Testing</span></div>
 </div>
 
 <!-- B·08 Version Control -->
@@ -8507,6 +8579,8 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 <span class="tag-btn hard" onclick="toggleTag('b08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Version Control&#39;,&#39;System (like Git) that tracks changes to code over time.&#39;)">Version control</span> records the history of changes to your codebase so you can review, revert, branch, and collaborate safely."</div><strong>Git</strong> is by far the most common system, often used through hosts like GitHub or GitLab.</div>
 </div>
@@ -8540,14 +8614,20 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 <span class="com">$ git revert &lt;sha&gt;</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Giant vague commit</span><code class="code-mini">git commit -m "stuff"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Small, described commits</span><code class="code-mini">git commit -m "fix off-by-one in pager"</code></div><div class="mistake-why"><strong>Why:</strong> focused commits with clear messages make history searchable and easy to revert.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Commit secrets</span><code class="code-mini">git add .env</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Ignore them</span><code class="code-mini"># add .env to .gitignore</code></div><div class="mistake-why"><strong>Why:</strong> once a secret is committed it lives in history. Keep credentials out with .gitignore.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Commit messages are <strong>letters to your future self</strong>. "fix stuff" is a betrayal of the next <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is version control?</summary><div class="faq-a">A system that records changes to code over time.</div></details><details class="faq-item"><summary class="faq-q">What is Git?</summary><div class="faq-a">The most widely used version control system.</div></details><details class="faq-item"><summary class="faq-q">Commit vs push?</summary><div class="faq-a">A commit saves locally; a push sends commits to the remote.</div></details><details class="faq-item"><summary class="faq-q">Why use branches?</summary><div class="faq-a">They isolate work in progress from the stable code.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b08" placeholder="Write your observations about this term..." onchange="saveNotes('b08')" oninput="updateNotesStatus('b08')"></textarea>
 <div class="notes-status" id="notes-status-b08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b07')">B&middot;07 Code Review</span><span class="next-chip" onclick="go('b09')">B&middot;09 Testing</span></div>
 </div>
 
 <!-- B·09 Testing -->
@@ -8566,6 +8646,8 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 <span class="tag-btn hard" onclick="toggleTag('b09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e09')">E&middot;09 Edge Case</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A test is code that runs your code with known inputs and verifies the outputs match expectations."</div>Tests are a safety net: they let you change things confidently because a failure surfaces immediately.</div>
 </div>
@@ -8602,14 +8684,21 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Only test the happy path</span><code class="code-mini">assert add(2, 2) == 4</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Test the edges too</span><code class="code-mini">assert add(-1, 1) == 0
+assert add(0, 0) == 0</code></div><div class="mistake-why"><strong>Why:</strong> the happy path rarely breaks. Bugs live in the empty, zero, and negative cases.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Tests depend on each other</span><code class="code-mini"># test B only passes after test A</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Independent tests</span><code class="code-mini"># each test sets up its own state</code></div><div class="mistake-why"><strong>Why:</strong> coupled tests fail mysteriously when run alone or reordered.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The first time tests catch a regression, you'll never write code without them again.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is testing?</summary><div class="faq-a">Checking that code behaves the way it should.</div></details><details class="faq-item"><summary class="faq-q">Unit vs integration?</summary><div class="faq-a">A unit test checks one piece; an integration test checks pieces working together.</div></details><details class="faq-item"><summary class="faq-q">What is TDD?</summary><div class="faq-a">Test-Driven Development &mdash; write the test before the code.</div></details><details class="faq-item"><summary class="faq-q">What is coverage?</summary><div class="faq-a">The share of your code exercised by tests.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b09" placeholder="Write your observations about this term..." onchange="saveNotes('b09')" oninput="updateNotesStatus('b09')"></textarea>
 <div class="notes-status" id="notes-status-b09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b06')">B&middot;06 Refactor</span><span class="next-chip" onclick="go('e09')">E&middot;09 Edge Case</span></div>
 </div>
 
 <!-- B·10 Documentation -->
@@ -8628,6 +8717,8 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 <span class="tag-btn hard" onclick="toggleTag('b10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('b10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('b03')">B&middot;03 Comments</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Documentation is everything written to help others (and future you) understand and use the code: READMEs, docstrings, API references, and architecture notes."</div>Good docs make the difference between a project people adopt and one they abandon.</div>
 </div>
@@ -8675,14 +8766,20 @@ TAX <span class="op">=</span> <span class="num">1.1</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; No README</span><code class="code-mini"># clone it and... now what?</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Explain setup and use</span><code class="code-mini"># README: install, run, examples</code></div><div class="mistake-why"><strong>Why:</strong> a project with no entry-point docs is hard for anyone (including future you) to pick up.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Docs that rot</span><code class="code-mini"># wiki describes last year's API</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep docs near the code</span><code class="code-mini"># update docs in the same commit</code></div><div class="mistake-why"><strong>Why:</strong> documentation that drifts from the code misleads. Update both together.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The README is the front door. Write it for someone who's never seen the project — including you in six months.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What should docs cover?</summary><div class="faq-a">What the project does, how to run it, and how to use it.</div></details><details class="faq-item"><summary class="faq-q">What is a docstring?</summary><div class="faq-a">In-code documentation for a function, class, or module.</div></details><details class="faq-item"><summary class="faq-q">What is a README?</summary><div class="faq-a">The entry-point document for a project.</div></details><details class="faq-item"><summary class="faq-q">Who is documentation for?</summary><div class="faq-a">Your teammates &mdash; and the future you who forgot the details.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-b10" placeholder="Write your observations about this term..." onchange="saveNotes('b10')" oninput="updateNotesStatus('b10')"></textarea>
 <div class="notes-status" id="notes-status-b10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('b03')">B&middot;03 Comments</span><span class="next-chip" onclick="go('b07')">B&middot;07 Code Review</span></div>
 </div>
 
 
