@@ -4788,6 +4788,8 @@ for a in big:
 <span class="tag-btn hard" onclick="toggleTag('n01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 Variable</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is a named, reusable block of code that performs a specific task."</div>You define it once and call it as many times as you need. Functions take inputs (parameters), do work, and optionally return a result.</div>
 </div>
@@ -4817,14 +4819,26 @@ for a in big:
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">greet</span>(<span class="str">"Ada"</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Define but never call</span><code class="code-mini">def greet():
+    print("hi")
+# nothing prints</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Call it</span><code class="code-mini">def greet():
+    print("hi")
+greet()</code></div><div class="mistake-why"><strong>Why:</strong> defining a function only stores it. You must call it with <code>()</code> to run the body.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Forget to return</span><code class="code-mini">def double(x):
+    x * 2</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Return the result</span><code class="code-mini">def double(x):
+    return x * 2</code></div><div class="mistake-why"><strong>Why:</strong> with no <code>return</code>, the function gives back <code>None</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A good <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> does <strong>one thing</strong>. If you find yourself writing "and" in its name, split it in two.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Why use functions?</summary><div class="faq-a">They let you reuse code, name a behavior, and test it in isolation.</div></details><details class="faq-item"><summary class="faq-q">def vs calling?</summary><div class="faq-a"><code>def</code> creates the function; <code>()</code> runs it.</div></details><details class="faq-item"><summary class="faq-q">One job per function?</summary><div class="faq-a">Yes &mdash; small, single-purpose functions are easier to reuse and debug.</div></details><details class="faq-item"><summary class="faq-q">Can a function call another?</summary><div class="faq-a">Yes &mdash; that is how programs are composed.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n01" placeholder="Write your observations about this term..." onchange="saveNotes('n01')" oninput="updateNotesStatus('n01')"></textarea>
 <div class="notes-status" id="notes-status-n01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n02')">N&middot;02 Parameter</span><span class="next-chip" onclick="go('n04')">N&middot;04 Return Value</span></div>
 </div>
 
 <!-- N·02 Parameter -->
@@ -4843,6 +4857,8 @@ for a in big:
 <span class="tag-btn hard" onclick="toggleTag('n02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Parameter&#39;,&#39;A named input declared in a function signature.&#39;)">parameter</span> is a placeholder name listed in a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>'s definition for the values it will receive."</div>Parameters act as local variables inside the function, holding whatever arguments the caller passes in.</div>
 </div>
@@ -4873,14 +4889,20 @@ for a in big:
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">add</span>(<span class="num">2</span>, <span class="num">3</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Confuse the two terms</span><code class="code-mini">def f(value):   # value is the argument?</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Parameter in the definition</span><code class="code-mini">def f(value):   # value is the parameter</code></div><div class="mistake-why"><strong>Why:</strong> a parameter is the placeholder in the definition; the argument is the value passed at the call.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Rely on order silently</span><code class="code-mini">box(2, 5, 1)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Name them</span><code class="code-mini">box(width=2, height=5, depth=1)</code></div><div class="mistake-why"><strong>Why:</strong> keyword arguments are self-documenting and immune to reordering mistakes.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Parameters are the <strong>recipe</strong>; arguments are the <strong>ingredients</strong> you actually pour in.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Parameter vs argument?</summary><div class="faq-a">Parameter is named in the definition; argument is the value supplied when calling.</div></details><details class="faq-item"><summary class="faq-q">Positional vs keyword?</summary><div class="faq-a">Positional are matched by order; keyword by name.</div></details><details class="faq-item"><summary class="faq-q">How many is too many?</summary><div class="faq-a">If a function has many parameters, group them into an object or dict.</div></details><details class="faq-item"><summary class="faq-q">What are type hints?</summary><div class="faq-a">Optional annotations like <code>def f(x: int)</code> that document expected types.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n02" placeholder="Write your observations about this term..." onchange="saveNotes('n02')" oninput="updateNotesStatus('n02')"></textarea>
 <div class="notes-status" id="notes-status-n02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n03')">N&middot;03 Argument</span><span class="next-chip" onclick="go('n09')">N&middot;09 Default Arguments</span></div>
 </div>
 
 <!-- N·03 Argument -->
@@ -4899,6 +4921,8 @@ for a in big:
 <span class="tag-btn hard" onclick="toggleTag('n03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n02')">N&middot;02 Parameter</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span> is the concrete value supplied to a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> when it is called."</div>Arguments fill the slots defined by parameters. They can be literals, variables, or even other function calls.</div>
 </div>
@@ -4929,14 +4953,23 @@ for a in big:
 <span class="fn">power</span>(<span class="num">2</span>, <span class="num">8</span>);  <span class="com">// arguments</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong count</span><code class="code-mini">def add(a, b): ...
+add(1)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Match the signature</span><code class="code-mini">add(1, 2)</code></div><div class="mistake-why"><strong>Why:</strong> passing too few or too many arguments raises a TypeError.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutate a passed list</span><code class="code-mini">def push(lst):
+    lst.append(1)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Return a new list</span><code class="code-mini">def push(lst):
+    return lst + [1]</code></div><div class="mistake-why"><strong>Why:</strong> objects are passed by reference, so mutating an argument changes the caller's data.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Parameters are <strong>defined</strong>, arguments are <strong>passed</strong>. Two words for two sides of the same handshake.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Argument vs parameter?</summary><div class="faq-a">The argument is the actual value you pass in.</div></details><details class="faq-item"><summary class="faq-q">Positional or keyword?</summary><div class="faq-a">Python supports both at the call site.</div></details><details class="faq-item"><summary class="faq-q">Pass by value or reference?</summary><div class="faq-a">Python passes references to objects, so mutations are visible to the caller.</div></details><details class="faq-item"><summary class="faq-q">Can I unpack a list into arguments?</summary><div class="faq-a">Yes &mdash; <code>f(*mylist)</code> spreads it.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n03" placeholder="Write your observations about this term..." onchange="saveNotes('n03')" oninput="updateNotesStatus('n03')"></textarea>
 <div class="notes-status" id="notes-status-n03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n04')">N&middot;04 Return Value</span><span class="next-chip" onclick="go('n02')">N&middot;02 Parameter</span></div>
 </div>
 
 <!-- N·04 Return Value -->
@@ -4955,6 +4988,8 @@ for a in big:
 <span class="tag-btn hard" onclick="toggleTag('n04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> value is the result a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> produces and sends back to the caller."</div>The <code>return</code> statement ends the function immediately and passes its expression back. If a function has no return, it implicitly returns nothing (<code>None</code>, <code>undefined</code>, or <code>void</code>).</div>
 </div>
@@ -4986,14 +5021,24 @@ result <span class="op">=</span> <span class="fn">square</span>(<span class="num
 <span class="kw">int</span> result <span class="op">=</span> <span class="fn">square</span>(<span class="num">5</span>);  <span class="com">// 25</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; print instead of return</span><code class="code-mini">def total(a, b):
+    print(a + b)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; return the value</span><code class="code-mini">def total(a, b):
+    return a + b</code></div><div class="mistake-why"><strong>Why:</strong> <code>print</code> shows text but the caller cannot use it. <code>return</code> hands the value back.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Code after return</span><code class="code-mini">return result
+log(result)   # never runs</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Do work before return</span><code class="code-mini">log(result)
+return result</code></div><div class="mistake-why"><strong>Why:</strong> <code>return</code> exits immediately, so anything after it is unreachable.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>return</code> exits the <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> <strong>immediately</strong>. Any code after a triggered <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> is unreachable.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What if there is no return?</summary><div class="faq-a">The function returns <code>None</code> (Python) or <code>undefined</code> (JS).</div></details><details class="faq-item"><summary class="faq-q">Can there be multiple returns?</summary><div class="faq-a">Yes &mdash; the first one reached ends the function.</div></details><details class="faq-item"><summary class="faq-q">Return multiple values?</summary><div class="faq-a">Return a tuple: <code>return a, b</code>.</div></details><details class="faq-item"><summary class="faq-q">return vs print?</summary><div class="faq-a"><code>return</code> gives a value to the caller; <code>print</code> only displays text.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n04" placeholder="Write your observations about this term..." onchange="saveNotes('n04')" oninput="updateNotesStatus('n04')"></textarea>
 <div class="notes-status" id="notes-status-n04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n05')">N&middot;05 Pure Function</span><span class="next-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 </div>
 
 <!-- N·05 Pure Function -->
@@ -5012,6 +5057,8 @@ result <span class="op">=</span> <span class="fn">square</span>(<span class="num
 <span class="tag-btn hard" onclick="toggleTag('n05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o10')">O&middot;10 Side Effects</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 Return Value</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A pure <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> depends only on its inputs and produces no observable side effects."</div>It does not modify external state, write files, print, or alter its arguments. Given the same inputs, it always returns the same output.</div>
 </div>
@@ -5054,14 +5101,24 @@ counter <span class="op">=</span> <span class="num">0</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Touch global state</span><code class="code-mini">def tax(p):
+    return p * rate   # rate is global</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Take all inputs</span><code class="code-mini">def tax(p, rate):
+    return p * rate</code></div><div class="mistake-why"><strong>Why:</strong> a pure function depends only on its arguments, so it is predictable and testable.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Hidden randomness</span><code class="code-mini">def roll():
+    return random.randint(1, 6)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Inject the source</span><code class="code-mini">def roll(rng):
+    return rng.randint(1, 6)</code></div><div class="mistake-why"><strong>Why:</strong> functions that read time or randomness are not pure. Pass those in to keep them deterministic.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Prefer pure functions for the <strong>core logic</strong>; isolate impure code at the edges of your app.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What makes a function pure?</summary><div class="faq-a">Same inputs always give the same output, and it causes no side effects.</div></details><details class="faq-item"><summary class="faq-q">Why prefer pure functions?</summary><div class="faq-a">They are easy to test, cache, and reason about.</div></details><details class="faq-item"><summary class="faq-q">Can every function be pure?</summary><div class="faq-a">No &mdash; I/O and randomness inherently are not.</div></details><details class="faq-item"><summary class="faq-q">What is memoization?</summary><div class="faq-a">Caching a pure function's result for repeated inputs.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n05" placeholder="Write your observations about this term..." onchange="saveNotes('n05')" oninput="updateNotesStatus('n05')"></textarea>
 <div class="notes-status" id="notes-status-n05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n06')">N&middot;06 Recursion</span><span class="next-chip" onclick="go('o10')">O&middot;10 Side Effects</span></div>
 </div>
 
 <!-- N·06 Recursion -->
@@ -5080,6 +5137,8 @@ counter <span class="op">=</span> <span class="num">0</span>
 <span class="tag-btn hard" onclick="toggleTag('n06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Recursion&#39;,&#39;A function that calls itself to solve smaller versions of a problem.&#39;)">Recursion</span> is when a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> calls itself, breaking the problem into smaller subproblems until reaching a base case."</div>It needs two parts: a <strong>base case</strong> that stops the recursion, and a <strong>recursive case</strong> that moves closer to the base.</div>
 </div>
@@ -5112,14 +5171,27 @@ counter <span class="op">=</span> <span class="num">0</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; No base case</span><code class="code-mini">def f(n):
+    return f(n - 1)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Stop at the base</span><code class="code-mini">def f(n):
+    if n == 0: return 1
+    return n * f(n - 1)</code></div><div class="mistake-why"><strong>Why:</strong> without a base case the calls never stop and the stack overflows.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Never shrink the input</span><code class="code-mini">def f(n):
+    if n == 0: return 0
+    return f(n)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Move toward base</span><code class="code-mini">def f(n):
+    if n == 0: return 0
+    return f(n - 1)</code></div><div class="mistake-why"><strong>Why:</strong> each call must get closer to the base case, or the recursion is infinite.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always write the <strong>base case first</strong>. Without it, <span class="gloss" onclick="gOpen(&#39;Recursion&#39;,&#39;A function that calls itself to solve smaller versions of a problem.&#39;)">recursion</span> is just an infinite <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> with extra steps.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is recursion?</summary><div class="faq-a">A function that calls itself to solve a smaller version of the problem.</div></details><details class="faq-item"><summary class="faq-q">Do I always need a base case?</summary><div class="faq-a">Yes &mdash; it is what stops the recursion.</div></details><details class="faq-item"><summary class="faq-q">Recursion vs a loop?</summary><div class="faq-a">Often interchangeable; loops avoid call-stack limits.</div></details><details class="faq-item"><summary class="faq-q">What is a stack overflow?</summary><div class="faq-a">Recursing too deeply exhausts the call stack and crashes.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n06" placeholder="Write your observations about this term..." onchange="saveNotes('n06')" oninput="updateNotesStatus('n06')"></textarea>
 <div class="notes-status" id="notes-status-n06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n07')">N&middot;07 Closure</span><span class="next-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
 </div>
 
 <!-- N·07 Closure -->
@@ -5138,6 +5210,8 @@ counter <span class="op">=</span> <span class="num">0</span>
 <span class="tag-btn hard" onclick="toggleTag('n07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span><span class="prereq-chip" onclick="go('t11')">T&middot;11 Scope</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Closure&#39;,&#39;A function that remembers variables from its outer scope.&#39;)">closure</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> bundled with references to its surrounding state."</div>When a function is defined inside another function, it can keep using the outer function's variables even after the outer function has returned.</div>
 </div>
@@ -5176,14 +5250,21 @@ c <span class="op">=</span> <span class="fn">make_counter</span>()
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Capture the loop variable</span><code class="code-mini">fns = [lambda: i for i in range(3)]
+# all return 2</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Bind per iteration</span><code class="code-mini">fns = [lambda i=i: i for i in range(3)]</code></div><div class="mistake-why"><strong>Why:</strong> a closure captures the variable, not its value. By call time the loop has finished, so default-binding freezes each value.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Closure&#39;,&#39;A function that remembers variables from its outer scope.&#39;)">closure</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> plus its <strong>backpack</strong> — it carries its birthplace's variables wherever it goes.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a closure?</summary><div class="faq-a">A function that remembers variables from the scope where it was created.</div></details><details class="faq-item"><summary class="faq-q">Why are they useful?</summary><div class="faq-a">Function factories, callbacks, and keeping private state.</div></details><details class="faq-item"><summary class="faq-q">What is the classic bug?</summary><div class="faq-a">Capturing a loop variable, so every closure sees its final value.</div></details><details class="faq-item"><summary class="faq-q">Are they common in JavaScript?</summary><div class="faq-a">Yes &mdash; callbacks and event handlers rely on closures constantly.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n07" placeholder="Write your observations about this term..." onchange="saveNotes('n07')" oninput="updateNotesStatus('n07')"></textarea>
 <div class="notes-status" id="notes-status-n07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n08')">N&middot;08 Lambda / Arrow Function</span><span class="next-chip" onclick="go('t11')">T&middot;11 Scope</span></div>
 </div>
 
 <!-- N·08 Lambda / Arrow -->
@@ -5202,6 +5283,8 @@ c <span class="op">=</span> <span class="fn">make_counter</span>()
 <span class="tag-btn hard" onclick="toggleTag('n08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Lambda&#39;,&#39;A short anonymous function expression.&#39;)">lambda</span> (or arrow <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span>) is a compact, anonymous function <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>."</div>It has no name and is usually used inline as an argument to another function, especially for callbacks and quick transformations.</div>
 </div>
@@ -5230,14 +5313,22 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(doubler.<span class="fn">apply</span>(<span class="num">5</span>));  <span class="com">// 10</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Multi-statement lambda</span><code class="code-mini">f = lambda x: print(x); return x</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use def for logic</span><code class="code-mini">def f(x):
+    print(x)
+    return x</code></div><div class="mistake-why"><strong>Why:</strong> a Python lambda holds one expression. Anything with statements needs a real <code>def</code>.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume arrow has own this</span><code class="code-mini">btn.onclick = () =&gt; this.count++</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Know arrows inherit this</span><code class="code-mini">// arrow uses the surrounding this on purpose</code></div><div class="mistake-why"><strong>Why:</strong> JS arrow functions do not bind their own <code>this</code>; they inherit it from the enclosing scope.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>If a <span class="gloss" onclick="gOpen(&#39;Lambda&#39;,&#39;A short anonymous function expression.&#39;)">lambda</span> grows past one line, give it a <strong>real name</strong>. Anonymous functions stop helping when they get complex.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a lambda?</summary><div class="faq-a">A small anonymous function written as a single expression.</div></details><details class="faq-item"><summary class="faq-q">lambda vs def?</summary><div class="faq-a">Use <code>def</code> when it needs a name or more than one line.</div></details><details class="faq-item"><summary class="faq-q">What is an arrow function?</summary><div class="faq-a">JavaScript's concise function syntax with lexical <code>this</code>.</div></details><details class="faq-item"><summary class="faq-q">When are they handy?</summary><div class="faq-a">Short callbacks for map, filter, and sort.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n08" placeholder="Write your observations about this term..." onchange="saveNotes('n08')" oninput="updateNotesStatus('n08')"></textarea>
 <div class="notes-status" id="notes-status-n08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n12')">N&middot;12 Higher-Order Functions</span><span class="next-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 </div>
 
 <!-- N·09 Default Arguments -->
@@ -5256,6 +5347,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('n09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n02')">N&middot;02 Parameter</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A default <span class="gloss" onclick="gOpen(&#39;Argument&#39;,&#39;The actual value passed to a function when calling it.&#39;)">argument</span> is a fallback value assigned to a <span class="gloss" onclick="gOpen(&#39;Parameter&#39;,&#39;A named input declared in a function signature.&#39;)">parameter</span> when no argument is passed."</div>It makes parameters optional and removes the need for repetitive null checks in callers.</div>
 </div>
@@ -5290,14 +5383,23 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutable default</span><code class="code-mini">def add(x, acc=[]):
+    acc.append(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Default to None</span><code class="code-mini">def add(x, acc=None):
+    acc = acc or []
+    acc.append(x)</code></div><div class="mistake-why"><strong>Why:</strong> a default list is created once and shared by every call, so it keeps growing.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Default before required</span><code class="code-mini">def f(a=1, b):</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Defaults last</span><code class="code-mini">def f(b, a=1):</code></div><div class="mistake-why"><strong>Why:</strong> parameters with defaults must come after those without, or it is a syntax error.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In Python, <strong>never use mutable defaults</strong> like <code>def f(x=[])</code>. The <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is shared across calls and causes infamous bugs.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a default argument?</summary><div class="faq-a">A fallback value used when the caller omits that argument.</div></details><details class="faq-item"><summary class="faq-q">Why avoid mutable defaults?</summary><div class="faq-a">They are created once and shared across all calls.</div></details><details class="faq-item"><summary class="faq-q">What is the order rule?</summary><div class="faq-a">Parameters with defaults must follow those without.</div></details><details class="faq-item"><summary class="faq-q">How do I override a default?</summary><div class="faq-a">Pass the argument explicitly when calling.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n09" placeholder="Write your observations about this term..." onchange="saveNotes('n09')" oninput="updateNotesStatus('n09')"></textarea>
 <div class="notes-status" id="notes-status-n09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n10')">N&middot;10 *args / **kwargs</span><span class="next-chip" onclick="go('n02')">N&middot;02 Parameter</span></div>
 </div>
 
 <!-- N·10 *args / **kwargs -->
@@ -5316,6 +5418,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('n10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n09')">N&middot;09 Default Arguments</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Variadic parameters let a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> accept an arbitrary number of arguments."</div>Python uses <code>*args</code> for positional and <code>**kwargs</code> for keyword arguments. JavaScript uses rest parameters <code>...args</code>. Java uses <code>Type... args</code>.</div>
 </div>
@@ -5347,14 +5451,21 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="fn">total</span>(<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>);  <span class="com">// 10</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Forget to unpack</span><code class="code-mini">nums = [1, 2, 3]
+total(nums)   # passes one list</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Spread with *</span><code class="code-mini">total(*nums)   # passes 1, 2, 3</code></div><div class="mistake-why"><strong>Why:</strong> without <code>*</code> you pass the list itself, not its elements as separate arguments.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong parameter order</span><code class="code-mini">def f(**kw, *args):</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Correct order</span><code class="code-mini">def f(a, *args, b=1, **kwargs):</code></div><div class="mistake-why"><strong>Why:</strong> the order is positional, then <code>*args</code>, then keyword, then <code>**kwargs</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The names <code>args</code> and <code>kwargs</code> are convention, not law — what matters are the stars <code>*</code> and <code>**</code>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is *args?</summary><div class="faq-a">It collects any extra positional arguments into a tuple.</div></details><details class="faq-item"><summary class="faq-q">What is **kwargs?</summary><div class="faq-a">It collects any extra keyword arguments into a dict.</div></details><details class="faq-item"><summary class="faq-q">When should I use them?</summary><div class="faq-a">For flexible APIs and wrapper functions that forward arguments.</div></details><details class="faq-item"><summary class="faq-q">Are the names required?</summary><div class="faq-a">No &mdash; <code>args</code>/<code>kwargs</code> are convention; the <code>*</code> and <code>**</code> do the work.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n10" placeholder="Write your observations about this term..." onchange="saveNotes('n10')" oninput="updateNotesStatus('n10')"></textarea>
 <div class="notes-status" id="notes-status-n10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n11')">N&middot;11 Function Scope</span><span class="next-chip" onclick="go('n09')">N&middot;09 Default Arguments</span></div>
 </div>
 
 <!-- N·11 Function Scope -->
@@ -5373,6 +5484,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('n11','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n11','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t11')">T&middot;11 Scope</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">Function</span> <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> means variables declared inside a function are visible only within that function."</div>Outside the function, those names don't exist. This keeps internal details from leaking and prevents accidental conflicts.</div>
 </div>
@@ -5407,14 +5520,27 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="com">// secret not visible here</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Rebind global by accident</span><code class="code-mini">count = 0
+def inc():
+    count = count + 1   # UnboundLocalError</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Be explicit</span><code class="code-mini">def inc(count):
+    return count + 1</code></div><div class="mistake-why"><strong>Why:</strong> assigning to a name makes it local. Reading it first then assigning raises an error unless you declare <code>global</code>.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect local outside</span><code class="code-mini">def f():
+    msg = "hi"
+print(msg)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Return it</span><code class="code-mini">def f():
+    return "hi"
+print(f())</code></div><div class="mistake-why"><strong>Why:</strong> a local name does not exist once the function ends.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Locals beat globals. Reaching out to a global <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span> from inside a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> is a sign your design needs work.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is function scope?</summary><div class="faq-a">Names created inside a function are local and vanish when it returns.</div></details><details class="faq-item"><summary class="faq-q">What does global do?</summary><div class="faq-a">It lets a function rebind a module-level variable.</div></details><details class="faq-item"><summary class="faq-q">What is nonlocal?</summary><div class="faq-a">It rebinds a variable in an enclosing (but not global) function.</div></details><details class="faq-item"><summary class="faq-q">Why prefer locals?</summary><div class="faq-a">Local state keeps functions predictable and easy to test.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n11" placeholder="Write your observations about this term..." onchange="saveNotes('n11')" oninput="updateNotesStatus('n11')"></textarea>
 <div class="notes-status" id="notes-status-n11">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n07')">N&middot;07 Closure</span><span class="next-chip" onclick="go('t11')">T&middot;11 Scope</span></div>
 </div>
 
 <!-- N·12 Higher-Order Functions -->
@@ -5433,6 +5559,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('n12','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('n12','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span><span class="prereq-chip" onclick="go('n08')">N&middot;08 Lambda / Arrow Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A higher-order <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> takes another function as input, returns a function, or both."</div>This treats functions like values — passing them around, storing them in lists, building them on the fly.</div>
 </div>
@@ -5462,14 +5590,21 @@ nums.<span class="fn">stream</span>()
     .<span class="fn">forEach</span>(<span class="fn">System</span>.<span class="fn">out</span>::<span class="fn">println</span>);</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Call instead of pass</span><code class="code-mini">map(double(), nums)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Pass the function</span><code class="code-mini">map(double, nums)</code></div><div class="mistake-why"><strong>Why:</strong> <code>double</code> passes the function; <code>double()</code> calls it and passes its result.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Forget map is lazy</span><code class="code-mini">result = map(f, xs)
+print(result)   # map object</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Materialize it</span><code class="code-mini">result = list(map(f, xs))</code></div><div class="mistake-why"><strong>Why:</strong> in Python 3, <code>map</code> and <code>filter</code> are lazy. Wrap in <code>list()</code> to get values.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Functions are <strong>first-<span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> citizens</strong> — anywhere a value can go, a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> can go too.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a higher-order function?</summary><div class="faq-a">One that takes a function as an argument or returns one.</div></details><details class="faq-item"><summary class="faq-q">Examples?</summary><div class="faq-a"><code>map</code>, <code>filter</code>, <code>reduce</code>, and <code>sorted(key=...)</code>.</div></details><details class="faq-item"><summary class="faq-q">Why are they useful?</summary><div class="faq-a">They let you compose behavior and cut repetitive boilerplate.</div></details><details class="faq-item"><summary class="faq-q">Pass vs call?</summary><div class="faq-a">Pass the name without parentheses to defer the call.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-n12" placeholder="Write your observations about this term..." onchange="saveNotes('n12')" oninput="updateNotesStatus('n12')"></textarea>
 <div class="notes-status" id="notes-status-n12">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('n08')">N&middot;08 Lambda / Arrow Function</span><span class="next-chip" onclick="go('n05')">N&middot;05 Pure Function</span></div>
 </div>
 
 <!-- Block 6 Divider -->
