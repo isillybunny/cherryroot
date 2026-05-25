@@ -7369,6 +7369,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Exception&#39;,&#39;An error event that disrupts normal execution.&#39;)">exception</span> is an <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> representing an error that interrupts the normal execution of a program."</div>When an exception is raised, the runtime unwinds the call stack looking for a handler. If none is found, the program crashes.</div>
 </div>
@@ -7394,14 +7396,26 @@ class Shape(ABC):
 <span class="com">// ArrayIndexOutOfBoundsException</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Swallow silently</span><code class="code-mini">try:
+    risky()
+except:
+    pass</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Handle or log it</span><code class="code-mini">try:
+    risky()
+except ValueError as e:
+    log(e)</code></div><div class="mistake-why"><strong>Why:</strong> a silent <code>except: pass</code> hides real failures and makes bugs impossible to find.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Catch everything</span><code class="code-mini">except Exception:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Catch what you expect</span><code class="code-mini">except KeyError:</code></div><div class="mistake-why"><strong>Why:</strong> catching broadly can mask unrelated errors. Catch the specific type you can handle.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Exceptions aren't bugs — they're <strong>signals</strong>. Read the message first, then look at the line number.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is an exception?</summary><div class="faq-a">An error signaled while the program is running.</div></details><details class="faq-item"><summary class="faq-q">How is it different from a syntax error?</summary><div class="faq-a">Exceptions happen at runtime; syntax errors stop the code from running at all.</div></details><details class="faq-item"><summary class="faq-q">Can I define my own?</summary><div class="faq-a">Yes &mdash; subclass <code>Exception</code>.</div></details><details class="faq-item"><summary class="faq-q">What if it is uncaught?</summary><div class="faq-a">The program crashes and prints a stack trace.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e01" placeholder="Write your observations about this term..." onchange="saveNotes('e01')" oninput="updateNotesStatus('e01')"></textarea>
 <div class="notes-status" id="notes-status-e01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e02')">E&middot;02 Try / Catch</span><span class="next-chip" onclick="go('e03')">E&middot;03 Throw / Raise</span></div>
 </div>
 
 <!-- E·02 Try / Catch -->
@@ -7420,6 +7434,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<code>try/catch</code> (or <code>try/except</code>) lets a program attempt risky code and recover gracefully if it fails."</div>The <code>try</code> block holds the risky code; the <code>catch</code>/<code>except</code> block runs only if an exception occurred.</div>
 </div>
@@ -7457,14 +7473,31 @@ class Shape(ABC):
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Bare except</span><code class="code-mini">try:
+    parse()
+except:
+    ...</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Specific exception</span><code class="code-mini">try:
+    parse()
+except ValueError:
+    ...</code></div><div class="mistake-why"><strong>Why:</strong> a bare <code>except</code> also catches things like KeyboardInterrupt, which you almost never want.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrap too much</span><code class="code-mini">try:
+    a(); b(); c(); d()
+except Error: ...</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Wrap the risky line</span><code class="code-mini">x = a()
+try:
+    y = b(x)
+except Error: ...</code></div><div class="mistake-why"><strong>Why:</strong> a giant try block hides which line actually failed. Keep it tight.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Never <code>catch</code> a generic <span class="gloss" onclick="gOpen(&#39;Exception&#39;,&#39;An error event that disrupts normal execution.&#39;)">exception</span> just to ignore it. Silent failures are the worst kind of bugs.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">try/except vs try/catch?</summary><div class="faq-a">Same idea &mdash; Python uses <code>except</code>, JavaScript uses <code>catch</code>.</div></details><details class="faq-item"><summary class="faq-q">What is finally for?</summary><div class="faq-a">It runs whether or not an error occurred &mdash; good for cleanup.</div></details><details class="faq-item"><summary class="faq-q">What is the else clause?</summary><div class="faq-a">It runs only if no exception was raised.</div></details><details class="faq-item"><summary class="faq-q">When should I catch?</summary><div class="faq-a">Only when you can actually do something about the error.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e02" placeholder="Write your observations about this term..." onchange="saveNotes('e02')" oninput="updateNotesStatus('e02')"></textarea>
 <div class="notes-status" id="notes-status-e02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e03')">E&middot;03 Throw / Raise</span><span class="next-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 </div>
 
 <!-- E·03 Throw / Raise -->
@@ -7483,6 +7516,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<code>throw</code> (or <code>raise</code> in Python) lets your code create and propagate an <span class="gloss" onclick="gOpen(&#39;Exception&#39;,&#39;An error event that disrupts normal execution.&#39;)">exception</span> on purpose."</div>You raise an exception when something invalid happens that the current function can't reasonably continue past.</div>
 </div>
@@ -7513,14 +7548,23 @@ class Shape(ABC):
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Return an error code</span><code class="code-mini">def withdraw(n):
+    if n &gt; bal: return -1</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Raise an exception</span><code class="code-mini">def withdraw(n):
+    if n &gt; bal:
+        raise ValueError("insufficient funds")</code></div><div class="mistake-why"><strong>Why:</strong> error codes get ignored. Raising forces the caller to deal with the problem.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Raise a string</span><code class="code-mini">raise "bad input"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Raise an exception object</span><code class="code-mini">raise ValueError("bad input")</code></div><div class="mistake-why"><strong>Why:</strong> Python requires an exception instance, not a plain string.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Raise&#39;,&#39;Triggers an exception manually (Python's throw).&#39;)">Raise</span> <strong>early</strong>, raise <strong>specific</strong>. Don't <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> magic <code>-1</code> values when an <span class="gloss" onclick="gOpen(&#39;Exception&#39;,&#39;An error event that disrupts normal execution.&#39;)">exception</span> would say more.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">raise vs throw?</summary><div class="faq-a">Python uses <code>raise</code>; JavaScript and Java use <code>throw</code>.</div></details><details class="faq-item"><summary class="faq-q">When should I raise?</summary><div class="faq-a">When the program reaches an invalid state it cannot continue from.</div></details><details class="faq-item"><summary class="faq-q">How do I re-raise?</summary><div class="faq-a">Use a bare <code>raise</code> inside an <code>except</code> block.</div></details><details class="faq-item"><summary class="faq-q">Custom exceptions?</summary><div class="faq-a">Subclass <code>Exception</code> for a meaningful name.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e03" placeholder="Write your observations about this term..." onchange="saveNotes('e03')" oninput="updateNotesStatus('e03')"></textarea>
 <div class="notes-status" id="notes-status-e03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e04')">E&middot;04 Stack Trace</span><span class="next-chip" onclick="go('e02')">E&middot;02 Try / Catch</span></div>
 </div>
 
 <!-- E·04 Stack Trace -->
@@ -7539,6 +7583,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span> trace is the <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> of <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> calls active at the moment an error happened."</div>It shows the chain that led from your program's entry point to the line that exploded.</div>
 </div>
@@ -7571,14 +7617,20 @@ class Shape(ABC):
 <span class="com">//   at Main.main(Main.java:7)</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Read only the last line</span><code class="code-mini"># "TypeError" - now what?</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Read the whole trace</span><code class="code-mini"># follow the calls to the failing line</code></div><div class="mistake-why"><strong>Why:</strong> the message names the error, but the trace shows the exact file and line where it happened.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Skip the file:line</span><code class="code-mini"># ignore "app.py, line 42"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Jump straight there</span><code class="code-mini"># open app.py at line 42</code></div><div class="mistake-why"><strong>Why:</strong> the trace points you to the precise location &mdash; start there.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The trace tells you the <strong>path</strong>, not just the place. The <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">bug</span> is often a few frames up from the crash line.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a stack trace?</summary><div class="faq-a">The chain of function calls active when the error occurred.</div></details><details class="faq-item"><summary class="faq-q">Where is the failing call?</summary><div class="faq-a">In Python it is usually at the bottom; in JS, the top.</div></details><details class="faq-item"><summary class="faq-q">Why is it useful?</summary><div class="faq-a">It shows exactly where and how the program broke.</div></details><details class="faq-item"><summary class="faq-q">The trace is huge &mdash; help?</summary><div class="faq-a">Focus on lines from your own files first.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e04" placeholder="Write your observations about this term..." onchange="saveNotes('e04')" oninput="updateNotesStatus('e04')"></textarea>
 <div class="notes-status" id="notes-status-e04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e08')">E&middot;08 Debugger</span><span class="next-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 </div>
 
 <!-- E·05 Breakpoint -->
@@ -7597,6 +7649,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e08')">E&middot;08 Debugger</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Breakpoint&#39;,&#39;A pause point in code, used by debuggers.&#39;)">breakpoint</span> is a marker that tells the <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span> to pause execution at a specific line."</div>While paused, you can inspect variables, step through the code line by line, and watch what changes.</div>
 </div>
@@ -7625,14 +7679,21 @@ class Shape(ABC):
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Scatter prints</span><code class="code-mini">print("here 1")
+print("here 2")</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Set a breakpoint</span><code class="code-mini">breakpoint()   # inspect everything live</code></div><div class="mistake-why"><strong>Why:</strong> a breakpoint lets you inspect all variables at once, without editing and re-running the code.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Place it after the crash</span><code class="code-mini"># breakpoint on the line after the error</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Stop before it</span><code class="code-mini"># breakpoint on the line before the error</code></div><div class="mistake-why"><strong>Why:</strong> to see what caused the failure, pause just before the suspect line runs.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">Set</span> a <span class="gloss" onclick="gOpen(&#39;Breakpoint&#39;,&#39;A pause point in code, used by debuggers.&#39;)">breakpoint</span> where the <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">bug</span> <em>becomes visible</em>, then walk backward through the trace.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a breakpoint?</summary><div class="faq-a">A marker that pauses the program at a chosen line so you can inspect it.</div></details><details class="faq-item"><summary class="faq-q">How do I set one?</summary><div class="faq-a">Click the IDE gutter, or use <code>breakpoint()</code> / <code>debugger;</code>.</div></details><details class="faq-item"><summary class="faq-q">What is a conditional breakpoint?</summary><div class="faq-a">One that pauses only when a condition is true.</div></details><details class="faq-item"><summary class="faq-q">Why better than print?</summary><div class="faq-a">You inspect everything live, with no code changes.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e05" placeholder="Write your observations about this term..." onchange="saveNotes('e05')" oninput="updateNotesStatus('e05')"></textarea>
 <div class="notes-status" id="notes-status-e05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e08')">E&middot;08 Debugger</span><span class="next-chip" onclick="go('e06')">E&middot;06 print / console.log</span></div>
 </div>
 
 <!-- E·06 print / console.log -->
@@ -7651,6 +7712,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Printing intermediate values is the simplest, oldest, and still most-used debugging technique."</div>You sprinkle <code>print</code> or <code>console.log</code> calls to expose values at runtime — sometimes called "printf debugging."</div>
 </div>
@@ -7682,14 +7745,22 @@ class Shape(ABC):
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Leave prints in</span><code class="code-mini">print("DEBUG", token)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Remove or use logging</span><code class="code-mini">import logging
+logging.debug("token=%s", token)</code></div><div class="mistake-why"><strong>Why:</strong> stray prints clutter output and can leak sensitive data. Logging can be switched off in production.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Print with no label</span><code class="code-mini">print(x)
+print(y)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Label the values</span><code class="code-mini">print("x =", x, "y =", y)</code></div><div class="mistake-why"><strong>Why:</strong> labelled output tells you which value is which when several appear together.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always log <strong>labels</strong>, not just values. <code>print(x)</code> tells you nothing; <code>print("x=", x)</code> tells the story.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Is print debugging valid?</summary><div class="faq-a">Yes &mdash; it is quick and often enough.</div></details><details class="faq-item"><summary class="faq-q">When prefer a debugger?</summary><div class="faq-a">When you need to inspect state without editing and re-running.</div></details><details class="faq-item"><summary class="faq-q">What is the logging module?</summary><div class="faq-a">A configurable alternative to print, with levels you can filter.</div></details><details class="faq-item"><summary class="faq-q">JavaScript equivalent?</summary><div class="faq-a"><code>console.log</code> in the browser or Node.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e06" placeholder="Write your observations about this term..." onchange="saveNotes('e06')" oninput="updateNotesStatus('e06')"></textarea>
 <div class="notes-status" id="notes-status-e06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e07')">E&middot;07 Linter</span><span class="next-chip" onclick="go('e08')">E&middot;08 Debugger</span></div>
 </div>
 
 <!-- E·07 Linter -->
@@ -7708,6 +7779,8 @@ class Shape(ABC):
 <span class="tag-btn hard" onclick="toggleTag('e07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Linter&#39;,&#39;A tool that flags suspicious or stylistic code issues.&#39;)">linter</span> is a static analysis tool that scans your code for errors, smells, and style violations without running it."</div>It catches typos, unused variables, undefined names, and inconsistent formatting before they reach production.</div>
 </div>
@@ -7739,14 +7812,20 @@ x <span class="op">=</span> <span class="num">10</span>;             <span class
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Ignore every warning</span><code class="code-mini"># 200 linter warnings, all unread</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Fix or suppress on purpose</span><code class="code-mini"># fix it, or silence one line with a reason</code></div><div class="mistake-why"><strong>Why:</strong> warnings flag likely bugs. A wall of ignored ones hides the important signal.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Confuse with a formatter</span><code class="code-mini"># expect the linter to reindent</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Know the roles</span><code class="code-mini"># linter finds issues; formatter fixes layout</code></div><div class="mistake-why"><strong>Why:</strong> a linter reports problems; a formatter (Black, Prettier) rewrites the styling.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Treat lint warnings as <strong>cheap <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">bug</span> reports</strong>. Fixing them now is faster than debugging later.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a linter?</summary><div class="faq-a">A tool that scans code for likely bugs and style problems before you run it.</div></details><details class="faq-item"><summary class="faq-q">Examples?</summary><div class="faq-a">pylint and flake8 for Python, ESLint for JavaScript.</div></details><details class="faq-item"><summary class="faq-q">How is it different from a formatter?</summary><div class="faq-a">A formatter rewrites layout; a linter reports issues.</div></details><details class="faq-item"><summary class="faq-q">Why use one?</summary><div class="faq-a">It catches mistakes early, before the code even runs.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e07" placeholder="Write your observations about this term..." onchange="saveNotes('e07')" oninput="updateNotesStatus('e07')"></textarea>
 <div class="notes-status" id="notes-status-e07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e08')">E&middot;08 Debugger</span><span class="next-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
 </div>
 
 <!-- E·08 Debugger -->
@@ -7765,6 +7844,8 @@ x <span class="op">=</span> <span class="num">10</span>;             <span class
 <span class="tag-btn hard" onclick="toggleTag('e08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('e04')">E&middot;04 Stack Trace</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span> is an interactive tool that lets you pause, inspect, and step through running code."</div>You set breakpoints, run the program, and then move forward one line at a time, watching state evolve.</div>
 </div>
@@ -7796,14 +7877,20 @@ pdb.<span class="fn">set_trace</span>()        <span class="com"># pre-3.7 way</
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Never leave print</span><code class="code-mini"># only ever use print to debug</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Learn the debugger</span><code class="code-mini"># pause, inspect, step through live</code></div><div class="mistake-why"><strong>Why:</strong> a debugger shows the full state at any point without rerunning, which is far faster for tricky bugs.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Step over the suspect</span><code class="code-mini"># step over the function that fails</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Step into it</span><code class="code-mini"># step into it to watch it run</code></div><div class="mistake-why"><strong>Why:</strong> stepping into the failing function lets you see exactly where it goes wrong.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Learning to use your <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span> saves hours over print-based detective work.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a debugger?</summary><div class="faq-a">A tool that pauses a running program so you can inspect and step through it.</div></details><details class="faq-item"><summary class="faq-q">Step over, into, out?</summary><div class="faq-a">Controls for moving through calls: skip, enter, or finish the current function.</div></details><details class="faq-item"><summary class="faq-q">Python's debugger?</summary><div class="faq-a"><code>pdb</code>, or the debugger built into your IDE.</div></details><details class="faq-item"><summary class="faq-q">What are watch expressions?</summary><div class="faq-a">Values the debugger tracks for you as you step.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e08" placeholder="Write your observations about this term..." onchange="saveNotes('e08')" oninput="updateNotesStatus('e08')"></textarea>
 <div class="notes-status" id="notes-status-e08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e05')">E&middot;05 Breakpoint</span><span class="next-chip" onclick="go('e04')">E&middot;04 Stack Trace</span></div>
 </div>
 
 <!-- E·09 Edge Case -->
@@ -7822,6 +7909,8 @@ pdb.<span class="fn">set_trace</span>()        <span class="com"># pre-3.7 way</
 <span class="tag-btn hard" onclick="toggleTag('e09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Edge Case&#39;,&#39;An unusual input that breaks naive code (empty, max, null).&#39;)">edge case</span> is a rare or extreme input that exposes hidden bugs in code that handles the common cases fine."</div>Examples: empty input, the maximum possible value, negative numbers, null, unicode, or very long strings.</div>
 </div>
@@ -7853,14 +7942,21 @@ pdb.<span class="fn">set_trace</span>()        <span class="com"># pre-3.7 way</
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Test only the happy path</span><code class="code-mini">avg([2, 4])   # works</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Test the boundaries</span><code class="code-mini">avg([])   # empty: divide by zero?</code></div><div class="mistake-why"><strong>Why:</strong> bugs hide at empty, zero, negative, and maximum inputs. Test those too.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume valid input</span><code class="code-mini">age = int(raw)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Validate it</span><code class="code-mini">if not raw.isdigit():
+    reject()</code></div><div class="mistake-why"><strong>Why:</strong> real input is messy. Check it before trusting it.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The empty <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span>. The number zero. The single character. <strong>Test the boundary first.</strong></div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is an edge case?</summary><div class="faq-a">An unusual or boundary input that code often mishandles.</div></details><details class="faq-item"><summary class="faq-q">Examples?</summary><div class="faq-a">Empty list, zero, negative numbers, and very large values.</div></details><details class="faq-item"><summary class="faq-q">Why do they matter?</summary><div class="faq-a">Most bugs live at the boundaries, not the typical case.</div></details><details class="faq-item"><summary class="faq-q">How do I find them?</summary><div class="faq-a">Ask what the smallest, largest, and invalid inputs could be.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e09" placeholder="Write your observations about this term..." onchange="saveNotes('e09')" oninput="updateNotesStatus('e09')"></textarea>
 <div class="notes-status" id="notes-status-e09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('e10')">E&middot;10 Syntax vs Runtime Error</span><span class="next-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 </div>
 
 <!-- E·10 Syntax vs Runtime Error -->
@@ -7879,6 +7975,8 @@ pdb.<span class="fn">set_trace</span>()        <span class="com"># pre-3.7 way</
 <span class="tag-btn hard" onclick="toggleTag('e10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('e10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span> error is bad grammar — the code can't even be parsed. A <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span> error happens later, while the program is running."</div>Syntax errors stop your code before it starts; runtime errors crash it mid-flight.</div>
 </div>
@@ -7913,14 +8011,20 @@ pdb.<span class="fn">set_trace</span>()        <span class="com"># pre-3.7 way</
 s.<span class="fn">length</span>();        <span class="com">// NullPointerException</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mix up the two</span><code class="code-mini"># "it ran, so syntax must be wrong"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Tell them apart</span><code class="code-mini"># syntax: won't start; runtime: crashes mid-run</code></div><div class="mistake-why"><strong>Why:</strong> a syntax error stops the code from running at all; a runtime error appears only while it executes.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect the tool to catch all</span><code class="code-mini"># trust the compiler to find everything</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Test to find runtime bugs</span><code class="code-mini"># run with real and edge inputs</code></div><div class="mistake-why"><strong>Why:</strong> compilers catch syntax errors, but runtime and logic errors only show up when the code runs.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">Syntax</span> errors are easy — the parser tells you the line. Logical errors are the worst — nothing screams; the answer is just wrong.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is the difference?</summary><div class="faq-a">Syntax errors stop code from running; runtime errors happen while it runs.</div></details><details class="faq-item"><summary class="faq-q">Which is easier to fix?</summary><div class="faq-a">Syntax &mdash; the tool points straight to it.</div></details><details class="faq-item"><summary class="faq-q">What about logic errors?</summary><div class="faq-a">A third kind: the code runs but gives the wrong answer.</div></details><details class="faq-item"><summary class="faq-q">How do I catch runtime errors?</summary><div class="faq-a">Testing, edge cases, and try/except.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-e10" placeholder="Write your observations about this term..." onchange="saveNotes('e10')" oninput="updateNotesStatus('e10')"></textarea>
 <div class="notes-status" id="notes-status-e10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f08')">F&middot;08 Syntax</span><span class="next-chip" onclick="go('e01')">E&middot;01 Exception</span></div>
 </div>
 
 <!-- Block 9 Divider -->
