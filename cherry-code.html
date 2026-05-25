@@ -2215,6 +2215,8 @@ result = total / count
 <span class="tag-btn fav" onclick="toggleTag('f09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f03')">F·03 Compiler vs Interpreter</span><span class="prereq-chip" onclick="go('f08')">F·08 Syntax</span></div>
+
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">Runtime</span> is the time when your program is running — opposed to "compile time" when it is just being prepared."</div>Runtime errors happen during execution: dividing by zero, accessing missing data, network failures. Syntax errors happen BEFORE runtime (won't even start). Logic bugs happen DURING runtime.</div>
 </div>
@@ -2253,8 +2255,34 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ No bounds check</span><code class="code-mini">nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="fn">print</span>(nums[<span class="num">5</span>])  <span class="com"># crashes at runtime</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Guard first</span><code class="code-mini"><span class="kw">if</span> <span class="fn">len</span>(nums) > <span class="num">5</span>:
+    <span class="fn">print</span>(nums[<span class="num">5</span>])</code></div>
+<div class="mistake-why"><strong>Why:</strong> runtime errors surface only with real data. Validate sizes and inputs before you use them.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Access on None</span><code class="code-mini">data = <span class="kw">None</span>
+<span class="fn">print</span>(data.name)  <span class="com"># AttributeError</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Check before use</span><code class="code-mini"><span class="kw">if</span> data <span class="kw">is not</span> <span class="kw">None</span>:
+    <span class="fn">print</span>(data.name)</code></div>
+<div class="mistake-why"><strong>Why:</strong> the code parses fine, so syntax checks pass — but it breaks the moment a real value is missing.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">Runtime</span> errors are sneakier than <span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">syntax</span> errors — code looks correct but breaks when run.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">What is the difference between compile time and runtime?</summary><div class="faq-a">Compile time is when code is checked and translated; runtime is when it actually executes. Some errors only appear at runtime, with real values.</div></details>
+<details class="faq-item"><summary class="faq-q">Why didn't my IDE catch this?</summary><div class="faq-a">IDEs and compilers catch syntax and many type errors, but they cannot know runtime values like user input or file contents until the program runs.</div></details>
+<details class="faq-item"><summary class="faq-q">Are runtime errors my fault?</summary><div class="faq-a">Usually they signal an unhandled case — missing data, bad input, an empty list. They are normal; the fix is to anticipate and handle those cases.</div></details>
+<details class="faq-item"><summary class="faq-q">How do I prevent runtime errors?</summary><div class="faq-a">Validate inputs, check sizes and for None/null before using values, and wrap risky operations in try/except (covered in Block 8).</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -2262,6 +2290,8 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
 <textarea class="notes-textarea" id="notes-f09" placeholder="Write your observations about this term..." onchange="saveNotes('f09')" oninput="updateNotesStatus('f09')"></textarea>
 <div class="notes-status" id="notes-status-f09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f10')">F·10 Paradigm</span><span class="next-chip" onclick="go('e01')">E·01 Exception</span><span class="next-chip" onclick="go('e02')">E·02 Try / Catch</span></div>
 
 </div>
 
@@ -2282,6 +2312,8 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
 <span class="tag-btn hard" onclick="toggleTag('f10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f01')">F·01 Programming</span><span class="prereq-chip" onclick="go('f02')">F·02 Code</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Paradigm&#39;,&#39;A style of programming - OOP, functional, procedural, etc.&#39;)">paradigm</span> is a way of thinking about code — what to organize around."</div>Main paradigms: <strong>Imperative</strong> (do this then this), <strong>Object-Oriented</strong> (organize around objects), <strong>Functional</strong> (everything is a function). Most modern languages support multiple paradigms — you choose per problem.</div>
@@ -2336,8 +2368,35 @@ result = [n*<span class="num">2</span> <span class="kw">for</span> n <span class
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ OOP for a trivial task</span><code class="code-mini"><span class="kw">class</span> Adder:
+    <span class="kw">def</span> <span class="fn">add</span>(self, a, b): <span class="kw">return</span> a + b
+Adder().<span class="fn">add</span>(<span class="num">2</span>, <span class="num">3</span>)</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ A plain function</span><code class="code-mini"><span class="kw">def</span> <span class="fn">add</span>(a, b):
+    <span class="kw">return</span> a + b
+<span class="fn">add</span>(<span class="num">2</span>, <span class="num">3</span>)</code></div>
+<div class="mistake-why"><strong>Why:</strong> a paradigm is a tool, not a rule. Forcing OOP onto simple logic adds noise — pick the simplest fit.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ "Functional" but mutates</span><code class="code-mini">nums.sort()       <span class="com"># mutates input</span>
+result = nums</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ No side effects</span><code class="code-mini">result = <span class="fn">sorted</span>(nums)  <span class="com"># new list</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> functional style avoids side effects. <code>sorted()</code> returns a new list instead of changing the original.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>No <span class="gloss" onclick="gOpen(&#39;Paradigm&#39;,&#39;A style of programming - OOP, functional, procedural, etc.&#39;)">paradigm</span> is "best". Use what fits the problem — most pros mix all three.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Which paradigm should I learn first?</summary><div class="faq-a">Start procedural/imperative (step-by-step) — it maps to how you already think. OOP and functional come naturally once the basics are solid.</div></details>
+<details class="faq-item"><summary class="faq-q">Do I have to pick just one?</summary><div class="faq-a">No. Most modern languages are multi-paradigm, and real code mixes them — objects for structure, functions for transformations.</div></details>
+<details class="faq-item"><summary class="faq-q">Is OOP outdated?</summary><div class="faq-a">No. It is still everywhere. Functional ideas have grown popular alongside it, but they coexist rather than replace each other.</div></details>
+<details class="faq-item"><summary class="faq-q">Why do paradigms matter?</summary><div class="faq-a">They give you mental models for organizing code and let you read unfamiliar codebases written in a different style.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -2345,6 +2404,8 @@ result = [n*<span class="num">2</span> <span class="kw">for</span> n <span class
 <textarea class="notes-textarea" id="notes-f10" placeholder="Write your observations about this term..." onchange="saveNotes('f10')" oninput="updateNotesStatus('f10')"></textarea>
 <div class="notes-status" id="notes-status-f10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('t01')">T·01 Variable</span><span class="next-chip" onclick="go('p01')">P·01 Class</span><span class="next-chip" onclick="go('n05')">N·05 Pure Function</span></div>
 
 </div>
 
