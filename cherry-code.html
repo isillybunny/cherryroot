@@ -3256,6 +3256,8 @@ except ValueError:
 <span class="tag-btn hard" onclick="toggleTag('o01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t04')">T&middot;04 Integer</span><span class="prereq-chip" onclick="go('t05')">T&middot;05 Float</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Arithmetic operators perform math — addition, subtraction, multiplication, division."</div>They take numeric operands and return a result. Every language supports the four basic operators: <code>+</code> <code>-</code> <code>*</code> <code>/</code> and usually also exponentiation and modulo.</div>
 </div>
@@ -3298,14 +3300,20 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(a <span class="op">%</span> b); <span class="com">// 1</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong division</span><code class="code-mini">7 / 2   # 3.5, wanted 3</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Floor division</span><code class="code-mini">7 // 2  # 3</code></div><div class="mistake-why"><strong>Why:</strong> in Python <code>/</code> always yields a float. Use <code>//</code> when you want an integer result.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Precedence guess</span><code class="code-mini">2 + 3 * 4   # not 20</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Group explicitly</span><code class="code-mini">(2 + 3) * 4   # 20</code></div><div class="mistake-why"><strong>Why:</strong> multiplication binds tighter than addition. Parentheses make intent unambiguous.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">Integer</span> division truncates — <code>7 / 2</code> in Java is <code>3</code>, not <code>3.5</code>. Cast to <span class="gloss" onclick="gOpen(&#39;Float&#39;,&#39;A number with a decimal point - fractional values.&#39;)">float</span> first when you need decimals.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What does ** do?</summary><div class="faq-a">Exponentiation in Python: <code>2 ** 3</code> is 8.</div></details><details class="faq-item"><summary class="faq-q">Difference between / and //?</summary><div class="faq-a"><code>/</code> is true division (float); <code>//</code> is floor division (integer).</div></details><details class="faq-item"><summary class="faq-q">What is %?</summary><div class="faq-a">The remainder operator. See O&middot;06 Modulo Operator.</div></details><details class="faq-item"><summary class="faq-q">Same in every language?</summary><div class="faq-a">The basics match, but <code>//</code> and <code>**</code> are Python-specific spellings.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o01" placeholder="Write your observations about this term..." onchange="saveNotes('o01')" oninput="updateNotesStatus('o01')"></textarea>
 <div class="notes-status" id="notes-status-o01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o02')">O&middot;02 Comparison Operators</span><span class="next-chip" onclick="go('o06')">O&middot;06 Modulo Operator</span><span class="next-chip" onclick="go('o08')">O&middot;08 Operator Precedence</span></div>
 </div>
 
 <!-- O·02 Comparison Operators -->
@@ -3324,6 +3332,8 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="tag-btn hard" onclick="toggleTag('o02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t06')">T&middot;06 Boolean</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Comparison operators evaluate a relationship between two values and <span class="gloss" onclick="gOpen(&#39;Return&#39;,&#39;Sends a value back from a function to the caller.&#39;)">return</span> a <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span>."</div>They are the building blocks of every conditional. Common operators: <code>==</code> (equal), <code>!=</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</div>
 </div>
@@ -3362,14 +3372,20 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(x <span class="op">&lt;=</span> <span class="num">5</span>); <span class="com">// true</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assign in condition</span><code class="code-mini">if x = 5:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compare</span><code class="code-mini">if x == 5:</code></div><div class="mistake-why"><strong>Why:</strong> <code>=</code> assigns; <code>==</code> compares. A classic source of silent bugs in C-like languages.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Compare as strings</span><code class="code-mini">"10" &lt; "9"   # True!</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compare as numbers</span><code class="code-mini">10 &lt; 9   # False</code></div><div class="mistake-why"><strong>Why:</strong> string comparison is lexicographic ("1" comes before "9"). Convert to numbers first.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always prefer <code>===</code> over <code>==</code> in JavaScript. Type coercion causes subtle bugs that are hard to trace.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What do they return?</summary><div class="faq-a">A boolean &mdash; True or False.</div></details><details class="faq-item"><summary class="faq-q">== vs === in JS?</summary><div class="faq-a"><code>===</code> also checks the type, so <code>"5" === 5</code> is false.</div></details><details class="faq-item"><summary class="faq-q">Can I chain comparisons?</summary><div class="faq-a">Python allows <code>0 &lt; x &lt; 10</code>. Most languages do not.</div></details><details class="faq-item"><summary class="faq-q">How are strings compared?</summary><div class="faq-a">Lexicographically, character by character (dictionary order).</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o02" placeholder="Write your observations about this term..." onchange="saveNotes('o02')" oninput="updateNotesStatus('o02')"></textarea>
 <div class="notes-status" id="notes-status-o02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o03')">O&middot;03 Logical Operators</span><span class="next-chip" onclick="go('t06')">T&middot;06 Boolean</span></div>
 </div>
 
 <!-- O·03 Logical Operators -->
@@ -3388,6 +3404,8 @@ b <span class="op">=</span> <span class="num">3</span>
 <span class="tag-btn hard" onclick="toggleTag('o03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o02')">O&middot;02 Comparison Operators</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Logical operators combine <span class="gloss" onclick="gOpen(&#39;Boolean&#39;,&#39;A true/false value.&#39;)">boolean</span> expressions into a single true/false result."</div>The three core logical operators are <code>AND</code> (both must be true), <code>OR</code> (at least one must be true), and <code>NOT</code> (inverts the value). They are essential for building complex conditions.</div>
 </div>
@@ -3427,14 +3445,20 @@ has_id <span class="op">=</span> <span class="kw">True</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="op">!</span>hasId);              <span class="com">// false</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Bitwise instead of logical</span><code class="code-mini">if a &amp; b:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Logical operator</span><code class="code-mini">if a and b:</code></div><div class="mistake-why"><strong>Why:</strong> <code>&amp;</code> is bitwise AND on numbers. Use <code>and</code> (Python) or <code>&amp;&amp;</code> (JS) for boolean logic.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Awkward negation</span><code class="code-mini">if not a == b:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Direct inequality</span><code class="code-mini">if a != b:</code></div><div class="mistake-why"><strong>Why:</strong> <code>!=</code> reads clearly and avoids precedence confusion around <code>not</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Short-circuit evaluation means the right side may never run. Use this to guard against <span class="gloss" onclick="gOpen(&#39;Null&#39;,&#39;Represents 'no value' or 'nothing here'.&#39;)">null</span> errors: <code>obj &amp;&amp; obj.name</code>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Do they short-circuit?</summary><div class="faq-a">Yes &mdash; <code>and</code> / <code>or</code> stop as soon as the result is determined.</div></details><details class="faq-item"><summary class="faq-q">What do and / or return in Python?</summary><div class="faq-a">One of the operands, not always a strict True/False &mdash; <code>0 or 5</code> is 5.</div></details><details class="faq-item"><summary class="faq-q">What is the precedence?</summary><div class="faq-a"><code>not</code> binds tightest, then <code>and</code>, then <code>or</code>.</div></details><details class="faq-item"><summary class="faq-q">JavaScript equivalents?</summary><div class="faq-a"><code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o03" placeholder="Write your observations about this term..." onchange="saveNotes('o03')" oninput="updateNotesStatus('o03')"></textarea>
 <div class="notes-status" id="notes-status-o03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o08')">O&middot;08 Operator Precedence</span><span class="next-chip" onclick="go('o02')">O&middot;02 Comparison Operators</span></div>
 </div>
 
 <!-- O·04 Assignment Operators -->
@@ -3453,6 +3477,8 @@ has_id <span class="op">=</span> <span class="kw">True</span>
 <span class="tag-btn hard" onclick="toggleTag('o04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 Variable</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Assignment operators store a value into a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>, sometimes combining with arithmetic."</div>The basic operator is <code>=</code>. Compound operators like <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> combine assignment with an operation — they are shorthand that modifies a variable in place.</div>
 </div>
@@ -3494,14 +3520,20 @@ x <span class="op">%=</span> <span class="num">4</span>;   <span class="com">// 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(x); <span class="com">// 2</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Compare by mistake</span><code class="code-mini">total == total + 1</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Assign</span><code class="code-mini">total = total + 1</code></div><div class="mistake-why"><strong>Why:</strong> <code>==</code> only tests equality; nothing is stored. Use <code>=</code> to assign.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Reversed operator</span><code class="code-mini">x =+ 1   # sets x to +1</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compound assign</span><code class="code-mini">x += 1   # adds 1 to x</code></div><div class="mistake-why"><strong>Why:</strong> <code>=+</code> is "assign positive 1", not "add 1". The order of characters matters.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>=</code> is assignment; <code>==</code> is comparison. Confusing them is one of the most common beginner errors.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What does += do?</summary><div class="faq-a">Adds the right side to the variable and stores the result back.</div></details><details class="faq-item"><summary class="faq-q">Is = an expression?</summary><div class="faq-a">In some languages it returns a value; relying on that is error-prone, so avoid it.</div></details><details class="faq-item"><summary class="faq-q">What compound operators exist?</summary><div class="faq-a"><code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, and more.</div></details><details class="faq-item"><summary class="faq-q">Can I chain assignment?</summary><div class="faq-a"><code>a = b = 0</code> sets both to 0.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o04" placeholder="Write your observations about this term..." onchange="saveNotes('o04')" oninput="updateNotesStatus('o04')"></textarea>
 <div class="notes-status" id="notes-status-o04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="next-chip" onclick="go('t01')">T&middot;01 Variable</span></div>
 </div>
 
 <!-- O·05 String Concatenation -->
@@ -3520,6 +3552,8 @@ x <span class="op">%=</span> <span class="num">4</span>;   <span class="com">// 
 <span class="tag-btn hard" onclick="toggleTag('o05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 String</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;String&#39;,&#39;A sequence of characters - text in quotes.&#39;)">String</span> <span class="gloss" onclick="gOpen(&#39;String Concatenation&#39;,&#39;Joining strings together with + or similar.&#39;)">concatenation</span> joins two or more strings into one longer string."</div>In most languages, <code>+</code> is overloaded to concatenate strings. Modern languages also offer interpolation (template literals, f-strings) as a cleaner alternative for embedding values inside strings.</div>
 </div>
@@ -3550,14 +3584,22 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="fn">String</span>.<span class="fn">format</span>(<span class="str">"Hello, %s!"</span>, first));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Join string and number</span><code class="code-mini">"age " + 25</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use an f-string</span><code class="code-mini">f"age {25}"</code></div><div class="mistake-why"><strong>Why:</strong> Python will not concatenate a string and an int. f-strings convert and insert in one step.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Build with + in a loop</span><code class="code-mini">s = ""
+for w in words:
+    s += w</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use join</span><code class="code-mini">s = "".join(words)</code></div><div class="mistake-why"><strong>Why:</strong> strings are immutable, so each <code>+=</code> copies the whole string. <code>join</code> builds it once.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Prefer f-strings/template literals over <code>+</code> for readability. Concatenating many strings in a <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> creates many temporary objects — use <code>join()</code> or <code>StringBuilder</code> instead.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Best way to build strings?</summary><div class="faq-a">f-strings for formatting, <code>join</code> for combining many pieces.</div></details><details class="faq-item"><summary class="faq-q">Why is += in a loop slow?</summary><div class="faq-a">Each concatenation creates a new string and copies the old contents.</div></details><details class="faq-item"><summary class="faq-q">JavaScript equivalent?</summary><div class="faq-a">Template literals: <code>`age ${25}`</code>.</div></details><details class="faq-item"><summary class="faq-q">Concatenate a list of strings?</summary><div class="faq-a"><code>"".join(list)</code> in Python, <code>arr.join("")</code> in JS.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o05" placeholder="Write your observations about this term..." onchange="saveNotes('o05')" oninput="updateNotesStatus('o05')"></textarea>
 <div class="notes-status" id="notes-status-o05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('t03')">T&middot;03 String</span><span class="next-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span></div>
 </div>
 
 <!-- O·06 Modulo Operator -->
@@ -3576,6 +3618,8 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <span class="tag-btn hard" onclick="toggleTag('o06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Modulo&#39;,&#39;Returns the remainder of a division.&#39;)">modulo</span> <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> returns the remainder left over after <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> division."</div><code>10 % 3</code> is <code>1</code> because 10 divided by 3 is 3 remainder 1. It is used for cycling through ranges, checking even/odd, and wrapping indices.</div>
 </div>
@@ -3613,14 +3657,20 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong even test</span><code class="code-mini">if n % 2 == 1:  # "is even"?</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Remainder zero</span><code class="code-mini">if n % 2 == 0:  # is even</code></div><div class="mistake-why"><strong>Why:</strong> a number is even when the remainder after dividing by 2 is 0, not 1.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume negative result</span><code class="code-mini">-7 % 3   # depends on language</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Know your language</span><code class="code-mini">-7 % 3   # Python: 2, C: -1</code></div><div class="mistake-why"><strong>Why:</strong> the sign of a modulo result with negatives differs between languages. Verify before relying on it.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>n % 2 == 0</code> checks for even numbers. <code>n % 2 != 0</code> checks for odd. This pattern appears constantly in interview problems.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is modulo?</summary><div class="faq-a">The remainder left after integer division.</div></details><details class="faq-item"><summary class="faq-q">Common uses?</summary><div class="faq-a">Even/odd checks, wrapping values around a range, cycling through items.</div></details><details class="faq-item"><summary class="faq-q">What about negative operands?</summary><div class="faq-a">The result sign depends on the language &mdash; Python and C differ.</div></details><details class="faq-item"><summary class="faq-q">Does % work with floats?</summary><div class="faq-a">Yes in Python &mdash; <code>5.5 % 2</code> is 1.5.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o06" placeholder="Write your observations about this term..." onchange="saveNotes('o06')" oninput="updateNotesStatus('o06')"></textarea>
 <div class="notes-status" id="notes-status-o06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="next-chip" onclick="go('o08')">O&middot;08 Operator Precedence</span></div>
 </div>
 
 <!-- O·07 Increment / Decrement -->
@@ -3639,6 +3689,8 @@ last <span class="op">=</span> <span class="str">"Code"</span>
 <span class="tag-btn hard" onclick="toggleTag('o07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o04')">O&middot;04 Assignment Operators</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Increment adds 1 to a <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>; decrement subtracts 1."</div><code>++</code> and <code>--</code> are shorthand operators in Java and JavaScript. Python does not have <code>++</code>; instead you use <code>+= 1</code>. These operators are most common in loop counters.</div>
 </div>
@@ -3676,14 +3728,21 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(y <span class="op">+</span> <span class="str">" "</span> <span class="op">+</span> z); <span class="com">// 5 7</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; ++ in Python</span><code class="code-mini">x++</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compound assign</span><code class="code-mini">x += 1</code></div><div class="mistake-why"><strong>Why:</strong> Python has no <code>++</code> operator. Use <code>+= 1</code>.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mix pre and post</span><code class="code-mini">y = i++ + ++i;</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep it simple</span><code class="code-mini">i += 1;
+y = i + i;</code></div><div class="mistake-why"><strong>Why:</strong> combining pre- and post-increment in one expression is hard to read and order-dependent.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Avoid using <code>x++</code> inside larger expressions. Keep increment on its own line to avoid subtle pre/post bugs that are hard to spot in code review.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Does Python have ++?</summary><div class="faq-a">No &mdash; use <code>+= 1</code> and <code>-= 1</code>.</div></details><details class="faq-item"><summary class="faq-q">Pre vs post increment?</summary><div class="faq-a"><code>++i</code> increments then returns the new value; <code>i++</code> returns the old value then increments.</div></details><details class="faq-item"><summary class="faq-q">Why avoid them in complex expressions?</summary><div class="faq-a">Evaluation order makes the result confusing and bug-prone.</div></details><details class="faq-item"><summary class="faq-q">Where are they common?</summary><div class="faq-a">C, Java, and JavaScript loops.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o07" placeholder="Write your observations about this term..." onchange="saveNotes('o07')" oninput="updateNotesStatus('o07')"></textarea>
 <div class="notes-status" id="notes-status-o07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o04')">O&middot;04 Assignment Operators</span><span class="next-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span></div>
 </div>
 
 <!-- O·08 Operator Precedence -->
@@ -3702,6 +3761,8 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="tag-btn hard" onclick="toggleTag('o08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="prereq-chip" onclick="go('o03')">O&middot;03 Logical Operators</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">Operator</span> precedence defines which operators are evaluated first when multiple appear in one <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>."</div>Just like PEMDAS/BODMAS in math, programming languages have a precedence table. Multiplication before addition, comparisons before logical operators, and so on.</div>
 </div>
@@ -3732,14 +3793,20 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(<span class="kw">true</span> <span class="op">||</span> <span class="kw">false</span> <span class="op">&amp;&amp;</span> <span class="kw">false</span>); <span class="com">// true</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume left to right</span><code class="code-mini">2 + 3 * 4   # not 20</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Group what you mean</span><code class="code-mini">(2 + 3) * 4   # 20</code></div><div class="mistake-why"><strong>Why:</strong> <code>*</code> is evaluated before <code>+</code>. Parentheses force the order you intend.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Trust logical precedence</span><code class="code-mini">a and b or c</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Parenthesize</span><code class="code-mini">(a and b) or c</code></div><div class="mistake-why"><strong>Why:</strong> explicit grouping is clearer than memorizing precedence tables for every reader.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>When in doubt, use parentheses. They cost nothing and make intent explicit. Code clarity always beats relying on implicit precedence rules.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What binds tightest?</summary><div class="faq-a">Typically <code>**</code>, then <code>*</code> and <code>/</code>, then <code>+</code> and <code>-</code>.</div></details><details class="faq-item"><summary class="faq-q">How do I stay safe?</summary><div class="faq-a">When in doubt, add parentheses. They cost nothing and remove ambiguity.</div></details><details class="faq-item"><summary class="faq-q">What about logical precedence?</summary><div class="faq-a"><code>not</code> &gt; <code>and</code> &gt; <code>or</code>.</div></details><details class="faq-item"><summary class="faq-q">Same across languages?</summary><div class="faq-a">Mostly the same, but always verify for unusual operators.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o08" placeholder="Write your observations about this term..." onchange="saveNotes('o08')" oninput="updateNotesStatus('o08')"></textarea>
 <div class="notes-status" id="notes-status-o08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="next-chip" onclick="go('o03')">O&middot;03 Logical Operators</span></div>
 </div>
 
 <!-- O·09 Expression vs Statement -->
@@ -3758,6 +3825,8 @@ x<span class="op">--</span>;                           <span class="com">// x = 
 <span class="tag-btn hard" onclick="toggleTag('o09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span> evaluates to a value; a <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span> executes an action."</div><code>2 + 3</code> is an expression — it produces <code>5</code>. <code>if x &gt; 0: print(x)</code> is a statement — it directs program flow but does not produce a value itself. The distinction matters in contexts where only one or the other is allowed.</div>
 </div>
@@ -3801,14 +3870,21 @@ flag <span class="op">=</span> result <span class="op">&gt;</span> <span class="
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect a statement to return</span><code class="code-mini">x = (if a: 1 else 0)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use the expression form</span><code class="code-mini">x = 1 if a else 0</code></div><div class="mistake-why"><strong>Why:</strong> in Python <code>if</code> is a statement, not an expression. The ternary form evaluates to a value.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Use = as a test</span><code class="code-mini">while (line = read()):</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compare explicitly</span><code class="code-mini">line = read()
+while line is not None:</code></div><div class="mistake-why"><strong>Why:</strong> mixing assignment into a condition hides intent and is invalid in Python.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>If you can substitute it with a value, it is an <span class="gloss" onclick="gOpen(&#39;Expression&#39;,&#39;Code that evaluates to a value.&#39;)">expression</span>. If it controls flow or declares something, it is a <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span>. Lambdas are expressions; <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> declarations are statements.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Expression vs statement?</summary><div class="faq-a">An expression evaluates to a value; a statement performs an action.</div></details><details class="faq-item"><summary class="faq-q">Is assignment an expression?</summary><div class="faq-a">It depends on the language &mdash; in C yes, in Python no.</div></details><details class="faq-item"><summary class="faq-q">What is a ternary?</summary><div class="faq-a">An expression form of if/else: <code>a if cond else b</code>.</div></details><details class="faq-item"><summary class="faq-q">Why does the difference matter?</summary><div class="faq-a">It determines where the code can legally appear.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o09" placeholder="Write your observations about this term..." onchange="saveNotes('o09')" oninput="updateNotesStatus('o09')"></textarea>
 <div class="notes-status" id="notes-status-o09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o10')">O&middot;10 Side Effects</span><span class="next-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 </div>
 
 <!-- O·10 Side Effects -->
@@ -3827,6 +3903,8 @@ flag <span class="op">=</span> result <span class="op">&gt;</span> <span class="
 <span class="tag-btn hard" onclick="toggleTag('o10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('o10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('o09')">O&middot;09 Expression vs Statement</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Side Effects&#39;,&#39;Anything a function does besides returning a value (I/O, mutation).&#39;)">side effect</span> is any observable change a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> causes outside its own <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span>."</div>Side effects include modifying a global variable, writing to a file, printing to the screen, changing a passed-in list, or making a network request. Functions without side effects are called <strong>pure functions</strong>.</div>
 </div>
@@ -3867,14 +3945,25 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="com">// Caller's list is now modified</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutable default arg</span><code class="code-mini">def add(x, acc=[]):
+    acc.append(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Default to None</span><code class="code-mini">def add(x, acc=None):
+    acc = acc or []
+    acc.append(x)</code></div><div class="mistake-why"><strong>Why:</strong> a default list is created once and shared across every call, so it keeps growing unexpectedly.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Silently mutate input</span><code class="code-mini">def sort_it(items):
+    items.sort()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Return a new list</span><code class="code-mini">def sort_it(items):
+    return sorted(items)</code></div><div class="mistake-why"><strong>Why:</strong> changing the caller's list surprises them. Returning a new value keeps the function predictable.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Make side effects explicit and intentional. A <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> that modifies its input should be clearly named — e.g., <code>sort_in_place()</code> — so callers know to expect mutation.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a side effect?</summary><div class="faq-a">Any change to state outside the function &mdash; I/O, globals, or mutating arguments.</div></details><details class="faq-item"><summary class="faq-q">What is a pure function?</summary><div class="faq-a">One that returns a value and causes no side effects.</div></details><details class="faq-item"><summary class="faq-q">Why minimize side effects?</summary><div class="faq-a">Pure code is easier to test, reuse, and reason about.</div></details><details class="faq-item"><summary class="faq-q">Are side effects bad?</summary><div class="faq-a">No &mdash; I/O needs them. Just make them intentional and contained.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-o10" placeholder="Write your observations about this term..." onchange="saveNotes('o10')" oninput="updateNotesStatus('o10')"></textarea>
 <div class="notes-status" id="notes-status-o10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o09')">O&middot;09 Expression vs Statement</span><span class="next-chip" onclick="go('f02')">F&middot;02 Code</span></div>
 </div>
 
 <!-- Block 4 Divider -->
