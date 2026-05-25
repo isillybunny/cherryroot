@@ -4005,6 +4005,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('c01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t06')">T&middot;06 Boolean</span><span class="prereq-chip" onclick="go('o02')">O&middot;02 Comparison Operators</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;If Statement&#39;,&#39;Runs a block only when a condition is true.&#39;)">if statement</span> runs a block of code only when its condition evaluates to true."</div>It is the most fundamental control structure. The condition is an expression that must evaluate to a boolean. If true, the body executes; if false, it is skipped entirely.</div>
 </div>
@@ -4047,14 +4049,22 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assign in condition</span><code class="code-mini">if x = 5:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Compare</span><code class="code-mini">if x == 5:</code></div><div class="mistake-why"><strong>Why:</strong> a condition tests a value; <code>=</code> assigns. Use <code>==</code> to compare.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; No colon or indent</span><code class="code-mini">if x &gt; 0
+print(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Colon + indented body</span><code class="code-mini">if x &gt; 0:
+    print(x)</code></div><div class="mistake-why"><strong>Why:</strong> Python opens a block with a colon and an indented body. Both are required.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always use curly braces in Java and JavaScript even for one-line bodies. Omitting them is a common source of bugs when adding a second line later.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What can the condition be?</summary><div class="faq-a">Anything truthy or falsy &mdash; it does not have to be a literal boolean.</div></details><details class="faq-item"><summary class="faq-q">Can I have an if with no else?</summary><div class="faq-a">Yes &mdash; else is optional.</div></details><details class="faq-item"><summary class="faq-q">How do I test multiple conditions?</summary><div class="faq-a">Combine them with <code>and</code> / <code>or</code>.</div></details><details class="faq-item"><summary class="faq-q">Can ifs be nested?</summary><div class="faq-a">Yes, but deep nesting hurts readability &mdash; prefer early returns.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c01" placeholder="Write your observations about this term..." onchange="saveNotes('c01')" oninput="updateNotesStatus('c01')"></textarea>
 <div class="notes-status" id="notes-status-c01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c02')">C&middot;02 Else / Elif</span><span class="next-chip" onclick="go('c09')">C&middot;09 Ternary Operator</span></div>
 </div>
 
 <!-- C·02 Else / Elif -->
@@ -4073,6 +4083,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('c02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Else&#39;,&#39;Runs when the previous if condition is false.&#39;)">else</span> runs when the if condition is false; elif (else-if) adds additional conditions to check."</div><code>else</code> provides a fallback path. <code>elif</code> (Python) / <code>else if</code> (Java, JS) chains additional conditions. Only one branch in the chain executes — the first one whose condition is true.</div>
 </div>
@@ -4122,14 +4134,22 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Separate ifs</span><code class="code-mini">if score &gt; 90: grade = "A"
+if score &gt; 80: grade = "B"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; elif chain</span><code class="code-mini">if score &gt; 90: grade = "A"
+elif score &gt; 80: grade = "B"</code></div><div class="mistake-why"><strong>Why:</strong> separate ifs all run; an elif chain stops at the first match.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong keyword</span><code class="code-mini">else if x &gt; 0:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Python keyword</span><code class="code-mini">elif x &gt; 0:</code></div><div class="mistake-why"><strong>Why:</strong> Python spells it <code>elif</code>; <code>else if</code> belongs to JavaScript and Java.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Order matters — put the most specific conditions first. Checking <code>&gt;= 70</code> before <code>&gt;= 90</code> would catch everything at 70+ in the first branch.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">elif vs else if?</summary><div class="faq-a">Python uses <code>elif</code>; JavaScript and Java use <code>else if</code>.</div></details><details class="faq-item"><summary class="faq-q">Do I need an else?</summary><div class="faq-a">No &mdash; else is optional.</div></details><details class="faq-item"><summary class="faq-q">Does order matter?</summary><div class="faq-a">Yes &mdash; the first matching branch runs and the rest are skipped.</div></details><details class="faq-item"><summary class="faq-q">Too many branches?</summary><div class="faq-a">Consider a dictionary lookup or a match/switch.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c02" placeholder="Write your observations about this term..." onchange="saveNotes('c02')" oninput="updateNotesStatus('c02')"></textarea>
 <div class="notes-status" id="notes-status-c02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c03')">C&middot;03 Switch / Case</span><span class="next-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 </div>
 
 <!-- C·03 Switch / Case -->
@@ -4148,6 +4168,8 @@ nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2<
 <span class="tag-btn hard" onclick="toggleTag('c03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c02')">C&middot;02 Else / Elif</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A switch <span class="gloss" onclick="gOpen(&#39;Statement&#39;,&#39;A complete instruction the language can execute.&#39;)">statement</span> tests one value against several cases, running the matching branch."</div>It is a cleaner alternative to long <code>if-elif-else</code> chains when you are comparing one variable to many discrete values. Python added <code>match/case</code> in 3.10.</div>
 </div>
@@ -4194,14 +4216,26 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Missing break</span><code class="code-mini">case 1:
+    doA();
+case 2:
+    doB();</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; break each case</span><code class="code-mini">case 1:
+    doA();
+    break;</code></div><div class="mistake-why"><strong>Why:</strong> in C and Java, cases fall through to the next one unless you add <code>break</code>.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect switch in old Python</span><code class="code-mini">switch x:</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; match or dict</span><code class="code-mini">match x:
+    case 1: ...</code></div><div class="mistake-why"><strong>Why:</strong> Python only added <code>match</code> in 3.10. Before that, use a dictionary dispatch.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Always add <code>break</code> in Java/JS switch cases unless fall-through is intentional. A missing <code>break</code> is one of the sneakiest bugs — execution silently continues into the next case.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Does Python have switch?</summary><div class="faq-a"><code>match</code>/<code>case</code> since 3.10; otherwise use dict dispatch.</div></details><details class="faq-item"><summary class="faq-q">What is fall-through?</summary><div class="faq-a">Without <code>break</code>, execution continues into the next case.</div></details><details class="faq-item"><summary class="faq-q">When prefer switch over if/elif?</summary><div class="faq-a">When branching on many discrete values of one variable.</div></details><details class="faq-item"><summary class="faq-q">What is the default case?</summary><div class="faq-a">It runs when no other case matches.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c03" placeholder="Write your observations about this term..." onchange="saveNotes('c03')" oninput="updateNotesStatus('c03')"></textarea>
 <div class="notes-status" id="notes-status-c03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c04')">C&middot;04 While Loop</span><span class="next-chip" onclick="go('c02')">C&middot;02 Else / Elif</span></div>
 </div>
 
 <!-- C·04 While Loop -->
@@ -4220,6 +4254,8 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <span class="tag-btn hard" onclick="toggleTag('c04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t06')">T&middot;06 Boolean</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A while <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> repeats its body as long as the condition at the top remains true."</div>The condition is checked before each iteration. If it starts false, the body never runs. Use a while loop when you don't know in advance how many iterations are needed.</div>
 </div>
@@ -4254,14 +4290,25 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <span class="com">// prints 0 1 2 3 4</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Never update condition</span><code class="code-mini">i = 0
+while i &lt; 5:
+    print(i)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Advance inside loop</span><code class="code-mini">i = 0
+while i &lt; 5:
+    print(i)
+    i += 1</code></div><div class="mistake-why"><strong>Why:</strong> if the condition variable never changes, the loop runs forever.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Off-by-one bound</span><code class="code-mini">while i &lt;= len(arr):</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Stop before length</span><code class="code-mini">while i &lt; len(arr):</code></div><div class="mistake-why"><strong>Why:</strong> valid indices go up to length-1, so use <code>&lt;</code>, not <code>&lt;=</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every while <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> needs a clear exit condition. Always ask: "what changes so this condition becomes false?" If nothing changes, the loop runs forever and freezes the program.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">while vs for?</summary><div class="faq-a">Use while when the number of iterations is unknown; for when it is known.</div></details><details class="faq-item"><summary class="faq-q">How do I stop early?</summary><div class="faq-a">Use <code>break</code>.</div></details><details class="faq-item"><summary class="faq-q">Infinite loop on purpose?</summary><div class="faq-a"><code>while True:</code> with a <code>break</code> inside is a common pattern.</div></details><details class="faq-item"><summary class="faq-q">What is while-else in Python?</summary><div class="faq-a">The else block runs if the loop finished without hitting <code>break</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c04" placeholder="Write your observations about this term..." onchange="saveNotes('c04')" oninput="updateNotesStatus('c04')"></textarea>
 <div class="notes-status" id="notes-status-c04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c05')">C&middot;05 For Loop</span><span class="next-chip" onclick="go('c07')">C&middot;07 Break</span></div>
 </div>
 
 <!-- C·05 For Loop -->
@@ -4280,6 +4327,8 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <span class="tag-btn hard" onclick="toggleTag('c05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c04')">C&middot;04 While Loop</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A for <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> iterates a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> number of times, typically using a counter <span class="gloss" onclick="gOpen(&#39;Variable&#39;,&#39;A named container that holds a value you can read or change.&#39;)">variable</span>."</div>In Java and JavaScript the classic form uses <code>init; condition; update</code>. Python's <code>for</code> is always a for-each over an iterable — use <code>range()</code> to mimic a counter loop.</div>
 </div>
@@ -4316,14 +4365,22 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect end included</span><code class="code-mini">for i in range(1, 10)   # stops at 9</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Add one to reach it</span><code class="code-mini">for i in range(1, 11)   # reaches 10</code></div><div class="mistake-why"><strong>Why:</strong> <code>range</code> excludes its end value, so the last number is end-1.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Remove while looping</span><code class="code-mini">for x in items:
+    items.remove(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Loop over a copy</span><code class="code-mini">for x in items[:]:
+    items.remove(x)</code></div><div class="mistake-why"><strong>Why:</strong> changing the list you are looping over skips elements.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>range(n)</code> produces <code>0</code> to <code>n-1</code>, not <code>1</code> to <code>n</code>. Off-by-one errors are among the most common bugs — always check your range boundaries.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Is the range end inclusive?</summary><div class="faq-a">No &mdash; <code>range(0, 5)</code> yields 0,1,2,3,4.</div></details><details class="faq-item"><summary class="faq-q">Where is the C-style for?</summary><div class="faq-a">Python uses <code>for x in ...</code>; C/Java use init/condition/step.</div></details><details class="faq-item"><summary class="faq-q">How do I get the index too?</summary><div class="faq-a">Use <code>enumerate(items)</code>.</div></details><details class="faq-item"><summary class="faq-q">How do I loop in reverse?</summary><div class="faq-a"><code>reversed(items)</code> or <code>range(n, 0, -1)</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c05" placeholder="Write your observations about this term..." onchange="saveNotes('c05')" oninput="updateNotesStatus('c05')"></textarea>
 <div class="notes-status" id="notes-status-c05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c06')">C&middot;06 For-Each Loop</span><span class="next-chip" onclick="go('c10')">C&middot;10 Nested Loops</span></div>
 </div>
 
 <!-- C·06 For-Each Loop -->
@@ -4342,6 +4399,8 @@ day <span class="op">=</span> <span class="str">"Mon"</span>
 <span class="tag-btn hard" onclick="toggleTag('c06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c05')">C&middot;05 For Loop</span><span class="prereq-chip" onclick="go('t08')">T&middot;08 Array / List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A for-each <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> visits every element in a collection in order, without managing an <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>."</div>It is cleaner than a counter-based loop when you need the values but not the positions. Python's <code>for</code> is always for-each. Java uses <code>for (Type x : collection)</code>. JavaScript uses <code>for...of</code>.</div>
 </div>
@@ -4380,14 +4439,24 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Need index, lose it</span><code class="code-mini">for item in items:
+    # which position?</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use enumerate</span><code class="code-mini">for i, item in enumerate(items):
+    print(i, item)</code></div><div class="mistake-why"><strong>Why:</strong> for-each yields elements, not indices. <code>enumerate</code> gives both.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutate while iterating</span><code class="code-mini">for x in data:
+    data.append(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Iterate a snapshot</span><code class="code-mini">for x in list(data):
+    data.append(x)</code></div><div class="mistake-why"><strong>Why:</strong> adding or removing during iteration leads to skipped items or endless loops.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In JavaScript, always use <code>for...of</code> for arrays, not <code>for...in</code>. <code>for...in</code> iterates over property keys and will also iterate inherited properties — rarely what you want.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">for-each vs indexed for?</summary><div class="faq-a">For-each hands you each element directly, no index bookkeeping.</div></details><details class="faq-item"><summary class="faq-q">How do I get the index?</summary><div class="faq-a"><code>enumerate</code> in Python, <code>.entries()</code> in JavaScript.</div></details><details class="faq-item"><summary class="faq-q">Does it work on dicts?</summary><div class="faq-a">Yes &mdash; it iterates the keys by default.</div></details><details class="faq-item"><summary class="faq-q">Can I modify during the loop?</summary><div class="faq-a">Avoid it; iterate over a copy instead.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c06" placeholder="Write your observations about this term..." onchange="saveNotes('c06')" oninput="updateNotesStatus('c06')"></textarea>
 <div class="notes-status" id="notes-status-c06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c07')">C&middot;07 Break</span><span class="next-chip" onclick="go('t08')">T&middot;08 Array / List</span></div>
 </div>
 
 <!-- C·07 Break -->
@@ -4406,6 +4475,8 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <span class="tag-btn hard" onclick="toggleTag('c07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c04')">C&middot;04 While Loop</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Break&#39;,&#39;Exits the current loop immediately.&#39;)">break</span> exits the innermost <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> immediately, skipping any remaining iterations."</div>It is used when you have found what you were looking for or when a condition makes continuing pointless. Execution resumes at the first statement after the loop.</div>
 </div>
@@ -4445,14 +4516,25 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <span class="com">// Found even: 4</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect it to exit all loops</span><code class="code-mini">for a in xs:
+    for b in ys:
+        break   # only inner stops</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use a flag or function</span><code class="code-mini">def search():
+    for a in xs:
+        for b in ys:
+            return (a, b)</code></div><div class="mistake-why"><strong>Why:</strong> <code>break</code> exits only the innermost loop. To leave several, use a function with <code>return</code> or a flag.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>break</code> only exits the innermost <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span>. If you have <span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">nested</span> loops and need to escape both, consider refactoring into a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> and using <code>return</code> instead.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What does break do?</summary><div class="faq-a">It exits the nearest enclosing loop immediately.</div></details><details class="faq-item"><summary class="faq-q">Does it break all nested loops?</summary><div class="faq-a">No &mdash; only the innermost one.</div></details><details class="faq-item"><summary class="faq-q">break vs continue?</summary><div class="faq-a"><code>break</code> stops the loop; <code>continue</code> skips to the next iteration.</div></details><details class="faq-item"><summary class="faq-q">break inside a switch?</summary><div class="faq-a">In C/Java it ends the current case.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c07" placeholder="Write your observations about this term..." onchange="saveNotes('c07')" oninput="updateNotesStatus('c07')"></textarea>
 <div class="notes-status" id="notes-status-c07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c08')">C&middot;08 Continue</span><span class="next-chip" onclick="go('c10')">C&middot;10 Nested Loops</span></div>
 </div>
 
 <!-- C·08 Continue -->
@@ -4471,6 +4553,8 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <span class="tag-btn hard" onclick="toggleTag('c08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c07')">C&middot;07 Break</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Continue&#39;,&#39;Skips to the next iteration of the loop.&#39;)">continue</span> skips the remaining code in the current <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> iteration and jumps to the next one."</div>Unlike <code>break</code>, the loop keeps running — only this iteration is cut short. It is useful for filtering: skip invalid values and process only the valid ones.</div>
 </div>
@@ -4500,14 +4584,24 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect it to exit</span><code class="code-mini">if bad: continue   # loop keeps going</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use break to exit</span><code class="code-mini">if bad: break</code></div><div class="mistake-why"><strong>Why:</strong> <code>continue</code> skips to the next iteration; it does not leave the loop.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Skip the counter</span><code class="code-mini">while i &lt; n:
+    if skip(i): continue
+    i += 1</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Advance before continue</span><code class="code-mini">while i &lt; n:
+    j = i; i += 1
+    if skip(j): continue</code></div><div class="mistake-why"><strong>Why:</strong> in a while loop, <code>continue</code> can jump past the counter update and loop forever.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><code>continue</code> does not exit the <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> — the loop keeps going. To exit entirely, use <code>break</code>. Mixing them up is a common beginner mistake.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What does continue do?</summary><div class="faq-a">Skips the rest of the current iteration and starts the next one.</div></details><details class="faq-item"><summary class="faq-q">continue vs break?</summary><div class="faq-a"><code>continue</code> keeps looping; <code>break</code> stops the loop.</div></details><details class="faq-item"><summary class="faq-q">Is it dangerous in while?</summary><div class="faq-a">Yes &mdash; if it skips the counter update, the loop never ends.</div></details><details class="faq-item"><summary class="faq-q">Should I use it often?</summary><div class="faq-a">Sparingly &mdash; overuse can make loops hard to follow.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c08" placeholder="Write your observations about this term..." onchange="saveNotes('c08')" oninput="updateNotesStatus('c08')"></textarea>
 <div class="notes-status" id="notes-status-c08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c07')">C&middot;07 Break</span><span class="next-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
 </div>
 
 <!-- C·09 Ternary Operator -->
@@ -4526,6 +4620,8 @@ fruits.<span class="fn">forEach</span>((fruit, i) <span class="op">=&gt;</span>
 <span class="tag-btn hard" onclick="toggleTag('c09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Ternary Operator&#39;,&#39;A one-line if/else expression: cond ? a : b.&#39;)">ternary</span> <span class="gloss" onclick="gOpen(&#39;Operator&#39;,&#39;A symbol that performs an operation on values: +, -, ==, etc.&#39;)">operator</span> is a compact if-<span class="gloss" onclick="gOpen(&#39;Else&#39;,&#39;Runs when the previous if condition is false.&#39;)">else</span> that returns one of two values based on a condition."</div>It takes three operands: a condition, a value if true, and a value if false. It is an <strong>expression</strong> (produces a value), not a statement, so it can be used inside assignments and function calls.</div>
 </div>
@@ -4557,14 +4653,22 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(status); <span class="com">// adult</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Missing else</span><code class="code-mini">label = "ok" if passed</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Provide both branches</span><code class="code-mini">label = "ok" if passed else "fail"</code></div><div class="mistake-why"><strong>Why:</strong> a Python ternary must supply both the true and false value.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Deeply nested ternary</span><code class="code-mini">a if x else (b if y else c)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use if/elif</span><code class="code-mini">if x: r = a
+elif y: r = b
+else: r = c</code></div><div class="mistake-why"><strong>Why:</strong> nested ternaries are hard to read. A normal if/elif chain is clearer.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Use the <span class="gloss" onclick="gOpen(&#39;Ternary Operator&#39;,&#39;A one-line if/else expression: cond ? a : b.&#39;)">ternary</span> only for simple, clear two-branch expressions. If your condition or values are complex, use a regular <code>if/else</code> — readability beats brevity.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a ternary?</summary><div class="faq-a">A compact if/else that evaluates to a value.</div></details><details class="faq-item"><summary class="faq-q">Python syntax?</summary><div class="faq-a"><code>value_if_true if condition else value_if_false</code>.</div></details><details class="faq-item"><summary class="faq-q">JavaScript syntax?</summary><div class="faq-a"><code>condition ? a : b</code>.</div></details><details class="faq-item"><summary class="faq-q">When should I avoid it?</summary><div class="faq-a">When it grows long or nested &mdash; use a full if statement.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c09" placeholder="Write your observations about this term..." onchange="saveNotes('c09')" oninput="updateNotesStatus('c09')"></textarea>
 <div class="notes-status" id="notes-status-c09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('o09')">O&middot;09 Expression vs Statement</span><span class="next-chip" onclick="go('c01')">C&middot;01 If Statement</span></div>
 </div>
 
 <!-- C·10 Nested Loops -->
@@ -4583,6 +4687,8 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 <span class="tag-btn hard" onclick="toggleTag('c10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('c10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">Nested</span> loops place one <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> inside another to iterate over multi-dimensional data or all combinations."</div>For each iteration of the outer loop, the inner loop runs to completion. They are used for grids, matrices, and generating all pairs from two collections.</div>
 </div>
@@ -4621,14 +4727,26 @@ grade <span class="op">=</span> <span class="str">"pass"</span> <span class="kw"
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Reuse the same variable</span><code class="code-mini">for i in rows:
+    for i in cols:   # clobbers outer i</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Distinct names</span><code class="code-mini">for r in rows:
+    for c in cols:</code></div><div class="mistake-why"><strong>Why:</strong> sharing a loop variable across levels overwrites the outer one and corrupts the loop.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Quadratic on big data</span><code class="code-mini">for a in big:
+    for b in big:
+        if a == b: ...</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use a set lookup</span><code class="code-mini">seen = set(big)
+for a in big:
+    if a in seen: ...</code></div><div class="mistake-why"><strong>Why:</strong> nested loops multiply work. A set membership check is far faster on large inputs.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Nested Loops&#39;,&#39;A loop inside another loop.&#39;)">Nested</span> loops have O(n²) cost — fine for small data, but slow for large collections. If you find yourself writing three nested loops, look for a better <span class="gloss" onclick="gOpen(&#39;Algorithm&#39;,&#39;A finite series of steps that solves a problem.&#39;)">algorithm</span>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What are nested loops?</summary><div class="faq-a">A loop placed inside another loop.</div></details><details class="faq-item"><summary class="faq-q">What about performance?</summary><div class="faq-a">Iterations multiply &mdash; two loops over n items do roughly n&times;n work.</div></details><details class="faq-item"><summary class="faq-q">Does break exit both?</summary><div class="faq-a">No &mdash; it only exits the inner loop.</div></details><details class="faq-item"><summary class="faq-q">Any alternatives?</summary><div class="faq-a">Sometimes a single pass or a set/dictionary lookup avoids the nesting.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-c10" placeholder="Write your observations about this term..." onchange="saveNotes('c10')" oninput="updateNotesStatus('c10')"></textarea>
 <div class="notes-status" id="notes-status-c10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('c05')">C&middot;05 For Loop</span><span class="next-chip" onclick="go('c07')">C&middot;07 Break</span></div>
 </div>
 
 <!-- Block 5 Divider -->
