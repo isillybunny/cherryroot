@@ -6501,6 +6501,8 @@ for b in xs: ...</code></div><div class="mistake-good"><span class="mistake-tag"
 <span class="tag-btn hard" onclick="toggleTag('p01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span><span class="prereq-chip" onclick="go('t09')">T&middot;09 Dict / Object / Map</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> is a template that describes the attributes and methods objects of that type will have."</div>It's like a cookie cutter: the class doesn't do anything by itself — you use it to create objects (instances) that follow its shape.</div>
 </div>
@@ -6532,14 +6534,25 @@ for b in xs: ...</code></div><div class="mistake-good"><span class="mistake-tag"
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Method without self</span><code class="code-mini">class Dog:
+    def bark():
+        print("woof")</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Include self</span><code class="code-mini">class Dog:
+    def bark(self):
+        print("woof")</code></div><div class="mistake-why"><strong>Why:</strong> instance methods receive the instance as their first parameter, named <code>self</code> by convention.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Call on the class</span><code class="code-mini">Dog.bark()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Make an instance</span><code class="code-mini">d = Dog()
+d.bark()</code></div><div class="mistake-why"><strong>Why:</strong> a class is a blueprint. You create an object from it before using its methods.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> is a <strong>recipe</strong>. You can't eat a recipe — you eat the cake (the <span class="gloss" onclick="gOpen(&#39;Instance&#39;,&#39;A specific object created from a class.&#39;)">instance</span>).</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Class vs object?</summary><div class="faq-a">A class is the blueprint; an object is a built instance of it.</div></details><details class="faq-item"><summary class="faq-q">When should I write a class?</summary><div class="faq-a">When you want to bundle related data and the behavior that acts on it.</div></details><details class="faq-item"><summary class="faq-q">Naming convention?</summary><div class="faq-a">PascalCase &mdash; <code>BankAccount</code>, <code>HttpClient</code>.</div></details><details class="faq-item"><summary class="faq-q">Many classes per file?</summary><div class="faq-a">Yes, though related ones are usually grouped together.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p01" placeholder="Write your observations about this term..." onchange="saveNotes('p01')" oninput="updateNotesStatus('p01')"></textarea>
 <div class="notes-status" id="notes-status-p01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p02')">P&middot;02 Object</span><span class="next-chip" onclick="go('p06')">P&middot;06 Constructor</span></div>
 </div>
 
 <!-- P·02 Object -->
@@ -6558,6 +6571,8 @@ for b in xs: ...</code></div><div class="mistake-good"><span class="mistake-tag"
 <span class="tag-btn hard" onclick="toggleTag('p02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p01')">P&middot;01 Class</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> is a self-contained bundle of state (attributes) and behavior (methods)."</div>It is a living value produced from a class, with its own data and an identity separate from every other object.</div>
 </div>
@@ -6584,14 +6599,23 @@ buddy <span class="op">=</span> <span class="fn">Dog</span>(<span class="str">"B
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(rex.<span class="fn">bark</span>());</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect == to compare values</span><code class="code-mini">Point(1, 2) == Point(1, 2)   # False</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Define equality</span><code class="code-mini">def __eq__(self, other):
+    return self.x == other.x and self.y == other.y</code></div><div class="mistake-why"><strong>Why:</strong> by default two objects are equal only if they are the same instance. Define <code>__eq__</code> for value equality.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Share a mutable object</span><code class="code-mini">b = a   # same object
+b.count = 5</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Copy when needed</span><code class="code-mini">import copy
+b = copy.copy(a)</code></div><div class="mistake-why"><strong>Why:</strong> assigning shares the reference. Mutating one name affects the other.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>An <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> is <strong>data + behavior</strong> together. That bundle is what makes OOP different from procedural code.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Object vs class?</summary><div class="faq-a">An object is a concrete thing built from a class.</div></details><details class="faq-item"><summary class="faq-q">== vs is?</summary><div class="faq-a"><code>==</code> compares value (if defined); <code>is</code> compares identity.</div></details><details class="faq-item"><summary class="faq-q">Is everything an object in Python?</summary><div class="faq-a">Yes &mdash; numbers, functions, and classes are all objects.</div></details><details class="faq-item"><summary class="faq-q">How is an object created?</summary><div class="faq-a">By calling the class like a function: <code>Dog()</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p02" placeholder="Write your observations about this term..." onchange="saveNotes('p02')" oninput="updateNotesStatus('p02')"></textarea>
 <div class="notes-status" id="notes-status-p02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p03')">P&middot;03 Instance</span><span class="next-chip" onclick="go('p04')">P&middot;04 Attribute</span></div>
 </div>
 
 <!-- P·03 Instance -->
@@ -6610,6 +6634,8 @@ buddy <span class="op">=</span> <span class="fn">Dog</span>(<span class="str">"B
 <span class="tag-btn hard" onclick="toggleTag('p03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p02')">P&middot;02 Object</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Instance&#39;,&#39;A specific object created from a class.&#39;)">instance</span> is a single, specific <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> created from a <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span>."</div>The word emphasizes the link between the object and its blueprint. Every object is an instance of some class.</div>
 </div>
@@ -6633,14 +6659,25 @@ buddy <span class="op">=</span> <span class="fn">Dog</span>(<span class="str">"B
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(d <span class="kw">instanceof</span> Dog);  <span class="com">// true</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Shared mutable class attr</span><code class="code-mini">class Cart:
+    items = []   # shared by all</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Set per instance</span><code class="code-mini">class Cart:
+    def __init__(self):
+        self.items = []</code></div><div class="mistake-why"><strong>Why:</strong> a mutable class attribute is shared across every instance. Per-instance state belongs in <code>__init__</code>.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Discard the instance</span><code class="code-mini">Dog()
+d.bark()   # d undefined</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep a reference</span><code class="code-mini">d = Dog()
+d.bark()</code></div><div class="mistake-why"><strong>Why:</strong> creating an instance returns it. Store it in a variable to use it.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>"<span class="gloss" onclick="gOpen(&#39;Instance&#39;,&#39;A specific object created from a class.&#39;)">Instance</span>" and "<span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>" are mostly synonyms — instance just stresses <strong>which <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span></strong> it came from.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Instance vs object?</summary><div class="faq-a">Often the same thing; "instance" stresses that it belongs to a class.</div></details><details class="faq-item"><summary class="faq-q">Is each instance independent?</summary><div class="faq-a">Yes &mdash; each has its own instance attributes.</div></details><details class="faq-item"><summary class="faq-q">Class vs instance attribute?</summary><div class="faq-a">Class attributes are shared; instance attributes are per-object.</div></details><details class="faq-item"><summary class="faq-q">How do I check the type?</summary><div class="faq-a"><code>isinstance(obj, Dog)</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p03" placeholder="Write your observations about this term..." onchange="saveNotes('p03')" oninput="updateNotesStatus('p03')"></textarea>
 <div class="notes-status" id="notes-status-p03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p04')">P&middot;04 Attribute</span><span class="next-chip" onclick="go('p05')">P&middot;05 Method</span></div>
 </div>
 
 <!-- P·04 Attribute -->
@@ -6659,6 +6696,8 @@ buddy <span class="op">=</span> <span class="fn">Dog</span>(<span class="str">"B
 <span class="tag-btn hard" onclick="toggleTag('p04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p03')">P&middot;03 Instance</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Attribute&#39;,&#39;A piece of data attached to an object.&#39;)">attribute</span> (or field, property) is a named value belonging to an <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>."</div>Attributes hold the object's state — its current data. Each instance can have its own distinct attribute values.</div>
 </div>
@@ -6699,14 +6738,23 @@ c <span class="op">=</span> <span class="fn">Car</span>(<span class="str">"red"<
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutable default attr</span><code class="code-mini">class User:
+    tags = []</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Initialize in __init__</span><code class="code-mini">class User:
+    def __init__(self):
+        self.tags = []</code></div><div class="mistake-why"><strong>Why:</strong> a list defined at class level is shared by all instances. Per-object data must be set in the constructor.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Typo makes a new attr</span><code class="code-mini">self.nme = "Cherry"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Match the name</span><code class="code-mini">self.name = "Cherry"</code></div><div class="mistake-why"><strong>Why:</strong> Python silently creates a new attribute on a typo, so the real one stays unset.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Attributes describe <em>what an <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> is</em>; methods describe <em>what it can do</em>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is an attribute?</summary><div class="faq-a">A piece of data stored on an object.</div></details><details class="faq-item"><summary class="faq-q">Class vs instance attribute?</summary><div class="faq-a">Class attributes are shared by all instances; instance attributes are unique per object.</div></details><details class="faq-item"><summary class="faq-q">How do I access one?</summary><div class="faq-a">With dot notation: <code>obj.name</code>.</div></details><details class="faq-item"><summary class="faq-q">Are attributes private?</summary><div class="faq-a">By convention &mdash; a leading underscore marks "internal".</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p04" placeholder="Write your observations about this term..." onchange="saveNotes('p04')" oninput="updateNotesStatus('p04')"></textarea>
 <div class="notes-status" id="notes-status-p04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p05')">P&middot;05 Method</span><span class="next-chip" onclick="go('p09')">P&middot;09 Encapsulation</span></div>
 </div>
 
 <!-- P·05 Method -->
@@ -6725,6 +6773,8 @@ c <span class="op">=</span> <span class="fn">Car</span>(<span class="str">"red"<
 <span class="tag-btn hard" onclick="toggleTag('p05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p04')">P&middot;04 Attribute</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> defined inside a <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> and intended to act on the <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>'s data."</div>Methods are how an object exposes its behavior — they read and modify the object's attributes through <code>self</code> or <code>this</code>.</div>
 </div>
@@ -6756,14 +6806,23 @@ c <span class="op">=</span> <span class="fn">Car</span>(<span class="str">"red"<
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Omit self</span><code class="code-mini">def area():
+    return self.w * self.h</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Take self</span><code class="code-mini">def area(self):
+    return self.w * self.h</code></div><div class="mistake-why"><strong>Why:</strong> a method needs <code>self</code> to reach the instance's attributes.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Call without an instance</span><code class="code-mini">Rect.area()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Call on an instance</span><code class="code-mini">r = Rect()
+r.area()</code></div><div class="mistake-why"><strong>Why:</strong> an instance method runs on a specific object, so call it through one.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span> is a <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> with a body to act on — calling it is like sending a message to the <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Method vs function?</summary><div class="faq-a">A method belongs to a class and receives the instance as <code>self</code>.</div></details><details class="faq-item"><summary class="faq-q">What is self?</summary><div class="faq-a">The instance the method is operating on.</div></details><details class="faq-item"><summary class="faq-q">Static and class methods?</summary><div class="faq-a">Decorated methods that take no <code>self</code> or take <code>cls</code> instead.</div></details><details class="faq-item"><summary class="faq-q">What are dunder methods?</summary><div class="faq-a">Special methods like <code>__init__</code> and <code>__str__</code> that Python calls for you.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p05" placeholder="Write your observations about this term..." onchange="saveNotes('p05')" oninput="updateNotesStatus('p05')"></textarea>
 <div class="notes-status" id="notes-status-p05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p06')">P&middot;06 Constructor</span><span class="next-chip" onclick="go('p12')">P&middot;12 this / self</span></div>
 </div>
 
 <!-- P·06 Constructor -->
@@ -6782,6 +6841,8 @@ c <span class="op">=</span> <span class="fn">Car</span>(<span class="str">"red"<
 <span class="tag-btn hard" onclick="toggleTag('p06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p05')">P&middot;05 Method</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Constructor&#39;,&#39;Special method that runs when a new instance is created.&#39;)">constructor</span> is the <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span> invoked automatically when an <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span> is instantiated."</div>It initializes the object's attributes so the instance is ready to use immediately after creation.</div>
 </div>
@@ -6818,14 +6879,27 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong name</span><code class="code-mini">def init(self):
+    self.x = 0</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use __init__</span><code class="code-mini">def __init__(self):
+    self.x = 0</code></div><div class="mistake-why"><strong>Why:</strong> Python only calls <code>__init__</code> automatically. A plain <code>init</code> never runs on creation.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Skip parent init</span><code class="code-mini">class Cat(Animal):
+    def __init__(self):
+        self.legs = 4</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Call super</span><code class="code-mini">class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+        self.legs = 4</code></div><div class="mistake-why"><strong>Why:</strong> skipping <code>super().__init__()</code> leaves the parent's setup undone.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Keep constructors <strong>simple</strong>. Heavy work or I/O inside a <span class="gloss" onclick="gOpen(&#39;Constructor&#39;,&#39;Special method that runs when a new instance is created.&#39;)">constructor</span> makes objects hard to test.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a constructor?</summary><div class="faq-a">A method that runs automatically when an object is created.</div></details><details class="faq-item"><summary class="faq-q">What is it called in Python?</summary><div class="faq-a"><code>__init__</code>.</div></details><details class="faq-item"><summary class="faq-q">Does it return anything?</summary><div class="faq-a">No &mdash; it initializes the new instance, it does not return it.</div></details><details class="faq-item"><summary class="faq-q">Can there be more than one?</summary><div class="faq-a">Use class methods as factory/alternate constructors.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p06" placeholder="Write your observations about this term..." onchange="saveNotes('p06')" oninput="updateNotesStatus('p06')"></textarea>
 <div class="notes-status" id="notes-status-p06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p07')">P&middot;07 Inheritance</span><span class="next-chip" onclick="go('p03')">P&middot;03 Instance</span></div>
 </div>
 
 <!-- P·07 Inheritance -->
@@ -6844,6 +6918,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p01')">P&middot;01 Class</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Inheritance&#39;,&#39;A class deriving attributes/methods from a parent class.&#39;)">Inheritance</span> lets a <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> (subclass) reuse and extend the attributes and methods of another class (superclass)."</div>It models "is-a" relationships: a <code>Dog</code> is an <code>Animal</code>, so <code>Dog</code> inherits from <code>Animal</code>.</div>
 </div>
@@ -6882,14 +6958,25 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Deep hierarchy</span><code class="code-mini">A -&gt; B -&gt; C -&gt; D -&gt; E</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Prefer composition</span><code class="code-mini"># a class that HAS-A engine, not IS-A</code></div><div class="mistake-why"><strong>Why:</strong> long inheritance chains are fragile. Composition ("has-a") is usually more flexible.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Forget super()</span><code class="code-mini">class Suv(Car):
+    def __init__(self):
+        self.seats = 7</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Initialize the parent</span><code class="code-mini">class Suv(Car):
+    def __init__(self):
+        super().__init__()
+        self.seats = 7</code></div><div class="mistake-why"><strong>Why:</strong> the child must let the parent finish its own setup via <code>super()</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>"Favor composition over <span class="gloss" onclick="gOpen(&#39;Inheritance&#39;,&#39;A class deriving attributes/methods from a parent class.&#39;)">inheritance</span>." Deep inheritance chains are fragile — they turn small changes into big bugs.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is inheritance?</summary><div class="faq-a">A class reusing and extending another class's behavior.</div></details><details class="faq-item"><summary class="faq-q">What does super() do?</summary><div class="faq-a">It calls the parent class's version of a method.</div></details><details class="faq-item"><summary class="faq-q">What is overriding?</summary><div class="faq-a">Redefining an inherited method in the child class.</div></details><details class="faq-item"><summary class="faq-q">Composition or inheritance?</summary><div class="faq-a">Prefer composition when the relationship is "has-a" rather than "is-a".</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p07" placeholder="Write your observations about this term..." onchange="saveNotes('p07')" oninput="updateNotesStatus('p07')"></textarea>
 <div class="notes-status" id="notes-status-p07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p08')">P&middot;08 Polymorphism</span><span class="next-chip" onclick="go('p11')">P&middot;11 Abstraction</span></div>
 </div>
 
 <!-- P·08 Polymorphism -->
@@ -6908,6 +6995,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p07')">P&middot;07 Inheritance</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Polymorphism&#39;,&#39;Same interface, different implementations.&#39;)">Polymorphism</span> lets one name (<span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span>) behave differently depending on the <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>'s actual type."</div>You write code against a general interface, and the runtime picks the right implementation for the concrete object.</div>
 </div>
@@ -6944,14 +7033,21 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Branch on type</span><code class="code-mini">if isinstance(s, Dog): s.bark()
+elif isinstance(s, Cat): s.meow()</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Shared method</span><code class="code-mini">s.speak()   # each type implements it</code></div><div class="mistake-why"><strong>Why:</strong> a common method lets each type behave correctly without type checks scattered everywhere.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Change the signature</span><code class="code-mini">def speak(self, loud):   # parent had speak(self)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep it compatible</span><code class="code-mini">def speak(self):</code></div><div class="mistake-why"><strong>Why:</strong> overrides should match the parent's interface so callers can treat all types the same.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Polymorphism&#39;,&#39;Same interface, different implementations.&#39;)">Polymorphism</span> replaces sprawling <code>if/else</code> chains with a single, uniform call to a shared <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span> name.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is polymorphism?</summary><div class="faq-a">The same call producing different behavior depending on the object's type.</div></details><details class="faq-item"><summary class="faq-q">What is duck typing?</summary><div class="faq-a">If an object has the needed method, it works &mdash; no shared base required.</div></details><details class="faq-item"><summary class="faq-q">Overriding vs overloading?</summary><div class="faq-a">Overriding replaces an inherited method; overloading (same name, different params) is limited in Python.</div></details><details class="faq-item"><summary class="faq-q">Why is it useful?</summary><div class="faq-a">It lets you code to an interface instead of a specific type.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p08" placeholder="Write your observations about this term..." onchange="saveNotes('p08')" oninput="updateNotesStatus('p08')"></textarea>
 <div class="notes-status" id="notes-status-p08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p10')">P&middot;10 Interface</span><span class="next-chip" onclick="go('p07')">P&middot;07 Inheritance</span></div>
 </div>
 
 <!-- P·09 Encapsulation -->
@@ -6970,6 +7066,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p04')">P&middot;04 Attribute</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Encapsulation&#39;,&#39;Hiding internal state, exposing only what's needed.&#39;)">Encapsulation</span> is the practice of bundling data with the methods that operate on it, and restricting outside access."</div>The object exposes a public API while hiding its internal details so they can change without breaking callers.</div>
 </div>
@@ -7002,14 +7100,21 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expose everything</span><code class="code-mini">account.balance = -999   # anyone can</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Guard with a property</span><code class="code-mini">@property
+def balance(self): return self._balance</code></div><div class="mistake-why"><strong>Why:</strong> exposing raw state lets callers put the object in an invalid condition. A property can validate.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume _x is enforced</span><code class="code-mini">obj._secret   # still reachable</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Treat it as a contract</span><code class="code-mini"># leading _ means "do not touch"</code></div><div class="mistake-why"><strong>Why:</strong> Python does not block access; the underscore is a convention developers agree to respect.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The fewer things outside code knows about an <span class="gloss" onclick="gOpen(&#39;Object&#39;,&#39;An instance of a class - concrete data with behavior.&#39;)">object</span>, the freer you are to <strong><span class="gloss" onclick="gOpen(&#39;Refactor&#39;,&#39;Restructure code without changing behavior.&#39;)">refactor</span></strong> its insides later.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is encapsulation?</summary><div class="faq-a">Hiding internal state behind a clean public interface.</div></details><details class="faq-item"><summary class="faq-q">Are attributes private in Python?</summary><div class="faq-a">By convention (<code>_x</code>); <code>__x</code> triggers name mangling but is still reachable.</div></details><details class="faq-item"><summary class="faq-q">How do I add getters/setters?</summary><div class="faq-a">Use the <code>@property</code> decorator.</div></details><details class="faq-item"><summary class="faq-q">Why bother?</summary><div class="faq-a">You can change the internals without breaking the callers.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p09" placeholder="Write your observations about this term..." onchange="saveNotes('p09')" oninput="updateNotesStatus('p09')"></textarea>
 <div class="notes-status" id="notes-status-p09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p10')">P&middot;10 Interface</span><span class="next-chip" onclick="go('p11')">P&middot;11 Abstraction</span></div>
 </div>
 
 <!-- P·10 Interface -->
@@ -7028,6 +7133,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p08')">P&middot;08 Polymorphism</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Interface&#39;,&#39;A contract that classes can implement.&#39;)">interface</span> is a contract that defines what methods a <span class="gloss" onclick="gOpen(&#39;Class&#39;,&#39;A blueprint that defines attributes and methods for objects.&#39;)">class</span> must provide, without saying how."</div>It lets unrelated classes be used interchangeably as long as they implement the same set of operations.</div>
 </div>
@@ -7068,14 +7175,23 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Look for an interface keyword</span><code class="code-mini">interface Shape:   # not Python</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use ABC or Protocol</span><code class="code-mini">from abc import ABC, abstractmethod
+class Shape(ABC):
+    @abstractmethod
+    def area(self): ...</code></div><div class="mistake-why"><strong>Why:</strong> Python has no <code>interface</code> keyword. Abstract base classes and Protocols express the contract.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Partial implementation</span><code class="code-mini"># only some required methods defined</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Honor the whole contract</span><code class="code-mini"># implement every abstract method</code></div><div class="mistake-why"><strong>Why:</strong> a class that claims to satisfy an interface must provide all of its methods.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code to interfaces, not implementations. Your code shouldn't care <strong>which</strong> shape it has — only that it has an <code>area()</code>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is an interface?</summary><div class="faq-a">A contract listing the methods a class must provide.</div></details><details class="faq-item"><summary class="faq-q">What is the Python equivalent?</summary><div class="faq-a">Abstract base classes (ABC) or <code>typing.Protocol</code>.</div></details><details class="faq-item"><summary class="faq-q">Interface vs abstract class?</summary><div class="faq-a">An interface is a pure contract; an abstract class may include some implementation.</div></details><details class="faq-item"><summary class="faq-q">Why use one?</summary><div class="faq-a">It decouples callers from any specific implementation.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p10" placeholder="Write your observations about this term..." onchange="saveNotes('p10')" oninput="updateNotesStatus('p10')"></textarea>
 <div class="notes-status" id="notes-status-p10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p11')">P&middot;11 Abstraction</span><span class="next-chip" onclick="go('p08')">P&middot;08 Polymorphism</span></div>
 </div>
 
 <!-- P·11 Abstraction -->
@@ -7094,6 +7210,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p11','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p11','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p10')">P&middot;10 Interface</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Abstraction&#39;,&#39;Hiding complexity behind a simple interface.&#39;)">Abstraction</span> is the act of exposing only the essential parts of a system and hiding the rest."</div>You define what an object can do, but the messy internal details stay invisible to callers.</div>
 </div>
@@ -7129,14 +7247,20 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Leak the details</span><code class="code-mini">db.connection.socket.write(raw)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Expose intent</span><code class="code-mini">db.save(user)</code></div><div class="mistake-why"><strong>Why:</strong> abstraction means callers express what they want, not how it is done under the hood.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Abstract too early</span><code class="code-mini"># 5 layers for one use case</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Abstract when patterns repeat</span><code class="code-mini"># extract once duplication appears</code></div><div class="mistake-why"><strong>Why:</strong> premature abstraction adds complexity for a flexibility you may never need.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Encapsulation&#39;,&#39;Hiding internal state, exposing only what's needed.&#39;)">Encapsulation</span> hides <em>data</em>; <span class="gloss" onclick="gOpen(&#39;Abstraction&#39;,&#39;Hiding complexity behind a simple interface.&#39;)">abstraction</span> hides <em>complexity</em>. They work together to keep callers calm.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is abstraction?</summary><div class="faq-a">Hiding complex details behind a simple interface.</div></details><details class="faq-item"><summary class="faq-q">How is it different from encapsulation?</summary><div class="faq-a">Abstraction is about exposing intent; encapsulation is about hiding state.</div></details><details class="faq-item"><summary class="faq-q">Can you give an example?</summary><div class="faq-a">Calling <code>save()</code> without knowing how the data reaches the disk.</div></details><details class="faq-item"><summary class="faq-q">What is the risk of overdoing it?</summary><div class="faq-a">Needless layers that make simple code hard to follow.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p11" placeholder="Write your observations about this term..." onchange="saveNotes('p11')" oninput="updateNotesStatus('p11')"></textarea>
 <div class="notes-status" id="notes-status-p11">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p07')">P&middot;07 Inheritance</span><span class="next-chip" onclick="go('p09')">P&middot;09 Encapsulation</span></div>
 </div>
 
 <!-- P·12 this / self -->
@@ -7155,6 +7279,8 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 <span class="tag-btn hard" onclick="toggleTag('p12','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('p12','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('p05')">P&middot;05 Method</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<code>this</code> (or <code>self</code> in Python) is the keyword referring to the current <span class="gloss" onclick="gOpen(&#39;Instance&#39;,&#39;A specific object created from a class.&#39;)">instance</span> inside a <span class="gloss" onclick="gOpen(&#39;Method&#39;,&#39;A function attached to a class or object.&#39;)">method</span>."</div>It's how a method reads and writes the attributes of the very object it was called on.</div>
 </div>
@@ -7186,14 +7312,22 @@ p <span class="op">=</span> <span class="fn">Point</span>(<span class="num">3</s
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Forget self.</span><code class="code-mini">def __init__(self, name):
+    name = name   # local, lost</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Store on self</span><code class="code-mini">def __init__(self, name):
+    self.name = name</code></div><div class="mistake-why"><strong>Why:</strong> without <code>self.</code> you assign a local variable that disappears, leaving the attribute unset.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Lose this in a JS callback</span><code class="code-mini">btn.onclick = function() { this.count++ }</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use an arrow</span><code class="code-mini">btn.onclick = () =&gt; { this.count++ }</code></div><div class="mistake-why"><strong>Why:</strong> a regular JS function rebinds <code>this</code>; an arrow keeps the surrounding <code>this</code>.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In JavaScript, regular functions rebind <code>this</code>. Arrow functions inherit it from the enclosing <span class="gloss" onclick="gOpen(&#39;Scope&#39;,&#39;The region of code where a variable is visible/usable.&#39;)">scope</span> — pick wisely.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is self?</summary><div class="faq-a">The current instance, passed automatically as the first parameter.</div></details><details class="faq-item"><summary class="faq-q">Why is it explicit in Python?</summary><div class="faq-a">Clarity &mdash; the instance is a normal first parameter you can see.</div></details><details class="faq-item"><summary class="faq-q">What is this in JavaScript?</summary><div class="faq-a">The calling context, which depends on how the function is invoked.</div></details><details class="faq-item"><summary class="faq-q">How do arrow functions treat this?</summary><div class="faq-a">They inherit it from the enclosing scope.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-p12" placeholder="Write your observations about this term..." onchange="saveNotes('p12')" oninput="updateNotesStatus('p12')"></textarea>
 <div class="notes-status" id="notes-status-p12">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('p05')">P&middot;05 Method</span><span class="next-chip" onclick="go('p01')">P&middot;01 Class</span></div>
 </div>
 
 <!-- Block 8 Divider -->
