@@ -5,9 +5,12 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon.svg">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Cherry">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Cherry Code">
+<meta name="theme-color" content="#c93f4f">
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Cherry Code</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -19,10 +22,10 @@
 /* Code colors — Cherry Noir terminal */
 --code-bg:#1c0c14;--code-text:#fde0e0;--code-comment:#8a5066;--code-keyword:#f9a8a8;--code-string:#fbc4c4;--code-number:#e87373;--code-function:#fff5f5;--code-operator:#e54a5a;--code-line:#3d1a26;--code-tab-bg:#241019}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;overflow-x:hidden}
+html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;min-height:-webkit-fill-available;overflow-x:hidden;-webkit-text-size-adjust:100%;overscroll-behavior-y:contain}
 
 /* TOPBAR */
-.topbar{position:fixed;top:0;left:0;right:0;height:56px;background:white;border-bottom:1px solid var(--line);padding:0 1rem;display:flex;align-items:center;justify-content:space-between;z-index:100;box-shadow:0 1px 8px rgba(201,63,79,.04)}
+.topbar{position:fixed;top:0;left:0;right:0;height:calc(56px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px);background:white;border-bottom:1px solid var(--line);padding-left:max(1rem,env(safe-area-inset-left,0px));padding-right:max(1rem,env(safe-area-inset-right,0px));display:flex;align-items:center;justify-content:space-between;z-index:100;box-shadow:0 1px 8px rgba(201,63,79,.04)}
 .brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--ink);display:flex;align-items:center;gap:.4rem}
 .brand em{color:var(--p500);font-style:italic;font-weight:600}
 .brand-edition{font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--p400);letter-spacing:.15em;text-transform:uppercase;background:var(--p100);padding:.2rem .5rem;border-radius:5px;margin-left:.4rem;font-weight:600}
@@ -30,9 +33,9 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .menu-btn svg{width:24px;height:24px}
 
 /* NAV (left sidebar — matches Cherry Root) */
-.nav{position:fixed;top:56px;left:0;bottom:0;width:280px;background:white;border-right:1px solid var(--line);transform:translateX(-100%);transition:transform .25s ease;z-index:200;overflow-y:auto;padding:0 0 1rem;box-shadow:4px 0 24px rgba(201,63,79,.08)}
+.nav{position:fixed;top:calc(56px + env(safe-area-inset-top,0px));left:0;bottom:0;width:280px;background:white;border-right:1px solid var(--line);transform:translateX(-100%);transition:transform .25s ease;z-index:200;overflow-y:auto;overscroll-behavior:contain;padding:0 0 calc(1rem + env(safe-area-inset-bottom,0px));box-shadow:4px 0 24px rgba(201,63,79,.08)}
 .nav.on{transform:translateX(0)}
-.nav-overlay{position:fixed;inset:0;top:56px;background:rgba(28,12,20,.3);z-index:150;display:none}
+.nav-overlay{position:fixed;inset:0;top:calc(56px + env(safe-area-inset-top,0px));background:rgba(28,12,20,.3);z-index:150;display:none}
 .nav-overlay.on{display:block}
 .nav-close{position:sticky;top:0;background:white;padding:.7rem 1rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;z-index:5}
 .nav-close-x{cursor:pointer;width:32px;height:32px;border-radius:50%;background:var(--p50);display:flex;align-items:center;justify-content:center;color:var(--ink2);border:none}
@@ -62,7 +65,7 @@ html,body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink)
 .dark-toggle:hover{background:var(--p50);border-color:var(--p300)}
 
 /* MAIN */
-main{margin-top:56px;padding:1.4rem .9rem 4rem;max-width:680px;margin-left:auto;margin-right:auto}
+main{margin-top:calc(56px + env(safe-area-inset-top,0px));padding:1.4rem max(.9rem,env(safe-area-inset-right,0px)) calc(4rem + env(safe-area-inset-bottom,0px)) max(.9rem,env(safe-area-inset-left,0px));max-width:680px;margin-left:auto;margin-right:auto}
 /* Desktop: nav becomes a permanent left sidebar (matches Cherry Root) */
 @media(min-width:900px){
 .menu-btn{display:none}
@@ -631,6 +634,88 @@ tr.hidden-by-search{display:none}
 
 body.dark .viz-cx.good,body.dark .res-badge.beg{background:#2a121c;color:var(--ink3)}
 body.dark .viz-cx.bad,body.dark .res-badge.adv{background:#4d1418;color:#ff9aa0}
+
+/* ===== STUDY PATHS ===== */
+.path-card{background:white;border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:1.1rem;overflow:hidden;box-shadow:0 2px 14px rgba(201,63,79,.05)}
+.path-bar{height:4px;background:linear-gradient(90deg,var(--p400),var(--p500))}
+.path-body{padding:1.1rem 1.1rem 1.2rem}
+.path-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+.path-icon{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:var(--p100);border:1px solid var(--p200);display:flex;align-items:center;justify-content:center;color:var(--p500)}
+.path-icon svg{width:20px;height:20px}
+.path-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.1}
+.path-desc{font-size:.83rem;color:var(--ink2);line-height:1.55;margin-bottom:.6rem}
+.path-meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--ink3);text-transform:uppercase;margin-bottom:.8rem;font-weight:500}
+.path-meta .pm-star{color:var(--p500);letter-spacing:.05em}
+.path-meta .pm-dim{color:var(--ink4)}
+.path-steps{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem}
+.path-step{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;color:var(--p500);background:var(--p50);border:1px solid var(--p200);border-radius:6px;padding:.28rem .5rem;cursor:pointer;transition:all .12s;text-transform:uppercase;font-weight:500}
+.path-step:hover{background:var(--p100);border-color:var(--p300)}
+.path-arrow{color:var(--ink4);font-size:.6rem;align-self:center}
+.path-start{display:inline-flex;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;border-radius:9px;padding:.55rem 1rem;cursor:pointer;transition:all .15s}
+.path-start:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,63,79,.3)}
+
+/* ===== INSTALL PAGE ===== */
+.install-card{background:white;border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.9rem;box-shadow:0 2px 14px rgba(201,63,79,.05)}
+.install-plat{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.install-plat svg{width:18px;height:18px;color:var(--p500)}
+.install-step{display:flex;gap:.6rem;font-size:.82rem;color:var(--ink2);line-height:1.5;margin-bottom:.45rem}
+.install-step .is-n{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;color:var(--p500);background:var(--p100);border:1px solid var(--p200);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.install-step code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);border:1px solid var(--line);border-radius:5px;padding:.05rem .3rem;color:var(--p500)}
+
+/* ===== SELF-CHECK (runtime) ===== */
+.self-check{margin:1.1rem 0 .4rem;padding:.9rem 1rem;background:var(--p50);border:1px solid var(--line);border-radius:11px;text-align:center}
+.self-check-q{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:.7rem}
+.self-check-btns{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.sc-btn{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.5rem .85rem;border-radius:8px;cursor:pointer;background:white;color:var(--ink2);border:1.5px solid var(--line);transition:all .14s}
+.sc-btn:hover{border-color:var(--p300);background:var(--p50)}
+.sc-btn.sc-got{color:var(--p500)}
+.sc-btn.sc-got.on{background:var(--p100);border-color:var(--p400);color:var(--p500)}
+.sc-btn.sc-soso.on{background:var(--p100);border-color:var(--p300);color:var(--ink3)}
+.sc-btn.sc-hard.on{background:var(--p100);border-color:var(--p300);color:var(--ink3)}
+.self-check-ack{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);margin-top:.6rem;min-height:.7rem;font-weight:600}
+
+/* ===== PREREQ BAR ===== */
+.prereq-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.2rem 0 1rem;padding:.55rem .75rem;background:var(--p50);border:1px solid var(--line);border-left:3px solid var(--p300);border-radius:0 9px 9px 0}
+.prereq-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p400);font-weight:600;margin-right:.2rem}
+.prereq-chip{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--p500);background:white;border:1px solid var(--p200);border-radius:6px;padding:.24rem .5rem;cursor:pointer;transition:all .12s;font-weight:500}
+.prereq-chip:hover{background:var(--p100);border-color:var(--p300)}
+.prereq-none{font-size:.78rem;font-style:italic;color:var(--ink3)}
+
+/* ===== COMMON MISTAKES ===== */
+.mistake-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:.7rem}
+.mistake-bad,.mistake-good{padding:.6rem .8rem}
+.mistake-bad{background:var(--p50);border-bottom:1px dashed var(--p200)}
+.mistake-good{background:white}
+.mistake-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:.35rem}
+.mistake-bad .mistake-tag{color:var(--p500)}
+.mistake-good .mistake-tag{color:var(--ink2)}
+.code-mini{font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.6;color:var(--code-text);background:var(--code-bg);border:1px solid var(--code-line);border-radius:7px;padding:.5rem .7rem;white-space:pre;overflow-x:auto;display:block}
+.code-mini .com{color:var(--code-comment);font-style:italic}
+.code-mini .str{color:var(--code-string)}.code-mini .kw{color:var(--code-keyword)}.code-mini .num{color:var(--code-number)}.code-mini .fn{color:var(--code-function)}.code-mini .op{color:var(--code-operator)}
+.mistake-why{font-size:.78rem;color:var(--ink2);line-height:1.5;padding:.55rem .8rem;background:var(--p50);border-top:1px solid var(--line)}
+.mistake-why strong{color:var(--p500);font-weight:600}
+
+/* ===== FAQ ===== */
+.faq-list{display:flex;flex-direction:column;gap:.45rem}
+.faq-item{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:white}
+.faq-item summary{list-style:none;cursor:pointer;padding:.6rem .8rem;font-family:'DM Sans',sans-serif;font-size:.84rem;font-weight:600;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-q::after{content:'+';font-family:'JetBrains Mono',monospace;color:var(--p400);font-size:1rem;flex-shrink:0;transition:transform .2s}
+.faq-item[open] .faq-q::after{content:'\2212'}
+.faq-item summary:hover{color:var(--p500)}
+.faq-a{padding:0 .8rem .7rem;font-size:.81rem;color:var(--ink2);line-height:1.55}
+.faq-a code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);border:1px solid var(--line);border-radius:5px;padding:.03rem .3rem;color:var(--p500)}
+
+/* ===== NEXT STEPS BAR ===== */
+.next-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:1.1rem 0 .2rem;padding:.6rem .8rem;background:linear-gradient(135deg,var(--p50),var(--p100));border:1px solid var(--p200);border-radius:10px}
+.next-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);font-weight:600;margin-right:.2rem}
+.next-chip{display:inline-flex;align-items:center;gap:.3rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--p500);background:white;border:1px solid var(--p200);border-radius:6px;padding:.26rem .55rem;cursor:pointer;transition:all .12s;font-weight:500}
+.next-chip:hover{background:var(--p100);border-color:var(--p300)}
+.next-chip.rec{background:var(--p500);color:white;border-color:var(--p500)}
+.next-chip.rec:hover{background:var(--p400);border-color:var(--p400)}
+
+body.dark .self-check,body.dark .prereq-bar,body.dark .path-card,body.dark .install-card,body.dark .faq-item,body.dark .mistake-card{background:var(--page)}
+body.dark .sc-btn{background:var(--page)}
 </style>
 </head>
 <body>
@@ -671,6 +756,8 @@ Review Mode
 <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Cover</div>
 <div class="ni" onclick="go('index',this)"><span class="cd">IDX</span>Index</div>
 <div class="ni" onclick="go('howto',this)"><span class="cd">HOW</span>How to Use</div>
+<div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span>Study Paths</div>
+<div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Install App</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLO</span>Glossary</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
 <div class="ns">Progress &amp; Goals</div>
@@ -899,6 +986,103 @@ Review Mode
 <div class="howto-num">05</div>
 <div class="howto-title">Make mistakes, read errors</div>
 <div class="howto-text">Error messages are not failures — they are <strong>information</strong>. Every error you read teaches the language better than working code does. Embrace bugs.</div>
+</div>
+</div>
+
+<!-- ============ STUDY PATHS ============ -->
+<div class="pg" id="pg-paths">
+<div class="ph">
+<div class="bc">cherry code <span>›</span> study paths</div>
+<div class="pt">Study Paths</div>
+<div class="ps">Curated sequences through the notebook. Pick a path and follow the terms in order.</div>
+</div>
+
+<div class="path-card">
+<div class="path-bar"></div>
+<div class="path-body">
+<div class="path-head">
+<div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+<div class="path-title">Total Beginner</div>
+</div>
+<div class="path-desc">Never written code before. A gentle, ordered route through the absolute essentials — fundamentals, basic types, operators, control flow, your first functions and data structures.</div>
+<div class="path-meta"><span class="pm-star">★☆☆☆☆</span><span>19 terms</span><span class="pm-dim">·</span><span>~3 hours</span></div>
+<div class="path-steps"><span class="path-step" onclick="go('f01')">F·01</span><span class="path-step" onclick="go('f02')">F·02</span><span class="path-step" onclick="go('f06')">F·06</span><span class="path-step" onclick="go('f07')">F·07</span><span class="path-step" onclick="go('t01')">T·01</span><span class="path-step" onclick="go('t02')">T·02</span><span class="path-step" onclick="go('t03')">T·03</span><span class="path-step" onclick="go('t04')">T·04</span><span class="path-step" onclick="go('t06')">T·06</span><span class="path-step" onclick="go('o01')">O·01</span><span class="path-step" onclick="go('o02')">O·02</span><span class="path-step" onclick="go('c01')">C·01</span><span class="path-step" onclick="go('c02')">C·02</span><span class="path-step" onclick="go('c05')">C·05</span><span class="path-step" onclick="go('n01')">N·01</span><span class="path-step" onclick="go('n02')">N·02</span><span class="path-step" onclick="go('n04')">N·04</span><span class="path-step" onclick="go('s01')">S·01</span><span class="path-step" onclick="go('s02')">S·02</span></div>
+<button class="path-start" onclick="startPath('beginner',['f01','f02','f06','f07','t01','t02','t03','t04','t06','o01','o02','c01','c02','c05','n01','n02','n04','s01','s02'])">✦ Start path</button>
+</div>
+</div>
+
+<div class="path-card">
+<div class="path-bar"></div>
+<div class="path-body">
+<div class="path-head">
+<div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 16 L4 12 L8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8 L20 12 L16 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="13" y1="6" x2="11" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+<div class="path-title">Python Focus</div>
+</div>
+<div class="path-desc">A complete front-to-back run through every concept block, ideal if Python is your first language. Cover fundamentals, types, operators, flow, functions, structures and error handling in sequence.</div>
+<div class="path-meta"><span class="pm-star">★★☆☆☆</span><span>full blocks</span><span class="pm-dim">·</span><span>~8 hours</span></div>
+<div class="path-steps"><span class="path-step" onclick="go('f01')">Fund</span><span class="path-arrow">›</span><span class="path-step" onclick="go('t01')">Types</span><span class="path-arrow">›</span><span class="path-step" onclick="go('o01')">Ops</span><span class="path-arrow">›</span><span class="path-step" onclick="go('c01')">Flow</span><span class="path-arrow">›</span><span class="path-step" onclick="go('n01')">Func</span><span class="path-arrow">›</span><span class="path-step" onclick="go('s01')">Structs</span><span class="path-arrow">›</span><span class="path-step" onclick="go('e01')">Errors</span></div>
+<button class="path-start" onclick="startPath('python',['f01','f02','f03','f04','f05','f06','f07','f08','f09','f10','t01','t02','t03','t04','t05','t06','t07','t08','t09','t10','t11','t12','o01','o02','o03','o04','o05','o06','o07','o08','o09','o10','c01','c02','c03','c04','c05','c06','c07','c08','c09','c10','n01','n02','n03','n04','n05','n06','n07','n08','n09','n10','n11','n12','s01','s02','s03','s04','s05','s06','s07','s08','s09','s10','s11','s12','e01','e02','e03','e04','e05','e06','e07','e08','e09','e10'])">✦ Start path</button>
+</div>
+</div>
+
+<div class="path-card">
+<div class="path-bar"></div>
+<div class="path-body">
+<div class="path-head">
+<div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L14.5 8.5 L20.5 9 L16 13 L17.5 19 L12 15.5 L6.5 19 L8 13 L3.5 9 L9.5 8.5 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+<div class="path-title">Interview Prep</div>
+</div>
+<div class="path-desc">Focused on what technical interviews probe: data structures, object-oriented design, error handling, and complexity analysis. Emphasis on the structures block plus OOP and Big-O.</div>
+<div class="path-meta"><span class="pm-star">★★★★☆</span><span>~30 terms</span><span class="pm-dim">·</span><span>~6 hours</span></div>
+<div class="path-steps"><span class="path-step" onclick="go('s01')">Structs</span><span class="path-arrow">›</span><span class="path-step" onclick="go('s12')">Big-O</span><span class="path-arrow">›</span><span class="path-step" onclick="go('p01')">OOP</span><span class="path-arrow">›</span><span class="path-step" onclick="go('e01')">Errors</span></div>
+<button class="path-start" onclick="startPath('interview',['s01','s02','s03','s04','s05','s06','s07','s08','s09','s10','s11','s12','p01','p02','p03','p04','p05','p06','p07','p08','p09','p10','p11','p12','e01','e02','e03','e04','e05','e06','e07','e08','e09','e10'])">✦ Start path</button>
+</div>
+</div>
+
+<div class="path-card">
+<div class="path-bar"></div>
+<div class="path-body">
+<div class="path-head">
+<div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 L4 14 L11 14 L9 22 L20 9 L13 9 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+<div class="path-title">Speedrun</div>
+</div>
+<div class="path-desc">One key term from each of the nine blocks — a fast orientation tour that touches every major area without the full depth. Use it to map the territory before diving in.</div>
+<div class="path-meta"><span class="pm-star">★★☆☆☆</span><span>9 terms</span><span class="pm-dim">·</span><span>~1 hour</span></div>
+<div class="path-steps"><span class="path-step" onclick="go('f01')">F·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('t01')">T·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('o01')">O·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('c01')">C·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('n01')">N·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('s01')">S·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('p01')">P·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('e01')">E·01</span><span class="path-arrow">›</span><span class="path-step" onclick="go('b01')">B·01</span></div>
+<button class="path-start" onclick="startPath('speedrun',['f01','t01','o01','c01','n01','s01','p01','e01','b01'])">✦ Start path</button>
+</div>
+</div>
+</div>
+
+<!-- ============ INSTALL APP ============ -->
+<div class="pg" id="pg-install">
+<div class="ph">
+<div class="bc">cherry code <span>›</span> install app</div>
+<div class="pt">Install App</div>
+<div class="ps">Cherry Code works offline as an installable app. Add it to your home screen or desktop for a full-screen, no-browser experience.</div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><line x1="10" y1="18.5" x2="14" y2="18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>iOS — Safari</div>
+<div class="install-step"><span class="is-n">1</span><div>Open this page in <strong>Safari</strong> (not Chrome — only Safari can install on iOS).</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Tap the <strong>Share</strong> button (the square with an upward arrow) in the toolbar.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Scroll down and tap <code>Add to Home Screen</code>.</div></div>
+<div class="install-step"><span class="is-n">4</span><div>Confirm the name "Cherry Code" and tap <strong>Add</strong>. The icon appears on your home screen.</div></div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.5" r="1" fill="currentColor"/></svg>Android — Chrome</div>
+<div class="install-step"><span class="is-n">1</span><div>Open this page in <strong>Chrome</strong>.</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Tap the <strong>⋮</strong> menu (three dots) in the top-right corner.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Tap <code>Install app</code> or <code>Add to Home screen</code>.</div></div>
+<div class="install-step"><span class="is-n">4</span><div>Confirm. Cherry Code installs as a standalone app and runs offline.</div></div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>Desktop — Chrome / Edge</div>
+<div class="install-step"><span class="is-n">1</span><div>Open this page in <strong>Chrome</strong> or <strong>Edge</strong>.</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Look for the <strong>install icon</strong> (a monitor with a downward arrow) at the right end of the address bar.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Click it, then click <code>Install</code>. Cherry Code opens in its own window and is available offline.</div></div>
 </div>
 </div>
 
@@ -1258,6 +1442,8 @@ Click the heart on any term page to add it here.
 <span class="tag-btn fav" onclick="toggleTag('f01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
 
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-none">Start here — no prerequisites.</span></div>
+
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Programming&#39;,&#39;Writing instructions a computer can execute, step by step.&#39;)">Programming</span> is telling a computer what to do, step by step."</div>Code is a precise sequence of instructions in a language the computer can interpret. Every app, website, and game is fundamentally a series of programming instructions.</div>
 </div>
@@ -1293,8 +1479,33 @@ Click the heart on any term page to add it here.
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Vague</span><code class="code-mini"><span class="com"># "make it work somehow"</span>
+<span class="com"># no clear ordered steps</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Precise</span><code class="code-mini"><span class="com"># 1. read input  2. validate</span>
+<span class="com"># 3. compute  4. print result</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> a computer follows instructions literally. Decompose the problem into explicit ordered steps before writing code.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Assuming</span><code class="code-mini"><span class="fn">print</span>(<span class="str">"done"</span>)  <span class="com"># before the work runs</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Ordered</span><code class="code-mini">do_work()
+<span class="fn">print</span>(<span class="str">"done"</span>)</code></div>
+<div class="mistake-why"><strong>Why:</strong> statements execute top to bottom. Order of operations is part of the logic, not a detail.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code is communication — between you and the computer, AND between you and future you (or your team).</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why does programming exist?</summary><div class="faq-a">Computers are general-purpose machines that do nothing until instructed. Programming is the means by which we specify those instructions to automate work, solve problems, and build software.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use it?</summary><div class="faq-a">Any time you want a machine to perform a task repeatedly or precisely — from a one-line script to a full application. It underlies every app, website, and automated system.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard?</summary><div class="faq-a">The core idea — giving ordered, unambiguous instructions — is simple. Difficulty comes from breaking fuzzy problems into precise steps, which improves steadily with practice.</div></details>
+<details class="faq-item"><summary class="faq-q">Do I need to be good at math?</summary><div class="faq-a">No. Programming relies more on logical decomposition and clear thinking than on advanced mathematics. Many domains require little math beyond basic arithmetic.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1302,6 +1513,8 @@ Click the heart on any term page to add it here.
 <textarea class="notes-textarea" id="notes-f01" placeholder="Write your observations about this term..." onchange="saveNotes('f01')" oninput="updateNotesStatus('f01')"></textarea>
 <div class="notes-status" id="notes-status-f01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f02')">F·02 Code</span><span class="next-chip" onclick="go('f08')">F·08 Syntax</span><span class="next-chip" onclick="go('t01')">T·01 Variable</span></div>
 
 </div>
 
@@ -1322,6 +1535,8 @@ Click the heart on any term page to add it here.
 <span class="tag-btn hard" onclick="toggleTag('f02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f01')">F·01 Programming</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Code is the text of a program — written in a specific language with strict rules."</div>Source code is the human-readable version of a program. Tools (interpreters/compilers) convert it into instructions the machine actually runs. Code lives in files with extensions like .py, .js, .java.</div>
@@ -1358,8 +1573,32 @@ name = <span class="str">"Cherry"</span>
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Cryptic names</span><code class="code-mini">x = <span class="str">"a@b.com"</span>
+y = <span class="fn">f</span>(x)</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Intent-revealing</span><code class="code-mini">email = <span class="str">"a@b.com"</span>
+domain = extract_domain(email)</code></div>
+<div class="mistake-why"><strong>Why:</strong> code is read far more than written. Names are the cheapest documentation you can give the next reader.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Wrong extension</span><code class="code-mini"><span class="com"># script.txt — won't run as Python</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Correct file</span><code class="code-mini"><span class="com"># script.py — interpreter recognizes it</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> the file extension signals the language to tools. The text inside is still code, but the runner needs the right file.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Code is text. That is it. Files of text that follow strict rules.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why does source code exist as text?</summary><div class="faq-a">Text is human-readable, easy to edit, version, and review. Tools then translate that text into the binary instructions the machine executes.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use it?</summary><div class="faq-a">Constantly — every file you write, store in version control, or open in an editor is source code.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard?</summary><div class="faq-a">Writing valid code is a learnable skill. Writing clear, maintainable code is the longer-term craft.</div></details>
+<details class="faq-item"><summary class="faq-q">What's the difference between code and a program?</summary><div class="faq-a">Code is the written artifact. A program is what you get when that code is run by an interpreter or compiler.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1367,6 +1606,8 @@ name = <span class="str">"Cherry"</span>
 <textarea class="notes-textarea" id="notes-f02" placeholder="Write your observations about this term..." onchange="saveNotes('f02')" oninput="updateNotesStatus('f02')"></textarea>
 <div class="notes-status" id="notes-status-f02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f08')">F·08 Syntax</span><span class="next-chip" onclick="go('f03')">F·03 Compiler vs Interpreter</span><span class="next-chip" onclick="go('f06')">F·06 IDE</span></div>
 
 </div>
 
@@ -1387,6 +1628,8 @@ name = <span class="str">"Cherry"</span>
 <span class="tag-btn hard" onclick="toggleTag('f03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f01')">F·01 Programming</span><span class="prereq-chip" onclick="go('f02')">F·02 Code</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Compilers translate everything before running. Interpreters translate line by line as they go."</div>A <strong>compiler</strong> converts your whole program into machine code once, then runs the result (fast, but slower to start). An <strong>interpreter</strong> reads and executes line by line (slower at runtime, but instant feedback). Java is compiled. Python and JavaScript are interpreted.</div>
@@ -1423,8 +1666,34 @@ name = <span class="str">"Cherry"</span>
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Skipping the build</span><code class="code-mini"><span class="com">// Java: editing Main.java then</span>
+<span class="com">// running the OLD compiled class</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Recompile first</span><code class="code-mini"><span class="com">// javac Main.java</span>
+<span class="com">// java Main</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> compiled languages run the build artifact, not the source. Forgetting to recompile runs stale code.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Expecting compile errors</span><code class="code-mini"><span class="com"># Python: typo only fails when</span>
+<span class="com"># that line actually runs</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Test the path</span><code class="code-mini"><span class="com"># run/exercise each branch so</span>
+<span class="com"># interpreted errors surface</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> interpreters report many errors only at <strong>runtime</strong>, so untested lines can hide bugs.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Python/JS = type and run. Java = compile, then run. Both end up doing the same thing eventually.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why do both approaches exist?</summary><div class="faq-a">They trade off speed against flexibility. Compilation favors fast execution and early error detection; interpretation favors instant feedback and portability.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use this knowledge?</summary><div class="faq-a">When choosing a language for a project, diagnosing why an error appears late, or understanding why a build step is required.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard?</summary><div class="faq-a">The concept is straightforward. The nuance — JIT, bytecode, hybrid models — comes later and is optional at first.</div></details>
+<details class="faq-item"><summary class="faq-q">Is Python purely interpreted?</summary><div class="faq-a">Not exactly. CPython compiles source to bytecode first, then interprets that bytecode. The line between the two is blurrier than the names suggest.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1432,6 +1701,8 @@ name = <span class="str">"Cherry"</span>
 <textarea class="notes-textarea" id="notes-f03" placeholder="Write your observations about this term..." onchange="saveNotes('f03')" oninput="updateNotesStatus('f03')"></textarea>
 <div class="notes-status" id="notes-status-f03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f09')">F·09 Runtime</span><span class="next-chip" onclick="go('f04')">F·04 Bug</span><span class="next-chip" onclick="go('f08')">F·08 Syntax</span></div>
 
 </div>
 
@@ -1452,6 +1723,8 @@ name = <span class="str">"Cherry"</span>
 <span class="tag-btn hard" onclick="toggleTag('f04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f01')">F·01 Programming</span><span class="prereq-chip" onclick="go('f02')">F·02 Code</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Bug&#39;,&#39;A flaw in code that makes it behave incorrectly.&#39;)">bug</span> is any mistake in code that causes wrong behavior or crashes."</div>Bugs are unavoidable — every programmer creates them. The skill is not avoiding bugs, but FINDING and FIXING them quickly. Types: syntax errors (won't even run), runtime errors (crashes mid-execution), logic bugs (runs but wrong output).</div>
@@ -1489,8 +1762,32 @@ age = <span class="num">18</span>
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Assignment in condition</span><code class="code-mini"><span class="kw">if</span> age = <span class="num">18</span>:</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Comparison</span><code class="code-mini"><span class="kw">if</span> age == <span class="num">18</span>:</code></div>
+<div class="mistake-why"><strong>Why:</strong> <code>=</code> assigns, <code>==</code> compares. Mixing them is one of the most common beginner bugs.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Out-of-range index</span><code class="code-mini">nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="fn">print</span>(nums[<span class="num">5</span>])</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Valid index</span><code class="code-mini"><span class="kw">if</span> <span class="num">5</span> &lt; <span class="fn">len</span>(nums):
+    <span class="fn">print</span>(nums[<span class="num">5</span>])</code></div>
+<div class="mistake-why"><strong>Why:</strong> indexing past the end crashes at runtime. Bounds-check or iterate instead of guessing positions.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every senior dev still creates bugs daily. They just got faster at finding them.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why do bugs exist?</summary><div class="faq-a">Because there is always a gap between what a programmer intends and what they literally wrote. The computer executes the literal version.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I deal with them?</summary><div class="faq-a">Constantly. Most development time goes to finding and fixing bugs rather than writing new code.</div></details>
+<details class="faq-item"><summary class="faq-q">Is avoiding bugs hard?</summary><div class="faq-a">Eliminating them entirely is unrealistic. The practical skill is finding and fixing them quickly, which improves with experience.</div></details>
+<details class="faq-item"><summary class="faq-q">What are the main kinds of bugs?</summary><div class="faq-a">Syntax errors (won't run), runtime errors (crash mid-execution), and logic bugs (run but produce wrong output).</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1498,6 +1795,8 @@ age = <span class="num">18</span>
 <textarea class="notes-textarea" id="notes-f04" placeholder="Write your observations about this term..." onchange="saveNotes('f04')" oninput="updateNotesStatus('f04')"></textarea>
 <div class="notes-status" id="notes-status-f04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f05')">F·05 Debug</span><span class="next-chip" onclick="go('f08')">F·08 Syntax</span><span class="next-chip" onclick="go('f09')">F·09 Runtime</span></div>
 
 </div>
 
@@ -1518,6 +1817,8 @@ age = <span class="num">18</span>
 <span class="tag-btn hard" onclick="toggleTag('f05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f04')">F·04 Bug</span><span class="prereq-chip" onclick="go('f07')">F·07 Terminal</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"Debugging is the process of investigating WHY code misbehaves and fixing it."</div>Steps: 1) Reproduce the bug consistently. 2) Read the error message (it usually tells you exactly what is wrong). 3) Print intermediate values to find where logic diverges. 4) Fix and test. Most time programming is debugging, not writing.</div>
@@ -1556,8 +1857,34 @@ result = total / count
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Guessing blindly</span><code class="code-mini"><span class="com"># change random lines</span>
+<span class="com"># and re-run, hoping</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Inspect values</span><code class="code-mini"><span class="fn">print</span>(<span class="str">"total ="</span>, total)
+<span class="com"># compare to expectation</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> debugging is investigation, not trial and error. Confirm what the code actually does before changing it.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Ignoring the trace</span><code class="code-mini"><span class="com"># scroll past the error,</span>
+<span class="com"># rewrite from scratch</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Read line + type</span><code class="code-mini"><span class="com"># TypeError on line 12 —</span>
+<span class="com"># go straight there</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> the error message and stack trace usually name the file, line, and cause. Reading it first saves the most time.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Read the error message FIRST. It is the most important sentence on the screen.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why is debugging a distinct skill?</summary><div class="faq-a">Writing code and diagnosing why it misbehaves are different activities. Debugging is systematic investigation: reproduce, observe, isolate, fix.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use it?</summary><div class="faq-a">Every time code does not behave as expected — which is often. It is among the most-used skills in daily development.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard?</summary><div class="faq-a">It can be frustrating early on, but a disciplined approach — reproduce, read the error, inspect values — makes it methodical rather than mysterious.</div></details>
+<details class="faq-item"><summary class="faq-q">Print statements or a debugger?</summary><div class="faq-a">Both are valid. Prints are quick and universal; a step debugger is more powerful for complex state. Use whichever fits the situation.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1565,6 +1892,8 @@ result = total / count
 <textarea class="notes-textarea" id="notes-f05" placeholder="Write your observations about this term..." onchange="saveNotes('f05')" oninput="updateNotesStatus('f05')"></textarea>
 <div class="notes-status" id="notes-status-f05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f06')">F·06 IDE</span><span class="next-chip" onclick="go('f09')">F·09 Runtime</span><span class="next-chip" onclick="go('e01')">E·01 Errors</span></div>
 
 </div>
 
@@ -1585,6 +1914,8 @@ result = total / count
 <span class="tag-btn hard" onclick="toggleTag('f06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F·02 Code</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;IDE&#39;,&#39;Integrated Development Environment - editor plus tools to write/run/debug code.&#39;)">IDE</span> is software that bundles tools you need to code: editor, <span class="gloss" onclick="gOpen(&#39;Debugger&#39;,&#39;A tool to pause and inspect a running program.&#39;)">debugger</span>, <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span>, file explorer."</div>Popular IDEs: VS Code (most popular, free, all languages), PyCharm (Python), IntelliJ (Java), WebStorm (JS). They all share: code highlighting, autocomplete, error checking, debugger, integrated terminal.</div>
@@ -1624,8 +1955,34 @@ result = total / count
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Tool before fundamentals</span><code class="code-mini"><span class="com"># memorize 50 IDE shortcuts</span>
+<span class="com"># before writing any code</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Code first</span><code class="code-mini"><span class="com"># learn the language; add</span>
+<span class="com"># shortcuts as needs arise</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> the IDE accelerates work but is not the work. Concepts transfer across tools; muscle memory does not.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Trusting autocomplete blindly</span><code class="code-mini"><span class="com"># accept a suggested method</span>
+<span class="com"># without knowing what it does</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Verify the suggestion</span><code class="code-mini"><span class="com"># read the signature/docs</span>
+<span class="com"># before accepting</span></code></div>
+<div class="mistake-why"><strong>Why:</strong> autocomplete speeds typing, not understanding. Wrong-but-plausible completions introduce subtle bugs.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pick VS Code if unsure. It does everything and is free.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why use an IDE instead of a plain editor?</summary><div class="faq-a">An IDE integrates editing, running, debugging, and navigation in one place, catching errors as you type and reducing tool-switching friction.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use one?</summary><div class="faq-a">For most real projects. Plain editors suffice for quick edits, but an IDE pays off as soon as a project has multiple files.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard to learn?</summary><div class="faq-a">Basic use is immediate. Advanced features — debugging, refactoring, extensions — are learned gradually as you need them.</div></details>
+<details class="faq-item"><summary class="faq-q">Which IDE should a beginner pick?</summary><div class="faq-a">VS Code is a strong default: free, cross-language, and widely supported. Language-specific IDEs like PyCharm are also excellent.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1633,6 +1990,8 @@ result = total / count
 <textarea class="notes-textarea" id="notes-f06" placeholder="Write your observations about this term..." onchange="saveNotes('f06')" oninput="updateNotesStatus('f06')"></textarea>
 <div class="notes-status" id="notes-status-f06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f07')">F·07 Terminal</span><span class="next-chip" onclick="go('f05')">F·05 Debug</span><span class="next-chip" onclick="go('t01')">T·01 Variable</span></div>
 
 </div>
 
@@ -1653,6 +2012,8 @@ result = total / count
 <span class="tag-btn hard" onclick="toggleTag('f07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f01')">F·01 Programming</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"The <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span> is where you type commands instead of clicking buttons."</div>Essential for developers: run scripts, install packages, use git, deploy apps. Looks intimidating but you only need ~10 commands daily. Windows: PowerShell/Terminal. Mac/Linux: Terminal.</div>
@@ -1698,8 +2059,33 @@ result = total / count
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Wrong directory</span><code class="code-mini"><span class="op">$</span> python script.py
+<span class="com"># run from the wrong folder</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Check location first</span><code class="code-mini"><span class="op">$</span> pwd
+<span class="op">$</span> cd project
+<span class="op">$</span> python script.py</code></div>
+<div class="mistake-why"><strong>Why:</strong> commands run relative to the current directory. "File not found" usually means you are in the wrong place.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Including the prompt</span><code class="code-mini"><span class="op">$</span> $ pip install requests</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Command only</span><code class="code-mini"><span class="op">$</span> pip install requests</code></div>
+<div class="mistake-why"><strong>Why:</strong> the leading <code>$</code> in examples represents the prompt, not part of the command. Type only what follows it.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>The <span class="gloss" onclick="gOpen(&#39;Terminal&#39;,&#39;Text interface for running commands and programs.&#39;)">terminal</span> is intimidating for 2 weeks, then it becomes faster than the mouse forever.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why does the terminal still matter?</summary><div class="faq-a">It is the fastest, most precise way to control a machine, scriptable and available even on servers that have no graphical interface.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I use it?</summary><div class="faq-a">Daily — running scripts, installing packages, using version control, and managing remote machines.</div></details>
+<details class="faq-item"><summary class="faq-q">Is it hard?</summary><div class="faq-a">It looks intimidating at first, but a handful of commands cover most daily work. Comfort comes quickly with use.</div></details>
+<details class="faq-item"><summary class="faq-q">Do I have to memorize every command?</summary><div class="faq-a">No. A small core set handles most tasks, and built-in help plus search cover the rest as needed.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1707,6 +2093,8 @@ result = total / count
 <textarea class="notes-textarea" id="notes-f07" placeholder="Write your observations about this term..." onchange="saveNotes('f07')" oninput="updateNotesStatus('f07')"></textarea>
 <div class="notes-status" id="notes-status-f07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f06')">F·06 IDE</span><span class="next-chip" onclick="go('f05')">F·05 Debug</span><span class="next-chip" onclick="go('t01')">T·01 Variable</span></div>
 
 </div>
 
@@ -1727,6 +2115,8 @@ result = total / count
 <span class="tag-btn hard" onclick="toggleTag('f08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('f08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('f02')">F·02 Code</span><span class="prereq-chip" onclick="go('f04')">F·04 Bug</span></div>
 
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">Syntax</span> is the exact way you must write code — wrong syntax = code does not run."</div>Like spoken languages, programming has rules. Python uses indentation. JavaScript uses { }. Java requires semicolons after every statement. Syntax errors are the easiest bugs to find — the compiler/interpreter literally tells you where.</div>
@@ -1765,8 +2155,36 @@ result = total / count
 </div>
 </div>
 
+<div class="sec"><div class="sl">⚠ Common Mistakes</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Missing colon</span><code class="code-mini"><span class="kw">if</span> age >= <span class="num">18</span>
+    <span class="fn">print</span>(<span class="str">"adult"</span>)</code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Colon present</span><code class="code-mini"><span class="kw">if</span> age >= <span class="num">18</span>:
+    <span class="fn">print</span>(<span class="str">"adult"</span>)</code></div>
+<div class="mistake-why"><strong>Why:</strong> Python requires a colon to open a block. The interpreter reports the exact line, so these are quick to fix.</div>
+</div>
+<div class="mistake-card">
+<div class="mistake-bad"><span class="mistake-tag">❌ Mixed indentation</span><code class="code-mini"><span class="kw">if</span> ok:
+&rarr;   <span class="fn">do_a</span>()
+    <span class="fn">do_b</span>()  <span class="com"># tab vs spaces</span></code></div>
+<div class="mistake-good"><span class="mistake-tag">✓ Consistent spaces</span><code class="code-mini"><span class="kw">if</span> ok:
+    <span class="fn">do_a</span>()
+    <span class="fn">do_b</span>()</code></div>
+<div class="mistake-why"><strong>Why:</strong> in Python, indentation is syntax. Mixing tabs and spaces breaks block structure even when it looks aligned.</div>
+</div>
+</div>
+
 <div class="sec"><div class="sl">⑦ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="gloss" onclick="gOpen(&#39;Syntax&#39;,&#39;The strict grammar rules of a programming language.&#39;)">Syntax</span> errors are the EASY ones. The <span class="gloss" onclick="gOpen(&#39;Compiler&#39;,&#39;Translates the entire source code to machine code before execution (Java, C, Go).&#39;)">compiler</span> points right at them.</div>
+</div>
+
+<div class="sec"><div class="sl">FAQ</div>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-q">Why is syntax so strict?</summary><div class="faq-a">Parsers must interpret code unambiguously. Strict rules let the tool determine structure precisely, with no guessing.</div></details>
+<details class="faq-item"><summary class="faq-q">When will I encounter syntax errors?</summary><div class="faq-a">Constantly while learning, and occasionally forever. They are the most common beginner error and the easiest to fix.</div></details>
+<details class="faq-item"><summary class="faq-q">Is syntax hard?</summary><div class="faq-a">No. It is memorized quickly with practice, and the IDE and compiler flag violations immediately, often pointing to the exact character.</div></details>
+<details class="faq-item"><summary class="faq-q">Does every language use the same syntax?</summary><div class="faq-a">No. Concepts are shared, but the rules differ — Python uses indentation, JavaScript uses braces, Java requires semicolons.</div></details>
+</div>
 </div>
 
 <div class="notes-area">
@@ -1774,6 +2192,8 @@ result = total / count
 <textarea class="notes-textarea" id="notes-f08" placeholder="Write your observations about this term..." onchange="saveNotes('f08')" oninput="updateNotesStatus('f08')"></textarea>
 <div class="notes-status" id="notes-status-f08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('f09')">F·09 Runtime</span><span class="next-chip" onclick="go('f10')">F·10 Paradigm</span><span class="next-chip" onclick="go('t01')">T·01 Variable</span></div>
 
 </div>
 
@@ -10191,10 +10611,60 @@ function updateCoverBadges(){
   }catch(e){}
 }
 
+// ============ STUDY PATHS ============
+function startPath(id, terms){
+  try{localStorage.setItem('cherryCodePath', JSON.stringify({id:id, terms:terms, started:Date.now()}))}catch(e){}
+  if(terms && terms.length) go(terms[0]);
+}
+
+// ============ SELF-CHECK (runtime injected) ============
+function setupSelfCheck(){
+  var data = loadData();
+  var tags = data.tags || {};
+  document.querySelectorAll('.pg[id^="pg-"]').forEach(function(pg){
+    var id = pg.id.replace('pg-','');
+    if(!/^[a-z]\d+$/.test(id)) return;
+    if(pg.querySelector('.self-check')) return;
+    var t = tags[id] || {};
+    var wrap = document.createElement('div');
+    wrap.className = 'self-check';
+    wrap.innerHTML = '<div class="self-check-q">Did you understand this term?</div>'
+      + '<div class="self-check-btns">'
+      + '<button class="sc-btn sc-got' + (t.studied?' on':'') + '" data-tag="studied">✓ Got it!</button>'
+      + '<button class="sc-btn sc-soso' + (t.review?' on':'') + '" data-tag="review">So-so</button>'
+      + '<button class="sc-btn sc-hard' + (t.hard?' on':'') + '" data-tag="hard">Need review</button>'
+      + '</div><div class="self-check-ack"></div>';
+    // Insert after notes area if present, else at end of page
+    var notes = pg.querySelector('.notes-area');
+    if(notes && notes.parentNode === pg){ pg.appendChild(wrap); }
+    else { pg.appendChild(wrap); }
+    var ack = wrap.querySelector('.self-check-ack');
+    wrap.querySelectorAll('.sc-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var tag = btn.getAttribute('data-tag');
+        // reflect into the page tag-bar button + reuse existing toggleTag persistence
+        var tagBar = document.getElementById('tags-' + id);
+        var mirror = tagBar ? tagBar.querySelector('.tag-btn.' + tag) : null;
+        var d = loadData();
+        if(!d.tags[id]) d.tags[id] = {};
+        var willBeOn = !d.tags[id][tag];
+        d.tags[id][tag] = willBeOn;
+        saveData(d);
+        if(mirror) mirror.classList.toggle('on', willBeOn);
+        btn.classList.toggle('on', willBeOn);
+        var msgs = {studied:'Marked as studied', review:'Marked for review', hard:'Marked as hard'};
+        ack.textContent = willBeOn ? ('✓ ' + msgs[tag]) : 'Cleared';
+        updateProgressBars();
+      });
+    });
+  });
+}
+
 // Init
 function init(){
   buildSearchIndex();
   restoreUIState();
+  setupSelfCheck();
   addLastViewedToCover();
   setupCopyButtons();
   restorePreferredLang();
