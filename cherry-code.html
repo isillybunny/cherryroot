@@ -5646,6 +5646,8 @@ print(result)   # map object</code></div><div class="mistake-good"><span class="
 <span class="tag-btn hard" onclick="toggleTag('s01','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s01','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t08')">T&middot;08 Array / List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"An <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> is a contiguous block of memory holding a fixed number of elements of the same type."</div>You access elements in constant time with a numeric index that starts at 0 in most languages.</div>
 </div>
@@ -5673,14 +5675,20 @@ arr <span class="op">=</span> [<span class="num">10</span>, <span class="num">20
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(arr.length); <span class="com">// 4</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Index past the end</span><code class="code-mini">arr[len(arr)]</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Last valid index</span><code class="code-mini">arr[len(arr) - 1]</code></div><div class="mistake-why"><strong>Why:</strong> valid indices run 0 to length-1. Reading the length-th slot is out of bounds.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume fixed size</span><code class="code-mini">// Java: arr.length cannot change</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Pick the right type</span><code class="code-mini"># Python lists grow; arrays are fixed</code></div><div class="mistake-why"><strong>Why:</strong> a true array has a fixed length. Python's list is a dynamic array that resizes.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Indices start at <strong>0</strong> in almost every language. The last <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> is <code>length - 1</code>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Array vs list?</summary><div class="faq-a">An array is fixed-size and contiguous; a list usually grows dynamically.</div></details><details class="faq-item"><summary class="faq-q">Zero-indexed?</summary><div class="faq-a">Yes &mdash; the first element is at index 0.</div></details><details class="faq-item"><summary class="faq-q">Is random access fast?</summary><div class="faq-a">Yes &mdash; reading by index is O(1).</div></details><details class="faq-item"><summary class="faq-q">Cost of inserting in the middle?</summary><div class="faq-a">O(n), because later elements must shift.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s01" placeholder="Write your observations about this term..." onchange="saveNotes('s01')" oninput="updateNotesStatus('s01')"></textarea>
 <div class="notes-status" id="notes-status-s01">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s02')">S&middot;02 List</span><span class="next-chip" onclick="go('s11')">S&middot;11 Hash Table</span></div>
 </div>
 
 <!-- S·02 List -->
@@ -5699,6 +5707,8 @@ arr <span class="op">=</span> [<span class="num">10</span>, <span class="num">20
 <span class="tag-btn hard" onclick="toggleTag('s02','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s02','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s01')">S&middot;01 Array</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is a dynamic <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span> — an ordered collection that can grow or shrink at <span class="gloss" onclick="gOpen(&#39;Runtime&#39;,&#39;The phase when code is actually executing, after compilation/parsing.&#39;)">runtime</span>."</div>Lists support adding, removing, and inserting items at any position. They are the everyday workhorse data structure.</div>
 </div>
@@ -5731,14 +5741,22 @@ items.<span class="fn">add</span>(<span class="num">0</span>, <span class="str">
 items.<span class="fn">remove</span>(items.<span class="fn">size</span>() <span class="op">-</span> <span class="num">1</span>);</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Copy by assignment</span><code class="code-mini">b = a
+b.append(9)   # a changed too</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Make a real copy</span><code class="code-mini">b = a[:]   # or list(a)</code></div><div class="mistake-why"><strong>Why:</strong> assignment copies the reference, not the list. Both names point to the same object.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Remove while iterating</span><code class="code-mini">for x in nums:
+    if x &lt; 0: nums.remove(x)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Build a new list</span><code class="code-mini">nums = [x for x in nums if x &gt;= 0]</code></div><div class="mistake-why"><strong>Why:</strong> removing during iteration skips elements. A comprehension builds a clean result.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Append at the end whenever you can. Inserting at <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span> 0 in a long <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is <strong>slow</strong> — it shifts everything.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">List vs array?</summary><div class="faq-a">A Python list grows and shrinks; an array has a fixed length.</div></details><details class="faq-item"><summary class="faq-q">Cost of append?</summary><div class="faq-a">Amortized O(1).</div></details><details class="faq-item"><summary class="faq-q">Shallow vs deep copy?</summary><div class="faq-a"><code>a[:]</code> is shallow; nested objects are still shared.</div></details><details class="faq-item"><summary class="faq-q">Cost of searching by value?</summary><div class="faq-a">O(n) &mdash; it scans element by element.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s02" placeholder="Write your observations about this term..." onchange="saveNotes('s02')" oninput="updateNotesStatus('s02')"></textarea>
 <div class="notes-status" id="notes-status-s02">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s03')">S&middot;03 Tuple</span><span class="next-chip" onclick="go('s04')">S&middot;04 Dictionary / Map</span></div>
 </div>
 
 <!-- S·03 Tuple -->
@@ -5757,6 +5775,8 @@ items.<span class="fn">remove</span>(items.<span class="fn">size</span>() <span 
 <span class="tag-btn hard" onclick="toggleTag('s03','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s03','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s02')">S&middot;02 List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Tuple&#39;,&#39;An ordered, immutable sequence of items.&#39;)">tuple</span> is an ordered, fixed-size sequence of values that cannot be changed after creation."</div>Tuples are often used to group related values, like coordinates or a function's multiple return values.</div>
 </div>
@@ -5786,14 +5806,21 @@ x, y <span class="op">=</span> point        <span class="com"># unpacking</span>
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(p.<span class="fn">x</span>() <span class="op">+</span> <span class="str">","</span> <span class="op">+</span> p.<span class="fn">y</span>());</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Try to modify it</span><code class="code-mini">point = (1, 2)
+point[0] = 9</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Build a new tuple</span><code class="code-mini">point = (9, point[1])</code></div><div class="mistake-why"><strong>Why:</strong> tuples are immutable. To "change" one, create a new tuple.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; One-element confusion</span><code class="code-mini">t = (5)    # this is just 5</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Trailing comma</span><code class="code-mini">t = (5,)   # a 1-tuple</code></div><div class="mistake-why"><strong>Why:</strong> parentheses alone do not make a tuple; the comma does.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Tuples scream <strong>"this won't change"</strong>. They're for fixed bundles of data, not for collections that grow.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Tuple vs list?</summary><div class="faq-a">A tuple is immutable; a list can be changed.</div></details><details class="faq-item"><summary class="faq-q">Why use tuples?</summary><div class="faq-a">Fixed records, safety against accidental edits, and as dict keys.</div></details><details class="faq-item"><summary class="faq-q">Can a tuple be a dict key?</summary><div class="faq-a">Yes, if all its elements are hashable.</div></details><details class="faq-item"><summary class="faq-q">How do I unpack one?</summary><div class="faq-a"><code>x, y = point</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s03" placeholder="Write your observations about this term..." onchange="saveNotes('s03')" oninput="updateNotesStatus('s03')"></textarea>
 <div class="notes-status" id="notes-status-s03">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s04')">S&middot;04 Dictionary / Map</span><span class="next-chip" onclick="go('s05')">S&middot;05 Set</span></div>
 </div>
 
 <!-- S·04 Dictionary / Map -->
@@ -5812,6 +5839,8 @@ x, y <span class="op">=</span> point        <span class="com"># unpacking</span>
 <span class="tag-btn hard" onclick="toggleTag('s04','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s04','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('t09')">T&middot;09 Dict / Object / Map</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Dictionary&#39;,&#39;Maps keys to values - like a real dictionary.&#39;)">dictionary</span> (or map) stores values indexed by unique keys instead of <span class="gloss" onclick="gOpen(&#39;Integer&#39;,&#39;A whole number, no decimal part.&#39;)">integer</span> positions."</div>You look up data by key name, getting O(1) average-time access for both reads and writes.</div>
 </div>
@@ -5844,14 +5873,20 @@ user.<span class="fn">put</span>(<span class="str">"age"</span>, <span class="nu
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(user.<span class="fn">get</span>(<span class="str">"name"</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Crash on missing key</span><code class="code-mini">d["missing"]</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use get</span><code class="code-mini">d.get("missing", 0)</code></div><div class="mistake-why"><strong>Why:</strong> bracket access raises KeyError; <code>get</code> returns a default.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Unhashable key</span><code class="code-mini">d[[1, 2]] = "x"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use a hashable key</span><code class="code-mini">d[(1, 2)] = "x"</code></div><div class="mistake-why"><strong>Why:</strong> keys must be hashable. Lists are not; tuples are.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Keys must be <strong>hashable</strong>. In Python you can use strings, numbers, or tuples — but not lists.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">Lookup cost?</summary><div class="faq-a">O(1) on average.</div></details><details class="faq-item"><summary class="faq-q">Is it ordered?</summary><div class="faq-a">Yes &mdash; insertion order is preserved since Python 3.7.</div></details><details class="faq-item"><summary class="faq-q">What can be a key?</summary><div class="faq-a">Any hashable, immutable value.</div></details><details class="faq-item"><summary class="faq-q">How do I iterate pairs?</summary><div class="faq-a"><code>for k, v in d.items():</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s04" placeholder="Write your observations about this term..." onchange="saveNotes('s04')" oninput="updateNotesStatus('s04')"></textarea>
 <div class="notes-status" id="notes-status-s04">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s05')">S&middot;05 Set</span><span class="next-chip" onclick="go('s11')">S&middot;11 Hash Table</span></div>
 </div>
 
 <!-- S·05 Set -->
@@ -5870,6 +5905,8 @@ user.<span class="fn">put</span>(<span class="str">"age"</span>, <span class="nu
 <span class="tag-btn hard" onclick="toggleTag('s05','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s05','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s04')">S&middot;04 Dictionary / Map</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> is a collection that holds each value at most once and has no defined order."</div>Sets are perfect for membership tests and removing duplicates from data.</div>
 </div>
@@ -5900,14 +5937,21 @@ tags.<span class="fn">add</span>(<span class="str">"a"</span>); tags.<span class
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(tags.<span class="fn">contains</span>(<span class="str">"a"</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect ordering</span><code class="code-mini">s = {3, 1, 2}
+list(s)[0]   # not always 3</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Sort when you need order</span><code class="code-mini">sorted(s)</code></div><div class="mistake-why"><strong>Why:</strong> sets are unordered. Convert with <code>sorted</code> if order matters.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Empty braces</span><code class="code-mini">s = {}   # this is a dict</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use set()</span><code class="code-mini">s = set()</code></div><div class="mistake-why"><strong>Why:</strong> <code>{}</code> creates an empty dict. Use <code>set()</code> for an empty set.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>To deduplicate a <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span>, wrap it in a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> and back to a list: <code>list(set(items))</code>.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a set?</summary><div class="faq-a">An unordered collection of unique values.</div></details><details class="faq-item"><summary class="faq-q">Membership cost?</summary><div class="faq-a">O(1) on average &mdash; far faster than scanning a list.</div></details><details class="faq-item"><summary class="faq-q">What happens to duplicates?</summary><div class="faq-a">They are removed automatically.</div></details><details class="faq-item"><summary class="faq-q">What operations are built in?</summary><div class="faq-a">Union, intersection, and difference.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s05" placeholder="Write your observations about this term..." onchange="saveNotes('s05')" oninput="updateNotesStatus('s05')"></textarea>
 <div class="notes-status" id="notes-status-s05">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s11')">S&middot;11 Hash Table</span><span class="next-chip" onclick="go('s04')">S&middot;04 Dictionary / Map</span></div>
 </div>
 
 <!-- S·06 Stack -->
@@ -5926,6 +5970,8 @@ tags.<span class="fn">add</span>(<span class="str">"a"</span>); tags.<span class
 <span class="tag-btn hard" onclick="toggleTag('s06','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s06','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s02')">S&middot;02 List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span> is a Last-In-First-Out (LIFO) collection: the most recently added item is the first one removed."</div>Think of a pile of plates — you take from the top. The two main operations are <code>push</code> (add) and <code>pop</code> (remove).</div>
 </div>
@@ -5960,14 +6006,21 @@ stack.<span class="fn">push</span>(<span class="num">3</span>);
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(stack.<span class="fn">pop</span>());  <span class="com">// 3</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Pop when empty</span><code class="code-mini">stack.pop()   # IndexError</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Check first</span><code class="code-mini">if stack:
+    stack.pop()</code></div><div class="mistake-why"><strong>Why:</strong> popping an empty stack raises an error. Always check it is non-empty.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mix up the order</span><code class="code-mini"># treat it as first-in-first-out</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; LIFO</span><code class="code-mini"># last pushed is first popped</code></div><div class="mistake-why"><strong>Why:</strong> a stack is LIFO &mdash; last in, first out. A queue is the FIFO one.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Every <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> call you make uses a <span class="gloss" onclick="gOpen(&#39;Stack&#39;,&#39;LIFO - last in, first out. Push and pop.&#39;)">stack</span> — your code's history is literally a pile of frames.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a stack?</summary><div class="faq-a">A LIFO structure &mdash; the last item added is the first removed.</div></details><details class="faq-item"><summary class="faq-q">What are the operations?</summary><div class="faq-a"><code>push</code> to add and <code>pop</code> to remove from the top.</div></details><details class="faq-item"><summary class="faq-q">Where are stacks used?</summary><div class="faq-a">The call stack, undo history, and expression parsing.</div></details><details class="faq-item"><summary class="faq-q">How do I implement one in Python?</summary><div class="faq-a">A list with <code>append</code> and <code>pop</code>.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s06" placeholder="Write your observations about this term..." onchange="saveNotes('s06')" oninput="updateNotesStatus('s06')"></textarea>
 <div class="notes-status" id="notes-status-s06">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s07')">S&middot;07 Queue</span><span class="next-chip" onclick="go('s08')">S&middot;08 Linked List</span></div>
 </div>
 
 <!-- S·07 Queue -->
@@ -5986,6 +6039,8 @@ stack.<span class="fn">push</span>(<span class="num">3</span>);
 <span class="tag-btn hard" onclick="toggleTag('s07','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s07','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s06')">S&middot;06 Stack</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Queue&#39;,&#39;FIFO - first in, first out. Enqueue and dequeue.&#39;)">queue</span> is a First-In-First-Out (FIFO) collection: items are removed in the same order they were added."</div>Like a line at a checkout — the first to arrive is the first served. Operations are <code>enqueue</code> and <code>dequeue</code>.</div>
 </div>
@@ -6018,14 +6073,21 @@ q.<span class="fn">offer</span>(<span class="str">"b"</span>);
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(q.<span class="fn">poll</span>());  <span class="com">// 'a'</span></pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Pop from front of a list</span><code class="code-mini">queue.pop(0)   # O(n)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Use a deque</span><code class="code-mini">from collections import deque
+q = deque(); q.popleft()</code></div><div class="mistake-why"><strong>Why:</strong> <code>list.pop(0)</code> shifts every element. <code>deque</code> pops from the front in O(1).</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Treat it like a stack</span><code class="code-mini"># last in, first out</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; FIFO</span><code class="code-mini"># first in, first out</code></div><div class="mistake-why"><strong>Why:</strong> a queue serves items in arrival order. LIFO is the stack.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Don't use <code>list.pop(0)</code> in Python — it's O(n). Use <code>collections.deque</code> for real queues.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a queue?</summary><div class="faq-a">A FIFO structure &mdash; first in, first out.</div></details><details class="faq-item"><summary class="faq-q">What are the operations?</summary><div class="faq-a"><code>enqueue</code> to add at the back, <code>dequeue</code> to remove from the front.</div></details><details class="faq-item"><summary class="faq-q">Why use a deque?</summary><div class="faq-a">It pops from both ends in O(1).</div></details><details class="faq-item"><summary class="faq-q">Where are queues used?</summary><div class="faq-a">Task scheduling, breadth-first search, and buffers.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s07" placeholder="Write your observations about this term..." onchange="saveNotes('s07')" oninput="updateNotesStatus('s07')"></textarea>
 <div class="notes-status" id="notes-status-s07">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s06')">S&middot;06 Stack</span><span class="next-chip" onclick="go('s10')">S&middot;10 Graph</span></div>
 </div>
 
 <!-- S·08 Linked List -->
@@ -6044,6 +6106,8 @@ q.<span class="fn">offer</span>(<span class="str">"b"</span>);
 <span class="tag-btn hard" onclick="toggleTag('s08','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s08','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s02')">S&middot;02 List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A linked <span class="gloss" onclick="gOpen(&#39;List&#39;,&#39;An ordered, mutable sequence of items.&#39;)">list</span> is a sequence of nodes where each node contains a value and a pointer to the next node."</div>Unlike an array, nodes are scattered in memory. Insertion and removal at known positions are O(1), but lookup by index is O(n).</div>
 </div>
@@ -6082,14 +6146,21 @@ head <span class="op">=</span> <span class="fn">Node</span>(<span class="num">1<
 head.next <span class="op">=</span> <span class="kw">new</span> <span class="fn">Node</span>(<span class="num">2</span>);</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Lose the head</span><code class="code-mini">head = head.next   # original head gone</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Keep a reference</span><code class="code-mini">node = head
+node = node.next</code></div><div class="mistake-why"><strong>Why:</strong> if you overwrite the head pointer you lose access to the whole list. Walk with a separate variable.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Expect O(1) indexing</span><code class="code-mini">list[500]</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Traverse to reach it</span><code class="code-mini"># follow next 500 times: O(n)</code></div><div class="mistake-why"><strong>Why:</strong> linked lists have no random access. Reaching an element means walking the chain.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Linked lists are famous in interviews, rare in real code. Most languages prefer dynamic arrays for everyday work.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a linked list?</summary><div class="faq-a">A chain of nodes, each holding a value and a pointer to the next node.</div></details><details class="faq-item"><summary class="faq-q">How does it compare to an array?</summary><div class="faq-a">No contiguous memory; access is O(n) but insertion at a known node is O(1).</div></details><details class="faq-item"><summary class="faq-q">Singly vs doubly linked?</summary><div class="faq-a">A doubly linked list also stores a pointer to the previous node.</div></details><details class="faq-item"><summary class="faq-q">When should I use one?</summary><div class="faq-a">When you insert and remove at the ends frequently.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s08" placeholder="Write your observations about this term..." onchange="saveNotes('s08')" oninput="updateNotesStatus('s08')"></textarea>
 <div class="notes-status" id="notes-status-s08">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s09')">S&middot;09 Tree</span><span class="next-chip" onclick="go('s06')">S&middot;06 Stack</span></div>
 </div>
 
 <!-- S·09 Tree -->
@@ -6108,6 +6179,8 @@ head.next <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <span class="tag-btn hard" onclick="toggleTag('s09','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s09','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s08')">S&middot;08 Linked List</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Tree&#39;,&#39;Hierarchical structure with a root and child nodes.&#39;)">tree</span> is a hierarchical data structure with one root node and child nodes branching out below."</div>Each node has zero or more children and exactly one parent (except the root, which has none).</div>
 </div>
@@ -6148,14 +6221,23 @@ root.left <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <span class="fn">TreeNode</span> root <span class="op">=</span> <span class="kw">new</span> <span class="fn">TreeNode</span>(<span class="num">1</span>);</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; No null-node case</span><code class="code-mini">def height(n):
+    return 1 + max(height(n.left), height(n.right))</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Handle the empty node</span><code class="code-mini">def height(n):
+    if n is None: return 0
+    return 1 + max(height(n.left), height(n.right))</code></div><div class="mistake-why"><strong>Why:</strong> recursion on a tree must stop at empty children or it crashes on a missing node.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume balanced</span><code class="code-mini"># expect O(log n) always</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Know the worst case</span><code class="code-mini"># a skewed tree degrades to O(n)</code></div><div class="mistake-why"><strong>Why:</strong> a tree that leans to one side behaves like a linked list.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Folders, family trees, the DOM, JSON — most hierarchies you meet are trees in disguise.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a tree?</summary><div class="faq-a">A hierarchy of nodes with a single root and no cycles.</div></details><details class="faq-item"><summary class="faq-q">What is a binary tree?</summary><div class="faq-a">One where each node has at most two children.</div></details><details class="faq-item"><summary class="faq-q">What traversals exist?</summary><div class="faq-a">In-order, pre-order, post-order, and breadth-first.</div></details><details class="faq-item"><summary class="faq-q">Where are trees used?</summary><div class="faq-a">File systems, the HTML DOM, and database indexes.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s09" placeholder="Write your observations about this term..." onchange="saveNotes('s09')" oninput="updateNotesStatus('s09')"></textarea>
 <div class="notes-status" id="notes-status-s09">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s10')">S&middot;10 Graph</span><span class="next-chip" onclick="go('s11')">S&middot;11 Hash Table</span></div>
 </div>
 
 <!-- S·10 Graph -->
@@ -6174,6 +6256,8 @@ root.left <span class="op">=</span> <span class="kw">new</span> <span class="fn"
 <span class="tag-btn hard" onclick="toggleTag('s10','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s10','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s09')">S&middot;09 Tree</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Graph&#39;,&#39;Nodes connected by edges - can be cyclic or directed.&#39;)">graph</span> is a <span class="gloss" onclick="gOpen(&#39;Set&#39;,&#39;A collection of unique values, no duplicates.&#39;)">set</span> of nodes (vertices) connected by edges, with no required hierarchy."</div>Graphs model networks: social connections, maps, dependencies. Edges can be directed or undirected, weighted or unweighted.</div>
 </div>
@@ -6208,14 +6292,24 @@ graph.<span class="fn">put</span>(<span class="str">"A"</span>, <span class="fn"
 graph.<span class="fn">put</span>(<span class="str">"B"</span>, <span class="fn">List</span>.<span class="fn">of</span>(<span class="str">"D"</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Ignore cycles</span><code class="code-mini">def dfs(n):
+    for m in n.neighbors: dfs(m)</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Track visited</span><code class="code-mini">def dfs(n, seen):
+    if n in seen: return
+    seen.add(n)
+    for m in n.neighbors: dfs(m, seen)</code></div><div class="mistake-why"><strong>Why:</strong> graphs can contain cycles. Without a visited set, traversal loops forever.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Wrong edge model</span><code class="code-mini"># add edge a-&gt;b only</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Match directedness</span><code class="code-mini"># undirected: add a-&gt;b and b-&gt;a</code></div><div class="mistake-why"><strong>Why:</strong> in an undirected graph an edge connects both ways; model it on both ends.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A <span class="gloss" onclick="gOpen(&#39;Tree&#39;,&#39;Hierarchical structure with a root and child nodes.&#39;)">tree</span> is a <span class="gloss" onclick="gOpen(&#39;Graph&#39;,&#39;Nodes connected by edges - can be cyclic or directed.&#39;)">graph</span> with rules. A graph is what you get when you let trees have <strong>any</strong> shape.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a graph?</summary><div class="faq-a">A set of nodes connected by edges.</div></details><details class="faq-item"><summary class="faq-q">How is it different from a tree?</summary><div class="faq-a">A tree is a graph with no cycles and a single root.</div></details><details class="faq-item"><summary class="faq-q">How are graphs represented?</summary><div class="faq-a">As an adjacency list or an adjacency matrix.</div></details><details class="faq-item"><summary class="faq-q">What traversals are common?</summary><div class="faq-a">Breadth-first (BFS) and depth-first (DFS).</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s10" placeholder="Write your observations about this term..." onchange="saveNotes('s10')" oninput="updateNotesStatus('s10')"></textarea>
 <div class="notes-status" id="notes-status-s10">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s07')">S&middot;07 Queue</span><span class="next-chip" onclick="go('s12')">S&middot;12 Big O Notation</span></div>
 </div>
 
 <!-- S·11 Hash Table -->
@@ -6234,6 +6328,8 @@ graph.<span class="fn">put</span>(<span class="str">"B"</span>, <span class="fn"
 <span class="tag-btn hard" onclick="toggleTag('s11','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s11','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s04')">S&middot;04 Dictionary / Map</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"A <span class="gloss" onclick="gOpen(&#39;Hash Table&#39;,&#39;Stores key-value pairs with O(1) average lookup.&#39;)">hash table</span> stores <span class="gloss" onclick="gOpen(&#39;Key&#39;,&#39;The lookup label in a dictionary/map.&#39;)">key</span>-value pairs in an <span class="gloss" onclick="gOpen(&#39;Array&#39;,&#39;An ordered list of values accessed by index.&#39;)">array</span>, using a hash <span class="gloss" onclick="gOpen(&#39;Function&#39;,&#39;A named, reusable block of code that performs a task.&#39;)">function</span> to map each key to an <span class="gloss" onclick="gOpen(&#39;Index&#39;,&#39;A numeric position in an ordered collection (0-based).&#39;)">index</span>."</div>It is the implementation behind Python dicts, JavaScript objects, and Java HashMaps.</div>
 </div>
@@ -6264,14 +6360,20 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 <span class="fn">System</span>.<span class="fn">out</span>.<span class="fn">println</span>(table.<span class="fn">get</span>(<span class="str">"hello"</span>));</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Mutable key</span><code class="code-mini">table[[1, 2]] = "x"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Immutable key</span><code class="code-mini">table[(1, 2)] = "x"</code></div><div class="mistake-why"><strong>Why:</strong> a key must be hashable. Lists can change, so they cannot be hashed; tuples can.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Assume O(1) always</span><code class="code-mini"># every lookup is constant time</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Account for collisions</span><code class="code-mini"># many collisions degrade to O(n)</code></div><div class="mistake-why"><strong>Why:</strong> hashing is O(1) on average, but heavy collisions can slow it to O(n).</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Average O(1) is the dream. With a bad hash, worst case becomes O(n) — collisions matter.</div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is a hash table?</summary><div class="faq-a">A structure that maps keys to slots using a hash function.</div></details><details class="faq-item"><summary class="faq-q">Average lookup cost?</summary><div class="faq-a">O(1).</div></details><details class="faq-item"><summary class="faq-q">What is a collision?</summary><div class="faq-a">When two keys hash to the same slot.</div></details><details class="faq-item"><summary class="faq-q">Is the Python dict a hash table?</summary><div class="faq-a">Yes &mdash; it is built on one.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s11" placeholder="Write your observations about this term..." onchange="saveNotes('s11')" oninput="updateNotesStatus('s11')"></textarea>
 <div class="notes-status" id="notes-status-s11">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s04')">S&middot;04 Dictionary / Map</span><span class="next-chip" onclick="go('s12')">S&middot;12 Big O Notation</span></div>
 </div>
 
 <!-- S·12 Big O Notation -->
@@ -6290,6 +6392,8 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 <span class="tag-btn hard" onclick="toggleTag('s12','hard',this)"><span class="tag-btn-dot"></span>Hard</span>
 <span class="tag-btn fav" onclick="toggleTag('s12','fav',this)"><span class="tag-btn-dot"></span>Favorite</span>
 </div>
+
+<div class="prereq-bar"><span class="prereq-label">Before this term:</span><span class="prereq-chip" onclick="go('s01')">S&middot;01 Array</span><span class="prereq-chip" onclick="go('c10')">C&middot;10 Nested Loops</span></div>
 <div class="sec"><div class="sl">① Definition</div>
 <div class="defbox"><div class="ds">"<span class="gloss" onclick="gOpen(&#39;Big O&#39;,&#39;Notation describing how runtime/space grows with input size.&#39;)">Big O</span> describes how an <span class="gloss" onclick="gOpen(&#39;Algorithm&#39;,&#39;A finite series of steps that solves a problem.&#39;)">algorithm</span>'s resource use scales with the size of the input."</div>It's the language for talking about efficiency. Common classes: O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ).</div>
 </div>
@@ -6341,14 +6445,21 @@ table.<span class="fn">put</span>(<span class="str">"world"</span>, <span class=
 }</pre></div>
 </div>
 </div>
+<div class="sec"><div class="sl">&#9888; Common Mistakes</div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Count exact steps</span><code class="code-mini"># "it does 3n + 5 ops"</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Describe growth</span><code class="code-mini"># O(n): grows linearly with n</code></div><div class="mistake-why"><strong>Why:</strong> Big O drops constants and lower terms. It describes how cost scales, not an exact count.</div></div><div class="mistake-card"><div class="mistake-bad"><span class="mistake-tag">&#10060; Two loops = O(2n)</span><code class="code-mini">for a in xs: ...
+for b in xs: ...</code></div><div class="mistake-good"><span class="mistake-tag">&#10003; Still O(n)</span><code class="code-mini"># sequential loops add: O(n) + O(n) = O(n)</code></div><div class="mistake-why"><strong>Why:</strong> nested loops multiply (O(n&times;n)); sequential loops add and constants drop.</div></div></div>
+
 <div class="sec"><div class="sl">⑥ Remember</div>
 <div class="rem"><span class="ri"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><circle cx="9" cy="18" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="19" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M9 14 Q11 7 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 15 Q15 9 14 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14 5 Q10 3 9 6 Q12 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5 Q18 3 19 6 Q16 7 14 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>O(n²) inside a <span class="gloss" onclick="gOpen(&#39;Loop&#39;,&#39;Repeats a block of code while/until a condition is met.&#39;)">loop</span> with a million items is a disaster. Always ask: <strong>how does this scale?</strong></div>
 </div>
+<div class="sec"><div class="sl">FAQ</div><div class="faq-list"><details class="faq-item"><summary class="faq-q">What is Big O?</summary><div class="faq-a">A way to describe how runtime or memory grows as the input grows.</div></details><details class="faq-item"><summary class="faq-q">What are the common classes?</summary><div class="faq-a">O(1), O(log n), O(n), O(n log n), and O(n^2).</div></details><details class="faq-item"><summary class="faq-q">Best, worst, or average?</summary><div class="faq-a">Big O usually describes the worst case.</div></details><details class="faq-item"><summary class="faq-q">Why does it matter?</summary><div class="faq-a">It predicts how code behaves on large inputs.</div></details></div></div>
+
 <div class="notes-area">
 <div class="notes-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><path d="M5 3 L17 3 L21 7 L21 21 L5 21 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><polyline points="9 13 12 16 19 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg> My Notes</div>
 <textarea class="notes-textarea" id="notes-s12" placeholder="Write your observations about this term..." onchange="saveNotes('s12')" oninput="updateNotesStatus('s12')"></textarea>
 <div class="notes-status" id="notes-status-s12">Auto-saved</div>
 </div>
+
+<div class="next-bar"><span class="next-label">Learned it? Next:</span><span class="next-chip rec" onclick="go('s11')">S&middot;11 Hash Table</span><span class="next-chip" onclick="go('c10')">C&middot;10 Nested Loops</span></div>
 </div>
 
 <!-- Block 7 Divider -->
