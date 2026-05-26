@@ -569,6 +569,88 @@ body.dark .progress-track{background:var(--p50)}
 .ring-label{position:absolute;top:22px;display:flex;flex-direction:column;align-items:center;line-height:1.1}
 .ring-pct{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--p500)}
 .ring-cap{font-size:.56rem;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-top:.25rem;text-align:center;line-height:1.2;max-width:84px}
+
+/* ===== STUDY PATHS ===== */
+.path-card{background:white;border:1px solid var(--line);border-radius:14px;padding:0;margin-bottom:1.1rem;overflow:hidden;box-shadow:0 2px 14px rgba(201,66,110,.05)}
+.path-bar{height:4px;background:linear-gradient(90deg,var(--p400),var(--p500))}
+.path-body{padding:1.1rem 1.1rem 1.2rem}
+.path-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem}
+.path-icon{width:38px;height:38px;flex-shrink:0;border-radius:10px;background:var(--p100);border:1px solid var(--p200);display:flex;align-items:center;justify-content:center;color:var(--p500)}
+.path-icon svg{width:20px;height:20px}
+.path-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);line-height:1.1}
+.path-desc{font-size:.83rem;color:var(--ink2);line-height:1.55;margin-bottom:.6rem}
+.path-meta{display:flex;flex-wrap:wrap;gap:.4rem .9rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--ink3);text-transform:uppercase;margin-bottom:.8rem;font-weight:500}
+.path-meta .pm-star{color:var(--p500);letter-spacing:.05em}
+.path-meta .pm-dim{color:var(--ink4)}
+.path-steps{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.9rem}
+.path-step{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;color:var(--p500);background:var(--p50);border:1px solid var(--p200);border-radius:6px;padding:.28rem .5rem;cursor:pointer;transition:all .12s;text-transform:uppercase;font-weight:500}
+.path-step:hover{background:var(--p100);border-color:var(--p300)}
+.path-arrow{color:var(--ink4);font-size:.6rem;align-self:center}
+.path-start{display:inline-flex;align-items:center;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;border-radius:9px;padding:.55rem 1rem;cursor:pointer;transition:all .15s}
+.path-start:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,66,110,.3)}
+
+/* ===== INSTALL PAGE ===== */
+.install-card{background:white;border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.9rem;box-shadow:0 2px 14px rgba(201,66,110,.05)}
+.install-plat{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.install-plat svg{width:18px;height:18px;color:var(--p500)}
+.install-step{display:flex;gap:.6rem;font-size:.82rem;color:var(--ink2);line-height:1.5;margin-bottom:.45rem}
+.install-step .is-n{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;color:var(--p500);background:var(--p100);border:1px solid var(--p200);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.install-step code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);border:1px solid var(--line);border-radius:5px;padding:.05rem .3rem;color:var(--p500)}
+
+/* ===== SELF-CHECK (runtime) ===== */
+.self-check{margin:1.1rem 0 .4rem;padding:.9rem 1rem;background:var(--p50);border:1px solid var(--line);border-radius:11px;text-align:center}
+.self-check-q{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;color:var(--ink);margin-bottom:.7rem}
+.self-check-btns{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.sc-btn{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.5rem .85rem;border-radius:8px;cursor:pointer;background:white;color:var(--ink2);border:1.5px solid var(--line);transition:all .14s}
+.sc-btn:hover{border-color:var(--p300);background:var(--p50)}
+.sc-btn.sc-got{color:var(--p500)}
+.sc-btn.sc-got.on{background:var(--p100);border-color:var(--p400);color:var(--p500)}
+.sc-btn.sc-soso.on{background:var(--p100);border-color:var(--p300);color:var(--ink3)}
+.sc-btn.sc-hard.on{background:var(--p100);border-color:var(--p300);color:var(--ink3)}
+.self-check-ack{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);margin-top:.6rem;min-height:.7rem;font-weight:600}
+
+/* ===== PREREQ BAR ===== */
+.prereq-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:.2rem 0 1rem;padding:.55rem .75rem;background:var(--p50);border:1px solid var(--line);border-left:3px solid var(--p300);border-radius:0 9px 9px 0}
+.prereq-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p400);font-weight:600;margin-right:.2rem}
+.prereq-chip{display:inline-flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--p500);background:white;border:1px solid var(--p200);border-radius:6px;padding:.24rem .5rem;cursor:pointer;transition:all .12s;font-weight:500}
+.prereq-chip:hover{background:var(--p100);border-color:var(--p300)}
+.prereq-none{font-size:.78rem;font-style:italic;color:var(--ink3)}
+
+/* ===== COMMON MISTAKES ===== */
+.mistake-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:.7rem}
+.mistake-bad,.mistake-good{padding:.6rem .8rem}
+.mistake-bad{background:var(--p50);border-bottom:1px dashed var(--p200)}
+.mistake-good{background:white}
+.mistake-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:.35rem}
+.mistake-bad .mistake-tag{color:var(--p500)}
+.mistake-good .mistake-tag{color:var(--ink2)}
+.code-mini{font-family:'JetBrains Mono',monospace;font-size:.74rem;line-height:1.6;color:var(--code-text);background:var(--code-bg);border:1px solid var(--code-line);border-radius:7px;padding:.5rem .7rem;white-space:pre;overflow-x:auto;display:block}
+.code-mini .com{color:var(--code-comment);font-style:italic}
+.code-mini .str{color:var(--code-string)}.code-mini .kw{color:var(--code-keyword)}.code-mini .num{color:var(--code-number)}.code-mini .fn{color:var(--code-function)}.code-mini .op{color:var(--code-operator)}
+.mistake-why{font-size:.78rem;color:var(--ink2);line-height:1.5;padding:.55rem .8rem;background:var(--p50);border-top:1px solid var(--line)}
+.mistake-why strong{color:var(--p500);font-weight:600}
+
+/* ===== FAQ ===== */
+.faq-list{display:flex;flex-direction:column;gap:.45rem}
+.faq-item{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:white}
+.faq-item summary{list-style:none;cursor:pointer;padding:.6rem .8rem;font-family:'DM Sans',sans-serif;font-size:.84rem;font-weight:600;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-q::after{content:'+';font-family:'JetBrains Mono',monospace;color:var(--p400);font-size:1rem;flex-shrink:0;transition:transform .2s}
+.faq-item[open] .faq-q::after{content:'\2212'}
+.faq-item summary:hover{color:var(--p500)}
+.faq-a{padding:0 .8rem .7rem;font-size:.81rem;color:var(--ink2);line-height:1.55}
+.faq-a code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);border:1px solid var(--line);border-radius:5px;padding:.03rem .3rem;color:var(--p500)}
+
+/* ===== NEXT STEPS BAR ===== */
+.next-bar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin:1.1rem 0 .2rem;padding:.6rem .8rem;background:linear-gradient(135deg,var(--p50),var(--p100));border:1px solid var(--p200);border-radius:10px}
+.next-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p500);font-weight:600;margin-right:.2rem}
+.next-chip{display:inline-flex;align-items:center;gap:.3rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.04em;color:var(--p500);background:white;border:1px solid var(--p200);border-radius:6px;padding:.26rem .55rem;cursor:pointer;transition:all .12s;font-weight:500}
+.next-chip:hover{background:var(--p100);border-color:var(--p300)}
+.next-chip.rec{background:var(--p500);color:white;border-color:var(--p500)}
+.next-chip.rec:hover{background:var(--p400);border-color:var(--p400)}
+
+body.dark .self-check,body.dark .prereq-bar,body.dark .path-card,body.dark .install-card,body.dark .faq-item,body.dark .mistake-card{background:var(--page)}
+body.dark .sc-btn{background:var(--page)}
 </style>
 </head>
 <body>
@@ -6131,9 +6213,48 @@ function startQuizHub(blockKey, type){
   quizOpen(blockKey);
   quizSelectTab(type);
 }
+// ============ SELF-CHECK (runtime injected) ============
+function setupSelfCheck(){
+  var data = loadData();
+  var tags = data.tags || {};
+  document.querySelectorAll('.pg[id^="pg-"]').forEach(function(pg){
+    var id = pg.id.replace('pg-','');
+    if(!/^[a-z]\d+$/.test(id)) return;
+    if(pg.querySelector('.self-check')) return;
+    var t = tags[id] || {};
+    var wrap = document.createElement('div');
+    wrap.className = 'self-check';
+    wrap.innerHTML = '<div class="self-check-q">Did you understand this term?</div>'
+      + '<div class="self-check-btns">'
+      + '<button class="sc-btn sc-got' + (t.studied?' on':'') + '" data-tag="studied">&#10003; Got it!</button>'
+      + '<button class="sc-btn sc-soso' + (t.review?' on':'') + '" data-tag="review">So-so</button>'
+      + '<button class="sc-btn sc-hard' + (t.hard?' on':'') + '" data-tag="hard">Need review</button>'
+      + '</div><div class="self-check-ack"></div>';
+    pg.appendChild(wrap);
+    var ack = wrap.querySelector('.self-check-ack');
+    wrap.querySelectorAll('.sc-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var tag = btn.getAttribute('data-tag');
+        var tagBar = document.getElementById('tags-' + id);
+        var mirror = tagBar ? tagBar.querySelector('.tag-btn.' + tag) : null;
+        var d = loadData();
+        if(!d.tags[id]) d.tags[id] = {};
+        var willBeOn = !d.tags[id][tag];
+        d.tags[id][tag] = willBeOn;
+        saveData(d);
+        if(mirror) mirror.classList.toggle('on', willBeOn);
+        btn.classList.toggle('on', willBeOn);
+        var msgs = {studied:'Marked as studied', review:'Marked for review', hard:'Marked as hard'};
+        ack.textContent = willBeOn ? ('✓ ' + msgs[tag]) : 'Cleared';
+        if(typeof updateProgressBars === 'function') updateProgressBars();
+      });
+    });
+  });
+}
 function initParityFeatures(){
   updateCoverBadges();
   renderQuizHub();
+  setupSelfCheck();
 }
 if(document.readyState === 'loading'){
   document.addEventListener('DOMContentLoaded', initParityFeatures);
