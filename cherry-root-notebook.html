@@ -949,8 +949,9 @@ Review Mode
 <div class="ndiv"></div>
 <div class="ns">Practice</div>
 <div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
-<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
+<div class="ni" onclick="go('challenges',this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
+<div class="ni" onclick="practiceOpen(this)"><span class="cd">FC</span>Flashcards</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
@@ -3056,6 +3057,151 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> follow an IR plan during a breach, people are the biggest attack surface, training + MFA beat phishing, and 3-2-1 is your backup rule. &#127826; You've finished every guided exercise &mdash; congratulations!</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-d1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- ============ PRACTICE MODE (scenario challenges) ============ -->
+<div class="pg" id="pg-challenges">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice mode</div>
+<div class="pt">Practice Mode</div>
+<div class="ps">Real-world scenarios &mdash; read the clue, answer, and check. The feedback explains the why. No Kali required.</div>
+</div>
+
+<div class="sl">&#9888; Identify the Attack</div>
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">A web server log shows this request. Which attack is it?<pre>GET /login?user=admin' OR '1'='1' --</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)">Brute force</button>
+</div>
+<div class="ex-expl">The <code>' OR '1'='1' --</code> is breaking out of a SQL query &mdash; classic SQL injection in the login.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">And this one?<pre>GET /search?q=&lt;script&gt;alert(1)&lt;/script&gt;</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
+<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+</div>
+<div class="ex-expl">Injecting a <code>&lt;script&gt;</code> tag into a parameter that gets reflected is cross-site scripting (XSS).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">And this request?<pre>GET /download?file=../../../../etc/passwd</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">IDOR</button>
+<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+</div>
+<div class="ex-expl">The <code>../</code> sequences climb out of the intended folder to reach <code>/etc/passwd</code> &mdash; path traversal.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="sl">&#9888; Spot the Phish</div>
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Is this email phishing or legitimate?<pre>From: support@paypa1.com
+Subject: Your account is LOCKED
+Click http://bit.ly/verify-now within 24h
+or your account will be deleted.</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Phishing</button>
+<button class="quiz-option" onclick="exPick(this)">Legitimate</button>
+</div>
+<div class="ex-expl">Phishing &mdash; a misspelled domain (<code>paypa1.com</code>), false urgency, and a shortened link hiding the real destination.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">And this one?<pre>From: hr@yourcompany.com
+Subject: Team lunch Friday
+Reminder: team lunch this Friday at noon
+in the break room. No action needed.</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Phishing</button>
+<button class="quiz-option" onclick="exPick(this)">Probably legitimate</button>
+</div>
+<div class="ex-expl">Probably legitimate &mdash; internal sender, no link, no urgency, and nothing is being requested. Still, verify if unsure.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="sl">&#9888; Read the nmap</div>
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many ports are <strong>open</strong> in this scan? Type a number.<pre>PORT     STATE   SERVICE
+22/tcp   open    ssh
+80/tcp   open    http
+443/tcp  open    https
+3306/tcp closed  mysql</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Three show <code>open</code> (22, 80, 443). Port 3306 is <code>closed</code>, so it doesn't count.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">In that scan, which service is running on port 22?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">http</button>
+<button class="quiz-option" onclick="exPick(this)">ssh</button>
+<button class="quiz-option" onclick="exPick(this)">https</button>
+<button class="quiz-option" onclick="exPick(this)">mysql</button>
+</div>
+<div class="ex-expl">The line <code>22/tcp open ssh</code> tells you SSH is listening on port 22 &mdash; a prime target for login attacks.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="sl">&#9888; Decode the URL</div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's suspicious about this link?<pre>https://paypal.com.secure-login.ru/account</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it's PayPal</button>
+<button class="quiz-option" onclick="exPick(this)">The real domain is secure-login.ru, not paypal.com</button>
+<button class="quiz-option" onclick="exPick(this)">It uses HTTPS</button>
+<button class="quiz-option" onclick="exPick(this)">The path is too long</button>
+</div>
+<div class="ex-expl">The real domain is the part right before the first <code>/</code>: <code>secure-login.ru</code>. <code>paypal.com</code> is just a subdomain label to fool you.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="evil.com">
+<div class="ex-qtext">Where does this link actually take you? Type the real domain.<pre>https://good.com@evil.com/login</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the real domain" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Anything before an <code>@</code> in the host is treated as a username, not the destination.</div></details>
+<div class="ex-expl">The part before <code>@</code> is just a username. The real host is <code>evil.com</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="sl">&#9888; Match the Tool</div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">You need to capture and read raw network packets. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
+</div>
+<div class="ex-expl">Wireshark captures and analyses packets. nmap scans ports, Hydra brute-forces logins, sqlmap targets SQLi.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">You found an SSH login and want to brute-force the password (with authorization). Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">curl</button>
+</div>
+<div class="ex-expl">Hydra does online brute force against live services like SSH. (Remember: only with explicit permission.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; Nice work:</strong> identifying attacks from logs, spotting phishing, reading nmap, decoding URLs and picking the right tool are everyday skills. Want step-by-step practice? Try the <span class="next-chip" onclick="go('exercises')" style="cursor:pointer">Guided Exercises</span>.</div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
