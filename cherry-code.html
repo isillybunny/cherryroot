@@ -730,6 +730,19 @@ body.dark .sc-btn{background:var(--page)}
 .fc-rem{font-size:.82rem;color:var(--ink2);line-height:1.5;border-top:1px solid var(--line);padding-top:.7rem}
 .practice-actions{display:flex;gap:.6rem;justify-content:center;margin-top:.9rem}
 body.dark .flashcard,body.dark .practice-done{background:var(--page)}
+
+/* ===== GUIDED EXERCISES ===== */
+.ex-goal{background:var(--p50);border:1px solid var(--p200);border-left:3px solid var(--p400);border-radius:0 10px 10px 0;padding:.7rem .9rem;margin-bottom:.9rem;font-size:.9rem;color:var(--ink);line-height:1.5}
+.ex-goal strong,.ex-recap strong{color:var(--p500)}
+.ex-uses{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:1.1rem}
+.ex-uses-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p400);font-weight:600;margin-right:.2rem}
+.ex-step{border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;margin-bottom:.8rem;background:white}
+.ex-step-head{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:.5rem}
+.ex-step-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--p100);border:1px solid var(--p200);color:var(--p500);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-text{font-size:.85rem;color:var(--ink2);line-height:1.55;margin-bottom:.5rem}
+.ex-try{width:100%;box-sizing:border-box;min-height:58px;font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:8px;padding:.55rem .7rem;resize:vertical;margin-bottom:.5rem}
+.ex-recap{background:var(--p50);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:1rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
+body.dark .ex-step{background:var(--page)}
 </style>
 </head>
 <body>
@@ -772,7 +785,6 @@ Review Mode
 <div class="ni" onclick="go('howto',this)"><span class="cd">HOW</span>How to Use</div>
 <div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span>Study Paths</div>
 <div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Install App</div>
-<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLO</span>Glossary</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
 <div class="ns">Progress &amp; Goals</div>
@@ -921,6 +933,8 @@ Review Mode
 <div class="ndiv"></div>
 <div class="ns">Practice</div>
 <div class="ni" onclick="go('quiz',this)"><span class="cd">QUIZ</span>Quiz Hub</div>
+<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
+<div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('cheatsheet-py',this)"><span class="cd">CH·P</span>Python Cheatsheet</div>
@@ -1005,6 +1019,114 @@ Review Mode
 </div>
 
 <!-- ============ STUDY PATHS ============ -->
+<!-- ============ GUIDED EXERCISES ============ -->
+<div class="pg" id="pg-exercises">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> guided exercises</div>
+<div class="pt">Guided Exercises</div>
+<div class="ps">Step-by-step exercises with hints and worked solutions. Try each step yourself first &mdash; reveal the hint or solution only if you get stuck.</div>
+</div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 1 &middot; Fundamentals</div></div>
+<div class="path-desc">Get your very first programs running and learn to read what the computer tells you.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-f1')">1 &middot; Your first program</span><span class="path-step" onclick="go('ex-f2')">2 &middot; Read your first error</span><span class="path-step" onclick="go('ex-f3')">3 &middot; Comment your intent</span></div>
+</div></div>
+
+<div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
+</div>
+
+<!-- Exercise F1 -->
+<div class="pg" id="pg-ex-f1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 1 &middot; Your First Program</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Write a program that prints a welcome message to the screen.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f01')">F&middot;01 Programming</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Print a line of text</div>
+<div class="ex-text">Use the <code>print()</code> instruction to show text. The text goes inside quotes.</div>
+<textarea class="ex-try" placeholder="Type your code here..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The pattern is <code>print("your text")</code>. You need both the quotes and the parentheses.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)</code></div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Print a second line</div>
+<div class="ex-text">Add another <code>print()</code> below the first. Each <code>print</code> shows its text on a new line.</div>
+<textarea class="ex-try" placeholder="Type your code here..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Just write a second <code>print(...)</code> on the next line with different text.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)
+<span class="fn">print</span>(<span class="str">"Let's learn to code."</span>)</code></div></details>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#127881; Full solution (peek only if stuck)</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)
+<span class="fn">print</span>(<span class="str">"Let's learn to code."</span>)</code></div></details>
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a program is a list of instructions run top to bottom. <code>print()</code> is your first one &mdash; it shows text, and the exact quotes and parentheses are part of the syntax.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f2')">Exercise 2 &middot; Read an error</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise F2 -->
+<div class="pg" id="pg-ex-f2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 2 &middot; Read Your First Error</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> The code below has one mistake and will not run. Find it and fix it.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span><span class="prereq-chip" onclick="go('f09')">F&middot;09 Runtime</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Spot the mistake</div>
+<div class="ex-text">Read this code carefully. Something about the quotes is wrong:</div>
+<code class="code-mini"><span class="fn">print</span>(<span class="str">"Welcome to Cherry Code)</span></code>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Count the quote marks. A string needs an opening <strong>and</strong> a closing quote.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a">The closing quote before the <code>)</code> is missing &mdash; this is a <strong>syntax error</strong>.</div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Write the fixed line</div>
+<div class="ex-text">Rewrite the line with the closing quote in the right place.</div>
+<textarea class="ex-try" placeholder="Type the corrected line..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Welcome to Cherry Code"</span>)</code></div></details>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> syntax errors stop code from running at all, and they are the easy ones &mdash; the interpreter points you at the line. A missing or unmatched quote is one of the most common beginner mistakes.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f3')">Exercise 3 &middot; Comment your intent</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise F3 -->
+<div class="pg" id="pg-ex-f3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 3 &middot; Comment Your Intent</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Add a comment that explains <em>why</em> a line exists, not just what it does.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Write a line of code</div>
+<div class="ex-text">Start with a line that sets a price with tax already included.</div>
+<textarea class="ex-try" placeholder="Type your code here..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">price = <span class="num">110</span></code></div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Add a comment that explains the why</div>
+<div class="ex-text">In Python a comment starts with <code>#</code>. Explain something the code does not say on its own.</div>
+<textarea class="ex-try" placeholder="Add your comment..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Avoid "set price to 110" &mdash; the code already says that. Explain the reason, like the 10% tax.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">price = <span class="num">110</span>  <span class="com"># 100 base + 10% tax, already included</span></code></div></details>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> good comments explain the <em>why</em>, not the obvious <em>what</em>. The computer ignores everything after <code>#</code>, so comments are for humans &mdash; including the future you.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-f1')">Back to Exercise 1</span></div>
+</div>
+
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
