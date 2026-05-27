@@ -1051,6 +1051,12 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-f1')">1 &middot; Your first program</span><span class="path-step" onclick="go('ex-f2')">2 &middot; Read your first error</span><span class="path-step" onclick="go('ex-f3')">3 &middot; Comment your intent</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 2 &middot; Types &amp; Variables</div></div>
+<div class="path-desc">Predict types and outputs, convert between types, and index lists and dicts.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-t1')">1 &middot; Predict the output</span><span class="path-step" onclick="go('ex-t2')">2 &middot; Convert types</span><span class="path-step" onclick="go('ex-t3')">3 &middot; Lists &amp; dicts</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1204,6 +1210,154 @@ Review Mode
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> two classic beginner bugs are a missing colon and using <code>=</code> instead of <code>==</code>. And <code>range(n)</code> gives 0 up to n-1 &mdash; exactly <code>n</code> values.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-f1')">Back to Exercise 1</span></div>
 </div>
+<!-- Exercise T1 -->
+<div class="pg" id="pg-ex-t1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 1 &middot; Predict the Output (Types)</div>
+<div class="ps">Difficulty: beginner &middot; type exactly what prints</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Type changes the result. Predict each output exactly &mdash; capitalization and dots matter.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t02')">T&middot;02 Data Type</span><span class="prereq-chip" onclick="go('t05')">T&middot;05 Float</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 String</span></div>
+
+<div class="ex-q" data-answers="5.0">
+<div class="ex-qtext">What does this print?<pre>print(10 / 2)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">In Python, <code>/</code> always produces a float, even when it divides evenly.</div></details>
+<div class="ex-expl"><code>/</code> is true division, so the result is the float <code>5.0</code>, not <code>5</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="55">
+<div class="ex-qtext">What does this print?<pre>print("5" + "5")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">These are strings, so <code>+</code> joins them: <code>55</code> (not 10).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="6">
+<div class="ex-qtext">What does this print?<pre>print(len("cherry"))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>len</code> counts the characters in the string: c-h-e-r-r-y = 6.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What is the type of <code>True</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">int</button>
+<button class="quiz-option" onclick="exPick(this)">str</button>
+<button class="quiz-option" onclick="exPick(this)">bool</button>
+<button class="quiz-option" onclick="exPick(this)">None</button>
+</div>
+<div class="ex-expl"><code>True</code> and <code>False</code> are booleans &mdash; the <code>bool</code> type.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> the same symbol behaves differently by type &mdash; <code>+</code> adds numbers but joins strings, and <code>/</code> always gives a float. Knowing the type tells you the result.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-t2')">Exercise 2 &middot; Convert types</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise T2 -->
+<div class="pg" id="pg-ex-t2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 2 &middot; Convert Types</div>
+<div class="ps">Difficulty: beginner &middot; mix types carefully</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Mixing a string and a number fails &mdash; convert first. Work through each one.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t12')">T&middot;12 Type Casting</span><span class="prereq-chip" onclick="go('t04')">T&middot;04 Integer</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 String</span></div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What happens in Python here?<pre>"3" + 4</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">7</button>
+<button class="quiz-option" onclick="exPick(this)">"34"</button>
+<button class="quiz-option" onclick="exPick(this)">TypeError</button>
+<button class="quiz-option" onclick="exPick(this)">34</button>
+</div>
+<div class="ex-expl">Python will not add a string and an int &mdash; it raises a <code>TypeError</code>. Convert one side first.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="7">
+<div class="ex-qtext">What does this give?<pre>int("3") + 4</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the result" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>int("3")</code> turns the text into the number 3, so 3 + 4 = 7.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="50">
+<div class="ex-qtext">What does this print?<pre>print(str(5) + "0")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>str(5)</code> is the text "5", so joining with "0" gives <code>50</code> (text, not fifty).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which correctly turns the text <code>"10"</code> into a number?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">str("10")</button>
+<button class="quiz-option" onclick="exPick(this)">int("10")</button>
+<button class="quiz-option" onclick="exPick(this)">"10" + 0</button>
+<button class="quiz-option" onclick="exPick(this)">"10".number</button>
+</div>
+<div class="ex-expl"><code>int("10")</code> parses the text into the integer 10.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> Python does not silently mix text and numbers. Use <code>int()</code>, <code>float()</code>, or <code>str()</code> to convert explicitly before combining.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-t3')">Exercise 3 &middot; Lists &amp; dicts</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise T3 -->
+<div class="pg" id="pg-ex-t3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 3 &middot; Index Lists &amp; Dicts</div>
+<div class="ps">Difficulty: beginner &middot; read the right value out</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Pull values out of a list and a dict. Remember lists start at index 0.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t08')">T&middot;08 Array / List</span><span class="prereq-chip" onclick="go('t09')">T&middot;09 Dict / Object / Map</span></div>
+
+<div class="ex-q" data-answers="10">
+<div class="ex-qtext">Given <code>nums = [10, 20, 30]</code>, what does this print?<pre>print(nums[0])</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Index 0 is the <em>first</em> element, not the second.</div></details>
+<div class="ex-expl">Lists are zero-indexed, so <code>nums[0]</code> is the first item: 10.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="30">
+<div class="ex-qtext">With the same list, what does this print?<pre>print(nums[-1])</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A negative index counts from the end, so <code>-1</code> is the last item: 30.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">With a 3-item list, what does <code>nums[3]</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Returns None</button>
+<button class="quiz-option" onclick="exPick(this)">Raises an IndexError</button>
+<button class="quiz-option" onclick="exPick(this)">Returns 0</button>
+<button class="quiz-option" onclick="exPick(this)">Wraps around to nums[0]</button>
+</div>
+<div class="ex-expl">Valid indices are 0, 1, 2. Asking for index 3 is out of range and raises an <code>IndexError</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="80">
+<div class="ex-qtext">Given <code>d = {"port": 80}</code>, what does this print?<pre>print(d["port"])</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A dict looks up by key, so <code>d["port"]</code> returns its value: 80.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> lists are indexed from 0 (and <code>-1</code> is the last), going out of range raises an error, and dicts fetch values by key.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-t1')">Back to Exercise 1</span></div>
+</div>
+
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">

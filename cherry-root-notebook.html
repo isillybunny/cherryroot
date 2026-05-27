@@ -1018,6 +1018,12 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-b1')">1 &middot; Decode binary</span><span class="path-step" onclick="go('ex-b2')">2 &middot; Read permissions</span><span class="path-step" onclick="go('ex-b3')">3 &middot; Build a path</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 1 &middot; The Internet</div></div>
+<div class="path-desc">Take a URL apart, decode HTTP status codes, and spot what's insecure on the web.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-w1')">1 &middot; Read a URL</span><span class="path-step" onclick="go('ex-w2')">2 &middot; Status codes</span><span class="path-step" onclick="go('ex-w3')">3 &middot; Spot the insecure</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1146,6 +1152,163 @@ Review Mode
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> absolute paths start at <code>/</code> and are unambiguous; the file name is the part after the last <code>/</code>. Relative paths and <code>../</code> depend on where you are &mdash; exactly what path-traversal attacks abuse.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-b1')">Back to Exercise 1</span></div>
 </div>
+<!-- Exercise W1 -->
+<div class="pg" id="pg-ex-w1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 1 &middot; Read a URL</div>
+<div class="ps">Difficulty: beginner &middot; take the URL apart</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Break this URL into its parts. Reading a URL is the first skill of web recon.<pre>https://shop.example.com/cart?id=42#top</pre></div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('w05')">W&middot;05 URL</span><span class="prereq-chip" onclick="go('w04')">W&middot;04 HTTP / HTTPS</span></div>
+
+<div class="ex-q" data-answers="https">
+<div class="ex-qtext">What is the <strong>scheme</strong> (protocol)? Type it without the <code>://</code>.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the scheme" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The scheme is the part before <code>://</code>: <code>https</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="shop.example.com">
+<div class="ex-qtext">What is the <strong>host</strong> (the domain)?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the host" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It is everything between <code>://</code> and the first <code>/</code>.</div></details>
+<div class="ex-expl">The host is <code>shop.example.com</code> &mdash; it sits between the scheme and the path.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which part is the <strong>query string</strong>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">/cart</button>
+<button class="quiz-option" onclick="exPick(this)">?id=42</button>
+<button class="quiz-option" onclick="exPick(this)">#top</button>
+<button class="quiz-option" onclick="exPick(this)">https</button>
+</div>
+<div class="ex-expl">The query string starts at <code>?</code>: <code>?id=42</code>. It is visible and logged &mdash; never put secrets there.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Is the fragment <code>#top</code> sent to the server?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Yes, always</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; it stays in the browser</button>
+<button class="quiz-option" onclick="exPick(this)">Only over HTTPS</button>
+<button class="quiz-option" onclick="exPick(this)">Only on the first request</button>
+</div>
+<div class="ex-expl">Everything after <code>#</code> stays client-side &mdash; the server never receives the fragment.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a URL is scheme + host + path + query + fragment. The query is visible and logged; the fragment never leaves the browser.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-w2')">Exercise 2 &middot; Status codes</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise W2 -->
+<div class="pg" id="pg-ex-w2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 2 &middot; Decode Status Codes</div>
+<div class="ps">Difficulty: beginner &middot; read what the server is saying</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> HTTP status codes tell you how a request went. Learn to read them at a glance.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('w07')">W&middot;07 Status Codes</span><span class="prereq-chip" onclick="go('w06')">W&middot;06 Request &amp; Response</span></div>
+
+<div class="ex-q" data-answers="200">
+<div class="ex-qtext">What is the status code for a normal, successful page? Type the number.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>200 OK</code> means the request succeeded.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">A <code>404</code> means:</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Success</button>
+<button class="quiz-option" onclick="exPick(this)">A redirect</button>
+<button class="quiz-option" onclick="exPick(this)">Not found</button>
+<button class="quiz-option" onclick="exPick(this)">Server crashed</button>
+</div>
+<div class="ex-expl">404 is "not found" &mdash; a 4xx code, meaning a client-side problem with the request.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="5|5xx|500">
+<div class="ex-qtext">Which status-code class (the first digit) means a <strong>server error</strong>? Type the digit.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one digit" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">2xx = success, 3xx = redirect, 4xx = client error, 5xx = ...</div></details>
+<div class="ex-expl">5xx codes (like 500) mean the server failed to handle a valid request.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Between <code>401</code> and <code>403</code>, which means "you are <strong>not authenticated</strong>"?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">401</button>
+<button class="quiz-option" onclick="exPick(this)">403</button>
+</div>
+<div class="ex-expl">401 = not authenticated (log in first). 403 = authenticated but not allowed.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> 2xx success, 3xx redirect, 4xx client error, 5xx server error. And a <code>200</code> only means the HTTP request worked &mdash; not that the app did the right thing.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-w3')">Exercise 3 &middot; Spot the insecure</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise W3 -->
+<div class="pg" id="pg-ex-w3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Exercise 3 &middot; Spot the Insecure Thing</div>
+<div class="ps">Difficulty: beginner &middot; think like an attacker</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Catch the common web-security traps that fool beginners.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('w04')">W&middot;04 HTTP / HTTPS</span><span class="prereq-chip" onclick="go('w05')">W&middot;05 URL</span><span class="prereq-chip" onclick="go('w09')">W&middot;09 Cookies</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A phishing site has a padlock (HTTPS). Is it safe to trust?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Yes &mdash; the padlock proves it's legit</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; HTTPS only means encrypted in transit</button>
+<button class="quiz-option" onclick="exPick(this)">Yes &mdash; HTTPS sites can't be fake</button>
+<button class="quiz-option" onclick="exPick(this)">Only if it loads fast</button>
+</div>
+<div class="ex-expl">A certificate is free and easy to get. The padlock proves encryption, not honesty &mdash; phishing sites use HTTPS too.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="evil.com">
+<div class="ex-qtext">Where does this link actually take you? Type the real domain.<pre>https://good.com@evil.com/login</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the real domain" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Anything before an <code>@</code> in the host is treated as a username, not the destination.</div></details>
+<div class="ex-expl">The part before <code>@</code> is just a username. The real host is <code>evil.com</code> &mdash; a classic phishing trick.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Which cookie flags help protect a session token?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">HttpOnly + Secure + SameSite</button>
+<button class="quiz-option" onclick="exPick(this)">No flags needed</button>
+<button class="quiz-option" onclick="exPick(this)">Only a long name</button>
+<button class="quiz-option" onclick="exPick(this)">Hidden + Disabled</button>
+</div>
+<div class="ex-expl"><code>HttpOnly</code> blocks JS access (stops XSS theft), <code>Secure</code> requires HTTPS, and <code>SameSite</code> limits cross-site sending (stops CSRF).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="plaintext|plain text|cleartext|clear text|clear">
+<div class="ex-qtext">Plain HTTP sends data in ______ &mdash; anyone on the network path can read it. (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">HTTP is plaintext &mdash; unencrypted, so it can be sniffed or modified in transit. HTTPS fixes this.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> HTTPS means encrypted, not trustworthy; the real host is right before the first <code>/</code> (watch the <code>@</code> trick); and session cookies need HttpOnly + Secure + SameSite.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-w1')">Back to Exercise 1</span></div>
+</div>
+
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
