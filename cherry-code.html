@@ -743,6 +743,20 @@ body.dark .flashcard,body.dark .practice-done{background:var(--page)}
 .ex-try{width:100%;box-sizing:border-box;min-height:58px;font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:8px;padding:.55rem .7rem;resize:vertical;margin-bottom:.5rem}
 .ex-recap{background:var(--p50);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:1rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
 body.dark .ex-step{background:var(--page)}
+.ex-q{border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;margin-bottom:.8rem;background:white}
+.ex-qtext{font-size:.9rem;color:var(--ink);line-height:1.5;margin-bottom:.6rem;font-weight:600}
+.ex-qtext pre{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:7px;padding:.5rem .7rem;white-space:pre;overflow-x:auto;margin:.5rem 0 0;font-weight:400}
+.ex-opts{display:flex;flex-direction:column;gap:.45rem}
+.ex-inrow{display:flex;gap:.5rem;align-items:stretch;margin-top:.2rem}
+.ex-input{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--code-bg);color:var(--code-text);border:1.5px solid var(--code-line);border-radius:8px;padding:.5rem .7rem}
+.ex-input.ex-ok{border-color:var(--p500)}
+.ex-input.ex-no{border-color:var(--p300);border-style:dashed}
+.ex-checkbtn{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.5rem .9rem;border-radius:8px;cursor:pointer;background:var(--p500);color:white;border:none;white-space:nowrap}
+.ex-checkbtn:hover{background:var(--p400)}
+.ex-fb{margin-top:.6rem;font-size:.83rem;color:var(--ink2);line-height:1.5;padding:.55rem .75rem;background:var(--p50);border-radius:8px}
+.ex-fb b{color:var(--p500)}
+.ex-expl{display:none}
+body.dark .ex-q{background:var(--page)}
 </style>
 </head>
 <body>
@@ -1040,93 +1054,151 @@ Review Mode
 <div class="pg" id="pg-ex-f1">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
-<div class="pt">Exercise 1 &middot; Your First Program</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="pt">Exercise 1 &middot; What Does It Do?</div>
+<div class="ps">Difficulty: beginner &middot; read the code, then answer</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Write a program that prints a welcome message to the screen.</div>
-<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f01')">F&middot;01 Programming</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Predict what the computer does &mdash; no running it. Answer each one and check.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f01')">F&middot;01 Programming</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Print a line of text</div>
-<div class="ex-text">Use the <code>print()</code> instruction to show text. The text goes inside quotes.</div>
-<textarea class="ex-try" placeholder="Type your code here..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The pattern is <code>print("your text")</code>. You need both the quotes and the parentheses.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)</code></div></details>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does this print?<pre>print(2 + 3)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">23</button>
+<button class="quiz-option" onclick="exPick(this)">5</button>
+<button class="quiz-option" onclick="exPick(this)">"2+3"</button>
+<button class="quiz-option" onclick="exPick(this)">Error</button>
 </div>
-
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Print a second line</div>
-<div class="ex-text">Add another <code>print()</code> below the first. Each <code>print</code> shows its text on a new line.</div>
-<textarea class="ex-try" placeholder="Type your code here..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Just write a second <code>print(...)</code> on the next line with different text.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)
-<span class="fn">print</span>(<span class="str">"Let's learn to code."</span>)</code></div></details>
+<div class="ex-expl">Both values are integers, so <code>+</code> does arithmetic: 2 + 3 = 5.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<details class="faq-item"><summary class="faq-q">&#127881; Full solution (peek only if stuck)</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Hello, Cherry!"</span>)
-<span class="fn">print</span>(<span class="str">"Let's learn to code."</span>)</code></div></details>
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> a program is a list of instructions run top to bottom. <code>print()</code> is your first one &mdash; it shows text, and the exact quotes and parentheses are part of the syntax.</div>
-<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f2')">Exercise 2 &middot; Read an error</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which line is a <strong>syntax error</strong> in Python 3?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">print("hi")</button>
+<button class="quiz-option" onclick="exPick(this)">print "hi"</button>
+<button class="quiz-option" onclick="exPick(this)">x = 5</button>
+<button class="quiz-option" onclick="exPick(this)"># just a note</button>
+</div>
+<div class="ex-expl">In Python 3 <code>print</code> is a function and needs parentheses, so <code>print "hi"</code> is invalid.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What kind of problem is this?<pre>x = 10 / 0
+print(x)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Syntax error &mdash; it won't start</button>
+<button class="quiz-option" onclick="exPick(this)">Runtime error while running</button>
+<button class="quiz-option" onclick="exPick(this)">No error, prints 0</button>
+<button class="quiz-option" onclick="exPick(this)">No error, prints infinity</button>
+</div>
+<div class="ex-expl">The syntax is valid, so it starts &mdash; but dividing by zero raises a <code>ZeroDivisionError</code> at runtime.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> reading code in your head is a core skill. Syntax errors stop a program before it runs; runtime errors only show up once it is running.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f2')">Exercise 2 &middot; Build a greeting</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
 <!-- Exercise F2 -->
 <div class="pg" id="pg-ex-f2">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
-<div class="pt">Exercise 2 &middot; Read Your First Error</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="pt">Exercise 2 &middot; Build a Greeting</div>
+<div class="ps">Difficulty: beginner &middot; build it one step at a time</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> The code below has one mistake and will not run. Find it and fix it.</div>
-<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span><span class="prereq-chip" onclick="go('f09')">F&middot;09 Runtime</span></div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Build a program that stores a name and greets it. Get each step right before moving on.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 Variable</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 String</span><span class="prereq-chip" onclick="go('o05')">O&middot;05 String Concatenation</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Spot the mistake</div>
-<div class="ex-text">Read this code carefully. Something about the quotes is wrong:</div>
-<code class="code-mini"><span class="fn">print</span>(<span class="str">"Welcome to Cherry Code)</span></code>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Count the quote marks. A string needs an opening <strong>and</strong> a closing quote.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a">The closing quote before the <code>)</code> is missing &mdash; this is a <strong>syntax error</strong>.</div></details>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Step 1 &mdash; which line stores the text <code>Cherry</code> in a variable named <code>name</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">name = Cherry</button>
+<button class="quiz-option" onclick="exPick(this)">name = "Cherry"</button>
+<button class="quiz-option" onclick="exPick(this)">"Cherry" = name</button>
+<button class="quiz-option" onclick="exPick(this)">name == "Cherry"</button>
 </div>
-
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Write the fixed line</div>
-<div class="ex-text">Rewrite the line with the closing quote in the right place.</div>
-<textarea class="ex-try" placeholder="Type the corrected line..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">"Welcome to Cherry Code"</span>)</code></div></details>
+<div class="ex-expl">Text must be in quotes, and assignment goes <code>variable = value</code>. <code>==</code> compares, it does not store.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> syntax errors stop code from running at all, and they are the easy ones &mdash; the interpreter points you at the line. A missing or unmatched quote is one of the most common beginner mistakes.</div>
-<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f3')">Exercise 3 &middot; Comment your intent</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Step 2 &mdash; now greet using that variable. Which one works?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">print("Hello, name")</button>
+<button class="quiz-option" onclick="exPick(this)">print("Hello, " + name)</button>
+<button class="quiz-option" onclick="exPick(this)">print(Hello name)</button>
+<button class="quiz-option" onclick="exPick(this)">print("Hello, " name)</button>
+</div>
+<div class="ex-expl">Inside quotes, <code>name</code> is just the word "name". To use the value you concatenate the variable: <code>"Hello, " + name</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Step 3 &mdash; which <strong>f-string</strong> prints <code>Hi, Cherry!</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">print(f"Hi, {name}!")</button>
+<button class="quiz-option" onclick="exPick(this)">print("Hi, {name}!")</button>
+<button class="quiz-option" onclick="exPick(this)">print(f"Hi, name!")</button>
+<button class="quiz-option" onclick="exPick(this)">print(f"Hi, [name]!")</button>
+</div>
+<div class="ex-expl">An f-string needs the <code>f</code> prefix and the variable in <code>{ }</code>: <code>f"Hi, {name}!"</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> store with <code>=</code>, use a variable's value (not its name in quotes), and f-strings are the clean way to drop values into text.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f3')">Exercise 3 &middot; Find the bug</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
 <!-- Exercise F3 -->
 <div class="pg" id="pg-ex-f3">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
-<div class="pt">Exercise 3 &middot; Comment Your Intent</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="pt">Exercise 3 &middot; Find the Bug &amp; Trace It</div>
+<div class="ps">Difficulty: beginner &middot; spot the mistake, then trace the loop</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Add a comment that explains <em>why</em> a line exists, not just what it does.</div>
-<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f02')">F&middot;02 Code</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Diagnose two broken snippets, then trace how many times a loop runs.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span><span class="prereq-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Write a line of code</div>
-<div class="ex-text">Start with a line that sets a price with tax already included.</div>
-<textarea class="ex-try" placeholder="Type your code here..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">price = <span class="num">110</span></code></div></details>
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">This code will not run. What is wrong?<pre>if x > 0
+    print(x)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Missing colon after the condition</button>
+<button class="quiz-option" onclick="exPick(this)">print is misspelled</button>
+<button class="quiz-option" onclick="exPick(this)">x was never created</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it runs fine</button>
 </div>
-
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Add a comment that explains the why</div>
-<div class="ex-text">In Python a comment starts with <code>#</code>. Explain something the code does not say on its own.</div>
-<textarea class="ex-try" placeholder="Add your comment..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Avoid "set price to 110" &mdash; the code already says that. Explain the reason, like the 10% tax.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">price = <span class="num">110</span>  <span class="com"># 100 base + 10% tax, already included</span></code></div></details>
+<div class="ex-expl">Python opens a block with a colon: <code>if x &gt; 0:</code>. Without it, you get a syntax error.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> good comments explain the <em>why</em>, not the obvious <em>what</em>. The computer ignores everything after <code>#</code>, so comments are for humans &mdash; including the future you.</div>
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Why is this a bug?<pre>if score = 100:
+    print("perfect")</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">= assigns; comparing needs ==</button>
+<button class="quiz-option" onclick="exPick(this)">score must be in quotes</button>
+<button class="quiz-option" onclick="exPick(this)">print needs no parentheses</button>
+<button class="quiz-option" onclick="exPick(this)">100 is too large</button>
+</div>
+<div class="ex-expl">A single <code>=</code> assigns a value. To test equality in a condition you need <code>==</code>: <code>if score == 100:</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many lines does this print? Type a number.<pre>for i in range(3):
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>range(3)</code> produces the values 0, 1, 2. Count them.</div></details>
+<div class="ex-expl"><code>range(3)</code> yields 0, 1, 2 &mdash; three values &mdash; so the loop body runs three times.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> two of the most common beginner bugs are a missing colon and using <code>=</code> instead of <code>==</code>. And <code>range(n)</code> stops before <code>n</code>, so it gives exactly <code>n</code> values.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-f1')">Back to Exercise 1</span></div>
 </div>
-
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
@@ -10579,6 +10651,30 @@ function practiceFinish(){
   var done=document.getElementById('practiceDone');
   done.innerHTML='&#10003; Deck complete &mdash; you reviewed '+practiceDeck.length+' cards. Nice work!';
   done.style.display='';
+}
+
+// ============ GUIDED EXERCISES (interactive checking) ============
+function exPick(btn){
+  var q=btn.closest('.ex-q'); if(!q || q.getAttribute('data-done')) return;
+  q.setAttribute('data-done','1');
+  var opts=q.querySelectorAll('.quiz-option');
+  var correct=parseInt(q.getAttribute('data-correct'),10);
+  var picked=Array.prototype.indexOf.call(opts,btn);
+  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('correct'); else if(i===picked)o.classList.add('wrong-selected'); else o.classList.add('fade'); });
+  var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
+  fb.style.display=''; fb.innerHTML='<b>'+(picked===correct?'Correct &middot;':'Not quite &middot;')+'</b> '+(ex?ex.innerHTML:'');
+}
+function exCheck(btn){
+  var q=btn.closest('.ex-q'); if(!q) return;
+  var inp=q.querySelector('.ex-input');
+  var norm=function(s){return (s||'').trim().toLowerCase().replace(/\s+/g,' ');};
+  var val=norm(inp.value);
+  var accepted=(q.getAttribute('data-answers')||'').split('|').map(function(s){return norm(s);});
+  var ok = val!=='' && accepted.indexOf(val)>=0;
+  var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
+  inp.classList.remove('ex-ok','ex-no'); inp.classList.add(ok?'ex-ok':'ex-no');
+  fb.style.display='';
+  fb.innerHTML = ok ? ('<b>Correct &middot;</b> '+(ex?ex.innerHTML:'')) : '<b>Not quite &middot;</b> Try again, or open the hint below.';
 }
 
 // Stub functions - will be replaced when features added
