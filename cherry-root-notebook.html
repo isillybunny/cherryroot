@@ -1030,6 +1030,18 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-n1')">1 &middot; Ports &amp; protocols</span><span class="path-step" onclick="go('ex-n2')">2 &middot; TCP, UDP &amp; OSI</span><span class="path-step" onclick="go('ex-n3')">3 &middot; Devices &amp; defense</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 3 &middot; Linux</div></div>
+<div class="path-desc">Live in the terminal &mdash; core commands, permissions and sudo, pipes, processes and logs.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-l1')">1 &middot; Basic commands</span><span class="path-step" onclick="go('ex-l2')">2 &middot; Permissions &amp; sudo</span><span class="path-step" onclick="go('ex-l3')">3 &middot; Pipes, processes, logs</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 4 &middot; Programming Basics</div></div>
+<div class="path-desc">Read Python output, store and compare values, and pull data from lists and dicts &mdash; the scripting skills a hacker needs.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-p1')">1 &middot; Predict the output</span><span class="path-step" onclick="go('ex-p2')">2 &middot; Variables &amp; logic</span><span class="path-step" onclick="go('ex-p3')">3 &middot; Lists, dicts &amp; files</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1472,6 +1484,313 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> routers join networks, switches join devices; a firewall filters but doesn't stop app-layer attacks; and NAT shares addresses &mdash; it is not a security control.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-n1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise L1 -->
+<div class="pg" id="pg-ex-l1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 1 &middot; Basic Commands</div>
+<div class="ps">Difficulty: beginner &middot; name the command</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match each task to the Linux command that does it. You'll type these every day.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('l05')">L&middot;05 Basic Commands</span><span class="prereq-chip" onclick="go('l09')">L&middot;09 Grep</span></div>
+
+<div class="ex-q" data-answers="ls -a|ls -la|ls -al|ls-a">
+<div class="ex-qtext">Which command lists files <strong>including hidden ones</strong>? (command + flag)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>ls</code> lists files; a flag reveals the dotfiles.</div></details>
+<div class="ex-expl"><code>ls -a</code> (or <code>ls -la</code>) shows hidden dotfiles like <code>.ssh</code> and <code>.env</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="pwd">
+<div class="ex-qtext">Which command prints your current directory path? (3 letters)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>pwd</code> = "print working directory".</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="grep">
+<div class="ex-qtext">Which command searches text for a pattern? (4 letters)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>grep</code> searches files or output for matching lines &mdash; perfect for sifting logs.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>rm</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Moves the file to a trash bin</button>
+<button class="quiz-option" onclick="exPick(this)">Permanently deletes it</button>
+<button class="quiz-option" onclick="exPick(this)">Renames it</button>
+<button class="quiz-option" onclick="exPick(this)">Copies it</button>
+</div>
+<div class="ex-expl">There is no recycle bin in the shell &mdash; <code>rm</code> deletes for good. <code>rm -rf</code> is especially unforgiving.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>ls -a</code> reveals hidden files, <code>pwd</code> shows where you are, <code>grep</code> searches text, and <code>rm</code> deletes permanently.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-l2')">Exercise 2 &middot; Permissions &amp; sudo</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise L2 -->
+<div class="pg" id="pg-ex-l2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 2 &middot; Permissions &amp; Sudo</div>
+<div class="ps">Difficulty: beginner &middot; privilege basics</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Understand who can do what, and why running as root all the time is a bad idea.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('l06')">L&middot;06 File Permissions</span><span class="prereq-chip" onclick="go('l08')">L&middot;08 Root &amp; Sudo</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>chmod 777 file</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Makes it read-only</button>
+<button class="quiz-option" onclick="exPick(this)">Gives everyone full read, write and execute</button>
+<button class="quiz-option" onclick="exPick(this)">Restricts it to the owner</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing useful</button>
+</div>
+<div class="ex-expl">777 = rwx for owner, group and others. Convenient, but almost always too permissive.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="sudo">
+<div class="ex-qtext">Which command runs a <strong>single</strong> command with root privileges? (4 letters)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>sudo</code> elevates just one command, which is far safer than living as root.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Running as root all the time is...</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Recommended for convenience</button>
+<button class="quiz-option" onclick="exPick(this)">Risky &mdash; use least privilege</button>
+<button class="quiz-option" onclick="exPick(this)">Required on Linux</button>
+<button class="quiz-option" onclick="exPick(this)">Faster for the CPU</button>
+</div>
+<div class="ex-expl">As root, any mistake or malware has full control. Use a normal account and elevate only when needed.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="/etc/shadow">
+<div class="ex-qtext">Which file stores Linux password hashes? Type the full path.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="/..." autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It lives in <code>/etc/</code> and is readable only by root &mdash; the "shadow" of the old passwd file.</div></details>
+<div class="ex-expl"><code>/etc/shadow</code> holds the hashed passwords, readable only by root.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> 777 is full access for everyone, <code>sudo</code> elevates one command, least privilege beats living as root, and password hashes live in <code>/etc/shadow</code>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-l3')">Exercise 3 &middot; Pipes, processes, logs</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise L3 -->
+<div class="pg" id="pg-ex-l3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 3 &middot; Pipes, Processes &amp; Logs</div>
+<div class="ps">Difficulty: beginner &middot; chaining and investigating</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Chain commands, redirect output, and know where to look when investigating.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('l10')">L&middot;10 Pipe &amp; Redirect</span><span class="prereq-chip" onclick="go('l11')">L&middot;11 Processes</span><span class="prereq-chip" onclick="go('l15')">L&middot;15 Log Files</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does the pipe <code>|</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Writes output to a file</button>
+<button class="quiz-option" onclick="exPick(this)">Feeds one command's output into the next</button>
+<button class="quiz-option" onclick="exPick(this)">Comments out a line</button>
+<button class="quiz-option" onclick="exPick(this)">Deletes a file</button>
+</div>
+<div class="ex-expl">A pipe connects programs &mdash; e.g. <code>cat log | grep error</code> sends the file into grep.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Between <code>&gt;</code> and <code>&gt;&gt;</code>, which one <strong>appends</strong> to a file?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">&gt; (single)</button>
+<button class="quiz-option" onclick="exPick(this)">&gt;&gt; (double)</button>
+</div>
+<div class="ex-expl"><code>&gt;</code> overwrites the whole file; <code>&gt;&gt;</code> appends to the end.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="/var/log">
+<div class="ex-qtext">Which directory holds most Linux log files? Type the path.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="/..." autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Logs live under <code>/var/log</code> &mdash; the first place to investigate, and what attackers try to clear.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="ps">
+<div class="ex-qtext">Which command lists running processes? (2 letters)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Usually run as <code>ps aux</code> to see everything.</div></details>
+<div class="ex-expl"><code>ps</code> (often <code>ps aux</code>) lists processes &mdash; handy for spotting malware.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>|</code> chains commands, <code>&gt;</code> overwrites while <code>&gt;&gt;</code> appends, logs live in <code>/var/log</code>, and <code>ps</code> lists processes.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-l1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise P1 -->
+<div class="pg" id="pg-ex-p1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 1 &middot; Predict the Output</div>
+<div class="ps">Difficulty: beginner &middot; read the Python, type the result</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Run small Python snippets in your head. Automation starts with reading code confidently.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p01')">P&middot;01 Programming Logic</span><span class="prereq-chip" onclick="go('p08')">P&middot;08 String Manipulation</span><span class="prereq-chip" onclick="go('p04')">P&middot;04 Loop</span></div>
+
+<div class="ex-q" data-answers="4">
+<div class="ex-qtext">What does this print?<pre>print(2 + 2)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Plain integer addition: 2 + 2 = 4.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="abcd">
+<div class="ex-qtext">What does this print?<pre>print("ab" + "cd")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>+</code> on strings joins them: <code>abcd</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3">
+<div class="ex-qtext">What does this print?<pre>print(len([1, 2, 3]))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>len</code> counts the items in the list: 3.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many lines does this print?<pre>for i in range(3):
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>range(3)</code> produces 0, 1, 2.</div></details>
+<div class="ex-expl"><code>range(3)</code> yields three values, so the loop runs 3 times.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>+</code> adds numbers but joins strings, <code>len</code> counts items, and <code>range(n)</code> gives <code>n</code> values.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-p2')">Exercise 2 &middot; Variables &amp; logic</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise P2 -->
+<div class="pg" id="pg-ex-p2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 2 &middot; Variables &amp; Logic</div>
+<div class="ps">Difficulty: beginner &middot; store, compare, decide</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Store values, compare them correctly, and index a list &mdash; the building blocks of any script.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p02')">P&middot;02 Variable</span><span class="prereq-chip" onclick="go('p05')">P&middot;05 Condition</span><span class="prereq-chip" onclick="go('p10')">P&middot;10 Python for Hackers</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">How do you store 80 in a variable named <code>port</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">port = 80</button>
+<button class="quiz-option" onclick="exPick(this)">port == 80</button>
+<button class="quiz-option" onclick="exPick(this)">80 = port</button>
+<button class="quiz-option" onclick="exPick(this)">port : 80</button>
+</div>
+<div class="ex-expl">Assignment is <code>variable = value</code>. <code>==</code> compares; it does not store.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">To <strong>compare</strong> two values in a condition, which operator do you use?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">=</button>
+<button class="quiz-option" onclick="exPick(this)">==</button>
+<button class="quiz-option" onclick="exPick(this)">=&gt;</button>
+<button class="quiz-option" onclick="exPick(this)">:=</button>
+</div>
+<div class="ex-expl"><code>==</code> tests equality; a single <code>=</code> assigns.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="20">
+<div class="ex-qtext">Given <code>nums = [10, 20, 30]</code>, what is <code>nums[1]</code>?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the value" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Index 0 is the first item, so index 1 is the second.</div></details>
+<div class="ex-expl">Lists are zero-indexed, so <code>nums[1]</code> is the second item: 20.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why do hackers script in Python?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">It's the only language that works</button>
+<button class="quiz-option" onclick="exPick(this)">Automation &mdash; scanning, brute force, parsing</button>
+<button class="quiz-option" onclick="exPick(this)">It is required by law</button>
+<button class="quiz-option" onclick="exPick(this)">It runs directly on hardware</button>
+</div>
+<div class="ex-expl">Python is quick to write and has libraries for everything &mdash; perfect for automating repetitive tasks.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> store with <code>=</code>, compare with <code>==</code>, lists start at index 0, and Python's strength for hackers is fast automation.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-p3')">Exercise 3 &middot; Lists, dicts &amp; files</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise P3 -->
+<div class="pg" id="pg-ex-p3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 3 &middot; Lists, Dicts &amp; Files</div>
+<div class="ps">Difficulty: beginner &middot; handle data safely</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read values out of a dict, do it safely, and open files the right way.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p07')">P&middot;07 Dictionary</span><span class="prereq-chip" onclick="go('p09')">P&middot;09 File I/O</span><span class="prereq-chip" onclick="go('p10')">P&middot;10 Python for Hackers</span></div>
+
+<div class="ex-q" data-answers="admin">
+<div class="ex-qtext">Given <code>d = {"user": "admin"}</code>, what does <code>d["user"]</code> give?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the value" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A dict fetches the value for a key, so <code>d["user"]</code> is <code>admin</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which safely reads a key that <strong>might be missing</strong> (no crash)?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">d["x"]</button>
+<button class="quiz-option" onclick="exPick(this)">d.get("x")</button>
+<button class="quiz-option" onclick="exPick(this)">d.x</button>
+<button class="quiz-option" onclick="exPick(this)">d-&gt;x</button>
+</div>
+<div class="ex-expl"><code>d.get("x")</code> returns <code>None</code> if the key is missing; <code>d["x"]</code> raises a KeyError.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's the best way to open a file so it closes automatically?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">open(f)</button>
+<button class="quiz-option" onclick="exPick(this)">with open(f) as x:</button>
+<button class="quiz-option" onclick="exPick(this)">file(f)</button>
+<button class="quiz-option" onclick="exPick(this)">read(f)</button>
+</div>
+<div class="ex-expl">A <code>with</code> block closes the file for you, even if an error happens partway.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="requests">
+<div class="ex-qtext">Which popular Python library is used to make HTTP requests? (one word, lowercase)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="library name" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Its name is literally the plural of what you send to a server.</div></details>
+<div class="ex-expl">The <code>requests</code> library is the go-to for HTTP in Python &mdash; great for testing APIs and web apps.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> dicts fetch by key, <code>.get()</code> avoids crashes on missing keys, <code>with open(...)</code> auto-closes files, and <code>requests</code> handles HTTP.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-p1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
