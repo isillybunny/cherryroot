@@ -1054,6 +1054,18 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-a1')">1 &middot; Identify the attack</span><span class="path-step" onclick="go('ex-a2')">2 &middot; The right fix</span><span class="path-step" onclick="go('ex-a3')">3 &middot; Spot &amp; reason</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 7 &middot; Pentest Tools</div></div>
+<div class="path-desc">Match the job to the tool &mdash; nmap, Burp, Wireshark, Hashcat, Hydra, curl and friends.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-t1')">1 &middot; Match the tool</span><span class="path-step" onclick="go('ex-t2')">2 &middot; nmap &amp; ports</span><span class="path-step" onclick="go('ex-t3')">3 &middot; Cracking &amp; web tools</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 8 &middot; Pentest Methodology</div></div>
+<div class="path-desc">The kill chain in order &mdash; recon to report &mdash; and the reasoning behind each phase.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-m1')">1 &middot; Order the phases</span><span class="path-step" onclick="go('ex-m2')">2 &middot; Name the phase</span><span class="path-step" onclick="go('ex-m3')">3 &middot; Reason it through</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -2148,6 +2160,354 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> a WAF filters but doesn't fix, <code>../</code> escapes folders, simultaneous requests cause race conditions, and the root cause of injection is trusting untrusted input.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-a1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise T1 -->
+<div class="pg" id="pg-ex-t1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 1 &middot; Match the Tool</div>
+<div class="ps">Difficulty: beginner &middot; pick the right tool for the job</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Given a task, choose the tool a pentester would reach for.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 nmap</span><span class="prereq-chip" onclick="go('t02')">T&middot;02 Burp Suite</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 Wireshark</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Discover the open ports on a host. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+<button class="quiz-option" onclick="exPick(this)">curl</button>
+</div>
+<div class="ex-expl"><code>nmap</code> is the standard port and service scanner.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Intercept and edit HTTP requests from the browser. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
+<button class="quiz-option" onclick="exPick(this)">netcat</button>
+</div>
+<div class="ex-expl">Burp Suite is the intercepting proxy for web app testing.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Crack password hashes fast using a GPU. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
+<button class="quiz-option" onclick="exPick(this)">Gobuster</button>
+</div>
+<div class="ex-expl">Hashcat is GPU-optimized for offline hash cracking.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Capture and analyse raw network packets. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
+<button class="quiz-option" onclick="exPick(this)">curl</button>
+</div>
+<div class="ex-expl">Wireshark captures and inspects packets &mdash; great for seeing plaintext traffic.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> nmap = ports, Burp = web proxy, Hashcat = GPU cracking, Wireshark = packet analysis. Right tool, right job.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-t2')">Exercise 2 &middot; nmap &amp; ports</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise T2 -->
+<div class="pg" id="pg-ex-t2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 2 &middot; nmap &amp; Ports</div>
+<div class="ps">Difficulty: beginner &middot; scanning basics</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Know a couple of nmap basics, a key port, and the rules of scanning.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 nmap</span><span class="prereq-chip" onclick="go('t05')">T&middot;05 sqlmap</span><span class="prereq-chip" onclick="go('n10')">N&middot;10 Ports &amp; Protocols</span></div>
+
+<div class="ex-q" data-answers="-sv">
+<div class="ex-qtext">Which nmap flag detects service <strong>versions</strong>? (type the flag, e.g. <code>-sX</code>)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the flag" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It's <code>-s</code> followed by a capital V (for Version).</div></details>
+<div class="ex-expl"><code>-sV</code> probes each open port to identify the service and its version.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="443">
+<div class="ex-qtext">Which port does HTTPS use by default? (number)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">HTTPS listens on port <strong>443</strong> (plain HTTP is 80).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Is it legal to scan any host you want?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Yes, scanning is always fine</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; only systems you're authorized to test</button>
+<button class="quiz-option" onclick="exPick(this)">Only on weekends</button>
+<button class="quiz-option" onclick="exPick(this)">Only with a VPN</button>
+</div>
+<div class="ex-expl">Unauthorized scanning can be a crime. Always get written permission for the target.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which tool automates finding and exploiting SQL injection?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">netcat</button>
+</div>
+<div class="ex-expl"><code>sqlmap</code> detects and exploits SQLi automatically &mdash; use only on authorized targets.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>-sV</code> finds service versions, HTTPS is port 443, scanning needs authorization, and sqlmap automates SQL injection.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-t3')">Exercise 3 &middot; Cracking &amp; web tools</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise T3 -->
+<div class="pg" id="pg-ex-t3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 3 &middot; Cracking &amp; Web Tools</div>
+<div class="ps">Difficulty: beginner &middot; passwords and HTTP</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell the cracking tools apart and know the everyday web helpers.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t09')">T&middot;09 Hydra</span><span class="prereq-chip" onclick="go('t08')">T&middot;08 Hashcat</span><span class="prereq-chip" onclick="go('t11')">T&middot;11 curl</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Brute-forcing an SSH <strong>login</strong> over the network. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+<button class="quiz-option" onclick="exPick(this)">curl</button>
+</div>
+<div class="ex-expl">Hydra does online brute force against live services like SSH. (Hashcat/John crack captured hashes offline.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Hashcat vs John the Ripper &mdash; which is the GPU-focused cracker?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
+</div>
+<div class="ex-expl">Hashcat is built for GPUs; John is primarily CPU-based.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="curl">
+<div class="ex-qtext">Which command-line tool sends HTTP requests from a script? (4 letters)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the tool" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>curl</code> crafts HTTP requests from the terminal &mdash; perfect for testing APIs and reproducing requests.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Find hidden web directories and files. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Gobuster</button>
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">netcat</button>
+<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+</div>
+<div class="ex-expl">Gobuster (or dirb) brute-forces paths using a wordlist to uncover hidden endpoints.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> Hydra = online login brute force, Hashcat = GPU offline cracking, curl = scripted HTTP, Gobuster = directory busting.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-t1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise M1 -->
+<div class="pg" id="pg-ex-m1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 1 &middot; Order the Phases</div>
+<div class="ps">Difficulty: beginner &middot; first things first</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Know where each phase sits in an engagement, from first contact to final report.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('m01')">M&middot;01 Reconnaissance</span><span class="prereq-chip" onclick="go('m05')">M&middot;05 Privilege Escalation</span><span class="prereq-chip" onclick="go('m10')">M&middot;10 Reporting</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What is the <strong>first</strong> phase of an engagement?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Exploitation</button>
+<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)">Reporting</button>
+<button class="quiz-option" onclick="exPick(this)">Persistence</button>
+</div>
+<div class="ex-expl">Recon comes first &mdash; you gather information before you touch anything.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Gathering info from public sources, sending no packets to the target, is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Active scanning</button>
+<button class="quiz-option" onclick="exPick(this)">Passive reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)">Exploitation</button>
+<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
+</div>
+<div class="ex-expl">Passive recon (OSINT) uses public data, so it never touches the target &mdash; quiet and low-risk.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">After landing a low-privilege shell, the usual next goal is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Reporting</button>
+<button class="quiz-option" onclick="exPick(this)">Privilege escalation</button>
+<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)">Covering tracks</button>
+</div>
+<div class="ex-expl">You usually land limited, then escalate to root/admin to gain full control.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What is the <strong>final</strong> deliverable the client actually pays for?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">The exploit</button>
+<button class="quiz-option" onclick="exPick(this)">The report</button>
+<button class="quiz-option" onclick="exPick(this)">The shell</button>
+<button class="quiz-option" onclick="exPick(this)">The scan output</button>
+</div>
+<div class="ex-expl">The report is the product &mdash; findings only create value when communicated clearly enough to fix.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> the flow is recon &rarr; scan &rarr; enumerate &rarr; exploit &rarr; escalate ... &rarr; report. Recon is first; the report is the deliverable.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-m2')">Exercise 2 &middot; Name the phase</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise M2 -->
+<div class="pg" id="pg-ex-m2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 2 &middot; Name the Phase</div>
+<div class="ps">Difficulty: beginner &middot; describe &rarr; phase</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match each activity to the methodology phase it belongs to.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('m03')">M&middot;03 Enumeration</span><span class="prereq-chip" onclick="go('m06')">M&middot;06 Persistence</span><span class="prereq-chip" onclick="go('m08')">M&middot;08 Exfiltration</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Digging into a service for usernames, versions and shares is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Scanning</button>
+<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
+<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
+</div>
+<div class="ex-expl">Enumeration extracts detail from the services scanning found.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Keeping access so you survive a reboot is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Persistence</button>
+<button class="quiz-option" onclick="exPick(this)">Lateral movement</button>
+<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)">Scanning</button>
+</div>
+<div class="ex-expl">Persistence is establishing a foothold that survives reboots and disconnects.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Pivoting from the first machine to others on the network is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Privilege escalation</button>
+<button class="quiz-option" onclick="exPick(this)">Lateral movement</button>
+<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
+<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+</div>
+<div class="ex-expl">Lateral movement spreads from the initial host toward higher-value systems.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Stealing the data out of the network is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
+<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
+<button class="quiz-option" onclick="exPick(this)">Scanning</button>
+<button class="quiz-option" onclick="exPick(this)">Reporting</button>
+</div>
+<div class="ex-expl">Exfiltration is the actual data theft &mdash; often hidden inside normal traffic like HTTPS or DNS.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> enumeration = detail from services, persistence = surviving reboots, lateral movement = pivoting, exfiltration = data theft.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-m3')">Exercise 3 &middot; Reason it through</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise M3 -->
+<div class="pg" id="pg-ex-m3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 3 &middot; Reason It Through</div>
+<div class="ps">Difficulty: beginner &middot; the why behind the phases</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Reason about why the methodology works the way it does.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('m01')">M&middot;01 Reconnaissance</span><span class="prereq-chip" onclick="go('m09')">M&middot;09 Covering Tracks</span><span class="prereq-chip" onclick="go('m10')">M&middot;10 Reporting</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why do recon first?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">It's optional busywork</button>
+<button class="quiz-option" onclick="exPick(this)">It shapes the whole engagement</button>
+<button class="quiz-option" onclick="exPick(this)">It's actually the last step</button>
+<button class="quiz-option" onclick="exPick(this)">Only to cover tracks</button>
+</div>
+<div class="ex-expl">Knowing the target up front makes every later step faster and more accurate.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Killing a malicious process always removes the threat &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; it can respawn (persistence)</button>
+</div>
+<div class="ex-expl">Persistent malware restarts itself, so killing the process is not enough &mdash; you must remove its persistence.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Clearing the local logs hides everything &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; central logging / SIEM keeps copies</button>
+</div>
+<div class="ex-expl">Logs shipped off the host survive a local wipe &mdash; and a sudden gap in logs is itself an alert.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="remediation|fixes|fix|remediations">
+<div class="ex-qtext">A good report includes findings, severity, evidence and ____. (one word: the fix)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The client needs to know how to <em>fix</em> each finding &mdash; the recommended action.</div></details>
+<div class="ex-expl"><strong>Remediation</strong> &mdash; a finding without a recommended fix is hard for the client to act on.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> recon shapes everything, killing a process doesn't beat persistence, central logging survives a local wipe, and a report needs remediation advice.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-m1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
