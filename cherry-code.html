@@ -756,6 +756,10 @@ body.dark .ex-step{background:var(--page)}
 .ex-fb{margin-top:.6rem;font-size:.83rem;color:var(--ink2);line-height:1.5;padding:.55rem .75rem;background:var(--p50);border-radius:8px}
 .ex-fb b{color:var(--p500)}
 .ex-expl{display:none}
+.quiz-option.ex-correct{background:var(--p50);border-color:var(--p500);border-width:2px;color:var(--ink);font-weight:600}
+.quiz-option.ex-correct::before{content:'\2713\00a0';color:var(--p500);font-weight:700}
+.quiz-option.ex-wrong{opacity:.6;border-style:dashed;border-color:var(--p300);color:var(--ink3)}
+.quiz-option.ex-wrong::before{content:'\2717\00a0';color:var(--ink3)}
 body.dark .ex-q{background:var(--page)}
 </style>
 </head>
@@ -1054,21 +1058,31 @@ Review Mode
 <div class="pg" id="pg-ex-f1">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
-<div class="pt">Exercise 1 &middot; What Does It Do?</div>
-<div class="ps">Difficulty: beginner &middot; read the code, then answer</div>
+<div class="pt">Exercise 1 &middot; Predict the Output</div>
+<div class="ps">Difficulty: beginner &middot; read the code, type what it prints</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Predict what the computer does &mdash; no running it. Answer each one and check.</div>
-<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f01')">F&middot;01 Programming</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('f08')">F&middot;08 Syntax</span></div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Run the code in your head and type exactly what it prints. Then check.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f01')">F&middot;01 Programming</span><span class="prereq-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 String</span></div>
 
-<div class="ex-q" data-correct="1">
+<div class="ex-q" data-answers="5">
 <div class="ex-qtext">What does this print?<pre>print(2 + 3)</pre></div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">23</button>
-<button class="quiz-option" onclick="exPick(this)">5</button>
-<button class="quiz-option" onclick="exPick(this)">"2+3"</button>
-<button class="quiz-option" onclick="exPick(this)">Error</button>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Both are integers, so <code>+</code> adds them: 2 + 3 = 5.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
-<div class="ex-expl">Both values are integers, so <code>+</code> does arithmetic: 2 + 3 = 5.</div>
+
+<div class="ex-q" data-answers="1">
+<div class="ex-qtext">What does this print?<pre>print(10 % 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>%</code> is the remainder. 10 divided by 3 is 3 with something left over.</div></details>
+<div class="ex-expl">10 = 3&times;3 + 1, so the remainder is 1.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="hahaha">
+<div class="ex-qtext">What does this print?<pre>print("ha" * 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A string times a number repeats it: "ha" three times is <code>hahaha</code>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -1084,20 +1098,7 @@ Review Mode
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-q" data-correct="1">
-<div class="ex-qtext">What kind of problem is this?<pre>x = 10 / 0
-print(x)</pre></div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Syntax error &mdash; it won't start</button>
-<button class="quiz-option" onclick="exPick(this)">Runtime error while running</button>
-<button class="quiz-option" onclick="exPick(this)">No error, prints 0</button>
-<button class="quiz-option" onclick="exPick(this)">No error, prints infinity</button>
-</div>
-<div class="ex-expl">The syntax is valid, so it starts &mdash; but dividing by zero raises a <code>ZeroDivisionError</code> at runtime.</div>
-<div class="ex-fb" style="display:none"></div>
-</div>
-
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> reading code in your head is a core skill. Syntax errors stop a program before it runs; runtime errors only show up once it is running.</div>
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> reading code in your head is a core skill. <code>+</code> adds numbers, <code>%</code> gives the remainder, and <code>*</code> on a string repeats it.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f2')">Exercise 2 &middot; Build a greeting</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
@@ -1135,19 +1136,15 @@ print(x)</pre></div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-q" data-correct="0">
-<div class="ex-qtext">Step 3 &mdash; which <strong>f-string</strong> prints <code>Hi, Cherry!</code>?</div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">print(f"Hi, {name}!")</button>
-<button class="quiz-option" onclick="exPick(this)">print("Hi, {name}!")</button>
-<button class="quiz-option" onclick="exPick(this)">print(f"Hi, name!")</button>
-<button class="quiz-option" onclick="exPick(this)">print(f"Hi, [name]!")</button>
-</div>
-<div class="ex-expl">An f-string needs the <code>f</code> prefix and the variable in <code>{ }</code>: <code>f"Hi, {name}!"</code>.</div>
+<div class="ex-q" data-answers="hi, cherry!|hi,cherry!">
+<div class="ex-qtext">Step 3 &mdash; with <code>name = "Cherry"</code>, type exactly what this prints:<pre>print(f"Hi, {name}!")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The <code>f</code> makes Python replace <code>{name}</code> with the value of <code>name</code>.</div></details>
+<div class="ex-expl"><code>{name}</code> becomes <code>Cherry</code>, so it prints <code>Hi, Cherry!</code>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> store with <code>=</code>, use a variable's value (not its name in quotes), and f-strings are the clean way to drop values into text.</div>
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> store with <code>=</code>, use a variable's value (not its name in quotes), and an f-string drops values into text with <code>{ }</code>.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-f3')">Exercise 3 &middot; Find the bug</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
@@ -1156,13 +1153,13 @@ print(x)</pre></div>
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 1</div>
 <div class="pt">Exercise 3 &middot; Find the Bug &amp; Trace It</div>
-<div class="ps">Difficulty: beginner &middot; spot the mistake, then trace the loop</div>
+<div class="ps">Difficulty: beginner &middot; diagnose, then trace</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Diagnose two broken snippets, then trace how many times a loop runs.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Diagnose two broken snippets, then trace exactly what two loops do.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('f04')">F&middot;04 Bug</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span><span class="prereq-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">This code will not run. What is wrong?<pre>if x > 0
+<div class="ex-qtext">This will not run. What is wrong?<pre>if x > 0
     print(x)</pre></div>
 <div class="ex-opts">
 <button class="quiz-option" onclick="exPick(this)">Missing colon after the condition</button>
@@ -1170,7 +1167,7 @@ print(x)</pre></div>
 <button class="quiz-option" onclick="exPick(this)">x was never created</button>
 <button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it runs fine</button>
 </div>
-<div class="ex-expl">Python opens a block with a colon: <code>if x &gt; 0:</code>. Without it, you get a syntax error.</div>
+<div class="ex-expl">Python opens a block with a colon: <code>if x &gt; 0:</code>. Without it you get a syntax error.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -1183,20 +1180,28 @@ print(x)</pre></div>
 <button class="quiz-option" onclick="exPick(this)">print needs no parentheses</button>
 <button class="quiz-option" onclick="exPick(this)">100 is too large</button>
 </div>
-<div class="ex-expl">A single <code>=</code> assigns a value. To test equality in a condition you need <code>==</code>: <code>if score == 100:</code>.</div>
+<div class="ex-expl">A single <code>=</code> assigns. To test equality in a condition you need <code>==</code>: <code>if score == 100:</code>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="3|three">
 <div class="ex-qtext">How many lines does this print? Type a number.<pre>for i in range(3):
     print(i)</pre></div>
-<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>range(3)</code> produces the values 0, 1, 2. Count them.</div></details>
-<div class="ex-expl"><code>range(3)</code> yields 0, 1, 2 &mdash; three values &mdash; so the loop body runs three times.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>range(3)</code> produces 0, 1, 2. Count them.</div></details>
+<div class="ex-expl"><code>range(3)</code> yields 0, 1, 2 &mdash; three values &mdash; so it prints three lines.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> two of the most common beginner bugs are a missing colon and using <code>=</code> instead of <code>==</code>. And <code>range(n)</code> stops before <code>n</code>, so it gives exactly <code>n</code> values.</div>
+<div class="ex-q" data-answers="4|four">
+<div class="ex-qtext">What is the <strong>last</strong> number printed here?<pre>for i in range(5):
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="last number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>range(5)</code> stops before 5, so it prints 0, 1, 2, 3, 4 &mdash; the last is 4.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> two classic beginner bugs are a missing colon and using <code>=</code> instead of <code>==</code>. And <code>range(n)</code> gives 0 up to n-1 &mdash; exactly <code>n</code> values.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-f1')">Back to Exercise 1</span></div>
 </div>
 <!-- ============ PRACTICE MODE ============ -->
@@ -10660,7 +10665,7 @@ function exPick(btn){
   var opts=q.querySelectorAll('.quiz-option');
   var correct=parseInt(q.getAttribute('data-correct'),10);
   var picked=Array.prototype.indexOf.call(opts,btn);
-  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('correct'); else if(i===picked)o.classList.add('wrong-selected'); else o.classList.add('fade'); });
+  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('ex-correct'); else if(i===picked)o.classList.add('ex-wrong'); else o.classList.add('fade'); });
   var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
   fb.style.display=''; fb.innerHTML='<b>'+(picked===correct?'Correct &middot;':'Not quite &middot;')+'</b> '+(ex?ex.innerHTML:'');
 }

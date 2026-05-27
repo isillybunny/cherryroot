@@ -691,6 +691,10 @@ body.dark .ex-step{background:var(--page)}
 .ex-fb{margin-top:.6rem;font-size:.83rem;color:var(--ink2);line-height:1.5;padding:.55rem .75rem;background:var(--p50);border-radius:8px}
 .ex-fb b{color:var(--p500)}
 .ex-expl{display:none}
+.quiz-option.ex-correct{background:var(--p50);border-color:var(--p500);border-width:2px;color:var(--ink);font-weight:600}
+.quiz-option.ex-correct::before{content:'\2713\00a0';color:var(--p500);font-weight:700}
+.quiz-option.ex-wrong{opacity:.6;border-style:dashed;border-color:var(--p300);color:var(--ink3)}
+.quiz-option.ex-wrong::before{content:'\2717\00a0';color:var(--ink3)}
 body.dark .ex-q{background:var(--page)}
 </style>
 </head>
@@ -1022,35 +1026,30 @@ Review Mode
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
 <div class="pt">Exercise 1 &middot; Decode Binary</div>
-<div class="ps">Difficulty: beginner &middot; work it out, then check</div>
+<div class="ps">Difficulty: beginner &middot; work it out, type the number</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Convert binary numbers to decimal by hand. Answer each and check.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Convert binary numbers to decimal by hand. Place the digits under 8 4 2 1, then add the places that have a 1.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b06')">B&middot;06 Binary &amp; Hex</span><span class="prereq-chip" onclick="go('b02')">B&middot;02 CPU</span></div>
 
-<div class="ex-q" data-correct="1">
-<div class="ex-qtext">The four binary places, from right to left, are worth:</div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">1, 2, 4, 6</button>
-<button class="quiz-option" onclick="exPick(this)">8, 4, 2, 1</button>
-<button class="quiz-option" onclick="exPick(this)">2, 4, 8, 16</button>
-<button class="quiz-option" onclick="exPick(this)">1, 1, 1, 1</button>
-</div>
-<div class="ex-expl">Each place doubles from the right: 1, 2, 4, 8 &mdash; so a 4-bit number lines up under 8 4 2 1.</div>
-<div class="ex-fb" style="display:none"></div>
-</div>
-
 <div class="ex-q" data-answers="11|eleven">
-<div class="ex-qtext">What is binary <code>1011</code> in decimal? Type a number.</div>
-<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Place the digits under 8 4 2 1, then add only the places that have a 1.</div></details>
+<div class="ex-qtext">What is binary <code>1011</code> in decimal?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Under 8 4 2 1: the 1s are over 8, 2 and 1. Add those.</div></details>
 <div class="ex-expl">8 + 0 + 2 + 1 = <strong>11</strong>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="4|four">
-<div class="ex-qtext">And what is binary <code>100</code> in decimal?</div>
-<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
-<div class="ex-expl">The only 1 sits in the 4s place: 4 + 0 + 0 = <strong>4</strong>.</div>
+<div class="ex-qtext">What is binary <code>100</code> in decimal?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Only the 4s place has a 1: 4 + 0 + 0 = <strong>4</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="15|fifteen">
+<div class="ex-qtext">What is binary <code>1111</code> in decimal?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="type a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">All four places are on: 8 + 4 + 2 + 1 = <strong>15</strong> &mdash; the largest a 4-bit number holds.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -1065,7 +1064,7 @@ Review Mode
 <div class="pt">Exercise 2 &middot; Read File Permissions</div>
 <div class="ps">Difficulty: beginner &middot; read the string, then answer</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the permission string <code>-rwxr-xr--</code> and answer what each party can do.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the permission string <code>-rwxr-xr--</code> (owner / group / others, each r-w-x).</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b09')">B&middot;09 Permissions</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
 
 <div class="ex-q" data-correct="2">
@@ -1080,15 +1079,11 @@ Review Mode
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-q" data-correct="1">
-<div class="ex-qtext">Who is allowed to <strong>modify</strong> (write to) this file?</div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Everyone</button>
-<button class="quiz-option" onclick="exPick(this)">Only the owner</button>
-<button class="quiz-option" onclick="exPick(this)">The owner and the group</button>
-<button class="quiz-option" onclick="exPick(this)">Nobody</button>
-</div>
-<div class="ex-expl">Only the owner group <code>rwx</code> includes <code>w</code>. Group is <code>r-x</code> and others <code>r--</code> &mdash; neither can write.</div>
+<div class="ex-q" data-answers="1|one">
+<div class="ex-qtext">How many of the three groups (owner, group, others) are allowed to <strong>write</strong> to this file? Type a number.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Look for the <code>w</code> in each group: owner <code>rwx</code>, group <code>r-x</code>, others <code>r--</code>.</div></details>
+<div class="ex-expl">Only the owner's <code>rwx</code> contains a <code>w</code>. Group and others cannot write &mdash; so just <strong>1</strong>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -1104,7 +1099,7 @@ Review Mode
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> a permission string is owner / group / others, each with r-w-x. Reading it tells you instantly whether a file is over-exposed &mdash; like a secret that others can read.</div>
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a permission string is owner / group / others, each with r-w-x. Reading it tells you instantly whether a file is over-exposed.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b3')">Exercise 3 &middot; Build a path</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
@@ -1113,13 +1108,13 @@ Review Mode
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
 <div class="pt">Exercise 3 &middot; Build a Path</div>
-<div class="ps">Difficulty: beginner &middot; read the tree, then answer</div>
+<div class="ps">Difficulty: beginner &middot; read the tree, type the path</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Use the folder tree to build an absolute path, and understand why relative paths can be risky.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Use the folder tree to build an absolute path, and understand why <code>../</code> can be risky.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b08')">B&middot;08 Path</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
 
 <div class="ex-q" data-answers="/home/cherry/notes.txt">
-<div class="ex-qtext">Given this tree, type the <strong>absolute path</strong> to <code>notes.txt</code>.<pre>/
+<div class="ex-qtext">Type the <strong>absolute path</strong> to <code>notes.txt</code>:<pre>/
   home/
     cherry/
       notes.txt</pre></div>
@@ -1129,15 +1124,10 @@ Review Mode
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-q" data-correct="2">
-<div class="ex-qtext">Which of these is an <strong>absolute</strong> path?</div>
-<div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">notes.txt</button>
-<button class="quiz-option" onclick="exPick(this)">../cherry</button>
-<button class="quiz-option" onclick="exPick(this)">/etc/passwd</button>
-<button class="quiz-option" onclick="exPick(this)">cherry/notes.txt</button>
-</div>
-<div class="ex-expl">An absolute path starts at the root <code>/</code>. The others are relative to wherever you currently are.</div>
+<div class="ex-q" data-answers="notes.txt">
+<div class="ex-qtext">In the path <code>/home/cherry/notes.txt</code>, what is the <strong>file name</strong>?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the file" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The part after the last <code>/</code> is the file: <code>notes.txt</code>. Everything before it is folders.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -1153,7 +1143,7 @@ Review Mode
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> absolute paths start at <code>/</code> and are unambiguous; relative paths depend on where you are. That ambiguity, plus <code>../</code>, is exactly what path-traversal attacks abuse.</div>
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> absolute paths start at <code>/</code> and are unambiguous; the file name is the part after the last <code>/</code>. Relative paths and <code>../</code> depend on where you are &mdash; exactly what path-traversal attacks abuse.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-b1')">Back to Exercise 1</span></div>
 </div>
 <!-- ============ PRACTICE MODE ============ -->
@@ -6940,7 +6930,7 @@ function exPick(btn){
   var opts=q.querySelectorAll('.quiz-option');
   var correct=parseInt(q.getAttribute('data-correct'),10);
   var picked=Array.prototype.indexOf.call(opts,btn);
-  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('correct'); else if(i===picked)o.classList.add('wrong-selected'); else o.classList.add('fade'); });
+  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('ex-correct'); else if(i===picked)o.classList.add('ex-wrong'); else o.classList.add('fade'); });
   var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
   fb.style.display=''; fb.innerHTML='<b>'+(picked===correct?'Correct &middot;':'Not quite &middot;')+'</b> '+(ex?ex.innerHTML:'');
 }
