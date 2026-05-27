@@ -665,6 +665,19 @@ body.dark .sc-btn{background:var(--page)}
 .fc-rem{font-size:.82rem;color:var(--ink2);line-height:1.5;border-top:1px solid var(--line);padding-top:.7rem}
 .practice-actions{display:flex;gap:.6rem;justify-content:center;margin-top:.9rem}
 body.dark .flashcard,body.dark .practice-done{background:var(--page)}
+
+/* ===== GUIDED EXERCISES ===== */
+.ex-goal{background:var(--p50);border:1px solid var(--p200);border-left:3px solid var(--p400);border-radius:0 10px 10px 0;padding:.7rem .9rem;margin-bottom:.9rem;font-size:.9rem;color:var(--ink);line-height:1.5}
+.ex-goal strong,.ex-recap strong{color:var(--p500)}
+.ex-uses{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:1.1rem}
+.ex-uses-label{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--p400);font-weight:600;margin-right:.2rem}
+.ex-step{border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;margin-bottom:.8rem;background:white}
+.ex-step-head{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:.5rem}
+.ex-step-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--p100);border:1px solid var(--p200);color:var(--p500);font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.ex-text{font-size:.85rem;color:var(--ink2);line-height:1.55;margin-bottom:.5rem}
+.ex-try{width:100%;box-sizing:border-box;min-height:58px;font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:8px;padding:.55rem .7rem;resize:vertical;margin-bottom:.5rem}
+.ex-recap{background:var(--p50);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:1rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
+body.dark .ex-step{background:var(--page)}
 </style>
 </head>
 <body>
@@ -697,7 +710,6 @@ Review Mode
 <div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span>How to Use</div>
 <div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span>Study Paths</div>
 <div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Install App</div>
-<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLS</span>Glossary</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
 <div class="ns">Progress &amp; Goals</div>
@@ -919,6 +931,8 @@ Review Mode
 <div class="ndiv"></div>
 <div class="ns">Practice</div>
 <div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
+<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
+<div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
@@ -970,6 +984,117 @@ Review Mode
 <span class="cc-badge" id="badge-favs10">10 Favorites</span>
 </div>
 </div>
+</div>
+
+<!-- ============ GUIDED EXERCISES ============ -->
+<div class="pg" id="pg-exercises">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> guided exercises</div>
+<div class="pt">Guided Exercises</div>
+<div class="ps">Hands-on, step-by-step exercises with hints and worked solutions. Try each step yourself first &mdash; reveal the hint or solution only if you get stuck.</div>
+</div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 0 &middot; PC Basics</div></div>
+<div class="path-desc">Read what a computer is really saying &mdash; binary, file permissions, and paths.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-b1')">1 &middot; Decode binary</span><span class="path-step" onclick="go('ex-b2')">2 &middot; Read permissions</span><span class="path-step" onclick="go('ex-b3')">3 &middot; Build a path</span></div>
+</div></div>
+
+<div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
+</div>
+
+<!-- Exercise B1 -->
+<div class="pg" id="pg-ex-b1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
+<div class="pt">Exercise 1 &middot; Decode Binary</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Convert the binary number <code>1011</code> into a normal decimal number, by hand.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b06')">B&middot;06 Binary &amp; Hex</span><span class="prereq-chip" onclick="go('b02')">B&middot;02 CPU</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Write the place values</div>
+<div class="ex-text">Each binary digit has a value, doubling from right to left: 1, 2, 4, 8. Line them up under the digits of <code>1011</code>.</div>
+<textarea class="ex-try" placeholder="Write each digit and the value above it..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">From the right: the places are 8, 4, 2, 1. So <code>1 0 1 1</code> sits under <code>8 4 2 1</code>.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">digit:  1  0  1  1
+value:  8  4  2  1</code></div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Add the values where the digit is 1</div>
+<div class="ex-text">Only the places with a <code>1</code> count. Add those values together.</div>
+<textarea class="ex-try" placeholder="Add them up..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The 1s are over 8, 2, and 1. The 0 over 4 contributes nothing.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">8 + 2 + 1 = 11</code></div></details>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> binary is just base-2 &mdash; each place is a power of two. <code>1011</code> in binary is <code>11</code> in decimal. This is exactly how a CPU counts, and why hex (groups of four bits) is a handy shorthand.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b2')">Exercise 2 &middot; Read permissions</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise B2 -->
+<div class="pg" id="pg-ex-b2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
+<div class="pt">Exercise 2 &middot; Read File Permissions</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the permission string <code>-rwxr-xr--</code> and say who can do what.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b09')">B&middot;09 Permissions</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Split it into four groups</div>
+<div class="ex-text">The string is one type character plus three groups of three: owner, group, others. Split <code>-rwxr-xr--</code>.</div>
+<textarea class="ex-try" placeholder="Break it into 1 + 3 + 3 + 3..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">type: -      (a regular file)
+owner: rwx
+group: r-x
+other: r--</code></div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Translate each group</div>
+<div class="ex-text">Each group is read (r), write (w), execute (x). A dash means that permission is missing. Say what each party can do.</div>
+<textarea class="ex-try" placeholder="Owner can... group can... others can..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>rwx</code> = read, write and execute. <code>r-x</code> = read and execute, no write. <code>r--</code> = read only.</div></details>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><strong>Owner</strong> can read, write and run it. <strong>Group</strong> can read and run it, but not change it. <strong>Others</strong> can only read it.</div></details>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a permission string is owner / group / others, each with r-w-x. Reading these is the first step in spotting an over-permissive file &mdash; like a secret that <code>others</code> can read, or a script the wrong people can write.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b3')">Exercise 3 &middot; Build a path</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise B3 -->
+<div class="pg" id="pg-ex-b3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
+<div class="pt">Exercise 3 &middot; Build an Absolute Path</div>
+<div class="ps">Difficulty: beginner</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Given the folder tree below, write the full absolute path to <code>notes.txt</code>.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b08')">B&middot;08 Path</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">1</span>Read the tree</div>
+<div class="ex-text">Here is the structure. Each level of indentation is one folder deeper:</div>
+<code class="code-mini">/
+  home/
+    cherry/
+      notes.txt</code>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">An absolute path starts at the root <code>/</code> and lists every folder down to the file, separated by <code>/</code>.</div></details>
+</div>
+
+<div class="ex-step">
+<div class="ex-step-head"><span class="ex-step-num">2</span>Write the absolute path</div>
+<div class="ex-text">Start from <code>/</code> and walk down to the file.</div>
+<textarea class="ex-try" placeholder="/..."></textarea>
+<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">/home/cherry/notes.txt</code></div></details>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> an absolute path always starts at <code>/</code> and is unambiguous from anywhere. Relative paths (like <code>notes.txt</code> or <code>../cherry</code>) depend on where you are &mdash; and that ambiguity is exactly what path-traversal attacks abuse.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-b1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
