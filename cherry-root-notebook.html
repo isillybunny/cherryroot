@@ -1042,6 +1042,18 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-p1')">1 &middot; Predict the output</span><span class="path-step" onclick="go('ex-p2')">2 &middot; Variables &amp; logic</span><span class="path-step" onclick="go('ex-p3')">3 &middot; Lists, dicts &amp; files</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 5 &middot; Security Fundamentals</div></div>
+<div class="path-desc">The core ideas: CIA triad, threats vs vulnerabilities vs risk, encryption vs hashing, and authn vs authz.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-s1')">1 &middot; CIA &amp; core concepts</span><span class="path-step" onclick="go('ex-s2')">2 &middot; Encryption vs hashing</span><span class="path-step" onclick="go('ex-s3')">3 &middot; AuthN, AuthZ &amp; defense</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 6 &middot; Web Attacks</div></div>
+<div class="path-desc">Name the attack from a clue, pick the right fix, and reason about why each one works.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-a1')">1 &middot; Identify the attack</span><span class="path-step" onclick="go('ex-a2')">2 &middot; The right fix</span><span class="path-step" onclick="go('ex-a3')">3 &middot; Spot &amp; reason</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1791,6 +1803,351 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> dicts fetch by key, <code>.get()</code> avoids crashes on missing keys, <code>with open(...)</code> auto-closes files, and <code>requests</code> handles HTTP.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-p1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise S1 -->
+<div class="pg" id="pg-ex-s1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 1 &middot; CIA &amp; Core Concepts</div>
+<div class="ps">Difficulty: beginner &middot; the vocabulary of security</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Nail the words that everything else builds on &mdash; and stop confusing threat, vulnerability and risk.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s01')">S&middot;01 CIA Triad</span><span class="prereq-chip" onclick="go('s03')">S&middot;03 Vulnerability</span><span class="prereq-chip" onclick="go('s05')">S&middot;05 Risk</span></div>
+
+<div class="ex-q" data-answers="confidentiality">
+<div class="ex-qtext">What does the <strong>C</strong> in the CIA triad stand for? (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">C is <strong>Confidentiality</strong> &mdash; keeping data secret. (The others are Integrity and Availability.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">A denial-of-service (DoS) attack mainly harms which CIA pillar?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Confidentiality</button>
+<button class="quiz-option" onclick="exPick(this)">Integrity</button>
+<button class="quiz-option" onclick="exPick(this)">Availability</button>
+<button class="quiz-option" onclick="exPick(this)">None of them</button>
+</div>
+<div class="ex-expl">Knocking a service offline attacks <strong>Availability</strong> &mdash; the A in CIA.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A <strong>weakness</strong> in the system is the...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">threat</button>
+<button class="quiz-option" onclick="exPick(this)">vulnerability</button>
+<button class="quiz-option" onclick="exPick(this)">risk</button>
+<button class="quiz-option" onclick="exPick(this)">exploit</button>
+</div>
+<div class="ex-expl">A vulnerability is the weakness. A threat is the danger that could use it; risk combines the two with impact.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Risk is best described as...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">a bug in the code</button>
+<button class="quiz-option" onclick="exPick(this)">likelihood &times; impact</button>
+<button class="quiz-option" onclick="exPick(this)">an exploit script</button>
+<button class="quiz-option" onclick="exPick(this)">a type of firewall</button>
+</div>
+<div class="ex-expl">Risk weighs how likely harm is against how bad it would be &mdash; that's how you prioritize fixes.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> CIA = Confidentiality, Integrity, Availability. A vulnerability is the weakness, a threat is the danger, and risk is likelihood combined with impact.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-s2')">Exercise 2 &middot; Encryption vs hashing</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise S2 -->
+<div class="pg" id="pg-ex-s2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 2 &middot; Encryption vs Hashing</div>
+<div class="ps">Difficulty: beginner &middot; don't mix these up</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell encryption, hashing and encoding apart &mdash; a mistake here breaks real systems.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s09')">S&middot;09 Encryption</span><span class="prereq-chip" onclick="go('s10')">S&middot;10 Hashing</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Hashing is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Reversible with a key</button>
+<button class="quiz-option" onclick="exPick(this)">One-way (cannot be undone)</button>
+<button class="quiz-option" onclick="exPick(this)">The same as encoding</button>
+<button class="quiz-option" onclick="exPick(this)">Always insecure</button>
+</div>
+<div class="ex-expl">A hash is one-way &mdash; you can't get the original back, only compare another hash to it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Base64 is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Encryption</button>
+<button class="quiz-option" onclick="exPick(this)">Encoding (not encryption)</button>
+<button class="quiz-option" onclick="exPick(this)">Hashing</button>
+<button class="quiz-option" onclick="exPick(this)">A cipher</button>
+</div>
+<div class="ex-expl">Base64 just re-represents data &mdash; anyone can decode it. It provides no secrecy.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">To store passwords safely you use...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">MD5</button>
+<button class="quiz-option" onclick="exPick(this)">Plain text</button>
+<button class="quiz-option" onclick="exPick(this)">bcrypt or argon2, with a salt</button>
+<button class="quiz-option" onclick="exPick(this)">Base64</button>
+</div>
+<div class="ex-expl">Use a slow, salted hash like bcrypt or argon2. MD5 is fast and crackable; the others aren't hashing at all.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="salt">
+<div class="ex-qtext">Random data added before hashing a password (so identical passwords differ) is called a ____. (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A <strong>salt</strong> makes each hash unique, defeating precomputed (rainbow-table) attacks.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> encryption is reversible with a key; hashing is one-way; encoding (base64) is neither. Store passwords with a slow, salted hash.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-s3')">Exercise 3 &middot; AuthN, AuthZ &amp; defense</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise S3 -->
+<div class="pg" id="pg-ex-s3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 3 &middot; AuthN, AuthZ &amp; Defense</div>
+<div class="ps">Difficulty: beginner &middot; who vs what</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Separate "who you are" from "what you can do", and name two defensive ideas.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s11')">S&middot;11 Authentication</span><span class="prereq-chip" onclick="go('s12')">S&middot;12 Authorization</span><span class="prereq-chip" onclick="go('s08')">S&middot;08 Zero Trust</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Proving <strong>WHO</strong> you are is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Authentication</button>
+<button class="quiz-option" onclick="exPick(this)">Authorization</button>
+</div>
+<div class="ex-expl">Authentication = proving identity (logging in).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Deciding <strong>WHAT</strong> you're allowed to access is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Authentication</button>
+<button class="quiz-option" onclick="exPick(this)">Authorization</button>
+</div>
+<div class="ex-expl">Authorization = permissions, checked after you're authenticated.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Never trust, always verify" describes which model?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Defense in depth</button>
+<button class="quiz-option" onclick="exPick(this)">Zero Trust</button>
+<button class="quiz-option" onclick="exPick(this)">A firewall</button>
+<button class="quiz-option" onclick="exPick(this)">A VPN</button>
+</div>
+<div class="ex-expl">Zero Trust verifies every request, dropping the idea that the internal network is automatically safe.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="mfa|2fa">
+<div class="ex-qtext">Requiring a password <em>plus</em> a phone code is called M__ (the acronym).</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="acronym" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Multi-Factor Authentication &mdash; more than one proof of identity.</div></details>
+<div class="ex-expl"><strong>MFA</strong> (multi-factor auth) means a stolen password alone isn't enough.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> authentication proves who you are; authorization controls what you can do. Zero Trust verifies everything, and MFA adds a second factor.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-s1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise A1 -->
+<div class="pg" id="pg-ex-a1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 1 &middot; Identify the Attack</div>
+<div class="ps">Difficulty: beginner &middot; read the clue, name the attack</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Given a short scenario, recognise which web attack it is. This is core triage.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('a01')">A&middot;01 SQL Injection</span><span class="prereq-chip" onclick="go('a02')">A&middot;02 XSS</span><span class="prereq-chip" onclick="go('a07')">A&middot;07 IDOR</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A login form accepts <code>' OR 1=1 --</code> and logs you in. Which flaw?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)">IDOR</button>
+</div>
+<div class="ex-expl">The input is breaking out of the SQL query &mdash; classic <strong>SQL injection</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A comment field stores <code>&lt;script&gt;</code> that then runs in other visitors' browsers. This is?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+</div>
+<div class="ex-expl">Injecting script that runs in other users' browsers is <strong>cross-site scripting (XSS)</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Changing <code>?id=123</code> to <code>?id=124</code> shows someone else's data. This is?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">IDOR</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+</div>
+<div class="ex-expl">Accessing another object just by changing its ID is an <strong>IDOR</strong> &mdash; a missing authorization check.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">An attacker tricks a logged-in user's browser into silently submitting a request. This is?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)">IDOR</button>
+<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+</div>
+<div class="ex-expl">Riding the victim's session to forge a request is <strong>CSRF</strong> (cross-site request forgery).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> SQLi breaks out of a query, XSS runs script in browsers, IDOR swaps IDs to reach others' data, and CSRF forges requests from a logged-in victim.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-a2')">Exercise 2 &middot; The right fix</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise A2 -->
+<div class="pg" id="pg-ex-a2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 2 &middot; The Right Fix</div>
+<div class="ps">Difficulty: beginner &middot; defenders' choices</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> For each attack, pick the real fix &mdash; not the band-aid.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('a01')">A&middot;01 SQL Injection</span><span class="prereq-chip" onclick="go('a02')">A&middot;02 XSS</span><span class="prereq-chip" onclick="go('a05')">A&middot;05 Path Traversal</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Best defense against SQL injection?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Manually escape quotes</button>
+<button class="quiz-option" onclick="exPick(this)">Parameterized queries (prepared statements)</button>
+<button class="quiz-option" onclick="exPick(this)">Just add a WAF</button>
+<button class="quiz-option" onclick="exPick(this)">Hide the database</button>
+</div>
+<div class="ex-expl">Parameterized queries separate code from data for good. Escaping misses cases; a WAF only filters.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Best defense against XSS?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Limit input length</button>
+<button class="quiz-option" onclick="exPick(this)">Context-aware output encoding + CSP</button>
+<button class="quiz-option" onclick="exPick(this)">Use HTTPS</button>
+<button class="quiz-option" onclick="exPick(this)">Rename the endpoint</button>
+</div>
+<div class="ex-expl">Encode untrusted data when you output it, and add a Content-Security-Policy. HTTPS and obscurity don't stop XSS.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">IDOR is really a failure of...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Encryption</button>
+<button class="quiz-option" onclick="exPick(this)">Authorization checks</button>
+<button class="quiz-option" onclick="exPick(this)">Networking</button>
+<button class="quiz-option" onclick="exPick(this)">Logging</button>
+</div>
+<div class="ex-expl">The server must verify the user actually owns the object &mdash; unguessable IDs only slow it down.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="path|directory">
+<div class="ex-qtext">Reading files outside a folder with <code>../../etc/passwd</code> is called ____ traversal. (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><strong>Path</strong> (or directory) traversal &mdash; fixed by canonicalizing the path and confining it to a base folder.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> parameterized queries beat SQLi, output encoding + CSP beat XSS, IDOR is an authorization failure, and path traversal is fixed by validating the resolved path.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-a3')">Exercise 3 &middot; Spot &amp; reason</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise A3 -->
+<div class="pg" id="pg-ex-a3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 3 &middot; Spot &amp; Reason</div>
+<div class="ps">Difficulty: beginner &middot; think it through</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Reason about why defenses and attacks behave the way they do.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('a05')">A&middot;05 Path Traversal</span><span class="prereq-chip" onclick="go('a12')">A&middot;12 Race Condition</span><span class="prereq-chip" onclick="go('d05')">D&middot;05 WAF</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A WAF blocks an attack. Does that fix the vulnerable code?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Yes &mdash; the bug is gone</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; it's a filter, not a fix</button>
+<button class="quiz-option" onclick="exPick(this)">Yes, if it's a paid WAF</button>
+<button class="quiz-option" onclick="exPick(this)">Only for SQL injection</button>
+</div>
+<div class="ex-expl">A WAF buys time by filtering, but the underlying vulnerability still needs fixing &mdash; and WAFs can be bypassed.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext"><code>../</code> in user input is dangerous because it can...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Crash the app</button>
+<button class="quiz-option" onclick="exPick(this)">Climb out of the intended folder</button>
+<button class="quiz-option" onclick="exPick(this)">Encrypt the files</button>
+<button class="quiz-option" onclick="exPick(this)">Log the user out</button>
+</div>
+<div class="ex-expl">Each <code>../</code> moves up one directory, letting an attacker reach files outside the intended folder.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Firing two requests at once to redeem one coupon twice exploits a...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Race condition</button>
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+</div>
+<div class="ex-expl">Two requests hitting the check-then-act gap at the same time is a <strong>race condition</strong> (TOCTOU).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="untrusted|user|unsanitized|unvalidated">
+<div class="ex-qtext">SQLi, XSS and command injection all come from trusting ____ input. (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It comes from the user and hasn't been checked or cleaned.</div></details>
+<div class="ex-expl">They all stem from trusting <strong>untrusted</strong> (user / unsanitized) input. Validate and sanitize everything from outside.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a WAF filters but doesn't fix, <code>../</code> escapes folders, simultaneous requests cause race conditions, and the root cause of injection is trusting untrusted input.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-a1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
