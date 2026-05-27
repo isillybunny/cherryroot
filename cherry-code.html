@@ -1057,6 +1057,12 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-t1')">1 &middot; Predict the output</span><span class="path-step" onclick="go('ex-t2')">2 &middot; Convert types</span><span class="path-step" onclick="go('ex-t3')">3 &middot; Lists &amp; dicts</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 3 &middot; Operators &amp; Expressions</div></div>
+<div class="path-desc">Compute results in your head &mdash; precedence, integer vs float division, comparisons and logic.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-o1')">1 &middot; Arithmetic &amp; precedence</span><span class="path-step" onclick="go('ex-o2')">2 &middot; Compare &amp; combine</span><span class="path-step" onclick="go('ex-o3')">3 &middot; Modulo &amp; logic</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1356,6 +1362,144 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> lists are indexed from 0 (and <code>-1</code> is the last), going out of range raises an error, and dicts fetch values by key.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-t1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise O1 -->
+<div class="pg" id="pg-ex-o1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 1 &middot; Arithmetic &amp; Precedence</div>
+<div class="ps">Difficulty: beginner &middot; compute it in your head</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Predict each result. Watch the order of operations &mdash; <code>*</code> and <code>/</code> happen before <code>+</code> and <code>-</code>.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('o01')">O&middot;01 Arithmetic Operators</span><span class="prereq-chip" onclick="go('o08')">O&middot;08 Operator Precedence</span></div>
+
+<div class="ex-q" data-answers="14">
+<div class="ex-qtext">What does this print?<pre>print(2 + 3 * 4)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Multiplication runs first: 3 &times; 4, then add 2.</div></details>
+<div class="ex-expl"><code>*</code> binds tighter than <code>+</code>: 3&times;4 = 12, then 2 + 12 = 14.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="20">
+<div class="ex-qtext">And with parentheses?<pre>print((2 + 3) * 4)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Parentheses go first: (2 + 3) = 5, then 5 &times; 4 = 20.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3">
+<div class="ex-qtext">What does this print?<pre>print(7 // 2)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>//</code> is floor division &mdash; it throws away the remainder.</div></details>
+<div class="ex-expl"><code>//</code> divides and drops the fraction: 7 // 2 = 3 (not 3.5).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="8">
+<div class="ex-qtext">What does this print?<pre>print(2 ** 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>**</code> is exponentiation: 2 to the power 3 = 8.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> operators have an order &mdash; <code>**</code>, then <code>* / //</code>, then <code>+ -</code>. Parentheses override it, and <code>//</code> gives a whole number.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-o2')">Exercise 2 &middot; Compare &amp; combine</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise O2 -->
+<div class="pg" id="pg-ex-o2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 2 &middot; Compare &amp; Combine</div>
+<div class="ps">Difficulty: beginner &middot; everything here is True or False</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Comparisons return a boolean. Type <code>True</code> or <code>False</code> exactly (capital first letter).</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('o02')">O&middot;02 Comparison Operators</span><span class="prereq-chip" onclick="go('o03')">O&middot;03 Logical Operators</span><span class="prereq-chip" onclick="go('t06')">T&middot;06 Boolean</span></div>
+
+<div class="ex-q" data-answers="true">
+<div class="ex-qtext">What does this print?<pre>print(5 > 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="True or False" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">5 is greater than 3, so the comparison is <code>True</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="false">
+<div class="ex-qtext">What does this print?<pre>print(5 == "5")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="True or False" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">One is the number 5, the other is the text "5". Are they the same?</div></details>
+<div class="ex-expl">An integer and a string are never equal, so this is <code>False</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">In Python, what does <code>True and False</code> evaluate to?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False</button>
+</div>
+<div class="ex-expl"><code>and</code> is only true when both sides are true. One side is False, so the result is False.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="true">
+<div class="ex-qtext">Is 10 even? What does this print?<pre>print(10 % 2 == 0)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="True or False" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">10 % 2 is 0 (no remainder), and 0 == 0 is <code>True</code> &mdash; the standard "is even" test.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> comparisons give booleans, an int never equals a string, and <code>and</code> needs both sides true. <code>n % 2 == 0</code> is the classic even check.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-o3')">Exercise 3 &middot; Modulo &amp; logic</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise O3 -->
+<div class="pg" id="pg-ex-o3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Exercise 3 &middot; Modulo &amp; Mixed Precedence</div>
+<div class="ps">Difficulty: beginner &middot; remainders and order</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Master the remainder operator and the order when arithmetic meets comparison.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('o06')">O&middot;06 Modulo Operator</span><span class="prereq-chip" onclick="go('o08')">O&middot;08 Operator Precedence</span></div>
+
+<div class="ex-q" data-answers="1">
+<div class="ex-qtext">What does this print?<pre>print(10 % 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">10 = 3&times;3 + 1, so the remainder is 1.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="0">
+<div class="ex-qtext">What does this print?<pre>print(8 % 4)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">4 divides 8 evenly, so the remainder is 0.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which is the correct "is this number even?" test?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">n % 2 == 1</button>
+<button class="quiz-option" onclick="exPick(this)">n % 2 == 0</button>
+<button class="quiz-option" onclick="exPick(this)">n / 2 == 0</button>
+<button class="quiz-option" onclick="exPick(this)">n // 2</button>
+</div>
+<div class="ex-expl">An even number has remainder 0 when divided by 2, so <code>n % 2 == 0</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="true">
+<div class="ex-qtext">What does this print?<pre>print(3 + 4 > 5)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="True or False" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The addition happens before the comparison.</div></details>
+<div class="ex-expl">Arithmetic runs before comparison: 3 + 4 = 7, then 7 &gt; 5 is <code>True</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>%</code> gives the remainder (and <code>== 0</code> tests evenness), and arithmetic is evaluated before a comparison.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-o1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->

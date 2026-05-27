@@ -1024,6 +1024,12 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-w1')">1 &middot; Read a URL</span><span class="path-step" onclick="go('ex-w2')">2 &middot; Status codes</span><span class="path-step" onclick="go('ex-w3')">3 &middot; Spot the insecure</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 2 &middot; Networks</div></div>
+<div class="path-desc">Know your ports, tell TCP from UDP, and recognize the devices and what really protects a network.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-n1')">1 &middot; Ports &amp; protocols</span><span class="path-step" onclick="go('ex-n2')">2 &middot; TCP, UDP &amp; OSI</span><span class="path-step" onclick="go('ex-n3')">3 &middot; Devices &amp; defense</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1307,6 +1313,165 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> HTTPS means encrypted, not trustworthy; the real host is right before the first <code>/</code> (watch the <code>@</code> trick); and session cookies need HttpOnly + Secure + SameSite.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-w1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise N1 -->
+<div class="pg" id="pg-ex-n1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 1 &middot; Ports &amp; Protocols</div>
+<div class="ps">Difficulty: beginner &middot; know the common ones</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Memorize the ports you'll meet constantly in recon, and match protocols to behavior.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n10')">N&middot;10 Ports &amp; Protocols</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 TCP</span></div>
+
+<div class="ex-q" data-answers="443">
+<div class="ex-qtext">Which port does <strong>HTTPS</strong> use by default? Type the number.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">HTTPS listens on port <strong>443</strong> (plain HTTP is 80).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="22">
+<div class="ex-qtext">Which port does <strong>SSH</strong> use by default?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It's a low, two-digit number &mdash; one of the first you learn for remote access.</div></details>
+<div class="ex-expl">SSH listens on port <strong>22</strong> by default (though admins often move it).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which port does <strong>DNS</strong> commonly use?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">80</button>
+<button class="quiz-option" onclick="exPick(this)">443</button>
+<button class="quiz-option" onclick="exPick(this)">53</button>
+<button class="quiz-option" onclick="exPick(this)">22</button>
+</div>
+<div class="ex-expl">DNS uses port <strong>53</strong> &mdash; worth remembering, since DNS is a common exfiltration channel.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which transport protocol is reliable and ordered?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">UDP</button>
+<button class="quiz-option" onclick="exPick(this)">TCP</button>
+<button class="quiz-option" onclick="exPick(this)">ICMP</button>
+<button class="quiz-option" onclick="exPick(this)">ARP</button>
+</div>
+<div class="ex-expl">TCP guarantees delivery and order via its handshake and acknowledgements. UDP does not.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> 80 = HTTP, 443 = HTTPS, 22 = SSH, 53 = DNS. TCP is reliable and ordered; the others trade that for speed or serve different jobs.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-n2')">Exercise 2 &middot; TCP, UDP &amp; OSI</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise N2 -->
+<div class="pg" id="pg-ex-n2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 2 &middot; TCP, UDP &amp; OSI</div>
+<div class="ps">Difficulty: beginner &middot; how data moves</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell TCP and UDP apart, and place the OSI model.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 TCP</span><span class="prereq-chip" onclick="go('n05')">N&middot;05 UDP</span><span class="prereq-chip" onclick="go('n03')">N&middot;03 OSI Model</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which protocol is connectionless and fast (used by DNS, VoIP, games)?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">TCP</button>
+<button class="quiz-option" onclick="exPick(this)">UDP</button>
+</div>
+<div class="ex-expl">UDP skips the handshake for speed, which is why real-time services use it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many steps are in the TCP handshake? Type a number.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It's known as the "___-way handshake": SYN, SYN-ACK, ACK.</div></details>
+<div class="ex-expl">It's the <strong>3</strong>-way handshake: SYN &rarr; SYN-ACK &rarr; ACK.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="7|seven">
+<div class="ex-qtext">How many layers does the OSI model have?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The OSI model has <strong>7</strong> layers, from Physical up to Application.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">A SYN scan (a stealthy port scan) abuses which mechanism?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">The TCP 3-way handshake</button>
+<button class="quiz-option" onclick="exPick(this)">DNS lookups</button>
+<button class="quiz-option" onclick="exPick(this)">ARP requests</button>
+<button class="quiz-option" onclick="exPick(this)">DHCP leases</button>
+</div>
+<div class="ex-expl">A SYN scan sends only the first packet of the handshake to learn if a port is open, without completing the connection.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> TCP is reliable (3-way handshake); UDP is fast and connectionless. The OSI model has 7 layers, and scanners like nmap exploit how the handshake works.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-n3')">Exercise 3 &middot; Devices &amp; defense</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise N3 -->
+<div class="pg" id="pg-ex-n3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 2</div>
+<div class="pt">Exercise 3 &middot; Devices &amp; Defense</div>
+<div class="ps">Difficulty: beginner &middot; what does what</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match network devices to their job, and bust two common security myths.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n07')">N&middot;07 Router</span><span class="prereq-chip" onclick="go('n09')">N&middot;09 Firewall</span><span class="prereq-chip" onclick="go('n15')">N&middot;15 NAT</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What connects <strong>different networks</strong> together?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A switch</button>
+<button class="quiz-option" onclick="exPick(this)">A router</button>
+<button class="quiz-option" onclick="exPick(this)">A hub</button>
+<button class="quiz-option" onclick="exPick(this)">A repeater</button>
+</div>
+<div class="ex-expl">A router moves traffic between networks; a switch connects devices within one network.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"A firewall blocks all attacks." True or false?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; app-layer attacks pass through allowed ports</button>
+</div>
+<div class="ex-expl">A network firewall filters by rules. An attack like SQL injection over port 443 looks like allowed traffic and sails through.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Is NAT a security control?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Yes &mdash; it's basically a firewall</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; it shares addresses, it isn't access control</button>
+<button class="quiz-option" onclick="exPick(this)">Yes &mdash; it encrypts traffic</button>
+<button class="quiz-option" onclick="exPick(this)">No &mdash; it slows the network</button>
+</div>
+<div class="ex-expl">NAT exists to share one public IP among many devices. It happens to hide them, but it is not access control &mdash; port forwarding can expose them.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="no">
+<div class="ex-qtext">Is a private IP like <code>192.168.0.5</code> reachable directly from the internet? Type yes or no.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="yes or no" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><strong>No</strong> &mdash; private ranges (192.168.x, 10.x) are internal only and not routable on the public internet.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> routers join networks, switches join devices; a firewall filters but doesn't stop app-layer attacks; and NAT shares addresses &mdash; it is not a security control.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-n1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
