@@ -716,6 +716,20 @@ body.dark .viz-cx.bad,body.dark .res-badge.adv{background:#4d1418;color:#ff9aa0}
 
 body.dark .self-check,body.dark .prereq-bar,body.dark .path-card,body.dark .install-card,body.dark .faq-item,body.dark .mistake-card{background:var(--page)}
 body.dark .sc-btn{background:var(--page)}
+
+/* ===== PRACTICE MODE ===== */
+.practice-opts{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1rem}
+.practice-done{background:var(--p50);border:1px solid var(--p200);border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.06em;color:var(--p500);text-transform:uppercase;font-weight:600}
+.practice-prog{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);text-align:center;margin:.6rem 0}
+.flashcard{min-height:230px;background:white;border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:0 2px 16px rgba(201,63,79,.06);transition:border-color .15s}
+.flashcard:hover{border-color:var(--p300)}
+.fc-code{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--p500);text-transform:uppercase;margin-bottom:.5rem;font-weight:600}
+.fc-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:.7rem}
+.fc-hint{font-size:.72rem;color:var(--ink3);font-style:italic}
+.fc-def{font-size:.92rem;color:var(--ink);line-height:1.6;margin-bottom:.8rem}
+.fc-rem{font-size:.82rem;color:var(--ink2);line-height:1.5;border-top:1px solid var(--line);padding-top:.7rem}
+.practice-actions{display:flex;gap:.6rem;justify-content:center;margin-top:.9rem}
+body.dark .flashcard,body.dark .practice-done{background:var(--page)}
 </style>
 </head>
 <body>
@@ -758,6 +772,7 @@ Review Mode
 <div class="ni" onclick="go('howto',this)"><span class="cd">HOW</span>How to Use</div>
 <div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span>Study Paths</div>
 <div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Install App</div>
+<div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('glossary',this)"><span class="cd">GLO</span>Glossary</div>
 <div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
 <div class="ns">Progress &amp; Goals</div>
@@ -990,6 +1005,34 @@ Review Mode
 </div>
 
 <!-- ============ STUDY PATHS ============ -->
+<!-- ============ PRACTICE MODE ============ -->
+<div class="pg" id="pg-practice">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> practice</div>
+<div class="pt">Practice Mode</div>
+<div class="ps">Active recall over the terms. Flip each card, then rate yourself &mdash; your ratings update the Studied / Review tags.</div>
+</div>
+<div id="practiceSetup">
+<div id="practiceDone" class="practice-done" style="display:none"></div>
+<div class="practice-opts">
+<button class="path-start" onclick="practiceStart('all')">&#10022; Practice all terms</button>
+<button class="sc-btn" onclick="practiceStart('review')">Only Review / Hard</button>
+</div>
+</div>
+<div id="practiceStage" style="display:none">
+<div class="practice-prog" id="practiceProg"></div>
+<div class="flashcard" onclick="practiceFlip()">
+<div class="fc-front" id="fcFront"></div>
+<div class="fc-back" id="fcBack" style="display:none"></div>
+</div>
+<div class="practice-actions" id="practiceActions" style="display:none">
+<button class="sc-btn sc-hard" onclick="practiceRate('hard')">Need review</button>
+<button class="sc-btn sc-got" onclick="practiceRate('studied')">&#10003; Got it</button>
+</div>
+<div class="practice-prog"><span class="path-step" onclick="practiceQuit()">Stop practice</span></div>
+</div>
+</div>
+
 <div class="pg" id="pg-paths">
 <div class="ph">
 <div class="bc">cherry code <span>›</span> study paths</div>
@@ -10337,6 +10380,83 @@ function switchCodeTab(containerId, langId){
 function trackLastViewed(pageId){
   if(!/^[a-z]\d+$/.test(pageId)) return;
   try{localStorage.setItem('cherryCodeLastViewed', pageId)} catch(e){}
+}
+
+// ============ PRACTICE MODE (flashcards) ============
+var practiceDeck = [];
+var practiceIdx = 0;
+function practiceOpen(el){ go('practice', el); practiceReset(); }
+function practiceReset(){
+  var s=document.getElementById('practiceSetup'), st=document.getElementById('practiceStage'), d=document.getElementById('practiceDone');
+  if(s) s.style.display=''; if(st) st.style.display='none'; if(d) d.style.display='none';
+}
+function practiceBuildDeck(filter){
+  var data = loadData(); var tags = data.tags||{}; var deck = [];
+  document.querySelectorAll('.pg[id^="pg-"]').forEach(function(pg){
+    var id = pg.id.replace('pg-','');
+    if(!/^[a-z]\d+$/.test(id)) return;
+    if(filter==='review'){ var t=tags[id]||{}; if(!t.review && !t.hard) return; }
+    var titleEl = pg.querySelector('.pt');
+    if(!titleEl) return;
+    var defEl = pg.querySelector('.defbox'); var remEl = pg.querySelector('.rem'); var codeEl = pg.querySelector('.ptag');
+    deck.push({
+      id:id,
+      title:(titleEl.textContent||'').trim(),
+      code:codeEl?(codeEl.textContent||'').trim():'',
+      def:defEl?(defEl.textContent||'').trim():'',
+      rem:remEl?(remEl.textContent||'').trim():''
+    });
+  });
+  return deck;
+}
+function practiceShuffle(a){ for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;} return a; }
+function practiceStart(filter){
+  practiceDeck = practiceShuffle(practiceBuildDeck(filter));
+  practiceIdx = 0;
+  if(!practiceDeck.length){ alert(filter==='review' ? 'No terms tagged Review or Hard yet. Tag some first.' : 'No terms found.'); return; }
+  document.getElementById('practiceDone').style.display='none';
+  document.getElementById('practiceSetup').style.display='none';
+  document.getElementById('practiceStage').style.display='';
+  practiceRender();
+}
+function practiceRender(){
+  if(practiceIdx>=practiceDeck.length){ practiceFinish(); return; }
+  var c = practiceDeck[practiceIdx];
+  document.getElementById('practiceProg').textContent = 'Card '+(practiceIdx+1)+' / '+practiceDeck.length;
+  var front = '';
+  if(c.code) front += '<div class="fc-code">'+c.code+'</div>';
+  front += '<div class="fc-title">'+c.title+'</div><div class="fc-hint">Recall it &mdash; what is it, and why does it matter? Tap to flip.</div>';
+  document.getElementById('fcFront').innerHTML = front;
+  var back = '<div class="fc-def">'+c.def+'</div>';
+  if(c.rem) back += '<div class="fc-rem">'+c.rem+'</div>';
+  document.getElementById('fcBack').innerHTML = back;
+  document.getElementById('fcFront').style.display='';
+  document.getElementById('fcBack').style.display='none';
+  document.getElementById('practiceActions').style.display='none';
+}
+function practiceFlip(){
+  var f=document.getElementById('fcFront'), b=document.getElementById('fcBack'), a=document.getElementById('practiceActions');
+  if(b.style.display==='none'){ b.style.display=''; f.style.display='none'; a.style.display='flex'; }
+  else { b.style.display='none'; f.style.display=''; a.style.display='none'; }
+}
+function practiceRate(tag){
+  var c = practiceDeck[practiceIdx]; if(!c) return;
+  var d = loadData(); if(!d.tags) d.tags={}; if(!d.tags[c.id]) d.tags[c.id]={};
+  d.tags[c.id][tag]=true;
+  if(tag==='studied'){ d.tags[c.id].review=false; d.tags[c.id].hard=false; }
+  saveData(d);
+  var tagBar = document.getElementById('tags-'+c.id);
+  if(tagBar){ var m=tagBar.querySelector('.tag-btn.'+tag); if(m) m.classList.add('on'); }
+  if(typeof updateProgressBars==='function'){ try{updateProgressBars();}catch(e){} }
+  practiceIdx++; practiceRender();
+}
+function practiceQuit(){ practiceReset(); }
+function practiceFinish(){
+  document.getElementById('practiceStage').style.display='none';
+  var s=document.getElementById('practiceSetup'); s.style.display='';
+  var done=document.getElementById('practiceDone');
+  done.innerHTML='&#10003; Deck complete &mdash; you reviewed '+practiceDeck.length+' cards. Nice work!';
+  done.style.display='';
 }
 
 // Stub functions - will be replaced when features added
