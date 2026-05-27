@@ -678,6 +678,20 @@ body.dark .flashcard,body.dark .practice-done{background:var(--page)}
 .ex-try{width:100%;box-sizing:border-box;min-height:58px;font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:8px;padding:.55rem .7rem;resize:vertical;margin-bottom:.5rem}
 .ex-recap{background:var(--p50);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:1rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
 body.dark .ex-step{background:var(--page)}
+.ex-q{border:1px solid var(--line);border-radius:11px;padding:.85rem .95rem;margin-bottom:.8rem;background:white}
+.ex-qtext{font-size:.9rem;color:var(--ink);line-height:1.5;margin-bottom:.6rem;font-weight:600}
+.ex-qtext pre{font-family:'JetBrains Mono',monospace;font-size:.8rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:7px;padding:.5rem .7rem;white-space:pre;overflow-x:auto;margin:.5rem 0 0;font-weight:400}
+.ex-opts{display:flex;flex-direction:column;gap:.45rem}
+.ex-inrow{display:flex;gap:.5rem;align-items:stretch;margin-top:.2rem}
+.ex-input{flex:1;min-width:0;font-family:'JetBrains Mono',monospace;font-size:.82rem;background:var(--code-bg);color:var(--code-text);border:1.5px solid var(--code-line);border-radius:8px;padding:.5rem .7rem}
+.ex-input.ex-ok{border-color:var(--p500)}
+.ex-input.ex-no{border-color:var(--p300);border-style:dashed}
+.ex-checkbtn{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.5rem .9rem;border-radius:8px;cursor:pointer;background:var(--p500);color:white;border:none;white-space:nowrap}
+.ex-checkbtn:hover{background:var(--p400)}
+.ex-fb{margin-top:.6rem;font-size:.83rem;color:var(--ink2);line-height:1.5;padding:.55rem .75rem;background:var(--p50);border-radius:8px}
+.ex-fb b{color:var(--p500)}
+.ex-expl{display:none}
+body.dark .ex-q{background:var(--page)}
 </style>
 </head>
 <body>
@@ -1008,29 +1022,39 @@ Review Mode
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
 <div class="pt">Exercise 1 &middot; Decode Binary</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="ps">Difficulty: beginner &middot; work it out, then check</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Convert the binary number <code>1011</code> into a normal decimal number, by hand.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Convert binary numbers to decimal by hand. Answer each and check.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b06')">B&middot;06 Binary &amp; Hex</span><span class="prereq-chip" onclick="go('b02')">B&middot;02 CPU</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Write the place values</div>
-<div class="ex-text">Each binary digit has a value, doubling from right to left: 1, 2, 4, 8. Line them up under the digits of <code>1011</code>.</div>
-<textarea class="ex-try" placeholder="Write each digit and the value above it..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">From the right: the places are 8, 4, 2, 1. So <code>1 0 1 1</code> sits under <code>8 4 2 1</code>.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">digit:  1  0  1  1
-value:  8  4  2  1</code></div></details>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">The four binary places, from right to left, are worth:</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">1, 2, 4, 6</button>
+<button class="quiz-option" onclick="exPick(this)">8, 4, 2, 1</button>
+<button class="quiz-option" onclick="exPick(this)">2, 4, 8, 16</button>
+<button class="quiz-option" onclick="exPick(this)">1, 1, 1, 1</button>
+</div>
+<div class="ex-expl">Each place doubles from the right: 1, 2, 4, 8 &mdash; so a 4-bit number lines up under 8 4 2 1.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Add the values where the digit is 1</div>
-<div class="ex-text">Only the places with a <code>1</code> count. Add those values together.</div>
-<textarea class="ex-try" placeholder="Add them up..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The 1s are over 8, 2, and 1. The 0 over 4 contributes nothing.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">8 + 2 + 1 = 11</code></div></details>
+<div class="ex-q" data-answers="11|eleven">
+<div class="ex-qtext">What is binary <code>1011</code> in decimal? Type a number.</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Place the digits under 8 4 2 1, then add only the places that have a 1.</div></details>
+<div class="ex-expl">8 + 0 + 2 + 1 = <strong>11</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> binary is just base-2 &mdash; each place is a power of two. <code>1011</code> in binary is <code>11</code> in decimal. This is exactly how a CPU counts, and why hex (groups of four bits) is a handy shorthand.</div>
+<div class="ex-q" data-answers="4|four">
+<div class="ex-qtext">And what is binary <code>100</code> in decimal?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="your answer" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The only 1 sits in the 4s place: 4 + 0 + 0 = <strong>4</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> binary is base-2 &mdash; each place is a power of two. Add the place values where a 1 appears. This is exactly how a CPU counts.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b2')">Exercise 2 &middot; Read permissions</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
@@ -1039,30 +1063,48 @@ value:  8  4  2  1</code></div></details>
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
 <div class="pt">Exercise 2 &middot; Read File Permissions</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="ps">Difficulty: beginner &middot; read the string, then answer</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the permission string <code>-rwxr-xr--</code> and say who can do what.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the permission string <code>-rwxr-xr--</code> and answer what each party can do.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b09')">B&middot;09 Permissions</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Split it into four groups</div>
-<div class="ex-text">The string is one type character plus three groups of three: owner, group, others. Split <code>-rwxr-xr--</code>.</div>
-<textarea class="ex-try" placeholder="Break it into 1 + 3 + 3 + 3..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">type: -      (a regular file)
-owner: rwx
-group: r-x
-other: r--</code></div></details>
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">In <code>-rwxr-xr--</code>, what can <strong>others</strong> (the last group) do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Read, write and run it</button>
+<button class="quiz-option" onclick="exPick(this)">Read and run it</button>
+<button class="quiz-option" onclick="exPick(this)">Read it only</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing at all</button>
+</div>
+<div class="ex-expl">The last three characters are <code>r--</code> &mdash; read, no write, no execute. So others can only read.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Translate each group</div>
-<div class="ex-text">Each group is read (r), write (w), execute (x). A dash means that permission is missing. Say what each party can do.</div>
-<textarea class="ex-try" placeholder="Owner can... group can... others can..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>rwx</code> = read, write and execute. <code>r-x</code> = read and execute, no write. <code>r--</code> = read only.</div></details>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><strong>Owner</strong> can read, write and run it. <strong>Group</strong> can read and run it, but not change it. <strong>Others</strong> can only read it.</div></details>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Who is allowed to <strong>modify</strong> (write to) this file?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Everyone</button>
+<button class="quiz-option" onclick="exPick(this)">Only the owner</button>
+<button class="quiz-option" onclick="exPick(this)">The owner and the group</button>
+<button class="quiz-option" onclick="exPick(this)">Nobody</button>
+</div>
+<div class="ex-expl">Only the owner group <code>rwx</code> includes <code>w</code>. Group is <code>r-x</code> and others <code>r--</code> &mdash; neither can write.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> a permission string is owner / group / others, each with r-w-x. Reading these is the first step in spotting an over-permissive file &mdash; like a secret that <code>others</code> can read, or a script the wrong people can write.</div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>chmod 777 file</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Makes the file read-only</button>
+<button class="quiz-option" onclick="exPick(this)">Gives everyone full read, write and execute</button>
+<button class="quiz-option" onclick="exPick(this)">Hides the file</button>
+<button class="quiz-option" onclick="exPick(this)">Deletes the file</button>
+</div>
+<div class="ex-expl">777 means rwx for owner, group and others &mdash; full access for everyone, which is almost always too permissive.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a permission string is owner / group / others, each with r-w-x. Reading it tells you instantly whether a file is over-exposed &mdash; like a secret that others can read.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b3')">Exercise 3 &middot; Build a path</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
@@ -1070,33 +1112,50 @@ other: r--</code></div></details>
 <div class="pg" id="pg-ex-b3">
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 0</div>
-<div class="pt">Exercise 3 &middot; Build an Absolute Path</div>
-<div class="ps">Difficulty: beginner</div>
+<div class="pt">Exercise 3 &middot; Build a Path</div>
+<div class="ps">Difficulty: beginner &middot; read the tree, then answer</div>
 </div>
-<div class="ex-goal"><strong>&#127919; Goal:</strong> Given the folder tree below, write the full absolute path to <code>notes.txt</code>.</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Use the folder tree to build an absolute path, and understand why relative paths can be risky.</div>
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b08')">B&middot;08 Path</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 File System</span></div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">1</span>Read the tree</div>
-<div class="ex-text">Here is the structure. Each level of indentation is one folder deeper:</div>
-<code class="code-mini">/
+<div class="ex-q" data-answers="/home/cherry/notes.txt">
+<div class="ex-qtext">Given this tree, type the <strong>absolute path</strong> to <code>notes.txt</code>.<pre>/
   home/
     cherry/
-      notes.txt</code>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">An absolute path starts at the root <code>/</code> and lists every folder down to the file, separated by <code>/</code>.</div></details>
+      notes.txt</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="/..." autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Start at the root <code>/</code> and list every folder down to the file, separated by <code>/</code>.</div></details>
+<div class="ex-expl">From the root down: <code>/home/cherry/notes.txt</code>.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-step">
-<div class="ex-step-head"><span class="ex-step-num">2</span>Write the absolute path</div>
-<div class="ex-text">Start from <code>/</code> and walk down to the file.</div>
-<textarea class="ex-try" placeholder="/..."></textarea>
-<details class="faq-item"><summary class="faq-q">Show solution</summary><div class="faq-a"><code class="code-mini">/home/cherry/notes.txt</code></div></details>
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which of these is an <strong>absolute</strong> path?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">notes.txt</button>
+<button class="quiz-option" onclick="exPick(this)">../cherry</button>
+<button class="quiz-option" onclick="exPick(this)">/etc/passwd</button>
+<button class="quiz-option" onclick="exPick(this)">cherry/notes.txt</button>
+</div>
+<div class="ex-expl">An absolute path starts at the root <code>/</code>. The others are relative to wherever you currently are.</div>
+<div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; What you learned:</strong> an absolute path always starts at <code>/</code> and is unambiguous from anywhere. Relative paths (like <code>notes.txt</code> or <code>../cherry</code>) depend on where you are &mdash; and that ambiguity is exactly what path-traversal attacks abuse.</div>
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why is <code>../../etc/passwd</code> dangerous when it comes from user input?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">It isn't &mdash; it's just text</button>
+<button class="quiz-option" onclick="exPick(this)">It can climb out of the intended folder (path traversal)</button>
+<button class="quiz-option" onclick="exPick(this)">It is too long to process</button>
+<button class="quiz-option" onclick="exPick(this)">It is a comment and gets ignored</button>
+</div>
+<div class="ex-expl">Each <code>../</code> moves up one folder. Unchecked, it lets an attacker reach files outside the intended directory &mdash; a path-traversal attack. See A&middot;05.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> absolute paths start at <code>/</code> and are unambiguous; relative paths depend on where you are. That ambiguity, plus <code>../</code>, is exactly what path-traversal attacks abuse.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-b1')">Back to Exercise 1</span></div>
 </div>
-
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
@@ -6872,6 +6931,30 @@ function practiceFinish(){
   var done=document.getElementById('practiceDone');
   done.innerHTML='&#10003; Deck complete &mdash; you reviewed '+practiceDeck.length+' cards. Nice work!';
   done.style.display='';
+}
+
+// ============ GUIDED EXERCISES (interactive checking) ============
+function exPick(btn){
+  var q=btn.closest('.ex-q'); if(!q || q.getAttribute('data-done')) return;
+  q.setAttribute('data-done','1');
+  var opts=q.querySelectorAll('.quiz-option');
+  var correct=parseInt(q.getAttribute('data-correct'),10);
+  var picked=Array.prototype.indexOf.call(opts,btn);
+  opts.forEach(function(o,i){ o.disabled=true; if(i===correct)o.classList.add('correct'); else if(i===picked)o.classList.add('wrong-selected'); else o.classList.add('fade'); });
+  var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
+  fb.style.display=''; fb.innerHTML='<b>'+(picked===correct?'Correct &middot;':'Not quite &middot;')+'</b> '+(ex?ex.innerHTML:'');
+}
+function exCheck(btn){
+  var q=btn.closest('.ex-q'); if(!q) return;
+  var inp=q.querySelector('.ex-input');
+  var norm=function(s){return (s||'').trim().toLowerCase().replace(/\s+/g,' ');};
+  var val=norm(inp.value);
+  var accepted=(q.getAttribute('data-answers')||'').split('|').map(function(s){return norm(s);});
+  var ok = val!=='' && accepted.indexOf(val)>=0;
+  var fb=q.querySelector('.ex-fb'), ex=q.querySelector('.ex-expl');
+  inp.classList.remove('ex-ok','ex-no'); inp.classList.add(ok?'ex-ok':'ex-no');
+  fb.style.display='';
+  fb.innerHTML = ok ? ('<b>Correct &middot;</b> '+(ex?ex.innerHTML:'')) : '<b>Not quite &middot;</b> Try again, or open the hint below.';
 }
 
 // ============ SELF-CHECK (runtime injected) ============
