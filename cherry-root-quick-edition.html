@@ -311,6 +311,13 @@ body.dark .pg{box-shadow:0 2px 20px rgba(0,0,0,.4)}
 body.dark .gmodal,body.dark .smodal{background:var(--page)}
 body.dark .gl-search,body.dark .block-notes textarea,body.dark .cs-table,body.dark .rf-card,body.dark .idx-item,body.dark .lv-card,body.dark .code-item,body.dark .kw,body.dark .tc,body.dark .bcard{background:var(--page)}
 body.dark .atk{background:var(--p50)}
+.install-card{background:white;border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;margin-bottom:.9rem;box-shadow:0 2px 14px rgba(201,66,110,.05)}
+.install-plat{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.install-plat svg{width:18px;height:18px;color:var(--p500)}
+.install-step{display:flex;gap:.6rem;font-size:.82rem;color:var(--ink2);line-height:1.5;margin-bottom:.45rem}
+.install-step .is-n{flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:.62rem;font-weight:600;color:var(--p500);background:var(--p100);border:1px solid var(--p200);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center}
+.install-step code{font-family:'JetBrains Mono',monospace;font-size:.74rem;background:var(--p50);border:1px solid var(--line);border-radius:5px;padding:.05rem .3rem;color:var(--p500)}
+body.dark .install-card{background:var(--page)}
 </style>
 </head>
 <body>
@@ -362,6 +369,7 @@ body.dark .atk{background:var(--p50)}
   <div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Capa</div>
   <div class="ni" onclick="go('index',this)"><span class="cd">IDX</span>Índice</div>
   <div class="ni" onclick="go('howto',this)"><span class="cd">USO</span>Como Usar</div>
+  <div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Instalar App</div>
   <div class="ni" onclick="go('glossary',this)"><span class="cd">GLO</span>Glossário</div>
   <div class="ns">Blocos</div>
   <div class="ni" onclick="go('b0',this)"><span class="cd">B·</span>Bloco 0 · PC Basics</div>
@@ -428,6 +436,38 @@ body.dark .atk{background:var(--p50)}
 
 
 <!-- ÍNDICE -->
+<!-- ============ INSTALAR APP ============ -->
+<div class="pg" id="pg-install">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> instalar app</div>
+<div class="pt">Instalar App</div>
+<div class="ps">O Cherry Root funciona offline como um app instalável. Adicione à tela inicial ou à área de trabalho para uma experiência em tela cheia, sem navegador.</div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><line x1="10" y1="18.5" x2="14" y2="18.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>iOS &mdash; Safari</div>
+<div class="install-step"><span class="is-n">1</span><div>Abra esta página no <strong>Safari</strong> (não no Chrome &mdash; só o Safari instala no iOS).</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Toque no botão <strong>Compartilhar</strong> (o quadrado com seta para cima) na barra.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Role para baixo e toque em <code>Adicionar à Tela de Início</code>.</div></div>
+<div class="install-step"><span class="is-n">4</span><div>Confirme o nome e toque em <strong>Adicionar</strong>. O ícone aparece na tela inicial.</div></div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.5" r="1" fill="currentColor"/></svg>Android &mdash; Chrome</div>
+<div class="install-step"><span class="is-n">1</span><div>Abra esta página no <strong>Chrome</strong>.</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Toque no menu (três pontos) no canto superior direito.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Toque em <code>Instalar app</code> ou <code>Adicionar à tela inicial</code>.</div></div>
+<div class="install-step"><span class="is-n">4</span><div>Confirme. O Cherry Root instala como app independente e roda offline.</div></div>
+</div>
+
+<div class="install-card">
+<div class="install-plat"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="8" y1="20" x2="16" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>Desktop &mdash; Chrome / Edge</div>
+<div class="install-step"><span class="is-n">1</span><div>Abra esta página no <strong>Chrome</strong> ou <strong>Edge</strong>.</div></div>
+<div class="install-step"><span class="is-n">2</span><div>Procure o <strong>ícone de instalar</strong> (um monitor com seta para baixo) no fim da barra de endereço.</div></div>
+<div class="install-step"><span class="is-n">3</span><div>Clique nele e em <code>Instalar</code>. O Cherry Root abre em janela própria e fica disponível offline.</div></div>
+</div>
+</div>
+
 <div class="pg" id="pg-index">
 <div class="ph"><div class="bc">cherry root quick edition <span>›</span> índice</div><div class="pt">Índice</div><div class="ps">Toda a estrutura do grimório de uma vez. Clique para navegar.</div></div>
 
