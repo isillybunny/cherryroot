@@ -1066,7 +1066,25 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-m1')">1 &middot; Order the phases</span><span class="path-step" onclick="go('ex-m2')">2 &middot; Name the phase</span><span class="path-step" onclick="go('ex-m3')">3 &middot; Reason it through</span></div>
 </div></div>
 
-<div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 9 &middot; Social Engineering</div></div>
+<div class="path-desc">Name the human attack from a clue, dodge the common traps, and recognise the techniques.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-e1')">1 &middot; Spot the attack</span><span class="path-step" onclick="go('ex-e2')">2 &middot; Don't get fooled</span><span class="path-step" onclick="go('ex-e3')">3 &middot; Recognise the technique</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 10 &middot; Malware</div></div>
+<div class="path-desc">Tell the malware families apart, bust the common myths, and name the rest.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-x1')">1 &middot; Identify the malware</span><span class="path-step" onclick="go('ex-x2')">2 &middot; Bust the myth</span><span class="path-step" onclick="go('ex-x3')">3 &middot; Name the rest</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 11 &middot; Defense</div></div>
+<div class="path-desc">Match each blue-team control to its job, think like a defender, and know how to respond.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-d1')">1 &middot; Match the control</span><span class="path-step" onclick="go('ex-d2')">2 &middot; Defensive thinking</span><span class="path-step" onclick="go('ex-d3')">3 &middot; Respond &amp; prevent</span></div>
+</div></div>
+
+<div class="ex-recap">That's every block &mdash; you've reached the end of the guided exercises. Nice work!</div>
 </div>
 
 <!-- Exercise B1 -->
@@ -2508,6 +2526,536 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> recon shapes everything, killing a process doesn't beat persistence, central logging survives a local wipe, and a report needs remediation advice.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-m1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise E1 -->
+<div class="pg" id="pg-ex-e1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 1 &middot; Spot the Attack</div>
+<div class="ps">Difficulty: beginner &middot; clue &rarr; attack name</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Recognise the social-engineering attack from a short scenario.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e02')">E&middot;02 Spear Phishing</span><span class="prereq-chip" onclick="go('e04')">E&middot;04 Baiting</span><span class="prereq-chip" onclick="go('e06')">E&middot;06 Vishing</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A targeted, well-researched phishing email aimed at one executive is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Generic phishing</button>
+<button class="quiz-option" onclick="exPick(this)">Spear phishing (whaling)</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+</div>
+<div class="ex-expl">Personalised, targeted phishing is spear phishing; aimed at a big fish (an exec) it's "whaling".</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A fake "IT support" phone call pressuring you for your password is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+</div>
+<div class="ex-expl">Voice phishing = vishing. A live, urgent caller pushes you to act before thinking.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A USB drive "accidentally" left in the parking lot is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Pretexting</button>
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+</div>
+<div class="ex-expl">Tempting a curious victim with a dropped device is baiting.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Following an employee through a badge-only door is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+</div>
+<div class="ex-expl">Slipping in behind an authorised person is tailgating &mdash; it exploits politeness.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> spear phishing = targeted email, vishing = voice, baiting = tempting device, tailgating = following through a door.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-e2')">Exercise 2 &middot; Don't get fooled</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise E2 -->
+<div class="pg" id="pg-ex-e2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 2 &middot; Don't Get Fooled</div>
+<div class="ps">Difficulty: beginner &middot; bust the myths</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Drop the dangerous assumptions that make people easy targets.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Phishing</span><span class="prereq-chip" onclick="go('e06')">E&middot;06 Vishing</span><span class="prereq-chip" onclick="go('e10')">E&middot;10 Impersonation</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"I can always spot a phishing email" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; modern phishing is very convincing</button>
+</div>
+<div class="ex-expl">Overconfidence is exactly what attackers exploit; copied branding and tone fool careful people too.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Caller ID proves who's calling" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; caller ID is easily spoofed</button>
+</div>
+<div class="ex-expl">Attackers can make any name or number appear. Call back on an official number to verify.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"A found USB is safe to plug in just to find the owner" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; it could be baiting</button>
+</div>
+<div class="ex-expl">Dropped USBs are a classic bait. Never plug an unknown device into your machine.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Best general defense against social engineering?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A faster firewall</button>
+<button class="quiz-option" onclick="exPick(this)">Verify via a trusted channel + MFA + training</button>
+<button class="quiz-option" onclick="exPick(this)">Antivirus only</button>
+<button class="quiz-option" onclick="exPick(this)">HTTPS everywhere</button>
+</div>
+<div class="ex-expl">SE targets people, so the defenses are human: verify out-of-band, require MFA, and train regularly.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> anyone can be phished, caller ID lies, unknown USBs are bait, and the real defense is verification + MFA + training.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-e3')">Exercise 3 &middot; Recognise the technique</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise E3 -->
+<div class="pg" id="pg-ex-e3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 3 &middot; Recognise the Technique</div>
+<div class="ps">Difficulty: beginner &middot; name the rest</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Round out the social-engineering vocabulary.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e07')">E&middot;07 Smishing</span><span class="prereq-chip" onclick="go('e08')">E&middot;08 Watering Hole</span><span class="prereq-chip" onclick="go('e03')">E&middot;03 Pretexting</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Phishing carried out over SMS text messages is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Pretexting</button>
+</div>
+<div class="ex-expl">SMS phishing = smishing. Short links hide the destination and people tap fast on mobile.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Compromising a legitimate site the target group visits, to attack them there, is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A watering hole attack</button>
+<button class="quiz-option" onclick="exPick(this)">Baiting</button>
+<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+</div>
+<div class="ex-expl">A watering hole infects a trusted site the victims already use &mdash; stealthy because they trust it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Offering "free tech support" in exchange for access or info is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Quid pro quo</button>
+<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+<button class="quiz-option" onclick="exPick(this)">Watering hole</button>
+</div>
+<div class="ex-expl">Trading a "favour" for something exploits reciprocity &mdash; that's quid pro quo.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="pretext|pretexting">
+<div class="ex-qtext">Inventing a believable backstory (e.g. "I'm from IT") to manipulate someone is called ____ing. (one word root)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The made-up scenario is called a "pretext".</div></details>
+<div class="ex-expl"><strong>Pretexting</strong> &mdash; the believable story is the attack. Defend by verifying identity through a known channel.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> smishing = SMS, watering hole = compromise a trusted site, quid pro quo = a "favour" for access, pretexting = a fake backstory.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-e1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise X1 -->
+<div class="pg" id="pg-ex-x1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 10</div>
+<div class="pt">Exercise 1 &middot; Identify the Malware</div>
+<div class="ps">Difficulty: beginner &middot; behaviour &rarr; type</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match each behaviour to the malware family it describes.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x02')">X&middot;02 Worm</span><span class="prereq-chip" onclick="go('x03')">X&middot;03 Trojan</span><span class="prereq-chip" onclick="go('x04')">X&middot;04 Ransomware</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Self-spreads across networks with no user action. Which type?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Virus</button>
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+<button class="quiz-option" onclick="exPick(this)">Spyware</button>
+</div>
+<div class="ex-expl">A worm self-propagates over the network. A virus needs a host file and a user to run it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Disguised as useful software that you run yourself. Which type?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
+<button class="quiz-option" onclick="exPick(this)">Botnet</button>
+</div>
+<div class="ex-expl">A trojan hides malice behind a legitimate-looking program.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Encrypts your files and demands payment. Which type?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Spyware</button>
+<button class="quiz-option" onclick="exPick(this)">Ransomware</button>
+<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+</div>
+<div class="ex-expl">Ransomware locks your data and demands payment for the key.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Secretly records everything you type. Which type?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
+<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
+<button class="quiz-option" onclick="exPick(this)">Botnet</button>
+<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+</div>
+<div class="ex-expl">A keylogger captures keystrokes &mdash; a way to steal passwords directly.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> worm = self-spreads, trojan = disguised, ransomware = encrypts for payment, keylogger = records keys.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-x2')">Exercise 2 &middot; Bust the myth</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise X2 -->
+<div class="pg" id="pg-ex-x2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 10</div>
+<div class="pt">Exercise 2 &middot; Bust the Myth</div>
+<div class="ps">Difficulty: beginner &middot; true or false</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Correct the malware misconceptions that get people compromised.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x01')">X&middot;01 Virus</span><span class="prereq-chip" onclick="go('x04')">X&middot;04 Ransomware</span><span class="prereq-chip" onclick="go('x06')">X&middot;06 Rootkit</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"All malware is a virus" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; a virus is just one type</button>
+</div>
+<div class="ex-expl">Worms, trojans, ransomware and more are separate categories with different behaviour.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Antivirus catches everything" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; new or obfuscated malware evades signatures</button>
+</div>
+<div class="ex-expl">Brand-new or packed samples have no known signature, so AV alone is never enough.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Paying the ransom guarantees you get your files back" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; payment often fails and funds more crime</button>
+</div>
+<div class="ex-expl">There's no guarantee of a working key, and paying encourages further attacks. Backups are the real answer.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Reinstalling the OS always removes a rootkit" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; firmware / bootkits can survive a reinstall</button>
+</div>
+<div class="ex-expl">Rootkits in firmware persist even after wiping the disk &mdash; deep, stealthy, and hard to remove.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> virus is one type among many, AV misses novel malware, paying ransom isn't a fix, and firmware rootkits survive reinstalls.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-x3')">Exercise 3 &middot; Name the rest</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise X3 -->
+<div class="pg" id="pg-ex-x3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 10</div>
+<div class="pt">Exercise 3 &middot; Name the Rest</div>
+<div class="ps">Difficulty: beginner &middot; finish the family</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Cover the remaining malware types and the one defense that beats ransomware.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x09')">X&middot;09 Botnet</span><span class="prereq-chip" onclick="go('x08')">X&middot;08 Backdoor</span><span class="prereq-chip" onclick="go('x10')">X&middot;10 Logic Bomb</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">A network of infected devices controlled by an attacker is a...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Botnet</button>
+<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)">Virus</button>
+</div>
+<div class="ex-expl">A botnet is many compromised devices (even IoT) under one attacker's command &mdash; used for DDoS, spam, mining.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Hidden access that bypasses the normal login is a...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Backdoor</button>
+<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
+<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+</div>
+<div class="ex-expl">A backdoor skips authentication to give quiet, persistent access.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Malware that lies dormant until a date or event triggers it is a...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Logic bomb</button>
+<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)">Spyware</button>
+<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+</div>
+<div class="ex-expl">A logic bomb waits for a trigger, which is why it evades early detection &mdash; insiders are a classic source.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="backups|backup">
+<div class="ex-qtext">The single best defense against ransomware is offline / immutable ____. (one word, plural)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">If your files are encrypted, you just restore from a clean, offline copy.</div></details>
+<div class="ex-expl"><strong>Backups</strong> &mdash; offline/immutable copies (the 3-2-1 rule) let you recover without paying.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> botnet = controlled device army, backdoor = hidden access, logic bomb = triggered payload, and backups beat ransomware.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-x1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise D1 -->
+<div class="pg" id="pg-ex-d1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 11</div>
+<div class="pt">Exercise 1 &middot; Match the Control</div>
+<div class="ps">Difficulty: beginner &middot; job &rarr; control</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match each defensive control to what it actually does.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d01')">D&middot;01 Firewall</span><span class="prereq-chip" onclick="go('d03')">D&middot;03 SIEM</span><span class="prereq-chip" onclick="go('d05')">D&middot;05 WAF</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Filters network traffic by allow/deny rules. Which control?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Firewall</button>
+<button class="quiz-option" onclick="exPick(this)">SIEM</button>
+<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
+<button class="quiz-option" onclick="exPick(this)">EDR</button>
+</div>
+<div class="ex-expl">A firewall allows or blocks traffic by rules &mdash; the classic network gatekeeper.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Detects and alerts on suspicious traffic but does not block it. Which control?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">IPS</button>
+<button class="quiz-option" onclick="exPick(this)">IDS</button>
+<button class="quiz-option" onclick="exPick(this)">WAF</button>
+<button class="quiz-option" onclick="exPick(this)">Firewall</button>
+</div>
+<div class="ex-expl">An IDS detects and alerts; an IPS sits inline and can actively block.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Aggregates and correlates logs to detect threats. Which control?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">WAF</button>
+<button class="quiz-option" onclick="exPick(this)">SIEM</button>
+<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
+<button class="quiz-option" onclick="exPick(this)">VPN</button>
+</div>
+<div class="ex-expl">A SIEM is the central nervous system for detection &mdash; it correlates logs and raises alerts.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Inspects and filters web traffic to block SQLi/XSS attempts. Which control?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Network firewall</button>
+<button class="quiz-option" onclick="exPick(this)">WAF</button>
+<button class="quiz-option" onclick="exPick(this)">IDS</button>
+<button class="quiz-option" onclick="exPick(this)">VPN</button>
+</div>
+<div class="ex-expl">A Web Application Firewall understands HTTP and blocks common web attacks &mdash; but it filters, it doesn't fix the code.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> firewall = network rules, IDS = detect/alert, SIEM = correlate logs, WAF = web-layer filtering.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-d2')">Exercise 2 &middot; Defensive thinking</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise D2 -->
+<div class="pg" id="pg-ex-d2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 11</div>
+<div class="pt">Exercise 2 &middot; Defensive Thinking</div>
+<div class="ps">Difficulty: beginner &middot; the blue-team mindset</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Adopt the defender's mindset &mdash; layers, patching, and tested backups.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d06')">D&middot;06 Honeypot</span><span class="prereq-chip" onclick="go('d07')">D&middot;07 Patch Management</span><span class="prereq-chip" onclick="go('d08')">D&middot;08 Backup Strategy</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">A decoy system built to attract and study attackers is a...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
+<button class="quiz-option" onclick="exPick(this)">WAF</button>
+<button class="quiz-option" onclick="exPick(this)">SIEM</button>
+<button class="quiz-option" onclick="exPick(this)">Firewall</button>
+</div>
+<div class="ex-expl">A honeypot lures attackers for early warning and intel &mdash; it must be well isolated, or it becomes a foothold.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why patch promptly?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Mostly for new features</button>
+<button class="quiz-option" onclick="exPick(this)">Unpatched software is a top attack vector</button>
+<button class="quiz-option" onclick="exPick(this)">To fill up disk space</button>
+<button class="quiz-option" onclick="exPick(this)">There's no real reason</button>
+</div>
+<div class="ex-expl">Attackers weaponize disclosed vulnerabilities within days &mdash; patching closes the easy doors.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">"Having backups is enough" &mdash; true?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">True</button>
+<button class="quiz-option" onclick="exPick(this)">False &mdash; you must test that restores actually work</button>
+</div>
+<div class="ex-expl">An untested backup may be corrupt or incomplete. A backup is only real if you can restore from it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Defense in depth means...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">One very strong firewall</button>
+<button class="quiz-option" onclick="exPick(this)">Multiple layered controls</button>
+<button class="quiz-option" onclick="exPick(this)">Antivirus only</button>
+<button class="quiz-option" onclick="exPick(this)">Training only</button>
+</div>
+<div class="ex-expl">Layered controls cover each other's gaps &mdash; if one fails, the next still slows the attacker.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> a honeypot is a decoy, patching closes known holes, backups must be tested, and defense in depth stacks controls.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-d3')">Exercise 3 &middot; Respond &amp; prevent</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise D3 -->
+<div class="pg" id="pg-ex-d3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 11</div>
+<div class="pt">Exercise 3 &middot; Respond &amp; Prevent</div>
+<div class="ps">Difficulty: beginner &middot; the last mile</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Know how to respond to a breach and where the biggest risk really is.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d09')">D&middot;09 Incident Response</span><span class="prereq-chip" onclick="go('d10')">D&middot;10 Security Awareness Training</span><span class="prereq-chip" onclick="go('d08')">D&middot;08 Backup Strategy</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">When a breach happens, you should...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Wipe the box and move on</button>
+<button class="quiz-option" onclick="exPick(this)">Follow an incident response plan</button>
+<button class="quiz-option" onclick="exPick(this)">Ignore it and hope</button>
+<button class="quiz-option" onclick="exPick(this)">Unplug the internet forever</button>
+</div>
+<div class="ex-expl">Follow the plan: identify, contain, eradicate, recover, learn. Wiping too early destroys evidence.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">The biggest attack surface in most organisations is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">The firewall</button>
+<button class="quiz-option" onclick="exPick(this)">People</button>
+<button class="quiz-option" onclick="exPick(this)">The database</button>
+<button class="quiz-option" onclick="exPick(this)">The router</button>
+</div>
+<div class="ex-expl">Most breaches start with a person being phished or tricked &mdash; which is why training matters.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Best org-wide protection against phishing?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A faster CPU</button>
+<button class="quiz-option" onclick="exPick(this)">Security awareness training + MFA</button>
+<button class="quiz-option" onclick="exPick(this)">More bandwidth</button>
+<button class="quiz-option" onclick="exPick(this)">Antivirus alone</button>
+</div>
+<div class="ex-expl">Since people are targeted, ongoing training plus MFA (so a stolen password isn't enough) is the strongest combo.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="backup|backups">
+<div class="ex-qtext">The 3-2-1 rule is about your ____ strategy. (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">3 copies, on 2 media, with 1 kept offsite/offline.</div></details>
+<div class="ex-expl"><strong>Backup</strong> &mdash; 3 copies, 2 media types, 1 offline/offsite. Your last line of defense against ransomware and disaster.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> follow an IR plan during a breach, people are the biggest attack surface, training + MFA beat phishing, and 3-2-1 is your backup rule. &#127826; You've finished every guided exercise &mdash; congratulations!</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-d1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
