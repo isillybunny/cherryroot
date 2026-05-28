@@ -3110,7 +3110,13 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('tut-4')">4 &middot; Lock down your SSH</span><span class="path-step" onclick="go('tut-5')">5 &middot; Inspect a suspicious URL</span><span class="path-step" onclick="go('tut-6')">6 &middot; What's listening here?</span></div>
 </div></div>
 
-<div class="ex-recap">More mini-tutorials on the way &mdash; recon, forensics, incident response. All examples assume <strong>authorized</strong> targets.</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.8"/><line x1="15" y1="15" x2="21" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="path-title">Forensics &amp; incident response</div></div>
+<div class="path-desc">Three more &mdash; spot a brute force in auth logs, audit user activity, and capture suspect traffic from the wire.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-7')">7 &middot; Spot a brute force</span><span class="path-step" onclick="go('tut-8')">8 &middot; Audit user activity</span><span class="path-step" onclick="go('tut-9')">9 &middot; Capture traffic</span></div>
+</div></div>
+
+<div class="ex-recap">More mini-tutorials on the way. All examples assume <strong>authorized</strong> targets &mdash; your own systems or those you have permission to test.</div>
 </div>
 
 <!-- Tutorial 1: nmap scan -->
@@ -3418,6 +3424,159 @@ sudo ufw status verbose</div>
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> <code>ss</code> for listening sockets, <code>ufw</code> for firewall rules, and the right reflex &mdash; <span class="prereq-chip" onclick="go('s06')" style="cursor:pointer">attack surface</span> awareness. The takeaway: bind services to <code>127.0.0.1</code> unless they really need the network.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
+</div>
+
+<!-- Tutorial 7: brute force in auth.log -->
+<div class="pg" id="pg-tut-7">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 3 / 11</div>
+<div class="pt">Tutorial 7 &middot; Spot a Brute Force</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; forensics build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's investigate together:</strong> someone keeps hammering the SSH login. We'll comb <code>auth.log</code> to count failed attempts, find the worst offender, and pull a timeline so you can act.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-7')">reset</button></div>
+<pre id="prog-tut-7" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Count the total failed SSH logins</div>
+<div class="tut-step-text">Get a feel for the scale first. Every failed SSH password attempt writes <code>Failed password</code> to <code>/var/log/auth.log</code>. We grep and count.</div>
+<div id="src-r7-1" class="tut-step-code"># Step 1 &mdash; how many failed logins in total?
+grep -i 'failed password' /var/log/auth.log | wc -l</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-r7-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Rank the source IPs</div>
+<div class="tut-step-text">The 11th column on a Failed-password line is the source IP. <code>awk</code> pulls it, then sort / uniq -c / sort -rn ranks attackers by attempts. The loudest float to the top.</div>
+<div id="src-r7-2" class="tut-step-code"># Step 2 &mdash; rank source IPs by failed attempts
+grep -i 'failed password' /var/log/auth.log | awk '{print $11}' | sort | uniq -c | sort -rn | head</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-r7-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Pull the timeline for the worst IP</div>
+<div class="tut-step-text">Once you have a suspect IP, get the timing. Tight clusters of failures every few seconds = automated brute force. Long gaps = something else.</div>
+<div id="src-r7-3" class="tut-step-code"># Step 3 &mdash; timeline of the worst offender
+grep '185.220.101.42' /var/log/auth.log | awk '{print $1, $2, $3}' | head</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-r7-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-7', &quot;$ grep -i 'failed password' /var/log/auth.log | wc -l\n148\n\n$ ... | awk '{print $11}' | sort | uniq -c | sort -rn | head\n     87 185.220.101.42\n     34 45.95.169.18\n     19 91.214.71.66\n      5 103.78.91.24\n      3 5.188.86.169\n\n$ grep '185.220.101.42' /var/log/auth.log | awk '{print $1, $2, $3}' | head\nNov 23 02:14:33\nNov 23 02:14:42\nNov 23 02:14:51\nNov 23 02:15:00\nNov 23 02:15:09\n\n&gt;&gt;&gt; 185.220.101.42 hit 87 failed logins in under 4 minutes.\n&gt;&gt;&gt; Action: block at the firewall, rotate any password ever used on this box.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-7-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('l09')" style="cursor:pointer">grep</span> through <span class="prereq-chip" onclick="go('l15')" style="cursor:pointer">log files</span>, awk + sort + uniq for ranking. The defensive lesson: <span class="prereq-chip" onclick="go('l12')" style="cursor:pointer">SSH</span> on the open internet without key-only auth and rate limiting is a sitting duck.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-8')">Tutorial 8 &middot; Audit user activity</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 8: audit user activity -->
+<div class="pg" id="pg-tut-8">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 3 / 11</div>
+<div class="pt">Tutorial 8 &middot; Audit User Activity</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; forensics build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's audit together:</strong> three commands to answer "who logged in, who used sudo, and is anyone new on this box?" Routine for incident response &mdash; quick to spot a compromised account.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-8')">reset</button></div>
+<pre id="prog-tut-8" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Recent successful logins</div>
+<div class="tut-step-text"><code>last</code> shows the login history (from <code>/var/log/wtmp</code>). Look for unexpected users, unfamiliar source IPs, or logins at odd hours.</div>
+<div id="src-r8-1" class="tut-step-code"># Step 1 &mdash; last 20 successful logins
+last -n 20</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-r8-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Recent sudo commands</div>
+<div class="tut-step-text">Every <code>sudo</code> call is logged. Look for commands you didn't run, or sudo by accounts that shouldn't be elevating.</div>
+<div id="src-r8-2" class="tut-step-code"># Step 2 &mdash; what was elevated, by whom?
+grep sudo /var/log/auth.log | tail -n 20</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-r8-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Check for new users</div>
+<div class="tut-step-text">A common persistence trick: add a sneaky user. Look at <code>/etc/passwd</code> for entries you don't recognise &mdash; UID 0 (root) duplicates are a giant red flag.</div>
+<div id="src-r8-3" class="tut-step-code"># Step 3 &mdash; any new or odd users? (UID 0 = root)
+awk -F: '$3 == 0 || $3 &gt;= 1000 {print $1, $3, $7}' /etc/passwd</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-r8-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-8', &quot;$ last -n 20\nkaylla   pts/0    192.168.1.45     Wed Nov 23 14:02   still logged in\nkaylla   pts/0    192.168.1.45     Wed Nov 23 09:11 - 12:34  (03:23)\nroot     pts/1    103.5.140.18     Wed Nov 23 03:47 - 03:48  (00:01)\nkaylla   pts/0    192.168.1.45     Tue Nov 22 08:30 - 17:42  (09:12)\n\n$ grep sudo /var/log/auth.log | tail -n 20\nNov 23 14:05 sudo: kaylla : TTY=pts/0 ; COMMAND=/usr/bin/apt update\nNov 23 03:47 sudo: helpdesk : TTY=pts/1 ; COMMAND=/bin/bash\nNov 22 22:11 sudo: kaylla : TTY=pts/0 ; COMMAND=/usr/bin/systemctl status nginx\n\n$ awk -F: '$3 == 0 || $3 &gt;= 1000 ...' /etc/passwd\nroot     0    /bin/bash\nkaylla   1000 /bin/bash\nhelpdesk 1001 /bin/bash\n\n&gt;&gt;&gt; Alerts:\n&gt;&gt;&gt;  &middot; root logged in from 103.5.140.18 at 03:47 &mdash; not from your usual subnet.\n&gt;&gt;&gt;  &middot; 'helpdesk' user (UID 1001) ran sudo /bin/bash at the same moment.\n&gt;&gt;&gt; Disable both accounts, rotate credentials, escalate to IR.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-8-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <code>last</code>, <code>grep sudo</code>, <code>awk</code> on <code>/etc/passwd</code>. The forensic mindset: a single anomaly is a clue, two correlated anomalies (login + sudo bash from a fresh user) is an <span class="prereq-chip" onclick="go('d09')" style="cursor:pointer">incident</span>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-9')">Tutorial 9 &middot; Capture traffic</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 9: capture traffic with tcpdump -->
+<div class="pg" id="pg-tut-9">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 2 / 7</div>
+<div class="pt">Tutorial 9 &middot; Capture Suspect Traffic</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; forensics build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's capture together:</strong> a process is doing something suspicious on the network. We'll record traffic on the wire with <code>tcpdump</code>, get quick stats, then pull HTTP requests out as plain text. Save the PCAP for Wireshark later.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-9')">reset</button></div>
+<pre id="prog-tut-9" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Start a capture</div>
+<div class="tut-step-text"><code>-i any</code> captures on all interfaces, <code>-w</code> writes raw packets to a file. The filter <code>port 80 or port 443</code> keeps it small. Stop with Ctrl-C when you've got enough.</div>
+<div id="src-r9-1" class="tut-step-code"># Step 1 &mdash; capture web traffic to a file (Ctrl-C to stop)
+sudo tcpdump -i any -w /tmp/sus.pcap port 80 or port 443</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-r9-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Get a quick summary of what was captured</div>
+<div class="tut-step-text">Read the file back with <code>-r</code>. The first lines show source/destination + TCP flags, so you instantly see whether the conversation looks normal.</div>
+<div id="src-r9-2" class="tut-step-code"># Step 2 &mdash; quick look at the captured packets
+tcpdump -r /tmp/sus.pcap | head -n 5</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-r9-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Pull HTTP requests as plain text</div>
+<div class="tut-step-text"><code>-A</code> prints packet contents in ASCII. Grep for HTTP verbs and the <code>Host:</code> header to see exactly what URLs were requested &mdash; that's where the smoking gun usually is.</div>
+<div id="src-r9-3" class="tut-step-code"># Step 3 &mdash; what HTTP requests are in there?
+tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-r9-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-9', &quot;$ sudo tcpdump -i any -w /tmp/sus.pcap port 80 or port 443\ntcpdump: listening on any, link-type LINUX_SLL2\n^C\n124 packets captured\n\n$ tcpdump -r /tmp/sus.pcap | head -n 5\n14:02:11.234 IP 192.168.1.45.45122 &gt; target.com.80: Flags [S], seq 1234\n14:02:11.245 IP target.com.80 &gt; 192.168.1.45.45122: Flags [S.], seq 9876\n14:02:11.246 IP 192.168.1.45.45122 &gt; target.com.80: Flags [.], ack 1\n14:02:11.247 IP 192.168.1.45.45122 &gt; target.com.80: Flags [P.], seq 1:148\n14:02:11.301 IP target.com.80 &gt; 192.168.1.45.45122: Flags [.], ack 148\n\n$ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head\nGET /login?user=admin' OR '1'='1 HTTP/1.1\nHost: target.com\nPOST /api/upload HTTP/1.1\nHost: target.com\nGET /admin?cmd=cat+/etc/passwd HTTP/1.1\nHost: target.com\n\n&gt;&gt;&gt; SQLi + command-injection attempts going OUT from this machine.\n&gt;&gt;&gt; This box is compromised or hosts a malicious script. Isolate it, save the PCAP.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-9-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('t03')" style="cursor:pointer">tcpdump</span> (the CLI cousin of <span class="prereq-chip" onclick="go('t03')" style="cursor:pointer">Wireshark</span>), BPF filters, and <code>-A</code> for ASCII packet dump. PCAPs preserve evidence with timestamps &mdash; always save a copy before you start mitigating.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
 
