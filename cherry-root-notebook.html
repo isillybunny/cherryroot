@@ -3586,10 +3586,51 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 <div class="ph">
 <div class="bc">cherry root <span>&rsaquo;</span> practice mode</div>
 <div class="pt">Practice Mode</div>
-<div class="ps">Real-world scenarios &mdash; read the clue, answer, and check. The feedback explains the why. No Kali required.</div>
+<div class="ps">Five real-world scenarios &mdash; read the clue, answer, get an explanation. No Kali required. Five short questions each.</div>
 </div>
 
-<div class="sl">&#9888; Identify the Attack</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 2 L4 6 V12 Q4 19 12 22 Q20 19 20 12 V6 Z"/><line x1="12" y1="9" x2="12" y2="14" stroke-linecap="round"/><circle cx="12" cy="17" r="0.9" fill="currentColor"/></svg></div><div class="path-title">Identify the Attack</div></div>
+<div class="path-desc">Given a web server log line, name the attack class. SQLi, XSS, path traversal, CSRF, brute force.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-attack')">Start &middot; 5 log lines</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="1.5"/><path d="M3.5 7 L12 13 L20.5 7"/></svg></div><div class="path-title">Spot the Phish</div></div>
+<div class="path-desc">Read the email or message, decide if it's phishing. Lookalike domains, urgency, weird links.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-phish')">Start &middot; 5 messages</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="7"/><line x1="15" y1="15" x2="21" y2="21" stroke-linecap="round"/></svg></div><div class="path-title">Read the Nmap</div></div>
+<div class="path-desc">Given a port-scan output, answer questions about what's exposed and what to investigate.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-nmap')">Start &middot; 5 scans</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15 L4 15 A4 4 0 0 1 4 7 L9 7"/><path d="M15 9 L20 9 A4 4 0 0 1 20 17 L15 17"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div class="path-title">Decode the URL</div></div>
+<div class="path-desc">Spot the real destination of a suspicious link. Subdomain tricks, <code>@</code> abuse, encoding, punycode.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-url')">Start &middot; 5 URLs</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M14 3 L21 10 L10 21 L3 21 L3 14 Z"/><path d="M14 3 L17.5 6.5"/></svg></div><div class="path-title">Match the Tool</div></div>
+<div class="path-desc">Given a task, pick the right tool. nmap, Burp, Hydra, sqlmap, John, Wireshark and friends.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-tool')">Start &middot; 5 picks</span></div>
+</div></div>
+
+<div class="ex-recap"><strong>&#127826; 25 scenarios across 5 themes.</strong> Mix of MCQ and fill-in. The explanations explain the why &mdash; not just the answer.</div>
+</div>
+
+<!-- Challenge 1: Identify the Attack -->
+<div class="pg" id="pg-chl-attack">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice <span>&rsaquo;</span> identify the attack</div>
+<div class="pt">Challenge &middot; Identify the Attack</div>
+<div class="ps">Each clue is a real-looking log line. Name the attack class.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Recognise common web attacks from a single request in the access log.</div>
+
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">A web server log shows this request. Which attack is it?<pre>GET /login?user=admin' OR '1'='1' --</pre></div>
 <div class="ex-opts">
@@ -3626,9 +3667,49 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="sl">&#9888; Spot the Phish</div>
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">The auth log shows 600 failed SSH logins in 90 seconds, all from one IP. What is it?<pre>Failed password for root from 185.220.101.42
+Failed password for root from 185.220.101.42
+Failed password for admin from 185.220.101.42
+&hellip; (hundreds more)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)">Credential stuffing only</button>
+<button class="quiz-option" onclick="exPick(this)">Brute force</button>
+<button class="quiz-option" onclick="exPick(this)">DDoS</button>
+</div>
+<div class="ex-expl">Many login attempts in a short window from one source is a brute force. Mitigation: rate-limit, lock accounts, prefer keys over passwords.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">A user clicks an email link. While they're logged in to their bank, this request fires:<pre>POST https://bank.com/transfer
+amount=5000&amp;to=evil_account</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">XSS</button>
+<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
+</div>
+<div class="ex-expl">An action is performed on the victim's behalf using their cookies, triggered by another site &mdash; that's CSRF. Mitigation: anti-CSRF token + SameSite cookies.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you spotted:</strong> SQLi, XSS, path traversal, brute force, and CSRF &mdash; the five attacks every defender sees first.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-phish')">Challenge &middot; Spot the phish</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 2: Spot the Phish -->
+<div class="pg" id="pg-chl-phish">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice <span>&rsaquo;</span> spot the phish</div>
+<div class="pt">Challenge &middot; Spot the Phish</div>
+<div class="ps">Five messages. Each one: phishing or legit?</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read the sender, the urgency, the link &mdash; and decide. The why matters more than the answer.</div>
+
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Is this email phishing or legitimate?<pre>From: support@paypa1.com
+<div class="ex-qtext">Phishing or legitimate?<pre>From: support@paypa1.com
 Subject: Your account is LOCKED
 Click http://bit.ly/verify-now within 24h
 or your account will be deleted.</pre></div>
@@ -3636,7 +3717,7 @@ or your account will be deleted.</pre></div>
 <button class="quiz-option" onclick="exPick(this)">Phishing</button>
 <button class="quiz-option" onclick="exPick(this)">Legitimate</button>
 </div>
-<div class="ex-expl">Phishing &mdash; a misspelled domain (<code>paypa1.com</code>), false urgency, and a shortened link hiding the real destination.</div>
+<div class="ex-expl">Phishing &mdash; misspelled domain (<code>paypa1.com</code> with a 1), urgency pressure ("24h or deleted"), and a shortened link hiding the destination.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
@@ -3649,11 +3730,61 @@ in the break room. No action needed.</pre></div>
 <button class="quiz-option" onclick="exPick(this)">Phishing</button>
 <button class="quiz-option" onclick="exPick(this)">Probably legitimate</button>
 </div>
-<div class="ex-expl">Probably legitimate &mdash; internal sender, no link, no urgency, and nothing is being requested. Still, verify if unsure.</div>
+<div class="ex-expl">Probably legitimate &mdash; internal sender, no link, no urgency, nothing being requested. Still: when unsure, verify through a known channel.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="sl">&#9888; Read the nmap</div>
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">An email lands in your inbox. Your CEO is at a conference today.<pre>From: ceo.gmail@gmail.com (display: "Sarah Chen, CEO")
+Subject: Quick favour
+I'm in a meeting and need you to buy 10 gift cards
+right now. I'll reimburse. Don't call &mdash; reply only.</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Phishing (BEC / CEO fraud)</button>
+<button class="quiz-option" onclick="exPick(this)">Probably legitimate</button>
+</div>
+<div class="ex-expl">CEO fraud / Business Email Compromise. Red flags: external Gmail address, gift cards (untraceable), "don't call me" prevents verification, urgency.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">SMS on your phone:<pre>USPS: Your package could not be delivered.
+Update address: usps-track.help-pkg.co/u/9k2</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+<button class="quiz-option" onclick="exPick(this)">Legitimate USPS notice</button>
+</div>
+<div class="ex-expl">Smishing (SMS phishing). USPS uses <code>usps.com</code>, not <code>usps-track.help-pkg.co</code>. The legitimate-looking subdomain is the bait.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">A "delivery" email:<pre>From: no-reply@amaz0n-shipping.com
+Hi Customer,
+Your package is held. Pay $2.99 customs fee:
+https://amaz0n-shipping.com/pay
+&mdash; Amazon Shipping Team</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Phishing</button>
+<button class="quiz-option" onclick="exPick(this)">Legitimate</button>
+</div>
+<div class="ex-expl">Phishing &mdash; <code>amaz0n</code> uses a zero (not o), generic "Hi Customer", and Amazon never charges customs through random links.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you caught:</strong> lookalike domain, BEC / CEO fraud, smishing, fake delivery &mdash; plus knowing what a real internal email looks like.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-nmap')">Challenge &middot; Read the nmap</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 3: Read the Nmap -->
+<div class="pg" id="pg-chl-nmap">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice <span>&rsaquo;</span> read the nmap</div>
+<div class="pt">Challenge &middot; Read the Nmap</div>
+<div class="ps">Real port-scan output. Answer the question.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Pull useful facts out of an nmap scan &mdash; open ports, services, attack surface.</div>
+
 <div class="ex-q" data-answers="3|three">
 <div class="ex-qtext">How many ports are <strong>open</strong> in this scan? Type a number.<pre>PORT     STATE   SERVICE
 22/tcp   open    ssh
@@ -3661,23 +3792,72 @@ in the break room. No action needed.</pre></div>
 443/tcp  open    https
 3306/tcp closed  mysql</pre></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
-<div class="ex-expl">Three show <code>open</code> (22, 80, 443). Port 3306 is <code>closed</code>, so it doesn't count.</div>
+<div class="ex-expl">Three are <code>open</code> (22, 80, 443). Port 3306 is <code>closed</code> &mdash; it doesn't count.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">In that scan, which service is running on port 22?</div>
+<div class="ex-qtext">In that same scan, which service runs on port 22?</div>
 <div class="ex-opts">
 <button class="quiz-option" onclick="exPick(this)">http</button>
 <button class="quiz-option" onclick="exPick(this)">ssh</button>
 <button class="quiz-option" onclick="exPick(this)">https</button>
 <button class="quiz-option" onclick="exPick(this)">mysql</button>
 </div>
-<div class="ex-expl">The line <code>22/tcp open ssh</code> tells you SSH is listening on port 22 &mdash; a prime target for login attacks.</div>
+<div class="ex-expl"><code>22/tcp open ssh</code> tells you SSH is listening on 22 &mdash; a prime target for login attacks.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="sl">&#9888; Decode the URL</div>
+<div class="ex-q" data-answers="openssh 7.2p2|openssh 7.2|openssh">
+<div class="ex-qtext">Which software and version is on port 22?<pre>PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="software (and version)" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The VERSION column was produced by <code>nmap -sV</code>. You want the program name and version, not the OS.</div></details>
+<div class="ex-expl">OpenSSH 7.2p2. Knowing the exact version lets you look up known CVEs for it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">A scan returns these states. Which one means "a firewall is in the way"?<pre>22/tcp   open
+80/tcp   closed
+135/tcp  filtered</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">open</button>
+<button class="quiz-option" onclick="exPick(this)">closed</button>
+<button class="quiz-option" onclick="exPick(this)">filtered</button>
+<button class="quiz-option" onclick="exPick(this)">none of them</button>
+</div>
+<div class="ex-expl"><code>filtered</code> means nmap couldn't tell &mdash; a firewall (or filter) dropped the probes silently. <code>closed</code> = host replied "no service".</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">You see this. Which port would you investigate <strong>first</strong>?<pre>21/tcp   open  ftp     vsftpd 2.3.4
+22/tcp   open  ssh     OpenSSH 8.9
+80/tcp   open  http    Apache 2.4</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">22 &mdash; SSH is always weak</button>
+<button class="quiz-option" onclick="exPick(this)">80 &mdash; web is the biggest attack surface</button>
+<button class="quiz-option" onclick="exPick(this)">21 &mdash; vsftpd 2.3.4 has a famous backdoor (CVE-2011-2523)</button>
+<button class="quiz-option" onclick="exPick(this)">None, the host is patched</button>
+</div>
+<div class="ex-expl"><code>vsftpd 2.3.4</code> shipped with a malicious backdoor in 2011. A known-vulnerable old version beats "biggest attack surface" almost every time.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you read:</strong> open vs closed vs filtered, picking a service version (for CVE lookup), and prioritising by known vulnerabilities.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-url')">Challenge &middot; Decode the URL</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 4: Decode the URL -->
+<div class="pg" id="pg-chl-url">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice <span>&rsaquo;</span> decode the url</div>
+<div class="pt">Challenge &middot; Decode the URL</div>
+<div class="ps">The link looks fine. The link is not fine. Find the real host.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read a URL and identify the real destination, regardless of the dressing.</div>
+
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What's suspicious about this link?<pre>https://paypal.com.secure-login.ru/account</pre></div>
 <div class="ex-opts">
@@ -3686,19 +3866,63 @@ in the break room. No action needed.</pre></div>
 <button class="quiz-option" onclick="exPick(this)">It uses HTTPS</button>
 <button class="quiz-option" onclick="exPick(this)">The path is too long</button>
 </div>
-<div class="ex-expl">The real domain is the part right before the first <code>/</code>: <code>secure-login.ru</code>. <code>paypal.com</code> is just a subdomain label to fool you.</div>
+<div class="ex-expl">The real domain is the rightmost label before the first <code>/</code>: <code>secure-login.ru</code>. <code>paypal.com</code> is just a subdomain label, decoration to fool you.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="evil.com">
 <div class="ex-qtext">Where does this link actually take you? Type the real domain.<pre>https://good.com@evil.com/login</pre></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="the real domain" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
-<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Anything before an <code>@</code> in the host is treated as a username, not the destination.</div></details>
-<div class="ex-expl">The part before <code>@</code> is just a username. The real host is <code>evil.com</code>.</div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Anything before an <code>@</code> in the host is treated as a userinfo (HTTP basic auth), not the destination.</div></details>
+<div class="ex-expl">The part before <code>@</code> is userinfo. The real host is <code>evil.com</code>.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="sl">&#9888; Match the Tool</div>
+<div class="ex-q" data-answers="/admin|admin">
+<div class="ex-qtext">What path is being requested here, decoded?<pre>https://target.com/%61%64%6d%69%6e</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the real path" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>%XX</code> is URL-encoded ASCII in hex. <code>%61</code> = a, <code>%64</code> = d&hellip;</div></details>
+<div class="ex-expl">URL-encoded ASCII: <code>%61=a %64=d %6d=m %69=i %6e=n</code> &rArr; <code>/admin</code>. Attackers use encoding to bypass naive filters.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's the trick with this link?<pre>https://www.gооgle.com/login</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Nothing</button>
+<button class="quiz-option" onclick="exPick(this)">Two letters are Cyrillic look-alikes, not Latin "o" &mdash; a homograph / IDN attack</button>
+<button class="quiz-option" onclick="exPick(this)">It uses HTTPS</button>
+<button class="quiz-option" onclick="exPick(this)">www is missing a dot</button>
+</div>
+<div class="ex-expl">The two "o" characters are Cyrillic <code>о</code> (U+043E). The domain looks like Google but resolves elsewhere. Browsers show punycode (<code>xn--&hellip;</code>) when they detect it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">In this URL, where is the user going?<pre>https://login.microsoft.com.attacker.io/oauth?next=https://login.microsoft.com</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">attacker.io</button>
+<button class="quiz-option" onclick="exPick(this)">microsoft.com</button>
+<button class="quiz-option" onclick="exPick(this)">login.microsoft.com</button>
+<button class="quiz-option" onclick="exPick(this)">login.microsoft.com.attacker.io is microsoft-owned</button>
+</div>
+<div class="ex-expl">The real host is the rightmost registrable domain: <code>attacker.io</code>. The query parameter pointing at the real Microsoft is bait for the redirect after stealing credentials.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you decoded:</strong> the real host is rightmost-before-the-first-slash, <code>@</code> hides the real host, <code>%XX</code> is hex-encoded ASCII, and homograph characters look identical but aren't.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-tool')">Challenge &middot; Match the tool</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 5: Match the Tool -->
+<div class="pg" id="pg-chl-tool">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> practice <span>&rsaquo;</span> match the tool</div>
+<div class="pt">Challenge &middot; Match the Tool</div>
+<div class="ps">A task is described. Pick the right tool for it.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Match common pentest / defence tasks to the tools that do them.</div>
+
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">You need to capture and read raw network packets. Which tool?</div>
 <div class="ex-opts">
@@ -3719,11 +3943,48 @@ in the break room. No action needed.</pre></div>
 <button class="quiz-option" onclick="exPick(this)">nmap</button>
 <button class="quiz-option" onclick="exPick(this)">curl</button>
 </div>
-<div class="ex-expl">Hydra does online brute force against live services like SSH. (Remember: only with explicit permission.)</div>
+<div class="ex-expl">Hydra does online brute force against live services like SSH. (Only with explicit permission.)</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
-<div class="ex-recap"><strong>&#127826; Nice work:</strong> identifying attacks from logs, spotting phishing, reading nmap, decoding URLs and picking the right tool are everyday skills. Want step-by-step practice? Try the <span class="next-chip" onclick="go('exercises')" style="cursor:pointer">Guided Exercises</span>.</div>
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">You want to intercept and modify a browser's HTTP requests to a web app you're testing. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">nmap</button>
+<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
+<button class="quiz-option" onclick="exPick(this)">tcpdump</button>
+</div>
+<div class="ex-expl">Burp Suite sits between your browser and the target. You can read, modify and replay requests &mdash; the bread and butter of web pentesting.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="3">
+<div class="ex-qtext">You have a list of password hashes from a dump and want to recover the plaintexts <strong>offline</strong>. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
+<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
+<button class="quiz-option" onclick="exPick(this)">John the Ripper (or Hashcat)</button>
+</div>
+<div class="ex-expl">John the Ripper and Hashcat crack hashes offline. Hydra is for online services with live login attempts.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">A web parameter looks injectable and you want to automate dumping the database. Which tool?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">nmap --script vuln</button>
+<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
+<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
+<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+</div>
+<div class="ex-expl">sqlmap automates SQL injection discovery and exploitation &mdash; including dumping tables and reading files when the DB user permits.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you matched:</strong> Wireshark (capture), Hydra (online brute), Burp (web proxy), John/Hashcat (offline crack), sqlmap (SQLi). Mention "only with authorization" every time.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('challenges')">All challenges</span><span class="next-chip" onclick="go('chl-attack')">Back to Identify the Attack</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
