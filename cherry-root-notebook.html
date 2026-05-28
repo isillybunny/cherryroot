@@ -696,6 +696,36 @@ body.dark .ex-step{background:var(--page)}
 .quiz-option.ex-wrong{opacity:.6;border-style:dashed;border-color:var(--p300);color:var(--ink3)}
 .quiz-option.ex-wrong::before{content:'\2717\00a0';color:var(--ink3)}
 body.dark .ex-q{background:var(--page)}
+
+/* ===== MINI-TUTORIALS (build-along) ===== */
+.tut-intro{background:var(--p50);border:1px solid var(--p200);border-left:3px solid var(--p400);border-radius:0 10px 10px 0;padding:.85rem 1rem;margin-bottom:1.2rem;font-size:.9rem;color:var(--ink);line-height:1.55}
+.tut-intro strong{color:var(--p500)}
+.tut-step{border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem;margin-bottom:.8rem;background:white}
+.tut-step-head{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.tut-step-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--p500);color:white;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tut-step-text{font-size:.86rem;color:var(--ink2);line-height:1.55;margin-bottom:.5rem}
+.tut-recap{background:var(--p50);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:1rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
+.tut-recap strong{color:var(--p500)}
+.tut-program-wrap{position:sticky;top:.5rem;z-index:2;margin-bottom:1.2rem}
+.tut-program{background:var(--code-bg);border:1.5px solid var(--p400);border-radius:11px;padding:.7rem .95rem;box-shadow:0 4px 14px rgba(201,66,110,.1)}
+.tut-program-head{display:flex;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--p500);font-weight:700;margin-bottom:.45rem}
+.tut-program-code{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--code-text);white-space:pre;overflow-x:auto;min-height:1.5rem;line-height:1.6;background:transparent;border:none;padding:0;margin:0}
+.tut-program-empty{color:var(--ink4);font-style:italic;font-size:.76rem}
+.tut-program-line.new{animation:tutFlash 1.4s ease}
+@keyframes tutFlash{0%{background:var(--p200);box-shadow:0 0 0 4px var(--p200)}100%{background:transparent;box-shadow:none}}
+.tut-reset-btn{background:transparent;color:var(--ink3);border:none;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:0;text-decoration:underline}
+.tut-reset-btn:hover{color:var(--p500)}
+.tut-add-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.55rem 1rem;border-radius:8px;cursor:pointer;background:var(--p500);color:white;border:none;margin-top:.55rem;transition:all .15s}
+.tut-add-btn:hover{background:var(--p400);transform:translateY(-1px)}
+.tut-add-btn.added{background:var(--p50);color:var(--p500);cursor:default;border:1.5px solid var(--p300);transform:none}
+.tut-step-code{font-family:'JetBrains Mono',monospace;font-size:.76rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:7px;padding:.55rem .75rem;white-space:pre;overflow-x:auto;margin:.6rem 0 0;display:none}
+.tut-step.tut-step-revealed .tut-step-code{display:block}
+.tut-run-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.65rem 1.1rem;border-radius:9px;cursor:pointer;background:linear-gradient(135deg,var(--p400),var(--p500));color:white;border:none;margin:1.1rem 0 .4rem;box-shadow:0 3px 12px rgba(201,66,110,.25)}
+.tut-run-btn:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(201,66,110,.35)}
+.tut-run-area{margin-top:.7rem;padding:.85rem 1.05rem;background:#1a1014;color:#fde8ee;border-radius:11px;border:1px solid var(--p500)}
+.tut-run-head{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--p300);margin-bottom:.4rem;font-weight:600}
+.tut-run-out{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#fde8ee;white-space:pre-wrap;margin:0;padding:0;background:transparent;border:none}
+body.dark .tut-step,body.dark .tut-intro,body.dark .tut-recap{background:var(--page)}
 </style>
 </head>
 <body>
@@ -952,6 +982,7 @@ Review Mode
 <div class="ni" onclick="go('challenges',this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
 <div class="ni" onclick="practiceOpen(this)"><span class="cd">FC</span>Flashcards</div>
+<div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span>Mini-Tutorials</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
@@ -3057,6 +3088,176 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> follow an IR plan during a breach, people are the biggest attack surface, training + MFA beat phishing, and 3-2-1 is your backup rule. &#127826; You've finished every guided exercise &mdash; congratulations!</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-d1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- ============ MINI-TUTORIALS ============ -->
+<div class="pg" id="pg-tutorials">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials</div>
+<div class="pt">Mini-Tutorials</div>
+<div class="ps">Let's build cyber playbooks together &mdash; one command at a time. Click each step to add it to your playbook, then run the whole thing.</div>
+</div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">First Hands-On</div></div>
+<div class="path-desc">Three short build-along playbooks &mdash; recon, an authorized SQLi check, and log hunting.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-1')">1 &middot; Your first nmap scan</span><span class="path-step" onclick="go('tut-2')">2 &middot; Test a login for SQLi</span><span class="path-step" onclick="go('tut-3')">3 &middot; Hunt SQLi in logs</span></div>
+</div></div>
+
+<div class="ex-recap">More mini-tutorials on the way &mdash; one per block once the format is dialed in. All examples assume <strong>authorized</strong> targets.</div>
+</div>
+
+<!-- Tutorial 1: nmap scan -->
+<div class="pg" id="pg-tut-1">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Tutorial 1 &middot; Your First nmap Scan</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's recon together:</strong> three commands to learn everything we need about a target on an authorized lab. Click each step to add a command to your playbook &mdash; you'll see it grow live. Hit <strong>Run</strong> at the end to see the simulated output.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-1')">reset</button></div>
+<pre id="prog-tut-1" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Check if the host is alive</div>
+<div class="tut-step-text">Before scanning ports, confirm the target is even reachable. <code>ping</code> sends ICMP echo packets and waits for replies. <code>-c 2</code> means "stop after 2 packets" so we don't ping forever.</div>
+<div id="src-r1-1" class="tut-step-code"># Step 1 &mdash; check the host is alive
+ping -c 2 192.168.1.1</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-1', 'src-r1-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Find open ports and service versions</div>
+<div class="tut-step-text"><code>nmap</code> is the standard port scanner. <code>-sV</code> tells it to also identify the <strong>version</strong> of each running service &mdash; gold for finding outdated, exploitable software.</div>
+<div id="src-r1-2" class="tut-step-code"># Step 2 &mdash; find open ports and service versions
+nmap -sV 192.168.1.1</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-1', 'src-r1-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Read the HTTP banner closely</div>
+<div class="tut-step-text">If port 80 or 443 is open, the response headers often reveal the exact server software. <code>curl -I</code> fetches just the headers (HEAD request). Server fingerprinting is free recon.</div>
+<div id="src-r1-3" class="tut-step-code"># Step 3 &mdash; look at the HTTP banner
+curl -I http://192.168.1.1</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-1', 'src-r1-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-1', &quot;$ ping -c 2 192.168.1.1\nPING 192.168.1.1 56 bytes\n64 bytes from 192.168.1.1: time=0.234 ms\n64 bytes from 192.168.1.1: time=0.187 ms\n\n$ nmap -sV 192.168.1.1\nPORT     STATE   SERVICE  VERSION\n22/tcp   open    ssh      OpenSSH 8.0\n80/tcp   open    http     nginx 1.18.0\n443/tcp  open    https    nginx 1.18.0\n\n$ curl -I http://192.168.1.1\nHTTP/1.1 200 OK\nServer: nginx/1.18.0\nContent-Type: text/html&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-1-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('t01')" style="cursor:pointer">nmap</span> with <code>-sV</code>, <code>ping</code>, and <span class="prereq-chip" onclick="go('t11')" style="cursor:pointer">curl</span> for HTTP banner grabbing. Three commands, full picture of the target's exposed surface.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-2')">Tutorial 2 &middot; Test a login for SQLi</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 2: SQLi login test -->
+<div class="pg" id="pg-tut-2">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Tutorial 2 &middot; Test a Login for SQLi</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; build along &middot; authorized lab only</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's test together:</strong> is this login endpoint vulnerable to SQL injection? We'll send a normal login first to see the failure, then a classic SQLi payload, then compare. Only on a target you're authorized to test.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-2')">reset</button></div>
+<pre id="prog-tut-2" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Send a baseline (a normal failed login)</div>
+<div class="tut-step-text">First we need to know what a <em>failed</em> login looks like. We send valid-looking but wrong credentials. <code>-X POST</code> sets the HTTP method; <code>-d</code> sends form data.</div>
+<div id="src-r2-1" class="tut-step-code"># Step 1 &mdash; baseline: a normal failed login
+curl -X POST -d "user=alice&amp;pass=secret" https://target.lab/login</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-2', 'src-r2-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Send the SQLi payload</div>
+<div class="tut-step-text">The classic <code>' OR '1'='1</code> closes the user string, adds a tautology, and comments out the rest. If the backend builds the query by concatenation, the WHERE clause becomes always-true &mdash; and we log in as the first user.</div>
+<div id="src-r2-2" class="tut-step-code"># Step 2 &mdash; try the classic SQLi payload
+curl -X POST -d "user=admin' OR '1'='1&amp;pass=x" https://target.lab/login</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-2', 'src-r2-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Compare and conclude</div>
+<div class="tut-step-text">If the second response is meaningfully different &mdash; <code>200 OK</code> instead of <code>401</code>, a session cookie, a dashboard redirect &mdash; you've confirmed SQL injection. Document the request/response pair as your proof of concept.</div>
+<div id="src-r2-3" class="tut-step-code"># Step 3 &mdash; compare: success on the payload = vulnerable
+# look for: 200 OK + Set-Cookie session=... + redirect to /dashboard</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-2', 'src-r2-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-2', &quot;$ curl -X POST -d 'user=alice&amp;pass=secret' https://target.lab/login\nHTTP/1.1 401 Unauthorized\n{\&quot;error\&quot;:\&quot;Invalid credentials\&quot;}\n\n$ curl -X POST -d \&quot;user=admin' OR '1'='1&amp;pass=x\&quot; https://target.lab/login\nHTTP/1.1 200 OK\nSet-Cookie: session=eyJ1c2VyIjoiYWRtaW4ifQ==\n{\&quot;ok\&quot;:true,\&quot;redirect\&quot;:\&quot;/dashboard\&quot;}\n\n&gt;&gt;&gt; Vulnerable to SQL injection.\n&gt;&gt;&gt; Fix: use parameterized queries.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-2-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('t11')" style="cursor:pointer">curl</span> with <code>-X POST</code> and <code>-d</code>, and the classic <span class="prereq-chip" onclick="go('a01')" style="cursor:pointer">SQL injection</span> payload <code>' OR '1'='1</code>. The fix on the server is always <strong>parameterized queries</strong>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-3')">Tutorial 3 &middot; Hunt SQLi in logs</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 3: log hunting -->
+<div class="pg" id="pg-tut-3">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 6 / 3</div>
+<div class="pt">Tutorial 3 &middot; Hunt SQLi in Access Logs</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's investigate together:</strong> blue-team mode. We'll grep through nginx access logs to find SQL injection <em>attempts</em>, then count them by source IP to spot the noisy attackers.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-3')">reset</button></div>
+<pre id="prog-tut-3" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Peek at the latest log entries</div>
+<div class="tut-step-text">Always orient yourself first. <code>tail -n 100</code> shows the last 100 lines so you know what normal traffic looks like before you start filtering.</div>
+<div id="src-r3-1" class="tut-step-code"># Step 1 &mdash; recent traffic to know what 'normal' looks like
+tail -n 100 /var/log/nginx/access.log</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-3', 'src-r3-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Grep for classic SQLi signatures</div>
+<div class="tut-step-text"><code>grep -iE</code> does a case-insensitive extended-regex search. The <code>|</code> means OR, so this pulls any line that contains either <code>or 1=1</code> or <code>union select</code> &mdash; two of the most common SQLi tells.</div>
+<div id="src-r3-2" class="tut-step-code"># Step 2 &mdash; classic SQLi patterns (case-insensitive)
+grep -iE "or 1=1|union select" /var/log/nginx/access.log</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-3', 'src-r3-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Count hits by source IP</div>
+<div class="tut-step-text">Now pipe the matches into <code>awk</code> to pull the first column (the IP), then sort, dedupe-with-count, and sort the counts. The noisiest attackers float to the top.</div>
+<div id="src-r3-3" class="tut-step-code"># Step 3 &mdash; rank by source IP
+grep -iE "or 1=1|union select" /var/log/nginx/access.log | awk '{print $1}' | sort | uniq -c | sort -rn</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-3', 'src-r3-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-3', &quot;$ grep -iE 'or 1=1|union select' /var/log/nginx/access.log\n185.220.101.42 - - [GET /login?user=admin' OR '1'='1 HTTP/1.1] 200\n185.220.101.42 - - [GET /search?q=UNION SELECT 1,2,3-- HTTP/1.1] 500\n185.220.101.42 - - [GET /api?id=1 UNION SELECT password FROM users HTTP/1.1] 500\n45.95.169.18  - - [GET /shop?id=' or 1=1-- HTTP/1.1] 500\n\n$ ... | awk | sort | uniq -c | sort -rn\n     12 185.220.101.42\n      3 45.95.169.18\n      1 8.8.8.8&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-3-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('l09')" style="cursor:pointer">grep</span> with extended regex, <code>awk</code>, <code>sort</code> and <code>uniq</code> piped together. This same recipe finds anything with a known signature &mdash; <span class="prereq-chip" onclick="go('a02')" style="cursor:pointer">XSS</span> attempts, brute force, scanner UAs.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE (scenario challenges) ============ -->
@@ -9003,6 +9204,46 @@ function exCheck(btn){
   inp.classList.remove('ex-ok','ex-no'); inp.classList.add(ok?'ex-ok':'ex-no');
   fb.style.display='';
   fb.innerHTML = ok ? ('<b>Correct &middot;</b> '+(ex?ex.innerHTML:'')) : '<b>Not quite &middot;</b> Try again, or open the hint below.';
+}
+
+// ============ MINI-TUTORIALS (build-your-program) ============
+function tutAdd(btn, programId, codeId){
+  if(btn.classList.contains('added')) return;
+  var src = document.getElementById(codeId); if(!src) return;
+  var pre = document.getElementById(programId); if(!pre) return;
+  var empty = pre.querySelector('.tut-program-empty');
+  if(empty) empty.remove();
+  if(pre.querySelector('.tut-program-line')){
+    pre.appendChild(document.createTextNode('\n'));
+  }
+  var line = document.createElement('span');
+  line.className = 'tut-program-line new';
+  line.innerHTML = src.innerHTML.trim();
+  pre.appendChild(line);
+  setTimeout(function(){ line.classList.remove('new'); }, 1500);
+  btn.classList.add('added');
+  btn.innerHTML = '&#10003; Added to program';
+  var step = btn.closest('.tut-step');
+  if(step) step.classList.add('tut-step-revealed');
+}
+function tutReset(programId){
+  var pre = document.getElementById(programId); if(!pre) return;
+  pre.innerHTML = '<span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span>';
+  var pg = pre.closest('.pg');
+  if(pg){
+    pg.querySelectorAll('.tut-add-btn').forEach(function(b){
+      b.classList.remove('added');
+      b.innerHTML = '&#9654; Add to my playbook';
+    });
+    pg.querySelectorAll('.tut-step').forEach(function(s){ s.classList.remove('tut-step-revealed'); });
+    var run = document.getElementById(programId+'-run'); if(run) run.style.display='none';
+  }
+}
+function tutRun(programId, output){
+  var run = document.getElementById(programId+'-run'); if(!run) return;
+  run.style.display='';
+  var out = run.querySelector('.tut-run-out'); if(out) out.textContent = output;
+  run.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 // ============ SELF-CHECK (runtime injected) ============
