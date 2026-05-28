@@ -1063,6 +1063,18 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-o1')">1 &middot; Arithmetic &amp; precedence</span><span class="path-step" onclick="go('ex-o2')">2 &middot; Compare &amp; combine</span><span class="path-step" onclick="go('ex-o3')">3 &middot; Modulo &amp; logic</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 4 &middot; Control Flow</div></div>
+<div class="path-desc">Predict outputs of if/elif/else, trace loops, and reason about break, continue and nesting.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-c1')">1 &middot; If / else / elif</span><span class="path-step" onclick="go('ex-c2')">2 &middot; Trace loops</span><span class="path-step" onclick="go('ex-c3')">3 &middot; Break, continue, nested</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 5 &middot; Functions</div></div>
+<div class="path-desc">Define and call functions, pass arguments, return values, and understand scope.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-n1')">1 &middot; Define &amp; call</span><span class="path-step" onclick="go('ex-n2')">2 &middot; Parameters &amp; arguments</span><span class="path-step" onclick="go('ex-n3')">3 &middot; Return &amp; scope</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1500,6 +1512,346 @@ Review Mode
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>%</code> gives the remainder (and <code>== 0</code> tests evenness), and arithmetic is evaluated before a comparison.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-o1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise C1 -->
+<div class="pg" id="pg-ex-c1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 1 &middot; If, Else and Elif</div>
+<div class="ps">Difficulty: beginner &middot; trace the branch</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Predict which branch runs and what gets printed. Watch for <code>=</code> vs <code>==</code>.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('c01')">C&middot;01 If Statement</span><span class="prereq-chip" onclick="go('c02')">C&middot;02 Else / Elif</span><span class="prereq-chip" onclick="go('c09')">C&middot;09 Ternary Operator</span></div>
+
+<div class="ex-q" data-answers="big">
+<div class="ex-qtext">What does this print?<pre>x = 5
+if x &gt; 3:
+    print("big")
+else:
+    print("small")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">5 &gt; 3 is True, so the <code>if</code> branch runs: prints <code>big</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which is a <strong>valid</strong> Python if?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">if x = 5:</button>
+<button class="quiz-option" onclick="exPick(this)">if x == 5:</button>
+<button class="quiz-option" onclick="exPick(this)">if x === 5:</button>
+<button class="quiz-option" onclick="exPick(this)">if x is 5 then:</button>
+</div>
+<div class="ex-expl"><code>==</code> tests equality. A single <code>=</code> assigns; <code>===</code> is JS, not Python.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="b">
+<div class="ex-qtext">What does this print?<pre>x = 85
+if x &gt;= 90:
+    print("A")
+elif x &gt;= 80:
+    print("B")
+else:
+    print("C")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">85 is not &ge;90 but it is &ge;80, and the first match wins.</div></details>
+<div class="ex-expl">First true branch wins: 85 &ge; 90 is False, 85 &ge; 80 is True &rarr; prints <code>B</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="pos">
+<div class="ex-qtext">What does this print?<pre>n = 5
+print("pos" if n &gt; 0 else "neg")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A ternary is <code>value_if_true if cond else value_if_false</code>. 5 &gt; 0 is True &rarr; <code>pos</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> conditions test with <code>==</code>, elif chains stop at the first match, and a ternary is a compact if/else expression.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-c2')">Exercise 2 &middot; Trace loops</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise C2 -->
+<div class="pg" id="pg-ex-c2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 2 &middot; Trace the Loops</div>
+<div class="ps">Difficulty: beginner &middot; count and predict</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Trace simple loops. Remember <code>range(n)</code> stops <em>before</em> n.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('c04')">C&middot;04 While Loop</span><span class="prereq-chip" onclick="go('c05')">C&middot;05 For Loop</span></div>
+
+<div class="ex-q" data-answers="4|four">
+<div class="ex-qtext">How many lines does this print?<pre>for i in range(4):
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>range(4)</code> yields 0, 1, 2, 3 &mdash; four values, so 4 lines.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="4|four">
+<div class="ex-qtext">What is the <strong>last</strong> number printed?<pre>for i in range(5):
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="last number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>range(5)</code> stops before 5, so it yields 0..4 &mdash; the last is 4.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which range yields exactly the values 1, 2, 3?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">range(3)</button>
+<button class="quiz-option" onclick="exPick(this)">range(1, 3)</button>
+<button class="quiz-option" onclick="exPick(this)">range(1, 4)</button>
+<button class="quiz-option" onclick="exPick(this)">range(0, 3)</button>
+</div>
+<div class="ex-expl"><code>range(start, stop)</code> yields start..stop-1, so 1..3 is <code>range(1, 4)</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many lines does this print?<pre>n = 3
+while n &gt; 0:
+    print(n)
+    n -= 1</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">It prints 3, then 2, then 1; the condition fails when n becomes 0.</div></details>
+<div class="ex-expl">Prints 3, 2, 1 &mdash; three lines &mdash; then exits when n reaches 0.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>range(n)</code> stops before n (so <code>n</code> values, last is n-1), and a while runs as long as the condition is true.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-c3')">Exercise 3 &middot; Break, continue, nested</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise C3 -->
+<div class="pg" id="pg-ex-c3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Exercise 3 &middot; Break, Continue and Nested</div>
+<div class="ps">Difficulty: beginner &middot; flow control inside loops</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Reason about <code>break</code>, <code>continue</code>, and what nesting does to the total iterations.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('c07')">C&middot;07 Break</span><span class="prereq-chip" onclick="go('c08')">C&middot;08 Continue</span><span class="prereq-chip" onclick="go('c10')">C&middot;10 Nested Loops</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>break</code> do inside a loop?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Skips the current iteration only</button>
+<button class="quiz-option" onclick="exPick(this)">Exits the nearest enclosing loop immediately</button>
+<button class="quiz-option" onclick="exPick(this)">Restarts the loop from the beginning</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it's a comment</button>
+</div>
+<div class="ex-expl"><code>break</code> exits the nearest loop. To skip just this iteration use <code>continue</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>continue</code> do?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Exits the loop entirely</button>
+<button class="quiz-option" onclick="exPick(this)">Skips the rest of this iteration and starts the next</button>
+<button class="quiz-option" onclick="exPick(this)">Raises an error</button>
+<button class="quiz-option" onclick="exPick(this)">Restarts the loop counter from 0</button>
+</div>
+<div class="ex-expl"><code>continue</code> skips the rest of this iteration; the loop continues with the next value.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3|three">
+<div class="ex-qtext">How many numbers get printed before the break?<pre>for i in range(10):
+    if i == 3:
+        break
+    print(i)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">When i is 0, 1, 2 it prints. When i is 3 the break fires <em>before</em> print.</div></details>
+<div class="ex-expl">i = 0, 1, 2 print; when i = 3 the break exits the loop &mdash; so 3 numbers print.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="12|twelve">
+<div class="ex-qtext">Nested loops: outer runs 3 times, inner runs 4 times per outer pass. How many times does the inner body execute in total?<pre>for i in range(3):
+    for j in range(4):
+        print(i, j)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="how many?" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">3 &times; 4 = 12. Nested loops multiply iterations &mdash; watch out for big inputs.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>break</code> exits the loop, <code>continue</code> skips to the next iteration, and nested loops multiply (outer &times; inner) iterations.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-c1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise N1 -->
+<div class="pg" id="pg-ex-n1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 1 &middot; Define &amp; Call</div>
+<div class="ps">Difficulty: beginner &middot; declaring vs running</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell the difference between defining a function and calling it, and read its return value.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n01')">N&middot;01 Function</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 Return Value</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">How do you <strong>call</strong> a function defined as <code>def greet():</code> ?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">greet</button>
+<button class="quiz-option" onclick="exPick(this)">greet()</button>
+<button class="quiz-option" onclick="exPick(this)">call greet</button>
+<button class="quiz-option" onclick="exPick(this)">run greet</button>
+</div>
+<div class="ex-expl"><code>def</code> only stores the function. You need <code>()</code> to actually run it.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="5">
+<div class="ex-qtext">What does this print?<pre>def add(a, b):
+    return a + b
+print(add(2, 3))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The call <code>add(2, 3)</code> returns 5, and that's what gets printed.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="none">
+<div class="ex-qtext">What does this print?<pre>def f():
+    pass
+print(f())</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">A function with no <code>return</code> gives back a special value.</div></details>
+<div class="ex-expl">No <code>return</code> means the function returns <code>None</code> &mdash; which prints as <code>None</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does <code>pass</code> do in a function body?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Prints the word "pass"</button>
+<button class="quiz-option" onclick="exPick(this)">Does nothing &mdash; placeholder</button>
+<button class="quiz-option" onclick="exPick(this)">Exits the program</button>
+<button class="quiz-option" onclick="exPick(this)">Raises an error</button>
+</div>
+<div class="ex-expl"><code>pass</code> is a placeholder &mdash; the function still needs a body, but it does nothing.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> defining stores; <code>()</code> calls. No <code>return</code> means the function returns <code>None</code>, and <code>pass</code> is a do-nothing placeholder.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-n2')">Exercise 2 &middot; Parameters &amp; arguments</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise N2 -->
+<div class="pg" id="pg-ex-n2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 2 &middot; Parameters &amp; Arguments</div>
+<div class="ps">Difficulty: beginner &middot; passing data in</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Use parameters, defaults and keyword arguments correctly.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n02')">N&middot;02 Parameter</span><span class="prereq-chip" onclick="go('n03')">N&middot;03 Argument</span><span class="prereq-chip" onclick="go('n09')">N&middot;09 Default Arguments</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">In <code>def greet(name):</code>, <code>name</code> is the...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Argument</button>
+<button class="quiz-option" onclick="exPick(this)">Parameter</button>
+<button class="quiz-option" onclick="exPick(this)">Return value</button>
+<button class="quiz-option" onclick="exPick(this)">Global variable</button>
+</div>
+<div class="ex-expl">Parameter = placeholder in the definition. Argument = the actual value passed when calling.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="15">
+<div class="ex-qtext">What does this print?<pre>def f(x, y=10):
+    print(x + y)
+f(5)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Only <code>x=5</code> was passed; <code>y</code> uses its default of 10. 5 + 10 = 15.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="25">
+<div class="ex-qtext">And what does <code>f(5, 20)</code> print? (same function above)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Now <code>y=20</code> overrides the default. 5 + 20 = 25.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which function signature is <strong>invalid</strong> in Python?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">def f(a, b=1):</button>
+<button class="quiz-option" onclick="exPick(this)">def f(a=1, b):</button>
+<button class="quiz-option" onclick="exPick(this)">def f(*args):</button>
+<button class="quiz-option" onclick="exPick(this)">def f(**kwargs):</button>
+</div>
+<div class="ex-expl">Parameters with defaults must come <em>after</em> those without. <code>def f(a=1, b)</code> is a syntax error.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> parameters live in the definition; arguments are the values you pass; defaults come last; and the call can override any default.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-n3')">Exercise 3 &middot; Return &amp; scope</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise N3 -->
+<div class="pg" id="pg-ex-n3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Exercise 3 &middot; Return &amp; Scope</div>
+<div class="ps">Difficulty: beginner &middot; what comes out, what stays in</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Understand what a function returns and why a variable inside it does not affect the outside.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 Return Value</span><span class="prereq-chip" onclick="go('n11')">N&middot;11 Function Scope</span><span class="prereq-chip" onclick="go('n09')">N&middot;09 Default Arguments</span></div>
+
+<div class="ex-q" data-answers="10">
+<div class="ex-qtext">What does this print?<pre>x = 10
+def f():
+    x = 5
+f()
+print(x)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">The <code>x</code> inside <code>f</code> is a local variable &mdash; separate from the outer <code>x</code>.</div></details>
+<div class="ex-expl">The <code>x = 5</code> inside <code>f</code> creates a local <code>x</code> that vanishes when the function returns. The outer <code>x</code> is still 10.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="20">
+<div class="ex-qtext">What does this output?<pre>def square(n):
+    return n * n
+print(square(4) + square(2))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>square(4)</code> returns 16, <code>square(2)</code> returns 4. 16 + 4 = 20.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A function with no <code>return</code> gives back...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">An empty string</button>
+<button class="quiz-option" onclick="exPick(this)">None</button>
+<button class="quiz-option" onclick="exPick(this)">Zero</button>
+<button class="quiz-option" onclick="exPick(this)">A syntax error</button>
+</div>
+<div class="ex-expl">Without an explicit <code>return</code>, the function returns <code>None</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which is the <strong>safe</strong> default-parameter pattern?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">def f(items=[]):</button>
+<button class="quiz-option" onclick="exPick(this)">def f(items=None):</button>
+<button class="quiz-option" onclick="exPick(this)">def f(items=set()):</button>
+<button class="quiz-option" onclick="exPick(this)">All are equally safe</button>
+</div>
+<div class="ex-expl">Mutable defaults like <code>[]</code> are created once and shared across calls. Use <code>None</code> and create the list inside the function.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> locals don't leak out, <code>return</code> hands a value back to the caller, no return means <code>None</code>, and mutable defaults are a classic trap.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-n1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
