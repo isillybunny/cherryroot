@@ -3099,12 +3099,18 @@ Review Mode
 </div>
 
 <div class="path-card"><div class="path-bar"></div><div class="path-body">
-<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">First Hands-On</div></div>
-<div class="path-desc">Three short build-along playbooks &mdash; recon, an authorized SQLi check, and log hunting.</div>
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2 L22 2 L22 10 L11 21 L7 21 L7 17 L18 6 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><line x1="2" y1="22" x2="6" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="path-title">Red-team starters</div></div>
+<div class="path-desc">Three build-along playbooks &mdash; recon, an authorized SQLi check, and log hunting from the attacker's view.</div>
 <div class="path-steps"><span class="path-step" onclick="go('tut-1')">1 &middot; Your first nmap scan</span><span class="path-step" onclick="go('tut-2')">2 &middot; Test a login for SQLi</span><span class="path-step" onclick="go('tut-3')">3 &middot; Hunt SQLi in logs</span></div>
 </div></div>
 
-<div class="ex-recap">More mini-tutorials on the way &mdash; one per block once the format is dialed in. All examples assume <strong>authorized</strong> targets.</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 L4 6 V12 Q4 19 12 22 Q20 19 20 12 V6 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Defensive playbooks</div></div>
+<div class="path-desc">Three more &mdash; harden your SSH, dissect a suspicious link safely, and audit what's listening on a machine.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-4')">4 &middot; Lock down your SSH</span><span class="path-step" onclick="go('tut-5')">5 &middot; Inspect a suspicious URL</span><span class="path-step" onclick="go('tut-6')">6 &middot; What's listening here?</span></div>
+</div></div>
+
+<div class="ex-recap">More mini-tutorials on the way &mdash; recon, forensics, incident response. All examples assume <strong>authorized</strong> targets.</div>
 </div>
 
 <!-- Tutorial 1: nmap scan -->
@@ -3257,6 +3263,161 @@ grep -iE "or 1=1|union select" /var/log/nginx/access.log | awk '{print $1}' | so
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('l09')" style="cursor:pointer">grep</span> with extended regex, <code>awk</code>, <code>sort</code> and <code>uniq</code> piped together. This same recipe finds anything with a known signature &mdash; <span class="prereq-chip" onclick="go('a02')" style="cursor:pointer">XSS</span> attempts, brute force, scanner UAs.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
+</div>
+
+<!-- Tutorial 4: SSH hardening -->
+<div class="pg" id="pg-tut-4">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 3</div>
+<div class="pt">Tutorial 4 &middot; Lock Down Your SSH</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; defensive build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's harden together:</strong> SSH with passwords is a brute-force magnet. We'll generate a key, install it on the server, then turn off password login. Standard hygiene for any internet-facing box.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-4')">reset</button></div>
+<pre id="prog-tut-4" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Generate a strong key</div>
+<div class="tut-step-text"><code>ed25519</code> is the modern algorithm &mdash; small, fast, very secure. The <code>-C</code> comment makes the key easy to recognise later when you have several.</div>
+<div id="src-r4-1" class="tut-step-code"># Step 1 &mdash; generate a strong key pair on your machine
+ssh-keygen -t ed25519 -C "kaylla@laptop"</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-r4-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Install the public key on the server</div>
+<div class="tut-step-text"><code>ssh-copy-id</code> appends your <strong>public</strong> key to <code>~/.ssh/authorized_keys</code> on the server. Your private key stays on your machine and never leaves it.</div>
+<div id="src-r4-2" class="tut-step-code"># Step 2 &mdash; copy the public key into the server
+ssh-copy-id user@your-server.com</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-r4-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Turn off password login</div>
+<div class="tut-step-text">Edit <code>/etc/ssh/sshd_config</code> on the server and force key-only access. <strong>Test in a second terminal before logging out</strong> &mdash; if the config is wrong you can lock yourself out.</div>
+<div id="src-r4-3" class="tut-step-code"># Step 3 &mdash; force key-only auth (edit /etc/ssh/sshd_config)
+# PasswordAuthentication no
+# PubkeyAuthentication  yes
+sudo systemctl restart ssh</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-r4-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-4', &quot;$ ssh-keygen -t ed25519 -C 'kaylla@laptop'\nGenerating public/private ed25519 key pair.\nYour identification has been saved in /home/kaylla/.ssh/id_ed25519\nYour public key has been saved in /home/kaylla/.ssh/id_ed25519.pub\n\n$ ssh-copy-id user@your-server.com\nNumber of key(s) added: 1\nNow try logging into the machine, with: 'ssh user@your-server.com'\n\n$ sudo systemctl restart ssh\n[ OK ] ssh.service restarted.\n\n&gt;&gt;&gt; Password auth disabled. SSH only via your key now.\n&gt;&gt;&gt; Brute force on port 22 is now effectively dead.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-4-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('l12')" style="cursor:pointer">SSH</span> with key-based auth, <span class="prereq-chip" onclick="go('s11')" style="cursor:pointer">authentication</span> hardening, and the <span class="prereq-chip" onclick="go('s07')" style="cursor:pointer">defense in depth</span> idea: remove a whole class of attack instead of fighting symptoms.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-5')">Tutorial 5 &middot; Inspect a suspicious URL</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 5: URL inspection -->
+<div class="pg" id="pg-tut-5">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Tutorial 5 &middot; Inspect a Suspicious URL</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes &middot; defensive build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's investigate together:</strong> a colleague forwarded you a link that smells phishy. We'll dissect it from the terminal &mdash; decode any URL-encoding, follow redirects without downloading, and check the final domain &mdash; <strong>without ever opening it in a browser</strong>.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-5')">reset</button></div>
+<pre id="prog-tut-5" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Decode URL-encoded characters</div>
+<div class="tut-step-text">Phishing links often hide their destination behind <code>%XX</code> escapes. <code>urllib.parse.unquote</code> turns them back into normal text so you can read what's really in there.</div>
+<div id="src-r5-1" class="tut-step-code"># Step 1 &mdash; decode percent-encoded characters
+python3 -c "import urllib.parse; print(urllib.parse.unquote('https%3A%2F%2Fbit.ly%2FxYz123'))"</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-r5-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>See where it actually leads &mdash; without downloading</div>
+<div class="tut-step-text"><code>curl -ILs</code> follows redirects (<code>-L</code>) using HEAD requests (<code>-I</code>) only &mdash; you get the redirect chain without ever fetching the page body. <code>grep -i location</code> isolates the destination headers.</div>
+<div id="src-r5-2" class="tut-step-code"># Step 2 &mdash; trace the redirects safely
+curl -ILs https://bit.ly/xYz123 | grep -i location</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-r5-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Check the final domain</div>
+<div class="tut-step-text"><code>dig +short</code> resolves the domain to an IP. A young, weird domain on a sketchy IP range plus a brand-name disguise &mdash; classic phishing pattern.</div>
+<div id="src-r5-3" class="tut-step-code"># Step 3 &mdash; resolve the destination, sanity-check the IP
+dig +short evil-final-domain.tk</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-r5-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-5', &quot;$ python3 -c '...unquote(...)...'\nhttps://bit.ly/xYz123\n\n$ curl -ILs https://bit.ly/xYz123 | grep -i location\nlocation: https://evil-final-domain.tk/login\n\n$ dig +short evil-final-domain.tk\n198.51.100.42\n\n&gt;&gt;&gt; Final destination: evil-final-domain.tk (198.51.100.42)\n&gt;&gt;&gt; Not the brand it pretends to be. Do NOT click.\n&gt;&gt;&gt; Report to your security team and add to the blocklist.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-5-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('w05')" style="cursor:pointer">URL</span> decoding, <span class="prereq-chip" onclick="go('t11')" style="cursor:pointer">curl</span> with <code>-ILs</code>, <code>dig</code>, and the discipline of never clicking a link you haven't inspected. This is your front line against <span class="prereq-chip" onclick="go('e01')" style="cursor:pointer">phishing</span>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-6')">Tutorial 6 &middot; What's listening here?</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 6: surface check -->
+<div class="pg" id="pg-tut-6">
+<div class="ph">
+<div class="bc">cherry root <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 0 / 2</div>
+<div class="pt">Tutorial 6 &middot; What's Listening on This Machine?</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes &middot; defensive build-along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's audit together:</strong> a quick three-command surface check on your own box. What ports are open, which programs are listening, and what does the firewall actually allow. This is the same scan an attacker would run &mdash; you should run it first.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your playbook <button class="tut-reset-btn" onclick="tutReset('prog-tut-6')">reset</button></div>
+<pre id="prog-tut-6" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add a command)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>List listening TCP ports</div>
+<div class="tut-step-text"><code>ss</code> is the modern replacement for <code>netstat</code>. <code>-t</code> = TCP, <code>-l</code> = listening, <code>-n</code> = numeric (no DNS), <code>-p</code> = show the process behind each port.</div>
+<div id="src-r6-1" class="tut-step-code"># Step 1 &mdash; what's listening on TCP?
+ss -tlnp</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-r6-1')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Same for UDP</div>
+<div class="tut-step-text">UDP services (like DNS resolvers) are easy to forget. <code>-u</code> instead of <code>-t</code> swaps to UDP. Don't skip this one &mdash; UDP is where amplification attacks live.</div>
+<div id="src-r6-2" class="tut-step-code"># Step 2 &mdash; what's listening on UDP?
+ss -ulnp</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-r6-2')">&#9654; Add to my playbook</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Check what the firewall actually allows</div>
+<div class="tut-step-text">Open ports don't matter if the firewall blocks them &mdash; and vice versa. <code>ufw status verbose</code> shows the rules in plain English, including the default policy.</div>
+<div id="src-r6-3" class="tut-step-code"># Step 3 &mdash; what does the firewall actually allow?
+sudo ufw status verbose</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-r6-3')">&#9654; Add to my playbook</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-6', &quot;$ ss -tlnp\nState    Local Address:Port    Process\nLISTEN   0.0.0.0:22            sshd\nLISTEN   127.0.0.1:631         cups\nLISTEN   0.0.0.0:5432          postgres\n\n$ ss -ulnp\nState    Local Address:Port    Process\nLISTEN   127.0.0.53:53         systemd-resolved\n\n$ sudo ufw status verbose\nStatus: active\nDefault: deny (incoming), allow (outgoing)\nTo                Action    From\n--                ------    ----\n22/tcp            ALLOW IN  Anywhere\n\n&gt;&gt;&gt; postgres listening on 0.0.0.0:5432 (NOT localhost) &mdash; firewall doesn't allow it,\n&gt;&gt;&gt; but if the rule changes it's instantly exposed. Bind to 127.0.0.1 instead.&quot;)">&#9654; Run my playbook</button>
+<div id="prog-tut-6-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Simulated output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <code>ss</code> for listening sockets, <code>ufw</code> for firewall rules, and the right reflex &mdash; <span class="prereq-chip" onclick="go('s06')" style="cursor:pointer">attack surface</span> awareness. The takeaway: bind services to <code>127.0.0.1</code> unless they really need the network.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
 
