@@ -761,6 +761,18 @@ body.dark .ex-step{background:var(--page)}
 .quiz-option.ex-wrong{opacity:.6;border-style:dashed;border-color:var(--p300);color:var(--ink3)}
 .quiz-option.ex-wrong::before{content:'\2717\00a0';color:var(--ink3)}
 body.dark .ex-q{background:var(--page)}
+/* ===== MINI-TUTORIALS ===== */
+.tut-intro{background:var(--p50);border:1px solid var(--p200);border-left:3px solid var(--p400);border-radius:0 10px 10px 0;padding:.85rem 1rem;margin-bottom:1.2rem;font-size:.9rem;color:var(--ink);line-height:1.55}
+.tut-intro strong{color:var(--p500)}
+.tut-step{border:1px solid var(--line);border-radius:11px;padding:.9rem 1rem;margin-bottom:.8rem;background:white}
+.tut-step-head{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-size:1.02rem;font-weight:700;color:var(--ink);margin-bottom:.55rem}
+.tut-step-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--p500);color:white;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tut-step-text{font-size:.86rem;color:var(--ink2);line-height:1.55;margin-bottom:.5rem}
+.tut-step pre,.tut-final pre{font-family:'JetBrains Mono',monospace;font-size:.78rem;background:var(--code-bg);color:var(--code-text);border:1px solid var(--code-line);border-radius:7px;padding:.6rem .8rem;white-space:pre;overflow-x:auto;margin:.3rem 0 0}
+.tut-final{background:var(--p50);border:1px solid var(--p200);border-radius:10px;padding:.85rem 1rem;margin:1.2rem 0 .4rem}
+.tut-final-head{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--p500);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.tut-recap{background:white;border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:.8rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
+body.dark .tut-step,body.dark .tut-intro,body.dark .tut-final,body.dark .tut-recap{background:var(--page)}
 </style>
 </head>
 <body>
@@ -953,6 +965,7 @@ Review Mode
 <div class="ni" onclick="go('quiz',this)"><span class="cd">QUIZ</span>Quiz Hub</div>
 <div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
+<div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span>Mini-Tutorials</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('cheatsheet-py',this)"><span class="cd">CH·P</span>Python Cheatsheet</div>
@@ -2225,6 +2238,152 @@ print(d.sound())</pre></div>
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>super()</code> runs the parent setup, overriding replaces an inherited method, polymorphism makes the same call behave by type, and "has-a" prefers composition.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-p1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- ============ MINI-TUTORIALS ============ -->
+<div class="pg" id="pg-tutorials">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials</div>
+<div class="pt">Mini-Tutorials</div>
+<div class="ps">Let's build small, real programs together &mdash; step by step, no jumping. By the end of each one you'll have a working program.</div>
+</div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">First Steps</div></div>
+<div class="path-desc">Three tiny, complete programs to build with me &mdash; one each on variables, control flow and functions.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-1')">1 &middot; Your first greeting</span><span class="path-step" onclick="go('tut-2')">2 &middot; Even or odd?</span><span class="path-step" onclick="go('tut-3')">3 &middot; Tip calculator</span></div>
+</div></div>
+
+<div class="ex-recap">More mini-tutorials are on the way &mdash; each block gets a few "let's build together" walkthroughs.</div>
+</div>
+
+<!-- Tutorial 1: Greeting -->
+<div class="pg" id="pg-tut-1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 1</div>
+<div class="pt">Tutorial 1 &middot; Your First Greeting</div>
+<div class="ps">Difficulty: beginner &middot; ~3 minutes</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a tiny program that asks for your name and greets you. We'll write it in three small steps, then look at the full thing.</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Make a variable to remember the name</div>
+<div class="tut-step-text">First we'll just store a value. The <code>=</code> operator gives a name (a <strong>variable</strong>) to whatever is on the right, so we can use it later.</div>
+<pre><span class="kw">name</span> = <span class="str">"Cherry"</span></pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Ask the user for their name</div>
+<div class="tut-step-text">Instead of hardcoding "Cherry", let's let the user type. The built-in <code>input()</code> function shows a prompt, waits for the user, and returns what they typed.</div>
+<pre>name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)</pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print the greeting</div>
+<div class="tut-step-text">Now we use an <strong>f-string</strong> (the <code>f</code> before the quotes). Anything inside <code>{ }</code> gets replaced by the value of that variable.</div>
+<pre><span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</pre>
+</div>
+
+<div class="tut-final">
+<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
+<pre>name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)
+<span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('t01')" style="cursor:pointer">variable</span>, the <code>input()</code> function, and an <span class="prereq-chip" onclick="go('t03')" style="cursor:pointer">f-string</span>. Two lines of real code &mdash; that's already a working program.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-2')">Tutorial 2 &middot; Even or odd?</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 2: Even or Odd -->
+<div class="pg" id="pg-tut-2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Tutorial 2 &middot; Even or Odd?</div>
+<div class="ps">Difficulty: beginner &middot; ~4 minutes</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> ask for a number and tell whether it's even or odd. We'll meet two new ideas: <em>converting</em> input to a number, and the <code>if / else</code> branch.</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Read a number from the user</div>
+<div class="tut-step-text"><code>input()</code> always gives us back text. To use the value as a number we wrap it in <code>int()</code>, which turns the text into an integer.</div>
+<pre>n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))</pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Check the remainder with <code>%</code></div>
+<div class="tut-step-text">The <code>%</code> (modulo) operator gives the remainder of a division. If <code>n % 2</code> is <code>0</code>, dividing by 2 leaves nothing &mdash; so the number is even.</div>
+<pre><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
+    <span class="com"># even</span>
+<span class="kw">else</span>:
+    <span class="com"># odd</span></pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print the result</div>
+<div class="tut-step-text">Fill in each branch with a friendly message using an f-string.</div>
+<pre><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
+    <span class="fn">print</span>(<span class="str">f"{n} is even"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</pre>
+</div>
+
+<div class="tut-final">
+<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
+<pre>n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))
+<span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
+    <span class="fn">print</span>(<span class="str">f"{n} is even"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('t12')" style="cursor:pointer">type casting</span> with <code>int()</code>, the <span class="prereq-chip" onclick="go('o06')" style="cursor:pointer">modulo operator</span>, and an <span class="prereq-chip" onclick="go('c01')" style="cursor:pointer">if / else</span>. Now your program reacts to its input.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-3')">Tutorial 3 &middot; Tip calculator</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 3: Tip Calculator -->
+<div class="pg" id="pg-tut-3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 5</div>
+<div class="pt">Tutorial 3 &middot; Tip Calculator</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a reusable <em>function</em> that calculates the tip for a bill. The big leap here: we'll package logic into a function and call it with different inputs.</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Define a function with parameters</div>
+<div class="tut-step-text">We'll use <code>def</code> to declare the function. It takes the bill amount and a tip percentage. The <code>pct=15</code> means "if the caller doesn't say, default to 15%".</div>
+<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+    <span class="com"># calculate here</span></pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Do the math and return the result</div>
+<div class="tut-step-text">The body computes <code>bill &times; pct / 100</code> and returns it. <code>return</code> hands the value back to whoever called the function.</div>
+<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+    <span class="kw">return</span> bill * pct / <span class="num">100</span></pre>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Call it with different values</div>
+<div class="tut-step-text">Now we can reuse our function as many times as we want. The first call uses the default 15%; the second overrides it with 20%.</div>
+<pre><span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>))        <span class="com"># 7.5</span>
+<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></pre>
+</div>
+
+<div class="tut-final">
+<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
+<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+    <span class="kw">return</span> bill * pct / <span class="num">100</span>
+
+<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>))        <span class="com"># 7.5</span>
+<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('n01')" style="cursor:pointer">function</span> with a <span class="prereq-chip" onclick="go('n09')" style="cursor:pointer">default parameter</span>, and <span class="prereq-chip" onclick="go('n04')" style="cursor:pointer">return</span> to send a value back. You just made code you can reuse anywhere.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
