@@ -1119,7 +1119,19 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-p1')">1 &middot; Classes &amp; instances</span><span class="path-step" onclick="go('ex-p2')">2 &middot; Attributes &amp; methods</span><span class="path-step" onclick="go('ex-p3')">3 &middot; Inheritance &amp; polymorphism</span></div>
 </div></div>
 
-<div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 8 &middot; Errors &amp; Debugging</div></div>
+<div class="path-desc">Read tracebacks, choose the right exception, and reason about what try/except actually catches.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-e1')">1 &middot; Read the traceback</span><span class="path-step" onclick="go('ex-e2')">2 &middot; try / except</span><span class="path-step" onclick="go('ex-e3')">3 &middot; Raise &amp; edge cases</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 9 &middot; Best Practices</div></div>
+<div class="path-desc">Pick good names, spot duplication, and tell a refactor from a behavior change.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-b1')">1 &middot; Naming &amp; comments</span><span class="path-step" onclick="go('ex-b2')">2 &middot; DRY &amp; refactor</span><span class="path-step" onclick="go('ex-b3')">3 &middot; Testing &amp; review</span></div>
+</div></div>
+
+<div class="ex-recap"><strong>&#127826; All 9 blocks covered.</strong> 27 guided exercises &mdash; one set per block, three each.</div>
 </div>
 
 <!-- Exercise F1 -->
@@ -2256,10 +2268,396 @@ print(d.sound())</pre></div>
 </div>
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>super()</code> runs the parent setup, overriding replaces an inherited method, polymorphism makes the same call behave by type, and "has-a" prefers composition.</div>
-<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-p1')">Back to Exercise 1</span></div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-e1')">Block 8 &middot; Errors &amp; Debugging</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
 </div>
 
-<!-- ============ MINI-TUTORIALS ============ -->
+<!-- Exercise E1 -->
+<div class="pg" id="pg-ex-e1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 1 &middot; Read the Traceback</div>
+<div class="ps">Difficulty: beginner &middot; the error message is your friend</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read a Python traceback bottom-up and name the kind of error you got.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span><span class="prereq-chip" onclick="go('e04')">E&middot;04 Stack Trace</span><span class="prereq-chip" onclick="go('e06')">E&middot;06 print / log</span></div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which part of a traceback tells you <strong>what went wrong</strong>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">The first line</button>
+<button class="quiz-option" onclick="exPick(this)">The file path</button>
+<button class="quiz-option" onclick="exPick(this)">The last line</button>
+<button class="quiz-option" onclick="exPick(this)">The line number alone</button>
+</div>
+<div class="ex-expl">Python tracebacks are read <strong>bottom-up</strong>. The last line names the exception (e.g. <code>NameError</code>) and the message.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which error does this code raise?<pre>x = 5
+print(y)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SyntaxError</button>
+<button class="quiz-option" onclick="exPick(this)">NameError</button>
+<button class="quiz-option" onclick="exPick(this)">TypeError</button>
+<button class="quiz-option" onclick="exPick(this)">ValueError</button>
+</div>
+<div class="ex-expl"><code>y</code> was never defined &mdash; Python raises <code>NameError: name 'y' is not defined</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which error does this code raise?<pre>n = "3"
+print(n + 5)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">SyntaxError</button>
+<button class="quiz-option" onclick="exPick(this)">NameError</button>
+<button class="quiz-option" onclick="exPick(this)">TypeError</button>
+<button class="quiz-option" onclick="exPick(this)">ZeroDivisionError</button>
+</div>
+<div class="ex-expl">You can't <code>+</code> a string and an int. That's a <code>TypeError</code>. Convert with <code>int(n)</code> first.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Which error does this code raise?<pre>nums = [1, 2, 3]
+print(nums[10])</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">IndexError</button>
+<button class="quiz-option" onclick="exPick(this)">KeyError</button>
+<button class="quiz-option" onclick="exPick(this)">ValueError</button>
+<button class="quiz-option" onclick="exPick(this)">No error</button>
+</div>
+<div class="ex-expl">Index 10 is past the end of a 3-element list &mdash; <code>IndexError: list index out of range</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> read tracebacks bottom-up, the last line names the exception, and the exception name often tells you the fix.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-e2')">Exercise 2 &middot; try / except</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise E2 -->
+<div class="pg" id="pg-ex-e2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 2 &middot; try / except</div>
+<div class="ps">Difficulty: beginner &middot; catch only what you can fix</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Predict what try/except catches, and avoid the "catch everything" trap.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Exception</span><span class="prereq-chip" onclick="go('e02')">E&middot;02 Try / Catch</span></div>
+
+<div class="ex-q" data-answers="oops|caught">
+<div class="ex-qtext">What does this print?<pre>try:
+    x = 1 / 0
+except ZeroDivisionError:
+    print("oops")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The divide by zero raises <code>ZeroDivisionError</code>, the matching <code>except</code> catches it, and <code>"oops"</code> prints.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does this print?<pre>try:
+    n = int("hi")
+except ZeroDivisionError:
+    print("caught")</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">caught</button>
+<button class="quiz-option" onclick="exPick(this)">ValueError (crashes)</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing</button>
+<button class="quiz-option" onclick="exPick(this)">0</button>
+</div>
+<div class="ex-expl"><code>int("hi")</code> raises <code>ValueError</code>, but the <code>except</code> only catches <code>ZeroDivisionError</code> &mdash; the program crashes with the original error.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What's wrong with this pattern?<pre>try:
+    do_work()
+except:
+    pass</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it's robust</button>
+<button class="quiz-option" onclick="exPick(this)">Syntax is invalid</button>
+<button class="quiz-option" onclick="exPick(this)">It swallows every error silently &mdash; including bugs you need to see</button>
+<button class="quiz-option" onclick="exPick(this)"><code>pass</code> isn't allowed in except</button>
+</div>
+<div class="ex-expl">Bare <code>except:</code> + <code>pass</code> hides every error including typos and bugs. Catch the specific exception you can actually handle.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="done|finally|done\nfinally|done finally">
+<div class="ex-qtext">What does this print? (just the visible output)<pre>try:
+    print("done")
+finally:
+    print("finally")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="both lines, separated by space or newline" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>finally</code> always runs &mdash; success or error.</div></details>
+<div class="ex-expl"><code>finally</code> runs whether there was an error or not, so both lines print: <code>done</code> then <code>finally</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>except X</code> only catches X, bare <code>except: pass</code> hides bugs, and <code>finally</code> always runs.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-e3')">Exercise 3 &middot; raise &amp; edge cases</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise E3 -->
+<div class="pg" id="pg-ex-e3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Exercise 3 &middot; Raise &amp; Edge Cases</div>
+<div class="ps">Difficulty: beginner &middot; fail loud, think about the weird inputs</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Decide when to raise your own errors, and spot the edge cases that break naive code.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e03')">E&middot;03 Throw / Raise</span><span class="prereq-chip" onclick="go('e09')">E&middot;09 Edge Case</span></div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Which is the right way to raise an error for a negative age?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">raise ValueError("age must be &gt;= 0")</button>
+<button class="quiz-option" onclick="exPick(this)">throw new Error("age")</button>
+<button class="quiz-option" onclick="exPick(this)">return "error"</button>
+<button class="quiz-option" onclick="exPick(this)">print("error"); exit()</button>
+</div>
+<div class="ex-expl">In Python you <code>raise</code> a specific exception class. Returning a string or printing hides the problem from the caller.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which is the <strong>most important</strong> edge case to test here?<pre>def average(nums):
+    return sum(nums) / len(nums)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A list with one number</button>
+<button class="quiz-option" onclick="exPick(this)">A list of negative numbers</button>
+<button class="quiz-option" onclick="exPick(this)">An empty list <code>[]</code></button>
+<button class="quiz-option" onclick="exPick(this)">A list of floats</button>
+</div>
+<div class="ex-expl">An empty list makes <code>len(nums)</code> = 0 and crashes with <code>ZeroDivisionError</code>. Always think "what about empty / None / 0?".</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which call does this code raise on?<pre>def first(items):
+    return items[0]
+
+first([1, 2])
+first([])
+first([None])</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">first([1, 2])</button>
+<button class="quiz-option" onclick="exPick(this)">first([])</button>
+<button class="quiz-option" onclick="exPick(this)">first([None])</button>
+<button class="quiz-option" onclick="exPick(this)">None of them</button>
+</div>
+<div class="ex-expl">An empty list has no index 0 &mdash; <code>IndexError</code>. <code>[None]</code> is fine: index 0 is the value <code>None</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">"Fail fast" means&hellip;?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Raise as soon as you detect bad input, instead of letting it corrupt later steps</button>
+<button class="quiz-option" onclick="exPick(this)">Skip validation to make the program faster</button>
+<button class="quiz-option" onclick="exPick(this)">Catch every exception and pass</button>
+<button class="quiz-option" onclick="exPick(this)">Always restart the program on error</button>
+</div>
+<div class="ex-expl">Validate inputs at the door. A clear error at the source beats a mysterious crash three functions later.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>raise</code> specific exceptions, test empty/None/zero, and fail fast at the boundary.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b1')">Block 9 &middot; Best Practices</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise B1 -->
+<div class="pg" id="pg-ex-b1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 1 &middot; Naming &amp; Comments</div>
+<div class="ps">Difficulty: beginner &middot; code reads like prose</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Pick clear names and write comments that explain <em>why</em>, not <em>what</em>.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b01')">B&middot;01 Naming</span><span class="prereq-chip" onclick="go('b03')">B&middot;03 Comments</span></div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which variable name is best for the user's age in years?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">a</button>
+<button class="quiz-option" onclick="exPick(this)">val</button>
+<button class="quiz-option" onclick="exPick(this)">user_age</button>
+<button class="quiz-option" onclick="exPick(this)">tmp1</button>
+</div>
+<div class="ex-expl"><code>user_age</code> says exactly what it holds. <code>a</code>, <code>val</code>, <code>tmp1</code> force the reader to track meaning in their head.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which Python naming convention is standard for a function name?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">CalculateTotal</button>
+<button class="quiz-option" onclick="exPick(this)">calculate_total</button>
+<button class="quiz-option" onclick="exPick(this)">calculatetotal</button>
+<button class="quiz-option" onclick="exPick(this)">calc-total</button>
+</div>
+<div class="ex-expl">PEP 8: functions and variables use <code>snake_case</code>. <code>PascalCase</code> is reserved for class names.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="3">
+<div class="ex-qtext">Which is the <strong>best</strong> comment?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)"># add 1 to x</button>
+<button class="quiz-option" onclick="exPick(this)"># x = x + 1</button>
+<button class="quiz-option" onclick="exPick(this)"># this line increments x</button>
+<button class="quiz-option" onclick="exPick(this)"># shift index by one to skip the header row</button>
+</div>
+<div class="ex-expl">The first three repeat what the code already says. The last explains <em>why</em>, which the reader can't get from the code alone.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">In Python, what does <code>PascalCase</code> usually signal?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A class name</button>
+<button class="quiz-option" onclick="exPick(this)">A constant</button>
+<button class="quiz-option" onclick="exPick(this)">A private variable</button>
+<button class="quiz-option" onclick="exPick(this)">A test function</button>
+</div>
+<div class="ex-expl">By convention: <code>PascalCase</code> = class, <code>snake_case</code> = function/variable, <code>UPPER_SNAKE</code> = constant.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> names should say what they hold, <code>snake_case</code> for funcs/vars, <code>PascalCase</code> for classes, and comments explain <em>why</em>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b2')">Exercise 2 &middot; DRY &amp; refactor</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise B2 -->
+<div class="pg" id="pg-ex-b2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 2 &middot; DRY &amp; Refactor</div>
+<div class="ps">Difficulty: beginner &middot; spot duplication, keep behavior</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Spot duplicated logic and tell a refactor (same behavior, cleaner code) from a rewrite.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b04')">B&middot;04 DRY</span><span class="prereq-chip" onclick="go('b06')">B&middot;06 Refactor</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does DRY stand for?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Do Repeat Yourself</button>
+<button class="quiz-option" onclick="exPick(this)">Don't Repeat Yourself</button>
+<button class="quiz-option" onclick="exPick(this)">Delete Repeated Yields</button>
+<button class="quiz-option" onclick="exPick(this)">Define, Run, Yield</button>
+</div>
+<div class="ex-expl">DRY = Don't Repeat Yourself. Duplicated logic drifts apart over time &mdash; one copy gets fixed, the other doesn't.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which refactor makes this DRY-er?<pre>print("hi " + a)
+print("hi " + b)
+print("hi " + c)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Inline all into one print</button>
+<button class="quiz-option" onclick="exPick(this)">Remove the prints</button>
+<button class="quiz-option" onclick="exPick(this)">Loop over <code>[a, b, c]</code> and print each</button>
+<button class="quiz-option" onclick="exPick(this)">Concatenate them into one string</button>
+</div>
+<div class="ex-expl">A loop over the names removes the duplication while keeping the same output: three "hi" lines.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Refactoring means&hellip;?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Improving code structure without changing what it does</button>
+<button class="quiz-option" onclick="exPick(this)">Adding new features</button>
+<button class="quiz-option" onclick="exPick(this)">Removing tests</button>
+<button class="quiz-option" onclick="exPick(this)">Renaming the file</button>
+</div>
+<div class="ex-expl">Refactor = same behavior, cleaner code. If behavior changes, it's a rewrite or a bug, not a refactor.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">When does duplication become a problem?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Immediately, on the second copy</button>
+<button class="quiz-option" onclick="exPick(this)">When the duplicated logic starts to change &mdash; you'll forget a copy</button>
+<button class="quiz-option" onclick="exPick(this)">Never &mdash; copy-paste is fine</button>
+<button class="quiz-option" onclick="exPick(this)">Only when files get above 1000 lines</button>
+</div>
+<div class="ex-expl">"Rule of three": one is fine, two is suspect, three demands a refactor. The real cost shows up when the logic <em>changes</em>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> DRY = don't repeat yourself, refactor keeps behavior, and duplication hurts most when the logic changes.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-b3')">Exercise 3 &middot; testing &amp; review</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise B3 -->
+<div class="pg" id="pg-ex-b3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Exercise 3 &middot; Testing &amp; Code Review</div>
+<div class="ps">Difficulty: beginner &middot; trust but verify</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell a unit test from a smoke check, and know what a code review actually catches.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('b07')">B&middot;07 Code Review</span><span class="prereq-chip" onclick="go('b08')">B&middot;08 Version Control</span><span class="prereq-chip" onclick="go('b09')">B&middot;09 Testing</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's a <strong>unit test</strong>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A manual click-through of the app</button>
+<button class="quiz-option" onclick="exPick(this)">Code that calls one function with known input and checks the output</button>
+<button class="quiz-option" onclick="exPick(this)">Running the whole program once to see if it crashes</button>
+<button class="quiz-option" onclick="exPick(this)">A type annotation</button>
+</div>
+<div class="ex-expl">Unit tests pin behavior at the function level: known input &rarr; expected output. They catch regressions cheaply.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which of these tests catches the <strong>edge case</strong>?<pre>def divide(a, b):
+    return a / b</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">assert divide(10, 2) == 5</button>
+<button class="quiz-option" onclick="exPick(this)">assert divide(6, 3) == 2</button>
+<button class="quiz-option" onclick="exPick(this)">Test that <code>divide(5, 0)</code> raises <code>ZeroDivisionError</code></button>
+<button class="quiz-option" onclick="exPick(this)">assert divide(0, 5) == 0</button>
+</div>
+<div class="ex-expl">The first three are happy paths. Dividing by zero is the edge case &mdash; testing it documents how the function behaves there.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">What's a <strong>code review</strong> mostly for?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A second pair of eyes on intent, design and edge cases</button>
+<button class="quiz-option" onclick="exPick(this)">Finding compile errors</button>
+<button class="quiz-option" onclick="exPick(this)">Auto-formatting the code</button>
+<button class="quiz-option" onclick="exPick(this)">Approving the deploy</button>
+</div>
+<div class="ex-expl">Compile errors and formatting are jobs for the compiler and the linter. A human catches intent, naming, design choices and missed edge cases.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why use version control (Git)?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">To compress files smaller</button>
+<button class="quiz-option" onclick="exPick(this)">To track history, roll back safely and collaborate without overwriting each other</button>
+<button class="quiz-option" onclick="exPick(this)">To run the program faster</button>
+<button class="quiz-option" onclick="exPick(this)">To replace tests</button>
+</div>
+<div class="ex-expl">Git records every change with author + message, lets you roll back any version, and merges parallel work without losing edits.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> unit tests pin behavior, edge cases need their own tests, code reviews catch intent, and Git is your safety net.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-b1')">Back to Exercise 1</span></div>
+</div>
+
 <div class="pg" id="pg-tutorials">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials</div>
