@@ -1075,6 +1075,18 @@ Review Mode
 <div class="path-steps"><span class="path-step" onclick="go('ex-n1')">1 &middot; Define &amp; call</span><span class="path-step" onclick="go('ex-n2')">2 &middot; Parameters &amp; arguments</span><span class="path-step" onclick="go('ex-n3')">3 &middot; Return &amp; scope</span></div>
 </div></div>
 
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 6 &middot; Data Structures</div></div>
+<div class="path-desc">Index lists and dicts, work with sets, and reason about stacks, queues and Big-O.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-s1')">1 &middot; Lists &amp; indexing</span><span class="path-step" onclick="go('ex-s2')">2 &middot; Dicts &amp; sets</span><span class="path-step" onclick="go('ex-s3')">3 &middot; Stacks, queues, Big-O</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L4 9 L12 15 L20 9 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11 L6 16 Q12 20 18 16 L18 11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="path-title">Block 7 &middot; Object-Oriented Programming</div></div>
+<div class="path-desc">Build classes, work with instances and attributes, and reason about inheritance.</div>
+<div class="path-steps"><span class="path-step" onclick="go('ex-p1')">1 &middot; Classes &amp; instances</span><span class="path-step" onclick="go('ex-p2')">2 &middot; Attributes &amp; methods</span><span class="path-step" onclick="go('ex-p3')">3 &middot; Inheritance &amp; polymorphism</span></div>
+</div></div>
+
 <div class="ex-recap">More blocks are on the way &mdash; each block gets three guided exercises.</div>
 </div>
 
@@ -1852,6 +1864,367 @@ print(square(4) + square(2))</pre></div>
 
 <div class="ex-recap"><strong>&#127826; What you learned:</strong> locals don't leak out, <code>return</code> hands a value back to the caller, no return means <code>None</code>, and mutable defaults are a classic trap.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-n1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise S1 -->
+<div class="pg" id="pg-ex-s1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 1 &middot; Lists &amp; Indexing</div>
+<div class="ps">Difficulty: beginner &middot; pull values out</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read items out of a list. Remember indices start at 0 and <code>-1</code> is the last.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s01')">S&middot;01 Array</span><span class="prereq-chip" onclick="go('s02')">S&middot;02 List</span></div>
+
+<div class="ex-q" data-answers="30">
+<div class="ex-qtext">Given <code>nums = [10, 20, 30, 40]</code>, what is <code>nums[2]</code>?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the value" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">Index 0 is the first item, so index 2 is the third.</div></details>
+<div class="ex-expl">Index 2 is the <em>third</em> item (0-based), so <code>nums[2] = 30</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="40">
+<div class="ex-qtext">With the same list, what is <code>nums[-1]</code>?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the value" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A negative index counts from the end &mdash; <code>-1</code> is the last item: 40.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which adds an item to the end of a Python list?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">list.add(x)</button>
+<button class="quiz-option" onclick="exPick(this)">list.append(x)</button>
+<button class="quiz-option" onclick="exPick(this)">list.push(x)</button>
+<button class="quiz-option" onclick="exPick(this)">list.put(x)</button>
+</div>
+<div class="ex-expl">Python uses <code>append</code>. (JavaScript uses <code>push</code>; sets use <code>add</code>.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="5">
+<div class="ex-qtext">What does this print?<pre>print(len([1, 2, 3, 4, 5]))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>len</code> counts the items: 5.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> lists are zero-indexed, <code>-1</code> is the last item, <code>append</code> adds to the end, and <code>len</code> tells you how many.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-s2')">Exercise 2 &middot; Dicts &amp; sets</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise S2 -->
+<div class="pg" id="pg-ex-s2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 2 &middot; Dicts &amp; Sets</div>
+<div class="ps">Difficulty: beginner &middot; keys and unique items</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Look up values by key in a dict, and understand what a set is for.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s04')">S&middot;04 Dictionary / Map</span><span class="prereq-chip" onclick="go('s05')">S&middot;05 Set</span></div>
+
+<div class="ex-q" data-answers="80">
+<div class="ex-qtext">Given <code>d = {"port": 80, "host": "x"}</code>, what does <code>d["port"]</code> give?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the value" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">A dict fetches the value for a key: <code>d["port"] = 80</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which is the <strong>safe</strong> way to look up a key that might be missing?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">d["x"]</button>
+<button class="quiz-option" onclick="exPick(this)">d.get("x")</button>
+<button class="quiz-option" onclick="exPick(this)">d.x</button>
+<button class="quiz-option" onclick="exPick(this)">hasattr(d, "x")</button>
+</div>
+<div class="ex-expl"><code>d.get("x")</code> returns <code>None</code> when missing; <code>d["x"]</code> raises a KeyError.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3">
+<div class="ex-qtext">What does this print?<pre>print(len({1, 2, 2, 3, 3, 3}))</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">A set keeps only unique values &mdash; duplicates are dropped.</div></details>
+<div class="ex-expl">Sets store unique items; <code>{1, 2, 2, 3, 3, 3}</code> becomes <code>{1, 2, 3}</code> &mdash; size 3.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which collection is <strong>unordered</strong> and stores only <strong>unique</strong> values?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">list</button>
+<button class="quiz-option" onclick="exPick(this)">tuple</button>
+<button class="quiz-option" onclick="exPick(this)">set</button>
+<button class="quiz-option" onclick="exPick(this)">dict</button>
+</div>
+<div class="ex-expl">A set has no order and no duplicates. Lists/tuples keep order; dicts have key-value pairs.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> dicts look up by key (use <code>.get</code> to avoid crashes), and sets give you uniqueness for free.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-s3')">Exercise 3 &middot; Stacks, queues, Big-O</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise S3 -->
+<div class="pg" id="pg-ex-s3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Exercise 3 &middot; Stacks, Queues &amp; Big-O</div>
+<div class="ps">Difficulty: beginner &middot; order and cost</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Name stack vs queue behaviour and read the cost class of a few operations.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s06')">S&middot;06 Stack</span><span class="prereq-chip" onclick="go('s07')">S&middot;07 Queue</span><span class="prereq-chip" onclick="go('s12')">S&middot;12 Big O Notation</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A stack is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">FIFO &mdash; first in, first out</button>
+<button class="quiz-option" onclick="exPick(this)">LIFO &mdash; last in, first out</button>
+<button class="quiz-option" onclick="exPick(this)">Random access</button>
+<button class="quiz-option" onclick="exPick(this)">Always sorted</button>
+</div>
+<div class="ex-expl">Stack = LIFO. Last pushed is first popped &mdash; like a stack of plates.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">A queue is...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">LIFO &mdash; last in, first out</button>
+<button class="quiz-option" onclick="exPick(this)">FIFO &mdash; first in, first out</button>
+<button class="quiz-option" onclick="exPick(this)">Random access</button>
+<button class="quiz-option" onclick="exPick(this)">Always sorted</button>
+</div>
+<div class="ex-expl">Queue = FIFO. First in line goes first &mdash; like waiting at a checkout.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Average cost of looking up a value by key in a dict?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">O(1)</button>
+<button class="quiz-option" onclick="exPick(this)">O(n)</button>
+<button class="quiz-option" onclick="exPick(this)">O(log n)</button>
+<button class="quiz-option" onclick="exPick(this)">O(n^2)</button>
+</div>
+<div class="ex-expl">Dicts (hash tables) average O(1) for both lookup and insert.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="3">
+<div class="ex-qtext">Two nested loops over n items each give what total cost?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">O(1)</button>
+<button class="quiz-option" onclick="exPick(this)">O(n)</button>
+<button class="quiz-option" onclick="exPick(this)">O(n log n)</button>
+<button class="quiz-option" onclick="exPick(this)">O(n^2)</button>
+</div>
+<div class="ex-expl">Nested loops multiply: n &times; n = n^2 work.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> stack = LIFO, queue = FIFO, dict lookup is O(1), and nested loops jump to O(n^2).</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-s1')">Back to Exercise 1</span></div>
+</div>
+
+<!-- Exercise P1 -->
+<div class="pg" id="pg-ex-p1">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 1 &middot; Classes &amp; Instances</div>
+<div class="ps">Difficulty: beginner &middot; blueprint vs object</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Create an instance from a class, and name the constructor correctly.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p01')">P&middot;01 Class</span><span class="prereq-chip" onclick="go('p03')">P&middot;03 Instance</span><span class="prereq-chip" onclick="go('p06')">P&middot;06 Constructor</span></div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Given <code>class Dog:</code>, which line <strong>creates an instance</strong>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">class Dog</button>
+<button class="quiz-option" onclick="exPick(this)">Dog</button>
+<button class="quiz-option" onclick="exPick(this)">Dog()</button>
+<button class="quiz-option" onclick="exPick(this)">new Dog</button>
+</div>
+<div class="ex-expl">In Python you call the class like a function: <code>Dog()</code>. There is no <code>new</code> keyword.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What is the constructor method called in Python?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">init</button>
+<button class="quiz-option" onclick="exPick(this)">__init__</button>
+<button class="quiz-option" onclick="exPick(this)">constructor</button>
+<button class="quiz-option" onclick="exPick(this)">ctor</button>
+</div>
+<div class="ex-expl">Python only calls <code>__init__</code> automatically when an instance is created. A plain <code>init</code> never runs on creation.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">What is wrong with this method?<pre>class Rect:
+    def area():
+        return self.w * self.h</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Missing <code>self</code> parameter</button>
+<button class="quiz-option" onclick="exPick(this)">return is misspelled</button>
+<button class="quiz-option" onclick="exPick(this)">It needs a constructor</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it runs fine</button>
+</div>
+<div class="ex-expl">Instance methods need <code>self</code> as the first parameter, so they can reach <code>self.w</code> and <code>self.h</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="hello, cherry!|hello,cherry!">
+<div class="ex-qtext">What does this print?<pre>class Greeter:
+    def __init__(self, name):
+        self.name = name
+    def hi(self):
+        print(f"Hello, {self.name}!")
+
+g = Greeter("Cherry")
+g.hi()</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>__init__</code> stores name on the instance, then <code>hi()</code> prints <code>Hello, Cherry!</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>Dog()</code> creates an instance, <code>__init__</code> is the constructor, and every instance method needs <code>self</code>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-p2')">Exercise 2 &middot; Attributes &amp; methods</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise P2 -->
+<div class="pg" id="pg-ex-p2">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 2 &middot; Attributes &amp; Methods</div>
+<div class="ps">Difficulty: beginner &middot; per-instance vs shared</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Tell instance attributes from class attributes, and spot the mutable-class-attribute trap.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p04')">P&middot;04 Attribute</span><span class="prereq-chip" onclick="go('p05')">P&middot;05 Method</span><span class="prereq-chip" onclick="go('p12')">P&middot;12 this / self</span></div>
+
+<div class="ex-q" data-answers="cherry">
+<div class="ex-qtext">What does this print?<pre>class User:
+    def __init__(self, name):
+        self.name = name
+
+u = User("Cherry")
+print(u.name)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Each instance has its own <code>name</code>; access it with dot notation: <code>u.name</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">What's the difference between an <strong>instance attribute</strong> and a <strong>class attribute</strong>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Instance attribute is per-object; class attribute is shared by all instances</button>
+<button class="quiz-option" onclick="exPick(this)">No difference</button>
+<button class="quiz-option" onclick="exPick(this)">Class attributes are faster but private</button>
+<button class="quiz-option" onclick="exPick(this)">Instance attributes can't be reassigned</button>
+</div>
+<div class="ex-expl">An instance attribute (set via <code>self.x</code> in <code>__init__</code>) is unique per object. A class attribute (defined at class level) is shared.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's the problem here?<pre>class Cart:
+    items = []
+    def add(self, x):
+        self.items.append(x)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it's fine</button>
+<button class="quiz-option" onclick="exPick(this)">items is shared across every Cart instance</button>
+<button class="quiz-option" onclick="exPick(this)">append doesn't exist</button>
+<button class="quiz-option" onclick="exPick(this)">Missing constructor body</button>
+</div>
+<div class="ex-expl">A mutable class attribute (the list) is created once and shared by all instances. Initialize per-object state in <code>__init__</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="50">
+<div class="ex-qtext">What does this print?<pre>class Rect:
+    def __init__(self, w, h):
+        self.w = w
+        self.h = h
+    def area(self):
+        return self.w * self.h
+
+r = Rect(5, 10)
+print(r.area())</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The instance stores <code>w=5</code> and <code>h=10</code>; <code>area()</code> returns 5 &times; 10 = 50.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> instance attributes belong to one object, class attributes are shared, and a mutable class attribute is a famous trap &mdash; initialise per-object in <code>__init__</code>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('ex-p3')">Exercise 3 &middot; Inheritance &amp; polymorphism</span><span class="next-chip" onclick="go('exercises')">All exercises</span></div>
+</div>
+
+<!-- Exercise P3 -->
+<div class="pg" id="pg-ex-p3">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> exercises <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Exercise 3 &middot; Inheritance &amp; Polymorphism</div>
+<div class="ps">Difficulty: beginner &middot; reuse and override</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read inheritance, see <code>super()</code> at work, and trace a polymorphic call.</div>
+<div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('p07')">P&middot;07 Inheritance</span><span class="prereq-chip" onclick="go('p08')">P&middot;08 Polymorphism</span></div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why call <code>super().__init__()</code> in a subclass?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">It is required syntax</button>
+<button class="quiz-option" onclick="exPick(this)">To run the parent's setup before adding your own</button>
+<button class="quiz-option" onclick="exPick(this)">To delete the parent class</button>
+<button class="quiz-option" onclick="exPick(this)">To make the class private</button>
+</div>
+<div class="ex-expl"><code>super().__init__()</code> runs the parent's constructor so its attributes get set, then the child can add more.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Overriding a method means...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Redefining an inherited method in the child</button>
+<button class="quiz-option" onclick="exPick(this)">Calling the same method many times</button>
+<button class="quiz-option" onclick="exPick(this)">Defining several methods with different parameter lists</button>
+<button class="quiz-option" onclick="exPick(this)">Making the method private</button>
+</div>
+<div class="ex-expl">Override = the child redefines a method it inherited. (Overload, different concept, is barely a thing in Python.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="woof|meow">
+<div class="ex-qtext">What does this print? (type one word, lowercase)<pre>class Animal:
+    def sound(self): return "..."
+class Dog(Animal):
+    def sound(self): return "woof"
+
+d = Dog()
+print(d.sound())</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a"><code>Dog</code> overrides <code>sound</code>, so the dog's version runs.</div></details>
+<div class="ex-expl">Dog overrides <code>sound</code> to return <code>woof</code>. Polymorphism: the same call yields different output by type.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">When the relationship is "<strong>has-a</strong>" (a Car has an Engine), prefer...?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Inheritance (Car extends Engine)</button>
+<button class="quiz-option" onclick="exPick(this)">Composition (Car holds an Engine)</button>
+<button class="quiz-option" onclick="exPick(this)">Multiple inheritance</button>
+<button class="quiz-option" onclick="exPick(this)">No relationship needed</button>
+</div>
+<div class="ex-expl">Inheritance is for "is-a". For "has-a", composition (one class owning another as an attribute) is more flexible.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> <code>super()</code> runs the parent setup, overriding replaces an inherited method, polymorphism makes the same call behave by type, and "has-a" prefers composition.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('exercises')">All exercises</span><span class="next-chip" onclick="go('ex-p1')">Back to Exercise 1</span></div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
