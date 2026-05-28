@@ -985,6 +985,7 @@ Review Mode
 <div class="ni" onclick="practiceOpen(this)"><span class="cd">PRC</span>Practice Mode</div>
 <div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
 <div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span>Mini-Tutorials</div>
+<div class="ni" onclick="go('challenges',this)"><span class="cd">CHL</span>Code Challenges</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('cheatsheet-py',this)"><span class="cd">CH·P</span>Python Cheatsheet</div>
@@ -2671,7 +2672,19 @@ print("hi " + c)</pre></div>
 <div class="path-steps"><span class="path-step" onclick="go('tut-1')">1 &middot; Your first greeting</span><span class="path-step" onclick="go('tut-2')">2 &middot; Even or odd?</span><span class="path-step" onclick="go('tut-3')">3 &middot; Tip calculator</span></div>
 </div></div>
 
-<div class="ex-recap">More mini-tutorials are on the way &mdash; each block gets a few "let's build together" walkthroughs.</div>
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="10" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="16" width="18" height="4" rx="1" stroke="currentColor" stroke-width="1.8"/></svg></div><div class="path-title">Lists, Loops &amp; Data</div></div>
+<div class="path-desc">Three programs that work with collections &mdash; counting, finding the biggest, and grouping with a dict.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-4')">4 &middot; Count to ten</span><span class="path-step" onclick="go('tut-5')">5 &middot; Find the biggest</span><span class="path-step" onclick="go('tut-6')">6 &middot; Word frequency</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="path-title">OOP &amp; Errors</div></div>
+<div class="path-desc">Step up from scripts to objects, guard against bad input, and refactor your earlier code with DRY in mind.</div>
+<div class="path-steps"><span class="path-step" onclick="go('tut-7')">7 &middot; Your first class</span><span class="path-step" onclick="go('tut-8')">8 &middot; Guard the input</span><span class="path-step" onclick="go('tut-9')">9 &middot; Refactor for DRY</span></div>
+</div></div>
+
+<div class="ex-recap"><strong>&#127826; 9 build-along walkthroughs.</strong> Three little programs in each track &mdash; finish a track and you have working code you can adapt.</div>
 </div>
 
 <!-- Tutorial 1: Greeting -->
@@ -2816,8 +2829,733 @@ print("hi " + c)</pre></div>
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('n01')" style="cursor:pointer">function</span> with a <span class="prereq-chip" onclick="go('n09')" style="cursor:pointer">default parameter</span>, and <span class="prereq-chip" onclick="go('n04')" style="cursor:pointer">return</span> to send a value back. You just made code you can reuse anywhere.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-4')">Tutorial 4 &middot; Count to ten</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 4: Count to Ten -->
+<div class="pg" id="pg-tut-4">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 4</div>
+<div class="pt">Tutorial 4 &middot; Count to Ten</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a program that prints 1 to 10, one number per line. You'll meet <code>range()</code> and the <code>for</code> loop &mdash; the most common loop you'll ever write in Python.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-4')">reset</button></div>
+<pre id="prog-tut-4" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Start the for loop with range</div>
+<div class="tut-step-text"><code>range(1, 11)</code> produces the numbers 1, 2, 3 &hellip; 10. The end is <strong>exclusive</strong>, so we pass 11 to get up to 10. The <code>for</code> loop assigns each value to <code>i</code> in turn.</div>
+<div id="src-4-1" class="tut-step-code"><span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-4-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Print the current number (indented!)</div>
+<div class="tut-step-text">Every line inside the loop must be <strong>indented</strong> (4 spaces in Python). The indented block is the loop body &mdash; it runs once per value of <code>i</code>.</div>
+<div id="src-4-2" class="tut-step-code">    <span class="fn">print</span>(i)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-4-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print a "done" message after the loop</div>
+<div class="tut-step-text">This line is <em>not</em> indented, so it isn't part of the loop. Python runs it once, after the loop finishes &mdash; that's how Python tells "inside" from "outside".</div>
+<div id="src-4-3" class="tut-step-code"><span class="fn">print</span>(<span class="str">"done!"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-4', 'src-4-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-4', '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\ndone!')">&#9654; Run my program</button>
+<div id="prog-tut-4-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('c03')" style="cursor:pointer">for loop</span> with <code>range()</code>, plus indentation to mark the loop body. Same shape powers most "do something N times" code.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-5')">Tutorial 5 &middot; Find the biggest</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 5: Find the Biggest -->
+<div class="pg" id="pg-tut-5">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Tutorial 5 &middot; Find the Biggest</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> walk through a list of numbers and find the biggest one &mdash; without using the built-in <code>max()</code>. The pattern (track a "best so far") shows up everywhere.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-5')">reset</button></div>
+<pre id="prog-tut-5" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Start with a list and an initial "biggest"</div>
+<div class="tut-step-text">We make a list of numbers and set <code>biggest</code> to the <strong>first</strong> one. Starting from the first element (not from <code>0</code>) handles negative-only lists correctly.</div>
+<div id="src-5-1" class="tut-step-code">nums = [<span class="num">3</span>, <span class="num">7</span>, <span class="num">2</span>, <span class="num">9</span>, <span class="num">4</span>]
+biggest = nums[<span class="num">0</span>]</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-5-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Loop and update when you see a bigger one</div>
+<div class="tut-step-text">For each <code>n</code> in the list, compare it to our current <code>biggest</code>. If it's larger, replace <code>biggest</code>. The <code>if</code> is indented inside the <code>for</code>, and the assignment is indented inside the <code>if</code>.</div>
+<div id="src-5-2" class="tut-step-code"><span class="kw">for</span> n <span class="kw">in</span> nums:
+    <span class="kw">if</span> n &gt; biggest:
+        biggest = n</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-5-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print the answer after the loop ends</div>
+<div class="tut-step-text">Once the loop has seen every number, <code>biggest</code> holds the maximum. We print it after the loop &mdash; not inside.</div>
+<div id="src-5-3" class="tut-step-code"><span class="fn">print</span>(<span class="str">f"biggest = {biggest}"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-5', 'src-5-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-5', 'biggest = 9')">&#9654; Run my program</button>
+<div id="prog-tut-5-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('s01')" style="cursor:pointer">list</span>, indexing with <code>nums[0]</code>, and a <span class="prereq-chip" onclick="go('c03')" style="cursor:pointer">for</span> loop with an <span class="prereq-chip" onclick="go('c01')" style="cursor:pointer">if</span>. The "best so far" pattern is the foundation of search.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-6')">Tutorial 6 &middot; Word frequency</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 6: Word Frequency -->
+<div class="pg" id="pg-tut-6">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 6</div>
+<div class="pt">Tutorial 6 &middot; Word Frequency</div>
+<div class="ps">Difficulty: beginner &middot; ~7 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> count how often each word shows up in a sentence using a <strong>dictionary</strong>. Dicts are how you "look up by key" &mdash; the bread and butter of every program that has data.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-6')">reset</button></div>
+<pre id="prog-tut-6" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Split the sentence into words</div>
+<div class="tut-step-text"><code>split()</code> turns a string into a list of words, breaking on whitespace. We also start an empty dict <code>counts</code> &mdash; that's where we'll store each word's tally.</div>
+<div id="src-6-1" class="tut-step-code">text = <span class="str">"cherry pie cherry tart pie"</span>
+words = text.<span class="fn">split</span>()
+counts = {}</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-6-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Loop and use .get() to read-or-default</div>
+<div class="tut-step-text">For each word, we ask the dict for its current count, falling back to <code>0</code> if the key isn't there yet. Then we add 1 and write it back. <code>.get(w, 0)</code> avoids a <code>KeyError</code> the first time we see a word.</div>
+<div id="src-6-2" class="tut-step-code"><span class="kw">for</span> w <span class="kw">in</span> words:
+    counts[w] = counts.<span class="fn">get</span>(w, <span class="num">0</span>) + <span class="num">1</span></div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-6-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print the result</div>
+<div class="tut-step-text">Printing a dict shows it whole. Later you'd loop with <code>for k, v in counts.items():</code> to print one line per word &mdash; but for now, one print is enough.</div>
+<div id="src-6-3" class="tut-step-code"><span class="fn">print</span>(counts)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-6', 'src-6-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-6', &quot;{'cherry': 2, 'pie': 2, 'tart': 1}&quot;)">&#9654; Run my program</button>
+<div id="prog-tut-6-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> <code>.split()</code>, a <span class="prereq-chip" onclick="go('s04')" style="cursor:pointer">dict</span> with <code>.get()</code> to read-or-default, and an accumulator pattern. Word counting is the &ldquo;hello world&rdquo; of data work.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-7')">Tutorial 7 &middot; Your first class</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 7: Your First Class -->
+<div class="pg" id="pg-tut-7">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 7</div>
+<div class="pt">Tutorial 7 &middot; Your First Class</div>
+<div class="ps">Difficulty: beginner &middot; ~8 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a small <code>Dog</code> class with a name, an age, and a method that barks. You'll see <code>__init__</code>, <code>self</code>, and how to make an instance.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-7')">reset</button></div>
+<pre id="prog-tut-7" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Declare the class and the constructor</div>
+<div class="tut-step-text"><code>class Dog:</code> is the blueprint. <code>__init__</code> is the constructor &mdash; Python runs it automatically when you create an instance. <code>self</code> is the new object being built; <code>self.name = name</code> stores the value on it.</div>
+<div id="src-7-1" class="tut-step-code"><span class="kw">class</span> <span class="fn">Dog</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, name, age):
+        self.name = name
+        self.age = age</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-7-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Add a method (a function on the class)</div>
+<div class="tut-step-text">Methods live inside the class and always take <code>self</code> first &mdash; so they can reach the instance's data with <code>self.name</code>. This <code>bark</code> reads the dog's name and prints a string.</div>
+<div id="src-7-2" class="tut-step-code">    <span class="kw">def</span> <span class="fn">bark</span>(self):
+        <span class="fn">print</span>(<span class="str">f"{self.name} says woof!"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-7-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Make an instance and call the method</div>
+<div class="tut-step-text">Calling the class like a function (<code>Dog("Pixel", 3)</code>) creates a new instance. Then <code>d.bark()</code> runs the method &mdash; Python passes <code>d</code> in as <code>self</code> automatically.</div>
+<div id="src-7-3" class="tut-step-code">d = <span class="fn">Dog</span>(<span class="str">"Pixel"</span>, <span class="num">3</span>)
+d.<span class="fn">bark</span>()</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-7', 'src-7-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-7', 'Pixel says woof!')">&#9654; Run my program</button>
+<div id="prog-tut-7-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('p01')" style="cursor:pointer">class</span>, the <span class="prereq-chip" onclick="go('p06')" style="cursor:pointer">__init__ constructor</span>, an <span class="prereq-chip" onclick="go('p05')" style="cursor:pointer">method</span>, and an <span class="prereq-chip" onclick="go('p03')" style="cursor:pointer">instance</span>. From here you can model anything: User, Order, Game, etc.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-8')">Tutorial 8 &middot; Guard the input</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 8: Guard the Input -->
+<div class="pg" id="pg-tut-8">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 8</div>
+<div class="pt">Tutorial 8 &middot; Guard the Input</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> ask for a number and don't let the program crash if the user types "abc". You'll use <code>try / except</code> to catch the error and ask again.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-8')">reset</button></div>
+<pre id="prog-tut-8" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Wrap the risky line in a try block</div>
+<div class="tut-step-text"><code>int(input(&hellip;))</code> raises <code>ValueError</code> if the text isn't a number. We put it inside <code>try:</code> so Python knows to watch for an exception there.</div>
+<div id="src-8-1" class="tut-step-code"><span class="kw">try</span>:
+    n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-8-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Catch the specific error and respond</div>
+<div class="tut-step-text">We catch <strong>only</strong> <code>ValueError</code> &mdash; not a bare <code>except:</code>. That way real bugs still crash and show themselves. If the conversion failed, we print a message and set <code>n = 0</code>.</div>
+<div id="src-8-2" class="tut-step-code"><span class="kw">except</span> <span class="fn">ValueError</span>:
+    <span class="fn">print</span>(<span class="str">"That wasn't a number. Using 0."</span>)
+    n = <span class="num">0</span></div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-8-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Use the value (now safe to assume it's a number)</div>
+<div class="tut-step-text">After the <code>try/except</code>, <code>n</code> is guaranteed to be an int &mdash; either what the user typed or our fallback. The rest of the program can use it without worrying.</div>
+<div id="src-8-3" class="tut-step-code"><span class="fn">print</span>(<span class="str">f"You picked {n}, doubled is {n * 2}"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-8', 'src-8-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-8', '> Pick a number: abc\nThat wasn\'t a number. Using 0.\nYou picked 0, doubled is 0')">&#9654; Run my program</button>
+<div id="prog-tut-8-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output (with "abc" typed)</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('e02')" style="cursor:pointer">try / except</span> block catching a specific <span class="prereq-chip" onclick="go('e01')" style="cursor:pointer">exception</span>. Always catch the narrowest type you can handle &mdash; never a bare <code>except:</code>.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-9')">Tutorial 9 &middot; Refactor for DRY</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
+</div>
+
+<!-- Tutorial 9: Refactor for DRY -->
+<div class="pg" id="pg-tut-9">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 9</div>
+<div class="pt">Tutorial 9 &middot; Refactor for DRY</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; build along</div>
+</div>
+
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> take three repeated calculations and turn them into one function. Same behavior, a lot less code. That's what a <em>refactor</em> looks like.</div>
+
+<div class="tut-program-wrap">
+<div class="tut-program">
+<div class="tut-program-head">Your program <button class="tut-reset-btn" onclick="tutReset('prog-tut-9')">reset</button></div>
+<pre id="prog-tut-9" class="tut-program-code"><span class="tut-program-empty">(nothing yet &mdash; click a step below to add code)</span></pre>
+</div>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">1</span>Start with the duplicated version</div>
+<div class="tut-step-text">Here are three lines doing the same shape of work: take a price, add 10% tax, print it. The pattern is repeated &mdash; that's the smell DRY is about.</div>
+<div id="src-9-1" class="tut-step-code"><span class="com"># before: duplicated</span>
+<span class="fn">print</span>(<span class="str">f"shoes: {10 * 1.1}"</span>)
+<span class="fn">print</span>(<span class="str">f"shirt: {25 * 1.1}"</span>)
+<span class="fn">print</span>(<span class="str">f"hat: {15 * 1.1}"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-9-1')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">2</span>Extract the pattern into a function</div>
+<div class="tut-step-text">The shared logic is "name + price &times; 1.1". We pull that into <code>show_price()</code>. Now the formula lives in <strong>one place</strong> &mdash; change the tax rate once and every call updates.</div>
+<div id="src-9-2" class="tut-step-code"><span class="com"># after: one source of truth</span>
+<span class="kw">def</span> <span class="fn">show_price</span>(name, price):
+    <span class="fn">print</span>(<span class="str">f"{name}: {price * 1.1}"</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-9-2')">&#9654; Add to my program</button>
+</div>
+
+<div class="tut-step">
+<div class="tut-step-head"><span class="tut-step-num">3</span>Replace the three lines with three calls</div>
+<div class="tut-step-text">Same output as before, but the multiplication and the format string aren't duplicated. Adding a fourth item is now one line, not four.</div>
+<div id="src-9-3" class="tut-step-code"><span class="fn">show_price</span>(<span class="str">"shoes"</span>, <span class="num">10</span>)
+<span class="fn">show_price</span>(<span class="str">"shirt"</span>, <span class="num">25</span>)
+<span class="fn">show_price</span>(<span class="str">"hat"</span>, <span class="num">15</span>)</div>
+<button class="tut-add-btn" onclick="tutAdd(this, 'prog-tut-9', 'src-9-3')">&#9654; Add to my program</button>
+</div>
+
+<button class="tut-run-btn" onclick="tutRun('prog-tut-9', 'shoes: 11.0\nshirt: 27.500000000000004\nhat: 16.5')">&#9654; Run my program</button>
+<div id="prog-tut-9-run" class="tut-run-area" style="display:none">
+<div class="tut-run-head">Output (refactored version)</div>
+<pre class="tut-run-out"></pre>
+</div>
+
+<div class="tut-recap"><strong>&#127826; What you used:</strong> the <span class="prereq-chip" onclick="go('b04')" style="cursor:pointer">DRY principle</span>, a <span class="prereq-chip" onclick="go('n01')" style="cursor:pointer">function</span> as a single source of truth, and the <span class="prereq-chip" onclick="go('b06')" style="cursor:pointer">refactor</span> mindset. Same behavior, fewer lines, easier to change.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
+
+<!-- ============ CODE CHALLENGES ============ -->
+<div class="pg" id="pg-challenges">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> code challenges</div>
+<div class="pt">Code Challenges</div>
+<div class="ps">Five themed practice scenarios &mdash; spot the bug, read the traceback, predict the output, pick the right tool, and refactor for clarity. Five short questions each.</div>
+</div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21" stroke-linecap="round"/></svg></div><div class="path-title">Spot the Bug</div></div>
+<div class="path-desc">Read each snippet and pick the line that's wrong. Five common bugs that bite every beginner.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-bugs')">Start &middot; 5 snippets</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L2 22 L22 22 Z"/><line x1="12" y1="10" x2="12" y2="16" stroke-linecap="round"/><circle cx="12" cy="19" r="0.8" fill="currentColor"/></svg></div><div class="path-title">Read the Traceback</div></div>
+<div class="path-desc">Given the error Python printed, name what actually went wrong. Five real-world tracebacks.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-trace')">Start &middot; 5 tracebacks</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 12h6 M16 12h6 M9 6l4 12"/></svg></div><div class="path-title">Predict the Output</div></div>
+<div class="path-desc">Run the code in your head, type exactly what it prints. Five tracing puzzles, from print to loops.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-output')">Start &middot; 5 traces</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M14 3 L21 10 L10 21 L3 21 L3 14 Z"/><path d="M14 3 L17.5 6.5"/></svg></div><div class="path-title">Pick the Right Tool</div></div>
+<div class="path-desc">Given a small problem, choose the data structure or pattern that fits. List? Dict? Set? Loop? Function?</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-tool')">Start &middot; 5 picks</span></div>
+</div></div>
+
+<div class="path-card"><div class="path-bar"></div><div class="path-body">
+<div class="path-head"><div class="path-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 7 L8 7 L10 5 L14 5 L16 7 L21 7"/><path d="M5 7 L5 19 L19 19 L19 7"/><line x1="9" y1="11" x2="9" y2="16"/><line x1="15" y1="11" x2="15" y2="16"/></svg></div><div class="path-title">Refactor This</div></div>
+<div class="path-desc">Same behavior, cleaner code. Pick the better version &mdash; not the cleverest, the most readable.</div>
+<div class="path-steps"><span class="path-step" onclick="go('chl-refactor')">Start &middot; 5 refactors</span></div>
+</div></div>
+
+<div class="ex-recap"><strong>&#127826; 25 challenges across 5 themes.</strong> Mix of MCQ and fill-in. Use them as a warm-up between blocks or to find your weak spots.</div>
+</div>
+
+<!-- Challenge 1: Spot the Bug -->
+<div class="pg" id="pg-chl-bugs">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> challenges <span>&rsaquo;</span> spot the bug</div>
+<div class="pt">Challenge &middot; Spot the Bug</div>
+<div class="ps">Each snippet has one problem. Find it.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Read carefully and pick the line or symbol that breaks the code.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's wrong here?<pre>if x = 5:
+    print("five")</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Missing parentheses around the condition</button>
+<button class="quiz-option" onclick="exPick(this)"><code>=</code> assigns; comparing needs <code>==</code></button>
+<button class="quiz-option" onclick="exPick(this)">Missing colon</button>
+<button class="quiz-option" onclick="exPick(this)">print needs no quotes</button>
+</div>
+<div class="ex-expl"><code>=</code> is assignment. To compare, use <code>==</code>. Python catches this as a <code>SyntaxError</code> on the <code>if</code> line.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What's wrong here?<pre>nums = [1, 2, 3]
+for i in range(len(nums) + 1):
+    print(nums[i])</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Loop variable should be <code>n</code> not <code>i</code></button>
+<button class="quiz-option" onclick="exPick(this)">range() doesn't accept len()</button>
+<button class="quiz-option" onclick="exPick(this)">Off-by-one &mdash; the <code>+ 1</code> walks past the last index</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it works</button>
+</div>
+<div class="ex-expl">Valid indices are 0, 1, 2. <code>len(nums) + 1</code> tries to read <code>nums[3]</code> &mdash; <code>IndexError</code>. Drop the <code>+ 1</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">What's wrong here?<pre>def greet(name):
+print("hi " + name)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">The print line isn't indented &mdash; it's outside the function</button>
+<button class="quiz-option" onclick="exPick(this)">Missing return statement</button>
+<button class="quiz-option" onclick="exPick(this)">name needs quotes</button>
+<button class="quiz-option" onclick="exPick(this)">def should be function</button>
+</div>
+<div class="ex-expl">A function's body must be indented. Without indentation, Python raises <code>IndentationError</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What's wrong here?<pre>n = input("Pick: ")
+print(n * 2)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">input() is misspelled</button>
+<button class="quiz-option" onclick="exPick(this)">print can't take a calculation</button>
+<button class="quiz-option" onclick="exPick(this)"><code>input()</code> returns a string, so <code>n * 2</code> repeats the text instead of doubling a number</button>
+<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it doubles correctly</button>
+</div>
+<div class="ex-expl">If the user types <code>5</code>, <code>n</code> is the string <code>"5"</code>, and <code>"5" * 2</code> gives <code>"55"</code>. Wrap in <code>int()</code> first.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What's wrong here?<pre>class Cart:
+    items = []
+    def add(self, x):
+        self.items.append(x)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Missing constructor</button>
+<button class="quiz-option" onclick="exPick(this)"><code>items = []</code> is a class attribute &mdash; shared by every Cart instance</button>
+<button class="quiz-option" onclick="exPick(this)">append doesn't exist on lists</button>
+<button class="quiz-option" onclick="exPick(this)">self should be this</button>
+</div>
+<div class="ex-expl">A mutable class attribute is created once and shared. Initialise per-object state inside <code>__init__</code> with <code>self.items = []</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you spotted:</strong> assignment vs equality, off-by-one, missing indentation, str/int mix-up, and the shared-mutable trap.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-trace')">Challenge &middot; Read the traceback</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 2: Read the Traceback -->
+<div class="pg" id="pg-chl-trace">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> challenges <span>&rsaquo;</span> read the traceback</div>
+<div class="pt">Challenge &middot; Read the Traceback</div>
+<div class="ps">The last line names the error. Read it.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Given a traceback, name what went wrong &mdash; not just the error class, but why.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does this traceback tell you?<pre>Traceback (most recent call last):
+  File "x.py", line 2, in &lt;module&gt;
+    print(total)
+NameError: name 'total' is not defined</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A file is missing</button>
+<button class="quiz-option" onclick="exPick(this)">You used <code>total</code> before assigning it</button>
+<button class="quiz-option" onclick="exPick(this)">total is the wrong type</button>
+<button class="quiz-option" onclick="exPick(this)">print is broken</button>
+</div>
+<div class="ex-expl"><code>NameError</code> = the name doesn't exist in scope. Either a typo or you forgot to assign it first.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">What does this traceback tell you?<pre>TypeError: can only concatenate str (not "int") to str</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Missing import</button>
+<button class="quiz-option" onclick="exPick(this)">A function called itself too many times</button>
+<button class="quiz-option" onclick="exPick(this)">You tried <code>str + int</code> &mdash; convert one side first</button>
+<button class="quiz-option" onclick="exPick(this)">A list is empty</button>
+</div>
+<div class="ex-expl"><code>"x" + 1</code> is illegal. Use <code>"x" + str(1)</code> or an f-string.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">What does this traceback tell you?<pre>KeyError: 'email'</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">You asked a dict for a key that isn't there</button>
+<button class="quiz-option" onclick="exPick(this)">You indexed a list out of range</button>
+<button class="quiz-option" onclick="exPick(this)">A variable was never set</button>
+<button class="quiz-option" onclick="exPick(this)">A function got the wrong number of args</button>
+</div>
+<div class="ex-expl"><code>KeyError</code> belongs to dicts. Use <code>d.get("email")</code> or check <code>"email" in d</code> first.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="3">
+<div class="ex-qtext">What does this traceback tell you?<pre>  File "x.py", line 5
+    if x &gt; 0
+           ^
+SyntaxError: expected ':'</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">x is not a number</button>
+<button class="quiz-option" onclick="exPick(this)">The condition is missing parentheses</button>
+<button class="quiz-option" onclick="exPick(this)"><code>&gt;</code> should be <code>&gt;=</code></button>
+<button class="quiz-option" onclick="exPick(this)">The <code>if</code> line needs a colon at the end</button>
+</div>
+<div class="ex-expl">Every <code>if</code>, <code>for</code>, <code>def</code>, <code>class</code>, <code>else</code> line ends with <code>:</code> in Python. The caret points right where it expected one.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">What does this traceback tell you?<pre>RecursionError: maximum recursion depth exceeded</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Out of disk space</button>
+<button class="quiz-option" onclick="exPick(this)">A function called itself without a base case &mdash; infinite loop on the call stack</button>
+<button class="quiz-option" onclick="exPick(this)">Too many imports</button>
+<button class="quiz-option" onclick="exPick(this)">The CPU is too slow</button>
+</div>
+<div class="ex-expl">A recursive function needs a <em>base case</em> that doesn't call itself. Without one, the call stack overflows.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you learned:</strong> the last line of a traceback names the error class &mdash; <code>NameError</code>, <code>TypeError</code>, <code>KeyError</code>, <code>SyntaxError</code>, <code>RecursionError</code> &mdash; and each one points at a specific cause.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-output')">Challenge &middot; Predict the output</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 3: Predict the Output -->
+<div class="pg" id="pg-chl-output">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> challenges <span>&rsaquo;</span> predict the output</div>
+<div class="pt">Challenge &middot; Predict the Output</div>
+<div class="ps">Read each snippet, type what it prints. Be exact.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Trace the code in your head and type the exact output.</div>
+
+<div class="ex-q" data-answers="6">
+<div class="ex-qtext">What does this print?<pre>x = 2
+y = 3
+print(x * y)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">2 &times; 3 = 6.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="hellohellohello|hello hello hello">
+<div class="ex-qtext">What does this print?<pre>print("hello" * 3)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<details class="faq-item"><summary class="faq-q">Show hint</summary><div class="faq-a">A string times an int repeats the string. No spaces are added.</div></details>
+<div class="ex-expl"><code>"hello" * 3</code> = <code>"hellohellohello"</code>. String multiplication just concatenates copies &mdash; no separator.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="2.5">
+<div class="ex-qtext">What does this print?<pre>print(10 / 4)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>/</code> is float division in Python 3. 10 / 4 = 2.5. (For integer division use <code>//</code>.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="3">
+<div class="ex-qtext">What does this print?<pre>nums = [10, 20, 30, 40]
+print(len(nums) - 1)</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">The list has 4 items, so <code>len(nums)</code> = 4. 4 - 1 = 3 (which happens to be the last valid index).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-answers="even|odd">
+<div class="ex-qtext">What does this print?<pre>n = 8
+if n % 2 == 0:
+    print("even")
+else:
+    print("odd")</pre></div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">8 % 2 = 0, so the <code>if</code> branch runs and prints <code>even</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you traced:</strong> arithmetic, string repeat, float division, list length, and a branch. Reading code in your head is half of programming.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-tool')">Challenge &middot; Pick the right tool</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 4: Pick the Right Tool -->
+<div class="pg" id="pg-chl-tool">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> challenges <span>&rsaquo;</span> pick the right tool</div>
+<div class="pt">Challenge &middot; Pick the Right Tool</div>
+<div class="ps">A small problem &mdash; match it to the right structure.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Given the shape of a problem, pick the data structure or pattern that fits.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">You need to remember a user's <strong>email by their id</strong> and look it up fast. Which?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A list of emails</button>
+<button class="quiz-option" onclick="exPick(this)">A dict mapping <code>id &rarr; email</code></button>
+<button class="quiz-option" onclick="exPick(this)">A string</button>
+<button class="quiz-option" onclick="exPick(this)">A class with one attribute</button>
+</div>
+<div class="ex-expl">Dicts are key &rarr; value lookups in O(1). Searching a list for an id is O(n).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">You want a collection of <strong>unique</strong> tags, no duplicates. Which?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A list</button>
+<button class="quiz-option" onclick="exPick(this)">A dict</button>
+<button class="quiz-option" onclick="exPick(this)">A set</button>
+<button class="quiz-option" onclick="exPick(this)">A tuple</button>
+</div>
+<div class="ex-expl">Sets automatically reject duplicates and check membership in O(1). Perfect for "have I seen this?".</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">You're going to do the <strong>same calculation 4 times</strong> with different inputs. Which?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A function</button>
+<button class="quiz-option" onclick="exPick(this)">A class</button>
+<button class="quiz-option" onclick="exPick(this)">Copy-paste the code</button>
+<button class="quiz-option" onclick="exPick(this)">A loop with no body</button>
+</div>
+<div class="ex-expl">Functions package logic for reuse. One source of truth, four calls. (DRY.)</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">You need to track a User's <strong>name, age and email</strong> &mdash; lots of users. Which?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">3 parallel lists (names, ages, emails)</button>
+<button class="quiz-option" onclick="exPick(this)">A nested list <code>[[name, age, email], &hellip;]</code></button>
+<button class="quiz-option" onclick="exPick(this)">A <code>User</code> class with the three attributes, in a list</button>
+<button class="quiz-option" onclick="exPick(this)">A string concatenation</button>
+</div>
+<div class="ex-expl">When several values belong together, give them a name. A class makes the relationship explicit and the code clearer.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">You want to do something <strong>once for each item</strong> in a list. Which?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">A while loop with <code>i = 0; i &lt; len(&hellip;)</code></button>
+<button class="quiz-option" onclick="exPick(this)">A <code>for x in nums:</code> loop</button>
+<button class="quiz-option" onclick="exPick(this)">Recursion</button>
+<button class="quiz-option" onclick="exPick(this)">A class</button>
+</div>
+<div class="ex-expl"><code>for x in nums</code> is the Pythonic iteration &mdash; no index bookkeeping, no off-by-one bugs.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you matched:</strong> dict for lookup, set for unique, function for reuse, class for related data, for-loop for iteration. Picking the right tool is most of design.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('chl-refactor')">Challenge &middot; Refactor this</span><span class="next-chip" onclick="go('challenges')">All challenges</span></div>
+</div>
+
+<!-- Challenge 5: Refactor This -->
+<div class="pg" id="pg-chl-refactor">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> challenges <span>&rsaquo;</span> refactor this</div>
+<div class="pt">Challenge &middot; Refactor This</div>
+<div class="ps">Same behavior, cleaner shape &mdash; pick the better version.</div>
+</div>
+<div class="ex-goal"><strong>&#127919; Goal:</strong> Pick the version that's easier to read and change. Not cleverer &mdash; clearer.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which is the better refactor?<pre># before
+if logged_in == True:
+    show()</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)"><code>if logged_in == True == True:</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>if logged_in:</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>if logged_in is True:</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>if bool(logged_in) == True:</code></button>
+</div>
+<div class="ex-expl">A bool is already truthy. <code>== True</code> is noise &mdash; just <code>if logged_in:</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which is the better refactor?<pre># before
+result = []
+for n in nums:
+    result.append(n * 2)</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Same code &mdash; nothing to do</button>
+<button class="quiz-option" onclick="exPick(this)">Make it recursive</button>
+<button class="quiz-option" onclick="exPick(this)"><code>result = [n * 2 for n in nums]</code></button>
+<button class="quiz-option" onclick="exPick(this)">Replace with a while loop</button>
+</div>
+<div class="ex-expl">A list comprehension reads as one expression: "for each n, give me n*2". Same behavior, less code.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Which is the better refactor?<pre># before
+def f(n):
+    x = n + 1
+    return x</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)"><code>def f(n): return n + 1</code></button>
+<button class="quiz-option" onclick="exPick(this)">Add 5 more lines of comments</button>
+<button class="quiz-option" onclick="exPick(this)">Rename <code>x</code> to <code>tmp</code></button>
+<button class="quiz-option" onclick="exPick(this)">Make it a class</button>
+</div>
+<div class="ex-expl">A throwaway variable that's only used in <code>return</code> right after assignment can be inlined.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="2">
+<div class="ex-qtext">Which name is better for "list of users that paid this month"?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)"><code>l</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>data</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>paid_users</code></button>
+<button class="quiz-option" onclick="exPick(this)"><code>tmp2</code></button>
+</div>
+<div class="ex-expl">The good name reads like prose: <code>for user in paid_users:</code>. The others force you to remember meaning elsewhere.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-q" data-correct="3">
+<div class="ex-qtext">Which is the better refactor?<pre># before
+if age &gt;= 18:
+    is_adult = True
+else:
+    is_adult = False</pre></div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">Keep it as is</button>
+<button class="quiz-option" onclick="exPick(this)">Extract into a class</button>
+<button class="quiz-option" onclick="exPick(this)">Use a try/except instead</button>
+<button class="quiz-option" onclick="exPick(this)"><code>is_adult = age &gt;= 18</code></button>
+</div>
+<div class="ex-expl">The comparison already gives back a bool &mdash; assign it directly. Same behavior, one line.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; What you refactored:</strong> redundant <code>== True</code>, list comprehensions, inlined throwaways, real names, and bool assignments. A refactor keeps behavior; it never adds features.</div>
+<div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('challenges')">All challenges</span><span class="next-chip" onclick="go('chl-bugs')">Back to Spot the Bug</span></div>
+</div>
+
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
