@@ -772,6 +772,10 @@ body.dark .ex-q{background:var(--page)}
 .tut-final{background:var(--p50);border:1px solid var(--p200);border-radius:10px;padding:.85rem 1rem;margin:1.2rem 0 .4rem}
 .tut-final-head{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--p500);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
 .tut-recap{background:white;border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;margin:.8rem 0 .2rem;font-size:.85rem;color:var(--ink2);line-height:1.55}
+.tut-step .ex-q{border:none;background:transparent;padding:.4rem 0 0;margin-bottom:0}
+.tut-step .ex-q .ex-fb{background:var(--p50);border-radius:8px}
+.tut-step .faq-item{margin-top:.6rem}
+.tut-reveal-hint{font-size:.7rem;color:var(--ink3);letter-spacing:.04em;margin-top:.4rem}
 body.dark .tut-step,body.dark .tut-intro,body.dark .tut-final,body.dark .tut-recap{background:var(--page)}
 </style>
 </head>
@@ -2262,130 +2266,214 @@ print(d.sound())</pre></div>
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 1</div>
 <div class="pt">Tutorial 1 &middot; Your First Greeting</div>
-<div class="ps">Difficulty: beginner &middot; ~3 minutes</div>
+<div class="ps">Difficulty: beginner &middot; ~5 minutes &middot; interactive</div>
 </div>
 
-<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a tiny program that asks for your name and greets you. We'll write it in three small steps, then look at the full thing.</div>
+<div class="tut-intro"><strong>&#127919; Let's build together:</strong> a tiny program that asks for your name and greets you. At each step, try the quick check before peeking at the code &mdash; you'll learn it much faster that way.</div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">1</span>Make a variable to remember the name</div>
-<div class="tut-step-text">First we'll just store a value. The <code>=</code> operator gives a name (a <strong>variable</strong>) to whatever is on the right, so we can use it later.</div>
-<pre><span class="kw">name</span> = <span class="str">"Cherry"</span></pre>
+<div class="tut-step-text">First we'll store a value. The <code>=</code> operator gives a name (a <strong>variable</strong>) to whatever is on the right, so we can use it later.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Which line stores the text <code>Cherry</code> in a variable named <code>name</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">name = Cherry</button>
+<button class="quiz-option" onclick="exPick(this)">name = "Cherry"</button>
+<button class="quiz-option" onclick="exPick(this)">"Cherry" = name</button>
+<button class="quiz-option" onclick="exPick(this)">name == "Cherry"</button>
+</div>
+<div class="ex-expl">Text must be in quotes, and assignment goes <code>variable = value</code>. <code>==</code> only compares.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="kw">name</span> = <span class="str">"Cherry"</span></code></div></details>
 </div>
 
 <div class="tut-step">
-<div class="tut-step-head"><span class="tut-step-num">2</span>Ask the user for their name</div>
-<div class="tut-step-text">Instead of hardcoding "Cherry", let's let the user type. The built-in <code>input()</code> function shows a prompt, waits for the user, and returns what they typed.</div>
-<pre>name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)</pre>
+<div class="tut-step-head"><span class="tut-step-num">2</span>Ask the user instead of hardcoding</div>
+<div class="tut-step-text">Instead of pinning the name to "Cherry", let's let the user type. The built-in <code>input()</code> shows a prompt and gives back whatever they typed.</div>
+
+<div class="ex-q" data-answers="string|text|str|str()|texto">
+<div class="ex-qtext"><code>input()</code> always gives you back a value of what type? (one word)</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">Always a <strong>string</strong> &mdash; even if the user typed a number. Wrap it in <code>int()</code> later if you need a number.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini">name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)</code></div></details>
 </div>
 
 <div class="tut-step">
-<div class="tut-step-head"><span class="tut-step-num">3</span>Print the greeting</div>
-<div class="tut-step-text">Now we use an <strong>f-string</strong> (the <code>f</code> before the quotes). Anything inside <code>{ }</code> gets replaced by the value of that variable.</div>
-<pre><span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</pre>
+<div class="tut-step-head"><span class="tut-step-num">3</span>Greet with an f-string</div>
+<div class="tut-step-text">An <strong>f-string</strong> has an <code>f</code> right before the quotes. Anything inside <code>{ }</code> is replaced by the value of that variable.</div>
+
+<div class="ex-q" data-answers="hi, cherry!|hi,cherry!">
+<div class="ex-qtext">With <code>name = "Cherry"</code>, what does <code>print(f"Hi, {name}!")</code> output?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="the output" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl"><code>{name}</code> becomes <code>Cherry</code>, so it prints <code>Hi, Cherry!</code>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</code></div></details>
 </div>
 
 <div class="tut-final">
-<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
-<pre>name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)
-<span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</pre>
+<div class="tut-final-head">&#127881; Done! Your first program is ready.</div>
+<details class="faq-item"><summary class="faq-q">Show the complete program</summary><div class="faq-a"><code class="code-mini">name = <span class="fn">input</span>(<span class="str">"What's your name? "</span>)
+<span class="fn">print</span>(<span class="str">f"Hi, {name}! Welcome to Cherry Code."</span>)</code></div></details>
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('t01')" style="cursor:pointer">variable</span>, the <code>input()</code> function, and an <span class="prereq-chip" onclick="go('t03')" style="cursor:pointer">f-string</span>. Two lines of real code &mdash; that's already a working program.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-2')">Tutorial 2 &middot; Even or odd?</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
 </div>
-
 <!-- Tutorial 2: Even or Odd -->
 <div class="pg" id="pg-tut-2">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 4</div>
 <div class="pt">Tutorial 2 &middot; Even or Odd?</div>
-<div class="ps">Difficulty: beginner &middot; ~4 minutes</div>
+<div class="ps">Difficulty: beginner &middot; ~6 minutes &middot; interactive</div>
 </div>
 
 <div class="tut-intro"><strong>&#127919; Let's build together:</strong> ask for a number and tell whether it's even or odd. We'll meet two new ideas: <em>converting</em> input to a number, and the <code>if / else</code> branch.</div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">1</span>Read a number from the user</div>
-<div class="tut-step-text"><code>input()</code> always gives us back text. To use the value as a number we wrap it in <code>int()</code>, which turns the text into an integer.</div>
-<pre>n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))</pre>
+<div class="tut-step-text"><code>input()</code> always gives us text. To use the value as a number we wrap it in <code>int()</code>, which turns the text into an integer.</div>
+
+<div class="ex-q" data-correct="1">
+<div class="ex-qtext">Why do we wrap <code>input()</code> in <code>int()</code>?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">It makes the program faster</button>
+<button class="quiz-option" onclick="exPick(this)"><code>input()</code> returns text; we need a number to do math</button>
+<button class="quiz-option" onclick="exPick(this)">It makes the output prettier</button>
+<button class="quiz-option" onclick="exPick(this)">No real reason</button>
+</div>
+<div class="ex-expl">Without <code>int()</code>, <code>n</code> would be the string <code>"4"</code> instead of the integer <code>4</code> &mdash; and <code>"4" % 2</code> would crash.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini">n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))</code></div></details>
 </div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">2</span>Check the remainder with <code>%</code></div>
 <div class="tut-step-text">The <code>%</code> (modulo) operator gives the remainder of a division. If <code>n % 2</code> is <code>0</code>, dividing by 2 leaves nothing &mdash; so the number is even.</div>
-<pre><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
-    <span class="com"># even</span>
+
+<div class="ex-q" data-answers="1">
+<div class="ex-qtext">What is <code>10 % 3</code>?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">10 = 3 &times; 3 + 1, so the remainder is <strong>1</strong>.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
+    <span class="com"># even branch</span>
 <span class="kw">else</span>:
-    <span class="com"># odd</span></pre>
+    <span class="com"># odd branch</span></code></div></details>
 </div>
 
 <div class="tut-step">
-<div class="tut-step-head"><span class="tut-step-num">3</span>Print the result</div>
-<div class="tut-step-text">Fill in each branch with a friendly message using an f-string.</div>
-<pre><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
+<div class="tut-step-head"><span class="tut-step-num">3</span>Print a friendly result</div>
+<div class="tut-step-text">Fill in each branch with a message using an f-string. The comparison <code>n % 2 == 0</code> is a boolean, so let's make sure you can predict one.</div>
+
+<div class="ex-q" data-answers="true">
+<div class="ex-qtext">With <code>n = 8</code>, what does <code>print(n % 2 == 0)</code> output?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="True or False" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">8 % 2 = 0, and 0 == 0 is <code>True</code>. Python prints it capitalized.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
     <span class="fn">print</span>(<span class="str">f"{n} is even"</span>)
 <span class="kw">else</span>:
-    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</pre>
+    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</code></div></details>
 </div>
 
 <div class="tut-final">
-<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
-<pre>n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))
+<div class="tut-final-head">&#127881; Done! Your program reacts to its input.</div>
+<details class="faq-item"><summary class="faq-q">Show the complete program</summary><div class="faq-a"><code class="code-mini">n = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">"Pick a number: "</span>))
 <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>:
     <span class="fn">print</span>(<span class="str">f"{n} is even"</span>)
 <span class="kw">else</span>:
-    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</pre>
+    <span class="fn">print</span>(<span class="str">f"{n} is odd"</span>)</code></div></details>
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> <span class="prereq-chip" onclick="go('t12')" style="cursor:pointer">type casting</span> with <code>int()</code>, the <span class="prereq-chip" onclick="go('o06')" style="cursor:pointer">modulo operator</span>, and an <span class="prereq-chip" onclick="go('c01')" style="cursor:pointer">if / else</span>. Now your program reacts to its input.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tut-3')">Tutorial 3 &middot; Tip calculator</span><span class="next-chip" onclick="go('tutorials')">All tutorials</span></div>
 </div>
-
 <!-- Tutorial 3: Tip Calculator -->
 <div class="pg" id="pg-tut-3">
 <div class="ph">
 <div class="bc">cherry code <span>&rsaquo;</span> mini-tutorials <span>&rsaquo;</span> Block 5</div>
 <div class="pt">Tutorial 3 &middot; Tip Calculator</div>
-<div class="ps">Difficulty: beginner &middot; ~5 minutes</div>
+<div class="ps">Difficulty: beginner &middot; ~7 minutes &middot; interactive</div>
 </div>
 
 <div class="tut-intro"><strong>&#127919; Let's build together:</strong> a reusable <em>function</em> that calculates the tip for a bill. The big leap here: we'll package logic into a function and call it with different inputs.</div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">1</span>Define a function with parameters</div>
-<div class="tut-step-text">We'll use <code>def</code> to declare the function. It takes the bill amount and a tip percentage. The <code>pct=15</code> means "if the caller doesn't say, default to 15%".</div>
-<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
-    <span class="com"># calculate here</span></pre>
+<div class="tut-step-text">We use <code>def</code> to declare the function. It takes the bill amount and a tip percentage. <code>pct=15</code> means "if the caller doesn't say, default to 15%".</div>
+
+<div class="ex-q" data-correct="0">
+<div class="ex-qtext">Which is the correct way to start defining <code>tip</code> with parameters <code>bill</code> and <code>pct</code> (default 15)?</div>
+<div class="ex-opts">
+<button class="quiz-option" onclick="exPick(this)">def tip(bill, pct=15):</button>
+<button class="quiz-option" onclick="exPick(this)">def tip(bill, pct: 15):</button>
+<button class="quiz-option" onclick="exPick(this)">tip(bill, pct=15) def:</button>
+<button class="quiz-option" onclick="exPick(this)">function tip(bill, pct=15)</button>
+</div>
+<div class="ex-expl">Python uses <code>def name(params):</code> with a colon. Defaults use <code>=</code>, not <code>:</code>. There's no <code>function</code> keyword.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+    <span class="com"># calculate here</span></code></div></details>
 </div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">2</span>Do the math and return the result</div>
-<div class="tut-step-text">The body computes <code>bill &times; pct / 100</code> and returns it. <code>return</code> hands the value back to whoever called the function.</div>
-<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
-    <span class="kw">return</span> bill * pct / <span class="num">100</span></pre>
+<div class="tut-step-text">The body computes <code>bill &times; pct / 100</code> and returns the result. <code>return</code> hands the value back to whoever called the function.</div>
+
+<div class="ex-q" data-answers="20|20.0">
+<div class="ex-qtext">What does <code>tip(100, 20)</code> return?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">100 &times; 20 / 100 = 20.0 (Python's <code>/</code> gives a float, so 20.0 is what you really get).</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+    <span class="kw">return</span> bill * pct / <span class="num">100</span></code></div></details>
 </div>
 
 <div class="tut-step">
 <div class="tut-step-head"><span class="tut-step-num">3</span>Call it with different values</div>
-<div class="tut-step-text">Now we can reuse our function as many times as we want. The first call uses the default 15%; the second overrides it with 20%.</div>
-<pre><span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>))        <span class="com"># 7.5</span>
-<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></pre>
+<div class="tut-step-text">Now we can reuse the function as many times as we want. The first call uses the default 15%; the second overrides it with 20%.</div>
+
+<div class="ex-q" data-answers="7.5">
+<div class="ex-qtext">What does <code>tip(50)</code> return (using the default <code>pct=15</code>)?</div>
+<div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)">Check</button></div>
+<div class="ex-expl">50 &times; 15 / 100 = 7.5.</div>
+<div class="ex-fb" style="display:none"></div>
+</div>
+
+<details class="faq-item"><summary class="faq-q">&#128272; Show this step's code</summary><div class="faq-a"><code class="code-mini"><span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>))        <span class="com"># 7.5</span>
+<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></code></div></details>
 </div>
 
 <div class="tut-final">
-<div class="tut-final-head">&#127881; Done &mdash; the full program</div>
-<pre><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
+<div class="tut-final-head">&#127881; Done! You wrote reusable code.</div>
+<details class="faq-item"><summary class="faq-q">Show the complete program</summary><div class="faq-a"><code class="code-mini"><span class="kw">def</span> <span class="fn">tip</span>(bill, pct=<span class="num">15</span>):
     <span class="kw">return</span> bill * pct / <span class="num">100</span>
 
 <span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>))        <span class="com"># 7.5</span>
-<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></pre>
+<span class="fn">print</span>(<span class="fn">tip</span>(<span class="num">50</span>, <span class="num">20</span>))    <span class="com"># 10.0</span></code></div></details>
 </div>
 
 <div class="tut-recap"><strong>&#127826; What you used:</strong> a <span class="prereq-chip" onclick="go('n01')" style="cursor:pointer">function</span> with a <span class="prereq-chip" onclick="go('n09')" style="cursor:pointer">default parameter</span>, and <span class="prereq-chip" onclick="go('n04')" style="cursor:pointer">return</span> to send a value back. You just made code you can reuse anywhere.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('tutorials')">All tutorials</span><span class="next-chip" onclick="go('tut-1')">Back to Tutorial 1</span></div>
 </div>
-
 <!-- ============ PRACTICE MODE ============ -->
 <div class="pg" id="pg-practice">
 <div class="ph">
