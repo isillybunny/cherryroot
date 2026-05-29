@@ -1,5 +1,5 @@
 // Cherry Notebooks — Service Worker (network-first for pages, cache fallback offline)
-const CACHE = 'cherry-v15';
+const CACHE = 'cherry-v16';
 const ASSETS = [
   './',
   './index.html',
