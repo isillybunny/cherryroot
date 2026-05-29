@@ -792,6 +792,25 @@ body.dark .ex-q{background:var(--page)}
 .tut-run-head{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--p300);margin-bottom:.4rem;font-weight:600}
 .tut-run-out{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#fde8ee;white-space:pre-wrap;margin:0;padding:0;background:transparent;border:none}
 body.dark .tut-step,body.dark .tut-intro,body.dark .tut-final,body.dark .tut-recap{background:var(--page)}
+/* ===== VIDEOS ===== */
+.vid-section{margin:1.4rem 0 .3rem}
+.vid-section-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--p500);font-weight:700;margin:0 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
+.vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:.85rem;margin-bottom:1.1rem}
+.vid-card{background:white;border:1px solid var(--line);border-radius:11px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.45rem;box-shadow:0 2px 8px rgba(201,63,79,.04);transition:transform .15s, box-shadow .15s}
+.vid-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,63,79,.1)}
+body.dark .vid-card{background:var(--page);border-color:var(--line)}
+.vid-card-head{display:flex;align-items:center;gap:.55rem}
+.vid-icon{flex-shrink:0;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--p100),var(--p200));color:var(--p500);display:flex;align-items:center;justify-content:center}
+.vid-icon svg{width:18px;height:18px}
+.vid-title{font-weight:600;font-size:.95rem;color:var(--ink);line-height:1.3}
+.vid-meta{display:flex;flex-wrap:wrap;gap:.4rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);font-weight:600}
+.vid-dur{background:var(--p50);color:var(--p500);padding:.15rem .45rem;border-radius:4px}
+.vid-channel{padding:.15rem 0}
+.vid-desc{font-size:.85rem;color:var(--ink2);line-height:1.5;margin:.1rem 0 .2rem}
+.vid-link{display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.45rem .8rem;border-radius:7px;background:var(--p500);color:white;text-decoration:none;transition:background .15s;margin-top:.15rem}
+.vid-link:hover{background:var(--p400)}
+.vid-note{background:var(--p50);border:1px solid var(--line);border-radius:9px;padding:.7rem .9rem;font-size:.82rem;color:var(--ink2);line-height:1.55;margin-bottom:1rem}
+.vid-note strong{color:var(--p500)}
 </style>
 </head>
 <body>
@@ -986,6 +1005,7 @@ Review Mode
 <div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
 <div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span>Mini-Tutorials</div>
 <div class="ni" onclick="go('challenges',this)"><span class="cd">CHL</span>Code Challenges</div>
+<div class="ni" onclick="go('videos',this)"><span class="cd">VID</span>V&iacute;deos (PT-BR)</div>
 <div class="ndiv"></div>
 <div class="ns">Cheatsheets &amp; References</div>
 <div class="ni" onclick="go('cheatsheet-py',this)"><span class="cd">CH·P</span>Python Cheatsheet</div>
@@ -3554,6 +3574,190 @@ else:
 
 <div class="ex-recap"><strong>&#127826; What you refactored:</strong> redundant <code>== True</code>, list comprehensions, inlined throwaways, real names, and bool assignments. A refactor keeps behavior; it never adds features.</div>
 <div class="next-bar"><span class="next-label">Next:</span><span class="next-chip rec" onclick="go('challenges')">All challenges</span><span class="next-chip" onclick="go('chl-bugs')">Back to Spot the Bug</span></div>
+</div>
+
+<!-- ============ VIDEOS ============ -->
+<div class="pg" id="pg-videos">
+<div class="ph">
+<div class="bc">cherry code <span>&rsaquo;</span> v&iacute;deos pt-br</div>
+<div class="pt">V&iacute;deos &middot; PT-BR</div>
+<div class="ps">Cada card abre uma busca no YouTube em portugu&ecirc;s pelo conceito. Curados por t&oacute;pico, n&atilde;o por v&iacute;deo espec&iacute;fico &mdash; a busca traz sempre as melhores op&ccedil;&otilde;es do momento.</div>
+</div>
+
+<div class="vid-note"><strong>&#128221; Como usar:</strong> clique em &ldquo;Assistir no YouTube&rdquo; e o YouTube j&aacute; abre filtrando por canais brasileiros confi&aacute;veis (Curso em V&iacute;deo, Ot&aacute;vio Miranda, Filipe Deschamps, Loiane Groner e outros). Os canais sugeridos t&ecirc;m material em PT-BR de qualidade gratuita.</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 1 &middot; Fundamentals</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke-linecap="round"/><line x1="12" y1="18" x2="12" y2="21" stroke-linecap="round"/></svg></div><div class="vid-title">O que &eacute; programa&ccedil;&atilde;o?</div></div>
+<div class="vid-meta"><span class="vid-dur">~10 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc">Introdu&ccedil;&atilde;o visual: o que &eacute; um programa, como o computador executa instru&ccedil;&otilde;es, e por onde come&ccedil;ar.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=o+que+%C3%A9+programa%C3%A7%C3%A3o+curso+em+v%C3%ADdeo" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M3 6 L7 6 L9 4 L15 4 L17 6 L21 6 L21 19 L3 19 Z"/><circle cx="12" cy="12" r="3.5"/></svg></div><div class="vid-title">IDE, compilador e interpretador</div></div>
+<div class="vid-meta"><span class="vid-dur">~8 min</span><span class="vid-channel">Bo&aacute;s pr&aacute;ticas</span></div>
+<div class="vid-desc">A diferen&ccedil;a entre c&oacute;digo-fonte, compilado e interpretado. Por que VS Code, PyCharm, IntelliJ?</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=diferen%C3%A7a+compilador+interpretador+portugu%C3%AAs" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 2 &middot; Types &amp; Variables</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/><line x1="8" y1="5" x2="8" y2="19" stroke-linecap="round"/></svg></div><div class="vid-title">Vari&aacute;veis e tipos em Python</div></div>
+<div class="vid-meta"><span class="vid-dur">~12 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc">Como declarar vari&aacute;veis, atribui&ccedil;&atilde;o, tipos primitivos (int, float, str, bool) e quando usar cada um.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=vari%C3%A1veis+e+tipos+python+curso+em+v%C3%ADdeo" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7 L17 7"/><path d="M17 7 L14 4"/><path d="M17 7 L14 10"/><path d="M17 17 L7 17"/><path d="M7 17 L10 14"/><path d="M7 17 L10 20"/></svg></div><div class="vid-title">Convers&atilde;o de tipos (casting)</div></div>
+<div class="vid-meta"><span class="vid-dur">~7 min</span><span class="vid-channel">Ot&aacute;vio Miranda</span></div>
+<div class="vid-desc">Quando usar <code>int()</code>, <code>str()</code>, <code>float()</code>; por que <code>input()</code> sempre devolve string; armadilhas comuns.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=convers%C3%A3o+tipos+python+casting+ot%C3%A1vio+miranda" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 3 &middot; Operators &amp; Expressions</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><line x1="12" y1="5" x2="12" y2="19"/></svg></div><div class="vid-title">Operadores aritm&eacute;ticos e preced&ecirc;ncia</div></div>
+<div class="vid-meta"><span class="vid-dur">~9 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc">Soma, multiplica&ccedil;&atilde;o, divis&atilde;o int (<code>//</code>) e float, resto (<code>%</code>), pot&ecirc;ncia (<code>**</code>), e ordem de avalia&ccedil;&atilde;o.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=operadores+aritm%C3%A9ticos+python+preced%C3%AAncia" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="5"/><circle cx="16" cy="12" r="5"/></svg></div><div class="vid-title">Operadores l&oacute;gicos e compara&ccedil;&otilde;es</div></div>
+<div class="vid-meta"><span class="vid-dur">~8 min</span><span class="vid-channel">Programa&ccedil;&atilde;o Din&acirc;mica</span></div>
+<div class="vid-desc"><code>and / or / not</code>, <code>== / !=</code>, e por que <code>=</code> n&atilde;o compara. Truthy vs falsy.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=operadores+l%C3%B3gicos+python+and+or+not" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 4 &middot; Control Flow</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3 L12 9"/><path d="M12 9 L6 15"/><path d="M12 9 L18 15"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/></svg></div><div class="vid-title">if / elif / else na pr&aacute;tica</div></div>
+<div class="vid-meta"><span class="vid-dur">~10 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc">Como decidir entre <code>if / elif / else</code>, condi&ccedil;&otilde;es aninhadas, e quando trocar por <code>match</code>.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=if+elif+else+python+curso+em+v%C3%ADdeo" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 A7 7 0 1 1 12 19"/><path d="M12 19 L9 16"/><path d="M12 19 L15 16"/></svg></div><div class="vid-title">Loops: for, while, break e continue</div></div>
+<div class="vid-meta"><span class="vid-dur">~12 min</span><span class="vid-channel">Ot&aacute;vio Miranda</span></div>
+<div class="vid-desc">Quando usar <code>for</code> vs <code>while</code>, <code>range()</code>, <code>break</code> pra sair cedo, <code>continue</code> pra pular um item.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=loops+for+while+python+ot%C3%A1vio+miranda" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 5 &middot; Functions</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="3" y="8" width="18" height="8" rx="4"/><circle cx="8" cy="12" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/></svg></div><div class="vid-title">Fun&ccedil;&otilde;es em Python do zero</div></div>
+<div class="vid-meta"><span class="vid-dur">~14 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc"><code>def</code>, par&acirc;metros, valor padr&atilde;o, <code>return</code>, e por que dividir o c&oacute;digo em fun&ccedil;&otilde;es desde o come&ccedil;o.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=fun%C3%A7%C3%B5es+python+curso+em+v%C3%ADdeo+def" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="8" y="8" width="8" height="8" rx="1"/></svg></div><div class="vid-title">Escopo de vari&aacute;veis (local vs global)</div></div>
+<div class="vid-meta"><span class="vid-dur">~7 min</span><span class="vid-channel">Ot&aacute;vio Miranda</span></div>
+<div class="vid-desc">Por que <code>x</code> dentro de uma fun&ccedil;&atilde;o n&atilde;o &eacute; visto fora &mdash; e como evitar a armadilha do <code>global</code>.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=escopo+vari%C3%A1veis+python+local+global" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 6 &middot; Data Structures</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg></div><div class="vid-title">Listas, tuplas, sets e dicts</div></div>
+<div class="vid-meta"><span class="vid-dur">~15 min</span><span class="vid-channel">Curso em V&iacute;deo</span></div>
+<div class="vid-desc">Quando usar cada estrutura: lista (ordem), tupla (imut&aacute;vel), set (&uacute;nico), dict (chave&rarr;valor). Visual e direto.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=listas+tuplas+dicion%C3%A1rios+python+curso+em+v%C3%ADdeo" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 12 L12 4 L20 12 L12 20 Z"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div class="vid-title">Big-O explicado visualmente</div></div>
+<div class="vid-meta"><span class="vid-dur">~12 min</span><span class="vid-channel">Augusto Galego</span></div>
+<div class="vid-desc">O que significa O(1), O(n), O(n&sup2;), O(log n) &mdash; com gr&aacute;ficos e analogias do mundo real.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=big+O+complexidade+algoritmo+portugu%C3%AAs" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 7 &middot; Object-Oriented Programming</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6" stroke-linecap="round"/></svg></div><div class="vid-title">Classes e objetos do zero</div></div>
+<div class="vid-meta"><span class="vid-dur">~16 min</span><span class="vid-channel">Ot&aacute;vio Miranda</span></div>
+<div class="vid-desc">O que &eacute; classe, inst&acirc;ncia, atributo, m&eacute;todo. Por que OOP existe e quando vale a pena.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=classes+e+objetos+python+ot%C3%A1vio+miranda" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><circle cx="12" cy="5" r="2.5"/><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><line x1="12" y1="7.5" x2="7.5" y2="14.5"/><line x1="12" y1="7.5" x2="16.5" y2="14.5"/></svg></div><div class="vid-title">Heran&ccedil;a, super() e polimorfismo</div></div>
+<div class="vid-meta"><span class="vid-dur">~13 min</span><span class="vid-channel">Loiane Groner</span></div>
+<div class="vid-desc">Heran&ccedil;a sem decoreba: quando vale a pena, quando atrapalha, e por que &ldquo;composi&ccedil;&atilde;o sobre heran&ccedil;a&rdquo;.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=heran%C3%A7a+polimorfismo+python+loiane" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 8 &middot; Errors &amp; Debugging</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M12 2 L2 22 L22 22 Z"/><line x1="12" y1="10" x2="12" y2="16"/><circle cx="12" cy="19" r="0.8" fill="currentColor"/></svg></div><div class="vid-title">Ler tracebacks sem panicar</div></div>
+<div class="vid-meta"><span class="vid-dur">~9 min</span><span class="vid-channel">Filipe Deschamps</span></div>
+<div class="vid-desc">Como ler erros do Python de baixo pra cima, identificar a linha culpada, e o que cada exce&ccedil;&atilde;o significa.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=como+ler+erro+python+traceback+portugu%C3%AAs" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="11" y1="8" x2="11" y2="13"/><circle cx="11" cy="15.5" r="0.8" fill="currentColor"/><line x1="16" y1="16" x2="21" y2="21"/></svg></div><div class="vid-title">try / except sem exagero</div></div>
+<div class="vid-meta"><span class="vid-dur">~10 min</span><span class="vid-channel">Ot&aacute;vio Miranda</span></div>
+<div class="vid-desc">Por que <code>except:</code> sozinho &eacute; bug magnet, e como pegar s&oacute; o erro que voc&ecirc; sabe tratar.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=try+except+python+boas+pr%C3%A1ticas" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="vid-section">
+<div class="vid-section-title">Block 9 &middot; Best Practices</div>
+<div class="vid-grid">
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7 L20 7"/><path d="M4 12 L20 12"/><path d="M4 17 L14 17"/></svg></div><div class="vid-title">Clean Code para iniciantes</div></div>
+<div class="vid-meta"><span class="vid-dur">~14 min</span><span class="vid-channel">Filipe Deschamps</span></div>
+<div class="vid-desc">Nomes claros, fun&ccedil;&otilde;es pequenas, evitar duplica&ccedil;&atilde;o (DRY) &mdash; o m&iacute;nimo pra seu c&oacute;digo n&atilde;o virar problema futuro.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=clean+code+iniciantes+filipe+deschamps" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+
+<div class="vid-card">
+<div class="vid-card-head"><div class="vid-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><line x1="8" y1="7" x2="16" y2="11"/><line x1="8" y1="17" x2="16" y2="13"/></svg></div><div class="vid-title">Git e GitHub do zero</div></div>
+<div class="vid-meta"><span class="vid-dur">~18 min</span><span class="vid-channel">Rocketseat</span></div>
+<div class="vid-desc">Por que voc&ecirc; precisa de Git ontem: <code>commit</code>, <code>push</code>, <code>pull</code>, <code>branch</code> e como n&atilde;o quebrar nada.</div>
+<a class="vid-link" href="https://www.youtube.com/results?search_query=git+github+do+zero+rocketseat" target="_blank" rel="noopener">Assistir no YouTube &rarr;</a>
+</div>
+</div>
+</div>
+
+<div class="ex-recap"><strong>&#127826; Quer um v&iacute;deo espec&iacute;fico fixado?</strong> Edite este arquivo e troque o link de qualquer card por um iframe (<code>&lt;iframe src=&quot;https://www.youtube.com/embed/VIDEO_ID&quot;&gt;</code>). O CSS j&aacute; est&aacute; pronto pra abra&ccedil;ar o player.</div>
 </div>
 
 <!-- ============ PRACTICE MODE ============ -->
