@@ -727,6 +727,18 @@ body.dark .tut-program-wrap{background:var(--page)}
 .tut-run-head{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--p300);margin-bottom:.4rem;font-weight:600}
 .tut-run-out{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#fde8ee;white-space:pre-wrap;margin:0;padding:0;background:transparent;border:none}
 body.dark .tut-step,body.dark .tut-intro,body.dark .tut-recap{background:var(--page)}
+/* ===== LANGUAGE TOGGLE ===== */
+.tr-en, .tr-pt{display:contents}
+.tr-pt{display:none}
+body.lang-pt .tr-en{display:none}
+body.lang-pt .tr-pt{display:contents}
+.lang-toggle{display:flex;align-items:center;justify-content:space-between;gap:.45rem;width:100%;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding:.55rem .7rem;background:transparent;color:var(--ink3);border:1px solid var(--line);border-radius:7px;cursor:pointer;margin-bottom:.65rem;transition:all .15s}
+.lang-toggle:hover{background:var(--p50);color:var(--p500);border-color:var(--p300)}
+.lt-ic{display:flex;align-items:center;gap:.4rem}
+.lt-pair{display:flex;gap:.1rem;align-items:center}
+.lt-en, .lt-pt{padding:.1rem .35rem;border-radius:4px;transition:all .15s}
+.lt-en.active, .lt-pt.active{background:var(--p500);color:white}
+.lt-sep{color:var(--ink4);font-size:.6rem;padding:0 .1rem}
 /* ===== VIDEOS ===== */
 .vid-section{margin:1.4rem 0 .3rem}
 .vid-section-title{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--p500);font-weight:700;margin:0 0 .6rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
@@ -759,253 +771,260 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="searchbar-wrap">
 <div class="searchbar" onclick="openSearch()">
 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><line x1="16" y1="16" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-<span style="color:var(--ink4)">Search term...</span>
+<span style="color:var(--ink4)"><span class="tr-en">Search term...</span><span class="tr-pt">Buscar termo...</span></span>
 </div>
 </div>
 
 <button class="review-trigger" onclick="startReviewMode()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="13" r="1.2" fill="currentColor"/><circle cx="12" cy="13" r="1.2" fill="currentColor"/><circle cx="16" cy="13" r="1.2" fill="currentColor"/></svg>
-Review Mode
+<span class="tr-en">Review Mode</span><span class="tr-pt">Modo Revis&atilde;o</span>
 </button>
 <button class="dark-toggle" onclick="toggleDark()">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M21 12.79 A9 9 0 0 1 11.21 3 A7 7 0 0 0 21 12.79 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-<span id="dark-label">Dark theme</span>
+<span id="dark-label"><span class="tr-en">Dark theme</span><span class="tr-pt">Tema escuro</span></span>
+</button>
+<button class="lang-toggle" id="lang-toggle" onclick="toggleLang()" title="Toggle language">
+<span class="lt-ic">
+<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+<span class="tr-en">Language</span><span class="tr-pt">Idioma</span>
+</span>
+<span class="lt-pair"><span class="lt-en active">EN</span><span class="lt-sep">|</span><span class="lt-pt">PT</span></span>
 </button>
 
-<div class="ns">Start Here</div>
-<div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span>Cover</div>
-<div class="ni" onclick="go('index',this)"><span class="cd">IDX</span>Index</div>
-<div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span>How to Use</div>
-<div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span>Study Paths</div>
-<div class="ni" onclick="go('install',this)"><span class="cd">APP</span>Install App</div>
-<div class="ni" onclick="go('glossary',this)"><span class="cd">GLS</span>Glossary</div>
-<div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span>My Favorites</div>
-<div class="ns">Progress &amp; Goals</div>
-<div class="ni" onclick="go('goals',this)"><span class="cd">GLS</span>Goals &amp; Progress</div>
-<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span>Statistics</div>
-<div class="ni" onclick="go('progress-management',this)"><span class="cd">PRG</span>Manage Progress</div>
+<div class="ns"><span class="tr-en">Start Here</span><span class="tr-pt">Comece Aqui</span></div>
+<div class="ni active" onclick="go('cover',this)"><span class="cd">✦</span><span class="tr-en">Cover</span><span class="tr-pt">Capa</span></div>
+<div class="ni" onclick="go('index',this)"><span class="cd">IDX</span><span class="tr-en">Index</span><span class="tr-pt">&Iacute;ndice</span></div>
+<div class="ni" onclick="go('howto',this)"><span class="cd">HTU</span><span class="tr-en">How to Use</span><span class="tr-pt">Como Usar</span></div>
+<div class="ni" onclick="go('paths',this)"><span class="cd">PTH</span><span class="tr-en">Study Paths</span><span class="tr-pt">Trilhas de Estudo</span></div>
+<div class="ni" onclick="go('install',this)"><span class="cd">APP</span><span class="tr-en">Install App</span><span class="tr-pt">Instalar App</span></div>
+<div class="ni" onclick="go('glossary',this)"><span class="cd">GLS</span><span class="tr-en">Glossary</span><span class="tr-pt">Gloss&aacute;rio</span></div>
+<div class="ni" onclick="go('myfavs',this)"><span class="cd">FAV</span><span class="tr-en">My Favorites</span><span class="tr-pt">Meus Favoritos</span></div>
+<div class="ns"><span class="tr-en">Progress &amp; Goals</span><span class="tr-pt">Progresso e Metas</span></div>
+<div class="ni" onclick="go('goals',this)"><span class="cd">GLS</span><span class="tr-en">Goals &amp; Progress</span><span class="tr-pt">Metas e Progresso</span></div>
+<div class="ni" onclick="go('stats',this)"><span class="cd">STA</span><span class="tr-en">Statistics</span><span class="tr-pt">Estat&iacute;sticas</span></div>
+<div class="ni" onclick="go('progress-management',this)"><span class="cd">PRG</span><span class="tr-en">Manage Progress</span><span class="tr-pt">Gerenciar Progresso</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 0 · PC Basics</div>
-<div class="ni" onclick="go('bdiv0',this)"><span class="cd">——</span>Block 0 Divider</div>
-<div class="ni" onclick="go('b01',this)"><span class="cd">B·01</span>Hardware</div>
-<div class="ni" onclick="go('b02',this)"><span class="cd">B·02</span>CPU</div>
-<div class="ni" onclick="go('b03',this)"><span class="cd">B·03</span>RAM</div>
-<div class="ni" onclick="go('b04',this)"><span class="cd">B·04</span>Software</div>
-<div class="ni" onclick="go('b05',this)"><span class="cd">B·05</span>Operating System</div>
-<div class="ni" onclick="go('b06',this)"><span class="cd">B·06</span>Binary &amp; Hex</div>
-<div class="ni" onclick="go('b07',this)"><span class="cd">B·07</span>File System</div>
-<div class="ni" onclick="go('b08',this)"><span class="cd">B·08</span>Path</div>
-<div class="ni" onclick="go('b09',this)"><span class="cd">B·09</span>Permissions</div>
-<div class="ni" onclick="go('b10',this)"><span class="cd">B·10</span>User &amp; Admin</div>
-<div class="ni" onclick="go('b11',this)"><span class="cd">B·11</span>Terminal / CLI</div>
-<div class="ni" onclick="go('b12',this)"><span class="cd">B·12</span>Env Variables</div>
-<div class="ni" onclick="go('b13',this)"><span class="cd">B·13</span>Process</div>
-<div class="ni" onclick="go('b14',this)"><span class="cd">B·14</span>Port (local)</div>
+<div class="ns"><span class="tr-en">Block 0 · PC Basics</span><span class="tr-pt">Bloco 0 · Conceitos de PC</span></div>
+<div class="ni" onclick="go('bdiv0',this)"><span class="cd">——</span><span class="tr-en">Block 0 Divider</span><span class="tr-pt">Divisor Bloco 0</span></div>
+<div class="ni" onclick="go('b01',this)"><span class="cd">B·01</span><span class="tr-en">Hardware</span><span class="tr-pt">Hardware</span></div>
+<div class="ni" onclick="go('b02',this)"><span class="cd">B·02</span><span class="tr-en">CPU</span><span class="tr-pt">CPU</span></div>
+<div class="ni" onclick="go('b03',this)"><span class="cd">B·03</span><span class="tr-en">RAM</span><span class="tr-pt">RAM</span></div>
+<div class="ni" onclick="go('b04',this)"><span class="cd">B·04</span><span class="tr-en">Software</span><span class="tr-pt">Software</span></div>
+<div class="ni" onclick="go('b05',this)"><span class="cd">B·05</span><span class="tr-en">Operating System</span><span class="tr-pt">Sistema Operacional</span></div>
+<div class="ni" onclick="go('b06',this)"><span class="cd">B·06</span><span class="tr-en">Binary &amp; Hex</span><span class="tr-pt">Bin&aacute;rio e Hex</span></div>
+<div class="ni" onclick="go('b07',this)"><span class="cd">B·07</span><span class="tr-en">File System</span><span class="tr-pt">Sistema de Arquivos</span></div>
+<div class="ni" onclick="go('b08',this)"><span class="cd">B·08</span><span class="tr-en">Path</span><span class="tr-pt">Caminho</span></div>
+<div class="ni" onclick="go('b09',this)"><span class="cd">B·09</span><span class="tr-en">Permissions</span><span class="tr-pt">Permiss&otilde;es</span></div>
+<div class="ni" onclick="go('b10',this)"><span class="cd">B·10</span><span class="tr-en">User &amp; Admin</span><span class="tr-pt">Usu&aacute;rio e Admin</span></div>
+<div class="ni" onclick="go('b11',this)"><span class="cd">B·11</span><span class="tr-en">Terminal / CLI</span><span class="tr-pt">Terminal / CLI</span></div>
+<div class="ni" onclick="go('b12',this)"><span class="cd">B·12</span><span class="tr-en">Env Variables</span><span class="tr-pt">Vari&aacute;veis de Ambiente</span></div>
+<div class="ni" onclick="go('b13',this)"><span class="cd">B·13</span><span class="tr-en">Process</span><span class="tr-pt">Processo</span></div>
+<div class="ni" onclick="go('b14',this)"><span class="cd">B·14</span><span class="tr-en">Port (local)</span><span class="tr-pt">Porta (local)</span></div>
 <div class="ndiv"></div>
-<div class="ni sp" onclick="go('bqr',this)"><span class="cd">B·QR</span>Quick Reference</div>
-<div class="ni sp" onclick="go('bmm',this)"><span class="cd">B·MM</span>Mind Map</div>
-<div class="ni sp" onclick="go('bmn',this)"><span class="cd">B·MN</span>My Notes</div>
+<div class="ni sp" onclick="go('bqr',this)"><span class="cd">B·QR</span><span class="tr-en">Quick Reference</span><span class="tr-pt">Refer&ecirc;ncia R&aacute;pida</span></div>
+<div class="ni sp" onclick="go('bmm',this)"><span class="cd">B·MM</span><span class="tr-en">Mind Map</span><span class="tr-pt">Mapa Mental</span></div>
+<div class="ni sp" onclick="go('bmn',this)"><span class="cd">B·MN</span><span class="tr-en">My Notes</span><span class="tr-pt">Minhas Notas</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 1 · The Internet</div>
-<div class="ni" onclick="go('bdiv1',this)"><span class="cd">——</span>Block 1 Divider</div>
-<div class="ni" onclick="go('w01',this)"><span class="cd">W·01</span>Internet vs Web</div>
-<div class="ni" onclick="go('w02',this)"><span class="cd">W·02</span>IP Address</div>
-<div class="ni" onclick="go('w03',this)"><span class="cd">W·03</span>DNS</div>
-<div class="ni" onclick="go('w04',this)"><span class="cd">W·04</span>HTTP / HTTPS</div>
-<div class="ni" onclick="go('w05',this)"><span class="cd">W·05</span>URL</div>
-<div class="ni" onclick="go('w06',this)"><span class="cd">W·06</span>Request &amp; Response</div>
-<div class="ni" onclick="go('w07',this)"><span class="cd">W·07</span>Status Codes</div>
-<div class="ni" onclick="go('w08',this)"><span class="cd">W·08</span>Headers</div>
-<div class="ni" onclick="go('w09',this)"><span class="cd">W·09</span>Cookies</div>
-<div class="ni" onclick="go('w10',this)"><span class="cd">W·10</span>Sessions</div>
-<div class="ni" onclick="go('w11',this)"><span class="cd">W·11</span>API</div>
-<div class="ni" onclick="go('w12',this)"><span class="cd">W·12</span>Client &amp; Server</div>
-<div class="ni" onclick="go('w13',this)"><span class="cd">W·13</span>CDN</div>
-<div class="ni" onclick="go('w14',this)"><span class="cd">W·14</span>SSL / TLS</div>
+<div class="ns"><span class="tr-en">Block 1 · The Internet</span><span class="tr-pt">Bloco 1 · A Internet</span></div>
+<div class="ni" onclick="go('bdiv1',this)"><span class="cd">——</span><span class="tr-en">Block 1 Divider</span><span class="tr-pt">Divisor Bloco 1</span></div>
+<div class="ni" onclick="go('w01',this)"><span class="cd">W·01</span><span class="tr-en">Internet vs Web</span><span class="tr-pt">Internet vs Web</span></div>
+<div class="ni" onclick="go('w02',this)"><span class="cd">W·02</span><span class="tr-en">IP Address</span><span class="tr-pt">Endere&ccedil;o IP</span></div>
+<div class="ni" onclick="go('w03',this)"><span class="cd">W·03</span><span class="tr-en">DNS</span><span class="tr-pt">DNS</span></div>
+<div class="ni" onclick="go('w04',this)"><span class="cd">W·04</span><span class="tr-en">HTTP / HTTPS</span><span class="tr-pt">HTTP / HTTPS</span></div>
+<div class="ni" onclick="go('w05',this)"><span class="cd">W·05</span><span class="tr-en">URL</span><span class="tr-pt">URL</span></div>
+<div class="ni" onclick="go('w06',this)"><span class="cd">W·06</span><span class="tr-en">Request &amp; Response</span><span class="tr-pt">Requisi&ccedil;&atilde;o e Resposta</span></div>
+<div class="ni" onclick="go('w07',this)"><span class="cd">W·07</span><span class="tr-en">Status Codes</span><span class="tr-pt">C&oacute;digos de Status</span></div>
+<div class="ni" onclick="go('w08',this)"><span class="cd">W·08</span><span class="tr-en">Headers</span><span class="tr-pt">Headers</span></div>
+<div class="ni" onclick="go('w09',this)"><span class="cd">W·09</span><span class="tr-en">Cookies</span><span class="tr-pt">Cookies</span></div>
+<div class="ni" onclick="go('w10',this)"><span class="cd">W·10</span><span class="tr-en">Sessions</span><span class="tr-pt">Sess&otilde;es</span></div>
+<div class="ni" onclick="go('w11',this)"><span class="cd">W·11</span><span class="tr-en">API</span><span class="tr-pt">API</span></div>
+<div class="ni" onclick="go('w12',this)"><span class="cd">W·12</span><span class="tr-en">Client &amp; Server</span><span class="tr-pt">Cliente e Servidor</span></div>
+<div class="ni" onclick="go('w13',this)"><span class="cd">W·13</span><span class="tr-en">CDN</span><span class="tr-pt">CDN</span></div>
+<div class="ni" onclick="go('w14',this)"><span class="cd">W·14</span><span class="tr-en">SSL / TLS</span><span class="tr-pt">SSL / TLS</span></div>
 <div class="ndiv"></div>
-<div class="ni sp" onclick="go('wqr',this)"><span class="cd">W·QR</span>Quick Reference</div>
-<div class="ni sp" onclick="go('wmm',this)"><span class="cd">W·MM</span>Mind Map</div>
-<div class="ni sp" onclick="go('wmn',this)"><span class="cd">W·MN</span>My Notes</div>
+<div class="ni sp" onclick="go('wqr',this)"><span class="cd">W·QR</span><span class="tr-en">Quick Reference</span><span class="tr-pt">Refer&ecirc;ncia R&aacute;pida</span></div>
+<div class="ni sp" onclick="go('wmm',this)"><span class="cd">W·MM</span><span class="tr-en">Mind Map</span><span class="tr-pt">Mapa Mental</span></div>
+<div class="ni sp" onclick="go('wmn',this)"><span class="cd">W·MN</span><span class="tr-en">My Notes</span><span class="tr-pt">Minhas Notas</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 2 · Networks</div>
-<div class="ni" onclick="go('bdiv2',this)"><span class="cd">——</span>Block 2 Divider</div>
-<div class="ni" onclick="go('n01',this)"><span class="cd">N·01</span>Network</div>
-<div class="ni" onclick="go('n02',this)"><span class="cd">N·02</span>LAN vs WAN</div>
-<div class="ni" onclick="go('n03',this)"><span class="cd">N·03</span>OSI Model</div>
-<div class="ni" onclick="go('n04',this)"><span class="cd">N·04</span>TCP</div>
-<div class="ni" onclick="go('n05',this)"><span class="cd">N·05</span>UDP</div>
-<div class="ni" onclick="go('n06',this)"><span class="cd">N·06</span>MAC Address</div>
-<div class="ni" onclick="go('n07',this)"><span class="cd">N·07</span>Router</div>
-<div class="ni" onclick="go('n08',this)"><span class="cd">N·08</span>Switch</div>
-<div class="ni" onclick="go('n09',this)"><span class="cd">N·09</span>Firewall</div>
-<div class="ni" onclick="go('n10',this)"><span class="cd">N·10</span>Ports &amp; Protocols</div>
-<div class="ni" onclick="go('n11',this)"><span class="cd">N·11</span>Packet</div>
-<div class="ni" onclick="go('n12',this)"><span class="cd">N·12</span>Bandwidth</div>
-<div class="ni" onclick="go('n13',this)"><span class="cd">N·13</span>Proxy</div>
-<div class="ni" onclick="go('n14',this)"><span class="cd">N·14</span>VPN</div>
-<div class="ni" onclick="go('n15',this)"><span class="cd">N·15</span>NAT</div>
-<div class="ni" onclick="go('n16',this)"><span class="cd">N·16</span>Subnet</div>
-<div class="ni" onclick="go('n17',this)"><span class="cd">N·17</span>DHCP</div>
-<div class="ni sp" onclick="go('nqr',this)"><span class="cd">N·QR</span>Quick Reference</div>
-<div class="ni sp" onclick="go('nmn',this)"><span class="cd">N·MN</span>My Notes</div>
+<div class="ns"><span class="tr-en">Block 2 · Networks</span><span class="tr-pt">Bloco 2 · Redes</span></div>
+<div class="ni" onclick="go('bdiv2',this)"><span class="cd">——</span><span class="tr-en">Block 2 Divider</span><span class="tr-pt">Divisor Bloco 2</span></div>
+<div class="ni" onclick="go('n01',this)"><span class="cd">N·01</span><span class="tr-en">Network</span><span class="tr-pt">Rede</span></div>
+<div class="ni" onclick="go('n02',this)"><span class="cd">N·02</span><span class="tr-en">LAN vs WAN</span><span class="tr-pt">LAN vs WAN</span></div>
+<div class="ni" onclick="go('n03',this)"><span class="cd">N·03</span><span class="tr-en">OSI Model</span><span class="tr-pt">Modelo OSI</span></div>
+<div class="ni" onclick="go('n04',this)"><span class="cd">N·04</span><span class="tr-en">TCP</span><span class="tr-pt">TCP</span></div>
+<div class="ni" onclick="go('n05',this)"><span class="cd">N·05</span><span class="tr-en">UDP</span><span class="tr-pt">UDP</span></div>
+<div class="ni" onclick="go('n06',this)"><span class="cd">N·06</span><span class="tr-en">MAC Address</span><span class="tr-pt">Endere&ccedil;o MAC</span></div>
+<div class="ni" onclick="go('n07',this)"><span class="cd">N·07</span><span class="tr-en">Router</span><span class="tr-pt">Roteador</span></div>
+<div class="ni" onclick="go('n08',this)"><span class="cd">N·08</span><span class="tr-en">Switch</span><span class="tr-pt">Switch</span></div>
+<div class="ni" onclick="go('n09',this)"><span class="cd">N·09</span><span class="tr-en">Firewall</span><span class="tr-pt">Firewall</span></div>
+<div class="ni" onclick="go('n10',this)"><span class="cd">N·10</span><span class="tr-en">Ports &amp; Protocols</span><span class="tr-pt">Portas e Protocolos</span></div>
+<div class="ni" onclick="go('n11',this)"><span class="cd">N·11</span><span class="tr-en">Packet</span><span class="tr-pt">Pacote</span></div>
+<div class="ni" onclick="go('n12',this)"><span class="cd">N·12</span><span class="tr-en">Bandwidth</span><span class="tr-pt">Largura de Banda</span></div>
+<div class="ni" onclick="go('n13',this)"><span class="cd">N·13</span><span class="tr-en">Proxy</span><span class="tr-pt">Proxy</span></div>
+<div class="ni" onclick="go('n14',this)"><span class="cd">N·14</span><span class="tr-en">VPN</span><span class="tr-pt">VPN</span></div>
+<div class="ni" onclick="go('n15',this)"><span class="cd">N·15</span><span class="tr-en">NAT</span><span class="tr-pt">NAT</span></div>
+<div class="ni" onclick="go('n16',this)"><span class="cd">N·16</span><span class="tr-en">Subnet</span><span class="tr-pt">Sub-rede</span></div>
+<div class="ni" onclick="go('n17',this)"><span class="cd">N·17</span><span class="tr-en">DHCP</span><span class="tr-pt">DHCP</span></div>
+<div class="ni sp" onclick="go('nqr',this)"><span class="cd">N·QR</span><span class="tr-en">Quick Reference</span><span class="tr-pt">Refer&ecirc;ncia R&aacute;pida</span></div>
+<div class="ni sp" onclick="go('nmn',this)"><span class="cd">N·MN</span><span class="tr-en">My Notes</span><span class="tr-pt">Minhas Notas</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 3 · Linux</div>
-<div class="ni" onclick="go('bdiv3',this)"><span class="cd">——</span>Block 3 Divider</div>
-<div class="ni" onclick="go('l01',this)"><span class="cd">L·01</span>Linux</div>
-<div class="ni" onclick="go('l02',this)"><span class="cd">L·02</span>Distro</div>
-<div class="ni" onclick="go('l03',this)"><span class="cd">L·03</span>Kernel</div>
-<div class="ni" onclick="go('l04',this)"><span class="cd">L·04</span>Shell</div>
-<div class="ni" onclick="go('l05',this)"><span class="cd">L·05</span>Terminal</div>
-<div class="ni" onclick="go('l06',this)"><span class="cd">L·06</span>File System Tree</div>
-<div class="ni" onclick="go('l07',this)"><span class="cd">L·07</span>Permissions</div>
-<div class="ni" onclick="go('l08',this)"><span class="cd">L·08</span>User &amp; Group</div>
-<div class="ni" onclick="go('l09',this)"><span class="cd">L·09</span>sudo</div>
-<div class="ni" onclick="go('l10',this)"><span class="cd">L·10</span>Process Management</div>
-<div class="ni" onclick="go('l11',this)"><span class="cd">L·11</span>Package Manager</div>
-<div class="ni" onclick="go('l12',this)"><span class="cd">L·12</span>Logs</div>
-<div class="ni" onclick="go('l13',this)"><span class="cd">L·13</span>SSH</div>
-<div class="ni" onclick="go('l14',this)"><span class="cd">L·14</span>Cron</div>
-<div class="ni" onclick="go('l15',this)"><span class="cd">L·15</span>systemd</div>
-<div class="ni sp" onclick="go('lqr',this)"><span class="cd">L·QR</span>Quick Reference</div>
-<div class="ni sp" onclick="go('lmn',this)"><span class="cd">L·MN</span>My Notes</div>
+<div class="ns"><span class="tr-en">Block 3 · Linux</span><span class="tr-pt">Bloco 3 · Linux</span></div>
+<div class="ni" onclick="go('bdiv3',this)"><span class="cd">——</span><span class="tr-en">Block 3 Divider</span><span class="tr-pt">Divisor Bloco 3</span></div>
+<div class="ni" onclick="go('l01',this)"><span class="cd">L·01</span><span class="tr-en">Linux</span><span class="tr-pt">Linux</span></div>
+<div class="ni" onclick="go('l02',this)"><span class="cd">L·02</span><span class="tr-en">Distro</span><span class="tr-pt">Distro</span></div>
+<div class="ni" onclick="go('l03',this)"><span class="cd">L·03</span><span class="tr-en">Kernel</span><span class="tr-pt">Kernel</span></div>
+<div class="ni" onclick="go('l04',this)"><span class="cd">L·04</span><span class="tr-en">Shell</span><span class="tr-pt">Shell</span></div>
+<div class="ni" onclick="go('l05',this)"><span class="cd">L·05</span><span class="tr-en">Terminal</span><span class="tr-pt">Terminal</span></div>
+<div class="ni" onclick="go('l06',this)"><span class="cd">L·06</span><span class="tr-en">File System Tree</span><span class="tr-pt">&Aacute;rvore de Arquivos</span></div>
+<div class="ni" onclick="go('l07',this)"><span class="cd">L·07</span><span class="tr-en">Permissions</span><span class="tr-pt">Permiss&otilde;es</span></div>
+<div class="ni" onclick="go('l08',this)"><span class="cd">L·08</span><span class="tr-en">User &amp; Group</span><span class="tr-pt">Usu&aacute;rio e Grupo</span></div>
+<div class="ni" onclick="go('l09',this)"><span class="cd">L·09</span><span class="tr-en">sudo</span><span class="tr-pt">sudo</span></div>
+<div class="ni" onclick="go('l10',this)"><span class="cd">L·10</span><span class="tr-en">Process Management</span><span class="tr-pt">Gerenciamento de Processos</span></div>
+<div class="ni" onclick="go('l11',this)"><span class="cd">L·11</span><span class="tr-en">Package Manager</span><span class="tr-pt">Gerenciador de Pacotes</span></div>
+<div class="ni" onclick="go('l12',this)"><span class="cd">L·12</span><span class="tr-en">Logs</span><span class="tr-pt">Logs</span></div>
+<div class="ni" onclick="go('l13',this)"><span class="cd">L·13</span><span class="tr-en">SSH</span><span class="tr-pt">SSH</span></div>
+<div class="ni" onclick="go('l14',this)"><span class="cd">L·14</span><span class="tr-en">Cron</span><span class="tr-pt">Cron</span></div>
+<div class="ni" onclick="go('l15',this)"><span class="cd">L·15</span><span class="tr-en">systemd</span><span class="tr-pt">systemd</span></div>
+<div class="ni sp" onclick="go('lqr',this)"><span class="cd">L·QR</span><span class="tr-en">Quick Reference</span><span class="tr-pt">Refer&ecirc;ncia R&aacute;pida</span></div>
+<div class="ni sp" onclick="go('lmn',this)"><span class="cd">L·MN</span><span class="tr-en">My Notes</span><span class="tr-pt">Minhas Notas</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 4 · Programming Basics</div>
-<div class="ni" onclick="go('pdiv',this)"><span class="cd">&mdash;&mdash;</span>Block 4 Divider</div>
-<div class="ni" onclick="go('p01',this)"><span class="cd">P·01</span>Programming Logic</div>
-<div class="ni" onclick="go('p02',this)"><span class="cd">P·02</span>Variable</div>
-<div class="ni" onclick="go('p03',this)"><span class="cd">P·03</span>Function</div>
-<div class="ni" onclick="go('p04',this)"><span class="cd">P·04</span>Loop</div>
-<div class="ni" onclick="go('p05',this)"><span class="cd">P·05</span>Condition</div>
-<div class="ni" onclick="go('p06',this)"><span class="cd">P·06</span>Array / List</div>
-<div class="ni" onclick="go('p07',this)"><span class="cd">P·07</span>Dictionary</div>
-<div class="ni" onclick="go('p08',this)"><span class="cd">P·08</span>String Manipulation</div>
-<div class="ni" onclick="go('p09',this)"><span class="cd">P·09</span>File I/O</div>
-<div class="ni" onclick="go('p10',this)"><span class="cd">P·10</span>Python for Hackers</div>
+<div class="ns"><span class="tr-en">Block 4 · Programming Basics</span><span class="tr-pt">Bloco 4 · Programa&ccedil;&atilde;o B&aacute;sica</span></div>
+<div class="ni" onclick="go('pdiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 4 Divider</span><span class="tr-pt">Divisor Bloco 4</span></div>
+<div class="ni" onclick="go('p01',this)"><span class="cd">P·01</span><span class="tr-en">Programming Logic</span><span class="tr-pt">L&oacute;gica de Programa&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('p02',this)"><span class="cd">P·02</span><span class="tr-en">Variable</span><span class="tr-pt">Vari&aacute;vel</span></div>
+<div class="ni" onclick="go('p03',this)"><span class="cd">P·03</span><span class="tr-en">Function</span><span class="tr-pt">Fun&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('p04',this)"><span class="cd">P·04</span><span class="tr-en">Loop</span><span class="tr-pt">Loop</span></div>
+<div class="ni" onclick="go('p05',this)"><span class="cd">P·05</span><span class="tr-en">Condition</span><span class="tr-pt">Condicional</span></div>
+<div class="ni" onclick="go('p06',this)"><span class="cd">P·06</span><span class="tr-en">Array / List</span><span class="tr-pt">Array / Lista</span></div>
+<div class="ni" onclick="go('p07',this)"><span class="cd">P·07</span><span class="tr-en">Dictionary</span><span class="tr-pt">Dicion&aacute;rio</span></div>
+<div class="ni" onclick="go('p08',this)"><span class="cd">P·08</span><span class="tr-en">String Manipulation</span><span class="tr-pt">Manipula&ccedil;&atilde;o de String</span></div>
+<div class="ni" onclick="go('p09',this)"><span class="cd">P·09</span><span class="tr-en">File I/O</span><span class="tr-pt">I/O de Arquivos</span></div>
+<div class="ni" onclick="go('p10',this)"><span class="cd">P·10</span><span class="tr-en">Python for Hackers</span><span class="tr-pt">Python para Hackers</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 5 · Security Fundamentals</div>
-<div class="ni" onclick="go('sdiv',this)"><span class="cd">&mdash;&mdash;</span>Block 5 Divider</div>
-<div class="ni" onclick="go('s01',this)"><span class="cd">S·01</span>CIA Triad</div>
-<div class="ni" onclick="go('s02',this)"><span class="cd">S·02</span>Threat</div>
-<div class="ni" onclick="go('s03',this)"><span class="cd">S·03</span>Vulnerability</div>
-<div class="ni" onclick="go('s04',this)"><span class="cd">S·04</span>Exploit</div>
-<div class="ni" onclick="go('s05',this)"><span class="cd">S·05</span>Risk</div>
-<div class="ni" onclick="go('s06',this)"><span class="cd">S·06</span>Attack Surface</div>
-<div class="ni" onclick="go('s07',this)"><span class="cd">S·07</span>Defense in Depth</div>
-<div class="ni" onclick="go('s08',this)"><span class="cd">S·08</span>Zero Trust</div>
-<div class="ni" onclick="go('s09',this)"><span class="cd">S·09</span>Encryption</div>
-<div class="ni" onclick="go('s10',this)"><span class="cd">S·10</span>Hashing</div>
-<div class="ni" onclick="go('s11',this)"><span class="cd">S·11</span>Authentication</div>
-<div class="ni" onclick="go('s12',this)"><span class="cd">S·12</span>Authorization</div>
+<div class="ns"><span class="tr-en">Block 5 · Security Fundamentals</span><span class="tr-pt">Bloco 5 · Fundamentos de Seguran&ccedil;a</span></div>
+<div class="ni" onclick="go('sdiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 5 Divider</span><span class="tr-pt">Divisor Bloco 5</span></div>
+<div class="ni" onclick="go('s01',this)"><span class="cd">S·01</span><span class="tr-en">CIA Triad</span><span class="tr-pt">Tr&iacute;ade CIA</span></div>
+<div class="ni" onclick="go('s02',this)"><span class="cd">S·02</span><span class="tr-en">Threat</span><span class="tr-pt">Amea&ccedil;a</span></div>
+<div class="ni" onclick="go('s03',this)"><span class="cd">S·03</span><span class="tr-en">Vulnerability</span><span class="tr-pt">Vulnerabilidade</span></div>
+<div class="ni" onclick="go('s04',this)"><span class="cd">S·04</span><span class="tr-en">Exploit</span><span class="tr-pt">Exploit</span></div>
+<div class="ni" onclick="go('s05',this)"><span class="cd">S·05</span><span class="tr-en">Risk</span><span class="tr-pt">Risco</span></div>
+<div class="ni" onclick="go('s06',this)"><span class="cd">S·06</span><span class="tr-en">Attack Surface</span><span class="tr-pt">Superf&iacute;cie de Ataque</span></div>
+<div class="ni" onclick="go('s07',this)"><span class="cd">S·07</span><span class="tr-en">Defense in Depth</span><span class="tr-pt">Defesa em Profundidade</span></div>
+<div class="ni" onclick="go('s08',this)"><span class="cd">S·08</span><span class="tr-en">Zero Trust</span><span class="tr-pt">Zero Trust</span></div>
+<div class="ni" onclick="go('s09',this)"><span class="cd">S·09</span><span class="tr-en">Encryption</span><span class="tr-pt">Criptografia</span></div>
+<div class="ni" onclick="go('s10',this)"><span class="cd">S·10</span><span class="tr-en">Hashing</span><span class="tr-pt">Hashing</span></div>
+<div class="ni" onclick="go('s11',this)"><span class="cd">S·11</span><span class="tr-en">Authentication</span><span class="tr-pt">Autentica&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('s12',this)"><span class="cd">S·12</span><span class="tr-en">Authorization</span><span class="tr-pt">Autoriza&ccedil;&atilde;o</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 6 · Web Attacks</div>
-<div class="ni" onclick="go('adiv',this)"><span class="cd">&mdash;&mdash;</span>Block 6 Divider</div>
-<div class="ni" onclick="go('a01',this)"><span class="cd">A·01</span>SQL Injection</div>
-<div class="ni" onclick="go('a02',this)"><span class="cd">A·02</span>XSS</div>
-<div class="ni" onclick="go('a03',this)"><span class="cd">A·03</span>CSRF</div>
-<div class="ni" onclick="go('a04',this)"><span class="cd">A·04</span>SSRF</div>
-<div class="ni" onclick="go('a05',this)"><span class="cd">A·05</span>Path Traversal</div>
-<div class="ni" onclick="go('a06',this)"><span class="cd">A·06</span>Command Injection</div>
-<div class="ni" onclick="go('a07',this)"><span class="cd">A·07</span>IDOR</div>
-<div class="ni" onclick="go('a08',this)"><span class="cd">A·08</span>Open Redirect</div>
-<div class="ni" onclick="go('a09',this)"><span class="cd">A·09</span>Clickjacking</div>
-<div class="ni" onclick="go('a10',this)"><span class="cd">A·10</span>Session Hijacking</div>
-<div class="ni" onclick="go('a11',this)"><span class="cd">A·11</span>Authentication Bypass</div>
-<div class="ni" onclick="go('a12',this)"><span class="cd">A·12</span>Race Condition</div>
+<div class="ns"><span class="tr-en">Block 6 · Web Attacks</span><span class="tr-pt">Bloco 6 · Ataques Web</span></div>
+<div class="ni" onclick="go('adiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 6 Divider</span><span class="tr-pt">Divisor Bloco 6</span></div>
+<div class="ni" onclick="go('a01',this)"><span class="cd">A·01</span><span class="tr-en">SQL Injection</span><span class="tr-pt">SQL Injection</span></div>
+<div class="ni" onclick="go('a02',this)"><span class="cd">A·02</span><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></div>
+<div class="ni" onclick="go('a03',this)"><span class="cd">A·03</span><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></div>
+<div class="ni" onclick="go('a04',this)"><span class="cd">A·04</span><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></div>
+<div class="ni" onclick="go('a05',this)"><span class="cd">A·05</span><span class="tr-en">Path Traversal</span><span class="tr-pt">Path Traversal</span></div>
+<div class="ni" onclick="go('a06',this)"><span class="cd">A·06</span><span class="tr-en">Command Injection</span><span class="tr-pt">Command Injection</span></div>
+<div class="ni" onclick="go('a07',this)"><span class="cd">A·07</span><span class="tr-en">IDOR</span><span class="tr-pt">IDOR</span></div>
+<div class="ni" onclick="go('a08',this)"><span class="cd">A·08</span><span class="tr-en">Open Redirect</span><span class="tr-pt">Open Redirect</span></div>
+<div class="ni" onclick="go('a09',this)"><span class="cd">A·09</span><span class="tr-en">Clickjacking</span><span class="tr-pt">Clickjacking</span></div>
+<div class="ni" onclick="go('a10',this)"><span class="cd">A·10</span><span class="tr-en">Session Hijacking</span><span class="tr-pt">Sequestro de Sess&atilde;o</span></div>
+<div class="ni" onclick="go('a11',this)"><span class="cd">A·11</span><span class="tr-en">Authentication Bypass</span><span class="tr-pt">Bypass de Autentica&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('a12',this)"><span class="cd">A·12</span><span class="tr-en">Race Condition</span><span class="tr-pt">Race Condition</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 7 · Pentest Tools</div>
-<div class="ni" onclick="go('tdiv',this)"><span class="cd">&mdash;&mdash;</span>Block 7 Divider</div>
-<div class="ni" onclick="go('t01',this)"><span class="cd">T·01</span>nmap</div>
-<div class="ni" onclick="go('t02',this)"><span class="cd">T·02</span>Burp Suite</div>
-<div class="ni" onclick="go('t03',this)"><span class="cd">T·03</span>Wireshark</div>
-<div class="ni" onclick="go('t04',this)"><span class="cd">T·04</span>Metasploit</div>
-<div class="ni" onclick="go('t05',this)"><span class="cd">T·05</span>sqlmap</div>
-<div class="ni" onclick="go('t06',this)"><span class="cd">T·06</span>Gobuster / Dirb</div>
-<div class="ni" onclick="go('t07',this)"><span class="cd">T·07</span>John the Ripper</div>
-<div class="ni" onclick="go('t08',this)"><span class="cd">T·08</span>Hashcat</div>
-<div class="ni" onclick="go('t09',this)"><span class="cd">T·09</span>Hydra</div>
-<div class="ni" onclick="go('t10',this)"><span class="cd">T·10</span>netcat</div>
-<div class="ni" onclick="go('t11',this)"><span class="cd">T·11</span>curl</div>
-<div class="ni" onclick="go('t12',this)"><span class="cd">T·12</span>Browser DevTools</div>
+<div class="ns"><span class="tr-en">Block 7 · Pentest Tools</span><span class="tr-pt">Bloco 7 · Ferramentas de Pentest</span></div>
+<div class="ni" onclick="go('tdiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 7 Divider</span><span class="tr-pt">Divisor Bloco 7</span></div>
+<div class="ni" onclick="go('t01',this)"><span class="cd">T·01</span><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></div>
+<div class="ni" onclick="go('t02',this)"><span class="cd">T·02</span><span class="tr-en">Burp Suite</span><span class="tr-pt">Burp Suite</span></div>
+<div class="ni" onclick="go('t03',this)"><span class="cd">T·03</span><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></div>
+<div class="ni" onclick="go('t04',this)"><span class="cd">T·04</span><span class="tr-en">Metasploit</span><span class="tr-pt">Metasploit</span></div>
+<div class="ni" onclick="go('t05',this)"><span class="cd">T·05</span><span class="tr-en">sqlmap</span><span class="tr-pt">sqlmap</span></div>
+<div class="ni" onclick="go('t06',this)"><span class="cd">T·06</span><span class="tr-en">Gobuster / Dirb</span><span class="tr-pt">Gobuster / Dirb</span></div>
+<div class="ni" onclick="go('t07',this)"><span class="cd">T·07</span><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></div>
+<div class="ni" onclick="go('t08',this)"><span class="cd">T·08</span><span class="tr-en">Hashcat</span><span class="tr-pt">Hashcat</span></div>
+<div class="ni" onclick="go('t09',this)"><span class="cd">T·09</span><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></div>
+<div class="ni" onclick="go('t10',this)"><span class="cd">T·10</span><span class="tr-en">netcat</span><span class="tr-pt">netcat</span></div>
+<div class="ni" onclick="go('t11',this)"><span class="cd">T·11</span><span class="tr-en">curl</span><span class="tr-pt">curl</span></div>
+<div class="ni" onclick="go('t12',this)"><span class="cd">T·12</span><span class="tr-en">Browser DevTools</span><span class="tr-pt">Browser DevTools</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 8 · Pentest Methodology</div>
-<div class="ni" onclick="go('mdiv',this)"><span class="cd">&mdash;&mdash;</span>Block 8 Divider</div>
-<div class="ni" onclick="go('m01',this)"><span class="cd">M·01</span>Reconnaissance</div>
-<div class="ni" onclick="go('m02',this)"><span class="cd">M·02</span>Scanning</div>
-<div class="ni" onclick="go('m03',this)"><span class="cd">M·03</span>Enumeration</div>
-<div class="ni" onclick="go('m04',this)"><span class="cd">M·04</span>Exploitation</div>
-<div class="ni" onclick="go('m05',this)"><span class="cd">M·05</span>Privilege Escalation</div>
-<div class="ni" onclick="go('m06',this)"><span class="cd">M·06</span>Persistence</div>
-<div class="ni" onclick="go('m07',this)"><span class="cd">M·07</span>Lateral Movement</div>
-<div class="ni" onclick="go('m08',this)"><span class="cd">M·08</span>Exfiltration</div>
-<div class="ni" onclick="go('m09',this)"><span class="cd">M·09</span>Covering Tracks</div>
-<div class="ni" onclick="go('m10',this)"><span class="cd">M·10</span>Reporting</div>
+<div class="ns"><span class="tr-en">Block 8 · Pentest Methodology</span><span class="tr-pt">Bloco 8 · Metodologia de Pentest</span></div>
+<div class="ni" onclick="go('mdiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 8 Divider</span><span class="tr-pt">Divisor Bloco 8</span></div>
+<div class="ni" onclick="go('m01',this)"><span class="cd">M·01</span><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconhecimento</span></div>
+<div class="ni" onclick="go('m02',this)"><span class="cd">M·02</span><span class="tr-en">Scanning</span><span class="tr-pt">Scanning</span></div>
+<div class="ni" onclick="go('m03',this)"><span class="cd">M·03</span><span class="tr-en">Enumeration</span><span class="tr-pt">Enumera&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('m04',this)"><span class="cd">M·04</span><span class="tr-en">Exploitation</span><span class="tr-pt">Explora&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('m05',this)"><span class="cd">M·05</span><span class="tr-en">Privilege Escalation</span><span class="tr-pt">Escalada de Privil&eacute;gio</span></div>
+<div class="ni" onclick="go('m06',this)"><span class="cd">M·06</span><span class="tr-en">Persistence</span><span class="tr-pt">Persist&ecirc;ncia</span></div>
+<div class="ni" onclick="go('m07',this)"><span class="cd">M·07</span><span class="tr-en">Lateral Movement</span><span class="tr-pt">Movimenta&ccedil;&atilde;o Lateral</span></div>
+<div class="ni" onclick="go('m08',this)"><span class="cd">M·08</span><span class="tr-en">Exfiltration</span><span class="tr-pt">Exfiltra&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('m09',this)"><span class="cd">M·09</span><span class="tr-en">Covering Tracks</span><span class="tr-pt">Apagando Rastros</span></div>
+<div class="ni" onclick="go('m10',this)"><span class="cd">M·10</span><span class="tr-en">Reporting</span><span class="tr-pt">Relat&oacute;rio</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 9 · Social Engineering</div>
-<div class="ni" onclick="go('ediv',this)"><span class="cd">&mdash;&mdash;</span>Block 9 Divider</div>
-<div class="ni" onclick="go('e01',this)"><span class="cd">E·01</span>Phishing</div>
-<div class="ni" onclick="go('e02',this)"><span class="cd">E·02</span>Spear Phishing</div>
-<div class="ni" onclick="go('e03',this)"><span class="cd">E·03</span>Pretexting</div>
-<div class="ni" onclick="go('e04',this)"><span class="cd">E·04</span>Baiting</div>
-<div class="ni" onclick="go('e05',this)"><span class="cd">E·05</span>Tailgating</div>
-<div class="ni" onclick="go('e06',this)"><span class="cd">E·06</span>Vishing</div>
-<div class="ni" onclick="go('e07',this)"><span class="cd">E·07</span>Smishing</div>
-<div class="ni" onclick="go('e08',this)"><span class="cd">E·08</span>Watering Hole</div>
-<div class="ni" onclick="go('e09',this)"><span class="cd">E·09</span>Quid Pro Quo</div>
-<div class="ni" onclick="go('e10',this)"><span class="cd">E·10</span>Impersonation</div>
+<div class="ns"><span class="tr-en">Block 9 · Social Engineering</span><span class="tr-pt">Bloco 9 · Engenharia Social</span></div>
+<div class="ni" onclick="go('ediv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 9 Divider</span><span class="tr-pt">Divisor Bloco 9</span></div>
+<div class="ni" onclick="go('e01',this)"><span class="cd">E·01</span><span class="tr-en">Phishing</span><span class="tr-pt">Phishing</span></div>
+<div class="ni" onclick="go('e02',this)"><span class="cd">E·02</span><span class="tr-en">Spear Phishing</span><span class="tr-pt">Spear Phishing</span></div>
+<div class="ni" onclick="go('e03',this)"><span class="cd">E·03</span><span class="tr-en">Pretexting</span><span class="tr-pt">Pretexting</span></div>
+<div class="ni" onclick="go('e04',this)"><span class="cd">E·04</span><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></div>
+<div class="ni" onclick="go('e05',this)"><span class="cd">E·05</span><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></div>
+<div class="ni" onclick="go('e06',this)"><span class="cd">E·06</span><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></div>
+<div class="ni" onclick="go('e07',this)"><span class="cd">E·07</span><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></div>
+<div class="ni" onclick="go('e08',this)"><span class="cd">E·08</span><span class="tr-en">Watering Hole</span><span class="tr-pt">Watering Hole</span></div>
+<div class="ni" onclick="go('e09',this)"><span class="cd">E·09</span><span class="tr-en">Quid Pro Quo</span><span class="tr-pt">Quid Pro Quo</span></div>
+<div class="ni" onclick="go('e10',this)"><span class="cd">E·10</span><span class="tr-en">Impersonation</span><span class="tr-pt">Impersonation</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 10 · Malware</div>
-<div class="ni" onclick="go('xdiv',this)"><span class="cd">&mdash;&mdash;</span>Block 10 Divider</div>
-<div class="ni" onclick="go('x01',this)"><span class="cd">X·01</span>Virus</div>
-<div class="ni" onclick="go('x02',this)"><span class="cd">X·02</span>Worm</div>
-<div class="ni" onclick="go('x03',this)"><span class="cd">X·03</span>Trojan</div>
-<div class="ni" onclick="go('x04',this)"><span class="cd">X·04</span>Ransomware</div>
-<div class="ni" onclick="go('x05',this)"><span class="cd">X·05</span>Spyware</div>
-<div class="ni" onclick="go('x06',this)"><span class="cd">X·06</span>Rootkit</div>
-<div class="ni" onclick="go('x07',this)"><span class="cd">X·07</span>Keylogger</div>
-<div class="ni" onclick="go('x08',this)"><span class="cd">X·08</span>Backdoor</div>
-<div class="ni" onclick="go('x09',this)"><span class="cd">X·09</span>Botnet</div>
-<div class="ni" onclick="go('x10',this)"><span class="cd">X·10</span>Logic Bomb</div>
+<div class="ns"><span class="tr-en">Block 10 · Malware</span><span class="tr-pt">Bloco 10 · Malware</span></div>
+<div class="ni" onclick="go('xdiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 10 Divider</span><span class="tr-pt">Divisor Bloco 10</span></div>
+<div class="ni" onclick="go('x01',this)"><span class="cd">X·01</span><span class="tr-en">Virus</span><span class="tr-pt">V&iacute;rus</span></div>
+<div class="ni" onclick="go('x02',this)"><span class="cd">X·02</span><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></div>
+<div class="ni" onclick="go('x03',this)"><span class="cd">X·03</span><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></div>
+<div class="ni" onclick="go('x04',this)"><span class="cd">X·04</span><span class="tr-en">Ransomware</span><span class="tr-pt">Ransomware</span></div>
+<div class="ni" onclick="go('x05',this)"><span class="cd">X·05</span><span class="tr-en">Spyware</span><span class="tr-pt">Spyware</span></div>
+<div class="ni" onclick="go('x06',this)"><span class="cd">X·06</span><span class="tr-en">Rootkit</span><span class="tr-pt">Rootkit</span></div>
+<div class="ni" onclick="go('x07',this)"><span class="cd">X·07</span><span class="tr-en">Keylogger</span><span class="tr-pt">Keylogger</span></div>
+<div class="ni" onclick="go('x08',this)"><span class="cd">X·08</span><span class="tr-en">Backdoor</span><span class="tr-pt">Backdoor</span></div>
+<div class="ni" onclick="go('x09',this)"><span class="cd">X·09</span><span class="tr-en">Botnet</span><span class="tr-pt">Botnet</span></div>
+<div class="ni" onclick="go('x10',this)"><span class="cd">X·10</span><span class="tr-en">Logic Bomb</span><span class="tr-pt">Bomba L&oacute;gica</span></div>
 <div class="ndiv"></div>
-<div class="ns">Block 11 · Defense</div>
-<div class="ni" onclick="go('ddiv',this)"><span class="cd">&mdash;&mdash;</span>Block 11 Divider</div>
-<div class="ni" onclick="go('d01',this)"><span class="cd">D·01</span>Firewall</div>
-<div class="ni" onclick="go('d02',this)"><span class="cd">D·02</span>IDS / IPS</div>
-<div class="ni" onclick="go('d03',this)"><span class="cd">D·03</span>SIEM</div>
-<div class="ni" onclick="go('d04',this)"><span class="cd">D·04</span>EDR</div>
-<div class="ni" onclick="go('d05',this)"><span class="cd">D·05</span>WAF</div>
-<div class="ni" onclick="go('d06',this)"><span class="cd">D·06</span>Honeypot</div>
-<div class="ni" onclick="go('d07',this)"><span class="cd">D·07</span>Patch Management</div>
-<div class="ni" onclick="go('d08',this)"><span class="cd">D·08</span>Backup Strategy</div>
-<div class="ni" onclick="go('d09',this)"><span class="cd">D·09</span>Incident Response</div>
-<div class="ni" onclick="go('d10',this)"><span class="cd">D·10</span>Security Awareness Training</div>
+<div class="ns"><span class="tr-en">Block 11 · Defense</span><span class="tr-pt">Bloco 11 · Defesa</span></div>
+<div class="ni" onclick="go('ddiv',this)"><span class="cd">&mdash;&mdash;</span><span class="tr-en">Block 11 Divider</span><span class="tr-pt">Divisor Bloco 11</span></div>
+<div class="ni" onclick="go('d01',this)"><span class="cd">D·01</span><span class="tr-en">Firewall</span><span class="tr-pt">Firewall</span></div>
+<div class="ni" onclick="go('d02',this)"><span class="cd">D·02</span><span class="tr-en">IDS / IPS</span><span class="tr-pt">IDS / IPS</span></div>
+<div class="ni" onclick="go('d03',this)"><span class="cd">D·03</span><span class="tr-en">SIEM</span><span class="tr-pt">SIEM</span></div>
+<div class="ni" onclick="go('d04',this)"><span class="cd">D·04</span><span class="tr-en">EDR</span><span class="tr-pt">EDR</span></div>
+<div class="ni" onclick="go('d05',this)"><span class="cd">D·05</span><span class="tr-en">WAF</span><span class="tr-pt">WAF</span></div>
+<div class="ni" onclick="go('d06',this)"><span class="cd">D·06</span><span class="tr-en">Honeypot</span><span class="tr-pt">Honeypot</span></div>
+<div class="ni" onclick="go('d07',this)"><span class="cd">D·07</span><span class="tr-en">Patch Management</span><span class="tr-pt">Gerenciamento de Patches</span></div>
+<div class="ni" onclick="go('d08',this)"><span class="cd">D·08</span><span class="tr-en">Backup Strategy</span><span class="tr-pt">Estrat&eacute;gia de Backup</span></div>
+<div class="ni" onclick="go('d09',this)"><span class="cd">D·09</span><span class="tr-en">Incident Response</span><span class="tr-pt">Resposta a Incidentes</span></div>
+<div class="ni" onclick="go('d10',this)"><span class="cd">D·10</span><span class="tr-en">Security Awareness Training</span><span class="tr-pt">Treinamento de Conscientiza&ccedil;&atilde;o</span></div>
 <div class="ndiv"></div>
 <div class="ndiv"></div>
 
 
-<div class="ns">Mind Maps</div>
-<div class="ni" onclick="go('mm-master',this)"><span class="cd">MM·</span>Master Map</div>
-<div class="ni" onclick="go('mm-b0',this)"><span class="cd">MM·0</span>PC Basics</div>
-<div class="ni" onclick="go('mm-b1',this)"><span class="cd">MM·1</span>Internet</div>
-<div class="ni" onclick="go('mm-b2',this)"><span class="cd">MM·2</span>Networks</div>
-<div class="ni" onclick="go('mm-b3',this)"><span class="cd">MM·3</span>Linux</div>
-<div class="ni" onclick="go('mm-b4',this)"><span class="cd">MM·4</span>Programming</div>
-<div class="ni" onclick="go('mm-b5',this)"><span class="cd">MM·5</span>Security</div>
-<div class="ni" onclick="go('mm-b6',this)"><span class="cd">MM·6</span>Web Attacks</div>
-<div class="ni" onclick="go('mm-b7',this)"><span class="cd">MM·7</span>Pentest Tools</div>
-<div class="ni" onclick="go('mm-b8',this)"><span class="cd">MM·8</span>Methodology</div>
+<div class="ns"><span class="tr-en">Mind Maps</span><span class="tr-pt">Mapas Mentais</span></div>
+<div class="ni" onclick="go('mm-master',this)"><span class="cd">MM·</span><span class="tr-en">Master Map</span><span class="tr-pt">Mapa Mestre</span></div>
+<div class="ni" onclick="go('mm-b0',this)"><span class="cd">MM·0</span><span class="tr-en">PC Basics</span><span class="tr-pt">Conceitos de PC</span></div>
+<div class="ni" onclick="go('mm-b1',this)"><span class="cd">MM·1</span><span class="tr-en">Internet</span><span class="tr-pt">Internet</span></div>
+<div class="ni" onclick="go('mm-b2',this)"><span class="cd">MM·2</span><span class="tr-en">Networks</span><span class="tr-pt">Redes</span></div>
+<div class="ni" onclick="go('mm-b3',this)"><span class="cd">MM·3</span><span class="tr-en">Linux</span><span class="tr-pt">Linux</span></div>
+<div class="ni" onclick="go('mm-b4',this)"><span class="cd">MM·4</span><span class="tr-en">Programming</span><span class="tr-pt">Programa&ccedil;&atilde;o</span></div>
+<div class="ni" onclick="go('mm-b5',this)"><span class="cd">MM·5</span><span class="tr-en">Security</span><span class="tr-pt">Seguran&ccedil;a</span></div>
+<div class="ni" onclick="go('mm-b6',this)"><span class="cd">MM·6</span><span class="tr-en">Web Attacks</span><span class="tr-pt">Ataques Web</span></div>
+<div class="ni" onclick="go('mm-b7',this)"><span class="cd">MM·7</span><span class="tr-en">Pentest Tools</span><span class="tr-pt">Ferramentas de Pentest</span></div>
+<div class="ni" onclick="go('mm-b8',this)"><span class="cd">MM·8</span><span class="tr-en">Methodology</span><span class="tr-pt">Metodologia</span></div>
 <div class="ni" onclick="go('mm-b9',this)"><span class="cd">MM·9</span>Social Eng</div>
 <div class="ni" onclick="go('mm-b10',this)"><span class="cd">MM·10</span>Malware</div>
 <div class="ni" onclick="go('mm-b11',this)"><span class="cd">MM·11</span>Defense</div>
 <div class="ndiv"></div>
-<div class="ns">Practice</div>
-<div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span>Quiz Hub</div>
-<div class="ni" onclick="go('challenges',this)"><span class="cd">PRC</span>Practice Mode</div>
-<div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span>Guided Exercises</div>
-<div class="ni" onclick="practiceOpen(this)"><span class="cd">FC</span>Flashcards</div>
-<div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span>Mini-Tutorials</div>
+<div class="ns"><span class="tr-en">Practice</span><span class="tr-pt">Pr&aacute;tica</span></div>
+<div class="ni" onclick="go('quiz',this)"><span class="cd">QZ</span><span class="tr-en">Quiz Hub</span><span class="tr-pt">Hub de Quizzes</span></div>
+<div class="ni" onclick="go('challenges',this)"><span class="cd">PRC</span><span class="tr-en">Practice Mode</span><span class="tr-pt">Modo Pr&aacute;tica</span></div>
+<div class="ni" onclick="go('exercises',this)"><span class="cd">EXR</span><span class="tr-en">Guided Exercises</span><span class="tr-pt">Exerc&iacute;cios Guiados</span></div>
+<div class="ni" onclick="practiceOpen(this)"><span class="cd">FC</span><span class="tr-en">Flashcards</span><span class="tr-pt">Flashcards</span></div>
+<div class="ni" onclick="go('tutorials',this)"><span class="cd">TUT</span><span class="tr-en">Mini-Tutorials</span><span class="tr-pt">Mini-Tutoriais</span></div>
 <div class="ni" onclick="go('videos',this)"><span class="cd">VID</span>V&iacute;deos (PT-BR)</div>
 <div class="ndiv"></div>
-<div class="ns">Cheatsheets &amp; References</div>
+<div class="ns"><span class="tr-en">Cheatsheets &amp; References</span><span class="tr-pt">Resumos e Refer&ecirc;ncias</span></div>
 <div class="ni" onclick="go('comparison',this)"><span class="cd">CMP</span>Protocols</div>
 <div class="ni" onclick="go('method',this)"><span class="cd">MTD</span>Study Method</div>
 <div class="ni" onclick="go('redflag',this)"><span class="cd"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="display:inline-block;vertical-align:-2px"><line x1="5" y1="22" x2="5" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4 L18 4 L15 9 L18 14 L5 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>Red Flags</div>
@@ -1017,14 +1036,14 @@ Review Mode
 <div class="ni" onclick="go('cs-git',this)"><span class="cd">CS·GT</span>git Cheatsheet</div>
 <div class="ni" onclick="go('cs-ports',this)"><span class="cd">CS·P</span>Common Ports</div>
 <div class="ndiv"></div>
-<div class="ns">Visuals</div>
+<div class="ns"><span class="tr-en">Visuals</span><span class="tr-pt">Visuais</span></div>
 <div class="ni" onclick="go('http-anatomy',this)"><span class="cd">V·HT</span>HTTP Anatomy</div>
 <div class="ni" onclick="go('attacks-diagram',this)"><span class="cd">V·AT</span>Attack Chain</div>
-<div class="ni" onclick="go('defense-depth',this)"><span class="cd">V·DD</span>Defense in Depth</div>
+<div class="ni" onclick="go('defense-depth',this)"><span class="cd">V·DD</span><span class="tr-en">Defense in Depth</span><span class="tr-pt">Defesa em Profundidade</span></div>
 <div class="ni" onclick="go('kill-chain',this)"><span class="cd">V·KC</span>Cyber Kill Chain</div>
-<div class="ni" onclick="go('osi-visual',this)"><span class="cd">V·OS</span>OSI Model</div>
+<div class="ni" onclick="go('osi-visual',this)"><span class="cd">V·OS</span><span class="tr-en">OSI Model</span><span class="tr-pt">Modelo OSI</span></div>
 <div class="ndiv"></div>
-<div class="ns">Resources</div>
+<div class="ns"><span class="tr-en">Resources</span><span class="tr-pt">Recursos</span></div>
 <div class="ni" onclick="go('resources-ctf',this)"><span class="cd">R·CT</span>CTFs for Beginners</div>
 <div class="ni" onclick="go('resources-thm',this)"><span class="cd">R·TH</span>TryHackMe Trail</div>
 </nav>
@@ -10636,18 +10655,50 @@ function toggleDark(){
   document.body.classList.toggle('dark');
   const isDark = document.body.classList.contains('dark');
   try{ localStorage.setItem('cherryRootDark', isDark ? '1' : '0'); } catch(e){}
-  const label = document.getElementById('dark-label');
-  if(label) label.textContent = isDark ? 'Light theme' : 'Dark theme';
+  syncDarkLabel();
 }
 
 function restoreDarkMode(){
   try{
     if(localStorage.getItem('cherryRootDark') === '1'){
       document.body.classList.add('dark');
-      const label = document.getElementById('dark-label');
-      if(label) label.textContent = 'Light theme';
     }
   } catch(e){}
+  syncDarkLabel();
+}
+function syncDarkLabel(){
+  const label = document.getElementById('dark-label');
+  if(!label) return;
+  const isDark = document.body.classList.contains('dark');
+  const en = label.querySelector('.tr-en');
+  const pt = label.querySelector('.tr-pt');
+  if(en) en.textContent = isDark ? 'Light theme' : 'Dark theme';
+  if(pt) pt.textContent = isDark ? 'Tema claro' : 'Tema escuro';
+}
+
+// ============ LANGUAGE TOGGLE ============
+function toggleLang(){
+  document.body.classList.toggle('lang-pt');
+  const isPt = document.body.classList.contains('lang-pt');
+  try{ localStorage.setItem('cherryRootLang', isPt ? 'pt' : 'en'); } catch(e){}
+  updateLangButton();
+}
+function updateLangButton(){
+  const btn = document.getElementById('lang-toggle');
+  if(!btn) return;
+  const isPt = document.body.classList.contains('lang-pt');
+  const enSpan = btn.querySelector('.lt-en');
+  const ptSpan = btn.querySelector('.lt-pt');
+  if(enSpan) enSpan.classList.toggle('active', !isPt);
+  if(ptSpan) ptSpan.classList.toggle('active', isPt);
+}
+function restoreLang(){
+  try{
+    if(localStorage.getItem('cherryRootLang') === 'pt'){
+      document.body.classList.add('lang-pt');
+    }
+  } catch(e){}
+  updateLangButton();
 }
 
 function addLastViewedToCover(){
@@ -10676,6 +10727,7 @@ function addLastViewedToCover(){
 function initFeatures5(){
   buildSearchIndex();
   restoreDarkMode();
+  restoreLang();
   addLastViewedToCover();
 }
 
