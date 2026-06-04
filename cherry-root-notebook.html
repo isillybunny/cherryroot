@@ -1206,10 +1206,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="2">
 <div class="ex-qtext">In <code>-rwxr-xr--</code>, what can <strong>others</strong> (the last group) do?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Read, write and run it</button>
-<button class="quiz-option" onclick="exPick(this)">Read and run it</button>
-<button class="quiz-option" onclick="exPick(this)">Read it only</button>
-<button class="quiz-option" onclick="exPick(this)">Nothing at all</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Read, write and run it</span><span class="tr-pt">Ler, escrever e rodar</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Read and run it</span><span class="tr-pt">Ler e rodar</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Read it only</span><span class="tr-pt">S&oacute; ler</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Nothing at all</span><span class="tr-pt">Absolutamente nada</span></button>
 </div>
 <div class="ex-expl">The last three characters are <code>r--</code> &mdash; read, no write, no execute. So others can only read.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1226,10 +1226,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What does <code>chmod 777 file</code> do?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Makes the file read-only</button>
-<button class="quiz-option" onclick="exPick(this)">Gives everyone full read, write and execute</button>
-<button class="quiz-option" onclick="exPick(this)">Hides the file</button>
-<button class="quiz-option" onclick="exPick(this)">Deletes the file</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Makes the file read-only</span><span class="tr-pt">Deixa arquivo s&oacute;-leitura</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Gives everyone full read, write and execute</span><span class="tr-pt">D&aacute; pra todos read, write e execute</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hides the file</span><span class="tr-pt">Esconde o arquivo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Deletes the file</span><span class="tr-pt">Deleta o arquivo</span></button>
 </div>
 <div class="ex-expl">777 means rwx for owner, group and others &mdash; full access for everyone, which is almost always too permissive.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1270,10 +1270,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Why is <code>../../etc/passwd</code> dangerous when it comes from user input?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">It isn't &mdash; it's just text</button>
-<button class="quiz-option" onclick="exPick(this)">It can climb out of the intended folder (path traversal)</button>
-<button class="quiz-option" onclick="exPick(this)">It is too long to process</button>
-<button class="quiz-option" onclick="exPick(this)">It is a comment and gets ignored</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It isn't &mdash; it's just text</span><span class="tr-pt">N&atilde;o &eacute; &mdash; &eacute; s&oacute; texto</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It can climb out of the intended folder (path traversal)</span><span class="tr-pt">Escapa da pasta pretendida (path traversal)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It is too long to process</span><span class="tr-pt">Longo demais pra processar</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It is a comment and gets ignored</span><span class="tr-pt">&Eacute; coment&aacute;rio e &eacute; ignorado</span></button>
 </div>
 <div class="ex-expl">Each <code>../</code> moves up one folder. Unchecked, it lets an attacker reach files outside the intended directory &mdash; a path-traversal attack. See A&middot;05.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1310,10 +1310,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Which part is the <strong>query string</strong>?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">/cart</button>
-<button class="quiz-option" onclick="exPick(this)">?id=42</button>
-<button class="quiz-option" onclick="exPick(this)">#top</button>
-<button class="quiz-option" onclick="exPick(this)">https</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">/cart</span><span class="tr-pt">/cart</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">?id=42</span><span class="tr-pt">?id=42</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">#top</span><span class="tr-pt">#top</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">https</span><span class="tr-pt">https</span></button>
 </div>
 <div class="ex-expl">The query string starts at <code>?</code>: <code>?id=42</code>. It is visible and logged &mdash; never put secrets there.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1322,10 +1322,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Is the fragment <code>#top</code> sent to the server?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Yes, always</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; it stays in the browser</button>
-<button class="quiz-option" onclick="exPick(this)">Only over HTTPS</button>
-<button class="quiz-option" onclick="exPick(this)">Only on the first request</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes, always</span><span class="tr-pt">Sim, sempre</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; it stays in the browser</span><span class="tr-pt">N&atilde;o &mdash; fica no navegador</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only over HTTPS</span><span class="tr-pt">S&oacute; via HTTPS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only on the first request</span><span class="tr-pt">S&oacute; na primeira requisi&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Everything after <code>#</code> stays client-side &mdash; the server never receives the fragment.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1346,7 +1346,7 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('w07')">W&middot;07 Status Codes</span><span class="prereq-chip" onclick="go('w06')">W&middot;06 Request &amp; Response</span></div>
 
 <div class="ex-q" data-answers="200">
-<div class="ex-qtext">What is the status code for a normal, successful page? Type the number.</div>
+<div class="ex-qtext"><span class="tr-en">What is the status code for a normal, successful page? Type the number.</span><span class="tr-pt">Qual o c&oacute;digo de status pra p&aacute;gina normal e bem-sucedida? Digite o n&uacute;mero.</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl"><code>200 OK</code> means the request succeeded.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1355,10 +1355,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="2">
 <div class="ex-qtext">A <code>404</code> means:</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Success</button>
-<button class="quiz-option" onclick="exPick(this)">A redirect</button>
-<button class="quiz-option" onclick="exPick(this)">Not found</button>
-<button class="quiz-option" onclick="exPick(this)">Server crashed</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Success</span><span class="tr-pt">Sucesso</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A redirect</span><span class="tr-pt">Um redirect</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Not found</span><span class="tr-pt">N&atilde;o encontrado</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Server crashed</span><span class="tr-pt">Servidor crashou</span></button>
 </div>
 <div class="ex-expl">404 is "not found" &mdash; a 4xx code, meaning a client-side problem with the request.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1375,8 +1375,8 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">Between <code>401</code> and <code>403</code>, which means "you are <strong>not authenticated</strong>"?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">401</button>
-<button class="quiz-option" onclick="exPick(this)">403</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">401</span><span class="tr-pt">401</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">403</span><span class="tr-pt">403</span></button>
 </div>
 <div class="ex-expl">401 = not authenticated (log in first). 403 = authenticated but not allowed.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1397,12 +1397,12 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('w04')">W&middot;04 HTTP / HTTPS</span><span class="prereq-chip" onclick="go('w05')">W&middot;05 URL</span><span class="prereq-chip" onclick="go('w09')">W&middot;09 Cookies</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">A phishing site has a padlock (HTTPS). Is it safe to trust?</div>
+<div class="ex-qtext"><span class="tr-en">A phishing site has a padlock (HTTPS). Is it safe to trust?</span><span class="tr-pt">Site de phishing tem cadeado (HTTPS). &Eacute; seguro confiar?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Yes &mdash; the padlock proves it's legit</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; HTTPS only means encrypted in transit</button>
-<button class="quiz-option" onclick="exPick(this)">Yes &mdash; HTTPS sites can't be fake</button>
-<button class="quiz-option" onclick="exPick(this)">Only if it loads fast</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes &mdash; the padlock proves it's legit</span><span class="tr-pt">Sim &mdash; o cadeado prova que &eacute; leg&iacute;timo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; HTTPS only means encrypted in transit</span><span class="tr-pt">N&atilde;o &mdash; HTTPS s&oacute; significa criptografado em tr&acirc;nsito</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes &mdash; HTTPS sites can't be fake</span><span class="tr-pt">Sim &mdash; sites HTTPS n&atilde;o podem ser falsos</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only if it loads fast</span><span class="tr-pt">S&oacute; se carrega r&aacute;pido</span></button>
 </div>
 <div class="ex-expl">A certificate is free and easy to get. The padlock proves encryption, not honesty &mdash; phishing sites use HTTPS too.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1417,19 +1417,19 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Which cookie flags help protect a session token?</div>
+<div class="ex-qtext"><span class="tr-en">Which cookie flags help protect a session token?</span><span class="tr-pt">Quais flags de cookie ajudam a proteger token de sess&atilde;o?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">HttpOnly + Secure + SameSite</button>
-<button class="quiz-option" onclick="exPick(this)">No flags needed</button>
-<button class="quiz-option" onclick="exPick(this)">Only a long name</button>
-<button class="quiz-option" onclick="exPick(this)">Hidden + Disabled</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">HttpOnly + Secure + SameSite</span><span class="tr-pt">HttpOnly + Secure + SameSite</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No flags needed</span><span class="tr-pt">Sem flags necess&aacute;rias</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only a long name</span><span class="tr-pt">S&oacute; um nome longo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hidden + Disabled</span><span class="tr-pt">Hidden + Disabled</span></button>
 </div>
 <div class="ex-expl"><code>HttpOnly</code> blocks JS access (stops XSS theft), <code>Secure</code> requires HTTPS, and <code>SameSite</code> limits cross-site sending (stops CSRF).</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="plaintext|plain text|cleartext|clear text|clear">
-<div class="ex-qtext">Plain HTTP sends data in ______ &mdash; anyone on the network path can read it. (one word)</div>
+<div class="ex-qtext"><span class="tr-en">Plain HTTP sends data in ______ &mdash; anyone on the network path can read it. (one word)</span><span class="tr-pt">HTTP puro manda dados em ______ &mdash; qualquer um no caminho l&ecirc;. (uma palavra)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl">HTTP is plaintext &mdash; unencrypted, so it can be sniffed or modified in transit. HTTPS fixes this.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1467,22 +1467,22 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="2">
 <div class="ex-qtext">Which port does <strong>DNS</strong> commonly use?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">80</button>
-<button class="quiz-option" onclick="exPick(this)">443</button>
-<button class="quiz-option" onclick="exPick(this)">53</button>
-<button class="quiz-option" onclick="exPick(this)">22</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">80</span><span class="tr-pt">80</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">443</span><span class="tr-pt">443</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">53</span><span class="tr-pt">53</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">22</span><span class="tr-pt">22</span></button>
 </div>
 <div class="ex-expl">DNS uses port <strong>53</strong> &mdash; worth remembering, since DNS is a common exfiltration channel.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Which transport protocol is reliable and ordered?</div>
+<div class="ex-qtext"><span class="tr-en">Which transport protocol is reliable and ordered?</span><span class="tr-pt">Qual protocolo de transporte &eacute; confi&aacute;vel e ordenado?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">UDP</button>
-<button class="quiz-option" onclick="exPick(this)">TCP</button>
-<button class="quiz-option" onclick="exPick(this)">ICMP</button>
-<button class="quiz-option" onclick="exPick(this)">ARP</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">UDP</span><span class="tr-pt">UDP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">TCP</span><span class="tr-pt">TCP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">ICMP</span><span class="tr-pt">ICMP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">ARP</span><span class="tr-pt">ARP</span></button>
 </div>
 <div class="ex-expl">TCP guarantees delivery and order via its handshake and acknowledgements. UDP does not.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1503,17 +1503,17 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('n04')">N&middot;04 TCP</span><span class="prereq-chip" onclick="go('n05')">N&middot;05 UDP</span><span class="prereq-chip" onclick="go('n03')">N&middot;03 OSI Model</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Which protocol is connectionless and fast (used by DNS, VoIP, games)?</div>
+<div class="ex-qtext"><span class="tr-en">Which protocol is connectionless and fast (used by DNS, VoIP, games)?</span><span class="tr-pt">Qual protocolo &eacute; sem conex&atilde;o e r&aacute;pido (usado por DNS, VoIP, games)?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">TCP</button>
-<button class="quiz-option" onclick="exPick(this)">UDP</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">TCP</span><span class="tr-pt">TCP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">UDP</span><span class="tr-pt">UDP</span></button>
 </div>
 <div class="ex-expl">UDP skips the handshake for speed, which is why real-time services use it.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="3|three">
-<div class="ex-qtext">How many steps are in the TCP handshake? Type a number.</div>
+<div class="ex-qtext"><span class="tr-en">How many steps are in the TCP handshake? Type a number.</span><span class="tr-pt">Quantos passos no handshake TCP? Digite n&uacute;mero.</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">It's known as the "___-way handshake": SYN, SYN-ACK, ACK.</span><span class="tr-pt">Conhecido como "handshake de ___ vias": SYN, SYN-ACK, ACK.</span></div></details>
 <div class="ex-expl">It's the <strong>3</strong>-way handshake: SYN &rarr; SYN-ACK &rarr; ACK.</div>
@@ -1521,19 +1521,19 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-answers="7|seven">
-<div class="ex-qtext">How many layers does the OSI model have?</div>
+<div class="ex-qtext"><span class="tr-en">How many layers does the OSI model have?</span><span class="tr-pt">Quantas camadas o modelo OSI tem?</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl">The OSI model has <strong>7</strong> layers, from Physical up to Application.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">A SYN scan (a stealthy port scan) abuses which mechanism?</div>
+<div class="ex-qtext"><span class="tr-en">A SYN scan (a stealthy port scan) abuses which mechanism?</span><span class="tr-pt">Scan SYN (port scan stealth) abusa de qual mecanismo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">The TCP 3-way handshake</button>
-<button class="quiz-option" onclick="exPick(this)">DNS lookups</button>
-<button class="quiz-option" onclick="exPick(this)">ARP requests</button>
-<button class="quiz-option" onclick="exPick(this)">DHCP leases</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The TCP 3-way handshake</span><span class="tr-pt">O handshake TCP de 3 vias</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">DNS lookups</span><span class="tr-pt">Lookups DNS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">ARP requests</span><span class="tr-pt">Requisi&ccedil;&otilde;es ARP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">DHCP leases</span><span class="tr-pt">Leases DHCP</span></button>
 </div>
 <div class="ex-expl">A SYN scan sends only the first packet of the handshake to learn if a port is open, without completing the connection.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1556,32 +1556,32 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What connects <strong>different networks</strong> together?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">A switch</button>
-<button class="quiz-option" onclick="exPick(this)">A router</button>
-<button class="quiz-option" onclick="exPick(this)">A hub</button>
-<button class="quiz-option" onclick="exPick(this)">A repeater</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A switch</span><span class="tr-pt">Um switch</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A router</span><span class="tr-pt">Um roteador</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A hub</span><span class="tr-pt">Um hub</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A repeater</span><span class="tr-pt">Um repeater</span></button>
 </div>
 <div class="ex-expl">A router moves traffic between networks; a switch connects devices within one network.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"A firewall blocks all attacks." True or false?</div>
+<div class="ex-qtext"><span class="tr-en">"A firewall blocks all attacks." True or false?</span><span class="tr-pt">"Firewall bloqueia todos os ataques." Verdadeiro ou falso?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; app-layer attacks pass through allowed ports</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; app-layer attacks pass through allowed ports</span><span class="tr-pt">Falso &mdash; ataques de aplica&ccedil;&atilde;o passam por portas permitidas</span></button>
 </div>
 <div class="ex-expl">A network firewall filters by rules. An attack like SQL injection over port 443 looks like allowed traffic and sails through.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Is NAT a security control?</div>
+<div class="ex-qtext"><span class="tr-en">Is NAT a security control?</span><span class="tr-pt">NAT &eacute; controle de seguran&ccedil;a?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Yes &mdash; it's basically a firewall</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; it shares addresses, it isn't access control</button>
-<button class="quiz-option" onclick="exPick(this)">Yes &mdash; it encrypts traffic</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; it slows the network</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes &mdash; it's basically a firewall</span><span class="tr-pt">Sim &mdash; basicamente &eacute; firewall</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; it shares addresses, it isn't access control</span><span class="tr-pt">N&atilde;o &mdash; compartilha endere&ccedil;os, n&atilde;o &eacute; controle de acesso</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes &mdash; it encrypts traffic</span><span class="tr-pt">Sim &mdash; criptografa o tr&aacute;fego</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; it slows the network</span><span class="tr-pt">N&atilde;o &mdash; deixa a rede lenta</span></button>
 </div>
 <div class="ex-expl">NAT exists to share one public IP among many devices. It happens to hide them, but it is not access control &mdash; port forwarding can expose them.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1617,14 +1617,14 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-answers="pwd">
-<div class="ex-qtext">Which command prints your current directory path? (3 letters)</div>
+<div class="ex-qtext"><span class="tr-en">Which command prints your current directory path? (3 letters)</span><span class="tr-pt">Qual comando imprime seu diret&oacute;rio atual? (3 letras)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl"><code>pwd</code> = "print working directory".</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="grep">
-<div class="ex-qtext">Which command searches text for a pattern? (4 letters)</div>
+<div class="ex-qtext"><span class="tr-en">Which command searches text for a pattern? (4 letters)</span><span class="tr-pt">Qual comando busca padr&atilde;o em texto? (4 letras)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl"><code>grep</code> searches files or output for matching lines &mdash; perfect for sifting logs.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1633,10 +1633,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What does <code>rm</code> do?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Moves the file to a trash bin</button>
-<button class="quiz-option" onclick="exPick(this)">Permanently deletes it</button>
-<button class="quiz-option" onclick="exPick(this)">Renames it</button>
-<button class="quiz-option" onclick="exPick(this)">Copies it</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Moves the file to a trash bin</span><span class="tr-pt">Move o arquivo pra lixeira</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Permanently deletes it</span><span class="tr-pt">Deleta permanentemente</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Renames it</span><span class="tr-pt">Renomeia</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Copies it</span><span class="tr-pt">Copia</span></button>
 </div>
 <div class="ex-expl">There is no recycle bin in the shell &mdash; <code>rm</code> deletes for good. <code>rm -rf</code> is especially unforgiving.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1659,10 +1659,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What does <code>chmod 777 file</code> do?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Makes it read-only</button>
-<button class="quiz-option" onclick="exPick(this)">Gives everyone full read, write and execute</button>
-<button class="quiz-option" onclick="exPick(this)">Restricts it to the owner</button>
-<button class="quiz-option" onclick="exPick(this)">Nothing useful</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Makes it read-only</span><span class="tr-pt">Deixa s&oacute;-leitura</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Gives everyone full read, write and execute</span><span class="tr-pt">D&aacute; pra todos read, write e execute</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Restricts it to the owner</span><span class="tr-pt">Restringe ao dono</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Nothing useful</span><span class="tr-pt">Nada &uacute;til</span></button>
 </div>
 <div class="ex-expl">777 = rwx for owner, group and others. Convenient, but almost always too permissive.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1676,19 +1676,19 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Running as root all the time is...</div>
+<div class="ex-qtext"><span class="tr-en">Running as root all the time is...</span><span class="tr-pt">Rodar como root o tempo todo &eacute;...</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Recommended for convenience</button>
-<button class="quiz-option" onclick="exPick(this)">Risky &mdash; use least privilege</button>
-<button class="quiz-option" onclick="exPick(this)">Required on Linux</button>
-<button class="quiz-option" onclick="exPick(this)">Faster for the CPU</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Recommended for convenience</span><span class="tr-pt">Recomendado por conveni&ecirc;ncia</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Risky &mdash; use least privilege</span><span class="tr-pt">Arriscado &mdash; use least privilege</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Required on Linux</span><span class="tr-pt">Necess&aacute;rio no Linux</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Faster for the CPU</span><span class="tr-pt">Mais r&aacute;pido pra CPU</span></button>
 </div>
 <div class="ex-expl">As root, any mistake or malware has full control. Use a normal account and elevate only when needed.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="/etc/shadow">
-<div class="ex-qtext">Which file stores Linux password hashes? Type the full path.</div>
+<div class="ex-qtext"><span class="tr-en">Which file stores Linux password hashes? Type the full path.</span><span class="tr-pt">Qual arquivo guarda hashes de senha no Linux? Caminho completo.</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="/..." autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">It lives in <code>/etc/</code> and is readable only by root &mdash; the "shadow" of the old passwd file.</span><span class="tr-pt">Vive em <code>/etc/</code> e &eacute; leg&iacute;vel apenas pelo root &mdash; a "sombra" do antigo arquivo passwd.</span></div></details>
 <div class="ex-expl"><code>/etc/shadow</code> holds the hashed passwords, readable only by root.</div>
@@ -1712,10 +1712,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What does the pipe <code>|</code> do?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Writes output to a file</button>
-<button class="quiz-option" onclick="exPick(this)">Feeds one command's output into the next</button>
-<button class="quiz-option" onclick="exPick(this)">Comments out a line</button>
-<button class="quiz-option" onclick="exPick(this)">Deletes a file</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Writes output to a file</span><span class="tr-pt">Escreve a sa&iacute;da num arquivo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Feeds one command's output into the next</span><span class="tr-pt">Manda a sa&iacute;da de um comando pro pr&oacute;ximo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Comments out a line</span><span class="tr-pt">Comenta uma linha</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Deletes a file</span><span class="tr-pt">Deleta um arquivo</span></button>
 </div>
 <div class="ex-expl">A pipe connects programs &mdash; e.g. <code>cat log | grep error</code> sends the file into grep.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1724,22 +1724,22 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Between <code>&gt;</code> and <code>&gt;&gt;</code>, which one <strong>appends</strong> to a file?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">&gt; (single)</button>
-<button class="quiz-option" onclick="exPick(this)">&gt;&gt; (double)</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">&gt; (single)</span><span class="tr-pt">&gt; (simples)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">&gt;&gt; (double)</span><span class="tr-pt">&gt;&gt; (duplo)</span></button>
 </div>
 <div class="ex-expl"><code>&gt;</code> overwrites the whole file; <code>&gt;&gt;</code> appends to the end.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="/var/log">
-<div class="ex-qtext">Which directory holds most Linux log files? Type the path.</div>
+<div class="ex-qtext"><span class="tr-en">Which directory holds most Linux log files? Type the path.</span><span class="tr-pt">Qual diret&oacute;rio guarda a maioria dos logs do Linux? Caminho.</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="/..." autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl">Logs live under <code>/var/log</code> &mdash; the first place to investigate, and what attackers try to clear.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="ps">
-<div class="ex-qtext">Which command lists running processes? (2 letters)</div>
+<div class="ex-qtext"><span class="tr-en">Which command lists running processes? (2 letters)</span><span class="tr-pt">Qual comando lista processos rodando? (2 letras)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="command" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">Usually run as <code>ps aux</code> to see everything.</span><span class="tr-pt">Normalmente rodado como <code>ps aux</code> para ver tudo.</span></div></details>
 <div class="ex-expl"><code>ps</code> (often <code>ps aux</code>) lists processes &mdash; handy for spotting malware.</div>
@@ -1807,10 +1807,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">How do you store 80 in a variable named <code>port</code>?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">port = 80</button>
-<button class="quiz-option" onclick="exPick(this)">port == 80</button>
-<button class="quiz-option" onclick="exPick(this)">80 = port</button>
-<button class="quiz-option" onclick="exPick(this)">port : 80</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">port = 80</span><span class="tr-pt">port = 80</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">port == 80</span><span class="tr-pt">port == 80</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">80 = port</span><span class="tr-pt">80 = porta</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">port : 80</span><span class="tr-pt">port : 80</span></button>
 </div>
 <div class="ex-expl">Assignment is <code>variable = value</code>. <code>==</code> compares; it does not store.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1819,10 +1819,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">To <strong>compare</strong> two values in a condition, which operator do you use?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">=</button>
-<button class="quiz-option" onclick="exPick(this)">==</button>
-<button class="quiz-option" onclick="exPick(this)">=&gt;</button>
-<button class="quiz-option" onclick="exPick(this)">:=</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">=</span><span class="tr-pt">=</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">==</span><span class="tr-pt">==</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">=&gt;</span><span class="tr-pt">=&gt;</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">:=</span><span class="tr-pt">:=</span></button>
 </div>
 <div class="ex-expl"><code>==</code> tests equality; a single <code>=</code> assigns.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1837,12 +1837,12 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Why do hackers script in Python?</div>
+<div class="ex-qtext"><span class="tr-en">Why do hackers script in Python?</span><span class="tr-pt">Por que hackers fazem script em Python?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">It's the only language that works</button>
-<button class="quiz-option" onclick="exPick(this)">Automation &mdash; scanning, brute force, parsing</button>
-<button class="quiz-option" onclick="exPick(this)">It is required by law</button>
-<button class="quiz-option" onclick="exPick(this)">It runs directly on hardware</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It's the only language that works</span><span class="tr-pt">&Eacute; a &uacute;nica linguagem que funciona</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Automation &mdash; scanning, brute force, parsing</span><span class="tr-pt">Automa&ccedil;&atilde;o &mdash; scanning, brute force, parsing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It is required by law</span><span class="tr-pt">Exigido por lei</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It runs directly on hardware</span><span class="tr-pt">Roda direto no hardware</span></button>
 </div>
 <div class="ex-expl">Python is quick to write and has libraries for everything &mdash; perfect for automating repetitive tasks.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1872,29 +1872,29 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Which safely reads a key that <strong>might be missing</strong> (no crash)?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">d["x"]</button>
-<button class="quiz-option" onclick="exPick(this)">d.get("x")</button>
-<button class="quiz-option" onclick="exPick(this)">d.x</button>
-<button class="quiz-option" onclick="exPick(this)">d-&gt;x</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">d["x"]</span><span class="tr-pt">d["x"]</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">d.get("x")</span><span class="tr-pt">d.get("x")</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">d.x</span><span class="tr-pt">d.x</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">d-&gt;x</span><span class="tr-pt">d-&gt;x</span></button>
 </div>
 <div class="ex-expl"><code>d.get("x")</code> returns <code>None</code> if the key is missing; <code>d["x"]</code> raises a KeyError.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">What's the best way to open a file so it closes automatically?</div>
+<div class="ex-qtext"><span class="tr-en">What's the best way to open a file so it closes automatically?</span><span class="tr-pt">Qual a melhor forma de abrir um arquivo pra ele fechar sozinho?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">open(f)</button>
-<button class="quiz-option" onclick="exPick(this)">with open(f) as x:</button>
-<button class="quiz-option" onclick="exPick(this)">file(f)</button>
-<button class="quiz-option" onclick="exPick(this)">read(f)</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">open(f)</span><span class="tr-pt">open(f)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">with open(f) as x:</span><span class="tr-pt">with open(f) as x:</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">file(f)</span><span class="tr-pt">file(f)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">read(f)</span><span class="tr-pt">read(f)</span></button>
 </div>
 <div class="ex-expl">A <code>with</code> block closes the file for you, even if an error happens partway.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="requests">
-<div class="ex-qtext">Which popular Python library is used to make HTTP requests? (one word, lowercase)</div>
+<div class="ex-qtext"><span class="tr-en">Which popular Python library is used to make HTTP requests? (one word, lowercase)</span><span class="tr-pt">Qual biblioteca Python popular faz requisi&ccedil;&otilde;es HTTP? (uma palavra, min&uacute;sculas)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="library name" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">Its name is literally the plural of what you send to a server.</span><span class="tr-pt">O nome &eacute; literalmente o plural do que voc&ecirc; manda a um servidor.</span></div></details>
 <div class="ex-expl">The <code>requests</code> library is the go-to for HTTP in Python &mdash; great for testing APIs and web apps.</div>
@@ -1923,12 +1923,12 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-correct="2">
-<div class="ex-qtext">A denial-of-service (DoS) attack mainly harms which CIA pillar?</div>
+<div class="ex-qtext"><span class="tr-en">A denial-of-service (DoS) attack mainly harms which CIA pillar?</span><span class="tr-pt">Um ataque DoS prejudica principalmente qual pilar do CIA?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Confidentiality</button>
-<button class="quiz-option" onclick="exPick(this)">Integrity</button>
-<button class="quiz-option" onclick="exPick(this)">Availability</button>
-<button class="quiz-option" onclick="exPick(this)">None of them</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Confidentiality</span><span class="tr-pt">Confidencialidade</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Integrity</span><span class="tr-pt">Integridade</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Availability</span><span class="tr-pt">Disponibilidade</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">None of them</span><span class="tr-pt">Nenhum deles</span></button>
 </div>
 <div class="ex-expl">Knocking a service offline attacks <strong>Availability</strong> &mdash; the A in CIA.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1937,22 +1937,22 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">A <strong>weakness</strong> in the system is the...?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">threat</button>
-<button class="quiz-option" onclick="exPick(this)">vulnerability</button>
-<button class="quiz-option" onclick="exPick(this)">risk</button>
-<button class="quiz-option" onclick="exPick(this)">exploit</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">threat</span><span class="tr-pt">amea&ccedil;a</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">vulnerability</span><span class="tr-pt">vulnerabilidade</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">risk</span><span class="tr-pt">risco</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">exploit</span><span class="tr-pt">exploit</span></button>
 </div>
 <div class="ex-expl">A vulnerability is the weakness. A threat is the danger that could use it; risk combines the two with impact.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Risk is best described as...?</div>
+<div class="ex-qtext"><span class="tr-en">Risk is best described as...?</span><span class="tr-pt">Risco &eacute; melhor descrito como...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">a bug in the code</button>
-<button class="quiz-option" onclick="exPick(this)">likelihood &times; impact</button>
-<button class="quiz-option" onclick="exPick(this)">an exploit script</button>
-<button class="quiz-option" onclick="exPick(this)">a type of firewall</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">a bug in the code</span><span class="tr-pt">um bug no c&oacute;digo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">likelihood &times; impact</span><span class="tr-pt">probabilidade &times; impacto</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">an exploit script</span><span class="tr-pt">um script de exploit</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">a type of firewall</span><span class="tr-pt">um tipo de firewall</span></button>
 </div>
 <div class="ex-expl">Risk weighs how likely harm is against how bad it would be &mdash; that's how you prioritize fixes.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -1973,43 +1973,43 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('s09')">S&middot;09 Encryption</span><span class="prereq-chip" onclick="go('s10')">S&middot;10 Hashing</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Hashing is...?</div>
+<div class="ex-qtext"><span class="tr-en">Hashing is...?</span><span class="tr-pt">Hashing &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Reversible with a key</button>
-<button class="quiz-option" onclick="exPick(this)">One-way (cannot be undone)</button>
-<button class="quiz-option" onclick="exPick(this)">The same as encoding</button>
-<button class="quiz-option" onclick="exPick(this)">Always insecure</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reversible with a key</span><span class="tr-pt">Revers&iacute;vel com chave</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">One-way (cannot be undone)</span><span class="tr-pt">Unidirecional (n&atilde;o pode ser desfeito)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The same as encoding</span><span class="tr-pt">O mesmo que encoding</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Always insecure</span><span class="tr-pt">Sempre inseguro</span></button>
 </div>
 <div class="ex-expl">A hash is one-way &mdash; you can't get the original back, only compare another hash to it.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Base64 is...?</div>
+<div class="ex-qtext"><span class="tr-en">Base64 is...?</span><span class="tr-pt">Base64 &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Encryption</button>
-<button class="quiz-option" onclick="exPick(this)">Encoding (not encryption)</button>
-<button class="quiz-option" onclick="exPick(this)">Hashing</button>
-<button class="quiz-option" onclick="exPick(this)">A cipher</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Encryption</span><span class="tr-pt">Criptografia</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Encoding (not encryption)</span><span class="tr-pt">Encoding (n&atilde;o &eacute; criptografia)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hashing</span><span class="tr-pt">Hashing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A cipher</span><span class="tr-pt">Uma cifra</span></button>
 </div>
 <div class="ex-expl">Base64 just re-represents data &mdash; anyone can decode it. It provides no secrecy.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="2">
-<div class="ex-qtext">To store passwords safely you use...?</div>
+<div class="ex-qtext"><span class="tr-en">To store passwords safely you use...?</span><span class="tr-pt">Pra guardar senhas com seguran&ccedil;a voc&ecirc; usa...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">MD5</button>
-<button class="quiz-option" onclick="exPick(this)">Plain text</button>
-<button class="quiz-option" onclick="exPick(this)">bcrypt or argon2, with a salt</button>
-<button class="quiz-option" onclick="exPick(this)">Base64</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">MD5</span><span class="tr-pt">MD5</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Plain text</span><span class="tr-pt">Texto puro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">bcrypt or argon2, with a salt</span><span class="tr-pt">bcrypt ou argon2, com salt</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Base64</span><span class="tr-pt">Base64</span></button>
 </div>
 <div class="ex-expl">Use a slow, salted hash like bcrypt or argon2. MD5 is fast and crackable; the others aren't hashing at all.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="salt">
-<div class="ex-qtext">Random data added before hashing a password (so identical passwords differ) is called a ____. (one word)</div>
+<div class="ex-qtext"><span class="tr-en">Random data added before hashing a password (so identical passwords differ) is called a ____. (one word)</span><span class="tr-pt">Dado aleat&oacute;rio adicionado antes de hashear senha (pra senhas iguais ficarem diferentes) &eacute; chamado de ____. (uma palavra)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="a word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl">A <strong>salt</strong> makes each hash unique, defeating precomputed (rainbow-table) attacks.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2032,8 +2032,8 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">Proving <strong>WHO</strong> you are is...?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Authentication</button>
-<button class="quiz-option" onclick="exPick(this)">Authorization</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Authentication</span><span class="tr-pt">Autentica&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Authorization</span><span class="tr-pt">Autoriza&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Authentication = proving identity (logging in).</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2042,20 +2042,20 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Deciding <strong>WHAT</strong> you're allowed to access is...?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Authentication</button>
-<button class="quiz-option" onclick="exPick(this)">Authorization</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Authentication</span><span class="tr-pt">Autentica&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Authorization</span><span class="tr-pt">Autoriza&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Authorization = permissions, checked after you're authenticated.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Never trust, always verify" describes which model?</div>
+<div class="ex-qtext"><span class="tr-en">"Never trust, always verify" describes which model?</span><span class="tr-pt">"Never trust, always verify" descreve qual modelo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Defense in depth</button>
-<button class="quiz-option" onclick="exPick(this)">Zero Trust</button>
-<button class="quiz-option" onclick="exPick(this)">A firewall</button>
-<button class="quiz-option" onclick="exPick(this)">A VPN</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Defense in depth</span><span class="tr-pt">Defesa em profundidade</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Zero Trust</span><span class="tr-pt">Zero Trust</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A firewall</span><span class="tr-pt">Um firewall</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A VPN</span><span class="tr-pt">Uma VPN</span></button>
 </div>
 <div class="ex-expl">Zero Trust verifies every request, dropping the idea that the internal network is automatically safe.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2086,10 +2086,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">A login form accepts <code>' OR 1=1 --</code> and logs you in. Which flaw?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
-<button class="quiz-option" onclick="exPick(this)">IDOR</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDOR</span><span class="tr-pt">IDOR</span></button>
 </div>
 <div class="ex-expl">The input is breaking out of the SQL query &mdash; classic <strong>SQL injection</strong>.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2098,10 +2098,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">A comment field stores <code>&lt;script&gt;</code> that then runs in other visitors' browsers. This is?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">SSRF</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
 </div>
 <div class="ex-expl">Injecting script that runs in other users' browsers is <strong>cross-site scripting (XSS)</strong>.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2110,22 +2110,22 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">Changing <code>?id=123</code> to <code>?id=124</code> shows someone else's data. This is?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">IDOR</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
-<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDOR</span><span class="tr-pt">IDOR</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></button>
 </div>
 <div class="ex-expl">Accessing another object just by changing its ID is an <strong>IDOR</strong> &mdash; a missing authorization check.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">An attacker tricks a logged-in user's browser into silently submitting a request. This is?</div>
+<div class="ex-qtext"><span class="tr-en">An attacker tricks a logged-in user's browser into silently submitting a request. This is?</span><span class="tr-pt">Atacante engana o navegador de usu&aacute;rio logado a mandar requisi&ccedil;&atilde;o silenciosa. Isso &eacute;?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
-<button class="quiz-option" onclick="exPick(this)">IDOR</button>
-<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDOR</span><span class="tr-pt">IDOR</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></button>
 </div>
 <div class="ex-expl">Riding the victim's session to forge a request is <strong>CSRF</strong> (cross-site request forgery).</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2146,36 +2146,36 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('a01')">A&middot;01 SQL Injection</span><span class="prereq-chip" onclick="go('a02')">A&middot;02 XSS</span><span class="prereq-chip" onclick="go('a05')">A&middot;05 Path Traversal</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Best defense against SQL injection?</div>
+<div class="ex-qtext"><span class="tr-en">Best defense against SQL injection?</span><span class="tr-pt">Melhor defesa contra SQL injection?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Manually escape quotes</button>
-<button class="quiz-option" onclick="exPick(this)">Parameterized queries (prepared statements)</button>
-<button class="quiz-option" onclick="exPick(this)">Just add a WAF</button>
-<button class="quiz-option" onclick="exPick(this)">Hide the database</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Manually escape quotes</span><span class="tr-pt">Escapar aspas manualmente</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Parameterized queries (prepared statements)</span><span class="tr-pt">Queries parametrizadas (prepared statements)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Just add a WAF</span><span class="tr-pt">S&oacute; adicionar um WAF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hide the database</span><span class="tr-pt">Esconder o banco</span></button>
 </div>
 <div class="ex-expl">Parameterized queries separate code from data for good. Escaping misses cases; a WAF only filters.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Best defense against XSS?</div>
+<div class="ex-qtext"><span class="tr-en">Best defense against XSS?</span><span class="tr-pt">Melhor defesa contra XSS?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Limit input length</button>
-<button class="quiz-option" onclick="exPick(this)">Context-aware output encoding + CSP</button>
-<button class="quiz-option" onclick="exPick(this)">Use HTTPS</button>
-<button class="quiz-option" onclick="exPick(this)">Rename the endpoint</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Limit input length</span><span class="tr-pt">Limitar tamanho do input</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Context-aware output encoding + CSP</span><span class="tr-pt">Output encoding contextual + CSP</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Use HTTPS</span><span class="tr-pt">Usar HTTPS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Rename the endpoint</span><span class="tr-pt">Renomear o endpoint</span></button>
 </div>
 <div class="ex-expl">Encode untrusted data when you output it, and add a Content-Security-Policy. HTTPS and obscurity don't stop XSS.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">IDOR is really a failure of...?</div>
+<div class="ex-qtext"><span class="tr-en">IDOR is really a failure of...?</span><span class="tr-pt">IDOR &eacute; na verdade falha de...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Encryption</button>
-<button class="quiz-option" onclick="exPick(this)">Authorization checks</button>
-<button class="quiz-option" onclick="exPick(this)">Networking</button>
-<button class="quiz-option" onclick="exPick(this)">Logging</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Encryption</span><span class="tr-pt">Criptografia</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Authorization checks</span><span class="tr-pt">Checks de autoriza&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Networking</span><span class="tr-pt">Networking</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Logging</span><span class="tr-pt">Logging</span></button>
 </div>
 <div class="ex-expl">The server must verify the user actually owns the object &mdash; unguessable IDs only slow it down.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2203,12 +2203,12 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('a05')">A&middot;05 Path Traversal</span><span class="prereq-chip" onclick="go('a12')">A&middot;12 Race Condition</span><span class="prereq-chip" onclick="go('d05')">D&middot;05 WAF</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">A WAF blocks an attack. Does that fix the vulnerable code?</div>
+<div class="ex-qtext"><span class="tr-en">A WAF blocks an attack. Does that fix the vulnerable code?</span><span class="tr-pt">WAF bloqueia um ataque. Isso corrige o c&oacute;digo vulner&aacute;vel?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Yes &mdash; the bug is gone</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; it's a filter, not a fix</button>
-<button class="quiz-option" onclick="exPick(this)">Yes, if it's a paid WAF</button>
-<button class="quiz-option" onclick="exPick(this)">Only for SQL injection</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes &mdash; the bug is gone</span><span class="tr-pt">Sim &mdash; o bug se foi</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; it's a filter, not a fix</span><span class="tr-pt">N&atilde;o &mdash; &eacute; filtro, n&atilde;o corre&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes, if it's a paid WAF</span><span class="tr-pt">Sim, se &eacute; WAF pago</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only for SQL injection</span><span class="tr-pt">S&oacute; pra SQL injection</span></button>
 </div>
 <div class="ex-expl">A WAF buys time by filtering, but the underlying vulnerability still needs fixing &mdash; and WAFs can be bypassed.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2217,29 +2217,29 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext"><code>../</code> in user input is dangerous because it can...?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Crash the app</button>
-<button class="quiz-option" onclick="exPick(this)">Climb out of the intended folder</button>
-<button class="quiz-option" onclick="exPick(this)">Encrypt the files</button>
-<button class="quiz-option" onclick="exPick(this)">Log the user out</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Crash the app</span><span class="tr-pt">Derrubar o app</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Climb out of the intended folder</span><span class="tr-pt">Escapar da pasta pretendida</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Encrypt the files</span><span class="tr-pt">Criptografar os arquivos</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Log the user out</span><span class="tr-pt">Deslogar o usu&aacute;rio</span></button>
 </div>
 <div class="ex-expl">Each <code>../</code> moves up one directory, letting an attacker reach files outside the intended folder.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Firing two requests at once to redeem one coupon twice exploits a...?</div>
+<div class="ex-qtext"><span class="tr-en">Firing two requests at once to redeem one coupon twice exploits a...?</span><span class="tr-pt">Disparar duas requisi&ccedil;&otilde;es ao mesmo tempo pra resgatar um cupom duas vezes explora um...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Race condition</button>
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Race condition</span><span class="tr-pt">Race condition</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
 </div>
 <div class="ex-expl">Two requests hitting the check-then-act gap at the same time is a <strong>race condition</strong> (TOCTOU).</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="untrusted|user|unsanitized|unvalidated">
-<div class="ex-qtext">SQLi, XSS and command injection all come from trusting ____ input. (one word)</div>
+<div class="ex-qtext"><span class="tr-en">SQLi, XSS and command injection all come from trusting ____ input. (one word)</span><span class="tr-pt">SQLi, XSS e command injection v&ecirc;m de confiar em input ____. (uma palavra)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">It comes from the user and hasn't been checked or cleaned.</span><span class="tr-pt">Vem do usu&aacute;rio e n&atilde;o foi verificado nem limpo.</span></div></details>
 <div class="ex-expl">They all stem from trusting <strong>untrusted</strong> (user / unsanitized) input. Validate and sanitize everything from outside.</div>
@@ -2261,48 +2261,48 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('t01')">T&middot;01 nmap</span><span class="prereq-chip" onclick="go('t02')">T&middot;02 Burp Suite</span><span class="prereq-chip" onclick="go('t03')">T&middot;03 Wireshark</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Discover the open ports on a host. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">Discover the open ports on a host. Which tool?</span><span class="tr-pt">Descobrir portas abertas num host. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
-<button class="quiz-option" onclick="exPick(this)">curl</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">curl</span><span class="tr-pt">curl</span></button>
 </div>
 <div class="ex-expl"><code>nmap</code> is the standard port and service scanner.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Intercept and edit HTTP requests from the browser. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">Intercept and edit HTTP requests from the browser. Which tool?</span><span class="tr-pt">Interceptar e editar requisi&ccedil;&otilde;es HTTP do navegador. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
-<button class="quiz-option" onclick="exPick(this)">netcat</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Burp Suite</span><span class="tr-pt">Burp Suite</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hashcat</span><span class="tr-pt">Hashcat</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">netcat</span><span class="tr-pt">netcat</span></button>
 </div>
 <div class="ex-expl">Burp Suite is the intercepting proxy for web app testing.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="2">
-<div class="ex-qtext">Crack password hashes fast using a GPU. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">Crack password hashes fast using a GPU. Which tool?</span><span class="tr-pt">Crackear hashes de senha r&aacute;pido com GPU. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
-<button class="quiz-option" onclick="exPick(this)">Gobuster</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hashcat</span><span class="tr-pt">Hashcat</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Gobuster</span><span class="tr-pt">Gobuster</span></button>
 </div>
 <div class="ex-expl">Hashcat is GPU-optimized for offline hash cracking.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Capture and analyse raw network packets. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">Capture and analyse raw network packets. Which tool?</span><span class="tr-pt">Capturar e analisar pacotes de rede. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
-<button class="quiz-option" onclick="exPick(this)">curl</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">sqlmap</span><span class="tr-pt">sqlmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">curl</span><span class="tr-pt">curl</span></button>
 </div>
 <div class="ex-expl">Wireshark captures and inspects packets &mdash; great for seeing plaintext traffic.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2331,31 +2331,31 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 </div>
 
 <div class="ex-q" data-answers="443">
-<div class="ex-qtext">Which port does HTTPS use by default? (number)</div>
+<div class="ex-qtext"><span class="tr-en">Which port does HTTPS use by default? (number)</span><span class="tr-pt">Qual porta o HTTPS usa por padr&atilde;o? (n&uacute;mero)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="a number" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl">HTTPS listens on port <strong>443</strong> (plain HTTP is 80).</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Is it legal to scan any host you want?</div>
+<div class="ex-qtext"><span class="tr-en">Is it legal to scan any host you want?</span><span class="tr-pt">&Eacute; legal escanear qualquer host que voc&ecirc; quiser?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Yes, scanning is always fine</button>
-<button class="quiz-option" onclick="exPick(this)">No &mdash; only systems you're authorized to test</button>
-<button class="quiz-option" onclick="exPick(this)">Only on weekends</button>
-<button class="quiz-option" onclick="exPick(this)">Only with a VPN</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Yes, scanning is always fine</span><span class="tr-pt">Sim, scanning &eacute; sempre OK</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">No &mdash; only systems you're authorized to test</span><span class="tr-pt">N&atilde;o &mdash; s&oacute; sistemas que voc&ecirc; pode testar</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only on weekends</span><span class="tr-pt">S&oacute; nos fins de semana</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only with a VPN</span><span class="tr-pt">S&oacute; com VPN</span></button>
 </div>
 <div class="ex-expl">Unauthorized scanning can be a crime. Always get written permission for the target.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Which tool automates finding and exploiting SQL injection?</div>
+<div class="ex-qtext"><span class="tr-en">Which tool automates finding and exploiting SQL injection?</span><span class="tr-pt">Qual ferramenta automatiza achar e explorar SQL injection?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">netcat</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">sqlmap</span><span class="tr-pt">sqlmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">netcat</span><span class="tr-pt">netcat</span></button>
 </div>
 <div class="ex-expl"><code>sqlmap</code> detects and exploits SQLi automatically &mdash; use only on authorized targets.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2378,39 +2378,39 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">Brute-forcing an SSH <strong>login</strong> over the network. Which tool?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
-<button class="quiz-option" onclick="exPick(this)">curl</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hashcat</span><span class="tr-pt">Hashcat</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">curl</span><span class="tr-pt">curl</span></button>
 </div>
 <div class="ex-expl">Hydra does online brute force against live services like SSH. (Hashcat/John crack captured hashes offline.)</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Hashcat vs John the Ripper &mdash; which is the GPU-focused cracker?</div>
+<div class="ex-qtext"><span class="tr-en">Hashcat vs John the Ripper &mdash; which is the GPU-focused cracker?</span><span class="tr-pt">Hashcat vs John the Ripper &mdash; qual &eacute; o cracker focado em GPU?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
-<button class="quiz-option" onclick="exPick(this)">Hashcat</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hashcat</span><span class="tr-pt">Hashcat</span></button>
 </div>
 <div class="ex-expl">Hashcat is built for GPUs; John is primarily CPU-based.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="curl">
-<div class="ex-qtext">Which command-line tool sends HTTP requests from a script? (4 letters)</div>
+<div class="ex-qtext"><span class="tr-en">Which command-line tool sends HTTP requests from a script? (4 letters)</span><span class="tr-pt">Qual ferramenta CLI manda requisi&ccedil;&otilde;es HTTP de um script? (4 letras)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="the tool" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <div class="ex-expl"><code>curl</code> crafts HTTP requests from the terminal &mdash; perfect for testing APIs and reproducing requests.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Find hidden web directories and files. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">Find hidden web directories and files. Which tool?</span><span class="tr-pt">Achar diret&oacute;rios e arquivos web ocultos. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Gobuster</button>
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">netcat</button>
-<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Gobuster</span><span class="tr-pt">Gobuster</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">netcat</span><span class="tr-pt">netcat</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></button>
 </div>
 <div class="ex-expl">Gobuster (or dirb) brute-forces paths using a wordlist to uncover hidden endpoints.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2433,34 +2433,34 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What is the <strong>first</strong> phase of an engagement?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Exploitation</button>
-<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
-<button class="quiz-option" onclick="exPick(this)">Reporting</button>
-<button class="quiz-option" onclick="exPick(this)">Persistence</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Exploitation</span><span class="tr-pt">Explora&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconnaissance</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reporting</span><span class="tr-pt">Reporting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Persistence</span><span class="tr-pt">Persist&ecirc;ncia</span></button>
 </div>
 <div class="ex-expl">Recon comes first &mdash; you gather information before you touch anything.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Gathering info from public sources, sending no packets to the target, is...?</div>
+<div class="ex-qtext"><span class="tr-en">Gathering info from public sources, sending no packets to the target, is...?</span><span class="tr-pt">Coletar info de fontes p&uacute;blicas sem mandar pacotes pro alvo &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Active scanning</button>
-<button class="quiz-option" onclick="exPick(this)">Passive reconnaissance</button>
-<button class="quiz-option" onclick="exPick(this)">Exploitation</button>
-<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Active scanning</span><span class="tr-pt">Scanning ativo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Passive reconnaissance</span><span class="tr-pt">Reconhecimento passivo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Exploitation</span><span class="tr-pt">Explora&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Enumeration</span><span class="tr-pt">Enumera&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Passive recon (OSINT) uses public data, so it never touches the target &mdash; quiet and low-risk.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">After landing a low-privilege shell, the usual next goal is...?</div>
+<div class="ex-qtext"><span class="tr-en">After landing a low-privilege shell, the usual next goal is...?</span><span class="tr-pt">Depois de pegar shell de baixo privil&eacute;gio, o pr&oacute;ximo objetivo &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Reporting</button>
-<button class="quiz-option" onclick="exPick(this)">Privilege escalation</button>
-<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
-<button class="quiz-option" onclick="exPick(this)">Covering tracks</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reporting</span><span class="tr-pt">Reporting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Privilege escalation</span><span class="tr-pt">Privilege escalation</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconnaissance</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Covering tracks</span><span class="tr-pt">Covering tracks</span></button>
 </div>
 <div class="ex-expl">You usually land limited, then escalate to root/admin to gain full control.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2469,10 +2469,10 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What is the <strong>final</strong> deliverable the client actually pays for?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">The exploit</button>
-<button class="quiz-option" onclick="exPick(this)">The report</button>
-<button class="quiz-option" onclick="exPick(this)">The shell</button>
-<button class="quiz-option" onclick="exPick(this)">The scan output</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The exploit</span><span class="tr-pt">O exploit</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The report</span><span class="tr-pt">O relat&oacute;rio</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The shell</span><span class="tr-pt">O shell</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The scan output</span><span class="tr-pt">A sa&iacute;da do scan</span></button>
 </div>
 <div class="ex-expl">The report is the product &mdash; findings only create value when communicated clearly enough to fix.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2493,48 +2493,48 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('m03')">M&middot;03 Enumeration</span><span class="prereq-chip" onclick="go('m06')">M&middot;06 Persistence</span><span class="prereq-chip" onclick="go('m08')">M&middot;08 Exfiltration</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Digging into a service for usernames, versions and shares is...?</div>
+<div class="ex-qtext"><span class="tr-en">Digging into a service for usernames, versions and shares is...?</span><span class="tr-pt">Escavar um servi&ccedil;o por usernames, vers&otilde;es e shares &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Scanning</button>
-<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
-<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
-<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Scanning</span><span class="tr-pt">Scanning</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Enumeration</span><span class="tr-pt">Enumera&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconnaissance</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Exfiltration</span><span class="tr-pt">Exfiltra&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Enumeration extracts detail from the services scanning found.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Keeping access so you survive a reboot is...?</div>
+<div class="ex-qtext"><span class="tr-en">Keeping access so you survive a reboot is...?</span><span class="tr-pt">Manter acesso pra sobreviver a reboot &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Persistence</button>
-<button class="quiz-option" onclick="exPick(this)">Lateral movement</button>
-<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
-<button class="quiz-option" onclick="exPick(this)">Scanning</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Persistence</span><span class="tr-pt">Persist&ecirc;ncia</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Lateral movement</span><span class="tr-pt">Movimenta&ccedil;&atilde;o lateral</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconnaissance</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Scanning</span><span class="tr-pt">Scanning</span></button>
 </div>
 <div class="ex-expl">Persistence is establishing a foothold that survives reboots and disconnects.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Pivoting from the first machine to others on the network is...?</div>
+<div class="ex-qtext"><span class="tr-en">Pivoting from the first machine to others on the network is...?</span><span class="tr-pt">Pivotar da primeira m&aacute;quina pra outras na rede &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Privilege escalation</button>
-<button class="quiz-option" onclick="exPick(this)">Lateral movement</button>
-<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
-<button class="quiz-option" onclick="exPick(this)">Reconnaissance</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Privilege escalation</span><span class="tr-pt">Privilege escalation</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Lateral movement</span><span class="tr-pt">Movimenta&ccedil;&atilde;o lateral</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Exfiltration</span><span class="tr-pt">Exfiltra&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reconnaissance</span><span class="tr-pt">Reconnaissance</span></button>
 </div>
 <div class="ex-expl">Lateral movement spreads from the initial host toward higher-value systems.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Stealing the data out of the network is...?</div>
+<div class="ex-qtext"><span class="tr-en">Stealing the data out of the network is...?</span><span class="tr-pt">Roubar dados pra fora da rede &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Exfiltration</button>
-<button class="quiz-option" onclick="exPick(this)">Enumeration</button>
-<button class="quiz-option" onclick="exPick(this)">Scanning</button>
-<button class="quiz-option" onclick="exPick(this)">Reporting</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Exfiltration</span><span class="tr-pt">Exfiltra&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Enumeration</span><span class="tr-pt">Enumera&ccedil;&atilde;o</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Scanning</span><span class="tr-pt">Scanning</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Reporting</span><span class="tr-pt">Reporting</span></button>
 </div>
 <div class="ex-expl">Exfiltration is the actual data theft &mdash; often hidden inside normal traffic like HTTPS or DNS.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2555,39 +2555,39 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('m01')">M&middot;01 Reconnaissance</span><span class="prereq-chip" onclick="go('m09')">M&middot;09 Covering Tracks</span><span class="prereq-chip" onclick="go('m10')">M&middot;10 Reporting</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Why do recon first?</div>
+<div class="ex-qtext"><span class="tr-en">Why do recon first?</span><span class="tr-pt">Por que fazer recon primeiro?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">It's optional busywork</button>
-<button class="quiz-option" onclick="exPick(this)">It shapes the whole engagement</button>
-<button class="quiz-option" onclick="exPick(this)">It's actually the last step</button>
-<button class="quiz-option" onclick="exPick(this)">Only to cover tracks</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It's optional busywork</span><span class="tr-pt">&Eacute; trabalho opcional</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It shapes the whole engagement</span><span class="tr-pt">Molda todo o engajamento</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It's actually the last step</span><span class="tr-pt">&Eacute; na verdade o &uacute;ltimo passo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Only to cover tracks</span><span class="tr-pt">S&oacute; pra cobrir rastros</span></button>
 </div>
 <div class="ex-expl">Knowing the target up front makes every later step faster and more accurate.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Killing a malicious process always removes the threat &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">Killing a malicious process always removes the threat &mdash; true?</span><span class="tr-pt">Matar um processo malicioso sempre remove a amea&ccedil;a &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; it can respawn (persistence)</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; it can respawn (persistence)</span><span class="tr-pt">Falso &mdash; pode respawnar (persist&ecirc;ncia)</span></button>
 </div>
 <div class="ex-expl">Persistent malware restarts itself, so killing the process is not enough &mdash; you must remove its persistence.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Clearing the local logs hides everything &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">Clearing the local logs hides everything &mdash; true?</span><span class="tr-pt">Limpar logs locais esconde tudo &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; central logging / SIEM keeps copies</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; central logging / SIEM keeps copies</span><span class="tr-pt">Falso &mdash; logging central / SIEM mant&eacute;m c&oacute;pias</span></button>
 </div>
 <div class="ex-expl">Logs shipped off the host survive a local wipe &mdash; and a sudden gap in logs is itself an alert.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="remediation|fixes|fix|remediations">
-<div class="ex-qtext">A good report includes findings, severity, evidence and ____. (one word: the fix)</div>
+<div class="ex-qtext"><span class="tr-en">A good report includes findings, severity, evidence and ____. (one word: the fix)</span><span class="tr-pt">Um bom relat&oacute;rio inclui achados, severidade, evid&ecirc;ncia e ____. (uma palavra: a corre&ccedil;&atilde;o)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">The client needs to know how to <em>fix</em> each finding &mdash; the recommended action.</span><span class="tr-pt">O cliente precisa saber como <em>consertar</em> cada achado &mdash; a a&ccedil;&atilde;o recomendada.</span></div></details>
 <div class="ex-expl"><strong>Remediation</strong> &mdash; a finding without a recommended fix is hard for the client to act on.</div>
@@ -2609,48 +2609,48 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e02')">E&middot;02 Spear Phishing</span><span class="prereq-chip" onclick="go('e04')">E&middot;04 Baiting</span><span class="prereq-chip" onclick="go('e06')">E&middot;06 Vishing</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">A targeted, well-researched phishing email aimed at one executive is...?</div>
+<div class="ex-qtext"><span class="tr-en">A targeted, well-researched phishing email aimed at one executive is...?</span><span class="tr-pt">Email de phishing direcionado e bem pesquisado mirando um executivo &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Generic phishing</button>
-<button class="quiz-option" onclick="exPick(this)">Spear phishing (whaling)</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Generic phishing</span><span class="tr-pt">Phishing gen&eacute;rico</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Spear phishing (whaling)</span><span class="tr-pt">Spear phishing (whaling)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
 </div>
 <div class="ex-expl">Personalised, targeted phishing is spear phishing; aimed at a big fish (an exec) it's "whaling".</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">A fake "IT support" phone call pressuring you for your password is...?</div>
+<div class="ex-qtext"><span class="tr-en">A fake "IT support" phone call pressuring you for your password is...?</span><span class="tr-pt">Liga&ccedil;&atilde;o falsa de "suporte de TI" pressionando por sua senha &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Smishing</button>
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></button>
 </div>
 <div class="ex-expl">Voice phishing = vishing. A live, urgent caller pushes you to act before thinking.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">A USB drive "accidentally" left in the parking lot is...?</div>
+<div class="ex-qtext"><span class="tr-en">A USB drive "accidentally" left in the parking lot is...?</span><span class="tr-pt">Pendrive "acidentalmente" deixado no estacionamento &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Pretexting</button>
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Pretexting</span><span class="tr-pt">Pretexting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
 </div>
 <div class="ex-expl">Tempting a curious victim with a dropped device is baiting.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Following an employee through a badge-only door is...?</div>
+<div class="ex-qtext"><span class="tr-en">Following an employee through a badge-only door is...?</span><span class="tr-pt">Seguir um funcion&aacute;rio por porta s&oacute; de crach&aacute; &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Smishing</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></button>
 </div>
 <div class="ex-expl">Slipping in behind an authorised person is tailgating &mdash; it exploits politeness.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2671,42 +2671,42 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e01')">E&middot;01 Phishing</span><span class="prereq-chip" onclick="go('e06')">E&middot;06 Vishing</span><span class="prereq-chip" onclick="go('e10')">E&middot;10 Impersonation</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"I can always spot a phishing email" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"I can always spot a phishing email" &mdash; true?</span><span class="tr-pt">"Sempre consigo detectar email de phishing" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; modern phishing is very convincing</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; modern phishing is very convincing</span><span class="tr-pt">Falso &mdash; phishing moderno &eacute; muito convincente</span></button>
 </div>
 <div class="ex-expl">Overconfidence is exactly what attackers exploit; copied branding and tone fool careful people too.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Caller ID proves who's calling" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"Caller ID proves who's calling" &mdash; true?</span><span class="tr-pt">"Caller ID prova quem est&aacute; ligando" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; caller ID is easily spoofed</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; caller ID is easily spoofed</span><span class="tr-pt">Falso &mdash; caller ID &eacute; facilmente spoofado</span></button>
 </div>
 <div class="ex-expl">Attackers can make any name or number appear. Call back on an official number to verify.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"A found USB is safe to plug in just to find the owner" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"A found USB is safe to plug in just to find the owner" &mdash; true?</span><span class="tr-pt">"USB achado &eacute; seguro de plugar s&oacute; pra descobrir o dono" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; it could be baiting</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; it could be baiting</span><span class="tr-pt">Falso &mdash; pode ser baiting</span></button>
 </div>
 <div class="ex-expl">Dropped USBs are a classic bait. Never plug an unknown device into your machine.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Best general defense against social engineering?</div>
+<div class="ex-qtext"><span class="tr-en">Best general defense against social engineering?</span><span class="tr-pt">Melhor defesa geral contra engenharia social?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">A faster firewall</button>
-<button class="quiz-option" onclick="exPick(this)">Verify via a trusted channel + MFA + training</button>
-<button class="quiz-option" onclick="exPick(this)">Antivirus only</button>
-<button class="quiz-option" onclick="exPick(this)">HTTPS everywhere</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A faster firewall</span><span class="tr-pt">Firewall mais r&aacute;pido</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Verify via a trusted channel + MFA + training</span><span class="tr-pt">Verificar via canal confi&aacute;vel + MFA + treinamento</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Antivirus only</span><span class="tr-pt">Apenas antiv&iacute;rus</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">HTTPS everywhere</span><span class="tr-pt">HTTPS em todo lugar</span></button>
 </div>
 <div class="ex-expl">SE targets people, so the defenses are human: verify out-of-band, require MFA, and train regularly.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2727,43 +2727,43 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('e07')">E&middot;07 Smishing</span><span class="prereq-chip" onclick="go('e08')">E&middot;08 Watering Hole</span><span class="prereq-chip" onclick="go('e03')">E&middot;03 Pretexting</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Phishing carried out over SMS text messages is...?</div>
+<div class="ex-qtext"><span class="tr-en">Phishing carried out over SMS text messages is...?</span><span class="tr-pt">Phishing por mensagens SMS &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
-<button class="quiz-option" onclick="exPick(this)">Smishing</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Pretexting</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Pretexting</span><span class="tr-pt">Pretexting</span></button>
 </div>
 <div class="ex-expl">SMS phishing = smishing. Short links hide the destination and people tap fast on mobile.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Compromising a legitimate site the target group visits, to attack them there, is...?</div>
+<div class="ex-qtext"><span class="tr-en">Compromising a legitimate site the target group visits, to attack them there, is...?</span><span class="tr-pt">Comprometer site leg&iacute;timo que o grupo alvo visita, pra atac&aacute;-los l&aacute;, &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">A watering hole attack</button>
-<button class="quiz-option" onclick="exPick(this)">Baiting</button>
-<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
-<button class="quiz-option" onclick="exPick(this)">Vishing</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A watering hole attack</span><span class="tr-pt">Um ataque watering hole</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Baiting</span><span class="tr-pt">Baiting</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Vishing</span><span class="tr-pt">Vishing</span></button>
 </div>
 <div class="ex-expl">A watering hole infects a trusted site the victims already use &mdash; stealthy because they trust it.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Offering "free tech support" in exchange for access or info is...?</div>
+<div class="ex-qtext"><span class="tr-en">Offering "free tech support" in exchange for access or info is...?</span><span class="tr-pt">Oferecer "suporte t&eacute;cnico gr&aacute;tis" em troca de acesso ou info &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Quid pro quo</button>
-<button class="quiz-option" onclick="exPick(this)">Tailgating</button>
-<button class="quiz-option" onclick="exPick(this)">Smishing</button>
-<button class="quiz-option" onclick="exPick(this)">Watering hole</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Quid pro quo</span><span class="tr-pt">Quid pro quo</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Tailgating</span><span class="tr-pt">Tailgating</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Watering hole</span><span class="tr-pt">Watering hole</span></button>
 </div>
 <div class="ex-expl">Trading a "favour" for something exploits reciprocity &mdash; that's quid pro quo.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="pretext|pretexting">
-<div class="ex-qtext">Inventing a believable backstory (e.g. "I'm from IT") to manipulate someone is called ____ing. (one word root)</div>
+<div class="ex-qtext"><span class="tr-en">Inventing a believable backstory (e.g. "I'm from IT") to manipulate someone is called ____ing. (one word root)</span><span class="tr-pt">Inventar hist&oacute;ria cr&iacute;vel (ex "sou da TI") pra manipular &eacute; chamado de ____ing. (raiz em uma palavra)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="the word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">The made-up scenario is called a "pretext".</span><span class="tr-pt">O cen&aacute;rio inventado &eacute; chamado de "pretexto".</span></div></details>
 <div class="ex-expl"><strong>Pretexting</strong> &mdash; the believable story is the attack. Defend by verifying identity through a known channel.</div>
@@ -2785,48 +2785,48 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x02')">X&middot;02 Worm</span><span class="prereq-chip" onclick="go('x03')">X&middot;03 Trojan</span><span class="prereq-chip" onclick="go('x04')">X&middot;04 Ransomware</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Self-spreads across networks with no user action. Which type?</div>
+<div class="ex-qtext"><span class="tr-en">Self-spreads across networks with no user action. Which type?</span><span class="tr-pt">Auto-espalha pela rede sem a&ccedil;&atilde;o do usu&aacute;rio. Qual tipo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Virus</button>
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
-<button class="quiz-option" onclick="exPick(this)">Trojan</button>
-<button class="quiz-option" onclick="exPick(this)">Spyware</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Virus</span><span class="tr-pt">V&iacute;rus</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Spyware</span><span class="tr-pt">Spyware</span></button>
 </div>
 <div class="ex-expl">A worm self-propagates over the network. A virus needs a host file and a user to run it.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Disguised as useful software that you run yourself. Which type?</div>
+<div class="ex-qtext"><span class="tr-en">Disguised as useful software that you run yourself. Which type?</span><span class="tr-pt">Disfar&ccedil;ado de software &uacute;til que voc&ecirc; mesmo roda. Qual tipo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
-<button class="quiz-option" onclick="exPick(this)">Trojan</button>
-<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
-<button class="quiz-option" onclick="exPick(this)">Botnet</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Rootkit</span><span class="tr-pt">Rootkit</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Botnet</span><span class="tr-pt">Botnet</span></button>
 </div>
 <div class="ex-expl">A trojan hides malice behind a legitimate-looking program.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Encrypts your files and demands payment. Which type?</div>
+<div class="ex-qtext"><span class="tr-en">Encrypts your files and demands payment. Which type?</span><span class="tr-pt">Criptografa seus arquivos e exige pagamento. Qual tipo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Spyware</button>
-<button class="quiz-option" onclick="exPick(this)">Ransomware</button>
-<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Spyware</span><span class="tr-pt">Spyware</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Ransomware</span><span class="tr-pt">Ransomware</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Keylogger</span><span class="tr-pt">Keylogger</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
 </div>
 <div class="ex-expl">Ransomware locks your data and demands payment for the key.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Secretly records everything you type. Which type?</div>
+<div class="ex-qtext"><span class="tr-en">Secretly records everything you type. Which type?</span><span class="tr-pt">Registra secretamente tudo que voc&ecirc; digita. Qual tipo?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
-<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
-<button class="quiz-option" onclick="exPick(this)">Botnet</button>
-<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Rootkit</span><span class="tr-pt">Rootkit</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Keylogger</span><span class="tr-pt">Keylogger</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Botnet</span><span class="tr-pt">Botnet</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></button>
 </div>
 <div class="ex-expl">A keylogger captures keystrokes &mdash; a way to steal passwords directly.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2847,40 +2847,40 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x01')">X&middot;01 Virus</span><span class="prereq-chip" onclick="go('x04')">X&middot;04 Ransomware</span><span class="prereq-chip" onclick="go('x06')">X&middot;06 Rootkit</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"All malware is a virus" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"All malware is a virus" &mdash; true?</span><span class="tr-pt">"Todo malware &eacute; v&iacute;rus" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; a virus is just one type</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; a virus is just one type</span><span class="tr-pt">Falso &mdash; v&iacute;rus &eacute; s&oacute; um tipo</span></button>
 </div>
 <div class="ex-expl">Worms, trojans, ransomware and more are separate categories with different behaviour.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Antivirus catches everything" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"Antivirus catches everything" &mdash; true?</span><span class="tr-pt">"Antiv&iacute;rus pega tudo" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; new or obfuscated malware evades signatures</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; new or obfuscated malware evades signatures</span><span class="tr-pt">Falso &mdash; malware novo ou ofuscado escapa de assinaturas</span></button>
 </div>
 <div class="ex-expl">Brand-new or packed samples have no known signature, so AV alone is never enough.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Paying the ransom guarantees you get your files back" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"Paying the ransom guarantees you get your files back" &mdash; true?</span><span class="tr-pt">"Pagar o resgate garante recuperar arquivos" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; payment often fails and funds more crime</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; payment often fails and funds more crime</span><span class="tr-pt">Falso &mdash; pagamento muitas vezes falha e financia mais crime</span></button>
 </div>
 <div class="ex-expl">There's no guarantee of a working key, and paying encourages further attacks. Backups are the real answer.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Reinstalling the OS always removes a rootkit" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"Reinstalling the OS always removes a rootkit" &mdash; true?</span><span class="tr-pt">"Reinstalar o SO sempre remove rootkit" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; firmware / bootkits can survive a reinstall</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; firmware / bootkits can survive a reinstall</span><span class="tr-pt">Falso &mdash; firmware / bootkits sobrevivem reinstala&ccedil;&atilde;o</span></button>
 </div>
 <div class="ex-expl">Rootkits in firmware persist even after wiping the disk &mdash; deep, stealthy, and hard to remove.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -2901,43 +2901,43 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('x09')">X&middot;09 Botnet</span><span class="prereq-chip" onclick="go('x08')">X&middot;08 Backdoor</span><span class="prereq-chip" onclick="go('x10')">X&middot;10 Logic Bomb</span></div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">A network of infected devices controlled by an attacker is a...?</div>
+<div class="ex-qtext"><span class="tr-en">A network of infected devices controlled by an attacker is a...?</span><span class="tr-pt">Rede de dispositivos infectados controlados por atacante &eacute; um...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Botnet</button>
-<button class="quiz-option" onclick="exPick(this)">Rootkit</button>
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
-<button class="quiz-option" onclick="exPick(this)">Virus</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Botnet</span><span class="tr-pt">Botnet</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Rootkit</span><span class="tr-pt">Rootkit</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Virus</span><span class="tr-pt">V&iacute;rus</span></button>
 </div>
 <div class="ex-expl">A botnet is many compromised devices (even IoT) under one attacker's command &mdash; used for DDoS, spam, mining.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Hidden access that bypasses the normal login is a...?</div>
+<div class="ex-qtext"><span class="tr-en">Hidden access that bypasses the normal login is a...?</span><span class="tr-pt">Acesso oculto que burla o login normal &eacute; um...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Backdoor</button>
-<button class="quiz-option" onclick="exPick(this)">Keylogger</button>
-<button class="quiz-option" onclick="exPick(this)">Trojan</button>
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Backdoor</span><span class="tr-pt">Backdoor</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Keylogger</span><span class="tr-pt">Keylogger</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
 </div>
 <div class="ex-expl">A backdoor skips authentication to give quiet, persistent access.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Malware that lies dormant until a date or event triggers it is a...?</div>
+<div class="ex-qtext"><span class="tr-en">Malware that lies dormant until a date or event triggers it is a...?</span><span class="tr-pt">Malware que fica dormente at&eacute; data ou evento dispar&aacute;-lo &eacute; uma...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Logic bomb</button>
-<button class="quiz-option" onclick="exPick(this)">Worm</button>
-<button class="quiz-option" onclick="exPick(this)">Spyware</button>
-<button class="quiz-option" onclick="exPick(this)">Trojan</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Logic bomb</span><span class="tr-pt">Logic bomb</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Worm</span><span class="tr-pt">Worm</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Spyware</span><span class="tr-pt">Spyware</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Trojan</span><span class="tr-pt">Trojan</span></button>
 </div>
 <div class="ex-expl">A logic bomb waits for a trigger, which is why it evades early detection &mdash; insiders are a classic source.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="backups|backup">
-<div class="ex-qtext">The single best defense against ransomware is offline / immutable ____. (one word, plural)</div>
+<div class="ex-qtext"><span class="tr-en">The single best defense against ransomware is offline / immutable ____. (one word, plural)</span><span class="tr-pt">A melhor defesa contra ransomware s&atilde;o ____ offline / imut&aacute;veis. (uma palavra, plural)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">If your files are encrypted, you just restore from a clean, offline copy.</span><span class="tr-pt">Se seus arquivos forem criptografados, voc&ecirc; s&oacute; restaura de uma c&oacute;pia limpa offline.</span></div></details>
 <div class="ex-expl"><strong>Backups</strong> &mdash; offline/immutable copies (the 3-2-1 rule) let you recover without paying.</div>
@@ -2959,48 +2959,48 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d01')">D&middot;01 Firewall</span><span class="prereq-chip" onclick="go('d03')">D&middot;03 SIEM</span><span class="prereq-chip" onclick="go('d05')">D&middot;05 WAF</span></div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">Filters network traffic by allow/deny rules. Which control?</div>
+<div class="ex-qtext"><span class="tr-en">Filters network traffic by allow/deny rules. Which control?</span><span class="tr-pt">Filtra tr&aacute;fego de rede por regras allow/deny. Qual controle?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Firewall</button>
-<button class="quiz-option" onclick="exPick(this)">SIEM</button>
-<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
-<button class="quiz-option" onclick="exPick(this)">EDR</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Firewall</span><span class="tr-pt">Firewall</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SIEM</span><span class="tr-pt">SIEM</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Honeypot</span><span class="tr-pt">Honeypot</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">EDR</span><span class="tr-pt">EDR</span></button>
 </div>
 <div class="ex-expl">A firewall allows or blocks traffic by rules &mdash; the classic network gatekeeper.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Detects and alerts on suspicious traffic but does not block it. Which control?</div>
+<div class="ex-qtext"><span class="tr-en">Detects and alerts on suspicious traffic but does not block it. Which control?</span><span class="tr-pt">Detecta e alerta sobre tr&aacute;fego suspeito mas n&atilde;o bloqueia. Qual controle?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">IPS</button>
-<button class="quiz-option" onclick="exPick(this)">IDS</button>
-<button class="quiz-option" onclick="exPick(this)">WAF</button>
-<button class="quiz-option" onclick="exPick(this)">Firewall</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IPS</span><span class="tr-pt">IPS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDS</span><span class="tr-pt">IDS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">WAF</span><span class="tr-pt">WAF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Firewall</span><span class="tr-pt">Firewall</span></button>
 </div>
 <div class="ex-expl">An IDS detects and alerts; an IPS sits inline and can actively block.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Aggregates and correlates logs to detect threats. Which control?</div>
+<div class="ex-qtext"><span class="tr-en">Aggregates and correlates logs to detect threats. Which control?</span><span class="tr-pt">Agrega e correlaciona logs pra detectar amea&ccedil;as. Qual controle?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">WAF</button>
-<button class="quiz-option" onclick="exPick(this)">SIEM</button>
-<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
-<button class="quiz-option" onclick="exPick(this)">VPN</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">WAF</span><span class="tr-pt">WAF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SIEM</span><span class="tr-pt">SIEM</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Honeypot</span><span class="tr-pt">Honeypot</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">VPN</span><span class="tr-pt">VPN</span></button>
 </div>
 <div class="ex-expl">A SIEM is the central nervous system for detection &mdash; it correlates logs and raises alerts.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Inspects and filters web traffic to block SQLi/XSS attempts. Which control?</div>
+<div class="ex-qtext"><span class="tr-en">Inspects and filters web traffic to block SQLi/XSS attempts. Which control?</span><span class="tr-pt">Inspeciona e filtra tr&aacute;fego web pra bloquear tentativas de SQLi/XSS. Qual controle?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Network firewall</button>
-<button class="quiz-option" onclick="exPick(this)">WAF</button>
-<button class="quiz-option" onclick="exPick(this)">IDS</button>
-<button class="quiz-option" onclick="exPick(this)">VPN</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Network firewall</span><span class="tr-pt">Firewall de rede</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">WAF</span><span class="tr-pt">WAF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDS</span><span class="tr-pt">IDS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">VPN</span><span class="tr-pt">VPN</span></button>
 </div>
 <div class="ex-expl">A Web Application Firewall understands HTTP and blocks common web attacks &mdash; but it filters, it doesn't fix the code.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3021,46 +3021,46 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d06')">D&middot;06 Honeypot</span><span class="prereq-chip" onclick="go('d07')">D&middot;07 Patch Management</span><span class="prereq-chip" onclick="go('d08')">D&middot;08 Backup Strategy</span></div>
 
 <div class="ex-q" data-correct="0">
-<div class="ex-qtext">A decoy system built to attract and study attackers is a...?</div>
+<div class="ex-qtext"><span class="tr-en">A decoy system built to attract and study attackers is a...?</span><span class="tr-pt">Sistema isca pra atrair e estudar atacantes &eacute; um...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Honeypot</button>
-<button class="quiz-option" onclick="exPick(this)">WAF</button>
-<button class="quiz-option" onclick="exPick(this)">SIEM</button>
-<button class="quiz-option" onclick="exPick(this)">Firewall</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Honeypot</span><span class="tr-pt">Honeypot</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">WAF</span><span class="tr-pt">WAF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SIEM</span><span class="tr-pt">SIEM</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Firewall</span><span class="tr-pt">Firewall</span></button>
 </div>
 <div class="ex-expl">A honeypot lures attackers for early warning and intel &mdash; it must be well isolated, or it becomes a foothold.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Why patch promptly?</div>
+<div class="ex-qtext"><span class="tr-en">Why patch promptly?</span><span class="tr-pt">Por que aplicar patch r&aacute;pido?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Mostly for new features</button>
-<button class="quiz-option" onclick="exPick(this)">Unpatched software is a top attack vector</button>
-<button class="quiz-option" onclick="exPick(this)">To fill up disk space</button>
-<button class="quiz-option" onclick="exPick(this)">There's no real reason</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Mostly for new features</span><span class="tr-pt">Principalmente pra features novas</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Unpatched software is a top attack vector</span><span class="tr-pt">Software sem patch &eacute; vetor de ataque top</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">To fill up disk space</span><span class="tr-pt">Pra encher o disco</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">There's no real reason</span><span class="tr-pt">N&atilde;o tem motivo real</span></button>
 </div>
 <div class="ex-expl">Attackers weaponize disclosed vulnerabilities within days &mdash; patching closes the easy doors.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">"Having backups is enough" &mdash; true?</div>
+<div class="ex-qtext"><span class="tr-en">"Having backups is enough" &mdash; true?</span><span class="tr-pt">"Ter backups &eacute; suficiente" &mdash; verdade?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">True</button>
-<button class="quiz-option" onclick="exPick(this)">False &mdash; you must test that restores actually work</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">True</span><span class="tr-pt">Verdadeiro</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">False &mdash; you must test that restores actually work</span><span class="tr-pt">Falso &mdash; precisa testar que os restores funcionam</span></button>
 </div>
 <div class="ex-expl">An untested backup may be corrupt or incomplete. A backup is only real if you can restore from it.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Defense in depth means...?</div>
+<div class="ex-qtext"><span class="tr-en">Defense in depth means...?</span><span class="tr-pt">Defesa em profundidade significa...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">One very strong firewall</button>
-<button class="quiz-option" onclick="exPick(this)">Multiple layered controls</button>
-<button class="quiz-option" onclick="exPick(this)">Antivirus only</button>
-<button class="quiz-option" onclick="exPick(this)">Training only</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">One very strong firewall</span><span class="tr-pt">Um firewall muito forte</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Multiple layered controls</span><span class="tr-pt">M&uacute;ltiplos controles em camadas</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Antivirus only</span><span class="tr-pt">Apenas antiv&iacute;rus</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Training only</span><span class="tr-pt">S&oacute; treinamento</span></button>
 </div>
 <div class="ex-expl">Layered controls cover each other's gaps &mdash; if one fails, the next still slows the attacker.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3081,43 +3081,43 @@ body.dark .vid-card{background:var(--page);border-color:var(--line)}
 <div class="ex-uses"><span class="ex-uses-label">You'll use:</span><span class="prereq-chip" onclick="go('d09')">D&middot;09 Incident Response</span><span class="prereq-chip" onclick="go('d10')">D&middot;10 Security Awareness Training</span><span class="prereq-chip" onclick="go('d08')">D&middot;08 Backup Strategy</span></div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">When a breach happens, you should...?</div>
+<div class="ex-qtext"><span class="tr-en">When a breach happens, you should...?</span><span class="tr-pt">Quando viola&ccedil;&atilde;o acontece, voc&ecirc; deve...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Wipe the box and move on</button>
-<button class="quiz-option" onclick="exPick(this)">Follow an incident response plan</button>
-<button class="quiz-option" onclick="exPick(this)">Ignore it and hope</button>
-<button class="quiz-option" onclick="exPick(this)">Unplug the internet forever</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wipe the box and move on</span><span class="tr-pt">Apagar a m&aacute;quina e seguir</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Follow an incident response plan</span><span class="tr-pt">Seguir um plano de incident response</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Ignore it and hope</span><span class="tr-pt">Ignorar e torcer</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Unplug the internet forever</span><span class="tr-pt">Desligar a internet pra sempre</span></button>
 </div>
 <div class="ex-expl">Follow the plan: identify, contain, eradicate, recover, learn. Wiping too early destroys evidence.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">The biggest attack surface in most organisations is...?</div>
+<div class="ex-qtext"><span class="tr-en">The biggest attack surface in most organisations is...?</span><span class="tr-pt">A maior superf&iacute;cie de ataque na maioria das organiza&ccedil;&otilde;es &eacute;...?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">The firewall</button>
-<button class="quiz-option" onclick="exPick(this)">People</button>
-<button class="quiz-option" onclick="exPick(this)">The database</button>
-<button class="quiz-option" onclick="exPick(this)">The router</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The firewall</span><span class="tr-pt">O firewall</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">People</span><span class="tr-pt">Pessoas</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The database</span><span class="tr-pt">O banco</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The router</span><span class="tr-pt">O roteador</span></button>
 </div>
 <div class="ex-expl">Most breaches start with a person being phished or tricked &mdash; which is why training matters.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">Best org-wide protection against phishing?</div>
+<div class="ex-qtext"><span class="tr-en">Best org-wide protection against phishing?</span><span class="tr-pt">Melhor prote&ccedil;&atilde;o em toda a organiza&ccedil;&atilde;o contra phishing?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">A faster CPU</button>
-<button class="quiz-option" onclick="exPick(this)">Security awareness training + MFA</button>
-<button class="quiz-option" onclick="exPick(this)">More bandwidth</button>
-<button class="quiz-option" onclick="exPick(this)">Antivirus alone</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">A faster CPU</span><span class="tr-pt">CPU mais r&aacute;pida</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Security awareness training + MFA</span><span class="tr-pt">Treinamento de awareness + MFA</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">More bandwidth</span><span class="tr-pt">Mais banda</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Antivirus alone</span><span class="tr-pt">S&oacute; antiv&iacute;rus</span></button>
 </div>
 <div class="ex-expl">Since people are targeted, ongoing training plus MFA (so a stolen password isn't enough) is the strongest combo.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-answers="backup|backups">
-<div class="ex-qtext">The 3-2-1 rule is about your ____ strategy. (one word)</div>
+<div class="ex-qtext"><span class="tr-en">The 3-2-1 rule is about your ____ strategy. (one word)</span><span class="tr-pt">A regra 3-2-1 &eacute; sobre sua estrat&eacute;gia de ____. (uma palavra)</span></div>
 <div class="ex-inrow"><input class="ex-input" type="text" placeholder="one word" autocomplete="off"><button class="ex-checkbtn" onclick="exCheck(this)"><span class="tr-en"><span class="tr-en">Check</span><span class="tr-pt">Verificar</span></span><span class="tr-pt">Verificar</span></button></div>
 <details class="faq-item"><summary class="faq-q"><span class="tr-en">Show hint</span><span class="tr-pt">Ver dica</span></summary><div class="faq-a"><span class="tr-en">3 copies, on 2 media, with 1 kept offsite/offline.</span><span class="tr-pt">3 c&oacute;pias, em 2 m&iacute;dias, com 1 mantida offsite/offline.</span></div></details>
 <div class="ex-expl"><strong>Backup</strong> &mdash; 3 copies, 2 media types, 1 offline/offsite. Your last line of defense against ransomware and disaster.</div>
@@ -3671,10 +3671,10 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">A web server log shows this request. Which attack is it?<pre>GET /login?user=admin' OR '1'='1' --</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
-<button class="quiz-option" onclick="exPick(this)">Brute force</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Brute force</span><span class="tr-pt">Brute force</span></button>
 </div>
 <div class="ex-expl">The <code>' OR '1'='1' --</code> is breaking out of a SQL query &mdash; classic SQL injection in the login.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3683,10 +3683,10 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">And this one?<pre>GET /search?q=&lt;script&gt;alert(1)&lt;/script&gt;</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
-<button class="quiz-option" onclick="exPick(this)">SSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Path traversal</span><span class="tr-pt">Path traversal</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></button>
 </div>
 <div class="ex-expl">Injecting a <code>&lt;script&gt;</code> tag into a parameter that gets reflected is cross-site scripting (XSS).</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3695,10 +3695,10 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">And this request?<pre>GET /download?file=../../../../etc/passwd</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">IDOR</button>
-<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">IDOR</span><span class="tr-pt">IDOR</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Path traversal</span><span class="tr-pt">Path traversal</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
 </div>
 <div class="ex-expl">The <code>../</code> sequences climb out of the intended folder to reach <code>/etc/passwd</code> &mdash; path traversal.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3710,10 +3710,10 @@ Failed password for root from 185.220.101.42
 Failed password for admin from 185.220.101.42
 &hellip; (hundreds more)</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">SQL injection</button>
-<button class="quiz-option" onclick="exPick(this)">Credential stuffing only</button>
-<button class="quiz-option" onclick="exPick(this)">Brute force</button>
-<button class="quiz-option" onclick="exPick(this)">DDoS</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SQL injection</span><span class="tr-pt">SQL injection</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Credential stuffing only</span><span class="tr-pt">S&oacute; credential stuffing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Brute force</span><span class="tr-pt">Brute force</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">DDoS</span><span class="tr-pt">DDoS</span></button>
 </div>
 <div class="ex-expl">Many login attempts in a short window from one source is a brute force. Mitigation: rate-limit, lock accounts, prefer keys over passwords.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3723,10 +3723,10 @@ Failed password for admin from 185.220.101.42
 <div class="ex-qtext">A user clicks an email link. While they're logged in to their bank, this request fires:<pre>POST https://bank.com/transfer
 amount=5000&amp;to=evil_account</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">XSS</button>
-<button class="quiz-option" onclick="exPick(this)">SSRF</button>
-<button class="quiz-option" onclick="exPick(this)">CSRF</button>
-<button class="quiz-option" onclick="exPick(this)">Path traversal</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">XSS</span><span class="tr-pt">XSS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">SSRF</span><span class="tr-pt">SSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">CSRF</span><span class="tr-pt">CSRF</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Path traversal</span><span class="tr-pt">Path traversal</span></button>
 </div>
 <div class="ex-expl">An action is performed on the victim's behalf using their cookies, triggered by another site &mdash; that's CSRF. Mitigation: anti-CSRF token + SameSite cookies.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3751,8 +3751,8 @@ Subject: Your account is LOCKED
 Click http://bit.ly/verify-now within 24h
 or your account will be deleted.</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Phishing</button>
-<button class="quiz-option" onclick="exPick(this)">Legitimate</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Phishing</span><span class="tr-pt">Phishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Legitimate</span><span class="tr-pt">Leg&iacute;timo</span></button>
 </div>
 <div class="ex-expl">Phishing &mdash; misspelled domain (<code>paypa1.com</code> with a 1), urgency pressure ("24h or deleted"), and a shortened link hiding the destination.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3764,8 +3764,8 @@ Subject: Team lunch Friday
 Reminder: team lunch this Friday at noon
 in the break room. No action needed.</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Phishing</button>
-<button class="quiz-option" onclick="exPick(this)">Probably legitimate</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Phishing</span><span class="tr-pt">Phishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Probably legitimate</span><span class="tr-pt">Provavelmente leg&iacute;timo</span></button>
 </div>
 <div class="ex-expl">Probably legitimate &mdash; internal sender, no link, no urgency, nothing being requested. Still: when unsure, verify through a known channel.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3777,8 +3777,8 @@ Subject: Quick favour
 I'm in a meeting and need you to buy 10 gift cards
 right now. I'll reimburse. Don't call &mdash; reply only.</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Phishing (BEC / CEO fraud)</button>
-<button class="quiz-option" onclick="exPick(this)">Probably legitimate</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Phishing (BEC / CEO fraud)</span><span class="tr-pt">Phishing (BEC / fraude do CEO)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Probably legitimate</span><span class="tr-pt">Provavelmente leg&iacute;timo</span></button>
 </div>
 <div class="ex-expl">CEO fraud / Business Email Compromise. Red flags: external Gmail address, gift cards (untraceable), "don't call me" prevents verification, urgency.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3788,8 +3788,8 @@ right now. I'll reimburse. Don't call &mdash; reply only.</pre></div>
 <div class="ex-qtext">SMS on your phone:<pre>USPS: Your package could not be delivered.
 Update address: usps-track.help-pkg.co/u/9k2</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Smishing</button>
-<button class="quiz-option" onclick="exPick(this)">Legitimate USPS notice</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Smishing</span><span class="tr-pt">Smishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Legitimate USPS notice</span><span class="tr-pt">Aviso leg&iacute;timo dos Correios</span></button>
 </div>
 <div class="ex-expl">Smishing (SMS phishing). USPS uses <code>usps.com</code>, not <code>usps-track.help-pkg.co</code>. The legitimate-looking subdomain is the bait.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3802,8 +3802,8 @@ Your package is held. Pay $2.99 customs fee:
 https://amaz0n-shipping.com/pay
 &mdash; Amazon Shipping Team</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Phishing</button>
-<button class="quiz-option" onclick="exPick(this)">Legitimate</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Phishing</span><span class="tr-pt">Phishing</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Legitimate</span><span class="tr-pt">Leg&iacute;timo</span></button>
 </div>
 <div class="ex-expl">Phishing &mdash; <code>amaz0n</code> uses a zero (not o), generic "Hi Customer", and Amazon never charges customs through random links.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3834,12 +3834,12 @@ https://amaz0n-shipping.com/pay
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">In that same scan, which service runs on port 22?</div>
+<div class="ex-qtext"><span class="tr-en">In that same scan, which service runs on port 22?</span><span class="tr-pt">No mesmo scan, qual servi&ccedil;o roda na porta 22?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">http</button>
-<button class="quiz-option" onclick="exPick(this)">ssh</button>
-<button class="quiz-option" onclick="exPick(this)">https</button>
-<button class="quiz-option" onclick="exPick(this)">mysql</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">http</span><span class="tr-pt">http</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">ssh</span><span class="tr-pt">ssh</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">https</span><span class="tr-pt">https</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">mysql</span><span class="tr-pt">mysql</span></button>
 </div>
 <div class="ex-expl"><code>22/tcp open ssh</code> tells you SSH is listening on 22 &mdash; a prime target for login attacks.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3859,10 +3859,10 @@ https://amaz0n-shipping.com/pay
 80/tcp   closed
 135/tcp  filtered</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">open</button>
-<button class="quiz-option" onclick="exPick(this)">closed</button>
-<button class="quiz-option" onclick="exPick(this)">filtered</button>
-<button class="quiz-option" onclick="exPick(this)">none of them</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">open</span><span class="tr-pt">open</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">closed</span><span class="tr-pt">closed</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">filtered</span><span class="tr-pt">filtered</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">none of them</span><span class="tr-pt">nenhum deles</span></button>
 </div>
 <div class="ex-expl"><code>filtered</code> means nmap couldn't tell &mdash; a firewall (or filter) dropped the probes silently. <code>closed</code> = host replied "no service".</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3873,10 +3873,10 @@ https://amaz0n-shipping.com/pay
 22/tcp   open  ssh     OpenSSH 8.9
 80/tcp   open  http    Apache 2.4</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">22 &mdash; SSH is always weak</button>
-<button class="quiz-option" onclick="exPick(this)">80 &mdash; web is the biggest attack surface</button>
-<button class="quiz-option" onclick="exPick(this)">21 &mdash; vsftpd 2.3.4 has a famous backdoor (CVE-2011-2523)</button>
-<button class="quiz-option" onclick="exPick(this)">None, the host is patched</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">22 &mdash; SSH is always weak</span><span class="tr-pt">22 &mdash; SSH &eacute; sempre fraco</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">80 &mdash; web is the biggest attack surface</span><span class="tr-pt">80 &mdash; web &eacute; a maior superf&iacute;cie de ataque</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">21 &mdash; vsftpd 2.3.4 has a famous backdoor (CVE-2011-2523)</span><span class="tr-pt">21 &mdash; vsftpd 2.3.4 tem backdoor famoso (CVE-2011-2523)</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">None, the host is patched</span><span class="tr-pt">Nenhuma, host est&aacute; patched</span></button>
 </div>
 <div class="ex-expl"><code>vsftpd 2.3.4</code> shipped with a malicious backdoor in 2011. A known-vulnerable old version beats "biggest attack surface" almost every time.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3898,10 +3898,10 @@ https://amaz0n-shipping.com/pay
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What's suspicious about this link?<pre>https://paypal.com.secure-login.ru/account</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Nothing &mdash; it's PayPal</button>
-<button class="quiz-option" onclick="exPick(this)">The real domain is secure-login.ru, not paypal.com</button>
-<button class="quiz-option" onclick="exPick(this)">It uses HTTPS</button>
-<button class="quiz-option" onclick="exPick(this)">The path is too long</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Nothing &mdash; it's PayPal</span><span class="tr-pt">Nada &mdash; &eacute; PayPal</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The real domain is secure-login.ru, not paypal.com</span><span class="tr-pt">O dom&iacute;nio real &eacute; secure-login.ru, n&atilde;o paypal.com</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It uses HTTPS</span><span class="tr-pt">Usa HTTPS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">The path is too long</span><span class="tr-pt">O caminho &eacute; longo demais</span></button>
 </div>
 <div class="ex-expl">The real domain is the rightmost label before the first <code>/</code>: <code>secure-login.ru</code>. <code>paypal.com</code> is just a subdomain label, decoration to fool you.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3926,10 +3926,10 @@ https://amaz0n-shipping.com/pay
 <div class="ex-q" data-correct="1">
 <div class="ex-qtext">What's the trick with this link?<pre>https://www.gооgle.com/login</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Nothing</button>
-<button class="quiz-option" onclick="exPick(this)">Two letters are Cyrillic look-alikes, not Latin "o" &mdash; a homograph / IDN attack</button>
-<button class="quiz-option" onclick="exPick(this)">It uses HTTPS</button>
-<button class="quiz-option" onclick="exPick(this)">www is missing a dot</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Nothing</span><span class="tr-pt">Nada</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Two letters are Cyrillic look-alikes, not Latin "o" &mdash; a homograph / IDN attack</span><span class="tr-pt">Duas letras parecem Cir&iacute;licas, n&atilde;o "o" Latino &mdash; ataque homogr&aacute;fico / IDN</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">It uses HTTPS</span><span class="tr-pt">Usa HTTPS</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">www is missing a dot</span><span class="tr-pt">www est&aacute; sem ponto</span></button>
 </div>
 <div class="ex-expl">The two "o" characters are Cyrillic <code>о</code> (U+043E). The domain looks like Google but resolves elsewhere. Browsers show punycode (<code>xn--&hellip;</code>) when they detect it.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3938,10 +3938,10 @@ https://amaz0n-shipping.com/pay
 <div class="ex-q" data-correct="0">
 <div class="ex-qtext">In this URL, where is the user going?<pre>https://login.microsoft.com.attacker.io/oauth?next=https://login.microsoft.com</pre></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">attacker.io</button>
-<button class="quiz-option" onclick="exPick(this)">microsoft.com</button>
-<button class="quiz-option" onclick="exPick(this)">login.microsoft.com</button>
-<button class="quiz-option" onclick="exPick(this)">login.microsoft.com.attacker.io is microsoft-owned</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">attacker.io</span><span class="tr-pt">attacker.io</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">microsoft.com</span><span class="tr-pt">microsoft.com</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">login.microsoft.com</span><span class="tr-pt">login.microsoft.com</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">login.microsoft.com.attacker.io is microsoft-owned</span><span class="tr-pt">login.microsoft.com.attacker.io &eacute; da microsoft</span></button>
 </div>
 <div class="ex-expl">The real host is the rightmost registrable domain: <code>attacker.io</code>. The query parameter pointing at the real Microsoft is bait for the redirect after stealing credentials.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3961,36 +3961,36 @@ https://amaz0n-shipping.com/pay
 <div class="ex-goal"><strong>&#127919; Goal:</strong> Match common pentest / defence tasks to the tools that do them.</div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">You need to capture and read raw network packets. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">You need to capture and read raw network packets. Which tool?</span><span class="tr-pt">Voc&ecirc; precisa capturar e ler pacotes de rede. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">sqlmap</span><span class="tr-pt">sqlmap</span></button>
 </div>
 <div class="ex-expl">Wireshark captures and analyses packets. nmap scans ports, Hydra brute-forces logins, sqlmap targets SQLi.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="1">
-<div class="ex-qtext">You found an SSH login and want to brute-force the password (with authorization). Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">You found an SSH login and want to brute-force the password (with authorization). Which tool?</span><span class="tr-pt">Achou um login SSH e quer brute-force na senha (com autoriza&ccedil;&atilde;o). Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">curl</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">curl</span><span class="tr-pt">curl</span></button>
 </div>
 <div class="ex-expl">Hydra does online brute force against live services like SSH. (Only with explicit permission.)</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="2">
-<div class="ex-qtext">You want to intercept and modify a browser's HTTP requests to a web app you're testing. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">You want to intercept and modify a browser's HTTP requests to a web app you're testing. Which tool?</span><span class="tr-pt">Voc&ecirc; quer interceptar e modificar requisi&ccedil;&otilde;es HTTP de um app web em teste. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">nmap</button>
-<button class="quiz-option" onclick="exPick(this)">John the Ripper</button>
-<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
-<button class="quiz-option" onclick="exPick(this)">tcpdump</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap</span><span class="tr-pt">nmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper</span><span class="tr-pt">John the Ripper</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Burp Suite</span><span class="tr-pt">Burp Suite</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">tcpdump</span><span class="tr-pt">tcpdump</span></button>
 </div>
 <div class="ex-expl">Burp Suite sits between your browser and the target. You can read, modify and replay requests &mdash; the bread and butter of web pentesting.</div>
 <div class="ex-fb" style="display:none"></div>
@@ -3999,22 +3999,22 @@ https://amaz0n-shipping.com/pay
 <div class="ex-q" data-correct="3">
 <div class="ex-qtext">You have a list of password hashes from a dump and want to recover the plaintexts <strong>offline</strong>. Which tool?</div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
-<button class="quiz-option" onclick="exPick(this)">Wireshark</button>
-<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
-<button class="quiz-option" onclick="exPick(this)">John the Ripper (or Hashcat)</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Wireshark</span><span class="tr-pt">Wireshark</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Burp Suite</span><span class="tr-pt">Burp Suite</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">John the Ripper (or Hashcat)</span><span class="tr-pt">John the Ripper (ou Hashcat)</span></button>
 </div>
 <div class="ex-expl">John the Ripper and Hashcat crack hashes offline. Hydra is for online services with live login attempts.</div>
 <div class="ex-fb" style="display:none"></div>
 </div>
 
 <div class="ex-q" data-correct="2">
-<div class="ex-qtext">A web parameter looks injectable and you want to automate dumping the database. Which tool?</div>
+<div class="ex-qtext"><span class="tr-en">A web parameter looks injectable and you want to automate dumping the database. Which tool?</span><span class="tr-pt">Par&acirc;metro web parece injet&aacute;vel e voc&ecirc; quer automatizar o dump do banco. Qual ferramenta?</span></div>
 <div class="ex-opts">
-<button class="quiz-option" onclick="exPick(this)">nmap --script vuln</button>
-<button class="quiz-option" onclick="exPick(this)">Burp Suite</button>
-<button class="quiz-option" onclick="exPick(this)">sqlmap</button>
-<button class="quiz-option" onclick="exPick(this)">Hydra</button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">nmap --script vuln</span><span class="tr-pt">nmap --script vuln</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Burp Suite</span><span class="tr-pt">Burp Suite</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">sqlmap</span><span class="tr-pt">sqlmap</span></button>
+<button class="quiz-option" onclick="exPick(this)"><span class="tr-en">Hydra</span><span class="tr-pt">Hydra</span></button>
 </div>
 <div class="ex-expl">sqlmap automates SQL injection discovery and exploitation &mdash; including dumping tables and reading files when the DB user permits.</div>
 <div class="ex-fb" style="display:none"></div>
