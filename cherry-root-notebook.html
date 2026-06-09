@@ -3204,7 +3204,7 @@ curl -I http://192.168.1.1</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-1', &quot;$ ping -c 2 192.168.1.1\nPING 192.168.1.1 56 bytes\n64 bytes from 192.168.1.1: time=0.234 ms\n64 bytes from 192.168.1.1: time=0.187 ms\n\n$ nmap -sV 192.168.1.1\nPORT     STATE   SERVICE  VERSION\n22/tcp   open    ssh      OpenSSH 8.0\n80/tcp   open    http     nginx 1.18.0\n443/tcp  open    https    nginx 1.18.0\n\n$ curl -I http://192.168.1.1\nHTTP/1.1 200 OK\nServer: nginx/1.18.0\nContent-Type: text/html&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-1-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3255,7 +3255,7 @@ curl -X POST -d "user=admin' OR '1'='1&amp;pass=x" https://target.lab/login</div
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-2', &quot;$ curl -X POST -d 'user=alice&amp;pass=secret' https://target.lab/login\nHTTP/1.1 401 Unauthorized\n{\&quot;error\&quot;:\&quot;Invalid credentials\&quot;}\n\n$ curl -X POST -d \&quot;user=admin' OR '1'='1&amp;pass=x\&quot; https://target.lab/login\nHTTP/1.1 200 OK\nSet-Cookie: session=eyJ1c2VyIjoiYWRtaW4ifQ==\n{\&quot;ok\&quot;:true,\&quot;redirect\&quot;:\&quot;/dashboard\&quot;}\n\n&gt;&gt;&gt; Vulnerable to SQL injection.\n&gt;&gt;&gt; Fix: use parameterized queries.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-2-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3306,7 +3306,7 @@ grep -iE "or 1=1|union select" /var/log/nginx/access.log | awk '{print $1}' | so
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-3', &quot;$ grep -iE 'or 1=1|union select' /var/log/nginx/access.log\n185.220.101.42 - - [GET /login?user=admin' OR '1'='1 HTTP/1.1] 200\n185.220.101.42 - - [GET /search?q=UNION SELECT 1,2,3-- HTTP/1.1] 500\n185.220.101.42 - - [GET /api?id=1 UNION SELECT password FROM users HTTP/1.1] 500\n45.95.169.18  - - [GET /shop?id=' or 1=1-- HTTP/1.1] 500\n\n$ ... | awk | sort | uniq -c | sort -rn\n     12 185.220.101.42\n      3 45.95.169.18\n      1 8.8.8.8&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-3-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3359,7 +3359,7 @@ sudo systemctl restart ssh</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-4', &quot;$ ssh-keygen -t ed25519 -C 'kaylla@laptop'\nGenerating public/private ed25519 key pair.\nYour identification has been saved in /home/kaylla/.ssh/id_ed25519\nYour public key has been saved in /home/kaylla/.ssh/id_ed25519.pub\n\n$ ssh-copy-id user@your-server.com\nNumber of key(s) added: 1\nNow try logging into the machine, with: 'ssh user@your-server.com'\n\n$ sudo systemctl restart ssh\n[ OK ] ssh.service restarted.\n\n&gt;&gt;&gt; Password auth disabled. SSH only via your key now.\n&gt;&gt;&gt; Brute force on port 22 is now effectively dead.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-4-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3410,7 +3410,7 @@ dig +short evil-final-domain.tk</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-5', &quot;$ python3 -c '...unquote(...)...'\nhttps://bit.ly/xYz123\n\n$ curl -ILs https://bit.ly/xYz123 | grep -i location\nlocation: https://evil-final-domain.tk/login\n\n$ dig +short evil-final-domain.tk\n198.51.100.42\n\n&gt;&gt;&gt; Final destination: evil-final-domain.tk (198.51.100.42)\n&gt;&gt;&gt; Not the brand it pretends to be. Do NOT click.\n&gt;&gt;&gt; Report to your security team and add to the blocklist.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-5-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3461,7 +3461,7 @@ sudo ufw status verbose</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-6', &quot;$ ss -tlnp\nState    Local Address:Port    Process\nLISTEN   0.0.0.0:22            sshd\nLISTEN   127.0.0.1:631         cups\nLISTEN   0.0.0.0:5432          postgres\n\n$ ss -ulnp\nState    Local Address:Port    Process\nLISTEN   127.0.0.53:53         systemd-resolved\n\n$ sudo ufw status verbose\nStatus: active\nDefault: deny (incoming), allow (outgoing)\nTo                Action    From\n--                ------    ----\n22/tcp            ALLOW IN  Anywhere\n\n&gt;&gt;&gt; postgres listening on 0.0.0.0:5432 (NOT localhost) &mdash; firewall doesn't allow it,\n&gt;&gt;&gt; but if the rule changes it's instantly exposed. Bind to 127.0.0.1 instead.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-6-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3512,7 +3512,7 @@ grep '185.220.101.42' /var/log/auth.log | awk '{print $1, $2, $3}' | head</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-7', &quot;$ grep -i 'failed password' /var/log/auth.log | wc -l\n148\n\n$ ... | awk '{print $11}' | sort | uniq -c | sort -rn | head\n     87 185.220.101.42\n     34 45.95.169.18\n     19 91.214.71.66\n      5 103.78.91.24\n      3 5.188.86.169\n\n$ grep '185.220.101.42' /var/log/auth.log | awk '{print $1, $2, $3}' | head\nNov 23 02:14:33\nNov 23 02:14:42\nNov 23 02:14:51\nNov 23 02:15:00\nNov 23 02:15:09\n\n&gt;&gt;&gt; 185.220.101.42 hit 87 failed logins in under 4 minutes.\n&gt;&gt;&gt; Action: block at the firewall, rotate any password ever used on this box.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-7-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3563,7 +3563,7 @@ awk -F: '$3 == 0 || $3 &gt;= 1000 {print $1, $3, $7}' /etc/passwd</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-8', &quot;$ last -n 20\nkaylla   pts/0    192.168.1.45     Wed Nov 23 14:02   still logged in\nkaylla   pts/0    192.168.1.45     Wed Nov 23 09:11 - 12:34  (03:23)\nroot     pts/1    103.5.140.18     Wed Nov 23 03:47 - 03:48  (00:01)\nkaylla   pts/0    192.168.1.45     Tue Nov 22 08:30 - 17:42  (09:12)\n\n$ grep sudo /var/log/auth.log | tail -n 20\nNov 23 14:05 sudo: kaylla : TTY=pts/0 ; COMMAND=/usr/bin/apt update\nNov 23 03:47 sudo: helpdesk : TTY=pts/1 ; COMMAND=/bin/bash\nNov 22 22:11 sudo: kaylla : TTY=pts/0 ; COMMAND=/usr/bin/systemctl status nginx\n\n$ awk -F: '$3 == 0 || $3 &gt;= 1000 ...' /etc/passwd\nroot     0    /bin/bash\nkaylla   1000 /bin/bash\nhelpdesk 1001 /bin/bash\n\n&gt;&gt;&gt; Alerts:\n&gt;&gt;&gt;  &middot; root logged in from 103.5.140.18 at 03:47 &mdash; not from your usual subnet.\n&gt;&gt;&gt;  &middot; 'helpdesk' user (UID 1001) ran sudo /bin/bash at the same moment.\n&gt;&gt;&gt; Disable both accounts, rotate credentials, escalate to IR.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-8-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -3614,7 +3614,7 @@ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head -n 10</div>
 
 <button class="tut-run-btn" onclick="tutRun('prog-tut-9', &quot;$ sudo tcpdump -i any -w /tmp/sus.pcap port 80 or port 443\ntcpdump: listening on any, link-type LINUX_SLL2\n^C\n124 packets captured\n\n$ tcpdump -r /tmp/sus.pcap | head -n 5\n14:02:11.234 IP 192.168.1.45.45122 &gt; target.com.80: Flags [S], seq 1234\n14:02:11.245 IP target.com.80 &gt; 192.168.1.45.45122: Flags [S.], seq 9876\n14:02:11.246 IP 192.168.1.45.45122 &gt; target.com.80: Flags [.], ack 1\n14:02:11.247 IP 192.168.1.45.45122 &gt; target.com.80: Flags [P.], seq 1:148\n14:02:11.301 IP target.com.80 &gt; 192.168.1.45.45122: Flags [.], ack 148\n\n$ tcpdump -r /tmp/sus.pcap -A | grep -E 'Host:|GET |POST ' | head\nGET /login?user=admin' OR '1'='1 HTTP/1.1\nHost: target.com\nPOST /api/upload HTTP/1.1\nHost: target.com\nGET /admin?cmd=cat+/etc/passwd HTTP/1.1\nHost: target.com\n\n&gt;&gt;&gt; SQLi + command-injection attempts going OUT from this machine.\n&gt;&gt;&gt; This box is compromised or hosts a malicious script. Isolate it, save the PCAP.&quot;)">&#9654; Run my playbook</button>
 <div id="prog-tut-9-run" class="tut-run-area" style="display:none">
-<div class="tut-run-head">Simulated output</div>
+<div class="tut-run-head"><span class="tr-en">Simulated output</span><span class="tr-pt">Saída simulada</span></div>
 <pre class="tut-run-out"></pre>
 </div>
 
@@ -4491,7 +4491,7 @@ https://amaz0n-shipping.com/pay
 <div class="pg" id="pg-index">
 <div class="ph"><div class="bc"><span class="tr-en">cherry root <span>›</span> index</span><span class="tr-pt">cherry root <span>›</span> &iacute;ndice</span></div><div class="pt"><span class="tr-en">Index</span><span class="tr-pt">&Iacute;ndice</span></div><div class="ps"><span class="tr-en">Every term in the grimoire in order. Click any term to go to its page.</span><span class="tr-pt">Todos os termos do grim&oacute;rio em ordem. Clique em qualquer termo pra ir &agrave; sua p&aacute;gina.</span></div></div>
 <div class="progress-section">
-<div class="sl" style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem">Progress Rings</div>
+<div class="sl" style="font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--p400);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem"><span class="tr-en">Progress Rings</span><span class="tr-pt">Anéis de Progresso</span></div>
 <div class="rings-grid" id="indexRings"></div>
 </div>
 
@@ -9057,7 +9057,7 @@ if x == 5: # compare</code></div><div class="mistake-why"><strong><span class="t
 
 <div class="sec">
 <div class="sl"><span class="tr-en">&#9314; Blocks</span><span class="tr-pt">&#9314; Blocos</span></div>
-<div class="sl" style="margin-top:.2rem">Progress Rings</div>
+<div class="sl" style="margin-top:.2rem"><span class="tr-en">Progress Rings</span><span class="tr-pt">Anéis de Progresso</span></div>
 <div class="rings-grid" id="statsRings"></div>
 <div id="statsBlocks" style="background:white;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem"></div>
 </div>
