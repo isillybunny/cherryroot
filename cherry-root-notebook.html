@@ -10232,7 +10232,7 @@ function tutAdd(btn, programId, codeId){
 }
 function tutReset(programId){
   var pre = document.getElementById(programId); if(!pre) return;
-  pre.innerHTML = '<span class="tut-program-empty"><span class="tr-en">(nothing yet &mdash; click a step below to add code)</span><span class="tr-pt">(nada ainda &mdash; clique em um passo abaixo para adicionar cÃ³digo)</span></span>';
+  pre.innerHTML = '<span class="tut-program-empty"><span class="tr-en">(nothing yet &mdash; click a step below to add code)</span><span class="tr-pt">(nada ainda &mdash; clique em um passo abaixo para adicionar código)</span></span>';
   var pg = pre.closest('.pg');
   if(pg){
     pg.querySelectorAll('.tut-add-btn').forEach(function(b){
