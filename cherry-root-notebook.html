@@ -9251,82 +9251,82 @@ if x == 5: # compare</code></div><div class="mistake-why"><strong><span class="t
 <div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> nmap</div><div class="pt">nmap Cheatsheet</div><div class="ps"><span class="tr-en">Host discovery, scan types, NSE, evasion — one dense page.</span><span class="tr-pt">Descoberta de hosts, tipos de scan, NSE, evasão — uma página densa.</span></div></div>
 
 <div class="cs-grid">
-<div class="cs-card"><div class="cs-title">Host Discovery</div>
-<div class="cs-row"><code>-sn</code><span class="cs-d">ping sweep — no port scan</span></div>
-<div class="cs-row"><code>-sP</code><span class="cs-d">legacy alias for -sn</span></div>
-<div class="cs-row"><code>-Pn</code><span class="cs-d">skip discovery — assume host up</span></div>
-<div class="cs-row"><code>-PR</code><span class="cs-d">ARP ping (LAN)</span></div>
-<div class="cs-row"><code>-PE / -PP / -PM</code><span class="cs-d">ICMP echo / timestamp / netmask</span></div>
-<div class="cs-row"><code>--top-ports N</code><span class="cs-d">scan most common N ports</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Host Discovery</span><span class="tr-pt">Descoberta de Hosts</span></div>
+<div class="cs-row"><code>-sn</code><span class="cs-d"><span class="tr-en">ping sweep — no port scan</span><span class="tr-pt">ping sweep — sem scan de portas</span></span></div>
+<div class="cs-row"><code>-sP</code><span class="cs-d"><span class="tr-en">legacy alias for -sn</span><span class="tr-pt">alias legado de -sn</span></span></div>
+<div class="cs-row"><code>-Pn</code><span class="cs-d"><span class="tr-en">skip discovery — assume host up</span><span class="tr-pt">pula a descoberta — assume host ativo</span></span></div>
+<div class="cs-row"><code>-PR</code><span class="cs-d"><span class="tr-en">ARP ping (LAN)</span><span class="tr-pt">ping ARP (LAN)</span></span></div>
+<div class="cs-row"><code>-PE / -PP / -PM</code><span class="cs-d"><span class="tr-en">ICMP echo / timestamp / netmask</span><span class="tr-pt">ICMP echo / timestamp / netmask</span></span></div>
+<div class="cs-row"><code>--top-ports N</code><span class="cs-d"><span class="tr-en">scan most common N ports</span><span class="tr-pt">escaneia as N portas mais comuns</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Scan Types</div>
-<div class="cs-row"><code>-sS</code><span class="cs-d">SYN stealth (default as root)</span></div>
-<div class="cs-row"><code>-sT</code><span class="cs-d">full TCP connect (unprivileged)</span></div>
-<div class="cs-row"><code>-sU</code><span class="cs-d">UDP scan</span></div>
-<div class="cs-row"><code>-sA</code><span class="cs-d">ACK — map firewall rules</span></div>
-<div class="cs-row"><code>-sF / -sN / -sX</code><span class="cs-d">FIN / NULL / Xmas stealth</span></div>
-<div class="cs-row"><code>-sV</code><span class="cs-d">service version detection</span></div>
-<div class="cs-row"><code>-O</code><span class="cs-d">OS fingerprint</span></div>
-<div class="cs-row"><code>-A</code><span class="cs-d">aggressive: -O -sV -sC --traceroute</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Scan Types</span><span class="tr-pt">Tipos de Scan</span></div>
+<div class="cs-row"><code>-sS</code><span class="cs-d"><span class="tr-en">SYN stealth (default as root)</span><span class="tr-pt">SYN stealth (padrão como root)</span></span></div>
+<div class="cs-row"><code>-sT</code><span class="cs-d"><span class="tr-en">full TCP connect (unprivileged)</span><span class="tr-pt">TCP connect completo (sem privilégio)</span></span></div>
+<div class="cs-row"><code>-sU</code><span class="cs-d"><span class="tr-en">UDP scan</span><span class="tr-pt">scan UDP</span></span></div>
+<div class="cs-row"><code>-sA</code><span class="cs-d"><span class="tr-en">ACK — map firewall rules</span><span class="tr-pt">ACK — mapeia regras de firewall</span></span></div>
+<div class="cs-row"><code>-sF / -sN / -sX</code><span class="cs-d"><span class="tr-en">FIN / NULL / Xmas stealth</span><span class="tr-pt">FIN / NULL / Xmas stealth</span></span></div>
+<div class="cs-row"><code>-sV</code><span class="cs-d"><span class="tr-en">service version detection</span><span class="tr-pt">detecção de versão de serviço</span></span></div>
+<div class="cs-row"><code>-O</code><span class="cs-d"><span class="tr-en">OS fingerprint</span><span class="tr-pt">fingerprint de SO</span></span></div>
+<div class="cs-row"><code>-A</code><span class="cs-d"><span class="tr-en">aggressive: -O -sV -sC --traceroute</span><span class="tr-pt">agressivo: -O -sV -sC --traceroute</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Port Selection</div>
-<div class="cs-row"><code>-p 80</code><span class="cs-d">single port</span></div>
-<div class="cs-row"><code>-p-</code><span class="cs-d">all 65535 ports</span></div>
-<div class="cs-row"><code>-p 1-1000</code><span class="cs-d">range</span></div>
-<div class="cs-row"><code>-p T:80,U:53</code><span class="cs-d">mixed TCP/UDP</span></div>
-<div class="cs-row"><code>--top-ports 100</code><span class="cs-d">most common 100</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Port Selection</span><span class="tr-pt">Seleção de Portas</span></div>
+<div class="cs-row"><code>-p 80</code><span class="cs-d"><span class="tr-en">single port</span><span class="tr-pt">porta única</span></span></div>
+<div class="cs-row"><code>-p-</code><span class="cs-d"><span class="tr-en">all 65535 ports</span><span class="tr-pt">todas as 65535 portas</span></span></div>
+<div class="cs-row"><code>-p 1-1000</code><span class="cs-d"><span class="tr-en">range</span><span class="tr-pt">intervalo</span></span></div>
+<div class="cs-row"><code>-p T:80,U:53</code><span class="cs-d"><span class="tr-en">mixed TCP/UDP</span><span class="tr-pt">TCP/UDP misturados</span></span></div>
+<div class="cs-row"><code>--top-ports 100</code><span class="cs-d"><span class="tr-en">most common 100</span><span class="tr-pt">as 100 mais comuns</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Timing</div>
-<div class="cs-row"><code>-T0</code><span class="cs-d">paranoid (IDS evasion)</span></div>
-<div class="cs-row"><code>-T1</code><span class="cs-d">sneaky</span></div>
-<div class="cs-row"><code>-T2</code><span class="cs-d">polite</span></div>
-<div class="cs-row"><code>-T3</code><span class="cs-d">normal (default)</span></div>
-<div class="cs-row"><code>-T4</code><span class="cs-d">aggressive — common in CTF</span></div>
-<div class="cs-row"><code>-T5</code><span class="cs-d">insane — packet loss likely</span></div>
-<div class="cs-row"><code>--min-rate 1000</code><span class="cs-d">force minimum packets/sec</span></div>
-<div class="cs-row"><code>--max-rate 500</code><span class="cs-d">cap packets/sec</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Timing</span><span class="tr-pt">Timing</span></div>
+<div class="cs-row"><code>-T0</code><span class="cs-d"><span class="tr-en">paranoid (IDS evasion)</span><span class="tr-pt">paranoid (evasão de IDS)</span></span></div>
+<div class="cs-row"><code>-T1</code><span class="cs-d"><span class="tr-en">sneaky</span><span class="tr-pt">sneaky</span></span></div>
+<div class="cs-row"><code>-T2</code><span class="cs-d"><span class="tr-en">polite</span><span class="tr-pt">polite</span></span></div>
+<div class="cs-row"><code>-T3</code><span class="cs-d"><span class="tr-en">normal (default)</span><span class="tr-pt">normal (padrão)</span></span></div>
+<div class="cs-row"><code>-T4</code><span class="cs-d"><span class="tr-en">aggressive — common in CTF</span><span class="tr-pt">agressivo — comum em CTF</span></span></div>
+<div class="cs-row"><code>-T5</code><span class="cs-d"><span class="tr-en">insane — packet loss likely</span><span class="tr-pt">insane — provável perda de pacotes</span></span></div>
+<div class="cs-row"><code>--min-rate 1000</code><span class="cs-d"><span class="tr-en">force minimum packets/sec</span><span class="tr-pt">força mínimo de pacotes/seg</span></span></div>
+<div class="cs-row"><code>--max-rate 500</code><span class="cs-d"><span class="tr-en">cap packets/sec</span><span class="tr-pt">limita pacotes/seg</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Output</div>
-<div class="cs-row"><code>-oN file</code><span class="cs-d">normal human-readable</span></div>
-<div class="cs-row"><code>-oX file</code><span class="cs-d">XML — feed to other tools</span></div>
-<div class="cs-row"><code>-oG file</code><span class="cs-d">grepable</span></div>
-<div class="cs-row"><code>-oA base</code><span class="cs-d">all three formats at once</span></div>
-<div class="cs-row"><code>-v / -vv</code><span class="cs-d">verbose / very verbose</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Output</span><span class="tr-pt">Saída</span></div>
+<div class="cs-row"><code>-oN file</code><span class="cs-d"><span class="tr-en">normal human-readable</span><span class="tr-pt">normal, legível por humanos</span></span></div>
+<div class="cs-row"><code>-oX file</code><span class="cs-d"><span class="tr-en">XML — feed to other tools</span><span class="tr-pt">XML — alimenta outras ferramentas</span></span></div>
+<div class="cs-row"><code>-oG file</code><span class="cs-d"><span class="tr-en">grepable</span><span class="tr-pt">grepável</span></span></div>
+<div class="cs-row"><code>-oA base</code><span class="cs-d"><span class="tr-en">all three formats at once</span><span class="tr-pt">os três formatos de uma vez</span></span></div>
+<div class="cs-row"><code>-v / -vv</code><span class="cs-d"><span class="tr-en">verbose / very verbose</span><span class="tr-pt">verboso / muito verboso</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">NSE Scripts</div>
-<div class="cs-row"><code>--script default</code><span class="cs-d">safe default scripts (-sC)</span></div>
-<div class="cs-row"><code>--script vuln</code><span class="cs-d">vulnerability checks</span></div>
-<div class="cs-row"><code>--script "http-*"</code><span class="cs-d">all HTTP scripts</span></div>
-<div class="cs-row"><code>--script-args k=v</code><span class="cs-d">pass arguments to scripts</span></div>
-<div class="cs-row"><code>smb-os-discovery</code><span class="cs-d">Windows version via SMB</span></div>
-<div class="cs-row"><code>ssl-enum-ciphers</code><span class="cs-d">TLS cipher suite audit</span></div>
-<div class="cs-row"><code>http-enum</code><span class="cs-d">web app fingerprint</span></div>
-<div class="cs-row"><code>dns-brute</code><span class="cs-d">subdomain brute-force</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">NSE Scripts</span><span class="tr-pt">Scripts NSE</span></div>
+<div class="cs-row"><code>--script default</code><span class="cs-d"><span class="tr-en">safe default scripts (-sC)</span><span class="tr-pt">scripts padrão seguros (-sC)</span></span></div>
+<div class="cs-row"><code>--script vuln</code><span class="cs-d"><span class="tr-en">vulnerability checks</span><span class="tr-pt">checagens de vulnerabilidade</span></span></div>
+<div class="cs-row"><code>--script "http-*"</code><span class="cs-d"><span class="tr-en">all HTTP scripts</span><span class="tr-pt">todos os scripts HTTP</span></span></div>
+<div class="cs-row"><code>--script-args k=v</code><span class="cs-d"><span class="tr-en">pass arguments to scripts</span><span class="tr-pt">passa argumentos para os scripts</span></span></div>
+<div class="cs-row"><code>smb-os-discovery</code><span class="cs-d"><span class="tr-en">Windows version via SMB</span><span class="tr-pt">versão do Windows via SMB</span></span></div>
+<div class="cs-row"><code>ssl-enum-ciphers</code><span class="cs-d"><span class="tr-en">TLS cipher suite audit</span><span class="tr-pt">auditoria de cipher suites TLS</span></span></div>
+<div class="cs-row"><code>http-enum</code><span class="cs-d"><span class="tr-en">web app fingerprint</span><span class="tr-pt">fingerprint de aplicação web</span></span></div>
+<div class="cs-row"><code>dns-brute</code><span class="cs-d"><span class="tr-en">subdomain brute-force</span><span class="tr-pt">brute-force de subdomínios</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Evasion</div>
-<div class="cs-row"><code>-f</code><span class="cs-d">fragment packets</span></div>
-<div class="cs-row"><code>-D RND:10</code><span class="cs-d">10 random decoy IPs</span></div>
-<div class="cs-row"><code>--source-port 53</code><span class="cs-d">spoof source port (DNS)</span></div>
-<div class="cs-row"><code>--data-length 50</code><span class="cs-d">pad packets to avoid signatures</span></div>
-<div class="cs-row"><code>--spoof-mac 0</code><span class="cs-d">randomize MAC address</span></div>
-<div class="cs-row"><code>--randomize-hosts</code><span class="cs-d">shuffle target order</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Evasion</span><span class="tr-pt">Evasão</span></div>
+<div class="cs-row"><code>-f</code><span class="cs-d"><span class="tr-en">fragment packets</span><span class="tr-pt">fragmenta pacotes</span></span></div>
+<div class="cs-row"><code>-D RND:10</code><span class="cs-d"><span class="tr-en">10 random decoy IPs</span><span class="tr-pt">10 IPs-isca aleatórios</span></span></div>
+<div class="cs-row"><code>--source-port 53</code><span class="cs-d"><span class="tr-en">spoof source port (DNS)</span><span class="tr-pt">falsifica porta de origem (DNS)</span></span></div>
+<div class="cs-row"><code>--data-length 50</code><span class="cs-d"><span class="tr-en">pad packets to avoid signatures</span><span class="tr-pt">preenche pacotes para evitar assinaturas</span></span></div>
+<div class="cs-row"><code>--spoof-mac 0</code><span class="cs-d"><span class="tr-en">randomize MAC address</span><span class="tr-pt">randomiza o endereço MAC</span></span></div>
+<div class="cs-row"><code>--randomize-hosts</code><span class="cs-d"><span class="tr-en">shuffle target order</span><span class="tr-pt">embaralha a ordem dos alvos</span></span></div>
 </div>
 </div>
 
 <div class="cs-flow"><div class="cs-flow-t">Common Workflows</div>
-<div class="cs-flow-d">Full TCP scan with version &amp; default scripts</div>
+<div class="cs-flow-d"><span class="tr-en">Full TCP scan with version &amp; default scripts</span><span class="tr-pt">Scan TCP completo com versão e scripts padrão</span></div>
 <pre>nmap -sS -sV -sC -p- -T4 -oA full 10.10.10.10</pre>
-<div class="cs-flow-d">UDP top 100 (slow — be patient)</div>
+<div class="cs-flow-d"><span class="tr-en">UDP top 100 (slow — be patient)</span><span class="tr-pt">UDP top 100 (lento — tenha paciência)</span></div>
 <pre>nmap -sU --top-ports 100 -T4 -oN udp.txt 10.10.10.10</pre>
-<div class="cs-flow-d">Vulnerability scan on discovered services</div>
+<div class="cs-flow-d"><span class="tr-en">Vulnerability scan on discovered services</span><span class="tr-pt">Scan de vulnerabilidades nos serviços descobertos</span></div>
 <pre>nmap -sV --script vuln -p 80,443,445 10.10.10.10</pre>
-<div class="cs-flow-d">Stealthy scan with decoys + timing</div>
+<div class="cs-flow-d"><span class="tr-en">Stealthy scan with decoys + timing</span><span class="tr-pt">Scan furtivo com iscas + timing</span></div>
 <pre>nmap -sS -T2 -f -D RND:5 --source-port 53 -p 22,80,443 10.10.10.10</pre>
 </div>
 </div>
@@ -9336,73 +9336,73 @@ if x == 5: # compare</code></div><div class="mistake-why"><strong><span class="t
 <div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> Burp Suite</div><div class="pt">Burp Suite Cheatsheet</div><div class="ps"><span class="tr-en">Tools, payload types, extensions, shortcuts.</span><span class="tr-pt">Ferramentas, tipos de payload, extensões, atalhos.</span></div></div>
 
 <div class="cs-grid">
-<div class="cs-card"><div class="cs-title">Proxy</div>
-<div class="cs-row"><code>Intercept on/off</code><span class="cs-d">capture requests before they leave</span></div>
-<div class="cs-row"><code>Target &gt; Scope</code><span class="cs-d">restrict to target — silences noise</span></div>
-<div class="cs-row"><code>HTTP history</code><span class="cs-d">filter by scope, status, MIME</span></div>
-<div class="cs-row"><code>Drop</code><span class="cs-d">discard intercepted request</span></div>
-<div class="cs-row"><code>Forward</code><span class="cs-d">send request through unchanged</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Proxy</span><span class="tr-pt">Proxy</span></div>
+<div class="cs-row"><code>Intercept on/off</code><span class="cs-d"><span class="tr-en">capture requests before they leave</span><span class="tr-pt">captura requisições antes de saírem</span></span></div>
+<div class="cs-row"><code>Target &gt; Scope</code><span class="cs-d"><span class="tr-en">restrict to target — silences noise</span><span class="tr-pt">restringe ao alvo — silencia o ruído</span></span></div>
+<div class="cs-row"><code>HTTP history</code><span class="cs-d"><span class="tr-en">filter by scope, status, MIME</span><span class="tr-pt">filtra por escopo, status, MIME</span></span></div>
+<div class="cs-row"><code>Drop</code><span class="cs-d"><span class="tr-en">discard intercepted request</span><span class="tr-pt">descarta a requisição interceptada</span></span></div>
+<div class="cs-row"><code>Forward</code><span class="cs-d"><span class="tr-en">send request through unchanged</span><span class="tr-pt">envia a requisição sem alterar</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Repeater</div>
-<div class="cs-row"><code>Ctrl+R</code><span class="cs-d">send current request to Repeater</span></div>
-<div class="cs-row"><code>Ctrl+Space</code><span class="cs-d">send the request</span></div>
-<div class="cs-row"><code>Tabs</code><span class="cs-d">keep multiple variations side-by-side</span></div>
-<div class="cs-row"><code>Compare</code><span class="cs-d">right-click &rarr; send responses to Comparer</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Repeater</span><span class="tr-pt">Repeater</span></div>
+<div class="cs-row"><code>Ctrl+R</code><span class="cs-d"><span class="tr-en">send current request to Repeater</span><span class="tr-pt">manda a requisição atual para o Repeater</span></span></div>
+<div class="cs-row"><code>Ctrl+Space</code><span class="cs-d"><span class="tr-en">send the request</span><span class="tr-pt">envia a requisição</span></span></div>
+<div class="cs-row"><code>Tabs</code><span class="cs-d"><span class="tr-en">keep multiple variations side-by-side</span><span class="tr-pt">mantém várias variações lado a lado</span></span></div>
+<div class="cs-row"><code>Compare</code><span class="cs-d"><span class="tr-en">right-click &rarr; send responses to Comparer</span><span class="tr-pt">clique direito &rarr; manda respostas para o Comparer</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Intruder — Attack Types</div>
-<div class="cs-row"><code>Sniper</code><span class="cs-d">one payload set, one position at a time</span></div>
-<div class="cs-row"><code>Battering ram</code><span class="cs-d">same payload in all positions</span></div>
-<div class="cs-row"><code>Pitchfork</code><span class="cs-d">parallel sets — same index per position</span></div>
-<div class="cs-row"><code>Cluster bomb</code><span class="cs-d">cartesian product — every combination</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Intruder — Attack Types</span><span class="tr-pt">Intruder — Tipos de Ataque</span></div>
+<div class="cs-row"><code>Sniper</code><span class="cs-d"><span class="tr-en">one payload set, one position at a time</span><span class="tr-pt">um conjunto de payloads, uma posição por vez</span></span></div>
+<div class="cs-row"><code>Battering ram</code><span class="cs-d"><span class="tr-en">same payload in all positions</span><span class="tr-pt">mesmo payload em todas as posições</span></span></div>
+<div class="cs-row"><code>Pitchfork</code><span class="cs-d"><span class="tr-en">parallel sets — same index per position</span><span class="tr-pt">conjuntos paralelos — mesmo índice por posição</span></span></div>
+<div class="cs-row"><code>Cluster bomb</code><span class="cs-d"><span class="tr-en">cartesian product — every combination</span><span class="tr-pt">produto cartesiano — toda combinação</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Intruder — Payloads</div>
-<div class="cs-row"><code>Simple list</code><span class="cs-d">paste / load from file</span></div>
-<div class="cs-row"><code>Brute forcer</code><span class="cs-d">charset + length range</span></div>
-<div class="cs-row"><code>Numbers</code><span class="cs-d">from/to/step — IDOR style</span></div>
-<div class="cs-row"><code>Custom iterator</code><span class="cs-d">templated combinations</span></div>
-<div class="cs-row"><code>Grep — Match</code><span class="cs-d">flag responses containing success/error string</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Intruder — Payloads</span><span class="tr-pt">Intruder — Payloads</span></div>
+<div class="cs-row"><code>Simple list</code><span class="cs-d"><span class="tr-en">paste / load from file</span><span class="tr-pt">cola / carrega de arquivo</span></span></div>
+<div class="cs-row"><code>Brute forcer</code><span class="cs-d"><span class="tr-en">charset + length range</span><span class="tr-pt">charset + intervalo de tamanho</span></span></div>
+<div class="cs-row"><code>Numbers</code><span class="cs-d"><span class="tr-en">from/to/step — IDOR style</span><span class="tr-pt">de/até/passo — estilo IDOR</span></span></div>
+<div class="cs-row"><code>Custom iterator</code><span class="cs-d"><span class="tr-en">templated combinations</span><span class="tr-pt">combinações com template</span></span></div>
+<div class="cs-row"><code>Grep — Match</code><span class="cs-d"><span class="tr-en">flag responses containing success/error string</span><span class="tr-pt">marca respostas com string de sucesso/erro</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Decoder</div>
-<div class="cs-row"><code>URL</code><span class="cs-d">encode/decode %xx</span></div>
-<div class="cs-row"><code>HTML</code><span class="cs-d">&amp;amp; entities</span></div>
-<div class="cs-row"><code>Base64</code><span class="cs-d">JWT payloads, tokens</span></div>
-<div class="cs-row"><code>Hex / ASCII</code><span class="cs-d">raw bytes</span></div>
-<div class="cs-row"><code>Hash</code><span class="cs-d">MD5, SHA1, SHA256 on the fly</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Decoder</span><span class="tr-pt">Decoder</span></div>
+<div class="cs-row"><code>URL</code><span class="cs-d"><span class="tr-en">encode/decode %xx</span><span class="tr-pt">codifica/decodifica %xx</span></span></div>
+<div class="cs-row"><code>HTML</code><span class="cs-d"><span class="tr-en">&amp;amp; entities</span><span class="tr-pt">entidades &amp;amp;</span></span></div>
+<div class="cs-row"><code>Base64</code><span class="cs-d"><span class="tr-en">JWT payloads, tokens</span><span class="tr-pt">payloads de JWT, tokens</span></span></div>
+<div class="cs-row"><code>Hex / ASCII</code><span class="cs-d"><span class="tr-en">raw bytes</span><span class="tr-pt">bytes brutos</span></span></div>
+<div class="cs-row"><code>Hash</code><span class="cs-d"><span class="tr-en">MD5, SHA1, SHA256 on the fly</span><span class="tr-pt">MD5, SHA1, SHA256 na hora</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Comparer &amp; Scanner</div>
-<div class="cs-row"><code>Comparer</code><span class="cs-d">diff two requests or responses — word/byte</span></div>
-<div class="cs-row"><code>Scanner (Pro)</code><span class="cs-d">passive on every request, active on demand</span></div>
-<div class="cs-row"><code>Scan profile</code><span class="cs-d">crawl + audit, light, deep, custom</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Comparer &amp; Scanner</span><span class="tr-pt">Comparer e Scanner</span></div>
+<div class="cs-row"><code>Comparer</code><span class="cs-d"><span class="tr-en">diff two requests or responses — word/byte</span><span class="tr-pt">compara duas requisições ou respostas — palavra/byte</span></span></div>
+<div class="cs-row"><code>Scanner (Pro)</code><span class="cs-d"><span class="tr-en">passive on every request, active on demand</span><span class="tr-pt">passivo em toda requisição, ativo sob demanda</span></span></div>
+<div class="cs-row"><code>Scan profile</code><span class="cs-d"><span class="tr-en">crawl + audit, light, deep, custom</span><span class="tr-pt">crawl + auditoria, leve, profundo, custom</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Essential Extensions (BApp)</div>
-<div class="cs-row"><code>Logger++</code><span class="cs-d">grep across all traffic</span></div>
-<div class="cs-row"><code>Autorize</code><span class="cs-d">authZ testing — replay as another user</span></div>
-<div class="cs-row"><code>Turbo Intruder</code><span class="cs-d">high-throughput, race conditions</span></div>
-<div class="cs-row"><code>Param Miner</code><span class="cs-d">hidden parameter / header discovery</span></div>
-<div class="cs-row"><code>JWT Editor</code><span class="cs-d">decode + sign JWTs</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Essential Extensions (BApp)</span><span class="tr-pt">Extensões Essenciais (BApp)</span></div>
+<div class="cs-row"><code>Logger++</code><span class="cs-d"><span class="tr-en">grep across all traffic</span><span class="tr-pt">grep em todo o tráfego</span></span></div>
+<div class="cs-row"><code>Autorize</code><span class="cs-d"><span class="tr-en">authZ testing — replay as another user</span><span class="tr-pt">teste de authZ — repete como outro usuário</span></span></div>
+<div class="cs-row"><code>Turbo Intruder</code><span class="cs-d"><span class="tr-en">high-throughput, race conditions</span><span class="tr-pt">alta vazão, race conditions</span></span></div>
+<div class="cs-row"><code>Param Miner</code><span class="cs-d"><span class="tr-en">hidden parameter / header discovery</span><span class="tr-pt">descoberta de parâmetro / header oculto</span></span></div>
+<div class="cs-row"><code>JWT Editor</code><span class="cs-d"><span class="tr-en">decode + sign JWTs</span><span class="tr-pt">decodifica + assina JWTs</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Keyboard Shortcuts</div>
-<div class="cs-row"><code>Ctrl+R</code><span class="cs-d">send to Repeater</span></div>
-<div class="cs-row"><code>Ctrl+I</code><span class="cs-d">send to Intruder</span></div>
-<div class="cs-row"><code>Ctrl+B</code><span class="cs-d">forward intercept (also B in proxy)</span></div>
-<div class="cs-row"><code>Ctrl+F</code><span class="cs-d">forward</span></div>
-<div class="cs-row"><code>Ctrl+T</code><span class="cs-d">toggle intercept on/off</span></div>
-<div class="cs-row"><code>Ctrl+U</code><span class="cs-d">URL-decode selection</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Keyboard Shortcuts</span><span class="tr-pt">Atalhos de Teclado</span></div>
+<div class="cs-row"><code>Ctrl+R</code><span class="cs-d"><span class="tr-en">send to Repeater</span><span class="tr-pt">manda para o Repeater</span></span></div>
+<div class="cs-row"><code>Ctrl+I</code><span class="cs-d"><span class="tr-en">send to Intruder</span><span class="tr-pt">manda para o Intruder</span></span></div>
+<div class="cs-row"><code>Ctrl+B</code><span class="cs-d"><span class="tr-en">forward intercept (also B in proxy)</span><span class="tr-pt">encaminha o intercept (também B no proxy)</span></span></div>
+<div class="cs-row"><code>Ctrl+F</code><span class="cs-d"><span class="tr-en">forward</span><span class="tr-pt">encaminha</span></span></div>
+<div class="cs-row"><code>Ctrl+T</code><span class="cs-d"><span class="tr-en">toggle intercept on/off</span><span class="tr-pt">liga/desliga o intercept</span></span></div>
+<div class="cs-row"><code>Ctrl+U</code><span class="cs-d"><span class="tr-en">URL-decode selection</span><span class="tr-pt">URL-decode da seleção</span></span></div>
 </div>
 </div>
 
 <div class="cs-flow"><div class="cs-flow-t">Tips</div>
-<div class="cs-flow-d">Scope hygiene saves hours — set it before you start clicking.</div>
+<div class="cs-flow-d"><span class="tr-en">Scope hygiene saves hours — set it before you start clicking.</span><span class="tr-pt">Higiene de escopo economiza horas — defina antes de começar a clicar.</span></div>
 <pre>Target &gt; Scope &gt; Add &gt; target.com  (+ Use advanced control)</pre>
-<div class="cs-flow-d">Auto-add to scope when you hit "Add to scope" from Target tab.</div>
-<div class="cs-flow-d">Hotkey "Forward intercept and don't intercept HTTP responses" lets you breeze past static assets.</div>
+<div class="cs-flow-d"><span class="tr-en">Auto-add to scope when you hit "Add to scope" from Target tab.</span><span class="tr-pt">Adiciona ao escopo automaticamente quando você clica em "Add to scope" na aba Target.</span></div>
+<div class="cs-flow-d"><span class="tr-en">Hotkey "Forward intercept and don't intercept HTTP responses" lets you breeze past static assets.</span><span class="tr-pt">O atalho "Forward intercept and don't intercept HTTP responses" deixa você passar rápido pelos assets estáticos.</span></div>
 </div>
 </div>
 
@@ -9411,76 +9411,76 @@ if x == 5: # compare</code></div><div class="mistake-why"><strong><span class="t
 <div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> curl</div><div class="pt">curl Cheatsheet</div><div class="ps"><span class="tr-en">The Swiss army knife of HTTP.</span><span class="tr-pt">O canivete suíço do HTTP.</span></div></div>
 
 <div class="cs-grid">
-<div class="cs-card"><div class="cs-title">Basic</div>
-<div class="cs-row"><code>curl URL</code><span class="cs-d">GET, body to stdout</span></div>
-<div class="cs-row"><code>-o file</code><span class="cs-d">save to specific file</span></div>
-<div class="cs-row"><code>-O</code><span class="cs-d">save with remote filename</span></div>
-<div class="cs-row"><code>-L</code><span class="cs-d">follow redirects</span></div>
-<div class="cs-row"><code>-I</code><span class="cs-d">HEAD only — see response headers</span></div>
-<div class="cs-row"><code>-i</code><span class="cs-d">include response headers in body output</span></div>
-<div class="cs-row"><code>-v / -vv</code><span class="cs-d">verbose — see request + response</span></div>
-<div class="cs-row"><code>-s</code><span class="cs-d">silent (no progress bar)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Basic</span><span class="tr-pt">Básico</span></div>
+<div class="cs-row"><code>curl URL</code><span class="cs-d"><span class="tr-en">GET, body to stdout</span><span class="tr-pt">GET, corpo para stdout</span></span></div>
+<div class="cs-row"><code>-o file</code><span class="cs-d"><span class="tr-en">save to specific file</span><span class="tr-pt">salva em arquivo específico</span></span></div>
+<div class="cs-row"><code>-O</code><span class="cs-d"><span class="tr-en">save with remote filename</span><span class="tr-pt">salva com o nome remoto do arquivo</span></span></div>
+<div class="cs-row"><code>-L</code><span class="cs-d"><span class="tr-en">follow redirects</span><span class="tr-pt">segue redirecionamentos</span></span></div>
+<div class="cs-row"><code>-I</code><span class="cs-d"><span class="tr-en">HEAD only — see response headers</span><span class="tr-pt">só HEAD — vê os headers de resposta</span></span></div>
+<div class="cs-row"><code>-i</code><span class="cs-d"><span class="tr-en">include response headers in body output</span><span class="tr-pt">inclui os headers de resposta na saída</span></span></div>
+<div class="cs-row"><code>-v / -vv</code><span class="cs-d"><span class="tr-en">verbose — see request + response</span><span class="tr-pt">verboso — vê requisição + resposta</span></span></div>
+<div class="cs-row"><code>-s</code><span class="cs-d"><span class="tr-en">silent (no progress bar)</span><span class="tr-pt">silencioso (sem barra de progresso)</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Methods</div>
-<div class="cs-row"><code>-X POST</code><span class="cs-d">change method</span></div>
-<div class="cs-row"><code>-X PUT</code><span class="cs-d">upsert</span></div>
-<div class="cs-row"><code>-X DELETE</code><span class="cs-d">remove resource</span></div>
-<div class="cs-row"><code>-X PATCH</code><span class="cs-d">partial update</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Methods</span><span class="tr-pt">Métodos</span></div>
+<div class="cs-row"><code>-X POST</code><span class="cs-d"><span class="tr-en">change method</span><span class="tr-pt">muda o método</span></span></div>
+<div class="cs-row"><code>-X PUT</code><span class="cs-d"><span class="tr-en">upsert</span><span class="tr-pt">upsert</span></span></div>
+<div class="cs-row"><code>-X DELETE</code><span class="cs-d"><span class="tr-en">remove resource</span><span class="tr-pt">remove o recurso</span></span></div>
+<div class="cs-row"><code>-X PATCH</code><span class="cs-d"><span class="tr-en">partial update</span><span class="tr-pt">atualização parcial</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Headers</div>
-<div class="cs-row"><code>-H "Content-Type: application/json"</code><span class="cs-d">JSON body</span></div>
-<div class="cs-row"><code>-H "Authorization: Bearer TOKEN"</code><span class="cs-d">bearer auth</span></div>
-<div class="cs-row"><code>-H "Cookie: a=1; b=2"</code><span class="cs-d">manual cookies</span></div>
-<div class="cs-row"><code>-A "Mozilla/5.0..."</code><span class="cs-d">User-Agent shortcut</span></div>
-<div class="cs-row"><code>-e "https://ref"</code><span class="cs-d">Referer shortcut</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Headers</span><span class="tr-pt">Headers</span></div>
+<div class="cs-row"><code>-H "Content-Type: application/json"</code><span class="cs-d"><span class="tr-en">JSON body</span><span class="tr-pt">corpo JSON</span></span></div>
+<div class="cs-row"><code>-H "Authorization: Bearer TOKEN"</code><span class="cs-d"><span class="tr-en">bearer auth</span><span class="tr-pt">auth bearer</span></span></div>
+<div class="cs-row"><code>-H "Cookie: a=1; b=2"</code><span class="cs-d"><span class="tr-en">manual cookies</span><span class="tr-pt">cookies manuais</span></span></div>
+<div class="cs-row"><code>-A "Mozilla/5.0..."</code><span class="cs-d"><span class="tr-en">User-Agent shortcut</span><span class="tr-pt">atalho de User-Agent</span></span></div>
+<div class="cs-row"><code>-e "https://ref"</code><span class="cs-d"><span class="tr-en">Referer shortcut</span><span class="tr-pt">atalho de Referer</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Data</div>
-<div class="cs-row"><code>-d "name=val"</code><span class="cs-d">URL-encoded POST body</span></div>
-<div class="cs-row"><code>-d @file.json</code><span class="cs-d">read body from file</span></div>
-<div class="cs-row"><code>--data-urlencode</code><span class="cs-d">force URL encoding</span></div>
-<div class="cs-row"><code>-F "file=@photo.jpg"</code><span class="cs-d">multipart upload</span></div>
-<div class="cs-row"><code>-F "k=v"</code><span class="cs-d">multipart form field</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Data</span><span class="tr-pt">Dados</span></div>
+<div class="cs-row"><code>-d "name=val"</code><span class="cs-d"><span class="tr-en">URL-encoded POST body</span><span class="tr-pt">corpo POST URL-encoded</span></span></div>
+<div class="cs-row"><code>-d @file.json</code><span class="cs-d"><span class="tr-en">read body from file</span><span class="tr-pt">lê o corpo de um arquivo</span></span></div>
+<div class="cs-row"><code>--data-urlencode</code><span class="cs-d"><span class="tr-en">force URL encoding</span><span class="tr-pt">força URL encoding</span></span></div>
+<div class="cs-row"><code>-F "file=@photo.jpg"</code><span class="cs-d"><span class="tr-en">multipart upload</span><span class="tr-pt">upload multipart</span></span></div>
+<div class="cs-row"><code>-F "k=v"</code><span class="cs-d"><span class="tr-en">multipart form field</span><span class="tr-pt">campo de formulário multipart</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Auth &amp; Cookies</div>
-<div class="cs-row"><code>-u user:pass</code><span class="cs-d">Basic auth</span></div>
-<div class="cs-row"><code>--cookie-jar c.txt</code><span class="cs-d">save received cookies</span></div>
-<div class="cs-row"><code>--cookie c.txt</code><span class="cs-d">send cookies from file</span></div>
-<div class="cs-row"><code>--digest</code><span class="cs-d">use Digest auth</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Auth &amp; Cookies</span><span class="tr-pt">Auth e Cookies</span></div>
+<div class="cs-row"><code>-u user:pass</code><span class="cs-d"><span class="tr-en">Basic auth</span><span class="tr-pt">Basic auth</span></span></div>
+<div class="cs-row"><code>--cookie-jar c.txt</code><span class="cs-d"><span class="tr-en">save received cookies</span><span class="tr-pt">salva os cookies recebidos</span></span></div>
+<div class="cs-row"><code>--cookie c.txt</code><span class="cs-d"><span class="tr-en">send cookies from file</span><span class="tr-pt">envia cookies de um arquivo</span></span></div>
+<div class="cs-row"><code>--digest</code><span class="cs-d"><span class="tr-en">use Digest auth</span><span class="tr-pt">usa Digest auth</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">SSL / TLS</div>
-<div class="cs-row"><code>-k</code><span class="cs-d">ignore cert errors</span></div>
-<div class="cs-row"><code>--cacert ca.pem</code><span class="cs-d">trust specific CA</span></div>
-<div class="cs-row"><code>--cert client.pem</code><span class="cs-d">mTLS client cert</span></div>
-<div class="cs-row"><code>--tlsv1.2</code><span class="cs-d">force TLS 1.2</span></div>
-<div class="cs-row"><code>--resolve host:port:IP</code><span class="cs-d">override DNS</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">SSL / TLS</span><span class="tr-pt">SSL / TLS</span></div>
+<div class="cs-row"><code>-k</code><span class="cs-d"><span class="tr-en">ignore cert errors</span><span class="tr-pt">ignora erros de certificado</span></span></div>
+<div class="cs-row"><code>--cacert ca.pem</code><span class="cs-d"><span class="tr-en">trust specific CA</span><span class="tr-pt">confia em uma CA específica</span></span></div>
+<div class="cs-row"><code>--cert client.pem</code><span class="cs-d"><span class="tr-en">mTLS client cert</span><span class="tr-pt">certificado de cliente mTLS</span></span></div>
+<div class="cs-row"><code>--tlsv1.2</code><span class="cs-d"><span class="tr-en">force TLS 1.2</span><span class="tr-pt">força TLS 1.2</span></span></div>
+<div class="cs-row"><code>--resolve host:port:IP</code><span class="cs-d"><span class="tr-en">override DNS</span><span class="tr-pt">sobrescreve o DNS</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Output / Timing</div>
-<div class="cs-row"><code>-w "%{http_code}\n"</code><span class="cs-d">format output (status code, time, size...)</span></div>
-<div class="cs-row"><code>--max-time 10</code><span class="cs-d">total timeout (s)</span></div>
-<div class="cs-row"><code>--connect-timeout 5</code><span class="cs-d">connect-phase timeout</span></div>
-<div class="cs-row"><code>-w "%{time_total}"</code><span class="cs-d">measure total request time</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Output / Timing</span><span class="tr-pt">Saída / Timing</span></div>
+<div class="cs-row"><code>-w "%{http_code}\n"</code><span class="cs-d"><span class="tr-en">format output (status code, time, size...)</span><span class="tr-pt">formata a saída (status code, tempo, tamanho...)</span></span></div>
+<div class="cs-row"><code>--max-time 10</code><span class="cs-d"><span class="tr-en">total timeout (s)</span><span class="tr-pt">timeout total (s)</span></span></div>
+<div class="cs-row"><code>--connect-timeout 5</code><span class="cs-d"><span class="tr-en">connect-phase timeout</span><span class="tr-pt">timeout da fase de conexão</span></span></div>
+<div class="cs-row"><code>-w "%{time_total}"</code><span class="cs-d"><span class="tr-en">measure total request time</span><span class="tr-pt">mede o tempo total da requisição</span></span></div>
 </div>
 </div>
 
 <div class="cs-flow"><div class="cs-flow-t">Common Workflows</div>
-<div class="cs-flow-d">POST JSON to an API</div>
+<div class="cs-flow-d"><span class="tr-en">POST JSON to an API</span><span class="tr-pt">POST de JSON para uma API</span></div>
 <pre>curl -X POST https://api.x/v1/login \
   -H "Content-Type: application/json" \
   -d '{"user":"a","pass":"b"}'</pre>
-<div class="cs-flow-d">Login &amp; reuse session cookie</div>
+<div class="cs-flow-d"><span class="tr-en">Login &amp; reuse session cookie</span><span class="tr-pt">Login e reúso do cookie de sessão</span></div>
 <pre>curl -c jar.txt -d "u=a&amp;p=b" https://site/login
 curl -b jar.txt https://site/dashboard</pre>
-<div class="cs-flow-d">Upload a file (multipart)</div>
+<div class="cs-flow-d"><span class="tr-en">Upload a file (multipart)</span><span class="tr-pt">Upload de um arquivo (multipart)</span></div>
 <pre>curl -F "file=@report.pdf" -F "tag=quarter" https://site/upload</pre>
-<div class="cs-flow-d">Follow redirect chain verbosely</div>
+<div class="cs-flow-d"><span class="tr-en">Follow redirect chain verbosely</span><span class="tr-pt">Segue a cadeia de redirecionamentos de forma verbosa</span></div>
 <pre>curl -L -v -o /dev/null https://short.url/abc</pre>
-<div class="cs-flow-d">Test specific TLS version</div>
+<div class="cs-flow-d"><span class="tr-en">Test specific TLS version</span><span class="tr-pt">Testa uma versão específica de TLS</span></div>
 <pre>curl --tlsv1.2 -v https://site 2&gt;&amp;1 | grep -i "SSL connection"</pre>
 </div>
 </div>
@@ -9490,68 +9490,68 @@ curl -b jar.txt https://site/dashboard</pre>
 <div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> grep</div><div class="pt">grep Cheatsheet</div><div class="ps"><span class="tr-en">Search text fast — flags, regex flavours, common patterns.</span><span class="tr-pt">Busque texto rápido — flags, variações de regex, padrões comuns.</span></div></div>
 
 <div class="cs-grid">
-<div class="cs-card"><div class="cs-title">Basic Flags</div>
-<div class="cs-row"><code>-i</code><span class="cs-d">case insensitive</span></div>
-<div class="cs-row"><code>-v</code><span class="cs-d">invert — non-matching lines</span></div>
-<div class="cs-row"><code>-r / -R</code><span class="cs-d">recursive into directories</span></div>
-<div class="cs-row"><code>-n</code><span class="cs-d">show line number</span></div>
-<div class="cs-row"><code>-l</code><span class="cs-d">filenames only (with match)</span></div>
-<div class="cs-row"><code>-L</code><span class="cs-d">filenames only (without match)</span></div>
-<div class="cs-row"><code>-c</code><span class="cs-d">count matches per file</span></div>
-<div class="cs-row"><code>-w</code><span class="cs-d">whole word match</span></div>
-<div class="cs-row"><code>-x</code><span class="cs-d">whole line match</span></div>
-<div class="cs-row"><code>-o</code><span class="cs-d">print only matched portion</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Basic Flags</span><span class="tr-pt">Flags Básicas</span></div>
+<div class="cs-row"><code>-i</code><span class="cs-d"><span class="tr-en">case insensitive</span><span class="tr-pt">sem diferenciar maiúsculas</span></span></div>
+<div class="cs-row"><code>-v</code><span class="cs-d"><span class="tr-en">invert — non-matching lines</span><span class="tr-pt">inverte — linhas que não casam</span></span></div>
+<div class="cs-row"><code>-r / -R</code><span class="cs-d"><span class="tr-en">recursive into directories</span><span class="tr-pt">recursivo nos diretórios</span></span></div>
+<div class="cs-row"><code>-n</code><span class="cs-d"><span class="tr-en">show line number</span><span class="tr-pt">mostra o número da linha</span></span></div>
+<div class="cs-row"><code>-l</code><span class="cs-d"><span class="tr-en">filenames only (with match)</span><span class="tr-pt">só nomes de arquivo (com correspondência)</span></span></div>
+<div class="cs-row"><code>-L</code><span class="cs-d"><span class="tr-en">filenames only (without match)</span><span class="tr-pt">só nomes de arquivo (sem correspondência)</span></span></div>
+<div class="cs-row"><code>-c</code><span class="cs-d"><span class="tr-en">count matches per file</span><span class="tr-pt">conta correspondências por arquivo</span></span></div>
+<div class="cs-row"><code>-w</code><span class="cs-d"><span class="tr-en">whole word match</span><span class="tr-pt">correspondência de palavra inteira</span></span></div>
+<div class="cs-row"><code>-x</code><span class="cs-d"><span class="tr-en">whole line match</span><span class="tr-pt">correspondência de linha inteira</span></span></div>
+<div class="cs-row"><code>-o</code><span class="cs-d"><span class="tr-en">print only matched portion</span><span class="tr-pt">imprime só a parte que casou</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Pattern Type</div>
-<div class="cs-row"><code>-E</code><span class="cs-d">extended regex (egrep)</span></div>
-<div class="cs-row"><code>-F</code><span class="cs-d">fixed string — fastest (fgrep)</span></div>
-<div class="cs-row"><code>-P</code><span class="cs-d">Perl regex — full PCRE</span></div>
-<div class="cs-row"><code>-G</code><span class="cs-d">basic regex (default)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Pattern Type</span><span class="tr-pt">Tipo de Padrão</span></div>
+<div class="cs-row"><code>-E</code><span class="cs-d"><span class="tr-en">extended regex (egrep)</span><span class="tr-pt">regex estendida (egrep)</span></span></div>
+<div class="cs-row"><code>-F</code><span class="cs-d"><span class="tr-en">fixed string — fastest (fgrep)</span><span class="tr-pt">string fixa — mais rápido (fgrep)</span></span></div>
+<div class="cs-row"><code>-P</code><span class="cs-d"><span class="tr-en">Perl regex — full PCRE</span><span class="tr-pt">regex Perl — PCRE completo</span></span></div>
+<div class="cs-row"><code>-G</code><span class="cs-d"><span class="tr-en">basic regex (default)</span><span class="tr-pt">regex básica (padrão)</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Context</div>
-<div class="cs-row"><code>-A 3</code><span class="cs-d">3 lines after match</span></div>
-<div class="cs-row"><code>-B 3</code><span class="cs-d">3 lines before</span></div>
-<div class="cs-row"><code>-C 3</code><span class="cs-d">3 lines around (both)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Context</span><span class="tr-pt">Contexto</span></div>
+<div class="cs-row"><code>-A 3</code><span class="cs-d"><span class="tr-en">3 lines after match</span><span class="tr-pt">3 linhas depois da correspondência</span></span></div>
+<div class="cs-row"><code>-B 3</code><span class="cs-d"><span class="tr-en">3 lines before</span><span class="tr-pt">3 linhas antes</span></span></div>
+<div class="cs-row"><code>-C 3</code><span class="cs-d"><span class="tr-en">3 lines around (both)</span><span class="tr-pt">3 linhas ao redor (ambos)</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Multi-Pattern</div>
-<div class="cs-row"><code>-e "a" -e "b"</code><span class="cs-d">multiple patterns</span></div>
-<div class="cs-row"><code>grep -E "a|b"</code><span class="cs-d">alternation</span></div>
-<div class="cs-row"><code>-f patterns.txt</code><span class="cs-d">patterns from file (one per line)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Multi-Pattern</span><span class="tr-pt">Múltiplos Padrões</span></div>
+<div class="cs-row"><code>-e "a" -e "b"</code><span class="cs-d"><span class="tr-en">multiple patterns</span><span class="tr-pt">múltiplos padrões</span></span></div>
+<div class="cs-row"><code>grep -E "a|b"</code><span class="cs-d"><span class="tr-en">alternation</span><span class="tr-pt">alternância</span></span></div>
+<div class="cs-row"><code>-f patterns.txt</code><span class="cs-d"><span class="tr-en">patterns from file (one per line)</span><span class="tr-pt">padrões de um arquivo (um por linha)</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Common Pipes</div>
-<div class="cs-row"><code>grep X | grep -v Y</code><span class="cs-d">filter then exclude</span></div>
-<div class="cs-row"><code>grep X | awk '{print $1}'</code><span class="cs-d">extract first column</span></div>
-<div class="cs-row"><code>... | sort | uniq -c | sort -rn</code><span class="cs-d">count + rank</span></div>
-<div class="cs-row"><code>grep --include="*.php" -r</code><span class="cs-d">limit to file type</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Common Pipes</span><span class="tr-pt">Pipes Comuns</span></div>
+<div class="cs-row"><code>grep X | grep -v Y</code><span class="cs-d"><span class="tr-en">filter then exclude</span><span class="tr-pt">filtra e depois exclui</span></span></div>
+<div class="cs-row"><code>grep X | awk '{print $1}'</code><span class="cs-d"><span class="tr-en">extract first column</span><span class="tr-pt">extrai a primeira coluna</span></span></div>
+<div class="cs-row"><code>... | sort | uniq -c | sort -rn</code><span class="cs-d"><span class="tr-en">count + rank</span><span class="tr-pt">conta + ranqueia</span></span></div>
+<div class="cs-row"><code>grep --include="*.php" -r</code><span class="cs-d"><span class="tr-en">limit to file type</span><span class="tr-pt">limita ao tipo de arquivo</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Regex Cheats</div>
-<div class="cs-row"><code>\d</code><span class="cs-d">digit (PCRE)</span></div>
-<div class="cs-row"><code>\w</code><span class="cs-d">word char (PCRE)</span></div>
-<div class="cs-row"><code>\s</code><span class="cs-d">whitespace (PCRE)</span></div>
-<div class="cs-row"><code>^start</code><span class="cs-d">line begins with</span></div>
-<div class="cs-row"><code>end$</code><span class="cs-d">line ends with</span></div>
-<div class="cs-row"><code>[abc]</code><span class="cs-d">character class</span></div>
-<div class="cs-row"><code>[^abc]</code><span class="cs-d">negated class</span></div>
-<div class="cs-row"><code>{2,4}</code><span class="cs-d">2 to 4 repetitions (-E)</span></div>
-<div class="cs-row"><code>(group)</code><span class="cs-d">capturing group (-E or -P)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Regex Cheats</span><span class="tr-pt">Truques de Regex</span></div>
+<div class="cs-row"><code>\d</code><span class="cs-d"><span class="tr-en">digit (PCRE)</span><span class="tr-pt">dígito (PCRE)</span></span></div>
+<div class="cs-row"><code>\w</code><span class="cs-d"><span class="tr-en">word char (PCRE)</span><span class="tr-pt">caractere de palavra (PCRE)</span></span></div>
+<div class="cs-row"><code>\s</code><span class="cs-d"><span class="tr-en">whitespace (PCRE)</span><span class="tr-pt">espaço em branco (PCRE)</span></span></div>
+<div class="cs-row"><code>^start</code><span class="cs-d"><span class="tr-en">line begins with</span><span class="tr-pt">linha começa com</span></span></div>
+<div class="cs-row"><code>end$</code><span class="cs-d"><span class="tr-en">line ends with</span><span class="tr-pt">linha termina com</span></span></div>
+<div class="cs-row"><code>[abc]</code><span class="cs-d"><span class="tr-en">character class</span><span class="tr-pt">classe de caracteres</span></span></div>
+<div class="cs-row"><code>[^abc]</code><span class="cs-d"><span class="tr-en">negated class</span><span class="tr-pt">classe negada</span></span></div>
+<div class="cs-row"><code>{2,4}</code><span class="cs-d"><span class="tr-en">2 to 4 repetitions (-E)</span><span class="tr-pt">2 a 4 repetições (-E)</span></span></div>
+<div class="cs-row"><code>(group)</code><span class="cs-d"><span class="tr-en">capturing group (-E or -P)</span><span class="tr-pt">grupo de captura (-E ou -P)</span></span></div>
 </div>
 </div>
 
 <div class="cs-flow"><div class="cs-flow-t">Practical Examples</div>
-<div class="cs-flow-d">Find IPv4 addresses in a file</div>
+<div class="cs-flow-d"><span class="tr-en">Find IPv4 addresses in a file</span><span class="tr-pt">Acha endereços IPv4 em um arquivo</span></div>
 <pre>grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}" access.log</pre>
-<div class="cs-flow-d">Find email addresses</div>
+<div class="cs-flow-d"><span class="tr-en">Find email addresses</span><span class="tr-pt">Acha endereços de email</span></div>
 <pre>grep -Eio "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" leak.txt</pre>
-<div class="cs-flow-d">Errors in the last 100 log lines</div>
+<div class="cs-flow-d"><span class="tr-en">Errors in the last 100 log lines</span><span class="tr-pt">Erros nas últimas 100 linhas de log</span></div>
 <pre>tail -n 100 /var/log/syslog | grep -i error</pre>
-<div class="cs-flow-d">Find secrets in source — case-insensitive, recursive</div>
+<div class="cs-flow-d"><span class="tr-en">Find secrets in source — case-insensitive, recursive</span><span class="tr-pt">Acha segredos no código — sem diferenciar maiúsculas, recursivo</span></div>
 <pre>grep -rniE "(api[_-]?key|secret|password|token)\s*=" .</pre>
-<div class="cs-flow-d">Top 10 IPs hitting your site</div>
+<div class="cs-flow-d"><span class="tr-en">Top 10 IPs hitting your site</span><span class="tr-pt">Top 10 IPs acessando seu site</span></div>
 <pre>grep -Eo "([0-9]{1,3}\.){3}[0-9]{1,3}" access.log | sort | uniq -c | sort -rn | head</pre>
 </div>
 </div>
@@ -9561,68 +9561,68 @@ curl -b jar.txt https://site/dashboard</pre>
 <div class="ph"><div class="bc">cherry root <span>&rsaquo;</span> cheatsheet <span>&rsaquo;</span> git</div><div class="pt">git Cheatsheet</div><div class="ps"><span class="tr-en">For developers and red-teamers — including .git/ exposure attacks.</span><span class="tr-pt">Para desenvolvedores e red-teamers — incluindo ataques de exposição de .git/.</span></div></div>
 
 <div class="cs-grid">
-<div class="cs-card"><div class="cs-title">Setup</div>
-<div class="cs-row"><code>git config --global user.name "X"</code><span class="cs-d">set author name</span></div>
-<div class="cs-row"><code>git config --global user.email a@b</code><span class="cs-d">set author email</span></div>
-<div class="cs-row"><code>git config --global init.defaultBranch main</code><span class="cs-d">default branch name</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Setup</span><span class="tr-pt">Configuração</span></div>
+<div class="cs-row"><code>git config --global user.name "X"</code><span class="cs-d"><span class="tr-en">set author name</span><span class="tr-pt">define o nome do autor</span></span></div>
+<div class="cs-row"><code>git config --global user.email a@b</code><span class="cs-d"><span class="tr-en">set author email</span><span class="tr-pt">define o email do autor</span></span></div>
+<div class="cs-row"><code>git config --global init.defaultBranch main</code><span class="cs-d"><span class="tr-en">default branch name</span><span class="tr-pt">nome da branch padrão</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Basics</div>
-<div class="cs-row"><code>git init</code><span class="cs-d">new repo here</span></div>
-<div class="cs-row"><code>git clone URL</code><span class="cs-d">copy remote repo</span></div>
-<div class="cs-row"><code>git status</code><span class="cs-d">current state</span></div>
-<div class="cs-row"><code>git add file</code><span class="cs-d">stage changes</span></div>
-<div class="cs-row"><code>git commit -m "msg"</code><span class="cs-d">commit staged</span></div>
-<div class="cs-row"><code>git push / pull / fetch</code><span class="cs-d">sync with remote</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Basics</span><span class="tr-pt">Básico</span></div>
+<div class="cs-row"><code>git init</code><span class="cs-d"><span class="tr-en">new repo here</span><span class="tr-pt">novo repo aqui</span></span></div>
+<div class="cs-row"><code>git clone URL</code><span class="cs-d"><span class="tr-en">copy remote repo</span><span class="tr-pt">copia um repo remoto</span></span></div>
+<div class="cs-row"><code>git status</code><span class="cs-d"><span class="tr-en">current state</span><span class="tr-pt">estado atual</span></span></div>
+<div class="cs-row"><code>git add file</code><span class="cs-d"><span class="tr-en">stage changes</span><span class="tr-pt">adiciona mudanças ao stage</span></span></div>
+<div class="cs-row"><code>git commit -m "msg"</code><span class="cs-d"><span class="tr-en">commit staged</span><span class="tr-pt">commita o que está no stage</span></span></div>
+<div class="cs-row"><code>git push / pull / fetch</code><span class="cs-d"><span class="tr-en">sync with remote</span><span class="tr-pt">sincroniza com o remote</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Branches</div>
-<div class="cs-row"><code>git branch</code><span class="cs-d">list local branches</span></div>
-<div class="cs-row"><code>git checkout -b new</code><span class="cs-d">create + switch</span></div>
-<div class="cs-row"><code>git switch main</code><span class="cs-d">switch (modern)</span></div>
-<div class="cs-row"><code>git merge other</code><span class="cs-d">merge other &rarr; current</span></div>
-<div class="cs-row"><code>git rebase main</code><span class="cs-d">replay commits on main</span></div>
-<div class="cs-row"><code>git cherry-pick HASH</code><span class="cs-d">apply one commit here</span></div>
-<div class="cs-row"><code>git branch -d name</code><span class="cs-d">delete merged branch</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Branches</span><span class="tr-pt">Branches</span></div>
+<div class="cs-row"><code>git branch</code><span class="cs-d"><span class="tr-en">list local branches</span><span class="tr-pt">lista as branches locais</span></span></div>
+<div class="cs-row"><code>git checkout -b new</code><span class="cs-d"><span class="tr-en">create + switch</span><span class="tr-pt">cria + troca</span></span></div>
+<div class="cs-row"><code>git switch main</code><span class="cs-d"><span class="tr-en">switch (modern)</span><span class="tr-pt">troca (moderno)</span></span></div>
+<div class="cs-row"><code>git merge other</code><span class="cs-d"><span class="tr-en">merge other &rarr; current</span><span class="tr-pt">faz merge de outra &rarr; atual</span></span></div>
+<div class="cs-row"><code>git rebase main</code><span class="cs-d"><span class="tr-en">replay commits on main</span><span class="tr-pt">reaplica commits sobre a main</span></span></div>
+<div class="cs-row"><code>git cherry-pick HASH</code><span class="cs-d"><span class="tr-en">apply one commit here</span><span class="tr-pt">aplica um commit aqui</span></span></div>
+<div class="cs-row"><code>git branch -d name</code><span class="cs-d"><span class="tr-en">delete merged branch</span><span class="tr-pt">apaga a branch já mesclada</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">History</div>
-<div class="cs-row"><code>git log --oneline --graph</code><span class="cs-d">visual history</span></div>
-<div class="cs-row"><code>git log -p</code><span class="cs-d">show diffs</span></div>
-<div class="cs-row"><code>git log --all</code><span class="cs-d">include all refs</span></div>
-<div class="cs-row"><code>git show HASH</code><span class="cs-d">inspect one commit</span></div>
-<div class="cs-row"><code>git blame file</code><span class="cs-d">who last changed each line</span></div>
-<div class="cs-row"><code>git reflog</code><span class="cs-d">local HEAD history (recover lost commits)</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">History</span><span class="tr-pt">Histórico</span></div>
+<div class="cs-row"><code>git log --oneline --graph</code><span class="cs-d"><span class="tr-en">visual history</span><span class="tr-pt">histórico visual</span></span></div>
+<div class="cs-row"><code>git log -p</code><span class="cs-d"><span class="tr-en">show diffs</span><span class="tr-pt">mostra os diffs</span></span></div>
+<div class="cs-row"><code>git log --all</code><span class="cs-d"><span class="tr-en">include all refs</span><span class="tr-pt">inclui todas as refs</span></span></div>
+<div class="cs-row"><code>git show HASH</code><span class="cs-d"><span class="tr-en">inspect one commit</span><span class="tr-pt">inspeciona um commit</span></span></div>
+<div class="cs-row"><code>git blame file</code><span class="cs-d"><span class="tr-en">who last changed each line</span><span class="tr-pt">quem alterou cada linha por último</span></span></div>
+<div class="cs-row"><code>git reflog</code><span class="cs-d"><span class="tr-en">local HEAD history (recover lost commits)</span><span class="tr-pt">histórico local do HEAD (recupera commits perdidos)</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Undo</div>
-<div class="cs-row"><code>git restore file</code><span class="cs-d">discard unstaged changes</span></div>
-<div class="cs-row"><code>git reset file</code><span class="cs-d">unstage</span></div>
-<div class="cs-row"><code>git reset --hard HASH</code><span class="cs-d">move HEAD, wipe working tree</span></div>
-<div class="cs-row"><code>git revert HASH</code><span class="cs-d">new commit that undoes another</span></div>
-<div class="cs-row"><code>git commit --amend</code><span class="cs-d">edit last commit</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Undo</span><span class="tr-pt">Desfazer</span></div>
+<div class="cs-row"><code>git restore file</code><span class="cs-d"><span class="tr-en">discard unstaged changes</span><span class="tr-pt">descarta mudanças fora do stage</span></span></div>
+<div class="cs-row"><code>git reset file</code><span class="cs-d"><span class="tr-en">unstage</span><span class="tr-pt">tira do stage</span></span></div>
+<div class="cs-row"><code>git reset --hard HASH</code><span class="cs-d"><span class="tr-en">move HEAD, wipe working tree</span><span class="tr-pt">move o HEAD, limpa a working tree</span></span></div>
+<div class="cs-row"><code>git revert HASH</code><span class="cs-d"><span class="tr-en">new commit that undoes another</span><span class="tr-pt">novo commit que desfaz outro</span></span></div>
+<div class="cs-row"><code>git commit --amend</code><span class="cs-d"><span class="tr-en">edit last commit</span><span class="tr-pt">edita o último commit</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">Stash &amp; Remote</div>
-<div class="cs-row"><code>git stash</code><span class="cs-d">shelve changes</span></div>
-<div class="cs-row"><code>git stash pop</code><span class="cs-d">restore most recent</span></div>
-<div class="cs-row"><code>git stash list / apply</code><span class="cs-d">manage stashes</span></div>
-<div class="cs-row"><code>git remote -v</code><span class="cs-d">list remotes</span></div>
-<div class="cs-row"><code>git remote add origin URL</code><span class="cs-d">attach remote</span></div>
-<div class="cs-row"><code>git push -u origin main</code><span class="cs-d">push + set upstream</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">Stash &amp; Remote</span><span class="tr-pt">Stash e Remote</span></div>
+<div class="cs-row"><code>git stash</code><span class="cs-d"><span class="tr-en">shelve changes</span><span class="tr-pt">guarda as mudanças</span></span></div>
+<div class="cs-row"><code>git stash pop</code><span class="cs-d"><span class="tr-en">restore most recent</span><span class="tr-pt">restaura o mais recente</span></span></div>
+<div class="cs-row"><code>git stash list / apply</code><span class="cs-d"><span class="tr-en">manage stashes</span><span class="tr-pt">gerencia os stashes</span></span></div>
+<div class="cs-row"><code>git remote -v</code><span class="cs-d"><span class="tr-en">list remotes</span><span class="tr-pt">lista os remotes</span></span></div>
+<div class="cs-row"><code>git remote add origin URL</code><span class="cs-d"><span class="tr-en">attach remote</span><span class="tr-pt">anexa um remote</span></span></div>
+<div class="cs-row"><code>git push -u origin main</code><span class="cs-d"><span class="tr-en">push + set upstream</span><span class="tr-pt">push + define upstream</span></span></div>
 </div>
 
-<div class="cs-card"><div class="cs-title">For Hackers</div>
-<div class="cs-row"><code>git log --all --source -- file</code><span class="cs-d">find a file across all branches/history</span></div>
-<div class="cs-row"><code>git log -S "password"</code><span class="cs-d">find commits that add/remove a string</span></div>
-<div class="cs-row"><code>git secrets / gitleaks</code><span class="cs-d">scan for keys, AWS creds, tokens</span></div>
-<div class="cs-row"><code>trufflehog git URL</code><span class="cs-d">entropy-based secret hunt</span></div>
-<div class="cs-row"><code>gitrob</code><span class="cs-d">org-wide leaked-secret scanner</span></div>
+<div class="cs-card"><div class="cs-title"><span class="tr-en">For Hackers</span><span class="tr-pt">Para Hackers</span></div>
+<div class="cs-row"><code>git log --all --source -- file</code><span class="cs-d"><span class="tr-en">find a file across all branches/history</span><span class="tr-pt">acha um arquivo em todas as branches/histórico</span></span></div>
+<div class="cs-row"><code>git log -S "password"</code><span class="cs-d"><span class="tr-en">find commits that add/remove a string</span><span class="tr-pt">acha commits que adicionam/removem uma string</span></span></div>
+<div class="cs-row"><code>git secrets / gitleaks</code><span class="cs-d"><span class="tr-en">scan for keys, AWS creds, tokens</span><span class="tr-pt">procura chaves, credenciais AWS, tokens</span></span></div>
+<div class="cs-row"><code>trufflehog git URL</code><span class="cs-d"><span class="tr-en">entropy-based secret hunt</span><span class="tr-pt">caça a segredos por entropia</span></span></div>
+<div class="cs-row"><code>gitrob</code><span class="cs-d"><span class="tr-en">org-wide leaked-secret scanner</span><span class="tr-pt">scanner de segredos vazados em toda a organização</span></span></div>
 </div>
 </div>
 
 <div class="cs-flow"><div class="cs-flow-t">.git/ Exposure on the Web</div>
-<div class="cs-flow-d">Classic misconfig: web server serves <code>.git/</code> directory contents. Full history can be dumped &rarr; leaked credentials, hardcoded keys, internal source code.</div>
+<div class="cs-flow-d"><span class="tr-en">Classic misconfig: web server serves <code>.git/</code> directory contents. Full history can be dumped &rarr; leaked credentials, hardcoded keys, internal source code.</span><span class="tr-pt">Erro de config clássico: o servidor web serve o conteúdo do diretório <code>.git/</code>. Todo o histórico pode ser extraído &rarr; credenciais vazadas, chaves hardcoded, código-fonte interno.</span></div>
 <pre># detect
 curl -s https://target/.git/HEAD
 # expected: "ref: refs/heads/main"
@@ -9634,7 +9634,7 @@ wget -r --no-parent https://target/.git/
 
 # then grep history for secrets
 cd loot &amp;&amp; git log -p | grep -iE "password|api[_-]?key|secret"</pre>
-<div class="cs-flow-d">Even when directory listing is off, the structure is predictable — tools brute-force expected paths (HEAD, refs/, objects/...).</div>
+<div class="cs-flow-d"><span class="tr-en">Even when directory listing is off, the structure is predictable — tools brute-force expected paths (HEAD, refs/, objects/...).</span><span class="tr-pt">Mesmo com a listagem de diretórios desligada, a estrutura é previsível — ferramentas fazem brute-force dos caminhos esperados (HEAD, refs/, objects/...).</span></div>
 </div>
 </div>
 
